@@ -1211,7 +1211,7 @@
       "topic": "seasons",
       "question": {
         "text": "빈칸에 알맞은 말은?",
-        "ttsText": "What season do you like? I like winter. I can make a ___.",
+        "ttsText": "What season do you like? I like winter. I can make a snowman.",
         "displayWord": "I like winter. I can make a ___."
       },
       "answer": {
