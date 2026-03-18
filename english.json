@@ -17,10 +17,10 @@
       "answer": {
         "correct": "안녕",
         "options": [
-          "안녕",
-          "이름",
           "학교",
-          "친구"
+          "이름",
+          "친구",
+          "안녕"
         ],
         "type": "choice"
       },
@@ -51,10 +51,10 @@
       "answer": {
         "correct": "이름",
         "options": [
-          "이름",
-          "학교",
+          "아침",
           "운동",
-          "아침"
+          "이름",
+          "학교"
         ],
         "type": "choice"
       },
@@ -85,10 +85,10 @@
       "answer": {
         "correct": "친구",
         "options": [
-          "친구",
           "선생님",
+          "이름",
           "학생",
-          "이름"
+          "친구"
         ],
         "type": "choice"
       },
@@ -119,9 +119,9 @@
       "answer": {
         "correct": "좋은, 멋진",
         "options": [
-          "좋은, 멋진",
           "나쁜",
           "큰",
+          "좋은, 멋진",
           "작은"
         ],
         "type": "choice"
@@ -153,10 +153,10 @@
       "answer": {
         "correct": "만나다",
         "options": [
-          "만나다",
           "먹다",
           "놀다",
-          "자다"
+          "자다",
+          "만나다"
         ],
         "type": "choice"
       },
@@ -187,10 +187,10 @@
       "answer": {
         "correct": "학교",
         "options": [
-          "학교",
           "집",
+          "병원",
           "공원",
-          "병원"
+          "학교"
         ],
         "type": "choice"
       },
@@ -220,9 +220,9 @@
       "answer": {
         "correct": "학생",
         "options": [
-          "학생",
-          "선생님",
           "의사",
+          "선생님",
+          "학생",
           "요리사"
         ],
         "type": "choice"
@@ -253,10 +253,10 @@
       "answer": {
         "correct": "선생님",
         "options": [
-          "선생님",
           "학생",
-          "친구",
-          "엄마"
+          "엄마",
+          "선생님",
+          "친구"
         ],
         "type": "choice"
       },
@@ -287,8 +287,8 @@
         "correct": "좋아하다",
         "options": [
           "좋아하다",
-          "싫어하다",
           "만들다",
+          "싫어하다",
           "가다"
         ],
         "type": "choice"
@@ -321,10 +321,10 @@
       "answer": {
         "correct": "놀다, (운동을) 하다",
         "options": [
-          "놀다, (운동을) 하다",
-          "먹다",
           "자다",
-          "읽다"
+          "읽다",
+          "놀다, (운동을) 하다",
+          "먹다"
         ],
         "type": "choice"
       },
@@ -356,10 +356,10 @@
       "answer": {
         "correct": "가장 좋아하는",
         "options": [
-          "가장 좋아하는",
-          "가장 싫어하는",
           "보통의",
-          "새로운"
+          "가장 싫어하는",
+          "새로운",
+          "가장 좋아하는"
         ],
         "type": "choice"
       },
@@ -390,10 +390,10 @@
       "answer": {
         "correct": "운동",
         "options": [
-          "운동",
-          "음악",
+          "수학",
           "미술",
-          "수학"
+          "음악",
+          "운동"
         ],
         "type": "choice"
       },
@@ -424,10 +424,10 @@
       "answer": {
         "correct": "행복한",
         "options": [
-          "행복한",
+          "배고픈",
           "슬픈",
-          "화난",
-          "배고픈"
+          "행복한",
+          "화난"
         ],
         "type": "choice"
       },
@@ -458,10 +458,10 @@
       "answer": {
         "correct": "좋은, 잘하는",
         "options": [
-          "좋은, 잘하는",
-          "나쁜",
           "큰",
-          "작은"
+          "작은",
+          "나쁜",
+          "좋은, 잘하는"
         ],
         "type": "choice"
       },
@@ -494,8 +494,8 @@
         "options": [
           "아침",
           "점심",
-          "저녁",
-          "밤"
+          "밤",
+          "저녁"
         ],
         "type": "choice"
       },
@@ -526,8 +526,8 @@
       "answer": {
         "correct": "안녕, 나는 미나야. 만나서 반가워.",
         "options": [
-          "안녕, 나는 미나야. 만나서 반가워.",
           "안녕, 나는 학생이야. 학교에 가.",
+          "안녕, 나는 미나야. 만나서 반가워.",
           "좋은 아침! 오늘 기분이 좋아."
         ],
         "type": "choice"
@@ -560,8 +560,8 @@
       "answer": {
         "correct": "네 이름은 뭐야?",
         "options": [
-          "네 이름은 뭐야?",
           "너는 어디 살아?",
+          "네 이름은 뭐야?",
           "너는 몇 살이야?"
         ],
         "type": "choice"
@@ -594,9 +594,9 @@
       "answer": {
         "correct": "내 이름은 미나야.",
         "options": [
-          "내 이름은 미나야.",
           "내 친구는 미나야.",
-          "나는 미나를 좋아해."
+          "나는 미나를 좋아해.",
+          "내 이름은 미나야."
         ],
         "type": "choice"
       },
@@ -628,9 +628,9 @@
       "answer": {
         "correct": "나는 야구를 좋아해.",
         "options": [
+          "나는 야구 선수야.",
           "나는 야구를 좋아해.",
-          "나는 야구를 해.",
-          "나는 야구 선수야."
+          "나는 야구를 해."
         ],
         "type": "choice"
       },
@@ -662,9 +662,9 @@
       "answer": {
         "correct": "어떤 운동을 좋아하니?",
         "options": [
-          "어떤 운동을 좋아하니?",
           "운동을 잘하니?",
-          "좋아하는 음식이 뭐야?"
+          "좋아하는 음식이 뭐야?",
+          "어떤 운동을 좋아하니?"
         ],
         "type": "choice"
       },
@@ -697,8 +697,8 @@
         "correct": "나도 만나서 반가워.",
         "options": [
           "나도 만나서 반가워.",
-          "다음에 또 만나자.",
-          "만나서 반가워."
+          "만나서 반가워.",
+          "다음에 또 만나자."
         ],
         "type": "choice"
       },
@@ -770,9 +770,9 @@
         "correct": "여름",
         "options": [
           "여름",
-          "봄",
           "가을",
-          "겨울"
+          "겨울",
+          "봄"
         ],
         "type": "choice"
       },
@@ -804,9 +804,9 @@
         "correct": "가을",
         "options": [
           "가을",
-          "봄",
+          "겨울",
           "여름",
-          "겨울"
+          "봄"
         ],
         "type": "choice"
       },
@@ -837,10 +837,10 @@
       "answer": {
         "correct": "겨울",
         "options": [
-          "겨울",
           "봄",
+          "가을",
           "여름",
-          "가을"
+          "겨울"
         ],
         "type": "choice"
       },
@@ -871,10 +871,10 @@
       "answer": {
         "correct": "따뜻한",
         "options": [
-          "따뜻한",
-          "차가운",
           "뜨거운",
-          "시원한"
+          "시원한",
+          "따뜻한",
+          "차가운"
         ],
         "type": "choice"
       },
@@ -906,9 +906,9 @@
       "answer": {
         "correct": "시원한, 선선한",
         "options": [
+          "차가운",
           "시원한, 선선한",
           "뜨거운",
-          "차가운",
           "따뜻한"
         ],
         "type": "choice"
@@ -941,10 +941,10 @@
       "answer": {
         "correct": "추운, 차가운",
         "options": [
-          "추운, 차가운",
           "따뜻한",
-          "뜨거운",
-          "시원한"
+          "시원한",
+          "추운, 차가운",
+          "뜨거운"
         ],
         "type": "choice"
       },
@@ -976,10 +976,10 @@
       "answer": {
         "correct": "수영하다",
         "options": [
-          "수영하다",
-          "달리다",
+          "뛰다",
           "걷다",
-          "뛰다"
+          "달리다",
+          "수영하다"
         ],
         "type": "choice"
       },
@@ -1011,10 +1011,10 @@
       "answer": {
         "correct": "눈사람",
         "options": [
-          "눈사람",
           "눈송이",
-          "눈싸움",
-          "겨울왕국"
+          "겨울왕국",
+          "눈사람",
+          "눈싸움"
         ],
         "type": "choice"
       },
@@ -1045,10 +1045,10 @@
       "answer": {
         "correct": "아름다운",
         "options": [
-          "아름다운",
+          "재미있는",
           "못생긴",
-          "무서운",
-          "재미있는"
+          "아름다운",
+          "무서운"
         ],
         "type": "choice"
       },
@@ -1115,9 +1115,9 @@
       "answer": {
         "correct": "어떤 계절을 좋아하니?",
         "options": [
-          "어떤 계절을 좋아하니?",
+          "좋아하는 운동이 뭐야?",
           "오늘 날씨가 어때?",
-          "좋아하는 운동이 뭐야?"
+          "어떤 계절을 좋아하니?"
         ],
         "type": "choice"
       },
@@ -1149,9 +1149,9 @@
       "answer": {
         "correct": "나는 여름을 좋아해. 수영할 수 있거든.",
         "options": [
-          "나는 여름을 좋아해. 수영할 수 있거든.",
           "나는 겨울을 좋아해. 스키를 탈 수 있거든.",
-          "나는 봄을 좋아해. 꽃을 볼 수 있거든."
+          "나는 봄을 좋아해. 꽃을 볼 수 있거든.",
+          "나는 여름을 좋아해. 수영할 수 있거든."
         ],
         "type": "choice"
       },
@@ -1252,9 +1252,9 @@
       "answer": {
         "correct": "나는 가을을 좋아해. 나무들이 알록달록하고 아름다워.",
         "options": [
+          "나는 가을을 좋아해. 날씨가 춥고 바람이 불어.",
           "나는 가을을 좋아해. 나무들이 알록달록하고 아름다워.",
-          "나는 봄을 좋아해. 꽃들이 예쁘고 향기로워.",
-          "나는 가을을 좋아해. 날씨가 춥고 바람이 불어."
+          "나는 봄을 좋아해. 꽃들이 예쁘고 향기로워."
         ],
         "type": "choice"
       },
@@ -1287,9 +1287,9 @@
         "correct": "1월",
         "options": [
           "1월",
-          "2월",
+          "12월",
           "3월",
-          "12월"
+          "2월"
         ],
         "type": "choice"
       },
@@ -1320,10 +1320,10 @@
       "answer": {
         "correct": "3월",
         "options": [
-          "3월",
           "5월",
           "8월",
-          "11월"
+          "11월",
+          "3월"
         ],
         "type": "choice"
       },
@@ -1354,10 +1354,10 @@
       "answer": {
         "correct": "4월",
         "options": [
+          "1월",
           "4월",
-          "6월",
           "9월",
-          "1월"
+          "6월"
         ],
         "type": "choice"
       },
@@ -1388,8 +1388,8 @@
       "answer": {
         "correct": "생일",
         "options": [
-          "생일",
           "방학",
+          "생일",
           "졸업식",
           "입학식"
         ],
@@ -1423,8 +1423,8 @@
         "correct": "12월",
         "options": [
           "12월",
-          "1월",
           "6월",
+          "1월",
           "10월"
         ],
         "type": "choice"
@@ -1456,10 +1456,10 @@
       "answer": {
         "correct": "10월",
         "options": [
-          "10월",
           "8월",
-          "3월",
-          "5월"
+          "10월",
+          "5월",
+          "3월"
         ],
         "type": "choice"
       },
@@ -1490,10 +1490,10 @@
       "answer": {
         "correct": "첫 번째",
         "options": [
-          "첫 번째",
+          "마지막",
           "두 번째",
           "세 번째",
-          "마지막"
+          "첫 번째"
         ],
         "type": "choice"
       },
@@ -1524,10 +1524,10 @@
       "answer": {
         "correct": "두 번째",
         "options": [
-          "두 번째",
+          "네 번째",
           "첫 번째",
-          "세 번째",
-          "네 번째"
+          "두 번째",
+          "세 번째"
         ],
         "type": "choice"
       },
@@ -1558,9 +1558,9 @@
       "answer": {
         "correct": "네 생일은 언제야?",
         "options": [
+          "오늘 무슨 요일이야?",
           "네 생일은 언제야?",
-          "네 이름은 뭐야?",
-          "오늘 무슨 요일이야?"
+          "네 이름은 뭐야?"
         ],
         "type": "choice"
       },
@@ -1592,9 +1592,9 @@
       "answer": {
         "correct": "4월 21일이야.",
         "options": [
+          "5월 21일이야.",
           "4월 21일이야.",
-          "4월 12일이야.",
-          "5월 21일이야."
+          "4월 12일이야."
         ],
         "type": "choice"
       },
@@ -1626,10 +1626,10 @@
       "answer": {
         "correct": "April",
         "options": [
-          "April",
           "March",
-          "May",
-          "June"
+          "April",
+          "June",
+          "May"
         ],
         "type": "choice"
       },
@@ -1661,8 +1661,8 @@
       "answer": {
         "correct": "지구를 지키자. 물을 아낄 수 있어.",
         "options": [
-          "지구를 지키자. 물을 아낄 수 있어.",
           "지구에 가자. 물을 마실 수 있어.",
+          "지구를 지키자. 물을 아낄 수 있어.",
           "지구를 지키자. 나무를 심을 수 있어."
         ],
         "type": "choice"
@@ -1695,10 +1695,10 @@
       "answer": {
         "correct": "슬픈",
         "options": [
-          "슬픈",
           "행복한",
-          "화난",
-          "졸린"
+          "슬픈",
+          "졸린",
+          "화난"
         ],
         "type": "choice"
       },
@@ -1729,10 +1729,10 @@
       "answer": {
         "correct": "걱정되는",
         "options": [
-          "걱정되는",
-          "행복한",
           "슬픈",
-          "신나는"
+          "걱정되는",
+          "신나는",
+          "행복한"
         ],
         "type": "choice"
       },
@@ -1763,10 +1763,10 @@
       "answer": {
         "correct": "피곤한",
         "options": [
-          "피곤한",
+          "졸린",
           "배고픈",
           "목마른",
-          "졸린"
+          "피곤한"
         ],
         "type": "choice"
       },
@@ -1797,9 +1797,9 @@
       "answer": {
         "correct": "왜냐하면, ~때문에",
         "options": [
-          "왜냐하면, ~때문에",
           "그래서",
           "하지만",
+          "왜냐하면, ~때문에",
           "그리고"
         ],
         "type": "choice"
@@ -1831,10 +1831,10 @@
       "answer": {
         "correct": "고장냈다, 부러뜨렸다",
         "options": [
+          "찾았다",
           "고장냈다, 부러뜨렸다",
           "만들었다",
-          "고쳤다",
-          "찾았다"
+          "고쳤다"
         ],
         "type": "choice"
       },
@@ -1866,10 +1866,10 @@
       "answer": {
         "correct": "아픈",
         "options": [
-          "아픈",
           "건강한",
           "강한",
-          "약한"
+          "약한",
+          "아픈"
         ],
         "type": "choice"
       },
@@ -1900,9 +1900,9 @@
       "answer": {
         "correct": "왜 행복하니?",
         "options": [
-          "왜 행복하니?",
+          "언제 행복하니?",
           "너 행복하니?",
-          "언제 행복하니?"
+          "왜 행복하니?"
         ],
         "type": "choice"
       },
@@ -1934,9 +1934,9 @@
       "answer": {
         "correct": "왜냐하면 검은 띠를 받았거든.",
         "options": [
-          "왜냐하면 검은 띠를 받았거든.",
           "왜냐하면 검은 옷을 샀거든.",
-          "왜냐하면 검은 가방을 받았거든."
+          "왜냐하면 검은 가방을 받았거든.",
+          "왜냐하면 검은 띠를 받았거든."
         ],
         "type": "choice"
       },
@@ -1968,9 +1968,9 @@
       "answer": {
         "correct": "왜 슬프니? 왜냐하면 내 강아지가 아프거든.",
         "options": [
-          "왜 슬프니? 왜냐하면 내 강아지가 아프거든.",
+          "왜 화나니? 왜냐하면 내 강아지가 아프거든.",
           "왜 슬프니? 왜냐하면 내 강아지가 없거든.",
-          "왜 화나니? 왜냐하면 내 강아지가 아프거든."
+          "왜 슬프니? 왜냐하면 내 강아지가 아프거든."
         ],
         "type": "choice"
       },
@@ -2002,8 +2002,8 @@
       "answer": {
         "correct": "걱정 마. 내가 도와줄게.",
         "options": [
-          "걱정 마. 내가 도와줄게.",
           "걱정 마. 곧 끝날 거야.",
+          "걱정 마. 내가 도와줄게.",
           "미안해. 도와줄 수 없어."
         ],
         "type": "choice"
@@ -2038,8 +2038,8 @@
         "options": [
           "Because",
           "But",
-          "And",
-          "So"
+          "So",
+          "And"
         ],
         "type": "choice"
       },
@@ -2071,10 +2071,10 @@
       "answer": {
         "correct": "도서관",
         "options": [
+          "은행",
           "도서관",
-          "학교",
           "병원",
-          "은행"
+          "학교"
         ],
         "type": "choice"
       },
@@ -2106,9 +2106,9 @@
         "correct": "병원",
         "options": [
           "병원",
+          "식당",
           "학교",
-          "도서관",
-          "식당"
+          "도서관"
         ],
         "type": "choice"
       },
@@ -2173,10 +2173,10 @@
       "answer": {
         "correct": "은행",
         "options": [
-          "은행",
           "학교",
           "병원",
-          "우체국"
+          "우체국",
+          "은행"
         ],
         "type": "choice"
       },
@@ -2207,10 +2207,10 @@
       "answer": {
         "correct": "직진하다",
         "options": [
-          "직진하다",
-          "돌아가다",
           "멈추다",
-          "뛰다"
+          "뛰다",
+          "돌아가다",
+          "직진하다"
         ],
         "type": "choice"
       },
@@ -2241,10 +2241,10 @@
       "answer": {
         "correct": "왼쪽으로 돌다",
         "options": [
+          "뒤로 가다",
           "왼쪽으로 돌다",
-          "오른쪽으로 돌다",
           "직진하다",
-          "뒤로 가다"
+          "오른쪽으로 돌다"
         ],
         "type": "choice"
       },
@@ -2275,10 +2275,10 @@
       "answer": {
         "correct": "오른쪽으로 돌다",
         "options": [
-          "오른쪽으로 돌다",
           "왼쪽으로 돌다",
           "직진하다",
-          "멈추다"
+          "멈추다",
+          "오른쪽으로 돌다"
         ],
         "type": "choice"
       },
@@ -2309,10 +2309,10 @@
       "answer": {
         "correct": "~ 옆에",
         "options": [
-          "~ 옆에",
-          "~ 위에",
+          "~ 뒤에",
           "~ 아래에",
-          "~ 뒤에"
+          "~ 옆에",
+          "~ 위에"
         ],
         "type": "choice"
       },
@@ -2343,9 +2343,9 @@
       "answer": {
         "correct": "도서관이 어디에 있어?",
         "options": [
+          "도서관이 언제 열어?",
           "도서관이 어디에 있어?",
-          "도서관에 뭐가 있어?",
-          "도서관이 언제 열어?"
+          "도서관에 뭐가 있어?"
         ],
         "type": "choice"
       },
@@ -2377,8 +2377,8 @@
       "answer": {
         "correct": "직진해서 왼쪽으로 돌아.",
         "options": [
-          "직진해서 왼쪽으로 돌아.",
           "직진해서 오른쪽으로 돌아.",
+          "직진해서 왼쪽으로 돌아.",
           "뒤로 가서 왼쪽으로 돌아."
         ],
         "type": "choice"
@@ -2412,8 +2412,8 @@
         "correct": "두 블록 직진해서 오른쪽으로 돌아. 은행 옆에 있어.",
         "options": [
           "두 블록 직진해서 오른쪽으로 돌아. 은행 옆에 있어.",
-          "한 블록 직진해서 왼쪽으로 돌아. 학교 옆에 있어.",
-          "두 블록 직진해서 왼쪽으로 돌아. 병원 옆에 있어."
+          "두 블록 직진해서 왼쪽으로 돌아. 병원 옆에 있어.",
+          "한 블록 직진해서 왼쪽으로 돌아. 학교 옆에 있어."
         ],
         "type": "choice"
       },
@@ -2445,10 +2445,10 @@
       "answer": {
         "correct": "turn right",
         "options": [
+          "sit down",
           "turn right",
-          "go back",
           "stop here",
-          "sit down"
+          "go back"
         ],
         "type": "choice"
       },
@@ -2480,9 +2480,9 @@
       "answer": {
         "correct": "second",
         "options": [
-          "second",
-          "first",
           "fifth",
+          "first",
+          "second",
           "sixth"
         ],
         "type": "choice"
@@ -2519,9 +2519,9 @@
       "answer": {
         "correct": "세 번째",
         "options": [
-          "세 번째",
           "네 번째",
           "첫 번째",
+          "세 번째",
           "다섯 번째"
         ],
         "type": "choice"
@@ -2558,10 +2558,10 @@
       "answer": {
         "correct": "fourth",
         "options": [
-          "fourth",
+          "second",
           "third",
           "sixth",
-          "second"
+          "fourth"
         ],
         "type": "choice"
       },
@@ -2598,9 +2598,9 @@
         "correct": "다섯 번째",
         "options": [
           "다섯 번째",
+          "세 번째",
           "여섯 번째",
-          "네 번째",
-          "세 번째"
+          "네 번째"
         ],
         "type": "choice"
       },
@@ -2636,8 +2636,8 @@
       "answer": {
         "correct": "sixth",
         "options": [
-          "sixth",
           "fifth",
+          "sixth",
           "first",
           "fourth"
         ],
@@ -2675,10 +2675,10 @@
       "answer": {
         "correct": "학년",
         "options": [
-          "학년",
-          "학교",
           "반",
-          "교실"
+          "학교",
+          "교실",
+          "학년"
         ],
         "type": "choice"
       },
@@ -2714,10 +2714,10 @@
       "answer": {
         "correct": "책을 읽다",
         "options": [
-          "책을 읽다",
           "그림을 그리다",
-          "음악을 듣다",
-          "축구를 하다"
+          "축구를 하다",
+          "책을 읽다",
+          "음악을 듣다"
         ],
         "type": "choice"
       },
@@ -2753,10 +2753,10 @@
       "answer": {
         "correct": "기타를 치다",
         "options": [
-          "기타를 치다",
-          "축구를 하다",
           "자전거를 타다",
-          "춤추다"
+          "춤추다",
+          "기타를 치다",
+          "축구를 하다"
         ],
         "type": "choice"
       },
@@ -2792,10 +2792,10 @@
       "answer": {
         "correct": "listen to music",
         "options": [
-          "listen to music",
-          "read books",
           "draw pictures",
-          "play the guitar"
+          "listen to music",
+          "play the guitar",
+          "read books"
         ],
         "type": "choice"
       },
@@ -2831,10 +2831,10 @@
       "answer": {
         "correct": "draw pictures",
         "options": [
+          "ride a bike",
           "draw pictures",
           "listen to music",
-          "read books",
-          "ride a bike"
+          "read books"
         ],
         "type": "choice"
       },
@@ -2870,10 +2870,10 @@
       "answer": {
         "correct": "ride a bike",
         "options": [
-          "ride a bike",
-          "play soccer",
           "dance",
-          "play the guitar"
+          "play the guitar",
+          "play soccer",
+          "ride a bike"
         ],
         "type": "choice"
       },
@@ -2909,10 +2909,10 @@
       "answer": {
         "correct": "play soccer",
         "options": [
-          "play soccer",
           "play the guitar",
+          "listen to music",
           "ride a bike",
-          "listen to music"
+          "play soccer"
         ],
         "type": "choice"
       },
@@ -2948,10 +2948,10 @@
       "answer": {
         "correct": "dance",
         "options": [
-          "dance",
           "sing",
           "draw",
-          "read"
+          "read",
+          "dance"
         ],
         "type": "choice"
       },
@@ -2987,8 +2987,8 @@
         "correct": "What grade are you in?",
         "options": [
           "What grade are you in?",
-          "How old are you?",
           "What's your name?",
+          "How old are you?",
           "Where are you from?"
         ],
         "type": "choice"
@@ -3024,10 +3024,10 @@
       "answer": {
         "correct": "I'm in the sixth grade.",
         "options": [
-          "I'm in the sixth grade.",
-          "I'm in the first grade.",
           "I'm six years old.",
-          "I'm from sixth school."
+          "I'm in the sixth grade.",
+          "I'm from sixth school.",
+          "I'm in the first grade."
         ],
         "type": "choice"
       },
@@ -3062,10 +3062,10 @@
       "answer": {
         "correct": "How do you spell your name?",
         "options": [
-          "How do you spell your name?",
-          "What's your name?",
           "How are you?",
-          "What grade are you in?"
+          "How do you spell your name?",
+          "What grade are you in?",
+          "What's your name?"
         ],
         "type": "choice"
       },
@@ -3101,8 +3101,8 @@
         "correct": "play",
         "options": [
           "play",
-          "read",
           "ride",
+          "read",
           "draw"
         ],
         "type": "choice"
@@ -3140,9 +3140,9 @@
         "correct": "from",
         "options": [
           "from",
+          "to",
           "in",
-          "at",
-          "to"
+          "at"
         ],
         "type": "choice"
       },
@@ -3179,10 +3179,10 @@
       "answer": {
         "correct": "Mexico City, Mexico",
         "options": [
-          "Mexico City, Mexico",
-          "Canada",
           "Korea",
-          "The U.S."
+          "The U.S.",
+          "Mexico City, Mexico",
+          "Canada"
         ],
         "type": "choice"
       },
@@ -3218,10 +3218,10 @@
       "answer": {
         "correct": "기타를 친다",
         "options": [
-          "기타를 친다",
-          "책을 읽는다",
+          "자전거를 탄다",
           "축구를 한다",
-          "자전거를 탄다"
+          "기타를 친다",
+          "책을 읽는다"
         ],
         "type": "choice"
       },
@@ -3257,10 +3257,10 @@
       "answer": {
         "correct": "② → ③ → ①",
         "options": [
-          "② → ③ → ①",
           "① → ② → ③",
-          "③ → ① → ②",
-          "② → ① → ③"
+          "② → ① → ③",
+          "② → ③ → ①",
+          "③ → ① → ②"
         ],
         "type": "choice"
       },

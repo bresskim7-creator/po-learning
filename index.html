@@ -1300,10 +1300,17 @@ function renderCard() {
   // 질문 텍스트
   html += '<div class="question-area">' + escapeHtml(card.question.text) + '</div>';
 
-  // 선택지 (choice 타입)
+  // 선택지 (choice 타입) — 매번 보기 순서 셔플
   if (card.answer.type === 'choice') {
+    // 런타임 셔플 (원본 배열은 유지, 표시용만 섞기)
+    var shuffledOpts = card.answer.options.slice();
+    for (var si = shuffledOpts.length - 1; si > 0; si--) {
+      var sj = Math.floor(Math.random() * (si + 1));
+      var tmp = shuffledOpts[si]; shuffledOpts[si] = shuffledOpts[sj]; shuffledOpts[sj] = tmp;
+    }
+    card._shuffledOptions = shuffledOpts;
     html += '<div class="choices">';
-    card.answer.options.forEach(function(opt, i) {
+    shuffledOpts.forEach(function(opt, i) {
       html += '<button class="choice-btn" onclick="selectAnswer(' + i + ')">' + escapeHtml(opt) + '</button>';
     });
     html += '</div>';
@@ -1390,7 +1397,9 @@ function renderCard() {
 
 function selectAnswer(selectedIdx) {
   const card = APP.session.cards[APP.session.currentIndex];
-  const correctIdx = card.answer.options.indexOf(card.answer.correct);
+  // 셔플된 보기 기준으로 정답 판정
+  var displayOptions = card._shuffledOptions || card.answer.options;
+  const correctIdx = displayOptions.indexOf(card.answer.correct);
   const isCorrect = selectedIdx === correctIdx;
   const responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
 
