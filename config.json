@@ -18,7 +18,7 @@
     "subjectMix": {
       "english": { "ratio": 0.4, "enabled": true },
       "comprehension": { "ratio": 0.3, "enabled": true },
-      "social_studies": { "ratio": 0, "enabled": false, "note": "v4.4 Phase 2에서 활성화. social-studies.json 파일 준비됨." },
+      "social_studies": { "ratio": 0.15, "enabled": true },
       "speech_therapy": { "slots": "full_lesson", "position": "last_block" }
     },
     "newToReviewRatio": { "new": 0.4, "review": 0.6 }

@@ -67,6 +67,7 @@
     }
     .subject-badge.english { background: #4A90D9; }
     .subject-badge.comprehension { background: #E67E22; }
+    .subject-badge.social_studies { background: #8E44AD; }
     .subject-badge.speech_therapy { background: #27AE60; }
 
     /* 카드 본체 */
@@ -511,6 +512,7 @@ const APP = {
   config: null,
   englishCards: [],
   comprehensionCards: [],
+  socialStudiesCards: [],
   speechTherapyCards: [],
   speechTherapyLessons: [],
   currentLessonInfo: null,
@@ -735,15 +737,19 @@ function saveSettings() {
 
 async function loadContentFiles() {
   try {
-    const [engRes, compRes, phraseRes, stRes, cfgRes] = await Promise.all([
+    const [engRes, compRes, ssRes, phraseRes, stRes, cfgRes] = await Promise.all([
       fetch('english.json').then(r => r.json()).catch(() => ({ cards: [] })),
       fetch('comprehension.json').then(r => r.json()).catch(() => ({ cards: [] })),
+      fetch('social-studies.json').then(r => r.json()).catch(() => []),
       fetch('phrase-pool.json').then(r => r.json()).catch(() => null),
       fetch('speech-therapy.json').then(r => r.json()).catch(() => null),
       fetch('config.json').then(r => r.json()).catch(() => null),
     ]);
     APP.englishCards = engRes.cards || [];
     APP.comprehensionCards = compRes.cards || [];
+    APP.socialStudiesCards = Array.isArray(ssRes) ? ssRes : (ssRes.cards || []);
+    // 사회 카드에 subject 보장
+    APP.socialStudiesCards.forEach(function(c) { c.subject = c.subject || 'social_studies'; c.id = c.id || c.cardId; });
     APP.phrasePool = phraseRes;
     APP.config = cfgRes;
     if (stRes) APP.speechTherapyCards = generateSpeechTherapyCards(stRes);
@@ -937,26 +943,32 @@ function buildSessionLegacy() {
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
   var contentSlots = totalCards - stCards.length;
 
-  var engRatio = 0.4, compRatio = 0.3;
-  var totalRatio = engRatio + compRatio;
-  var engSlots = Math.round(contentSlots * (engRatio / totalRatio));
-  var compSlots = contentSlots - engSlots;
+  // 과목별 비율 (config 기반)
+  var mix = (APP.config && APP.config.modeA && APP.config.modeA.subjectMix) || {};
+  var engRatio = (mix.english && mix.english.enabled) ? (mix.english.ratio || 0.4) : 0.4;
+  var compRatio = (mix.comprehension && mix.comprehension.enabled) ? (mix.comprehension.ratio || 0.3) : 0.3;
+  var ssRatio = (mix.social_studies && mix.social_studies.enabled) ? (mix.social_studies.ratio || 0) : 0;
 
   // speech-therapy 퀴즈 카드 (파이프라인 생성, 따라읽기가 아닌 것)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
   var stQuizSlots = stQuizCards.length > 0 ? Math.max(2, Math.round(contentSlots * 0.15)) : 0;
   var adjustedContentSlots = contentSlots - stQuizSlots;
+
+  var totalRatio = engRatio + compRatio + ssRatio;
   var engSlots2 = Math.round(adjustedContentSlots * (engRatio / totalRatio));
-  var compSlots2 = adjustedContentSlots - engSlots2;
+  var ssSlots2 = Math.round(adjustedContentSlots * (ssRatio / totalRatio));
+  var compSlots2 = adjustedContentSlots - engSlots2 - ssSlots2;
 
   var engCards = selectCardsForSubject(APP.englishCards, engSlots2);
   var compCards = selectCardsForSubject(APP.comprehensionCards, compSlots2);
+  var ssCards = selectCardsForSubject(APP.socialStudiesCards, ssSlots2);
   var stqCards = selectCardsForSubject(stQuizCards, stQuizSlots);
 
-  // 블록 순서: 영어(블록 내 셔플) → 독해(블록 내 셔플) → 언어치료 퀴즈 → 따라읽기(순서 유지)
+  // 블록 순서: 영어 → 독해 → 사회 → 언어치료 퀴즈 → 따라읽기
   var result = [];
   result.push.apply(result, shuffleArray(engCards));
   result.push.apply(result, shuffleArray(compCards));
+  result.push.apply(result, shuffleArray(ssCards));
   result.push.apply(result, shuffleArray(stqCards));
   result.push.apply(result, stCards); // lesson 순서대로
 
@@ -984,7 +996,7 @@ function buildSessionAnchored() {
 
   // speech-therapy 퀴즈 카드도 콘텐츠 풀에 포함 (따라읽기 lesson 카드 제외)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
-  var allContent = [].concat(APP.englishCards, APP.comprehensionCards, stQuizCards);
+  var allContent = [].concat(APP.englishCards, APP.comprehensionCards, APP.socialStudiesCards, stQuizCards);
 
   // 1) 앵커 직결: 이번 주 앵커와 일치하는 카드
   var anchorCards = allContent.filter(function(c) {
@@ -1259,7 +1271,7 @@ function renderCard() {
 
   // 과목 뱃지
   var subjectLabels = {
-    english: '영어', comprehension: '독해', speech_therapy: '읽기 연습'
+    english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습'
   };
   var badgeExtra = '';
   if (card.subject === 'speech_therapy' && card._lessonTitle) {
@@ -2259,7 +2271,7 @@ async function endSession() {
 
   // 과목별 정답률
   const breakdownEl = document.getElementById('subject-breakdown');
-  const subjectLabels = { english: '영어', comprehension: '독해', speech_therapy: '읽기 연습' };
+  const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습' };
   let breakdownHtml = '';
   for (const subj in s.subjectStats) {
     const st = s.subjectStats[subj];

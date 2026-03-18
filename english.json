@@ -10,7 +10,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "hello",
         "displayWord": "hello"
       },
@@ -44,7 +44,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "name",
         "displayWord": "name"
       },
@@ -78,7 +78,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "friend",
         "displayWord": "friend"
       },
@@ -112,7 +112,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "nice",
         "displayWord": "nice"
       },
@@ -146,7 +146,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "meet",
         "displayWord": "meet"
       },
@@ -180,7 +180,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "school",
         "displayWord": "school"
       },
@@ -213,7 +213,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "student",
         "displayWord": "student"
       },
@@ -246,7 +246,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "teacher",
         "displayWord": "teacher"
       },
@@ -279,7 +279,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "like",
         "displayWord": "like"
       },
@@ -314,7 +314,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "play",
         "displayWord": "play"
       },
@@ -349,7 +349,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "favorite",
         "displayWord": "favorite"
       },
@@ -383,7 +383,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "sport",
         "displayWord": "sport"
       },
@@ -417,7 +417,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "happy",
         "displayWord": "happy"
       },
@@ -451,7 +451,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "good",
         "displayWord": "good"
       },
@@ -485,7 +485,7 @@
       "subject": "english",
       "difficulty": 1,
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "morning",
         "displayWord": "morning"
       },
@@ -528,7 +528,8 @@
         "options": [
           "안녕, 나는 학생이야. 학교에 가.",
           "안녕, 나는 미나야. 만나서 반가워.",
-          "좋은 아침! 오늘 기분이 좋아."
+          "좋은 아침! 오늘 기분이 좋아.",
+          "안녕, 나는 미나야. 다시 만났어."
         ],
         "type": "choice"
       },
@@ -562,7 +563,8 @@
         "options": [
           "너는 어디 살아?",
           "네 이름은 뭐야?",
-          "너는 몇 살이야?"
+          "너는 몇 살이야?",
+          "너 이름 뭐야?"
         ],
         "type": "choice"
       },
@@ -596,7 +598,8 @@
         "options": [
           "내 친구는 미나야.",
           "나는 미나를 좋아해.",
-          "내 이름은 미나야."
+          "내 이름은 미나야.",
+          "내 이름은 미나라고 해."
         ],
         "type": "choice"
       },
@@ -630,7 +633,8 @@
         "options": [
           "나는 야구 선수야.",
           "나는 야구를 좋아해.",
-          "나는 야구를 해."
+          "나는 야구를 해.",
+          "나는 야구 선수가 되고 싶어."
         ],
         "type": "choice"
       },
@@ -664,7 +668,8 @@
         "options": [
           "운동을 잘하니?",
           "좋아하는 음식이 뭐야?",
-          "어떤 운동을 좋아하니?"
+          "어떤 운동을 좋아하니?",
+          "어떤 음악을 좋아하니?"
         ],
         "type": "choice"
       },
@@ -698,7 +703,8 @@
         "options": [
           "나도 만나서 반가워.",
           "만나서 반가워.",
-          "다음에 또 만나자."
+          "다음에 또 만나자.",
+          "나도 만나서 기쁨."
         ],
         "type": "choice"
       },
@@ -728,7 +734,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "spring",
         "displayWord": "spring"
       },
@@ -762,7 +768,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "summer",
         "displayWord": "summer"
       },
@@ -796,7 +802,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "fall",
         "displayWord": "fall"
       },
@@ -830,7 +836,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "winter",
         "displayWord": "winter"
       },
@@ -864,7 +870,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "warm",
         "displayWord": "warm"
       },
@@ -899,7 +905,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "cool",
         "displayWord": "cool"
       },
@@ -934,7 +940,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "cold",
         "displayWord": "cold"
       },
@@ -969,7 +975,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "swim",
         "displayWord": "swim"
       },
@@ -1004,7 +1010,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "snowman",
         "displayWord": "snowman"
       },
@@ -1038,7 +1044,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "beautiful",
         "displayWord": "beautiful"
       },
@@ -1073,7 +1079,7 @@
       "sourceUnit": "2단원",
       "topic": "seasons",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "colorful",
         "displayWord": "colorful"
       },
@@ -1117,7 +1123,8 @@
         "options": [
           "좋아하는 운동이 뭐야?",
           "오늘 날씨가 어때?",
-          "어떤 계절을 좋아하니?"
+          "어떤 계절을 좋아하니?",
+          "좋아하는 날씨가 뭐야?"
         ],
         "type": "choice"
       },
@@ -1151,7 +1158,8 @@
         "options": [
           "나는 겨울을 좋아해. 스키를 탈 수 있거든.",
           "나는 봄을 좋아해. 꽃을 볼 수 있거든.",
-          "나는 여름을 좋아해. 수영할 수 있거든."
+          "나는 여름을 좋아해. 수영할 수 있거든.",
+          "나는 겨울을 좋아해. 스노우보드를 탈 수 있거든."
         ],
         "type": "choice"
       },
@@ -1185,7 +1193,8 @@
         "options": [
           "나는 봄을 좋아해. 따뜻하고 밝거든.",
           "나는 가을을 좋아해. 시원하고 좋거든.",
-          "나는 봄을 좋아해. 시원하고 좋거든."
+          "나는 봄을 좋아해. 시원하고 좋거든.",
+          "나는 봄을 좋아해. 따뜻하고 맑거든."
         ],
         "type": "choice"
       },
@@ -1254,7 +1263,8 @@
         "options": [
           "나는 가을을 좋아해. 날씨가 춥고 바람이 불어.",
           "나는 가을을 좋아해. 나무들이 알록달록하고 아름다워.",
-          "나는 봄을 좋아해. 꽃들이 예쁘고 향기로워."
+          "나는 봄을 좋아해. 꽃들이 예쁘고 향기로워.",
+          "나는 가을을 좋아해. 날씨가 시원하고 쾌적하거든."
         ],
         "type": "choice"
       },
@@ -1279,7 +1289,7 @@
       "sourceUnit": "3단원",
       "topic": "dates",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "January",
         "displayWord": "January"
       },
@@ -1313,7 +1323,7 @@
       "sourceUnit": "3단원",
       "topic": "dates",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "March",
         "displayWord": "March"
       },
@@ -1347,7 +1357,7 @@
       "sourceUnit": "3단원",
       "topic": "dates",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "April",
         "displayWord": "April"
       },
@@ -1381,7 +1391,7 @@
       "sourceUnit": "3단원",
       "topic": "dates",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "birthday",
         "displayWord": "birthday"
       },
@@ -1415,7 +1425,7 @@
       "sourceUnit": "3단원",
       "topic": "dates",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "December",
         "displayWord": "December"
       },
@@ -1449,7 +1459,7 @@
       "sourceUnit": "3단원",
       "topic": "dates",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "October",
         "displayWord": "October"
       },
@@ -1560,7 +1570,8 @@
         "options": [
           "오늘 무슨 요일이야?",
           "네 생일은 언제야?",
-          "네 이름은 뭐야?"
+          "네 이름은 뭐야?",
+          "네 생일이 언제야?"
         ],
         "type": "choice"
       },
@@ -1594,7 +1605,8 @@
         "options": [
           "5월 21일이야.",
           "4월 21일이야.",
-          "4월 12일이야."
+          "4월 12일이야.",
+          "3월 21일이야."
         ],
         "type": "choice"
       },
@@ -1663,7 +1675,8 @@
         "options": [
           "지구에 가자. 물을 마실 수 있어.",
           "지구를 지키자. 물을 아낄 수 있어.",
-          "지구를 지키자. 나무를 심을 수 있어."
+          "지구를 지키자. 나무를 심을 수 있어.",
+          "지구를 위해 노력하자. 나무를 심을 수 있어."
         ],
         "type": "choice"
       },
@@ -1688,7 +1701,7 @@
       "sourceUnit": "4단원",
       "topic": "feelings",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "sad",
         "displayWord": "sad"
       },
@@ -1722,7 +1735,7 @@
       "sourceUnit": "4단원",
       "topic": "feelings",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "worried",
         "displayWord": "worried"
       },
@@ -1756,7 +1769,7 @@
       "sourceUnit": "4단원",
       "topic": "feelings",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "tired",
         "displayWord": "tired"
       },
@@ -1790,7 +1803,7 @@
       "sourceUnit": "4단원",
       "topic": "feelings",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "because",
         "displayWord": "because"
       },
@@ -1902,7 +1915,8 @@
         "options": [
           "언제 행복하니?",
           "너 행복하니?",
-          "왜 행복하니?"
+          "왜 행복하니?",
+          "누가 행복하니?"
         ],
         "type": "choice"
       },
@@ -1936,7 +1950,8 @@
         "options": [
           "왜냐하면 검은 옷을 샀거든.",
           "왜냐하면 검은 가방을 받았거든.",
-          "왜냐하면 검은 띠를 받았거든."
+          "왜냐하면 검은 띠를 받았거든.",
+          "왜냐하면 첫 번째 수학 시험을 잘 봤거든."
         ],
         "type": "choice"
       },
@@ -1970,7 +1985,8 @@
         "options": [
           "왜 화나니? 왜냐하면 내 강아지가 아프거든.",
           "왜 슬프니? 왜냐하면 내 강아지가 없거든.",
-          "왜 슬프니? 왜냐하면 내 강아지가 아프거든."
+          "왜 슬프니? 왜냐하면 내 강아지가 아프거든.",
+          "왜 슬프니? 왜냐하면 내 강아지를 못 봤거든."
         ],
         "type": "choice"
       },
@@ -2004,7 +2020,8 @@
         "options": [
           "걱정 마. 곧 끝날 거야.",
           "걱정 마. 내가 도와줄게.",
-          "미안해. 도와줄 수 없어."
+          "미안해. 도와줄 수 없어.",
+          "괜찮아. 곧 나아질 거야."
         ],
         "type": "choice"
       },
@@ -2064,7 +2081,7 @@
       "sourceUnit": "5단원",
       "topic": "directions",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "library",
         "displayWord": "library"
       },
@@ -2098,7 +2115,7 @@
       "sourceUnit": "5단원",
       "topic": "directions",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "hospital",
         "displayWord": "hospital"
       },
@@ -2132,7 +2149,7 @@
       "sourceUnit": "5단원",
       "topic": "directions",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "restaurant",
         "displayWord": "restaurant"
       },
@@ -2166,7 +2183,7 @@
       "sourceUnit": "5단원",
       "topic": "directions",
       "question": {
-        "text": "이 단어의 뜻은?",
+        "text": "이 영어 단어의 뜻은?",
         "ttsText": "bank",
         "displayWord": "bank"
       },
@@ -2345,7 +2362,8 @@
         "options": [
           "도서관이 언제 열어?",
           "도서관이 어디에 있어?",
-          "도서관에 뭐가 있어?"
+          "도서관에 뭐가 있어?",
+          "도서관이 몇 시까지 열어?"
         ],
         "type": "choice"
       },
@@ -2379,7 +2397,8 @@
         "options": [
           "직진해서 오른쪽으로 돌아.",
           "직진해서 왼쪽으로 돌아.",
-          "뒤로 가서 왼쪽으로 돌아."
+          "뒤로 가서 왼쪽으로 돌아.",
+          "옆으로 가서 왼쪽으로 돌아."
         ],
         "type": "choice"
       },
@@ -2413,7 +2432,8 @@
         "options": [
           "두 블록 직진해서 오른쪽으로 돌아. 은행 옆에 있어.",
           "두 블록 직진해서 왼쪽으로 돌아. 병원 옆에 있어.",
-          "한 블록 직진해서 왼쪽으로 돌아. 학교 옆에 있어."
+          "한 블록 직진해서 왼쪽으로 돌아. 학교 옆에 있어.",
+          "한 블록 직진해서 왼쪽으로 돌아. 병원 옆에 있어."
         ],
         "type": "choice"
       },
