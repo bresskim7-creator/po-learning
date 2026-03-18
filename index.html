@@ -538,7 +538,7 @@ const APP = {
 function getSettings() {
   return JSON.parse(localStorage.getItem('po_v4_settings') || 'null') || {
     serverUrl: '', pin: '', voiceKo: 'ko-KR-Chirp3-HD-Zephyr',
-    voiceEn: 'en-US-Chirp3-HD-Zephyr', cardCount: 20,
+    voiceEn: 'en-US-Chirp3-HD-Zephyr', cardCount: (APP.config && APP.config.modeA && APP.config.modeA.cardCount) ? APP.config.modeA.cardCount.default : 30,
     modeOverride: '', sheetsUrl: ''
   };
 }
@@ -720,7 +720,7 @@ function saveSettings() {
     pin: document.getElementById('set-pin').value,
     voiceKo: document.getElementById('set-voice-ko').value,
     voiceEn: document.getElementById('set-voice-en').value,
-    cardCount: parseInt(document.getElementById('set-card-count').value) || 20,
+    cardCount: parseInt(document.getElementById('set-card-count').value) || 30,
     modeOverride: document.getElementById('set-mode-override').value,
     sheetsUrl: document.getElementById('set-sheets-url').value.trim(),
   };
@@ -932,7 +932,7 @@ function updateCardState(cardId, correct) {
 // ----- 기존 방식 (레거시 셔플) -----
 function buildSessionLegacy() {
   var s = getSettings();
-  var totalCards = s.cardCount || 20;
+  var totalCards = s.cardCount || 30;
   var stLesson = selectSpeechTherapyLesson();
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
   var contentSlots = totalCards - stCards.length;
@@ -966,7 +966,7 @@ function buildSessionLegacy() {
 // ----- 앵커 기반 방식 (섀도/실전) -----
 function buildSessionAnchored() {
   var s = getSettings();
-  var totalCards = s.cardCount || 20;
+  var totalCards = s.cardCount || 30;
   var stLesson = selectSpeechTherapyLesson();
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
   var contentSlots = totalCards - stCards.length;

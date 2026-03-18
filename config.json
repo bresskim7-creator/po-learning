@@ -13,8 +13,8 @@
     "todayOverride": null
   },
   "modeA": {
-    "cardCount": { "min": 15, "max": 30, "default": 20 },
-    "timeLimit": { "soft": 18, "hard": 22, "unit": "minutes" },
+    "cardCount": { "min": 15, "max": 40, "default": 30 },
+    "timeLimit": { "soft": 18, "hard": 25, "unit": "minutes", "target": 20 },
     "subjectMix": {
       "english": { "ratio": 0.4, "enabled": true },
       "comprehension": { "ratio": 0.3, "enabled": true },
