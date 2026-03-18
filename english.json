@@ -1,0 +1,3351 @@
+{
+  "version": "v4.1",
+  "textbook": "천재교육 초6 영어",
+  "unit": "unit1",
+  "title": "Hello, I'm Mina",
+  "cards": [
+    {
+      "id": "eng_vocab_001",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "hello",
+        "displayWord": "hello"
+      },
+      "answer": {
+        "correct": "안녕",
+        "options": [
+          "안녕",
+          "이름",
+          "학교",
+          "친구"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "인사할 때 쓰는 말이야"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_002",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "name",
+        "displayWord": "name"
+      },
+      "answer": {
+        "correct": "이름",
+        "options": [
+          "이름",
+          "학교",
+          "운동",
+          "아침"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "사람마다 하나씩 있는 거야"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_003",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "friend",
+        "displayWord": "friend"
+      },
+      "answer": {
+        "correct": "친구",
+        "options": [
+          "친구",
+          "선생님",
+          "학생",
+          "이름"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "같이 노는 사이야"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_004",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "nice",
+        "displayWord": "nice"
+      },
+      "answer": {
+        "correct": "좋은, 멋진",
+        "options": [
+          "좋은, 멋진",
+          "나쁜",
+          "큰",
+          "작은"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'만나서 반가워'에 들어가는 말이야"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_005",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "meet",
+        "displayWord": "meet"
+      },
+      "answer": {
+        "correct": "만나다",
+        "options": [
+          "만나다",
+          "먹다",
+          "놀다",
+          "자다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "사람을 처음 볼 때 하는 거야"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_006",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "school",
+        "displayWord": "school"
+      },
+      "answer": {
+        "correct": "학교",
+        "options": [
+          "학교",
+          "집",
+          "공원",
+          "병원"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "매일 아침 가는 곳이야"
+      },
+      "tags": [
+        "unit1"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "general",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_007",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "student",
+        "displayWord": "student"
+      },
+      "answer": {
+        "correct": "학생",
+        "options": [
+          "학생",
+          "선생님",
+          "의사",
+          "요리사"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "학교에서 공부하는 사람이야"
+      },
+      "tags": [
+        "unit1"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "general",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_008",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "teacher",
+        "displayWord": "teacher"
+      },
+      "answer": {
+        "correct": "선생님",
+        "options": [
+          "선생님",
+          "학생",
+          "친구",
+          "엄마"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "학교에서 가르치는 사람이야"
+      },
+      "tags": [
+        "unit1"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "general",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_009",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "like",
+        "displayWord": "like"
+      },
+      "answer": {
+        "correct": "좋아하다",
+        "options": [
+          "좋아하다",
+          "싫어하다",
+          "만들다",
+          "가다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "좋아하다! I ___ baseball"
+      },
+      "tags": [
+        "unit1",
+        "hobby"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "hobby",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17",
+      "reviewNote": "힌트 변경 (play와 중복 방지)"
+    },
+    {
+      "id": "eng_vocab_010",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "play",
+        "displayWord": "play"
+      },
+      "answer": {
+        "correct": "놀다, (운동을) 하다",
+        "options": [
+          "놀다, (운동을) 하다",
+          "먹다",
+          "자다",
+          "읽다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "운동을 하다! Let's ___ baseball"
+      },
+      "tags": [
+        "unit1",
+        "hobby"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "hobby",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17",
+      "reviewNote": "힌트 변경 (like와 중복 방지)"
+    },
+    {
+      "id": "eng_vocab_011",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "favorite",
+        "displayWord": "favorite"
+      },
+      "answer": {
+        "correct": "가장 좋아하는",
+        "options": [
+          "가장 좋아하는",
+          "가장 싫어하는",
+          "보통의",
+          "새로운"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "제일 좋아하는 거!"
+      },
+      "tags": [
+        "unit1",
+        "hobby"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "hobby",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_012",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "sport",
+        "displayWord": "sport"
+      },
+      "answer": {
+        "correct": "운동",
+        "options": [
+          "운동",
+          "음악",
+          "미술",
+          "수학"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "야구, 축구, 농구 같은 거야"
+      },
+      "tags": [
+        "unit1",
+        "hobby"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "hobby",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_013",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "happy",
+        "displayWord": "happy"
+      },
+      "answer": {
+        "correct": "행복한",
+        "options": [
+          "행복한",
+          "슬픈",
+          "화난",
+          "배고픈"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "기분이 좋을 때야"
+      },
+      "tags": [
+        "unit1",
+        "emotion"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "emotion",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_014",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "good",
+        "displayWord": "good"
+      },
+      "answer": {
+        "correct": "좋은, 잘하는",
+        "options": [
+          "좋은, 잘하는",
+          "나쁜",
+          "큰",
+          "작은"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "___ morning! 아침 인사야"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_vocab_015",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "morning",
+        "displayWord": "morning"
+      },
+      "answer": {
+        "correct": "아침",
+        "options": [
+          "아침",
+          "점심",
+          "저녁",
+          "밤"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "Good ___! 이라고 인사해"
+      },
+      "tags": [
+        "unit1",
+        "greeting"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_sent_001",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Hello, I'm Mina. Nice to meet you.",
+        "displayWord": "Hello, I'm Mina. Nice to meet you."
+      },
+      "answer": {
+        "correct": "안녕, 나는 미나야. 만나서 반가워.",
+        "options": [
+          "안녕, 나는 미나야. 만나서 반가워.",
+          "안녕, 나는 학생이야. 학교에 가.",
+          "좋은 아침! 오늘 기분이 좋아."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "처음 만났을 때 하는 인사야"
+      },
+      "tags": [
+        "unit1",
+        "greeting",
+        "key_sentence"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_sent_002",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "What's your name?",
+        "displayWord": "What's your name?"
+      },
+      "answer": {
+        "correct": "네 이름은 뭐야?",
+        "options": [
+          "네 이름은 뭐야?",
+          "너는 어디 살아?",
+          "너는 몇 살이야?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "name이 들어가 있어"
+      },
+      "tags": [
+        "unit1",
+        "greeting",
+        "key_sentence"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_sent_003",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "My name is Mina.",
+        "displayWord": "My name is Mina."
+      },
+      "answer": {
+        "correct": "내 이름은 미나야.",
+        "options": [
+          "내 이름은 미나야.",
+          "내 친구는 미나야.",
+          "나는 미나를 좋아해."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "이름을 소개하는 문장이야"
+      },
+      "tags": [
+        "unit1",
+        "greeting",
+        "key_sentence"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_sent_004",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "I like baseball.",
+        "displayWord": "I like baseball."
+      },
+      "answer": {
+        "correct": "나는 야구를 좋아해.",
+        "options": [
+          "나는 야구를 좋아해.",
+          "나는 야구를 해.",
+          "나는 야구 선수야."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "like = 좋아하다"
+      },
+      "tags": [
+        "unit1",
+        "hobby",
+        "key_sentence"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "hobby",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_sent_005",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "What sport do you like?",
+        "displayWord": "What sport do you like?"
+      },
+      "answer": {
+        "correct": "어떤 운동을 좋아하니?",
+        "options": [
+          "어떤 운동을 좋아하니?",
+          "운동을 잘하니?",
+          "좋아하는 음식이 뭐야?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "sport = 운동, like = 좋아하다"
+      },
+      "tags": [
+        "unit1",
+        "hobby",
+        "key_sentence"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "hobby",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_sent_006",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Nice to meet you, too.",
+        "displayWord": "Nice to meet you, too."
+      },
+      "answer": {
+        "correct": "나도 만나서 반가워.",
+        "options": [
+          "나도 만나서 반가워.",
+          "다음에 또 만나자.",
+          "만나서 반가워."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'too'는 '나도'라는 뜻이야. 상대가 먼저 반갑다고 했을 때 대답!"
+      },
+      "tags": [
+        "unit1",
+        "greeting",
+        "key_sentence"
+      ],
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "1단원",
+      "topic": "greeting",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17",
+      "reviewNote": "힌트 강화 (선택지 유사도 높음)"
+    },
+    {
+      "id": "eng_u2_vocab_001",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "spring",
+        "displayWord": "spring"
+      },
+      "answer": {
+        "correct": "봄",
+        "options": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "꽃이 피는 계절이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_002",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "summer",
+        "displayWord": "summer"
+      },
+      "answer": {
+        "correct": "여름",
+        "options": [
+          "여름",
+          "봄",
+          "가을",
+          "겨울"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "수영하기 좋은 계절이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_003",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "fall",
+        "displayWord": "fall"
+      },
+      "answer": {
+        "correct": "가을",
+        "options": [
+          "가을",
+          "봄",
+          "여름",
+          "겨울"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "나뭇잎이 떨어지는 계절이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_004",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "winter",
+        "displayWord": "winter"
+      },
+      "answer": {
+        "correct": "겨울",
+        "options": [
+          "겨울",
+          "봄",
+          "여름",
+          "가을"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "눈이 오는 계절이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_005",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "warm",
+        "displayWord": "warm"
+      },
+      "answer": {
+        "correct": "따뜻한",
+        "options": [
+          "따뜻한",
+          "차가운",
+          "뜨거운",
+          "시원한"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "봄 날씨처럼 포근한 느낌이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "adjective"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_006",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "cool",
+        "displayWord": "cool"
+      },
+      "answer": {
+        "correct": "시원한, 선선한",
+        "options": [
+          "시원한, 선선한",
+          "뜨거운",
+          "차가운",
+          "따뜻한"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "가을 바람처럼 상쾌한 느낌이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "adjective"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_007",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "cold",
+        "displayWord": "cold"
+      },
+      "answer": {
+        "correct": "추운, 차가운",
+        "options": [
+          "추운, 차가운",
+          "따뜻한",
+          "뜨거운",
+          "시원한"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "겨울에 밖에 나가면 이런 느낌이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "adjective"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_008",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "swim",
+        "displayWord": "swim"
+      },
+      "answer": {
+        "correct": "수영하다",
+        "options": [
+          "수영하다",
+          "달리다",
+          "걷다",
+          "뛰다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "물에서 하는 운동이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "activity"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_009",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "snowman",
+        "displayWord": "snowman"
+      },
+      "answer": {
+        "correct": "눈사람",
+        "options": [
+          "눈사람",
+          "눈송이",
+          "눈싸움",
+          "겨울왕국"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "눈(snow)으로 만드는 사람(man) 모양이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_010",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "beautiful",
+        "displayWord": "beautiful"
+      },
+      "answer": {
+        "correct": "아름다운",
+        "options": [
+          "아름다운",
+          "못생긴",
+          "무서운",
+          "재미있는"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "꽃이나 풍경을 보고 감탄할 때 쓰는 말이야"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "adjective"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_vocab_011",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "colorful",
+        "displayWord": "colorful"
+      },
+      "answer": {
+        "correct": "알록달록한, 다채로운",
+        "options": [
+          "알록달록한, 다채로운",
+          "하얀",
+          "까만",
+          "투명한"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "color(색) + ful(가득한) = 색이 가득한!"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "adjective"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_sent_001",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "What season do you like?",
+        "displayWord": "What season do you like?"
+      },
+      "answer": {
+        "correct": "어떤 계절을 좋아하니?",
+        "options": [
+          "어떤 계절을 좋아하니?",
+          "오늘 날씨가 어때?",
+          "좋아하는 운동이 뭐야?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "season = 계절, like = 좋아하다"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_sent_002",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "I like summer. I can swim.",
+        "displayWord": "I like summer. I can swim."
+      },
+      "answer": {
+        "correct": "나는 여름을 좋아해. 수영할 수 있거든.",
+        "options": [
+          "나는 여름을 좋아해. 수영할 수 있거든.",
+          "나는 겨울을 좋아해. 스키를 탈 수 있거든.",
+          "나는 봄을 좋아해. 꽃을 볼 수 있거든."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "summer = 여름, swim = 수영하다"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_sent_003",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "I like spring. It's warm and bright.",
+        "displayWord": "I like spring. It's warm and bright."
+      },
+      "answer": {
+        "correct": "나는 봄을 좋아해. 따뜻하고 밝거든.",
+        "options": [
+          "나는 봄을 좋아해. 따뜻하고 밝거든.",
+          "나는 가을을 좋아해. 시원하고 좋거든.",
+          "나는 봄을 좋아해. 시원하고 좋거든."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "spring = 봄, warm = 따뜻한"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_sent_004",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "빈칸에 알맞은 말은?",
+        "ttsText": "What season do you like? I like winter. I can make a ___.",
+        "displayWord": "I like winter. I can make a ___."
+      },
+      "answer": {
+        "correct": "snowman",
+        "options": [
+          "snowman",
+          "sandcastle",
+          "flower",
+          "rainbow"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "겨울에 눈으로 만드는 거야"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u2_sent_005",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "seasons",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "I like fall. The trees are colorful and beautiful.",
+        "displayWord": "I like fall. The trees are colorful and beautiful."
+      },
+      "answer": {
+        "correct": "나는 가을을 좋아해. 나무들이 알록달록하고 아름다워.",
+        "options": [
+          "나는 가을을 좋아해. 나무들이 알록달록하고 아름다워.",
+          "나는 봄을 좋아해. 꽃들이 예쁘고 향기로워.",
+          "나는 가을을 좋아해. 날씨가 춥고 바람이 불어."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "fall = 가을, colorful = 알록달록한"
+      },
+      "tags": [
+        "unit2",
+        "seasons",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_001",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "January",
+        "displayWord": "January"
+      },
+      "answer": {
+        "correct": "1월",
+        "options": [
+          "1월",
+          "2월",
+          "3월",
+          "12월"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "한 해의 첫 번째 달이야"
+      },
+      "tags": [
+        "unit3",
+        "months"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_002",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "March",
+        "displayWord": "March"
+      },
+      "answer": {
+        "correct": "3월",
+        "options": [
+          "3월",
+          "5월",
+          "8월",
+          "11월"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "새 학기가 시작되는 달이야"
+      },
+      "tags": [
+        "unit3",
+        "months"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_003",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "April",
+        "displayWord": "April"
+      },
+      "answer": {
+        "correct": "4월",
+        "options": [
+          "4월",
+          "6월",
+          "9월",
+          "1월"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "봄이 한창인 달이야"
+      },
+      "tags": [
+        "unit3",
+        "months"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_004",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "birthday",
+        "displayWord": "birthday"
+      },
+      "answer": {
+        "correct": "생일",
+        "options": [
+          "생일",
+          "방학",
+          "졸업식",
+          "입학식"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "케이크에 초를 꽂는 날이야"
+      },
+      "tags": [
+        "unit3",
+        "dates"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_005",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "December",
+        "displayWord": "December"
+      },
+      "answer": {
+        "correct": "12월",
+        "options": [
+          "12월",
+          "1월",
+          "6월",
+          "10월"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "한 해의 마지막 달, 크리스마스가 있어"
+      },
+      "tags": [
+        "unit3",
+        "months"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_006",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "October",
+        "displayWord": "October"
+      },
+      "answer": {
+        "correct": "10월",
+        "options": [
+          "10월",
+          "8월",
+          "3월",
+          "5월"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "할로윈이 있는 달이야"
+      },
+      "tags": [
+        "unit3",
+        "months"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_007",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "'first'는 무슨 뜻일까?",
+        "ttsText": "first",
+        "displayWord": "first"
+      },
+      "answer": {
+        "correct": "첫 번째",
+        "options": [
+          "첫 번째",
+          "두 번째",
+          "세 번째",
+          "마지막"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "1등! 가장 앞이야"
+      },
+      "tags": [
+        "unit3",
+        "ordinal"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_vocab_008",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "'second'는 무슨 뜻일까?",
+        "ttsText": "second",
+        "displayWord": "second"
+      },
+      "answer": {
+        "correct": "두 번째",
+        "options": [
+          "두 번째",
+          "첫 번째",
+          "세 번째",
+          "네 번째"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "1등 다음이야"
+      },
+      "tags": [
+        "unit3",
+        "ordinal"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_sent_001",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "When is your birthday?",
+        "displayWord": "When is your birthday?"
+      },
+      "answer": {
+        "correct": "네 생일은 언제야?",
+        "options": [
+          "네 생일은 언제야?",
+          "네 이름은 뭐야?",
+          "오늘 무슨 요일이야?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "when = 언제, birthday = 생일"
+      },
+      "tags": [
+        "unit3",
+        "dates",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_sent_002",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "It's on April twenty-first.",
+        "displayWord": "It's on April 21st."
+      },
+      "answer": {
+        "correct": "4월 21일이야.",
+        "options": [
+          "4월 21일이야.",
+          "4월 12일이야.",
+          "5월 21일이야."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "April = 4월, twenty-first = 21일"
+      },
+      "tags": [
+        "unit3",
+        "dates",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u3_sent_003",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "빈칸에 알맞은 말은? 'When is Earth Day? It's on ___ 22nd.'",
+        "ttsText": "When is Earth Day? It's on April 22nd.",
+        "displayWord": "It's on ___ 22nd."
+      },
+      "answer": {
+        "correct": "April",
+        "options": [
+          "April",
+          "March",
+          "May",
+          "June"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "Earth Day = 지구의 날 = 4월! 영어로 4월은?"
+      },
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17",
+      "tags": [
+        "unit3",
+        "dates",
+        "environment"
+      ]
+    },
+    {
+      "id": "eng_u3_sent_004",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "dates",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Let's save the Earth. We can save water.",
+        "displayWord": "Let's save the Earth. We can save water."
+      },
+      "answer": {
+        "correct": "지구를 지키자. 물을 아낄 수 있어.",
+        "options": [
+          "지구를 지키자. 물을 아낄 수 있어.",
+          "지구에 가자. 물을 마실 수 있어.",
+          "지구를 지키자. 나무를 심을 수 있어."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "save = 지키다/아끼다, water = 물"
+      },
+      "tags": [
+        "unit3",
+        "dates",
+        "environment"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_vocab_001",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "sad",
+        "displayWord": "sad"
+      },
+      "answer": {
+        "correct": "슬픈",
+        "options": [
+          "슬픈",
+          "행복한",
+          "화난",
+          "졸린"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "울고 싶을 때 느끼는 감정이야"
+      },
+      "tags": [
+        "unit4",
+        "feelings"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_vocab_002",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "worried",
+        "displayWord": "worried"
+      },
+      "answer": {
+        "correct": "걱정되는",
+        "options": [
+          "걱정되는",
+          "행복한",
+          "슬픈",
+          "신나는"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "시험 전에 느끼는 마음이야"
+      },
+      "tags": [
+        "unit4",
+        "feelings"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_vocab_003",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "tired",
+        "displayWord": "tired"
+      },
+      "answer": {
+        "correct": "피곤한",
+        "options": [
+          "피곤한",
+          "배고픈",
+          "목마른",
+          "졸린"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "많이 뛰고 나면 이런 느낌이야"
+      },
+      "tags": [
+        "unit4",
+        "feelings"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_vocab_004",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "because",
+        "displayWord": "because"
+      },
+      "answer": {
+        "correct": "왜냐하면, ~때문에",
+        "options": [
+          "왜냐하면, ~때문에",
+          "그래서",
+          "하지만",
+          "그리고"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "이유를 말할 때 쓰는 말이야"
+      },
+      "tags": [
+        "unit4",
+        "feelings"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_vocab_005",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "'broke'는 무슨 뜻일까?",
+        "ttsText": "broke",
+        "displayWord": "broke"
+      },
+      "answer": {
+        "correct": "고장냈다, 부러뜨렸다",
+        "options": [
+          "고장냈다, 부러뜨렸다",
+          "만들었다",
+          "고쳤다",
+          "찾았다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장난감이 깨졌을 때! break의 과거형이야"
+      },
+      "tags": [
+        "unit4",
+        "feelings",
+        "past_tense"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_vocab_006",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "'sick'은 무슨 뜻일까?",
+        "ttsText": "sick",
+        "displayWord": "sick"
+      },
+      "answer": {
+        "correct": "아픈",
+        "options": [
+          "아픈",
+          "건강한",
+          "강한",
+          "약한"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "감기 걸렸을 때 이런 느낌이야"
+      },
+      "tags": [
+        "unit4",
+        "feelings"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_sent_001",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Why are you happy?",
+        "displayWord": "Why are you happy?"
+      },
+      "answer": {
+        "correct": "왜 행복하니?",
+        "options": [
+          "왜 행복하니?",
+          "너 행복하니?",
+          "언제 행복하니?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "why = 왜"
+      },
+      "tags": [
+        "unit4",
+        "feelings",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_sent_002",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Because I got a black belt.",
+        "displayWord": "Because I got a black belt."
+      },
+      "answer": {
+        "correct": "왜냐하면 검은 띠를 받았거든.",
+        "options": [
+          "왜냐하면 검은 띠를 받았거든.",
+          "왜냐하면 검은 옷을 샀거든.",
+          "왜냐하면 검은 가방을 받았거든."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "black belt = 검은 띠 (태권도!)"
+      },
+      "tags": [
+        "unit4",
+        "feelings",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_sent_003",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Why are you sad? Because my dog is sick.",
+        "displayWord": "Why are you sad? Because my dog is sick."
+      },
+      "answer": {
+        "correct": "왜 슬프니? 왜냐하면 내 강아지가 아프거든.",
+        "options": [
+          "왜 슬프니? 왜냐하면 내 강아지가 아프거든.",
+          "왜 슬프니? 왜냐하면 내 강아지가 없거든.",
+          "왜 화나니? 왜냐하면 내 강아지가 아프거든."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "sad = 슬픈, sick = 아픈"
+      },
+      "tags": [
+        "unit4",
+        "feelings",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_sent_004",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Don't worry. I'll help you.",
+        "displayWord": "Don't worry. I'll help you."
+      },
+      "answer": {
+        "correct": "걱정 마. 내가 도와줄게.",
+        "options": [
+          "걱정 마. 내가 도와줄게.",
+          "걱정 마. 곧 끝날 거야.",
+          "미안해. 도와줄 수 없어."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "worry = 걱정하다, help = 도와주다"
+      },
+      "tags": [
+        "unit4",
+        "feelings",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u4_sent_005",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "feelings",
+      "question": {
+        "text": "빈칸에 알맞은 말은? 'Why are you worried? ___ I have a math test.'",
+        "ttsText": "Why are you worried? Because I have a math test.",
+        "displayWord": "___ I have a math test."
+      },
+      "answer": {
+        "correct": "Because",
+        "options": [
+          "Because",
+          "But",
+          "And",
+          "So"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "Why(왜?)라고 물었으니까 '왜냐하면'으로 대답해! 영어로는 B로 시작해"
+      },
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17",
+      "tags": [
+        "unit4",
+        "feelings",
+        "key_sentence"
+      ]
+    },
+    {
+      "id": "eng_u5_vocab_001",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "library",
+        "displayWord": "library"
+      },
+      "answer": {
+        "correct": "도서관",
+        "options": [
+          "도서관",
+          "학교",
+          "병원",
+          "은행"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "책을 빌리러 가는 곳이야"
+      },
+      "tags": [
+        "unit5",
+        "places"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_002",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "hospital",
+        "displayWord": "hospital"
+      },
+      "answer": {
+        "correct": "병원",
+        "options": [
+          "병원",
+          "학교",
+          "도서관",
+          "식당"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "아플 때 가는 곳이야"
+      },
+      "tags": [
+        "unit5",
+        "places"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_003",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "restaurant",
+        "displayWord": "restaurant"
+      },
+      "answer": {
+        "correct": "식당",
+        "options": [
+          "식당",
+          "도서관",
+          "은행",
+          "공원"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "밥 먹으러 가는 곳이야"
+      },
+      "tags": [
+        "unit5",
+        "places"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_004",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 단어의 뜻은?",
+        "ttsText": "bank",
+        "displayWord": "bank"
+      },
+      "answer": {
+        "correct": "은행",
+        "options": [
+          "은행",
+          "학교",
+          "병원",
+          "우체국"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "돈을 맡기는 곳이야"
+      },
+      "tags": [
+        "unit5",
+        "places"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_005",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "'go straight'는 무슨 뜻일까?",
+        "ttsText": "go straight",
+        "displayWord": "go straight"
+      },
+      "answer": {
+        "correct": "직진하다",
+        "options": [
+          "직진하다",
+          "돌아가다",
+          "멈추다",
+          "뛰다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "앞으로 쭉! 가는 거야"
+      },
+      "tags": [
+        "unit5",
+        "directions"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_006",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "'turn left'는 무슨 뜻일까?",
+        "ttsText": "turn left",
+        "displayWord": "turn left"
+      },
+      "answer": {
+        "correct": "왼쪽으로 돌다",
+        "options": [
+          "왼쪽으로 돌다",
+          "오른쪽으로 돌다",
+          "직진하다",
+          "뒤로 가다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "left = 왼쪽!"
+      },
+      "tags": [
+        "unit5",
+        "directions"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_007",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "'turn right'는 무슨 뜻일까?",
+        "ttsText": "turn right",
+        "displayWord": "turn right"
+      },
+      "answer": {
+        "correct": "오른쪽으로 돌다",
+        "options": [
+          "오른쪽으로 돌다",
+          "왼쪽으로 돌다",
+          "직진하다",
+          "멈추다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "right = 오른쪽!"
+      },
+      "tags": [
+        "unit5",
+        "directions"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_vocab_008",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "'next to'는 무슨 뜻일까?",
+        "ttsText": "next to",
+        "displayWord": "next to"
+      },
+      "answer": {
+        "correct": "~ 옆에",
+        "options": [
+          "~ 옆에",
+          "~ 위에",
+          "~ 아래에",
+          "~ 뒤에"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "바로 옆! 나란히 있는 거야"
+      },
+      "tags": [
+        "unit5",
+        "directions"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_sent_001",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Where is the library?",
+        "displayWord": "Where is the library?"
+      },
+      "answer": {
+        "correct": "도서관이 어디에 있어?",
+        "options": [
+          "도서관이 어디에 있어?",
+          "도서관에 뭐가 있어?",
+          "도서관이 언제 열어?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "where = 어디"
+      },
+      "tags": [
+        "unit5",
+        "directions",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_sent_002",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Go straight and turn left.",
+        "displayWord": "Go straight and turn left."
+      },
+      "answer": {
+        "correct": "직진해서 왼쪽으로 돌아.",
+        "options": [
+          "직진해서 왼쪽으로 돌아.",
+          "직진해서 오른쪽으로 돌아.",
+          "뒤로 가서 왼쪽으로 돌아."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "straight = 직진, left = 왼쪽"
+      },
+      "tags": [
+        "unit5",
+        "directions",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_sent_003",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "이 문장의 뜻은?",
+        "ttsText": "Go straight two blocks and turn right. It's next to the bank.",
+        "displayWord": "Go straight two blocks and turn right. It's next to the bank."
+      },
+      "answer": {
+        "correct": "두 블록 직진해서 오른쪽으로 돌아. 은행 옆에 있어.",
+        "options": [
+          "두 블록 직진해서 오른쪽으로 돌아. 은행 옆에 있어.",
+          "한 블록 직진해서 왼쪽으로 돌아. 학교 옆에 있어.",
+          "두 블록 직진해서 왼쪽으로 돌아. 병원 옆에 있어."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "two blocks = 두 블록, next to = ~ 옆에"
+      },
+      "tags": [
+        "unit5",
+        "directions",
+        "key_sentence"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "eng_u5_sent_004",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "directions",
+      "question": {
+        "text": "빈칸에 알맞은 말은? 'Where is the hospital? Go straight and ___.'",
+        "ttsText": "Where is the hospital? Go straight and turn right.",
+        "displayWord": "Go straight and ___."
+      },
+      "answer": {
+        "correct": "turn right",
+        "options": [
+          "turn right",
+          "go back",
+          "stop here",
+          "sit down"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "직진하고 나서 방향을 '돌아'! turn = 돌다, right = 오른쪽"
+      },
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17",
+      "tags": [
+        "unit5",
+        "directions",
+        "key_sentence"
+      ]
+    },
+    {
+      "cardId": "crd_2026W12_eng_d4e5f6",
+      "sourceRef": "school-english/L01/vocab/002",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 뜻을 가진 영어 단어는?",
+        "ttsText": "두 번째",
+        "displayWord": "두 번째"
+      },
+      "answer": {
+        "correct": "second",
+        "options": [
+          "second",
+          "first",
+          "fifth",
+          "sixth"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "1 다음에 오는 순서야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "ordinal-numbers"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "두 번째",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_g7h8i9",
+      "sourceRef": "school-english/L01/vocab/003",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 단어의 뜻은 무엇인가요?",
+        "ttsText": "third",
+        "displayWord": "third"
+      },
+      "answer": {
+        "correct": "세 번째",
+        "options": [
+          "세 번째",
+          "네 번째",
+          "첫 번째",
+          "다섯 번째"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "동메달을 받는 순서야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "ordinal-numbers"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "third",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_j1k2l3",
+      "sourceRef": "school-english/L01/vocab/004",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 뜻을 가진 영어 단어는?",
+        "ttsText": "네 번째",
+        "displayWord": "네 번째"
+      },
+      "answer": {
+        "correct": "fourth",
+        "options": [
+          "fourth",
+          "third",
+          "sixth",
+          "second"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "four에 th가 붙은 순서 표현이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "ordinal-numbers"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "네 번째",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_m4n5o6",
+      "sourceRef": "school-english/L01/vocab/005",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 단어의 뜻은 무엇인가요?",
+        "ttsText": "fifth",
+        "displayWord": "fifth"
+      },
+      "answer": {
+        "correct": "다섯 번째",
+        "options": [
+          "다섯 번째",
+          "여섯 번째",
+          "네 번째",
+          "세 번째"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "five의 순서 표현이야. v가 f로 바뀌어"
+      },
+      "skillTags": [
+        "vocabulary",
+        "ordinal-numbers"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "fifth",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_p7q8r9",
+      "sourceRef": "school-english/L01/vocab/006",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 뜻을 가진 영어 단어는?",
+        "ttsText": "여섯 번째",
+        "displayWord": "여섯 번째"
+      },
+      "answer": {
+        "correct": "sixth",
+        "options": [
+          "sixth",
+          "fifth",
+          "first",
+          "fourth"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "초등학교에서 가장 높은 학년이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "ordinal-numbers"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "여섯 번째",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_s1t2u3",
+      "sourceRef": "school-english/L01/vocab/007",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 단어의 뜻은 무엇인가요?",
+        "ttsText": "grade",
+        "displayWord": "grade"
+      },
+      "answer": {
+        "correct": "학년",
+        "options": [
+          "학년",
+          "학교",
+          "반",
+          "교실"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "What ___ are you in? 이라고 물어봐"
+      },
+      "skillTags": [
+        "vocabulary",
+        "school"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "grade",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_v4w5x6",
+      "sourceRef": "school-english/L01/vocab/008",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 표현의 뜻은 무엇인가요?",
+        "ttsText": "read books",
+        "displayWord": "read books"
+      },
+      "answer": {
+        "correct": "책을 읽다",
+        "options": [
+          "책을 읽다",
+          "그림을 그리다",
+          "음악을 듣다",
+          "축구를 하다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "도서관에서 주로 하는 활동이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "read books",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_y7z8a1",
+      "sourceRef": "school-english/L01/vocab/009",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 표현의 뜻은 무엇인가요?",
+        "ttsText": "play the guitar",
+        "displayWord": "play the guitar"
+      },
+      "answer": {
+        "correct": "기타를 치다",
+        "options": [
+          "기타를 치다",
+          "축구를 하다",
+          "자전거를 타다",
+          "춤추다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "Diego가 매일 하는 활동이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "play the guitar",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_b2c3d4",
+      "sourceRef": "school-english/L01/vocab/010",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 뜻을 가진 영어 표현은?",
+        "ttsText": "음악을 듣다",
+        "displayWord": "음악을 듣다"
+      },
+      "answer": {
+        "correct": "listen to music",
+        "options": [
+          "listen to music",
+          "read books",
+          "draw pictures",
+          "play the guitar"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "이어폰을 끼고 하는 활동이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "음악을 듣다",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_e5f6g7",
+      "sourceRef": "school-english/L01/vocab/011",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 뜻을 가진 영어 표현은?",
+        "ttsText": "그림을 그리다",
+        "displayWord": "그림을 그리다"
+      },
+      "answer": {
+        "correct": "draw pictures",
+        "options": [
+          "draw pictures",
+          "listen to music",
+          "read books",
+          "ride a bike"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "연필이나 크레파스로 하는 활동이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "그림을 그리다",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_h8i9j1",
+      "sourceRef": "school-english/L01/vocab/012",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 뜻을 가진 영어 표현은?",
+        "ttsText": "자전거를 타다",
+        "displayWord": "자전거를 타다"
+      },
+      "answer": {
+        "correct": "ride a bike",
+        "options": [
+          "ride a bike",
+          "play soccer",
+          "dance",
+          "play the guitar"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "바퀴 두 개 달린 것을 타는 거야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "자전거를 타다",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_k2l3m4",
+      "sourceRef": "school-english/L01/vocab/013",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 뜻을 가진 영어 표현은?",
+        "ttsText": "축구를 하다",
+        "displayWord": "축구를 하다"
+      },
+      "answer": {
+        "correct": "play soccer",
+        "options": [
+          "play soccer",
+          "play the guitar",
+          "ride a bike",
+          "listen to music"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "공을 발로 차는 운동이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "축구를 하다",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_n5o6p7",
+      "sourceRef": "school-english/L01/vocab/014",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "다음 뜻을 가진 영어 단어는?",
+        "ttsText": "춤추다",
+        "displayWord": "춤추다"
+      },
+      "answer": {
+        "correct": "dance",
+        "options": [
+          "dance",
+          "sing",
+          "draw",
+          "read"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "음악에 맞춰 몸을 움직이는 거야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "daily-activities"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "춤추다",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_q8r9s1",
+      "sourceRef": "school-english/L01/sent/001",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "\"몇 학년이에요?\"를 영어로 하면?",
+        "ttsText": "What grade are you in?"
+      },
+      "answer": {
+        "correct": "What grade are you in?",
+        "options": [
+          "What grade are you in?",
+          "How old are you?",
+          "What's your name?",
+          "Where are you from?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "grade라는 단어를 사용해"
+      },
+      "skillTags": [
+        "sentence",
+        "asking-grade"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "What grade are you in?",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_t2u3v4",
+      "sourceRef": "school-english/L01/sent/002",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "\"나는 6학년이에요.\"를 영어로 하면?",
+        "ttsText": "I'm in the sixth grade."
+      },
+      "answer": {
+        "correct": "I'm in the sixth grade.",
+        "options": [
+          "I'm in the sixth grade.",
+          "I'm in the first grade.",
+          "I'm six years old.",
+          "I'm from sixth school."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "I'm in the ___ grade. 형식이야"
+      },
+      "skillTags": [
+        "sentence",
+        "answering-grade"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "I'm in the sixth grade.",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_w5x6y7",
+      "sourceRef": "school-english/L01/sent/003",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "\"이름 철자가 어떻게 되나요?\"를 영어로 하면?",
+        "ttsText": "How do you spell your name?"
+      },
+      "answer": {
+        "correct": "How do you spell your name?",
+        "options": [
+          "How do you spell your name?",
+          "What's your name?",
+          "How are you?",
+          "What grade are you in?"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "spell은 '철자를 말하다'라는 뜻이야"
+      },
+      "skillTags": [
+        "sentence",
+        "asking-spelling"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "How do you spell your name?",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_z8a1b2",
+      "sourceRef": "school-english/L01/sent/004",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "빈칸에 알맞은 말은?\n\"I ___ the guitar every day.\"",
+        "ttsText": "I play the guitar every day."
+      },
+      "answer": {
+        "correct": "play",
+        "options": [
+          "play",
+          "read",
+          "ride",
+          "draw"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "악기를 연주할 때 쓰는 동사야"
+      },
+      "skillTags": [
+        "sentence",
+        "daily-activities",
+        "fill-in"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "I play the guitar every day.",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_c3d4e5",
+      "sourceRef": "school-english/L01/sent/005",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "빈칸에 알맞은 말은?\n\"I'm ___ Mexico City, Mexico.\"",
+        "ttsText": "I'm from Mexico City, Mexico."
+      },
+      "answer": {
+        "correct": "from",
+        "options": [
+          "from",
+          "in",
+          "at",
+          "to"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "출신지를 말할 때 쓰는 전치사야"
+      },
+      "skillTags": [
+        "sentence",
+        "self-introduction",
+        "fill-in"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "I'm from Mexico City, Mexico.",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_f6g7h8",
+      "sourceRef": "school-english/L01/sent/006",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "Diego의 이메일을 읽고 답하세요.\nDiego는 어디에서 왔나요?",
+        "ttsText": "Where is Diego from?",
+        "passage": "Hi! My name is Diego. I'm from Mexico City, Mexico. I'm in the fifth grade. I play the guitar every day. I like music very much. Let's be friends!"
+      },
+      "answer": {
+        "correct": "Mexico City, Mexico",
+        "options": [
+          "Mexico City, Mexico",
+          "Canada",
+          "Korea",
+          "The U.S."
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "Diego의 자기소개 글에서 찾아봐"
+      },
+      "skillTags": [
+        "reading-comprehension",
+        "self-introduction"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "Where is Diego from?",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_i9j1k2",
+      "sourceRef": "school-english/L01/sent/007",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "Diego의 이메일을 읽고 답하세요.\nDiego가 매일 하는 활동은?",
+        "ttsText": "What does Diego do every day?",
+        "passage": "Hi! My name is Diego. I'm from Mexico City, Mexico. I'm in the fifth grade. I play the guitar every day. I like music very much. Let's be friends!"
+      },
+      "answer": {
+        "correct": "기타를 친다",
+        "options": [
+          "기타를 친다",
+          "책을 읽는다",
+          "축구를 한다",
+          "자전거를 탄다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "Diego가 음악 동아리에서 하는 역할을 생각해 봐"
+      },
+      "skillTags": [
+        "reading-comprehension",
+        "self-introduction"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "What does Diego do every day?",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_eng_l3m4n5",
+      "sourceRef": "school-english/L01/sent/008",
+      "runId": "2026-W12",
+      "sourceId": "school-english",
+      "sourceUnit": "L01",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 3,
+      "question": {
+        "text": "자기소개 문장의 올바른 순서는?",
+        "ttsText": "Put the self-introduction in order.",
+        "passage": "① I read books every day.\n② My name is Emma.\n③ I'm in the fifth grade."
+      },
+      "answer": {
+        "correct": "② → ③ → ①",
+        "options": [
+          "② → ③ → ①",
+          "① → ② → ③",
+          "③ → ① → ②",
+          "② → ① → ③"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "자기소개는 이름 → 학년 → 매일 하는 것 순서야"
+      },
+      "skillTags": [
+        "sentence-ordering",
+        "self-introduction"
+      ],
+      "questionType": "choice",
+      "anchorType": "school-english",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "Put the self-introduction in order.",
+      "validationDetails": []
+    }
+  ],
+  "focusWords": [
+    "hello",
+    "name",
+    "friend",
+    "nice",
+    "meet",
+    "like",
+    "favorite",
+    "sport",
+    "spring",
+    "summer",
+    "fall",
+    "winter",
+    "warm",
+    "cool",
+    "cold",
+    "swim",
+    "beautiful",
+    "January",
+    "March",
+    "April",
+    "birthday",
+    "December",
+    "October",
+    "first",
+    "second",
+    "sad",
+    "worried",
+    "tired",
+    "because",
+    "broke",
+    "sick",
+    "library",
+    "hospital",
+    "restaurant",
+    "bank",
+    "straight",
+    "left",
+    "right"
+  ],
+  "note": "천재교육 초6 교과서 Unit 1~5 기반. v4.1 앵커 메타데이터 포함.",
+  "units": [
+    {
+      "unit": "unit1",
+      "title": "Hello, I'm Mina",
+      "topic": "greeting"
+    },
+    {
+      "unit": "unit2",
+      "title": "What Season Do You Like?",
+      "topic": "seasons"
+    },
+    {
+      "unit": "unit3",
+      "title": "When Is Your Birthday?",
+      "topic": "dates"
+    },
+    {
+      "unit": "unit4",
+      "title": "Why Are You Happy?",
+      "topic": "feelings"
+    },
+    {
+      "unit": "unit5",
+      "title": "Where Is ABC Library?",
+      "topic": "directions"
+    }
+  ]
+}

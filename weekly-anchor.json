@@ -1,0 +1,63 @@
+{
+  "$schema": "anchor-map-v1",
+  "$description": "주간 앵커 맵. anchor/YYYY-WNN-anchor-map.json 으로 복사해서 사용.",
+  "week": "2026-W13",
+  "anchors": {
+    "school-english": {
+      "unit": "4단원",
+      "topic": "What Do You Want to Be?",
+      "keywords": [
+        "직업",
+        "꿈"
+      ]
+    },
+    "school-social": {
+      "unit": "세계 여러 나라의 자연환경",
+      "keywords": [
+        "환경",
+        "기후"
+      ]
+    },
+    "reading-class": {
+      "book": "로빈슨 크루소",
+      "chapter": "3장",
+      "keywords": [
+        "탐험",
+        "생존"
+      ]
+    },
+    "speech-therapy": {
+      "lesson": "동시 - 봄바람",
+      "keywords": [
+        "봄"
+      ],
+      "note": "발음 연습 중심"
+    }
+  },
+  "cross_links": [
+    {
+      "theme": "탐험과 직업",
+      "sources": [
+        "school-english",
+        "reading-class"
+      ],
+      "reading_idea": "로빈슨 크루소는 어떤 직업이 필요했을까?"
+    }
+  ],
+  "child_interests": [
+    "야구",
+    "게임"
+  ],
+  "generation_policy": {
+    "shortReadingCount": 5,
+    "questionMix": {
+      "fact": 2,
+      "inference": 2,
+      "opinion": 1
+    },
+    "difficultyMode": "default",
+    "reviewMode": "full"
+  },
+  "confirmed": true,
+  "confirmedAt": "2026-03-18T11:23:50.572658"
+}

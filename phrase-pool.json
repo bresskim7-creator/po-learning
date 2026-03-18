@@ -1,0 +1,62 @@
+{
+  "version": "v4",
+  "note": "v4 4.1 역할1: 승인된 문구 풀. 규칙 기반 선택. LLM 생성 아님.",
+  "greeting": [
+    { "id": "g01", "text": "오늘도 시작해 볼까!", "condition": "session_start" },
+    { "id": "g02", "text": "안녕! 오늘 학습 준비됐어?", "condition": "session_start" },
+    { "id": "g03", "text": "좋아, 오늘도 한번 해보자!", "condition": "session_start" },
+    { "id": "g04", "text": "반가워! 오늘 카드 준비됐어.", "condition": "session_start" },
+    { "id": "g05", "text": "자, 시작해 볼까!", "condition": "session_start" }
+  ],
+  "praise_correct": [
+    { "id": "p01", "text": "맞았어! 잘했어!", "condition": "correct" },
+    { "id": "p02", "text": "정답! 대단해!", "condition": "correct" },
+    { "id": "p03", "text": "와, 맞았다!", "condition": "correct" },
+    { "id": "p04", "text": "좋아, 잘 알고 있네!", "condition": "correct" },
+    { "id": "p05", "text": "딩동댕! 정답!", "condition": "correct" },
+    { "id": "p06", "text": "오, 바로 맞혔어!", "condition": "correct" },
+    { "id": "p07", "text": "잘한다!", "condition": "correct" }
+  ],
+  "praise_streak": [
+    { "id": "ps01", "text": "연속 정답! 멋있어!", "condition": "streak_3" },
+    { "id": "ps02", "text": "와, 계속 맞히고 있어!", "condition": "streak_3" },
+    { "id": "ps03", "text": "대단해! 쭉 맞히고 있네!", "condition": "streak_5" }
+  ],
+  "encouragement": [
+    { "id": "e01", "text": "괜찮아, 다시 해보자.", "condition": "incorrect" },
+    { "id": "e02", "text": "아깝다! 한 번 더!", "condition": "incorrect" },
+    { "id": "e03", "text": "틀려도 괜찮아. 다시 도전!", "condition": "incorrect" },
+    { "id": "e04", "text": "조금 어려웠지? 다시 해보자.", "condition": "incorrect" },
+    { "id": "e05", "text": "힘내! 한 번 더 해볼까?", "condition": "incorrect" },
+    { "id": "e06", "text": "거의 맞았어! 다시 생각해 봐.", "condition": "incorrect_close" }
+  ],
+  "hint_offer": [
+    { "id": "h01", "text": "힌트 줄까?", "condition": "consecutive_fail_2" },
+    { "id": "h02", "text": "어려우면 힌트를 볼 수 있어.", "condition": "consecutive_fail_2" },
+    { "id": "h03", "text": "힌트 한번 보자!", "condition": "consecutive_fail_3" }
+  ],
+  "transition": [
+    { "id": "t01", "text": "좋아, 이제 영어 시간이야.", "condition": "to_english" },
+    { "id": "t02", "text": "다음은 독해 카드야.", "condition": "to_comprehension" },
+    { "id": "t03", "text": "이제 읽기 연습 시간이야.", "condition": "to_speech_therapy" },
+    { "id": "t04", "text": "잠깐, 소리 내서 읽어보는 시간이야.", "condition": "to_speech_therapy" },
+    { "id": "t05", "text": "자, 다시 영어로 돌아가자.", "condition": "to_english" },
+    { "id": "t06", "text": "이번엔 짧은 글을 읽어볼 거야.", "condition": "to_comprehension" }
+  ],
+  "speech_therapy_micro": [
+    { "id": "st01", "text": "잘 들어봐. 그리고 따라 말해봐.", "condition": "micro_start" },
+    { "id": "st02", "text": "녹음 버튼 누르고 따라 읽어봐.", "condition": "micro_record" },
+    { "id": "st03", "text": "잘했어! 녹음 저장됐어.", "condition": "micro_done" }
+  ],
+  "completion": [
+    { "id": "c01", "text": "오늘 학습 끝! 잘했어!", "condition": "session_end" },
+    { "id": "c02", "text": "다 했어! 오늘도 수고했어!", "condition": "session_end" },
+    { "id": "c03", "text": "완료! 내일 또 만나자!", "condition": "session_end" },
+    { "id": "c04", "text": "오늘도 잘 끝냈어. 대단해!", "condition": "session_end" },
+    { "id": "c05", "text": "끝! 오늘 정말 잘했어!", "condition": "session_end" }
+  ],
+  "return_after_absence": [
+    { "id": "r01", "text": "다시 왔구나! 반가워!", "condition": "missed_days_1" },
+    { "id": "r02", "text": "오랜만이야! 오늘은 쉬운 것부터 하자.", "condition": "missed_days_3" }
+  ]
+}

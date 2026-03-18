@@ -1,0 +1,2163 @@
+{
+  "version": "v4.1",
+  "generated": "2026-03-17",
+  "weekOf": "2026-03-17",
+  "reviewedBy": null,
+  "note": "v4.1 확충판. 기존 14장 + 28장 신규 = 42장. 앵커 메타데이터 포함. 부모 검수 필요.",
+  "cards": [
+    {
+      "id": "comp_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "야구 경기에서 투수는 공을 던지는 선수이다. 타자는 투수가 던진 공을 방망이로 친다. 공이 담장을 넘어가면 홈런이 된다.",
+        "ttsText": "야구 경기에서 투수는 공을 던지는 선수이다. 타자는 투수가 던진 공을 방망이로 친다. 공이 담장을 넘어가면 홈런이 된다.",
+        "topic": "야구_규칙",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "투수는 무엇을 하는 선수인가요?",
+        "ttsText": "투수는 무엇을 하는 선수인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "공을 던지는 선수",
+        "options": [
+          "공을 던지는 선수",
+          "공을 치는 선수",
+          "공을 잡는 선수"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "첫 번째 문장을 다시 읽어봐"
+      },
+      "tags": [
+        "week1",
+        "야구"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "야구_규칙",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "겨울이 되면 날씨가 매우 추워진다. 사람들은 두꺼운 옷을 입고, 집 안에서 난방을 한다. 호수나 강에는 얼음이 얼기도 한다.",
+        "ttsText": "겨울이 되면 날씨가 매우 추워진다. 사람들은 두꺼운 옷을 입고, 집 안에서 난방을 한다. 호수나 강에는 얼음이 얼기도 한다.",
+        "topic": "일상_계절",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "겨울에 사람들은 왜 두꺼운 옷을 입나요?",
+        "ttsText": "겨울에 사람들은 왜 두꺼운 옷을 입나요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "날씨가 추우니까",
+        "options": [
+          "날씨가 추우니까",
+          "예쁘니까",
+          "학교에 가니까"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "첫 번째 문장에서 이유를 찾아봐"
+      },
+      "tags": [
+        "week1",
+        "일상"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "일상_계절",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "컴퓨터 게임에는 여러 종류가 있다. 퍼즐 게임은 머리를 써서 문제를 푸는 게임이다. 액션 게임은 빠르게 움직이며 적을 물리치는 게임이다.",
+        "ttsText": "컴퓨터 게임에는 여러 종류가 있다. 퍼즐 게임은 머리를 써서 문제를 푸는 게임이다. 액션 게임은 빠르게 움직이며 적을 물리치는 게임이다.",
+        "topic": "게임_종류",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "퍼즐 게임은 어떤 게임인가요?",
+        "ttsText": "퍼즐 게임은 어떤 게임인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "머리를 써서 문제를 푸는 게임",
+        "options": [
+          "머리를 써서 문제를 푸는 게임",
+          "빠르게 움직이는 게임",
+          "친구와 함께 하는 게임"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 읽어봐"
+      },
+      "tags": [
+        "week1",
+        "게임"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "게임_종류",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "우리나라 프로야구에는 10개 팀이 있다. 시즌은 보통 3월에 시작해서 10월에 끝난다. 가장 잘한 팀이 한국시리즈에서 우승한다.",
+        "ttsText": "우리나라 프로야구에는 10개 팀이 있다. 시즌은 보통 3월에 시작해서 10월에 끝난다. 가장 잘한 팀이 한국시리즈에서 우승한다.",
+        "topic": "야구_기록",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "프로야구 시즌은 몇 월에 시작하나요?",
+        "ttsText": "프로야구 시즌은 몇 월에 시작하나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "3월",
+        "options": [
+          "3월",
+          "1월",
+          "6월"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week1",
+        "야구"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "야구_기록",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "식물은 뿌리, 줄기, 잎으로 이루어져 있다. 뿌리는 땅속에서 물과 영양분을 빨아들인다. 잎은 햇빛을 받아 양분을 만든다.",
+        "ttsText": "식물은 뿌리, 줄기, 잎으로 이루어져 있다. 뿌리는 땅속에서 물과 영양분을 빨아들인다. 잎은 햇빛을 받아 양분을 만든다.",
+        "topic": "과학_식물",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "뿌리는 어디에서 물을 빨아들이나요?",
+        "ttsText": "뿌리는 어디에서 물을 빨아들이나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "땅속",
+        "options": [
+          "땅속",
+          "하늘",
+          "물속"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 보면 알 수 있어"
+      },
+      "tags": [
+        "week1",
+        "과학"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "과학_식물",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "passage": {
+        "text": "지하철은 많은 사람들이 이용하는 교통수단이다. 지하철은 정해진 시간에 도착하기 때문에 늦지 않을 수 있다. 하지만 출퇴근 시간에는 사람이 너무 많아서 불편할 때도 있다.",
+        "ttsText": "지하철은 많은 사람들이 이용하는 교통수단이다. 지하철은 정해진 시간에 도착하기 때문에 늦지 않을 수 있다. 하지만 출퇴근 시간에는 사람이 너무 많아서 불편할 때도 있다.",
+        "topic": "일상_교통",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "지하철의 좋은 점은 무엇인가요?",
+        "ttsText": "지하철의 좋은 점은 무엇인가요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "정해진 시간에 와서 늦지 않는다",
+        "options": [
+          "정해진 시간에 와서 늦지 않는다",
+          "항상 자리가 있다",
+          "공짜로 탈 수 있다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장에 좋은 점이 나와"
+      },
+      "tags": [
+        "week1",
+        "일상"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "일상_교통",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "야구에서 타자는 스트라이크 세 개를 받으면 삼진 아웃이 된다. 볼 네 개를 받으면 1루로 걸어간다. 이것을 볼넷이라고 한다.",
+        "ttsText": "야구에서 타자는 스트라이크 세 개를 받으면 삼진 아웃이 된다. 볼 네 개를 받으면 1루로 걸어간다. 이것을 볼넷이라고 한다.",
+        "topic": "야구_규칙",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "볼넷이 되려면 볼을 몇 개 받아야 하나요?",
+        "ttsText": "볼넷이 되려면 볼을 몇 개 받아야 하나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "네 개",
+        "options": [
+          "네 개",
+          "세 개",
+          "다섯 개"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 읽어봐"
+      },
+      "tags": [
+        "week1",
+        "야구"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "야구_규칙",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "passage": {
+        "text": "요리사는 음식을 만드는 사람이다. 맛있는 음식을 만들려면 재료를 잘 골라야 한다. 불 조절도 중요한데, 너무 세면 음식이 타고 너무 약하면 잘 익지 않는다.",
+        "ttsText": "요리사는 음식을 만드는 사람이다. 맛있는 음식을 만들려면 재료를 잘 골라야 한다. 불 조절도 중요한데, 너무 세면 음식이 타고 너무 약하면 잘 익지 않는다.",
+        "topic": "일상_요리",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "불이 너무 세면 어떻게 되나요?",
+        "ttsText": "불이 너무 세면 어떻게 되나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "음식이 탄다",
+        "options": [
+          "음식이 탄다",
+          "음식이 맛있어진다",
+          "음식이 안 익는다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "불이 너무 강하면 어떻게 될까? 요리할 때 조심해야 하는 이유야"
+      },
+      "tags": [
+        "week1",
+        "일상"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "일상_요리",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17",
+      "reviewNote": "힌트 사고유도형으로 변경"
+    },
+    {
+      "id": "comp_009",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "passage": {
+        "text": "태양은 지구에서 가장 가까운 별이다. 태양의 빛과 열이 없으면 지구에서 생물이 살 수 없다. 태양까지의 거리는 약 1억 5천만 킬로미터이다.",
+        "ttsText": "태양은 지구에서 가장 가까운 별이다. 태양의 빛과 열이 없으면 지구에서 생물이 살 수 없다. 태양까지의 거리는 약 1억 5천만 킬로미터이다.",
+        "topic": "과학_우주",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "태양이 없으면 어떻게 될까요?",
+        "ttsText": "태양이 없으면 어떻게 될까요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "생물이 살 수 없다",
+        "options": [
+          "생물이 살 수 없다",
+          "낮만 계속된다",
+          "비가 많이 온다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week1",
+        "과학"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "과학_우주",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_010",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "옛날에는 편지를 보내려면 우체국에 가야 했다. 지금은 이메일로 몇 초 만에 메시지를 보낼 수 있다. 기술이 발전하면서 소통하는 방법이 많이 달라졌다.",
+        "ttsText": "옛날에는 편지를 보내려면 우체국에 가야 했다. 지금은 이메일로 몇 초 만에 메시지를 보낼 수 있다. 기술이 발전하면서 소통하는 방법이 많이 달라졌다.",
+        "topic": "일상_기술",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "옛날에 편지를 보내려면 어디에 가야 했나요?",
+        "ttsText": "옛날에 편지를 보내려면 어디에 가야 했나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "우체국",
+        "options": [
+          "우체국",
+          "학교",
+          "은행"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "첫 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week1",
+        "일상"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "일상_기술",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_011",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "passage": {
+        "text": "야구 투수에게 가장 중요한 것은 제구력이다. 제구력이란 원하는 곳에 정확히 공을 던지는 능력이다. 아무리 빠른 공을 던져도 엉뚱한 곳에 가면 소용이 없다.",
+        "ttsText": "야구 투수에게 가장 중요한 것은 제구력이다. 제구력이란 원하는 곳에 정확히 공을 던지는 능력이다. 아무리 빠른 공을 던져도 엉뚱한 곳에 가면 소용이 없다.",
+        "topic": "야구_전략",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "제구력이란 무엇인가요?",
+        "ttsText": "제구력이란 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "원하는 곳에 정확히 공을 던지는 능력",
+        "options": [
+          "원하는 곳에 정확히 공을 던지는 능력",
+          "빠르게 공을 던지는 능력",
+          "커브를 던지는 능력"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장에 설명이 있어"
+      },
+      "tags": [
+        "week1",
+        "야구"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "야구_전략",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_012",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "물은 세 가지 상태로 존재한다. 액체 상태인 물, 고체 상태인 얼음, 기체 상태인 수증기가 있다. 온도에 따라 물의 상태가 바뀐다.",
+        "ttsText": "물은 세 가지 상태로 존재한다. 액체 상태인 물, 고체 상태인 얼음, 기체 상태인 수증기가 있다. 온도에 따라 물의 상태가 바뀐다.",
+        "topic": "과학_물질",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "물의 고체 상태는 무엇인가요?",
+        "ttsText": "물의 고체 상태는 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "얼음",
+        "options": [
+          "얼음",
+          "수증기",
+          "안개"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 보면 알 수 있어"
+      },
+      "tags": [
+        "week1",
+        "과학"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "과학_물질",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_013",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "passage": {
+        "text": "속담 '백지장도 맞들면 낫다'는 아무리 쉬운 일도 함께 하면 더 쉽다는 뜻이다. 백지장은 아주 가벼운 종이이다. 그런 가벼운 것도 둘이 들면 더 쉽다는 뜻에서 나온 말이다.",
+        "ttsText": "속담 '백지장도 맞들면 낫다'는 아무리 쉬운 일도 함께 하면 더 쉽다는 뜻이다. 백지장은 아주 가벼운 종이이다. 그런 가벼운 것도 둘이 들면 더 쉽다는 뜻에서 나온 말이다.",
+        "topic": "국어_속담",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "이 속담이 말하고 싶은 것은 무엇인가요?",
+        "ttsText": "이 속담이 말하고 싶은 것은 무엇인가요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "함께 하면 더 쉽다",
+        "options": [
+          "함께 하면 더 쉽다",
+          "종이는 가볍다",
+          "혼자 하는 게 좋다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "첫 번째 문장에 뜻이 나와 있어"
+      },
+      "tags": [
+        "week1",
+        "국어"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "국어_속담",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_014",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "passage": {
+        "text": "강아지는 사람과 가장 오래 함께 살아온 동물이다. 강아지는 주인의 기분을 잘 알아챈다. 슬플 때 다가와 옆에 앉아 있는 것도 그 때문이다.",
+        "ttsText": "강아지는 사람과 가장 오래 함께 살아온 동물이다. 강아지는 주인의 기분을 잘 알아챈다. 슬플 때 다가와 옆에 앉아 있는 것도 그 때문이다.",
+        "topic": "과학_동물",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "강아지가 슬플 때 다가오는 이유는 무엇인가요?",
+        "ttsText": "강아지가 슬플 때 다가오는 이유는 무엇인가요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "주인의 기분을 알아채니까",
+        "options": [
+          "주인의 기분을 알아채니까",
+          "배가 고프니까",
+          "놀고 싶으니까"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장과 세 번째 문장을 연결해 봐"
+      },
+      "tags": [
+        "week1",
+        "과학"
+      ],
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "과학_동물",
+      "reviewedBy": "ai",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_015",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "계절_봄",
+      "passage": {
+        "text": "봄이 오면 날씨가 따뜻해진다. 나무에서 새 잎이 자라고, 꽃이 핀다. 사람들은 공원에 나가서 봄꽃을 구경한다.",
+        "ttsText": "봄이 오면 날씨가 따뜻해진다. 나무에서 새 잎이 자라고, 꽃이 핀다. 사람들은 공원에 나가서 봄꽃을 구경한다.",
+        "topic": "계절_봄",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "봄이 오면 나무에서 무엇이 자라나요?",
+        "ttsText": "봄이 오면 나무에서 무엇이 자라나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "새 잎",
+        "options": [
+          "새 잎",
+          "열매",
+          "눈"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 읽어봐"
+      },
+      "tags": [
+        "week2",
+        "계절",
+        "unit2_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_016",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "계절_여름",
+      "passage": {
+        "text": "여름은 일 년 중 가장 더운 계절이다. 아이들은 바다나 수영장에서 물놀이를 한다. 수박처럼 시원한 과일을 먹으면 더위를 이길 수 있다.",
+        "ttsText": "여름은 일 년 중 가장 더운 계절이다. 아이들은 바다나 수영장에서 물놀이를 한다. 수박처럼 시원한 과일을 먹으면 더위를 이길 수 있다.",
+        "topic": "계절_여름",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "여름에 아이들은 어디에서 물놀이를 하나요?",
+        "ttsText": "여름에 아이들은 어디에서 물놀이를 하나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "바다나 수영장",
+        "options": [
+          "바다나 수영장",
+          "학교 운동장",
+          "도서관"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week2",
+        "계절",
+        "unit2_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_017",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "계절_가을",
+      "passage": {
+        "text": "가을이 되면 나뭇잎의 색이 변한다. 초록색이던 잎이 빨간색, 노란색, 주황색으로 바뀐다. 이것을 단풍이라고 한다. 단풍이 든 산은 아주 아름답다.",
+        "ttsText": "가을이 되면 나뭇잎의 색이 변한다. 초록색이던 잎이 빨간색, 노란색, 주황색으로 바뀐다. 이것을 단풍이라고 한다. 단풍이 든 산은 아주 아름답다.",
+        "topic": "계절_가을",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "가을에 나뭇잎이 변하는 것을 무엇이라고 하나요?",
+        "ttsText": "가을에 나뭇잎이 변하는 것을 무엇이라고 하나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "단풍",
+        "options": [
+          "단풍",
+          "낙엽",
+          "새싹"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "세 번째 문장을 봐"
+      },
+      "tags": [
+        "week2",
+        "계절",
+        "unit2_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_018",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "계절_겨울",
+      "passage": {
+        "text": "겨울에는 눈이 내리는 날이 많다. 아이들은 밖에 나가서 눈사람을 만들거나 눈싸움을 한다. 하지만 길이 미끄러워서 조심해야 한다. 장갑과 목도리를 꼭 챙겨야 감기에 걸리지 않는다.",
+        "ttsText": "겨울에는 눈이 내리는 날이 많다. 아이들은 밖에 나가서 눈사람을 만들거나 눈싸움을 한다. 하지만 길이 미끄러워서 조심해야 한다. 장갑과 목도리를 꼭 챙겨야 감기에 걸리지 않는다.",
+        "topic": "계절_겨울",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "겨울에 장갑과 목도리를 챙겨야 하는 이유는?",
+        "ttsText": "겨울에 장갑과 목도리를 챙겨야 하는 이유는?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "감기에 걸리지 않으려고",
+        "options": [
+          "감기에 걸리지 않으려고",
+          "예뻐 보이려고",
+          "눈사람을 만들려고"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장을 잘 읽어봐"
+      },
+      "tags": [
+        "week2",
+        "계절",
+        "unit2_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_019",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "생일_파티",
+      "passage": {
+        "text": "민수의 생일은 5월 7일이다. 민수는 생일 파티에 친구들을 초대했다. 친구들은 선물을 가져왔고, 다 같이 케이크를 먹었다.",
+        "ttsText": "민수의 생일은 5월 7일이다. 민수는 생일 파티에 친구들을 초대했다. 친구들은 선물을 가져왔고, 다 같이 케이크를 먹었다.",
+        "topic": "생일_파티",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "민수의 생일은 언제인가요?",
+        "ttsText": "민수의 생일은 언제인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "5월 7일",
+        "options": [
+          "5월 7일",
+          "7월 5일",
+          "3월 7일"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "첫 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week2",
+        "날짜",
+        "unit3_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_020",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "환경_지구의날",
+      "passage": {
+        "text": "지구의 날은 4월 22일이다. 이 날은 환경을 보호하자는 뜻에서 만들어졌다. 전 세계 사람들이 이 날 불을 끄고, 쓰레기를 줄이려고 노력한다.",
+        "ttsText": "지구의 날은 4월 22일이다. 이 날은 환경을 보호하자는 뜻에서 만들어졌다. 전 세계 사람들이 이 날 불을 끄고, 쓰레기를 줄이려고 노력한다.",
+        "topic": "환경_지구의날",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "지구의 날에 사람들은 무엇을 하나요?",
+        "ttsText": "지구의 날에 사람들은 무엇을 하나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "불을 끄고 쓰레기를 줄인다",
+        "options": [
+          "불을 끄고 쓰레기를 줄인다",
+          "파티를 한다",
+          "선물을 교환한다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "세 번째 문장을 읽어봐"
+      },
+      "tags": [
+        "week2",
+        "환경",
+        "unit3_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_021",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "감정_행복",
+      "passage": {
+        "text": "사람들은 다양한 이유로 행복을 느낀다. 시험을 잘 봤을 때, 좋아하는 음식을 먹을 때, 친구와 놀 때 행복하다. 작은 일에도 감사하면 더 자주 행복해질 수 있다.",
+        "ttsText": "사람들은 다양한 이유로 행복을 느낀다. 시험을 잘 봤을 때, 좋아하는 음식을 먹을 때, 친구와 놀 때 행복하다. 작은 일에도 감사하면 더 자주 행복해질 수 있다.",
+        "topic": "감정_행복",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "더 자주 행복해지려면 어떻게 해야 하나요?",
+        "ttsText": "더 자주 행복해지려면 어떻게 해야 하나요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "작은 일에도 감사하면 된다",
+        "options": [
+          "작은 일에도 감사하면 된다",
+          "시험을 잘 보면 된다",
+          "매일 놀면 된다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 방법이 있어"
+      },
+      "tags": [
+        "week2",
+        "감정",
+        "unit4_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_022",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "감정_걱정",
+      "passage": {
+        "text": "내일은 수학 시험이 있다. 준호는 시험이 걱정되어서 잠이 오지 않았다. 엄마가 \"충분히 공부했으니 걱정 마\" 라고 말씀해 주셨다. 준호는 엄마 말을 듣고 마음이 편해졌다.",
+        "ttsText": "내일은 수학 시험이 있다. 준호는 시험이 걱정되어서 잠이 오지 않았다. 엄마가 \"충분히 공부했으니 걱정 마\" 라고 말씀해 주셨다. 준호는 엄마 말을 듣고 마음이 편해졌다.",
+        "topic": "감정_걱정",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "준호는 왜 잠이 오지 않았나요?",
+        "ttsText": "준호는 왜 잠이 오지 않았나요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "시험이 걱정되어서",
+        "options": [
+          "시험이 걱정되어서",
+          "배가 고파서",
+          "게임을 하느라"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 봐"
+      },
+      "tags": [
+        "week2",
+        "감정",
+        "unit4_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_023",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "장소_도서관",
+      "passage": {
+        "text": "도서관에는 많은 책이 있다. 사람들은 도서관에서 책을 읽거나 빌릴 수 있다. 도서관에서는 조용히 해야 한다.",
+        "ttsText": "도서관에는 많은 책이 있다. 사람들은 도서관에서 책을 읽거나 빌릴 수 있다. 도서관에서는 조용히 해야 한다.",
+        "topic": "장소_도서관",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "도서관에서 지켜야 하는 규칙은 무엇인가요?",
+        "ttsText": "도서관에서 지켜야 하는 규칙은 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "조용히 해야 한다",
+        "options": [
+          "조용히 해야 한다",
+          "뛰어다녀야 한다",
+          "크게 말해야 한다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장을 읽어봐"
+      },
+      "tags": [
+        "week2",
+        "장소",
+        "unit5_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_024",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "장소_길찾기",
+      "passage": {
+        "text": "지수는 처음 가는 동네에서 병원을 찾고 있었다. 근처 아저씨에게 물어보니, 직진해서 사거리에서 왼쪽으로 돌라고 했다. 병원은 은행 옆에 있다고 했다.",
+        "ttsText": "지수는 처음 가는 동네에서 병원을 찾고 있었다. 근처 아저씨에게 물어보니, 직진해서 사거리에서 왼쪽으로 돌라고 했다. 병원은 은행 옆에 있다고 했다.",
+        "topic": "장소_길찾기",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "병원은 어디 옆에 있나요?",
+        "ttsText": "병원은 어디 옆에 있나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "은행",
+        "options": [
+          "은행",
+          "학교",
+          "편의점"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장을 읽어봐"
+      },
+      "tags": [
+        "week2",
+        "장소",
+        "unit5_연계"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_025",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "야구_포지션",
+      "passage": {
+        "text": "야구에서 포수는 투수 뒤에서 공을 받는 선수이다. 포수는 투수에게 어떤 공을 던질지 신호를 보낸다. 그래서 포수를 '경기의 사령관'이라고 부르기도 한다.",
+        "ttsText": "야구에서 포수는 투수 뒤에서 공을 받는 선수이다. 포수는 투수에게 어떤 공을 던질지 신호를 보낸다. 그래서 포수를 '경기의 사령관'이라고 부르기도 한다.",
+        "topic": "야구_포지션",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "포수를 무엇이라고 부르기도 하나요?",
+        "ttsText": "포수를 무엇이라고 부르기도 하나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "경기의 사령관",
+        "options": [
+          "경기의 사령관",
+          "경기의 왕",
+          "경기의 영웅"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 별명이 있어"
+      },
+      "tags": [
+        "week2",
+        "야구"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_026",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "게임_전략",
+      "passage": {
+        "text": "전략 게임에서는 자원을 잘 모아야 한다. 자원이 부족하면 건물을 짓거나 군대를 만들 수 없다. 상대방보다 빠르게 자원을 모으는 것이 승리의 비결이다.",
+        "ttsText": "전략 게임에서는 자원을 잘 모아야 한다. 자원이 부족하면 건물을 짓거나 군대를 만들 수 없다. 상대방보다 빠르게 자원을 모으는 것이 승리의 비결이다.",
+        "topic": "게임_전략",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "전략 게임에서 승리의 비결은 무엇인가요?",
+        "ttsText": "전략 게임에서 승리의 비결은 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "상대방보다 빠르게 자원을 모으는 것",
+        "options": [
+          "상대방보다 빠르게 자원을 모으는 것",
+          "건물을 많이 짓는 것",
+          "군대를 빨리 만드는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 답이 있어"
+      },
+      "tags": [
+        "week2",
+        "게임"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_027",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "2단원",
+      "topic": "계절_사계절",
+      "passage": {
+        "text": "우리나라에는 봄, 여름, 가을, 겨울 네 계절이 있다. 봄에는 따뜻해지면서 꽃이 피고, 여름에는 무더위와 장마가 온다. 가을에는 선선해지면서 나뭇잎이 물들고, 겨울에는 추워지면서 눈이 내린다. 이렇게 계절이 바뀌는 이유는 지구가 기울어진 채로 태양 주위를 돌기 때문이다. 계절 변화 덕분에 다양한 자연경관을 볼 수 있다.",
+        "ttsText": "우리나라에는 봄, 여름, 가을, 겨울 네 계절이 있다. 봄에는 따뜻해지면서 꽃이 피고, 여름에는 무더위와 장마가 온다. 가을에는 선선해지면서 나뭇잎이 물들고, 겨울에는 추워지면서 눈이 내린다. 이렇게 계절이 바뀌는 이유는 지구가 기울어진 채로 태양 주위를 돌기 때문이다. 계절 변화 덕분에 다양한 자연경관을 볼 수 있다.",
+        "topic": "계절_사계절",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "계절이 바뀌는 이유는 무엇인가요?",
+        "ttsText": "계절이 바뀌는 이유는 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "지구가 기울어진 채로 태양 주위를 돌기 때문",
+        "options": [
+          "지구가 기울어진 채로 태양 주위를 돌기 때문",
+          "태양이 움직이기 때문",
+          "바람이 불기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "네 번째 문장에 이유가 나와"
+      },
+      "tags": [
+        "week2",
+        "계절",
+        "unit2_연계",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_028",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "야구_역사",
+      "passage": {
+        "text": "야구는 19세기 미국에서 시작된 스포츠이다. 우리나라에는 1905년에 처음 소개되었다. 프로야구는 1982년에 6개 팀으로 시작했다. 지금은 10개 팀이 있고, 매년 수백만 명의 관중이 경기장을 찾는다. 야구는 우리나라에서 가장 인기 있는 스포츠 중 하나이다.",
+        "ttsText": "야구는 19세기 미국에서 시작된 스포츠이다. 우리나라에는 1905년에 처음 소개되었다. 프로야구는 1982년에 6개 팀으로 시작했다. 지금은 10개 팀이 있고, 매년 수백만 명의 관중이 경기장을 찾는다. 야구는 우리나라에서 가장 인기 있는 스포츠 중 하나이다.",
+        "topic": "야구_역사",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "한국 프로야구는 처음에 몇 개 팀으로 시작했나요?",
+        "ttsText": "한국 프로야구는 처음에 몇 개 팀으로 시작했나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "6개 팀",
+        "options": [
+          "6개 팀",
+          "10개 팀",
+          "8개 팀"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "세 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week2",
+        "야구",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_029",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "4단원",
+      "topic": "감정_다양한감정",
+      "passage": {
+        "text": "사람의 감정에는 여러 가지가 있다. 기쁠 때도 있고, 슬플 때도 있고, 화가 날 때도 있다. 감정은 나쁜 것이 아니다. 중요한 것은 감정을 어떻게 표현하느냐이다. 화가 나도 소리를 지르는 대신 말로 표현하면 서로를 더 잘 이해할 수 있다.",
+        "ttsText": "사람의 감정에는 여러 가지가 있다. 기쁠 때도 있고, 슬플 때도 있고, 화가 날 때도 있다. 감정은 나쁜 것이 아니다. 중요한 것은 감정을 어떻게 표현하느냐이다. 화가 나도 소리를 지르는 대신 말로 표현하면 서로를 더 잘 이해할 수 있다.",
+        "topic": "감정_다양한감정",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "화가 났을 때 어떻게 하면 좋을까요?",
+        "ttsText": "화가 났을 때 어떻게 하면 좋을까요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "말로 표현하면 좋다",
+        "options": [
+          "말로 표현하면 좋다",
+          "소리를 지르면 좋다",
+          "아무것도 안 하면 좋다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 방법이 있어"
+      },
+      "tags": [
+        "week2",
+        "감정",
+        "unit4_연계",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_030",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "5단원",
+      "topic": "장소_우리동네",
+      "passage": {
+        "text": "우리 동네에는 여러 가게와 시설이 있다. 학교 앞에는 문구점과 분식집이 있고, 큰 길을 건너면 도서관이 있다. 도서관 옆에는 우체국이 있고, 그 뒤에 공원이 있다. 공원에서 오른쪽으로 가면 병원이 나온다. 이렇게 필요한 곳이 가까이 있어서 편리하다.",
+        "ttsText": "우리 동네에는 여러 가게와 시설이 있다. 학교 앞에는 문구점과 분식집이 있고, 큰 길을 건너면 도서관이 있다. 도서관 옆에는 우체국이 있고, 그 뒤에 공원이 있다. 공원에서 오른쪽으로 가면 병원이 나온다. 이렇게 필요한 곳이 가까이 있어서 편리하다.",
+        "topic": "장소_우리동네",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "도서관 옆에는 무엇이 있나요?",
+        "ttsText": "도서관 옆에는 무엇이 있나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "우체국",
+        "options": [
+          "우체국",
+          "병원",
+          "학교"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "세 번째 문장을 봐"
+      },
+      "tags": [
+        "week2",
+        "장소",
+        "unit5_연계",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_031",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "과학_날씨",
+      "passage": {
+        "text": "구름은 작은 물방울이 모여서 만들어진다. 구름 속 물방울이 무거워지면 비가 되어 내린다. 겨울에는 물방울이 얼어서 눈이 된다.",
+        "ttsText": "구름은 작은 물방울이 모여서 만들어진다. 구름 속 물방울이 무거워지면 비가 되어 내린다. 겨울에는 물방울이 얼어서 눈이 된다.",
+        "topic": "과학_날씨",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "구름은 무엇이 모여서 만들어지나요?",
+        "ttsText": "구름은 무엇이 모여서 만들어지나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "작은 물방울",
+        "options": [
+          "작은 물방울",
+          "먼지",
+          "연기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "첫 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week2",
+        "과학"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_032",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "게임_온라인예절",
+      "passage": {
+        "text": "온라인 게임을 할 때도 예절을 지켜야 한다. 욕설이나 나쁜 말을 하면 다른 사람의 기분이 나빠진다. 함께 즐겁게 게임하려면 서로 존중하는 마음이 필요하다.",
+        "ttsText": "온라인 게임을 할 때도 예절을 지켜야 한다. 욕설이나 나쁜 말을 하면 다른 사람의 기분이 나빠진다. 함께 즐겁게 게임하려면 서로 존중하는 마음이 필요하다.",
+        "topic": "게임_온라인예절",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "함께 즐겁게 게임하려면 무엇이 필요한가요?",
+        "ttsText": "함께 즐겁게 게임하려면 무엇이 필요한가요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "서로 존중하는 마음",
+        "options": [
+          "서로 존중하는 마음",
+          "좋은 컴퓨터",
+          "빠른 인터넷"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장을 봐"
+      },
+      "tags": [
+        "week2",
+        "게임"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_033",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "일상_운동",
+      "passage": {
+        "text": "운동을 하면 몸이 건강해진다. 달리기를 하면 심장이 튼튼해지고, 줄넘기를 하면 다리가 강해진다. 매일 30분씩 운동하는 것이 좋다.",
+        "ttsText": "운동을 하면 몸이 건강해진다. 달리기를 하면 심장이 튼튼해지고, 줄넘기를 하면 다리가 강해진다. 매일 30분씩 운동하는 것이 좋다.",
+        "topic": "일상_운동",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "매일 몇 분씩 운동하면 좋나요?",
+        "ttsText": "매일 몇 분씩 운동하면 좋나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "30분",
+        "options": [
+          "30분",
+          "10분",
+          "2시간"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 나와 있어"
+      },
+      "tags": [
+        "week2",
+        "일상"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_034",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "과학_공룡",
+      "passage": {
+        "text": "공룡은 아주 오래전 지구에 살던 동물이다. 어떤 공룡은 건물만큼 크기도 했고, 어떤 공룡은 닭만큼 작기도 했다. 약 6,600만 년 전에 공룡은 모두 사라졌다.",
+        "ttsText": "공룡은 아주 오래전 지구에 살던 동물이다. 어떤 공룡은 건물만큼 크기도 했고, 어떤 공룡은 닭만큼 작기도 했다. 약 6,600만 년 전에 공룡은 모두 사라졌다.",
+        "topic": "과학_공룡",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "공룡은 얼마 전에 사라졌나요?",
+        "ttsText": "공룡은 얼마 전에 사라졌나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "약 6,600만 년 전",
+        "options": [
+          "약 6,600만 년 전",
+          "약 100년 전",
+          "약 1,000년 전"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 숫자가 있어"
+      },
+      "tags": [
+        "week2",
+        "과학"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_035",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "게임_역사",
+      "passage": {
+        "text": "컴퓨터 게임의 역사는 1950년대에 시작되었다. 처음에는 화면에 점과 선만 있는 간단한 게임이었다. 1970년대에 '퐁'이라는 탁구 게임이 크게 유행했다. 1980년대에는 슈퍼 마리오 같은 게임이 나왔다. 지금은 그래픽이 현실처럼 정교한 게임도 있다.",
+        "ttsText": "컴퓨터 게임의 역사는 1950년대에 시작되었다. 처음에는 화면에 점과 선만 있는 간단한 게임이었다. 1970년대에 '퐁'이라는 탁구 게임이 크게 유행했다. 1980년대에는 슈퍼 마리오 같은 게임이 나왔다. 지금은 그래픽이 현실처럼 정교한 게임도 있다.",
+        "topic": "게임_역사",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "1970년대에 유행한 게임 이름은 무엇인가요?",
+        "ttsText": "1970년대에 유행한 게임 이름은 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "퐁",
+        "options": [
+          "퐁",
+          "슈퍼 마리오",
+          "테트리스"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "세 번째 문장에 나와 있어"
+      },
+      "tags": [
+        "week2",
+        "게임",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_036",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "야구_응원",
+      "passage": {
+        "text": "야구장에 가면 팀마다 응원가가 있다. 선수가 타석에 들어서면 그 선수의 응원가를 부른다. 관중들이 함께 노래를 부르면 선수에게 큰 힘이 된다.",
+        "ttsText": "야구장에 가면 팀마다 응원가가 있다. 선수가 타석에 들어서면 그 선수의 응원가를 부른다. 관중들이 함께 노래를 부르면 선수에게 큰 힘이 된다.",
+        "topic": "야구_응원",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "관중들이 응원가를 부르면 어떤 효과가 있나요?",
+        "ttsText": "관중들이 응원가를 부르면 어떤 효과가 있나요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "선수에게 큰 힘이 된다",
+        "options": [
+          "선수에게 큰 힘이 된다",
+          "경기가 빨리 끝난다",
+          "점수가 올라간다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장을 읽어봐"
+      },
+      "tags": [
+        "week2",
+        "야구"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_037",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "school-english",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "3단원",
+      "topic": "환경_물절약",
+      "passage": {
+        "text": "지구에 있는 물 중에서 사람이 쓸 수 있는 물은 아주 적다. 바닷물은 짜서 마실 수 없고, 빙하에 갇힌 물도 쓸 수 없다. 그래서 물을 아껴 써야 한다. 양치할 때 컵을 사용하면 물을 많이 아낄 수 있다. 우리 모두 물 절약을 실천하자.",
+        "ttsText": "지구에 있는 물 중에서 사람이 쓸 수 있는 물은 아주 적다. 바닷물은 짜서 마실 수 없고, 빙하에 갇힌 물도 쓸 수 없다. 그래서 물을 아껴 써야 한다. 양치할 때 컵을 사용하면 물을 많이 아낄 수 있다. 우리 모두 물 절약을 실천하자.",
+        "topic": "환경_물절약",
+        "source": "anchor_derived"
+      },
+      "question": {
+        "text": "양치할 때 물을 아끼는 방법은 무엇인가요?",
+        "ttsText": "양치할 때 물을 아끼는 방법은 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "컵을 사용한다",
+        "options": [
+          "컵을 사용한다",
+          "빨리 양치한다",
+          "물을 틀어 놓는다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "네 번째 문장에 방법이 있어"
+      },
+      "tags": [
+        "week2",
+        "환경",
+        "unit3_연계",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_038",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "일상_아침",
+      "passage": {
+        "text": "건강한 아침 습관은 하루를 활기차게 시작하게 해 준다. 아침밥을 먹으면 뇌에 에너지가 공급되어 공부를 잘할 수 있다. 아침에 가볍게 스트레칭을 하는 것도 좋다.",
+        "ttsText": "건강한 아침 습관은 하루를 활기차게 시작하게 해 준다. 아침밥을 먹으면 뇌에 에너지가 공급되어 공부를 잘할 수 있다. 아침에 가볍게 스트레칭을 하는 것도 좋다.",
+        "topic": "일상_아침",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "아침밥을 먹으면 어떤 점이 좋나요?",
+        "ttsText": "아침밥을 먹으면 어떤 점이 좋나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "뇌에 에너지가 공급되어 공부를 잘할 수 있다",
+        "options": [
+          "뇌에 에너지가 공급되어 공부를 잘할 수 있다",
+          "키가 크게 된다",
+          "잠이 잘 온다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "두 번째 문장을 봐"
+      },
+      "tags": [
+        "week2",
+        "일상"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_039",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "general",
+      "topic": "과학_지구",
+      "passage": {
+        "text": "지구는 태양에서 세 번째로 가까운 행성이다. 지구에는 물과 공기가 있어서 생물이 살 수 있다. 지구는 하루에 한 바퀴 자전하고, 일 년에 한 바퀴 공전한다. 자전 때문에 낮과 밤이 생기고, 공전 때문에 계절이 바뀐다. 지구는 우리가 사는 소중한 행성이다.",
+        "ttsText": "지구는 태양에서 세 번째로 가까운 행성이다. 지구에는 물과 공기가 있어서 생물이 살 수 있다. 지구는 하루에 한 바퀴 자전하고, 일 년에 한 바퀴 공전한다. 자전 때문에 낮과 밤이 생기고, 공전 때문에 계절이 바뀐다. 지구는 우리가 사는 소중한 행성이다.",
+        "topic": "과학_지구",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "낮과 밤이 생기는 이유는 무엇인가요?",
+        "ttsText": "낮과 밤이 생기는 이유는 무엇인가요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "지구가 자전하기 때문",
+        "options": [
+          "지구가 자전하기 때문",
+          "지구가 공전하기 때문",
+          "태양이 움직이기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "네 번째 문장 앞부분을 봐"
+      },
+      "tags": [
+        "week2",
+        "과학",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_040",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "국어_독서",
+      "passage": {
+        "text": "책을 읽으면 여러 가지 좋은 점이 있다. 새로운 지식을 얻을 수 있고, 상상력도 키울 수 있다. 또한 다양한 사람의 생각을 이해하게 되어 마음이 넓어진다.",
+        "ttsText": "책을 읽으면 여러 가지 좋은 점이 있다. 새로운 지식을 얻을 수 있고, 상상력도 키울 수 있다. 또한 다양한 사람의 생각을 이해하게 되어 마음이 넓어진다.",
+        "topic": "국어_독서",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "책을 읽으면 마음이 넓어지는 이유는?",
+        "ttsText": "책을 읽으면 마음이 넓어지는 이유는?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "다양한 사람의 생각을 이해하게 되니까",
+        "options": [
+          "다양한 사람의 생각을 이해하게 되니까",
+          "글자를 많이 읽으니까",
+          "시간이 빨리 가니까"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장에 이유가 있어"
+      },
+      "tags": [
+        "week2",
+        "국어"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_041",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "일상_재활용",
+      "passage": {
+        "text": "쓰레기를 분리배출하면 자원을 다시 사용할 수 있다. 종이, 플라스틱, 유리, 캔은 각각 다른 통에 넣어야 한다. 분리배출을 잘하면 환경을 보호하는 데 도움이 된다.",
+        "ttsText": "쓰레기를 분리배출하면 자원을 다시 사용할 수 있다. 종이, 플라스틱, 유리, 캔은 각각 다른 통에 넣어야 한다. 분리배출을 잘하면 환경을 보호하는 데 도움이 된다.",
+        "topic": "일상_재활용",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "분리배출을 잘하면 어떤 점이 좋나요?",
+        "ttsText": "분리배출을 잘하면 어떤 점이 좋나요?",
+        "questionType": "inference"
+      },
+      "answer": {
+        "correct": "환경을 보호하는 데 도움이 된다",
+        "options": [
+          "환경을 보호하는 데 도움이 된다",
+          "쓰레기통이 깨끗해진다",
+          "집이 넓어진다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마지막 문장을 봐"
+      },
+      "tags": [
+        "week2",
+        "일상"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "id": "comp_042",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "anchorType": "reading",
+      "anchorWeek": "2026-W13",
+      "sourceUnit": "general",
+      "topic": "야구_세이버메트릭스",
+      "passage": {
+        "text": "요즘 야구에서는 숫자와 데이터를 아주 중요하게 생각한다. 예를 들어, 타율은 타자가 얼마나 잘 치는지를 보여준다. 방어율은 투수가 얼마나 점수를 적게 주는지를 나타낸다. 이런 숫자들을 분석하면 선수의 실력을 더 정확하게 알 수 있다. 데이터를 활용하는 팀이 좋은 성적을 내는 경우가 많다.",
+        "ttsText": "요즘 야구에서는 숫자와 데이터를 아주 중요하게 생각한다. 예를 들어, 타율은 타자가 얼마나 잘 치는지를 보여준다. 방어율은 투수가 얼마나 점수를 적게 주는지를 나타낸다. 이런 숫자들을 분석하면 선수의 실력을 더 정확하게 알 수 있다. 데이터를 활용하는 팀이 좋은 성적을 내는 경우가 많다.",
+        "topic": "야구_세이버메트릭스",
+        "source": "batch_generated"
+      },
+      "question": {
+        "text": "방어율은 무엇을 나타내나요?",
+        "ttsText": "방어율은 무엇을 나타내나요?",
+        "questionType": "factual"
+      },
+      "answer": {
+        "correct": "투수가 점수를 적게 주는 정도",
+        "options": [
+          "투수가 점수를 적게 주는 정도",
+          "타자가 잘 치는 정도",
+          "팀의 승리 횟수"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "세 번째 문장에 설명이 있어"
+      },
+      "tags": [
+        "week2",
+        "야구",
+        "5문장독해"
+      ],
+      "reviewedBy": "parent",
+      "reviewedDate": "2026-03-17"
+    },
+    {
+      "cardId": "crd_2026W13_a3f1d2",
+      "sourceRef": "short-reading/cross-link-01/q1",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 직업",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "로빈슨 크루소는 무인도에서 살아남기 위해 여러 가지 일을 해야 했습니다. 집을 짓고, 음식을 구하고, 옷을 만들었지요. 그는 혼자서 목수, 농부, 재봉사가 되어야 했습니다.",
+        "text": "로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?",
+        "ttsText": "로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?"
+      },
+      "answer": {
+        "correct": "배를 수리하기",
+        "options": [
+          "집을 짓기",
+          "옷을 만들기",
+          "배를 수리하기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "지문에서 로빈슨이 한 일 3가지를 찾아보세요."
+      },
+      "ttsText": "로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?",
+      "skillTags": [
+        "fact"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W13_b7e2c4",
+      "sourceRef": "short-reading/cross-link-01/q2",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 직업",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "영어 시간에 배운 직업 중에는 파일럿, 요리사, 과학자가 있었습니다. 로빈슨 크루소도 무인도에서 여러 직업을 경험했지요. 그는 특히 농부 역할이 가장 중요했다고 합니다.",
+        "text": "로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요?",
+        "ttsText": "로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요?"
+      },
+      "answer": {
+        "correct": "농부",
+        "options": [
+          "파일럿",
+          "농부",
+          "과학자"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "지문 마지막 문장을 다시 읽어보세요."
+      },
+      "ttsText": "로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요?",
+      "skillTags": [
+        "fact"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W13_c9d3e5",
+      "sourceRef": "short-reading/environment-01/q1",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 자연환경",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "로빈슨 크루소가 도착한 무인도는 열대 기후였습니다. 비가 자주 내리고 날씨가 따뜻했지요. 그래서 농사를 짓기에 좋은 환경이었습니다. 하지만 태풍이 올 때는 매우 위험했습니다.",
+        "text": "무인도의 기후가 농사에 좋았던 이유는 무엇인가요?",
+        "ttsText": "무인도의 기후가 농사에 좋았던 이유는 무엇인가요?"
+      },
+      "answer": {
+        "correct": "비가 자주 오고 따뜻해서",
+        "options": [
+          "눈이 많이 와서",
+          "비가 자주 오고 따뜻해서",
+          "바람이 강해서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "열대 기후의 특징을 생각해보세요."
+      },
+      "ttsText": "무인도의 기후가 농사에 좋았던 이유는 무엇인가요?",
+      "skillTags": [
+        "inference"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W13_d1f4a6",
+      "sourceRef": "short-reading/environment-01/q2",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 자연환경",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "question": {
+        "passage": "세계에는 다양한 기후가 있습니다. 사막 기후는 비가 거의 오지 않고, 열대 기후는 비가 많이 옵니다. 만약 로빈슨 크루소가 사막에 떨어졌다면 어떻게 되었을까요?",
+        "text": "로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?",
+        "ttsText": "로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?"
+      },
+      "answer": {
+        "correct": "물 구하기",
+        "options": [
+          "물 구하기",
+          "집 짓기",
+          "옷 만들기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "사막에서 가장 부족한 것을 생각해보세요."
+      },
+      "ttsText": "로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?",
+      "skillTags": [
+        "inference"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W13_e2a5b7",
+      "sourceRef": "short-reading/cross-link-01/q3",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 직업",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "요즘에는 탐험가라는 직업이 많지 않습니다. 하지만 우주 탐험가나 심해 탐험가처럼 새로운 곳을 연구하는 직업은 있습니다. 여러분은 어떤 탐험을 해보고 싶나요?",
+        "text": "이 글을 읽고 여러분의 생각을 골라보세요.",
+        "ttsText": "이 글을 읽고 여러분의 생각을 골라보세요."
+      },
+      "answer": {
+        "correct": "우주 탐험",
+        "options": [
+          "우주 탐험",
+          "심해 탐험",
+          "산 탐험"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "정답이 없는 문제예요. 자유롭게 골라보세요!"
+      },
+      "ttsText": "이 글을 읽고 여러분의 생각을 골라보세요.",
+      "skillTags": [
+        "opinion"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": []
+    },
+    {
+      "cardId": "crd_2026W12_rcl_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "서영이가 자신의 가방에서 머리핀이 나왔을 때 가장 의심했던 사람은 누구였나요?",
+        "ttsText": "서영이가 자신의 가방에서 머리핀이 나왔을 때 가장 의심했던 사람은 누구였나요?",
+        "passage": "서영이가 자신의 가방에서 누군가 몰래 넣은 머리핀을 발견했다. 그동안 학교 카페에서 악플이 늘어나면서 서영이는 친구들 중에서 의심스러운 사람을 찾기 시작했다. 최근에 태도가 달라진 민주가 범인일 것 같다는 의심이 들었다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "민주",
+        "options": [
+          "민주",
+          "미라",
+          "짱우"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이는 여러 친구들 중에서 최근에 태도가 달라진 사람을 주시했습니다."
+      },
+      "skillTags": [
+        "character-analysis",
+        "reading-comprehension",
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "서영이가 자신의 가방에서 머리핀이 나왔을 때 가장 의심했던 사람은 누구였나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "서영이가 학교 카페에 글을 올린 후, 서영이의 감정이 어떻게 변했나요?",
+        "ttsText": "서영이가 학교 카페에 글을 올린 후, 서영이의 감정이 어떻게 변했나요?",
+        "passage": "서영이가 자신의 마음을 담아 학교 카페에 글을 올렸다. 악플로 고통받았던 경험을 나누고, 미라와 민주의 어려운 사정을 알게 되면서 서영이의 마음이 변했다. 나쁜 기억들이 부드러워지고, 그들에 대한 가엾슨 생각이 들기 시작했다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "미라와 민주에 대한 나쁜 기억이 없어지고 가엾슨 생각이 들었다",
+        "options": [
+          "미라와 민주에 대한 나쁜 기억이 없어지고 가엾슨 생각이 들었다",
+          "미라와 민주에 대한 미움이 더 커졌다",
+          "미라와 민주를 완전히 잊었다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "책에서는 '그렇게도 약속 야속하고 미웠던 미라와 민주에 대한 나쁜 기억이 어울려 가엾슨 생각이 들었다'고 표현했습니다."
+      },
+      "skillTags": [
+        "emotion-analysis",
+        "character-development",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "서영이가 학교 카페에 글을 올린 후, 서영이의 감정이 어떻게 변했나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "\"무안하다\"는 무슨 뜻인가요?",
+        "ttsText": "\"무안하다\"는 무슨 뜻인가요?"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "부끄럽고 머쓱한 느낌",
+        "options": [
+          "부끄럽고 머쓱한 느낌",
+          "화가 나고 열받은 느낌",
+          "외롭고 슬픈 느낌"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "친구 앞에서 실수했을 때 느끼는 감정이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "emotion-words",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "\"무안하다\"는 무슨 뜻인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "\"가엾슨 생각\"이 들었다는 것은 어떤 감정을 나타내나요?",
+        "ttsText": "\"가엾슨 생각\"이 들었다는 것은 어떤 감정을 나타내나요?"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "상대방을 불쌍히 여기고 동정하는 마음",
+        "options": [
+          "상대방을 불쌍히 여기고 동정하는 마음",
+          "상대방을 무시하고 조롱하는 마음",
+          "상대방에게 복수하고 싶은 마음"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "길에서 비를 맞고 있는 강아지를 봤을 때 드는 마음이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "emotion-analysis",
+        "empathy"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "\"가엾슨 생각\"이 들었다는 것은 어떤 감정을 나타내나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "미라가 늘 인기를 얻으려고 했던 진정한 이유는 무엇인가요?",
+        "ttsText": "미라가 늘 인기를 얻으려고 했던 진정한 이유는 무엇인가요?",
+        "passage": "미라는 아버지에게 버림받은 아픈 과거를 가지고 있었다. 이 때문에 미라는 다른 친구들에게도 버림받을까 봐 두려워했다. 그래서 항상 인기를 얻으려고 애썼고, 인정받으려고 필사적으로 노력했다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "아버지에게 버림받은 경험 때문에 다른 아이들에게 버림받을까봐 두려웠기 때문",
+        "options": [
+          "아버지에게 버림받은 경험 때문에 다른 아이들에게 버림받을까봐 두려웠기 때문",
+          "단순히 뽐내고 자랑하고 싶은 마음",
+          "서영이가 자신보다 더 인기가 많아서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라의 사과 글에서 미라는 자신의 가족 상황과 불안감을 털어놓았습니다."
+      },
+      "skillTags": [
+        "character-motivation",
+        "inference",
+        "emotional-understanding"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "미라가 늘 인기를 얻으려고 했던 진정한 이유는 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "\"허전하다\"는 무슨 뜻인가요?",
+        "ttsText": "\"허전하다\"는 무슨 뜻인가요?"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "무언가 부족하거나 빈 것 같은 느낌",
+        "options": [
+          "무언가 부족하거나 빈 것 같은 느낌",
+          "가슴이 철렁 내려앉는 느낌",
+          "열받고 화나는 느낌"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "좋은 친구가 이사 간 뒤에 느끼는 기분이야"
+      },
+      "skillTags": [
+        "vocabulary",
+        "emotion-words",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "\"허전하다\"는 무슨 뜻인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "이 책 \"악플전쟁\"에서 가장 중요한 주제는 무엇인가요?",
+        "ttsText": "이 책 \"악플전쟁\"에서 가장 중요한 주제는 무엇인가요?",
+        "passage": "이 책은 인터넷 악플이 얼마나 많은 상처를 줄 수 있는지 보여준다. 동시에 서영이, 민주, 미라 세 친구가 갈등을 겪으면서도 결국 서로를 용서하고 이해하는 과정을 담고 있다. 악플의 피해와 용서를 통한 치유가 책의 핵심 메시지다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "인터넷 악플로 인한 피해와 용서를 통한 치유",
+        "options": [
+          "인터넷 악플로 인한 피해와 용서를 통한 치유",
+          "학교에서의 유명해지는 방법",
+          "아프리카에서의 봉사 활동"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이와 민주, 미라 세 사람이 겪은 갈등과 화해의 과정에서 배울 수 있는 메시지입니다."
+      },
+      "skillTags": [
+        "theme-understanding",
+        "reading-comprehension",
+        "critical-thinking"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "이 책 \"악플전쟁\"에서 가장 중요한 주제는 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    },
+    {
+      "cardId": "crd_2026W12_rcl_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W12",
+      "question": {
+        "text": "책을 읽을 때 가장 중요한 것은 무엇인가요?",
+        "ttsText": "책을 읽을 때 가장 중요한 것은 무엇인가요?"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "글자 하나하나를 천천히 읽으며 내용을 마음으로 받아들이는 것",
+        "options": [
+          "글자 하나하나를 천천히 읽으며 내용을 마음으로 받아들이는 것",
+          "한 권을 빨리 많이 읽는 것",
+          "책의 내용을 모두 외우는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "빨리빨리 읽는 것보다 이게 더 중요해"
+      },
+      "skillTags": [
+        "reading-strategy",
+        "reading-comprehension",
+        "metacognition"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.75,
+      "ttsText": "책을 읽을 때 가장 중요한 것은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2
+    }
+  ]
+}

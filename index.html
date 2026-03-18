@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4A90D9">
+  <title>PO 학습</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    /* ===== 리셋 & 기본 ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ===== 페이지 전환 ===== */
+    .page { display: none; min-height: 100vh; padding: 16px; }
+    .page.active { display: flex; flex-direction: column; }
+
+    /* ===== 홈 화면 ===== */
+    #page-home {
+      justify-content: center; align-items: center; gap: 24px;
+      background: linear-gradient(135deg, #4A90D9 0%, #357ABD 100%);
+      color: white;
+    }
+    #page-home h1 { font-size: 28px; font-weight: 700; }
+    #page-home .greeting { font-size: 18px; opacity: 0.9; text-align: center; }
+    #page-home .today-info {
+      background: rgba(255,255,255,0.15); border-radius: 16px;
+      padding: 20px; text-align: center; width: 100%; max-width: 320px;
+    }
+    #page-home .card-count { font-size: 48px; font-weight: 700; }
+    #page-home .card-label { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+    .streak-home {
+      font-size: 14px; opacity: 0.8; margin-top: 8px;
+    }
+    .btn-start {
+      background: white; color: #4A90D9; border: none; border-radius: 12px;
+      padding: 16px 48px; font-size: 20px; font-weight: 700;
+      cursor: pointer; transition: transform 0.1s;
+    }
+    .btn-start:active { transform: scale(0.95); }
+
+    /* ===== 카드 화면 ===== */
+    #page-card { background: #f0f4f8; gap: 16px; }
+
+    /* 진행률 바 */
+    .progress-area { display: flex; align-items: center; gap: 12px; }
+    .progress-bar {
+      flex: 1; height: 8px; background: #ddd; border-radius: 4px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: #4A90D9; border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .progress-text { font-size: 14px; color: #666; white-space: nowrap; }
+
+    /* 과목 표시 */
+    .subject-badge {
+      display: inline-block; padding: 4px 12px; border-radius: 20px;
+      font-size: 13px; font-weight: 600; color: white;
+    }
+    .subject-badge.english { background: #4A90D9; }
+    .subject-badge.comprehension { background: #E67E22; }
+    .subject-badge.speech_therapy { background: #27AE60; }
+
+    /* 카드 본체 */
+    .card {
+      background: white; border-radius: 20px; padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      flex: 1; display: flex; flex-direction: column; gap: 20px;
+    }
+
+    /* 지문 (3문장 독해용) */
+    .passage {
+      background: #f8f9fa; border-radius: 12px; padding: 16px;
+      font-size: 16px; line-height: 1.8; border-left: 4px solid #E67E22;
+    }
+
+    /* 질문 */
+    .question-area {
+      font-size: 18px; font-weight: 600; line-height: 1.5; text-align: center;
+    }
+    .display-word {
+      font-size: 36px; font-weight: 700; color: #4A90D9;
+      margin: 8px 0; letter-spacing: 1px;
+    }
+    .display-text {
+      font-size: 20px; font-weight: 600; line-height: 1.8;
+      color: #333; margin: 8px 0;
+    }
+
+    /* TTS 버튼 */
+    .btn-tts {
+      background: none; border: 2px solid #4A90D9; border-radius: 50%;
+      width: 48px; height: 48px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; margin: 0 auto;
+      transition: background 0.2s;
+    }
+    .btn-tts:active { background: #4A90D9; }
+    .btn-tts svg { width: 24px; height: 24px; fill: #4A90D9; }
+    .btn-tts:active svg { fill: white; }
+    .btn-tts.playing { background: #4A90D9; }
+    .btn-tts.playing svg { fill: white; }
+
+    /* 선택지 */
+    .choices { display: flex; flex-direction: column; gap: 12px; }
+    .choice-btn {
+      background: white; border: 2px solid #e0e0e0; border-radius: 12px;
+      padding: 14px 20px; font-size: 16px; text-align: left; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .choice-btn:active { background: #f0f4f8; }
+    .choice-btn.selected { border-color: #4A90D9; background: #EBF5FF; }
+    .choice-btn.correct {
+      border-color: #27AE60; background: #E8F8E8; color: #27AE60; font-weight: 600;
+    }
+    .choice-btn.incorrect {
+      border-color: #E74C3C; background: #FDE8E8; color: #E74C3C;
+    }
+    .choice-btn:disabled { cursor: default; opacity: 0.7; }
+
+    /* 힌트 */
+    .hint-area {
+      background: #FFF8E1; border-radius: 12px; padding: 12px 16px;
+      font-size: 14px; color: #F57F17; display: none;
+    }
+    .hint-area.visible { display: block; }
+    .btn-hint {
+      background: none; border: 1px solid #F57F17; border-radius: 8px;
+      padding: 6px 16px; color: #F57F17; font-size: 13px; cursor: pointer;
+      margin: 0 auto; display: block;
+    }
+
+    /* 녹음 (언어치료 마이크로 루틴) */
+    .recording-area {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .btn-record {
+      width: 72px; height: 72px; border-radius: 50%; border: none;
+      background: #E74C3C; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: transform 0.1s;
+    }
+    .btn-record:active { transform: scale(0.9); }
+    .btn-record.recording { animation: pulse 1s infinite; }
+    .btn-record svg { width: 32px; height: 32px; fill: white; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(231,76,60,0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(231,76,60,0); }
+    }
+    .recording-status { font-size: 14px; color: #666; }
+    .recording-timer { font-size: 24px; font-weight: 700; color: #E74C3C; }
+
+    /* 도움 계단 (Help Stairs) */
+    .help-stairs {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      padding: 8px 0;
+    }
+    .help-stairs .display-text {
+      font-size: 22px; font-weight: 600; text-align: center;
+      line-height: 1.6; padding: 12px 16px; color: #333;
+    }
+    .stair-buttons {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      width: 100%;
+    }
+    .btn-stair {
+      min-height: 48px; padding: 12px 24px; border-radius: 24px;
+      border: 2px solid #4A90D9; background: #EBF3FC; color: #2C6DB5;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      transition: opacity 0.3s, transform 0.1s;
+      width: 80%; max-width: 280px;
+    }
+    .btn-stair:active { transform: scale(0.96); }
+    .btn-stair.used {
+      opacity: 0.45; pointer-events: none;
+      border-color: #aaa; background: #f0f0f0; color: #999;
+    }
+    .btn-stair.btn-slow {
+      border-color: #F5A623; background: #FFF8E8; color: #C47F00;
+    }
+    .btn-stair.btn-retry {
+      border: 1px solid #bbb; background: #f9f9f9; color: #666;
+      font-size: 14px; padding: 8px 20px; min-height: 40px;
+    }
+    .btn-stair.hidden, .help-stairs .hidden { display: none; }
+
+    /* B-4: 건너뛰기 — 하단 고정, 회색 */
+    .btn-skip {
+      background: none; border: 1px solid #bbb; border-radius: 8px;
+      padding: 8px 24px; color: #999; font-size: 13px; cursor: pointer;
+      margin-top: 16px; display: block; width: auto;
+    }
+    .btn-skip:active { background: #f0f0f0; }
+
+    /* B-4: 힌트 보기 — 카드 내부 작은 텍스트 링크 */
+    .hint-link {
+      font-size: 13px; color: #999; text-decoration: underline;
+      cursor: pointer; margin-top: 4px; display: inline-block;
+    }
+    .hint-link:hover { color: #666; }
+
+    /* B-5: 녹음 완료 피드백 */
+    .recording-feedback {
+      font-size: 20px; font-weight: 700; color: #27AE60;
+      text-align: center; padding: 12px 16px;
+      background: #E8F8E8; border-radius: 12px;
+      animation: feedbackPop 0.3s ease-out;
+    }
+    .recording-feedback.hidden { display: none; }
+    @keyframes feedbackPop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* 녹음 영역 메인 */
+    .recording-area-main {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+
+    .word-highlight { transition: background 0.2s; }
+    .word-highlight.active {
+      background: #FFF176; border-radius: 4px; padding: 0 2px;
+    }
+
+    /* 관찰 요약 (결과 화면) */
+    .observation-summary {
+      width: 100%; max-width: 360px; margin: 16px auto 0;
+      background: #fff; border-radius: 12px; padding: 16px;
+      border: 1px solid #e0e0e0;
+    }
+    .observation-summary h3 {
+      font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #333;
+    }
+    .obs-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 4px; font-size: 14px; color: #555;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .obs-row:last-child { border-bottom: none; }
+    .obs-row.highlight-row {
+      background: #FFF3E0; border-radius: 8px; padding: 8px;
+      margin-top: 4px; border-bottom: none;
+    }
+    .obs-row.highlight-row span:last-child {
+      font-weight: 600; color: #E65100; font-size: 13px;
+      max-width: 60%; text-align: right;
+    }
+
+    /* 피드백 메시지 */
+    .feedback {
+      text-align: center; font-size: 16px; font-weight: 600;
+      padding: 12px; border-radius: 12px; display: none;
+    }
+    .feedback.correct { display: block; background: #E8F8E8; color: #27AE60; }
+    .feedback.incorrect { display: block; background: #FDE8E8; color: #E74C3C; }
+
+    /* 과목 전환 안내 */
+    .transition-msg {
+      text-align: center; font-size: 15px; color: #888;
+      padding: 8px; font-style: italic;
+    }
+    .lesson-progress {
+      text-align: center; font-size: 13px; color: #27AE60;
+      padding: 4px 12px; background: #E8F8E8; border-radius: 12px;
+      display: inline-block; margin: 0 auto;
+    }
+
+    /* ===== 완료 화면 ===== */
+    #page-complete {
+      justify-content: center; align-items: center; gap: 24px;
+      background: linear-gradient(135deg, #27AE60 0%, #219A52 100%);
+      color: white; text-align: center;
+    }
+    #page-complete .emoji { font-size: 64px; }
+    #page-complete h2 { font-size: 28px; }
+    #page-complete .stats {
+      background: rgba(255,255,255,0.15); border-radius: 16px;
+      padding: 20px; width: 100%; max-width: 320px;
+    }
+    .stat-row { display: flex; justify-content: space-between; padding: 8px 0; }
+    .stat-label { opacity: 0.8; }
+    .stat-value { font-weight: 700; }
+    .stat-divider {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin: 8px 0; padding: 0;
+    }
+    .subject-stat {
+      display: flex; justify-content: space-between; padding: 4px 0;
+      font-size: 14px;
+    }
+    .subject-stat .label { opacity: 0.7; }
+
+    /* ===== 설정 화면 ===== */
+    #page-settings { background: #f0f4f8; gap: 16px; }
+    .settings-group {
+      background: white; border-radius: 16px; padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .settings-group h3 { font-size: 16px; margin-bottom: 12px; color: #333; }
+    .setting-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid #f0f0f0;
+    }
+    .setting-row:last-child { border-bottom: none; }
+    .setting-label { font-size: 14px; }
+    .setting-input {
+      border: 1px solid #ddd; border-radius: 8px; padding: 8px 12px;
+      font-size: 14px; width: 120px; text-align: right;
+    }
+    select.setting-input { width: 160px; }
+
+    /* ===== 앵커 설정 ===== */
+    .anchor-warning {
+      background: #FFF3CD; border: 1px solid #FFEAA7; border-radius: 12px;
+      padding: 12px 16px; font-size: 13px; color: #856404; margin-bottom: 12px;
+    }
+    .anchor-warning.danger {
+      background: #F8D7DA; border-color: #F5C6CB; color: #721C24;
+    }
+    .anchor-input {
+      border: 1px solid #ddd; border-radius: 8px; padding: 10px 12px;
+      font-size: 14px; width: 100%; margin-top: 6px;
+    }
+    .anchor-input:focus { border-color: #4A90D9; outline: none; }
+    select.anchor-input { background: white; }
+    .anchor-row { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+    .anchor-row:last-child { border-bottom: none; }
+    .anchor-label { font-size: 14px; font-weight: 600; color: #555; }
+    .anchor-status { font-size: 12px; color: #999; margin-top: 2px; }
+    .anchor-actions {
+      display: flex; gap: 8px; margin-top: 12px;
+    }
+    .btn-anchor-carry {
+      flex: 1; background: #f0f4f8; border: 1px solid #ddd; border-radius: 8px;
+      padding: 10px; font-size: 13px; cursor: pointer; text-align: center;
+    }
+    .btn-anchor-carry:active { background: #e0e4e8; }
+    .btn-anchor-save {
+      flex: 1; background: #4A90D9; border: none; border-radius: 8px;
+      padding: 10px; font-size: 13px; color: white; cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-anchor-save:active { background: #357ABD; }
+
+    /* ===== 공통 ===== */
+    .btn-back {
+      background: none; border: none; font-size: 24px; cursor: pointer;
+      padding: 8px; color: #666;
+    }
+    .header {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .btn-settings {
+      background: none; border: none; font-size: 20px; cursor: pointer;
+      padding: 8px; color: white; opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 홈 화면 ===== -->
+<div id="page-home" class="page active">
+  <div class="header" style="position:absolute;top:16px;right:16px;">
+    <button class="btn-settings" onclick="showPage('page-settings')">&#9881;</button>
+  </div>
+  <h1>PO 학습</h1>
+  <div class="greeting" id="greeting-text">로딩 중...</div>
+  <div class="today-info">
+    <div class="card-count" id="today-card-count">-</div>
+    <div class="card-label">오늘의 카드</div>
+    <div class="streak-home" id="streak-home"></div>
+  </div>
+  <button class="btn-start" onclick="startSession()">시작하기</button>
+</div>
+
+<!-- ===== 카드 화면 ===== -->
+<div id="page-card" class="page">
+  <div class="progress-area">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-text" id="progress-text">0/0</div>
+  </div>
+  <div id="transition-msg" class="transition-msg" style="display:none;"></div>
+  <div id="lesson-progress" class="lesson-progress" style="display:none;"></div>
+  <div id="subject-badge-area"></div>
+  <div class="card" id="card-container">
+    <!-- 동적으로 렌더링 -->
+  </div>
+  <div class="feedback" id="feedback"></div>
+</div>
+
+<!-- ===== 완료 화면 ===== -->
+<div id="page-complete" class="page">
+  <div class="emoji">&#127881;</div>
+  <h2 id="complete-message">오늘 학습 끝!</h2>
+  <div class="stats" id="complete-stats">
+    <div class="stat-row">
+      <span class="stat-label">맞은 개수</span>
+      <span class="stat-value" id="stat-correct">0/0</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">정답률</span>
+      <span class="stat-value" id="stat-accuracy">0%</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">소요 시간</span>
+      <span class="stat-value" id="stat-time">0분</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">연속 학습</span>
+      <span class="stat-value" id="stat-streak">0일</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div id="subject-breakdown"></div>
+  </div>
+  <!-- v4.3: 관찰 요약 (따라읽기가 있었을 때만 표시) -->
+  <div class="observation-summary" id="observation-summary" style="display:none;"></div>
+  <button class="btn-start" onclick="showPage('page-home')">홈으로</button>
+</div>
+
+<!-- ===== 설정 화면 ===== -->
+<form id="page-settings" class="page" autocomplete="off">
+  <div class="header">
+    <button type="button" class="btn-back" onclick="showPage('page-home')">&#8592;</button>
+    <h2 style="font-size:20px;">설정</h2>
+    <div style="width:40px;"></div>
+  </div>
+
+  <div class="settings-group">
+    <h3>TTS (읽어주기)</h3>
+    <div class="setting-row">
+      <span class="setting-label">서버 URL</span>
+      <input type="text" class="setting-input" id="set-server-url" placeholder="Worker URL" style="width:200px;" autocomplete="off">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">PIN</span>
+      <input type="text" class="setting-input" id="set-pin" placeholder="PIN" autocomplete="off" style="-webkit-text-security:disc;">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">한국어 음성</span>
+      <select class="setting-input" id="set-voice-ko">
+        <option value="ko-KR-Chirp3-HD-Zephyr">Zephyr (남, 부드러운)</option>
+        <option value="ko-KR-Chirp3-HD-Leda">Leda (여, 차분한)</option>
+        <option value="ko-KR-Chirp3-HD-Kore">Kore (여, 밝은)</option>
+        <option value="ko-KR-Chirp3-HD-Puck">Puck (남, 낮은)</option>
+      </select>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">영어 음성</span>
+      <select class="setting-input" id="set-voice-en">
+        <option value="en-US-Chirp3-HD-Zephyr">Zephyr (남)</option>
+        <option value="en-US-Chirp3-HD-Leda">Leda (여)</option>
+        <option value="en-US-Chirp3-HD-Kore">Kore (여)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="settings-group">
+    <h3>학습 설정</h3>
+    <div class="setting-row">
+      <span class="setting-label">카드 수</span>
+      <input type="number" class="setting-input" id="set-card-count" value="20" min="10" max="30">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">오늘 모드 강제 지정</span>
+      <select class="setting-input" id="set-mode-override">
+        <option value="">자동</option>
+        <option value="A">일상 학습</option>
+        <option value="B">읽기 연습</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="settings-group">
+    <h3>Google Sheets 로그</h3>
+    <div class="setting-row">
+      <span class="setting-label">Apps Script URL</span>
+      <input type="text" class="setting-input" id="set-sheets-url" placeholder="https://script..." style="width:200px;" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="settings-group" id="anchor-section">
+    <h3>이번 주 앵커 설정</h3>
+    <div id="anchor-warning-area"></div>
+    <div id="anchor-form-area">
+      <!-- config.json anchorTypes에서 동적 생성 -->
+    </div>
+    <div class="anchor-actions">
+      <button type="button" class="btn-anchor-carry" onclick="carryForwardAnchors()">지난주와 동일</button>
+      <button type="button" class="btn-anchor-save" onclick="saveAnchors()">앵커 저장</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn-start" style="background:#4A90D9;color:white;width:100%;margin-top:8px;" onclick="saveSettings()">저장</button>
+</form>
+
+<script>
+// ===================================================================
+// PO v4 학습 앱 — 세션 B 구현
+// Google Chirp3 HD TTS + 카드 조합 알고리즘 + 리뷰 큐 + 자동 보정
+// ===================================================================
+
+// ----- 전역 상태 -----
+const APP = {
+  config: null,
+  englishCards: [],
+  comprehensionCards: [],
+  speechTherapyCards: [],
+  speechTherapyLessons: [],
+  currentLessonInfo: null,
+  phrasePool: null,
+  reviewQueue: {},
+  progress: null,
+  ttsPlaying: false,
+  session: {
+    cards: [],
+    currentIndex: 0,
+    startTime: null,
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: null,
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+  },
+};
+
+// ===================================================================
+// Worker / API 통신
+// ===================================================================
+
+function getSettings() {
+  return JSON.parse(localStorage.getItem('po_v4_settings') || 'null') || {
+    serverUrl: '', pin: '', voiceKo: 'ko-KR-Chirp3-HD-Zephyr',
+    voiceEn: 'en-US-Chirp3-HD-Zephyr', cardCount: 20,
+    modeOverride: '', sheetsUrl: ''
+  };
+}
+
+async function workerFetch(path, options = {}) {
+  const s = getSettings();
+  if (!s.serverUrl) throw new Error('서버 URL 미설정');
+  const headers = options.headers || {};
+  if (s.pin) headers['X-App-Pin'] = s.pin;
+  options.headers = headers;
+  return fetch(s.serverUrl.replace(/\/+$/, '') + path, options);
+}
+
+// ===================================================================
+// TTS (Google Chirp3 HD + Web Speech 폴백)
+// ===================================================================
+
+function cleanTextForTTS(text) {
+  return text
+    .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu, '')
+    .replace(/\*{1,3}([^*]+)\*{1,3}/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/[-\u2013\u2014]{2,}/g, ' ')
+    .replace(/\s[-\u2013\u2014]\s/g, ' ')
+    .replace(/\*+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function textToSSML(text) {
+  let ssml = text
+    .replace(/'([^']+)'/g, '<break time="100ms"/>$1<break time="80ms"/>')
+    .replace(/,\s*/g, ',<break time="300ms"/>')
+    .replace(/!\s*/g, '!<break time="400ms"/>')
+    .replace(/\?\s*/g, '?<break time="400ms"/>')
+    .replace(/\.\s*/g, '.<break time="350ms"/>')
+    .replace(/(<break time="\d+ms"\/>)\s*(<break time="\d+ms"\/>)/g, '$1');
+  return `<speak>${ssml}</speak>`;
+}
+
+async function textToSpeech(text, lang, options) {
+  options = options || {};
+  var rate = options.rate || null;  // null = 기본값 사용
+  var onBoundary = options.onBoundary || null;  // 단어 경계 콜백
+
+  const s = getSettings();
+  const cleanText = cleanTextForTTS(text);
+  const isEnglish = lang === 'en';
+
+  // Google Chirp3 HD via Worker
+  if (s.serverUrl) {
+    try {
+      const voiceName = isEnglish ? s.voiceEn : s.voiceKo;
+      const languageCode = isEnglish ? 'en-US' : 'ko-KR';
+      const input = isEnglish ? { text: cleanText } : { ssml: textToSSML(cleanText) };
+      const speakingRate = rate || (isEnglish ? 0.85 : 0.95);
+
+      const res = await workerFetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          input,
+          voice: { languageCode, name: voiceName },
+          audioConfig: { audioEncoding: 'MP3', speakingRate: speakingRate }
+        })
+      });
+
+      if (!res.ok) throw new Error('TTS ' + res.status);
+      const data = await res.json();
+
+      return new Promise((resolve) => {
+        const audio = new Audio('data:audio/mp3;base64,' + data.audioContent);
+        audio.onended = resolve;
+        audio.onerror = resolve;
+        audio.play();
+      });
+    } catch (e) {
+      console.warn('Chirp3 TTS 실패, Web Speech 폴백:', e);
+    }
+  }
+
+  // Web Speech API 폴백
+  return new Promise((resolve) => {
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = isEnglish ? 'en-US' : 'ko-KR';
+    utterance.rate = rate || 0.9;
+    if (onBoundary) utterance.onboundary = onBoundary;
+    utterance.onend = resolve;
+    utterance.onerror = resolve;
+    speechSynthesis.speak(utterance);
+  });
+}
+
+// TTS 정책: 카드 상태 기반
+function getTTSPolicy(card) {
+  if (card.answer.type === 'recording') return 'manual_stairs'; // v4.3: 도움 계단 모드
+  const cs = getCardState(card.id);
+  if (cs.consecutiveIncorrect >= 3) return 'auto_hint';
+  if (cs.state === 'new') return 'auto_play';
+  return 'button';
+}
+
+async function playTTS(cardId) {
+  if (APP.ttsPlaying) return;
+  const card = APP.session.cards.find(c => c.id === cardId) || APP.session.cards[APP.session.currentIndex];
+  if (!card) return;
+
+  const text = card.question.ttsText || card.question.text;
+  const lang = (card.subject === 'english' && card.question.displayWord) ? 'en' : 'ko';
+
+  APP.ttsPlaying = true;
+  const ttsBtn = document.querySelector('.btn-tts');
+  if (ttsBtn) ttsBtn.classList.add('playing');
+
+  try {
+    await textToSpeech(text, lang);
+  } finally {
+    APP.ttsPlaying = false;
+    if (ttsBtn) ttsBtn.classList.remove('playing');
+  }
+
+  logEvent('tts_play', { cardId: card.id, engine: getSettings().serverUrl ? 'chirp3' : 'web_speech' });
+}
+
+function applyTTSPolicy(card) {
+  const policy = getTTSPolicy(card);
+  if (policy === 'manual_stairs') {
+    // 도움 계단: 자동 재생 안 함, 아이가 직접 버튼 누름
+    return;
+  }
+  if (policy === 'auto_play') {
+    setTimeout(() => playTTS(card.id), 400);
+  } else if (policy === 'auto_hint') {
+    setTimeout(() => playTTS(card.id), 400);
+    setTimeout(() => showHint(), 800);
+  }
+  // 'button' → 사용자가 직접 TTS 버튼 탭
+}
+
+// ===================================================================
+// 페이지 전환
+// ===================================================================
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+
+// ===================================================================
+// 초기화
+// ===================================================================
+
+async function init() {
+  loadSettingsUI();
+  await loadContentFiles();
+  loadReviewQueue();
+  APP.progress = loadAppProgress();
+  initAnchorUI();
+  updateHomeScreen();
+  retryPendingSync();
+  retryPendingRecordings();  // v4.3: 대기 중인 녹음 재전송
+}
+
+function loadSettingsUI() {
+  const s = getSettings();
+  document.getElementById('set-server-url').value = s.serverUrl;
+  document.getElementById('set-pin').value = s.pin;
+  document.getElementById('set-voice-ko').value = s.voiceKo;
+  document.getElementById('set-voice-en').value = s.voiceEn;
+  document.getElementById('set-card-count').value = s.cardCount;
+  document.getElementById('set-mode-override').value = s.modeOverride;
+  document.getElementById('set-sheets-url').value = s.sheetsUrl;
+}
+
+function saveSettings() {
+  const settings = {
+    serverUrl: document.getElementById('set-server-url').value.trim(),
+    pin: document.getElementById('set-pin').value,
+    voiceKo: document.getElementById('set-voice-ko').value,
+    voiceEn: document.getElementById('set-voice-en').value,
+    cardCount: parseInt(document.getElementById('set-card-count').value) || 20,
+    modeOverride: document.getElementById('set-mode-override').value,
+    sheetsUrl: document.getElementById('set-sheets-url').value.trim(),
+  };
+  localStorage.setItem('po_v4_settings', JSON.stringify(settings));
+  showPage('page-home');
+  updateHomeScreen();
+}
+
+// ===================================================================
+// 콘텐츠 로딩
+// ===================================================================
+
+async function loadContentFiles() {
+  try {
+    const [engRes, compRes, phraseRes, stRes, cfgRes] = await Promise.all([
+      fetch('english.json').then(r => r.json()).catch(() => ({ cards: [] })),
+      fetch('comprehension.json').then(r => r.json()).catch(() => ({ cards: [] })),
+      fetch('phrase-pool.json').then(r => r.json()).catch(() => null),
+      fetch('speech-therapy.json').then(r => r.json()).catch(() => null),
+      fetch('config.json').then(r => r.json()).catch(() => null),
+    ]);
+    APP.englishCards = engRes.cards || [];
+    APP.comprehensionCards = compRes.cards || [];
+    APP.phrasePool = phraseRes;
+    APP.config = cfgRes;
+    if (stRes) APP.speechTherapyCards = generateSpeechTherapyCards(stRes);
+  } catch (e) {
+    console.error('콘텐츠 로딩 실패:', e);
+  }
+}
+
+function generateSpeechTherapyCards(data) {
+  const cards = [];
+  if (!data || !data.lessons) return cards;
+
+  // lesson 별로 카드 그룹을 만들되, 메타 정보 보존
+  APP.speechTherapyLessons = data.lessons.map(function(lesson) {
+    const lines = lesson.lines || [];
+    const targetLines = lesson.type === 'dictation'
+      ? lines.filter(function(l) { return !l.childWrote || l.errorType !== '정답'; })
+      : lines;
+
+    var lessonCards = targetLines.map(function(line, i) {
+      return {
+        id: 'st_' + lesson.id + '_' + String(i + 1).padStart(3, '0'),
+        type: 'speech_therapy',
+        subject: 'speech_therapy',
+        difficulty: 1,
+        anchorType: lesson.anchorType || 'speech-therapy',
+        anchorWeek: lesson.anchorWeek || getCurrentWeek(),
+        sourceUnit: lesson.sourceUnit || '차병원',
+        topic: lesson.topic || (lesson.type === 'poem' ? '따라읽기' : '받아쓰기'),
+        question: {
+          text: lesson.type === 'poem' ? '따라 읽어봐' : '듣고 따라 써봐',
+          ttsText: line.text,
+          displayWord: line.text,
+        },
+        answer: { type: 'recording' },
+        hint: line.pronunciation !== line.text
+          ? { text: '발음: ' + line.pronunciation }
+          : null,
+        tags: [lesson.type, lesson.id],
+        _lessonId: lesson.id,
+        _lessonTitle: lesson.title,
+        _lessonOrder: i,
+        _lessonTotal: targetLines.length,
+      };
+    });
+
+    return {
+      id: lesson.id,
+      title: lesson.title,
+      type: lesson.type,
+      anchorType: lesson.anchorType,
+      anchorWeek: lesson.anchorWeek,
+      cards: lessonCards,
+    };
+  });
+
+  // 전체 카드 풀 (기존 호환: lesson → cards)
+  APP.speechTherapyLessons.forEach(function(les) {
+    cards.push.apply(cards, les.cards);
+  });
+
+  // 파이프라인 생성 퀴즈 카드 (cards 배열)
+  if (data.cards && Array.isArray(data.cards)) {
+    data.cards.forEach(function(c) {
+      c.subject = c.subject || 'speech_therapy';
+      c.type = c.type || 'speech_therapy';
+      c.id = c.id || c.cardId;
+      cards.push(c);
+    });
+  }
+
+  return cards;
+}
+
+// ===================================================================
+// 홈 화면
+// ===================================================================
+
+function updateHomeScreen() {
+  const phrase = getRandomPhrase('greeting');
+  document.getElementById('greeting-text').textContent = phrase;
+  const s = getSettings();
+  document.getElementById('today-card-count').textContent = s.cardCount;
+
+  const progress = APP.progress || loadAppProgress();
+  const streakEl = document.getElementById('streak-home');
+  if (progress.stats.streak > 0) {
+    streakEl.textContent = progress.stats.streak + '일 연속 학습 중!';
+  } else {
+    streakEl.textContent = '';
+  }
+}
+
+function getRandomPhrase(category) {
+  const pool = APP.phrasePool;
+  if (pool && pool[category] && pool[category].length > 0) {
+    const arr = pool[category];
+    return arr[Math.floor(Math.random() * arr.length)].text;
+  }
+  const defaults = {
+    greeting: '오늘도 시작해 볼까!',
+    praise_correct: '정답! 잘했어!',
+    praise_streak: '연속 정답! 멋있어!',
+    encouragement: '괜찮아, 다시 해보자.',
+    hint_offer: '힌트 줄까?',
+    completion: '오늘 학습 끝! 잘했어!',
+    speech_therapy_micro: '잘 읽었어!',
+    return_after_absence: '다시 왔구나! 반가워!',
+  };
+  return defaults[category] || '화이팅!';
+}
+
+// ===================================================================
+// 리뷰 큐 (간격 반복)
+// ===================================================================
+
+function loadReviewQueue() {
+  APP.reviewQueue = JSON.parse(localStorage.getItem('po_v4_review_queue') || '{}');
+  return APP.reviewQueue;
+}
+
+function saveReviewQueue() {
+  localStorage.setItem('po_v4_review_queue', JSON.stringify(APP.reviewQueue));
+}
+
+function getCardState(cardId) {
+  if (!APP.reviewQueue[cardId]) {
+    APP.reviewQueue[cardId] = {
+      state: 'new',
+      consecutiveCorrect: 0,
+      consecutiveIncorrect: 0,
+      totalAttempts: 0,
+      totalCorrect: 0,
+      lastSeen: null,
+      nextReview: null,
+      interval: 0,
+    };
+  }
+  return APP.reviewQueue[cardId];
+}
+
+function updateCardState(cardId, correct) {
+  const cs = getCardState(cardId);
+  cs.totalAttempts++;
+  cs.lastSeen = todayStr();
+
+  if (correct) {
+    cs.totalCorrect++;
+    cs.consecutiveCorrect++;
+    cs.consecutiveIncorrect = 0;
+
+    if (cs.consecutiveCorrect >= 3) {
+      cs.state = 'mastered';
+      cs.interval = 7;
+      cs.nextReview = addDays(todayStr(), 7);
+    } else if (cs.consecutiveCorrect >= 2) {
+      cs.state = 'review';
+      cs.interval = 3;
+      cs.nextReview = addDays(todayStr(), 3);
+    } else {
+      cs.state = cs.state === 'new' ? 'learning' : 'review';
+      cs.interval = 1;
+      cs.nextReview = addDays(todayStr(), 1);
+    }
+  } else {
+    cs.consecutiveCorrect = 0;
+    cs.consecutiveIncorrect++;
+
+    // 3연속 오답 → 난이도 하향 (autoAdjust)
+    if (cs.consecutiveIncorrect >= 3) {
+      cs.state = 'learning';
+    } else if (cs.state !== 'new') {
+      cs.state = 'learning';
+    }
+    cs.interval = 0; // 다음 세션에서 바로 복습
+    cs.nextReview = todayStr();
+  }
+
+  saveReviewQueue();
+}
+
+// ===================================================================
+// 카드 조합 알고리즘
+// ===================================================================
+
+// ----- 기존 방식 (레거시 셔플) -----
+function buildSessionLegacy() {
+  var s = getSettings();
+  var totalCards = s.cardCount || 20;
+  var stLesson = selectSpeechTherapyLesson();
+  var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
+  var contentSlots = totalCards - stCards.length;
+
+  var engRatio = 0.4, compRatio = 0.3;
+  var totalRatio = engRatio + compRatio;
+  var engSlots = Math.round(contentSlots * (engRatio / totalRatio));
+  var compSlots = contentSlots - engSlots;
+
+  var engCards = selectCardsForSubject(APP.englishCards, engSlots);
+  var compCards = selectCardsForSubject(APP.comprehensionCards, compSlots);
+
+  // 블록 순서: 영어(블록 내 셔플) → 독해(블록 내 셔플) → 따라읽기(순서 유지)
+  var result = [];
+  result.push.apply(result, shuffleArray(engCards));
+  result.push.apply(result, shuffleArray(compCards));
+  result.push.apply(result, stCards); // lesson 순서대로
+
+  return { cards: result, lessonInfo: stLesson };
+}
+
+// ----- 앵커 기반 방식 (섀도/실전) -----
+function buildSessionAnchored() {
+  var s = getSettings();
+  var totalCards = s.cardCount || 20;
+  var stLesson = selectSpeechTherapyLesson();
+  var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
+  var contentSlots = totalCards - stCards.length;
+
+  var cfg = APP.config && APP.config.anchorConfig;
+  var allocation = (cfg && cfg.anchorAllocation) || { anchor: 0.6, review: 0.3, extension: 0.1 };
+  var anchorData = getAnchorData();
+  var currentWeek = getCurrentWeek();
+  var today = todayStr();
+
+  // 앵커/복습/확장 슬롯
+  var anchorSlots = Math.round(contentSlots * allocation.anchor);
+  var reviewSlots = Math.round(contentSlots * allocation.review);
+  var extensionSlots = contentSlots - anchorSlots - reviewSlots;
+
+  var allContent = [].concat(APP.englishCards, APP.comprehensionCards);
+
+  // 1) 앵커 직결: 이번 주 앵커와 일치하는 카드
+  var anchorCards = allContent.filter(function(c) {
+    if (!c.anchorWeek || !anchorData.weekOf) return false;
+    return c.anchorWeek === currentWeek;
+  });
+
+  // 2) 복습: 이전 주차 카드 중 복습 시점 도래 또는 틀린 카드
+  var reviewCards = allContent.filter(function(c) {
+    if (c.anchorWeek === currentWeek) return false;
+    var cs = getCardState(c.id);
+    return cs.consecutiveIncorrect > 0 || (!cs.nextReview || cs.nextReview <= today);
+  });
+
+  // 3) 확장: reviewedBy 있는 카드 중 관심사 태그 매칭
+  var extensionCards = allContent.filter(function(c) {
+    return c.reviewedBy && c.anchorWeek !== currentWeek;
+  });
+
+  var selected = [];
+  selected.push.apply(selected, shuffleArray(anchorCards).slice(0, anchorSlots));
+  selected.push.apply(selected, shuffleArray(reviewCards).slice(0, reviewSlots));
+  selected.push.apply(selected, shuffleArray(extensionCards).slice(0, extensionSlots));
+
+  // 부족하면 나머지로 채움
+  if (selected.length < contentSlots) {
+    var usedIds = {};
+    selected.forEach(function(c) { usedIds[c.id] = true; });
+    var extras = allContent.filter(function(c) { return !usedIds[c.id]; });
+    selected.push.apply(selected, shuffleArray(extras).slice(0, contentSlots - selected.length));
+  }
+  selected = selected.slice(0, contentSlots);
+
+  // 블록 순서: 영어 → 독해 → 따라읽기
+  var engBlock = [], compBlock = [];
+  selected.forEach(function(c) {
+    if (c.subject === 'english') engBlock.push(c);
+    else compBlock.push(c);
+  });
+
+  var result = [];
+  result.push.apply(result, shuffleArray(engBlock));
+  result.push.apply(result, shuffleArray(compBlock));
+  result.push.apply(result, stCards);
+
+  return {
+    cards: result,
+    lessonInfo: stLesson,
+    anchorStats: {
+      anchorCount: Math.min(anchorCards.length, anchorSlots),
+      reviewCount: Math.min(reviewCards.length, reviewSlots),
+      extensionCount: Math.min(extensionCards.length, extensionSlots),
+    }
+  };
+}
+
+// ----- lesson 선택 -----
+function selectSpeechTherapyLesson() {
+  var lessons = APP.speechTherapyLessons;
+  if (!lessons || lessons.length === 0) return null;
+
+  // 1) 앵커 매칭 lesson 우선
+  var anchorData = getAnchorData();
+  var currentWeek = getCurrentWeek();
+  var anchorLessons = lessons.filter(function(l) {
+    return l.anchorWeek === currentWeek;
+  });
+
+  // 2) 가장 최근에 안 한 lesson (lastPlayed 기록)
+  var lessonHistory = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
+
+  var candidates = anchorLessons.length > 0 ? anchorLessons : lessons;
+  candidates.sort(function(a, b) {
+    var aLast = lessonHistory[a.id] || '2000-01-01';
+    var bLast = lessonHistory[b.id] || '2000-01-01';
+    return aLast < bLast ? -1 : aLast > bLast ? 1 : 0;
+  });
+
+  var chosen = candidates[0];
+
+  // lesson 길이 제한 (10문장 초과 시 자르기)
+  if (chosen.cards.length > 10) {
+    chosen = Object.assign({}, chosen, { cards: chosen.cards.slice(0, 10) });
+  }
+
+  // 이번 세션에서 사용한 lesson 기록
+  lessonHistory[chosen.id] = todayStr();
+  localStorage.setItem('po_v4_lesson_history', JSON.stringify(lessonHistory));
+
+  return chosen;
+}
+
+// ----- 메인 buildSession (섀도 모드 분기) -----
+function buildSession() {
+  var cfg = APP.config && APP.config.anchorConfig;
+  var shadowMode = cfg ? cfg.shadowMode : true;
+
+  var legacy = buildSessionLegacy();
+  var anchored = buildSessionAnchored();
+
+  // 섀도 비교 로그
+  if (shadowMode) {
+    var legacyIds = legacy.cards.map(function(c) { return c.id; });
+    var anchoredIds = anchored.cards.map(function(c) { return c.id; });
+    var overlapCount = legacyIds.filter(function(id) { return anchoredIds.indexOf(id) >= 0; }).length;
+
+    var shadowLog = {
+      event: 'shadow_comparison',
+      legacy_cards: legacyIds,
+      anchored_cards: anchoredIds,
+      anchor_config: getAnchorData().anchors || {},
+      overlap_count: overlapCount,
+      anchored_stats: anchored.anchorStats,
+      timestamp: new Date().toISOString(),
+    };
+    console.log('[Shadow Mode]', shadowLog);
+
+    // Google Sheets에도 전송
+    var s = getSettings();
+    if (s.sheetsUrl) {
+      fetch(s.sheetsUrl, {
+        method: 'POST',
+        body: JSON.stringify(shadowLog),
+        mode: 'no-cors',
+      }).catch(function() {});
+    }
+  }
+
+  // shadowMode=true면 레거시 사용, false면 앵커 방식 실전
+  var chosen = shadowMode ? legacy : anchored;
+  APP.currentLessonInfo = chosen.lessonInfo;
+  return chosen.cards;
+}
+
+function selectCardsForSubject(allCards, targetCount) {
+  if (allCards.length === 0 || targetCount <= 0) return [];
+
+  const today = todayStr();
+  const wrong = [], newCards = [], review = [];
+
+  for (const card of allCards) {
+    const cs = getCardState(card.id);
+    if (cs.state === 'new') {
+      newCards.push(card);
+    } else if (cs.consecutiveIncorrect > 0) {
+      wrong.push(card);
+    } else if (!cs.nextReview || cs.nextReview <= today) {
+      review.push(card);
+    }
+  }
+
+  const selected = [];
+
+  // 1. 틀린 카드 우선 (최대 30%)
+  const wrongCount = Math.min(wrong.length, Math.ceil(targetCount * 0.3));
+  selected.push(...shuffleArray(wrong).slice(0, wrongCount));
+
+  // 2. 나머지: 새 카드 40% + 복습 60%
+  const remaining = targetCount - selected.length;
+  const newCount = Math.min(Math.round(remaining * 0.4), newCards.length);
+  const reviewCount = remaining - newCount;
+
+  selected.push(...shuffleArray(newCards).slice(0, newCount));
+  selected.push(...shuffleArray(review).slice(0, reviewCount));
+
+  // 모자라면 아무 카드로 채움
+  if (selected.length < targetCount) {
+    const usedIds = new Set(selected.map(c => c.id));
+    const extras = allCards.filter(c => !usedIds.has(c.id));
+    selected.push(...shuffleArray(extras).slice(0, targetCount - selected.length));
+  }
+
+  return selected.slice(0, targetCount);
+}
+
+// ===================================================================
+// 세션 시작
+// ===================================================================
+
+function startSession() {
+  const cards = buildSession();
+
+  if (cards.length === 0) {
+    alert('학습할 카드가 없습니다. 콘텐츠 파일을 확인해 주세요.');
+    return;
+  }
+
+  APP.session = {
+    cards,
+    currentIndex: 0,
+    startTime: Date.now(),
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: Date.now(),
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+    recordings: [],  // v4.3: 녹음 Blob 버퍼
+  };
+
+  var lessonId = APP.currentLessonInfo ? APP.currentLessonInfo.id : null;
+  logEvent('session_start', { mode: 'A', cardCount: cards.length, lessonId: lessonId });
+  showPage('page-card');
+  renderCard();
+}
+
+// ===================================================================
+// 카드 렌더링
+// ===================================================================
+
+function renderCard() {
+  const s = APP.session;
+  const idx = s.currentIndex;
+  const total = s.cards.length;
+
+  if (idx >= total) {
+    endSession();
+    return;
+  }
+
+  const card = s.cards[idx];
+  s.cardStartTime = Date.now();
+
+  // 진행률
+  document.getElementById('progress-fill').style.width = ((idx / total) * 100) + '%';
+  document.getElementById('progress-text').textContent = (idx + 1) + '/' + total;
+
+  // 과목 전환 안내 (블록 단위)
+  var transMsg = document.getElementById('transition-msg');
+  var lessonProg = document.getElementById('lesson-progress');
+  if (s.prevSubject && s.prevSubject !== card.subject) {
+    var blockMessages = {
+      comprehension: '영어 끝! 이제 독해 시간이야!',
+      speech_therapy: '독해 끝! 이제 따라읽기 해보자!',
+    };
+    var pool = APP.phrasePool;
+    var msg = '';
+    // phrase-pool에서 전환 문구 찾기
+    if (pool && pool.transition) {
+      var conditions = { english: 'to_english', comprehension: 'to_comprehension', speech_therapy: 'to_speech_therapy' };
+      var cond = conditions[card.subject];
+      var matches = pool.transition.filter(function(t) { return t.condition === cond; });
+      if (matches.length > 0) msg = matches[Math.floor(Math.random() * matches.length)].text;
+    }
+    if (!msg) msg = blockMessages[card.subject] || '';
+
+    // 따라읽기 시작 시 lesson 제목 추가
+    if (card.subject === 'speech_therapy' && APP.currentLessonInfo) {
+      msg += '\n오늘의 따라읽기: ' + APP.currentLessonInfo.title;
+    }
+
+    if (msg) {
+      transMsg.textContent = msg;
+      transMsg.style.display = 'block';
+      setTimeout(function() { transMsg.style.display = 'none'; }, 2500);
+    }
+  } else {
+    transMsg.style.display = 'none';
+  }
+
+  // lesson 내 진행률 (따라읽기 블록에서만)
+  if (card.subject === 'speech_therapy' && card._lessonTotal) {
+    lessonProg.textContent = (card._lessonOrder + 1) + '/' + card._lessonTotal + ' 문장';
+    lessonProg.style.display = 'inline-block';
+  } else {
+    lessonProg.style.display = 'none';
+  }
+
+  s.prevSubject = card.subject;
+
+  // 과목 뱃지
+  var subjectLabels = {
+    english: '영어', comprehension: '독해', speech_therapy: '읽기 연습'
+  };
+  var badgeExtra = '';
+  if (card.subject === 'speech_therapy' && card._lessonTitle) {
+    badgeExtra = ' — ' + card._lessonTitle;
+  }
+  document.getElementById('subject-badge-area').innerHTML =
+    '<span class="subject-badge ' + card.subject + '">' + (subjectLabels[card.subject] || card.subject) + badgeExtra + '</span>';
+
+  // 카드 내용 조립
+  const container = document.getElementById('card-container');
+  let html = '';
+
+  // 지문 (독해용)
+  if (card.passage) {
+    html += '<div class="passage">' + escapeHtml(card.passage.text) + '</div>';
+  }
+
+  // 표시 단어/텍스트
+  if (card.question.displayWord) {
+    if (card.subject === 'english' && card.type === 'vocabulary') {
+      html += '<div class="question-area"><div class="display-word">' + escapeHtml(card.question.displayWord) + '</div></div>';
+    } else {
+      html += '<div class="question-area"><div class="display-text">' + escapeHtml(card.question.displayWord) + '</div></div>';
+    }
+  }
+
+  // TTS 버튼 (B-1: recording 카드는 "한 번 들어볼래?" 버튼으로 통일, 스피커 아이콘 제거)
+  if (card.answer.type !== 'recording') {
+    html += '<button class="btn-tts" onclick="playTTS(\'' + card.id + '\')" title="읽어주기">'
+      + '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>'
+      + '</button>';
+  }
+
+  // 질문 텍스트
+  html += '<div class="question-area">' + escapeHtml(card.question.text) + '</div>';
+
+  // 선택지 (choice 타입)
+  if (card.answer.type === 'choice') {
+    html += '<div class="choices">';
+    card.answer.options.forEach(function(opt, i) {
+      html += '<button class="choice-btn" onclick="selectAnswer(' + i + ')">' + escapeHtml(opt) + '</button>';
+    });
+    html += '</div>';
+  }
+
+  // 녹음 (recording 타입) — 도움 계단 UI (v4.3)
+  if (card.answer.type === 'recording') {
+    html += '<div class="help-stairs" id="help-stairs">';
+
+    // 녹음 버튼: 항상 표시, 어느 단계에서든 녹음 가능
+    html += '<div class="recording-area-main">';
+    html += '<button class="btn-record" id="btn-record" onclick="toggleRecording()">'
+      + '<svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5z"/>'
+      + '<path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>'
+      + '</button>';
+    html += '<div class="recording-timer hidden" id="recording-timer">0:00</div>';
+    html += '<div class="recording-status" id="recording-status">혼자 읽어봐!</div>';
+    html += '</div>';
+
+    // 녹음 완료 피드백 (B-3/B-5: 녹음 후에만 표시)
+    html += '<div class="recording-feedback hidden" id="recording-feedback"></div>';
+
+    // 재시도 (녹음 완료 후)
+    html += '<button class="btn-stair btn-retry hidden" id="btn-retry" onclick="retryRecording()">'
+      + '한 번 더 해볼래?</button>';
+
+    // Step 1: 일반 TTS (B-2: 녹음 후 또는 막힐 때 노출)
+    html += '<div class="stair-buttons">'
+      + '<button class="btn-stair hidden" id="btn-listen" onclick="helpStair(1)">'
+      + '한 번 들어볼래?</button>'
+      + '</div>';
+
+    // Step 2: 느린 TTS (Step 1 완료 후 표시)
+    html += '<button class="btn-stair btn-slow hidden" id="btn-slow" onclick="helpStair(2)">'
+      + '천천히 들어볼래?</button>';
+
+    // 힌트 보기 (B-4: 카드 내부 작은 텍스트 링크)
+    if (card.hint) {
+      html += '<a class="hint-link" id="btn-hint-link" href="#" onclick="showHint(); return false;">힌트 보기</a>';
+    }
+
+    // 건너뛰기 (B-4: 하단 고정, 회색 차별화)
+    html += '<button class="btn-skip" onclick="skipRecording()">건너뛰기</button>';
+    html += '</div>';
+  }
+
+  // 힌트 (choice 타입만 — recording 타입은 도움 계단 내부에 배치)
+  if (card.hint && card.answer.type !== 'recording') {
+    html += '<button class="btn-hint" id="btn-hint" onclick="showHint()">힌트 보기</button>';
+    html += '<div class="hint-area" id="hint-area">' + escapeHtml(card.hint.text) + '</div>';
+  }
+  if (card.hint && card.answer.type === 'recording') {
+    html += '<div class="hint-area" id="hint-area">' + escapeHtml(card.hint.text) + '</div>';
+  }
+
+  container.innerHTML = html;
+
+  // 피드백 초기화
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback';
+  fb.style.display = 'none';
+
+  // v4.3: 관찰 데이터 초기화 (speech_therapy 카드)
+  if (card.answer.type === 'recording') {
+    card._observation = {
+      helpStairsUsed: [],
+      attemptNumber: 0,
+      listenCount: 0,
+      skipped: false,
+      cardStartTime: Date.now(),
+      recordingDurations: []
+    };
+    card._helpStairsUsed = [];
+    card._attemptNumber = 0;
+  }
+
+  // TTS 정책 적용
+  applyTTSPolicy(card);
+}
+
+// ===================================================================
+// 정오답 판정
+// ===================================================================
+
+function selectAnswer(selectedIdx) {
+  const card = APP.session.cards[APP.session.currentIndex];
+  const correctIdx = card.answer.options.indexOf(card.answer.correct);
+  const isCorrect = selectedIdx === correctIdx;
+  const responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
+
+  APP.session.totalAttempts++;
+
+  // 리뷰 큐 업데이트
+  updateCardState(card.id, isCorrect);
+
+  // 과목별 통계
+  if (!APP.session.subjectStats[card.subject]) {
+    APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
+  }
+  APP.session.subjectStats[card.subject].total++;
+
+  // 버튼 상태
+  const buttons = document.querySelectorAll('.choice-btn');
+  buttons.forEach(function(btn, i) {
+    btn.disabled = true;
+    if (i === correctIdx) btn.classList.add('correct');
+    if (i === selectedIdx && !isCorrect) btn.classList.add('incorrect');
+  });
+
+  // 피드백
+  const fb = document.getElementById('feedback');
+  if (isCorrect) {
+    APP.session.correctCount++;
+    APP.session.subjectStats[card.subject].correct++;
+    fb.textContent = getRandomPhrase('praise_correct');
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = getRandomPhrase('encouragement');
+    fb.className = 'feedback incorrect';
+  }
+  fb.style.display = 'block';
+
+  logEvent('card_attempt', {
+    cardId: card.id, subject: card.subject,
+    correct: isCorrect, responseTime: responseTime,
+    selectedIdx: selectedIdx, correctIdx: correctIdx
+  });
+
+  // 다음 카드 (정답 1초, 오답 2초)
+  setTimeout(function() {
+    APP.session.currentIndex++;
+    renderCard();
+  }, isCorrect ? 1000 : 2000);
+}
+
+// ===================================================================
+// 힌트
+// ===================================================================
+
+function showHint() {
+  const hintArea = document.getElementById('hint-area');
+  if (hintArea) {
+    hintArea.classList.add('visible');
+    // 힌트 버튼 숨기기
+    var hintBtn = document.getElementById('btn-hint');
+    if (hintBtn) hintBtn.style.display = 'none';
+    // 힌트 링크도 숨기기 (recording 카드용)
+    var hintLink = document.getElementById('btn-hint-link');
+    if (hintLink) hintLink.style.display = 'none';
+  }
+  logEvent('hint_used', { cardId: APP.session.cards[APP.session.currentIndex]?.id });
+}
+
+// ===================================================================
+// 녹음 (언어치료 마이크로 루틴)
+// ===================================================================
+
+let mediaRecorder = null;
+let recordingChunks = [];
+let recordingTimer = null;
+let recordingSeconds = 0;
+
+async function toggleRecording() {
+  const btn = document.getElementById('btn-record');
+  const status = document.getElementById('recording-status');
+  const timerEl = document.getElementById('recording-timer');
+
+  if (mediaRecorder && mediaRecorder.state === 'recording') {
+    // 녹음 중지
+    mediaRecorder.stop();
+    btn.classList.remove('recording');
+    clearInterval(recordingTimer);
+    timerEl.classList.add('hidden');
+
+    var card = APP.session.cards[APP.session.currentIndex];
+
+    // v4.3: 관찰 데이터 — 녹음 기록
+    if (card && card._observation) {
+      card._observation.attemptNumber++;
+      card._observation.recordingDurations.push(recordingSeconds);
+      card._attemptNumber = card._observation.attemptNumber;
+    }
+
+    logEvent('recording_save', {
+      cardId: card ? card.id : null,
+      duration: recordingSeconds,
+    });
+
+    // B-5: 녹음 완료 피드백 — "잘했어!" + 격려 문구
+    var feedbackEl = document.getElementById('recording-feedback');
+    if (feedbackEl) {
+      var praiseTexts = ['잘했어!', '잘 읽었어!', '멋지다!', '대단해!', '좋아!'];
+      var praise = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
+      var micro = getRandomPhrase('speech_therapy_micro');
+      feedbackEl.textContent = praise + ' ' + micro;
+      feedbackEl.classList.remove('hidden');
+    }
+
+    // B-3: 녹음 상태 변경
+    status.textContent = '녹음 저장됐어!';
+
+    // B-2: 녹음 완료 후 "한 번 들어볼래?" 버튼 노출 (Step 1)
+    var btnListen = document.getElementById('btn-listen');
+    if (btnListen) btnListen.classList.remove('hidden');
+
+    // v4.3: "한 번 더 해볼래?" 버튼 표시 + 다음 카드 자동 진행 버튼
+    var btnRetry = document.getElementById('btn-retry');
+    if (btnRetry) btnRetry.classList.remove('hidden');
+
+    // 녹음 완료 후 "다음으로" 버튼 표시 (중복 생성 방지)
+    if (!document.getElementById('btn-next-card')) {
+      var nextBtnHtml = '<button id="btn-next-card" class="btn-stair" onclick="finishRecordingCard()" style="margin-top:8px;">다음으로 \u2192</button>';
+      var nextArea = document.createElement('div');
+      nextArea.innerHTML = nextBtnHtml;
+      status.parentNode.appendChild(nextArea);
+    }
+
+    return;
+  }
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, sampleRate: 16000, echoCancellation: true, noiseSuppression: true }
+    });
+
+    recordingChunks = [];
+    recordingSeconds = 0;
+
+    var mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+      ? 'audio/webm;codecs=opus' : 'audio/webm';
+    mediaRecorder = new MediaRecorder(stream, { mimeType: mimeType });
+
+    mediaRecorder.ondataavailable = function(e) {
+      if (e.data.size > 0) recordingChunks.push(e.data);
+    };
+
+    mediaRecorder.onstop = async function() {
+      stream.getTracks().forEach(function(t) { t.stop(); });
+      var blob = new Blob(recordingChunks, { type: 'audio/webm' });
+      console.log('[PO] 녹음 완료:', blob.size, 'bytes');
+
+      // ★ 즉시 Base64 변환 (Blob 메모리 해제 방지)
+      var base64Data = null;
+      try {
+        base64Data = await blobToBase64(blob);
+        console.log('[PO] Base64 변환 성공, 길이:', base64Data ? base64Data.length : 0);
+      } catch (e) {
+        console.warn('[PO] Base64 즉시 변환 실패:', e);
+      }
+
+      var card = APP.session.cards[APP.session.currentIndex];
+      if (card && APP.session.recordings) {
+        var dateStr = new Date().toISOString().split('T')[0];
+        var seqNum = String(APP.session.recordings.length + 1).padStart(2, '0');
+        var activityType = 'ST';
+        var ruleTag = card._ruleTag || '';
+        var targetWord = (card.question.ttsText || card.question.displayWord || '').replace(/[^가-힣a-zA-Z0-9]/g, '').substring(0, 20);
+        var filename = dateStr + '_PO_' + activityType + '_' + ruleTag + '_' + targetWord + '_' + seqNum + '.webm';
+
+        APP.session.recordings.push({
+          base64: base64Data,  // ★ Blob 대신 Base64 문자열 저장
+          filename: filename,
+          timestamp: new Date().toISOString(),
+          activityType: activityType,
+          ruleTag: ruleTag,
+          targetWord: card.question.ttsText || card.question.displayWord || '',
+          durationSec: recordingSeconds,
+          cardId: card.id,
+          helpStairsUsed: card._helpStairsUsed || [],
+          attemptNumber: card._attemptNumber || 1
+        });
+        console.log('[PO] 녹음 저장 완료, 총', APP.session.recordings.length, '건');
+      }
+    };
+
+    mediaRecorder.start();
+    btn.classList.add('recording');
+    status.textContent = '녹음 중... 다 읽으면 버튼을 다시 눌러';
+    timerEl.classList.remove('hidden');
+
+    recordingTimer = setInterval(function() {
+      recordingSeconds++;
+      var min = Math.floor(recordingSeconds / 60);
+      var sec = recordingSeconds % 60;
+      timerEl.textContent = min + ':' + String(sec).padStart(2, '0');
+    }, 1000);
+  } catch (e) {
+    status.textContent = '마이크를 사용할 수 없어요';
+    console.error('녹음 실패:', e);
+  }
+}
+
+// 녹음 완료 후 다음 카드로 이동
+function finishRecordingCard() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  // v4.3: 관찰 완료 로그
+  if (card && card._observation) {
+    logEvent('observation_complete', {
+      cardId: card.id,
+      helpStairs: card._observation.helpStairsUsed,
+      attempts: card._observation.attemptNumber,
+      listens: card._observation.listenCount,
+      skipped: false,
+      timeOnCard: Math.round((Date.now() - card._observation.cardStartTime) / 1000),
+      recordingDurations: card._observation.recordingDurations
+    });
+  }
+  APP.session.currentIndex++;
+  renderCard();
+}
+
+function skipRecording() {
+  if (mediaRecorder && mediaRecorder.state === 'recording') {
+    mediaRecorder.stop();
+    clearInterval(recordingTimer);
+  }
+  var card = APP.session.cards[APP.session.currentIndex];
+  // v4.3: 관찰 데이터 — 건너뛰기 기록
+  if (card && card._observation) {
+    card._observation.skipped = true;
+    logEvent('observation_complete', {
+      cardId: card.id,
+      helpStairs: card._observation.helpStairsUsed,
+      attempts: card._observation.attemptNumber,
+      listens: card._observation.listenCount,
+      skipped: true,
+      timeOnCard: Math.round((Date.now() - card._observation.cardStartTime) / 1000),
+      recordingDurations: card._observation.recordingDurations
+    });
+  }
+  logEvent('card_skip', { cardId: card ? card.id : null });
+  APP.session.currentIndex++;
+  renderCard();
+}
+
+// ===================================================================
+// 도움 계단 (Help Stairs) — v4.3
+// ===================================================================
+
+async function helpStair(step) {
+  var card = APP.session.cards[APP.session.currentIndex];
+  if (!card) return;
+
+  if (step === 1) {
+    // Step 1: 일반 속도 TTS
+    var btnListen = document.getElementById('btn-listen');
+    if (btnListen) btnListen.classList.add('used');
+
+    if (card._observation) {
+      card._observation.helpStairsUsed.push(1);
+      card._observation.listenCount++;
+      card._helpStairsUsed = card._observation.helpStairsUsed.slice();
+    }
+    logEvent('help_stair_used', {
+      cardId: card.id, step: 1,
+      listenCount: card._observation ? card._observation.listenCount : 1
+    });
+
+    // TTS 재생
+    var text = card.question.ttsText || card.question.displayWord || card.question.text;
+    var lang = 'ko';
+    APP.ttsPlaying = true;
+    try {
+      await textToSpeech(text, lang);
+    } finally {
+      APP.ttsPlaying = false;
+    }
+
+    // Step 1 완료 후 Step 2 버튼 표시
+    var btnSlow = document.getElementById('btn-slow');
+    if (btnSlow) btnSlow.classList.remove('hidden');
+
+  } else if (step === 2) {
+    // Step 2: 느린 속도 TTS + 하이라이트
+    var btnSlow2 = document.getElementById('btn-slow');
+    if (btnSlow2) btnSlow2.classList.add('used');
+
+    if (card._observation) {
+      card._observation.helpStairsUsed.push(2);
+      card._observation.listenCount++;
+      card._helpStairsUsed = card._observation.helpStairsUsed.slice();
+    }
+    logEvent('help_stair_used', {
+      cardId: card.id, step: 2,
+      listenCount: card._observation ? card._observation.listenCount : 1
+    });
+
+    // 단어별 하이라이트 준비
+    var displayTextEl = document.querySelector('.help-stairs .display-text')
+      || document.querySelector('.display-text');
+    var originalText = card.question.ttsText || card.question.displayWord || card.question.text;
+    var words = originalText.split(/\s+/);
+
+    if (displayTextEl && words.length > 1) {
+      displayTextEl.innerHTML = words.map(function(w, i) {
+        return '<span class="word-highlight" data-idx="' + i + '">' + escapeHtml(w) + '</span>';
+      }).join(' ');
+
+      // 단어 순차 하이라이트 (타이밍 기반)
+      var totalDuration = words.length * 600;  // 느린 속도 기준 단어당 ~600ms
+      var interval = totalDuration / words.length;
+      var hlIdx = 0;
+      var hlTimer = setInterval(function() {
+        displayTextEl.querySelectorAll('.word-highlight').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        var activeEl = displayTextEl.querySelector('[data-idx="' + hlIdx + '"]');
+        if (activeEl) activeEl.classList.add('active');
+        hlIdx++;
+        if (hlIdx >= words.length) clearInterval(hlTimer);
+      }, interval);
+    }
+
+    // 느린 TTS 재생 (0.7x)
+    var text2 = card.question.ttsText || card.question.displayWord || card.question.text;
+    APP.ttsPlaying = true;
+    try {
+      await textToSpeech(text2, 'ko', { rate: 0.7 });
+    } finally {
+      APP.ttsPlaying = false;
+      // 하이라이트 정리
+      if (displayTextEl) {
+        displayTextEl.querySelectorAll('.word-highlight').forEach(function(el) {
+          el.classList.remove('active');
+        });
+      }
+    }
+  }
+}
+
+function retryRecording() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  if (!card) return;
+
+  if (card._observation) {
+    card._observation.attemptNumber++;
+    card._attemptNumber = card._observation.attemptNumber;
+  }
+  logEvent('recording_retry', {
+    cardId: card.id,
+    attempt: card._observation ? card._observation.attemptNumber : 1
+  });
+
+  // 재시도 버튼 숨기고 녹음 버튼 활성화
+  var btnRetry = document.getElementById('btn-retry');
+  if (btnRetry) btnRetry.classList.add('hidden');
+
+  var btnRecord = document.getElementById('btn-record');
+  if (btnRecord) btnRecord.style.display = '';
+
+  // 피드백 숨기기
+  var feedbackEl = document.getElementById('recording-feedback');
+  if (feedbackEl) feedbackEl.classList.add('hidden');
+
+  var status = document.getElementById('recording-status');
+  if (status) status.textContent = '다시 한번 읽어볼까!';
+}
+
+// ===================================================================
+// 녹음 업로드 (v4.3)
+// ===================================================================
+
+function blobToBase64(blob) {
+  return new Promise(function(resolve, reject) {
+    var reader = new FileReader();
+    reader.onloadend = function() { resolve(reader.result.split(',')[1]); };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+function deriveProficiency(rec) {
+  var stairs = rec.helpStairsUsed || [];
+  var attempts = rec.attemptNumber || 1;
+  if (attempts <= 1 && stairs.length === 0) return 'first_try_success';
+  if (attempts <= 1 && stairs.length > 0)   return 'hesitation';
+  if (attempts >= 2 && attempts <= 3)        return 'retry_success';
+  return 'persistent_confusion';
+}
+
+async function uploadRecordings() {
+  console.log('[PO] uploadRecordings 호출');
+  var debugInfo = { step: 'init', recCount: 0, base64Counts: [], payloadSize: 0, error: null };
+
+  try {
+    console.log('[PO] recordings 수:', APP.session.recordings ? APP.session.recordings.length : 0);
+    if (!APP.session.recordings || APP.session.recordings.length === 0) {
+      debugInfo.step = 'no_recordings';
+      console.log('[PO] 업로드할 녹음 없음');
+      await sendRecordingDebugLog(debugInfo);
+      return;
+    }
+
+    debugInfo.recCount = APP.session.recordings.length;
+
+    // ★ 디버그: 각 녹음 상태 출력
+    APP.session.recordings.forEach(function(r, i) {
+      var len = r.base64 ? r.base64.length : 0;
+      debugInfo.base64Counts.push(len);
+      console.log('[PO] 녹음 ' + i + ': base64=' + (len > 0 ? len + '자' : 'null') + ', file=' + r.filename);
+    });
+
+    var s = getSettings();
+    if (!s.sheetsUrl) {
+      debugInfo.step = 'no_sheetsUrl';
+      console.warn('[PO] sheetsUrl 미설정, 녹음 업로드 건너뜀');
+      return;
+    }
+
+    var dateStr = new Date().toISOString().split('T')[0];
+    var sessionId = dateStr + '_' + new Date().toTimeString().slice(0, 5).replace(':', '-');
+
+    // ★ 이미 onstop에서 변환된 base64 사용 (Blob 메모리 해제 문제 해결)
+    var recordings = [];
+    for (var i = 0; i < APP.session.recordings.length; i++) {
+      var rec = APP.session.recordings[i];
+      if (!rec.base64) {
+        console.warn('[PO] 녹음 ' + i + ': base64 데이터 없음, 건너뜀');
+        continue;
+      }
+      recordings.push({
+        filename: rec.filename,
+        audioBase64: rec.base64,
+        timestamp: rec.timestamp,
+        activityType: rec.activityType,
+        ruleTag: rec.ruleTag,
+        targetWord: rec.targetWord,
+        sttResult: '',
+        proficiencyTag: deriveProficiency(rec),
+        isHighlight: false,
+        highlightType: '',
+        durationSec: rec.durationSec
+      });
+    }
+
+    if (recordings.length === 0) {
+      debugInfo.step = 'all_base64_null';
+      console.warn('[PO] 변환된 녹음 0건, 업로드 건너뜀');
+      await sendRecordingDebugLog(debugInfo);
+      return;
+    }
+
+    debugInfo.step = 'sending';
+
+    // ★ v4.4: 1건씩 개별 전송 (대용량 일괄 전송 실패 방지)
+    for (var i = 0; i < recordings.length; i++) {
+      var payload = {
+        type: 'recording_batch',
+        date: dateStr,
+        sessionId: sessionId,
+        recordings: [recordings[i]]
+      };
+
+      try {
+        var bodyStr = JSON.stringify(payload);
+        console.log('[PO] 녹음 ' + (i+1) + '/' + recordings.length + ' 전송, payload:', bodyStr.length, 'bytes');
+        await fetch(s.sheetsUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: bodyStr
+        });
+        console.log('[PO] 녹음 ' + (i+1) + ' 전송 완료');
+      } catch (err) {
+        console.warn('[PO] 녹음 ' + (i+1) + ' 전송 실패:', err.message);
+        debugInfo.error = (debugInfo.error || '') + 'rec' + i + ':' + err.message + '; ';
+        var pending = JSON.parse(localStorage.getItem('po_v4_pending_recordings') || '[]');
+        pending.push(payload);
+        localStorage.setItem('po_v4_pending_recordings', JSON.stringify(pending));
+      }
+    }
+
+    debugInfo.step = 'done';
+    debugInfo.payloadSize = recordings.reduce(function(sum, r) { return sum + (r.audioBase64 ? r.audioBase64.length : 0); }, 0);
+    console.log('[PO] 녹음 업로드 완료, 총 ' + recordings.length + '건');
+
+  } catch (outerErr) {
+    debugInfo.step = 'outer_error';
+    debugInfo.error = outerErr.message;
+    console.error('[PO] uploadRecordings 예외:', outerErr);
+  }
+
+  // ★ v4.4: 디버그 정보를 Google Sheets에도 기록 (진단용)
+  await sendRecordingDebugLog(debugInfo);
+}
+
+// ★ v4.4: 녹음 업로드 디버그 로그를 세션로그에 추가 기록
+async function sendRecordingDebugLog(debugInfo) {
+  try {
+    var s = getSettings();
+    if (!s.sheetsUrl) return;
+    await fetch(s.sheetsUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
+        type: 'recording_debug',
+        date: new Date().toISOString().split('T')[0],
+        timestamp: new Date().toISOString(),
+        debug: debugInfo
+      })
+    });
+  } catch (_) {}
+}
+
+async function retryPendingRecordings() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+
+  try {
+    var pending = JSON.parse(localStorage.getItem('po_v4_pending_recordings') || '[]');
+    if (pending.length === 0) return;
+
+    var stillPending = [];
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        await fetch(s.sheetsUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(pending[i])
+        });
+      } catch (_) {
+        stillPending.push(pending[i]);
+      }
+    }
+    localStorage.setItem('po_v4_pending_recordings', JSON.stringify(stillPending));
+  } catch (_) {}
+}
+
+// ===================================================================
+// 관찰 요약 (v4.3)
+// ===================================================================
+
+function buildObservationSummary() {
+  var stCards = APP.session.cards.filter(function(c) { return c.subject === 'speech_therapy'; });
+  if (stCards.length === 0) return null;
+
+  var solo = 0, helped = 0, skipped = 0;
+  var struggles = [];
+
+  stCards.forEach(function(card) {
+    var obs = card._observation;
+    if (!obs) return;
+
+    if (obs.skipped) {
+      skipped++;
+    } else if (obs.helpStairsUsed.length === 0 && obs.attemptNumber <= 1) {
+      solo++;
+    } else {
+      helped++;
+    }
+
+    // 반복 어려움 판정: 2회 이상 시도 또는 Step 2까지 사용
+    if (obs.attemptNumber >= 2 || obs.helpStairsUsed.includes(2)) {
+      struggles.push(card.question.ttsText || card.question.displayWord || card.question.text);
+    }
+  });
+
+  return { total: stCards.length, solo: solo, helped: helped, skipped: skipped, struggles: struggles };
+}
+
+// ===================================================================
+// 세션 종료
+// ===================================================================
+
+async function endSession() {
+  // ★ v4.4: 중복 호출 방지
+  if (APP._endSessionCalled) return;
+  APP._endSessionCalled = true;
+
+  const s = APP.session;
+  const duration = Math.round((Date.now() - s.startTime) / 1000);
+
+  // ★ v4.4: speech_therapy 카드 통계를 먼저 계산 (UI 표시 전에)
+  var stRecordingCards = s.cards.filter(function(c) { return c.subject === 'speech_therapy'; });
+  if (stRecordingCards.length > 0) {
+    var stRecorded = stRecordingCards.filter(function(c) {
+      return c._observation && c._observation.attemptNumber > 0;
+    }).length;
+    var stSkipped = stRecordingCards.filter(function(c) {
+      return c._observation && c._observation.skipped;
+    }).length;
+    s.subjectStats.speech_therapy = {
+      total: stRecordingCards.length,
+      correct: stRecorded,
+      recordings: s.recordings ? s.recordings.length : 0,
+      skipped: stSkipped
+    };
+    s.totalAttempts += stRecordingCards.length;
+    s.correctCount += stRecorded;
+  }
+
+  var accuracy = s.totalAttempts > 0
+    ? Math.round((s.correctCount / s.totalAttempts) * 100) : 0;
+
+  // 통계 표시
+  document.getElementById('stat-correct').textContent = s.correctCount + '/' + s.totalAttempts;
+  document.getElementById('stat-accuracy').textContent = accuracy + '%';
+  document.getElementById('stat-time').textContent =
+    duration < 60 ? duration + '초' : Math.floor(duration / 60) + '분 ' + (duration % 60) + '초';
+
+  // 연속 학습일 업데이트
+  updateStreak();
+  document.getElementById('stat-streak').textContent = APP.progress.stats.streak + '일';
+
+  // 완료 메시지
+  document.getElementById('complete-message').textContent = getRandomPhrase('completion');
+
+  // 과목별 정답률
+  const breakdownEl = document.getElementById('subject-breakdown');
+  const subjectLabels = { english: '영어', comprehension: '독해', speech_therapy: '읽기 연습' };
+  let breakdownHtml = '';
+  for (const subj in s.subjectStats) {
+    const st = s.subjectStats[subj];
+    const acc = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+    breakdownHtml += '<div class="subject-stat">'
+      + '<span class="label">' + (subjectLabels[subj] || subj) + '</span>'
+      + '<span>' + st.correct + '/' + st.total + ' (' + acc + '%)</span>'
+      + '</div>';
+  }
+  // 언어치료 녹음 카드 수
+  const stCount = s.cards.filter(function(c) { return c.subject === 'speech_therapy'; }).length;
+  if (stCount > 0 && !s.subjectStats.speech_therapy) {
+    breakdownHtml += '<div class="subject-stat">'
+      + '<span class="label">읽기 연습</span>'
+      + '<span>' + stCount + '장 녹음</span>'
+      + '</div>';
+  }
+  breakdownEl.innerHTML = breakdownHtml;
+
+  // v4.3: 관찰 요약 표시
+  var obsSummary = buildObservationSummary();
+  var obsSummaryEl = document.getElementById('observation-summary');
+  if (obsSummaryEl && obsSummary) {
+    var obsHtml = '<h3>따라읽기 관찰</h3>';
+    obsHtml += '<div class="obs-row"><span>총 문장</span><span>' + obsSummary.total + '문장</span></div>';
+    obsHtml += '<div class="obs-row"><span>혼자 성공</span><span>' + obsSummary.solo + '문장</span></div>';
+    obsHtml += '<div class="obs-row"><span>도움 후 성공</span><span>' + obsSummary.helped + '문장</span></div>';
+    obsHtml += '<div class="obs-row"><span>건너뜀</span><span>' + obsSummary.skipped + '문장</span></div>';
+    if (obsSummary.struggles.length > 0) {
+      obsHtml += '<div class="obs-row highlight-row"><span>반복 어려움</span><span>'
+        + escapeHtml(obsSummary.struggles.join(', ')) + '</span></div>';
+    }
+    obsSummaryEl.innerHTML = obsHtml;
+    obsSummaryEl.style.display = 'block';
+  } else if (obsSummaryEl) {
+    obsSummaryEl.style.display = 'none';
+  }
+
+  // 로그
+  logEvent('session_end', {
+    mode: 'A', duration: duration, correct: s.correctCount,
+    total: s.totalAttempts, accuracy: accuracy,
+    subjectStats: s.subjectStats,
+  });
+
+  // 앱 진도 업데이트
+  updateAppProgress(s, duration, accuracy);
+
+  // v4.4: 빈 세션 전송 방지 — 실제 활동이 없으면 로깅하지 않음
+  var hasActivity = s.totalAttempts > 0 || (s.recordings && s.recordings.length > 0) || duration >= 10;
+  if (!hasActivity) {
+    console.log('[PO] 빈 세션 — Google Sheets 전송 생략 (시도:' + s.totalAttempts + ', 녹음:' + (s.recordings ? s.recordings.length : 0) + ', 시간:' + duration + 's)');
+    showPage('page-complete');
+    return;
+  }
+
+  // Google Sheets 전송 (v4.3: 관찰 요약 포함)
+  var sessionPayload = {
+    date: todayStr(),
+    mode: 'A',
+    total: s.totalAttempts,
+    correct: s.correctCount,
+    percentage: accuracy,
+    duration_sec: duration,
+    cardCount: s.cards.length,
+    subjectStats: s.subjectStats,
+    events: s.events,
+    timestamp: new Date().toISOString(),
+  };
+  if (obsSummary) sessionPayload.observationSummary = obsSummary;
+
+  // ★ v4.4: 완료 화면 먼저 전환 (사용자가 기다리지 않게)
+  showPage('page-complete');
+
+  // 그 뒤에 백그라운드로 전송 (화면은 이미 전환됨)
+  try {
+    await syncToGoogleSheets(sessionPayload);
+  } catch (e) { console.warn('[PO] Sheets 전송 에러:', e); }
+
+  try {
+    await uploadRecordings();
+  } catch (e) { console.warn('[PO] 녹음 업로드 에러:', e); }
+}
+
+// ===================================================================
+// 앱 진도 관리
+// ===================================================================
+
+function loadAppProgress() {
+  const saved = localStorage.getItem('po_v4_progress');
+  if (saved) return JSON.parse(saved);
+  return {
+    stats: { totalSessions: 0, totalCards: 0, totalCorrect: 0, totalTime: 0, streak: 0, lastSessionDate: null },
+    subjects: {
+      english: { totalCards: 0, mastered: 0, accuracy: 0 },
+      comprehension: { totalCards: 0, mastered: 0, accuracy: 0 },
+      speech_therapy: { totalRecordings: 0 },
+    },
+  };
+}
+
+function saveAppProgress() {
+  localStorage.setItem('po_v4_progress', JSON.stringify(APP.progress));
+}
+
+function updateStreak() {
+  const p = APP.progress;
+  const today = todayStr();
+  const last = p.stats.lastSessionDate;
+
+  if (!last) {
+    p.stats.streak = 1;
+  } else if (last === today) {
+    // 오늘 이미 학습함 → streak 유지
+  } else if (last === addDays(today, -1)) {
+    p.stats.streak++;
+  } else {
+    p.stats.streak = 1;
+  }
+  p.stats.lastSessionDate = today;
+  saveAppProgress();
+}
+
+function updateAppProgress(session, duration, accuracy) {
+  const p = APP.progress;
+  p.stats.totalSessions++;
+  p.stats.totalCards += session.totalAttempts;
+  p.stats.totalCorrect += session.correctCount;
+  p.stats.totalTime += duration;
+
+  // 과목별 갱신
+  for (const subj in session.subjectStats) {
+    const ss = session.subjectStats[subj];
+    if (!p.subjects[subj]) p.subjects[subj] = { totalCards: 0, mastered: 0, accuracy: 0 };
+    p.subjects[subj].totalCards += ss.total;
+    const prev = p.subjects[subj];
+    prev.accuracy = prev.totalCards > 0
+      ? Math.round(((prev.accuracy * (prev.totalCards - ss.total) / 100 + ss.correct) / prev.totalCards) * 100)
+      : 0;
+  }
+
+  // mastered 카드 수 갱신
+  for (const cardId in APP.reviewQueue) {
+    if (APP.reviewQueue[cardId].state === 'mastered') {
+      // 카드 ID로 과목 판별
+      if (cardId.startsWith('eng_')) {
+        // count later
+      }
+    }
+  }
+
+  // 간단한 mastered 집계
+  let engMastered = 0, compMastered = 0;
+  for (const cardId in APP.reviewQueue) {
+    if (APP.reviewQueue[cardId].state === 'mastered') {
+      if (cardId.startsWith('eng_')) engMastered++;
+      else if (cardId.startsWith('comp_')) compMastered++;
+    }
+  }
+  if (p.subjects.english) p.subjects.english.mastered = engMastered;
+  if (p.subjects.comprehension) p.subjects.comprehension.mastered = compMastered;
+
+  saveAppProgress();
+}
+
+// ===================================================================
+// Google Sheets 로그 전송
+// ===================================================================
+
+async function syncToGoogleSheets(sessionData) {
+  const s = getSettings();
+  if (!s.sheetsUrl) return;
+
+  console.log('[PO] syncToGoogleSheets 호출, subjectStats:', JSON.stringify(sessionData.subjectStats));
+
+  try {
+    await fetch(s.sheetsUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(sessionData),
+      mode: 'no-cors',
+    });
+    console.log('[PO] Google Sheets 전송 완료');
+    // no-cors 모드에서는 응답을 읽을 수 없으므로, 전송 성공으로 간주
+    markSessionSynced(sessionData.date);
+  } catch (err) {
+    console.warn('[PO] Google Sheets 전송 실패:', err);
+    savePendingSync(sessionData);
+  }
+}
+
+function markSessionSynced(date) {
+  try {
+    const synced = JSON.parse(localStorage.getItem('po_v4_synced') || '[]');
+    if (!synced.includes(date)) synced.push(date);
+    while (synced.length > 30) synced.shift();
+    localStorage.setItem('po_v4_synced', JSON.stringify(synced));
+  } catch (_) {}
+}
+
+function savePendingSync(sessionData) {
+  try {
+    const pending = JSON.parse(localStorage.getItem('po_v4_pending_sync') || '[]');
+    pending.push(sessionData);
+    localStorage.setItem('po_v4_pending_sync', JSON.stringify(pending));
+  } catch (_) {}
+}
+
+async function retryPendingSync() {
+  const s = getSettings();
+  if (!s.sheetsUrl) return;
+
+  try {
+    const pending = JSON.parse(localStorage.getItem('po_v4_pending_sync') || '[]');
+    if (pending.length === 0) return;
+
+    const stillPending = [];
+    for (const data of pending) {
+      try {
+        await fetch(s.sheetsUrl, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          mode: 'no-cors',
+        });
+        markSessionSynced(data.date);
+      } catch (_) {
+        stillPending.push(data);
+      }
+    }
+    localStorage.setItem('po_v4_pending_sync', JSON.stringify(stillPending));
+  } catch (_) {}
+}
+
+// ===================================================================
+// 로그
+// ===================================================================
+
+function logEvent(event, data) {
+  APP.session.events.push({
+    timestamp: new Date().toISOString(),
+    event: event,
+    data: data,
+  });
+}
+
+// ===================================================================
+// 주간 앵커 관리
+// ===================================================================
+
+function getCurrentWeek() {
+  var d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + 3 - ((d.getDay() + 6) % 7));
+  var week1 = new Date(d.getFullYear(), 0, 4);
+  var weekNum = 1 + Math.round(((d - week1) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
+  return d.getFullYear() + '-W' + String(weekNum).padStart(2, '0');
+}
+
+function getAnchorData() {
+  return JSON.parse(localStorage.getItem('po-anchor-config') || 'null') || {
+    weekOf: null,
+    anchors: {},
+    previousWeek: null
+  };
+}
+
+function saveAnchorData(data) {
+  localStorage.setItem('po-anchor-config', JSON.stringify(data));
+}
+
+function getWeekGap(storedWeek) {
+  if (!storedWeek) return 99;
+  var currentWeek = getCurrentWeek();
+  if (storedWeek === currentWeek) return 0;
+  // ISO 주차 차이 계산
+  var cYear = parseInt(currentWeek.split('-W')[0]);
+  var cNum = parseInt(currentWeek.split('-W')[1]);
+  var sYear = parseInt(storedWeek.split('-W')[0]);
+  var sNum = parseInt(storedWeek.split('-W')[1]);
+  return (cYear - sYear) * 52 + (cNum - sNum);
+}
+
+function initAnchorUI() {
+  var cfg = APP.config && APP.config.anchorConfig;
+  var formArea = document.getElementById('anchor-form-area');
+  var warningArea = document.getElementById('anchor-warning-area');
+  if (!formArea) return;
+
+  // anchorTypes 목록 (config.json에서 또는 기본값)
+  var anchorTypes = (cfg && cfg.anchorTypes) || [
+    { id: 'speech-therapy', label: '차병원 숙제', inputType: 'text' },
+    { id: 'school-english', label: '학교 영어', inputType: 'dropdown', options: ['1단원','2단원','3단원','4단원','5단원','6단원','7단원','8단원','9단원','10단원','11단원','12단원'] },
+    { id: 'reading', label: '독서', inputType: 'dropdown_or_text', options: [] }
+  ];
+
+  var data = getAnchorData();
+  var gap = getWeekGap(data.weekOf);
+
+  // 미입력 경고
+  warningArea.innerHTML = '';
+  if (gap >= 3) {
+    warningArea.innerHTML = '<div class="anchor-warning danger">3주 이상 앵커 미설정! 복습 모드로 전환됩니다. 아래에서 이번 주 앵커를 설정해 주세요.</div>';
+  } else if (gap >= 2) {
+    warningArea.innerHTML = '<div class="anchor-warning">2주째 앵커 미설정입니다. 이번 주 학습 내용을 입력해 주세요.</div>';
+  } else if (gap === 1 && data.weekOf) {
+    warningArea.innerHTML = '<div class="anchor-warning">지난주 설정 유지 중. 변경이 필요하면 아래에서 수정하세요.</div>';
+  }
+
+  // 현재 주 데이터 (carry forward 적용)
+  var currentAnchors = {};
+  if (data.weekOf === getCurrentWeek()) {
+    currentAnchors = data.anchors || {};
+  } else if (gap <= 1 && data.anchors) {
+    // 1주 이내 → 지난주 데이터를 기본값으로 표시
+    currentAnchors = data.anchors;
+  }
+
+  // 폼 렌더링
+  var html = '';
+  for (var i = 0; i < anchorTypes.length; i++) {
+    var at = anchorTypes[i];
+    var saved = currentAnchors[at.id] || {};
+    html += '<div class="anchor-row">';
+    html += '<div class="anchor-label">' + escapeHtml(at.label) + '</div>';
+
+    if (at.inputType === 'text') {
+      html += '<input type="text" class="anchor-input" id="anchor-' + at.id + '" '
+        + 'value="' + escapeHtml(saved.text || '') + '" '
+        + 'placeholder="이번 주 내용 입력">';
+    } else if (at.inputType === 'dropdown') {
+      html += '<select class="anchor-input" id="anchor-' + at.id + '">';
+      html += '<option value="">선택...</option>';
+      var opts = at.options || [];
+      for (var j = 0; j < opts.length; j++) {
+        var sel = (saved.unit === opts[j] || saved.text === opts[j]) ? ' selected' : '';
+        html += '<option value="' + escapeHtml(opts[j]) + '"' + sel + '>' + escapeHtml(opts[j]) + '</option>';
+      }
+      html += '</select>';
+    } else if (at.inputType === 'dropdown_or_text') {
+      // 옵션이 있으면 드롭다운, 없으면 텍스트
+      if (at.options && at.options.length > 0) {
+        html += '<select class="anchor-input" id="anchor-' + at.id + '">';
+        html += '<option value="">선택...</option>';
+        for (var k = 0; k < at.options.length; k++) {
+          var sel2 = (saved.chapter === at.options[k] || saved.text === at.options[k]) ? ' selected' : '';
+          html += '<option value="' + escapeHtml(at.options[k]) + '"' + sel2 + '>' + escapeHtml(at.options[k]) + '</option>';
+        }
+        html += '</select>';
+      } else {
+        html += '<input type="text" class="anchor-input" id="anchor-' + at.id + '" '
+          + 'value="' + escapeHtml(saved.chapter || saved.text || '') + '" '
+          + 'placeholder="챕터 또는 주제 입력">';
+      }
+    }
+
+    if (saved.updatedAt) {
+      html += '<div class="anchor-status">마지막 설정: ' + saved.updatedAt.split('T')[0] + '</div>';
+    }
+    html += '</div>';
+  }
+  formArea.innerHTML = html;
+}
+
+function saveAnchors() {
+  var cfg = APP.config && APP.config.anchorConfig;
+  var anchorTypes = (cfg && cfg.anchorTypes) || [
+    { id: 'speech-therapy', inputType: 'text' },
+    { id: 'school-english', inputType: 'dropdown' },
+    { id: 'reading', inputType: 'dropdown_or_text' }
+  ];
+
+  var data = getAnchorData();
+  var now = new Date().toISOString();
+  var currentWeek = getCurrentWeek();
+
+  // 기존 데이터를 previousWeek으로 이동
+  if (data.weekOf && data.weekOf !== currentWeek) {
+    data.previousWeek = { weekOf: data.weekOf, anchors: data.anchors };
+  }
+
+  data.weekOf = currentWeek;
+  data.anchors = {};
+
+  for (var i = 0; i < anchorTypes.length; i++) {
+    var at = anchorTypes[i];
+    var el = document.getElementById('anchor-' + at.id);
+    if (!el) continue;
+    var val = el.value.trim();
+    if (!val) continue;
+
+    var entry = { updatedAt: now };
+    if (at.inputType === 'text') {
+      entry.text = val;
+    } else if (at.inputType === 'dropdown') {
+      entry.unit = val;
+    } else {
+      entry.chapter = val;
+    }
+    data.anchors[at.id] = entry;
+  }
+
+  saveAnchorData(data);
+  initAnchorUI(); // 경고 갱신
+}
+
+function carryForwardAnchors() {
+  var data = getAnchorData();
+  var prev = data.previousWeek;
+
+  // previousWeek이 없으면 현재 anchors를 그대로 현재 주로 갱신
+  var sourceAnchors = (prev && prev.anchors) || data.anchors || {};
+  if (!sourceAnchors || Object.keys(sourceAnchors).length === 0) {
+    return; // 복사할 데이터 없음
+  }
+
+  var now = new Date().toISOString();
+  var currentWeek = getCurrentWeek();
+
+  // 기존을 previousWeek으로
+  if (data.weekOf && data.weekOf !== currentWeek) {
+    data.previousWeek = { weekOf: data.weekOf, anchors: data.anchors };
+  }
+
+  data.weekOf = currentWeek;
+  data.anchors = {};
+  for (var key in sourceAnchors) {
+    data.anchors[key] = Object.assign({}, sourceAnchors[key], { updatedAt: now });
+  }
+
+  saveAnchorData(data);
+  initAnchorUI();
+}
+
+// ===================================================================
+// 유틸
+// ===================================================================
+
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function addDays(dateStr, days) {
+  const d = new Date(dateStr + 'T00:00:00');
+  d.setDate(d.getDate() + days);
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+// ===================================================================
+// 앱 시작
+// ===================================================================
+
+document.addEventListener('DOMContentLoaded', init);
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function(e) { console.log('SW 등록 실패:', e); });
+}
+</script>
+</body>
+</html>

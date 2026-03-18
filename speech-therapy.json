@@ -1,0 +1,1582 @@
+{
+  "version": "260312",
+  "updated": "2026-03-18",
+  "source": "차병원 260305 숙제 (동시 5편) + 260312 숙제 (받아쓰기 15문장)",
+  "lessons": [
+    {
+      "id": "snowman",
+      "title": "꼬마 눈사람",
+      "type": "poem",
+      "week": "260305",
+      "lines": [
+        {
+          "text": "한겨울에 밀짚 모자 꼬마 눈사람",
+          "pronunciation": "한겨우레 밀찝 모자 꼬마 눈싸람",
+          "rules": [
+            "연음(겨울에→겨우레)",
+            "경음화(밀짚→밀찝)",
+            "경음화(눈사람→눈싸람)"
+          ]
+        },
+        {
+          "text": "눈썹이 우습구나 코도 삐뚤고",
+          "pronunciation": "눈써비 우습꾸나 코도 삐뚤고",
+          "rules": [
+            "연음(눈썹이→눈써비)",
+            "경음화(우습구나→우습꾸나)"
+          ]
+        },
+        {
+          "text": "거울을 보여 줄까 꼬마 눈사람",
+          "pronunciation": "거우를 보여 줄까 꼬마 눈싸람",
+          "rules": [
+            "연음(거울을→거우를)",
+            "경음화(눈사람→눈싸람)"
+          ]
+        },
+        {
+          "text": "하루 종일 우두커니 꼬마 눈사람",
+          "pronunciation": "하루 종일 우두커니 꼬마 눈싸람",
+          "rules": [
+            "경음화(눈사람→눈싸람)"
+          ]
+        },
+        {
+          "text": "무엇을 생각하고 혼자 서느냐",
+          "pronunciation": "무어슬 생가카고 혼자 선느냐",
+          "rules": [
+            "연음(무엇을→무어슬)",
+            "격음화(생각하고→생가카고)",
+            "비음화(서느냐→선느냐)"
+          ]
+        },
+        {
+          "text": "집으로 들어갈까 꼬마 눈사람",
+          "pronunciation": "지브로 드러갈까 꼬마 눈싸람",
+          "rules": [
+            "연음(집으로→지브로)",
+            "연음(들어갈까→드러갈까)",
+            "경음화(눈사람→눈싸람)"
+          ]
+        }
+      ],
+      "focusWords": [
+        "밀짚",
+        "눈사람",
+        "눈썹이",
+        "무엇을",
+        "생각하고",
+        "집으로"
+      ],
+      "childErrors": [
+        "삐뚤고→빼뚤고(모음 오류)",
+        "우두커니(의미 이해 부족)",
+        "집으로→지붕으로(단어 혼동)"
+      ],
+      "phonetic_notes": [
+        {
+          "written": "밀짚",
+          "spoken": "밀찝",
+          "rule": "경음화",
+          "tip": "소리는 '밀찝'이라고 나지? 맞아! 근데 글자로 쓸 때는 '밀짚'이라고 써. 받침 때문에 세게 소리 나는 거야."
+        },
+        {
+          "written": "눈사람",
+          "spoken": "눈싸람",
+          "rule": "경음화",
+          "tip": "소리는 '눈싸람'이지? 잘 들은 거야! 근데 쓸 때는 '눈사람'이야. 받침 'ㄴ' 뒤에서 세게 소리 나는 거야."
+        },
+        {
+          "written": "눈썹이",
+          "spoken": "눈써비",
+          "rule": "연음",
+          "tip": "소리는 '눈써비'라고 나지? 받침이 뒤로 넘어가서 그래. 쓸 때는 '눈썹이'라고 써."
+        },
+        {
+          "written": "무엇을",
+          "spoken": "무어슬",
+          "rule": "연음",
+          "tip": "소리는 '무어슬'이지? 받침이 뒤로 넘어간 거야. 쓸 때는 '무엇을'이라고 써."
+        },
+        {
+          "written": "생각하고",
+          "spoken": "생가카고",
+          "rule": "격음화",
+          "tip": "소리는 '생가카고'라고 나지? 두 글자가 합쳐져서 'ㅋ' 소리가 된 거야. 쓸 때는 '생각하고'."
+        },
+        {
+          "written": "집으로",
+          "spoken": "지브로",
+          "rule": "연음",
+          "tip": "소리는 '지브로'라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '집으로'라고 써."
+        }
+      ],
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "차병원",
+      "topic": "따라읽기"
+    },
+    {
+      "id": "train",
+      "title": "기찻길 옆",
+      "type": "poem",
+      "week": "260305",
+      "lines": [
+        {
+          "text": "기찻길 옆 오막살이",
+          "pronunciation": "기찬낄 옆 오막싸리",
+          "rules": [
+            "비음화+경음화(기찻길→기찬낄)",
+            "경음화(오막살이→오막싸리)"
+          ]
+        },
+        {
+          "text": "아기 아기 잘도 잔다",
+          "pronunciation": "아기 아기 잘도 잔다",
+          "rules": []
+        },
+        {
+          "text": "칙폭 칙칙폭폭 칙칙폭폭 칙칙폭폭",
+          "pronunciation": "칙폭 칙칙폭폭 칙칙폭폭 칙칙폭폭",
+          "rules": []
+        },
+        {
+          "text": "기차 소리 요란해도 아기 아기 잘도 잔다",
+          "pronunciation": "기차 소리 요란해도 아기 아기 잘도 잔다",
+          "rules": []
+        }
+      ],
+      "focusWords": [
+        "기찻길",
+        "오막살이",
+        "칙폭"
+      ],
+      "childErrors": [
+        "오막살이→오막싸리(경음화 표기 혼동)",
+        "칙폭→칙폭(하나 틀림)"
+      ],
+      "phonetic_notes": [
+        {
+          "written": "기찻길",
+          "spoken": "기찬낄",
+          "rule": "비음화+경음화",
+          "tip": "소리는 '기찬낄'이라고 나지? 소리가 두 번 바뀐 거야. 쓸 때는 '기찻길'이라고 써."
+        },
+        {
+          "written": "오막살이",
+          "spoken": "오막싸리",
+          "rule": "경음화",
+          "tip": "소리는 '오막싸리'라고 나지? 받침 뒤에서 세게 소리 나는 거야. 쓸 때는 '오막살이'라고 써."
+        }
+      ],
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "차병원",
+      "topic": "따라읽기"
+    },
+    {
+      "id": "umbrella",
+      "title": "우산 셋 (이슬비)",
+      "type": "poem",
+      "week": "260305",
+      "lines": [
+        {
+          "text": "이슬비 내리는 이른 아침에",
+          "pronunciation": "이슬비 내리는 이른 아치메",
+          "rules": [
+            "구개음화(아침에→아치메)"
+          ]
+        },
+        {
+          "text": "우산 셋이 나란히 걸어갑니다",
+          "pronunciation": "우산 세시 나란히 거러갑니다",
+          "rules": [
+            "연음(셋이→세시)",
+            "연음(걸어갑니다→거러갑니다)"
+          ]
+        },
+        {
+          "text": "파란 우산 까만 우산 찢어진 우산",
+          "pronunciation": "파란 우산 깜장 우산 찌저진 우산",
+          "rules": [
+            "연음(찢어진→찌저진)"
+          ]
+        },
+        {
+          "text": "좁다란 학교 길에 우산 세 개가",
+          "pronunciation": "좁따란 학꾜 끼레 우산 세 개가",
+          "rules": [
+            "경음화(좁다란→좁따란)",
+            "경음화(학교→학꾜)",
+            "경음화(길에→끼레)"
+          ]
+        },
+        {
+          "text": "이마를 마주 대고 걸어갑니다",
+          "pronunciation": "이마를 마주 대고 거러갑니다",
+          "rules": [
+            "연음(걸어갑니다→거러갑니다)"
+          ]
+        }
+      ],
+      "focusWords": [
+        "아침에",
+        "셋이",
+        "걸어갑니다",
+        "찢어진",
+        "좁다란",
+        "학교 길에"
+      ],
+      "childErrors": [
+        "좁다란→좁따란(경음화 표기)"
+      ],
+      "phonetic_notes": [
+        {
+          "written": "셋이",
+          "spoken": "세시",
+          "rule": "연음",
+          "tip": "소리는 '세시'라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '셋이'라고 써."
+        },
+        {
+          "written": "찢어진",
+          "spoken": "찌저진",
+          "rule": "연음",
+          "tip": "소리는 '찌저진'이라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '찢어진'이라고 써."
+        },
+        {
+          "written": "좁다란",
+          "spoken": "좁따란",
+          "rule": "경음화",
+          "tip": "소리는 '좁따란'이라고 나지? 잘 들은 거야! 받침 뒤에서 세게 소리 나는 거야. 쓸 때는 '좁다란'."
+        },
+        {
+          "written": "걸어갑니다",
+          "spoken": "거러갑니다",
+          "rule": "연음",
+          "tip": "소리는 '거러갑니다'라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '걸어갑니다'."
+        },
+        {
+          "written": "학교 길에",
+          "spoken": "학꾜 끼레",
+          "rule": "경음화",
+          "tip": "소리는 '학꾜 끼레'라고 나지? 받침 뒤에서 세게 소리 나는 거야. 쓸 때는 '학교 길에'."
+        }
+      ],
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "차병원",
+      "topic": "따라읽기"
+    },
+    {
+      "id": "splash",
+      "title": "퐁당퐁당",
+      "type": "poem",
+      "week": "260305",
+      "lines": [
+        {
+          "text": "퐁당퐁당 돌을 던지자 누나 몰래 돌을 던지자",
+          "pronunciation": "퐁당퐁당 도를 던지자 누나 몰래 도를 던지자",
+          "rules": [
+            "연음(돌을→도를)"
+          ]
+        },
+        {
+          "text": "냇물아 퍼져라 멀리멀리 퍼져라",
+          "pronunciation": "낸무라 퍼져라 멀리멀리 퍼져라",
+          "rules": [
+            "비음화+연음(냇물아→낸무라)"
+          ]
+        },
+        {
+          "text": "건너편에 앉아서 나무를 씻는",
+          "pronunciation": "건너펴네 안자서 나무를 씬는",
+          "rules": [
+            "연음(건너편에→건너펴네)",
+            "연음(앉아서→안자서)",
+            "경음화(씻는→씬는)"
+          ]
+        },
+        {
+          "text": "우리 누나 손등을 간지러 주어라",
+          "pronunciation": "우리 누나 손뜽을 간지러 주어라",
+          "rules": [
+            "경음화(손등을→손뜽을)"
+          ]
+        }
+      ],
+      "focusWords": [
+        "돌을",
+        "냇물아",
+        "건너편에",
+        "앉아서",
+        "씻는",
+        "손등을"
+      ],
+      "childErrors": [
+        "퍼져라→펴져라(모음 오류)",
+        "씻는→씬는(경음화 표기)"
+      ],
+      "phonetic_notes": [
+        {
+          "written": "돌을",
+          "spoken": "도를",
+          "rule": "연음",
+          "tip": "소리는 '도를'이라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '돌을'이라고 써."
+        },
+        {
+          "written": "냇물아",
+          "spoken": "낸무라",
+          "rule": "비음화+연음",
+          "tip": "소리는 '낸무라'라고 나지? 소리가 많이 바뀌는 단어야. 쓸 때는 '냇물아'라고 써."
+        },
+        {
+          "written": "앉아서",
+          "spoken": "안자서",
+          "rule": "연음",
+          "tip": "소리는 '안자서'라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '앉아서'라고 써."
+        },
+        {
+          "written": "씻는",
+          "spoken": "씬는",
+          "rule": "경음화",
+          "tip": "소리는 '씬는'이라고 나지? 잘 들은 거야! 쓸 때는 '씻는'이라고 써."
+        },
+        {
+          "written": "손등을",
+          "spoken": "손뜽을",
+          "rule": "경음화",
+          "tip": "소리는 '손뜽을'이라고 나지? 받침 뒤에서 세게 소리 나는 거야. 쓸 때는 '손등을'이라고 써."
+        }
+      ],
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "차병원",
+      "topic": "따라읽기"
+    },
+    {
+      "id": "kid",
+      "title": "귀여운 꼬마",
+      "type": "poem",
+      "week": "260305",
+      "lines": [
+        {
+          "text": "귀여운 꼬마가 닭장에 가서",
+          "pronunciation": "귀여운 꼬마가 닥짱에 가서",
+          "rules": [
+            "경음화(닭장→닥짱)"
+          ]
+        },
+        {
+          "text": "암탉을 잡으려다 놓쳤다네",
+          "pronunciation": "암타글 자브려다 노쳗따네",
+          "rules": [
+            "연음(암탉을→암타글)",
+            "연음(잡으려다→자브려다)",
+            "경음화(놓쳤다네→노쳗따네)"
+          ]
+        },
+        {
+          "text": "닭장 밖에 있던 배고픈 여우",
+          "pronunciation": "닥짱 바께 인떤 배고픈 여우",
+          "rules": [
+            "경음화(닭장→닥짱)",
+            "경음화(밖에→바께)",
+            "경음화(있던→인떤)"
+          ]
+        },
+        {
+          "text": "올커니 하면서 물고 간다네",
+          "pronunciation": "올커니 하면서 물고 간따네",
+          "rules": [
+            "경음화(간다네→간따네)"
+          ]
+        },
+        {
+          "text": "꼬꼬댁 암탉 소리를 치네",
+          "pronunciation": "꼬꼬댁 암탁 소리를 천네",
+          "rules": [
+            "연음(치네→천네)"
+          ]
+        },
+        {
+          "text": "꼬꼬댁 암탉 소리를 치네",
+          "pronunciation": "꼬꼬댁 암탁 소리를 천네",
+          "rules": [
+            "연음(치네→천네)"
+          ]
+        },
+        {
+          "text": "귀여운 꼬마가 그 꼴을 보고",
+          "pronunciation": "귀여운 꼬마가 그 꼬를 보고",
+          "rules": [
+            "연음(꼴을→꼬를)"
+          ]
+        },
+        {
+          "text": "웃을까, 울을까, 망설였다네",
+          "pronunciation": "우슬까 우를까 망서렫따네",
+          "rules": [
+            "연음(웃을까→우슬까)",
+            "경음화(망설였다네→망서렫따네)"
+          ]
+        },
+        {
+          "text": "귀여운 꼬마가 돼지우리에 가서",
+          "pronunciation": "귀여운 꼬마가 돼지우리에 가서",
+          "rules": []
+        },
+        {
+          "text": "돼지를 잡으려다 놓쳤다네",
+          "pronunciation": "돼지를 자브려다 노쳗따네",
+          "rules": [
+            "연음(잡으려다→자브려다)",
+            "경음화(놓쳤다네→노쳗따네)"
+          ]
+        },
+        {
+          "text": "울 밖에 있던 배고픈 늑대",
+          "pronunciation": "울 바께 인떤 배고픈 늑때",
+          "rules": [
+            "경음화(밖에→바께)",
+            "경음화(있던→인떤)",
+            "경음화(늑대→늑때)"
+          ]
+        },
+        {
+          "text": "올커니 하면서 물고 간다네",
+          "pronunciation": "올커니 하면서 물고 간따네",
+          "rules": [
+            "경음화(간다네→간따네)"
+          ]
+        },
+        {
+          "text": "꿀꿀꿀 돼지 소리를 치네",
+          "pronunciation": "꿀꿀꿀 돼지 소리를 천네",
+          "rules": [
+            "연음(치네→천네)"
+          ]
+        },
+        {
+          "text": "꿀꿀꿀 돼지 소리를 치네",
+          "pronunciation": "꿀꿀꿀 돼지 소리를 천네",
+          "rules": [
+            "연음(치네→천네)"
+          ]
+        },
+        {
+          "text": "귀여운 꼬마가 그 꼴을 보고",
+          "pronunciation": "귀여운 꼬마가 그 꼬를 보고",
+          "rules": [
+            "연음(꼴을→꼬를)"
+          ]
+        },
+        {
+          "text": "웃을까, 울을까, 망설였다네",
+          "pronunciation": "우슬까 우를까 망서렫따네",
+          "rules": [
+            "연음(웃을까→우슬까)",
+            "경음화(망설였다네→망서렫따네)"
+          ]
+        }
+      ],
+      "focusWords": [
+        "닭장",
+        "암탉을",
+        "잡으려다",
+        "놓쳤다네",
+        "밖에",
+        "있던",
+        "꼴을",
+        "웃을까",
+        "망설였다네"
+      ],
+      "childErrors": [
+        "닭장→닥짱(경음화 인지)"
+      ],
+      "phonetic_notes": [
+        {
+          "written": "닭장",
+          "spoken": "닥짱",
+          "rule": "경음화",
+          "tip": "소리는 '닥짱'이라고 나지? 잘 들은 거야! 받침 뒤에서 세게 소리 나는 거야. 쓸 때는 '닭장'이라고 써."
+        },
+        {
+          "written": "암탉을",
+          "spoken": "암타글",
+          "rule": "연음",
+          "tip": "소리는 '암타글'이라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '암탉을'이라고 써."
+        },
+        {
+          "written": "놓쳤다네",
+          "spoken": "노쳗따네",
+          "rule": "경음화",
+          "tip": "소리는 '노쳗따네'라고 나지? 받침이 합쳐져서 세게 소리 나는 거야. 쓸 때는 '놓쳤다네'."
+        },
+        {
+          "written": "밖에",
+          "spoken": "바께",
+          "rule": "경음화",
+          "tip": "소리는 '바께'라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '밖에'라고 써."
+        },
+        {
+          "written": "웃을까",
+          "spoken": "우슬까",
+          "rule": "연음",
+          "tip": "소리는 '우슬까'라고 나지? 받침이 뒤로 넘어간 거야. 쓸 때는 '웃을까'라고 써."
+        },
+        {
+          "written": "망설였다네",
+          "spoken": "망서렫따네",
+          "rule": "경음화",
+          "tip": "소리는 '망서렫따네'라고 나지? 받침이 합쳐져서 세게 소리 나는 거야. 쓸 때는 '망설였다네'."
+        }
+      ],
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "차병원",
+      "topic": "따라읽기"
+    },
+    {
+      "id": "dictation_260312",
+      "title": "받아쓰기 (읽기자신감 4권)",
+      "type": "dictation",
+      "week": "260312",
+      "lines": [
+        {
+          "text": "살금살금 다가가서 화들짝 놀라게",
+          "pronunciation": "살금살금 다가가서 화들짝 놀라게",
+          "rules": [],
+          "childWrote": "살금살금 다가가니 한울깅 둘러게",
+          "errorType": "단어 혼동(화들짝→한울깅, 놀라게→둘러게), 어미 오류(가서→가니)"
+        },
+        {
+          "text": "외할머니께 연세를 여쭤봐",
+          "pronunciation": "외할머니게 연세를 여쭤봐",
+          "rules": [
+            "경음화(께→게 [게]로 발음)"
+          ],
+          "childWrote": "외할머니게 연세를 여쭤봐",
+          "errorType": "경음화 표기(께→게) — 발음대로 씀"
+        },
+        {
+          "text": "노란 바탕에 까만 점과 줄무늬",
+          "pronunciation": "노란 바탕에 까만 점꽈 줄무늬",
+          "rules": [
+            "경음화(점과→점꽈)"
+          ],
+          "childWrote": "노란 바탕에 까만은 점과 줄떡",
+          "errorType": "까만→까만은(조사 추가), 줄무늬→줄떡(단어 혼동)"
+        },
+        {
+          "text": "함께 떠난 제주도 여행",
+          "pronunciation": "함게 떠난 제주도 여행",
+          "rules": [
+            "경음화(함께→함게 [게]로 발음)"
+          ],
+          "childWrote": "함게 떠난 제주도 여행",
+          "errorType": "경음화 표기(함께→함게) — 발음대로 씀"
+        },
+        {
+          "text": "비가 내리면 비행기는 뜰까",
+          "pronunciation": "비가 내리면 비행기는 뜰까",
+          "rules": [],
+          "childWrote": "비가 내리면 비행기는 뜰까",
+          "errorType": "정답"
+        },
+        {
+          "text": "피아니스트가 피아노를 쳐요",
+          "pronunciation": "피아니스트가 피아노를 쳐요",
+          "rules": [],
+          "childWrote": "피아니스트기 피아노를 쳐요",
+          "errorType": "조사 오류(가→기)"
+        },
+        {
+          "text": "나는 자라서 전투기 조종사가 돼야지",
+          "pronunciation": "나는 자라서 전투기 조종사가 돼야지",
+          "rules": [],
+          "childWrote": "나는 자라서 전투기 조종사가 돼야지",
+          "errorType": "정답"
+        },
+        {
+          "text": "간호사가 보살핀 환자",
+          "pronunciation": "간호사가 보살핀 환자",
+          "rules": [],
+          "childWrote": "간밤사긴 빈날린 환자",
+          "errorType": "전체 혼동(간호사가→간밤사긴, 보살핀→빈날린) — 듣기 이해 어려움"
+        },
+        {
+          "text": "날카로운 칼과 가위는 위험해",
+          "pronunciation": "날카로운 칼꽈 가위는 위험해",
+          "rules": [
+            "경음화(칼과→칼꽈)"
+          ],
+          "childWrote": "날카로운 칼과 가위는 위험에",
+          "errorType": "어미 오류(해→에)"
+        },
+        {
+          "text": "조심스레 스르르 다가가 쪽",
+          "pronunciation": "조심스레 스르르 다가가 쪽",
+          "rules": [],
+          "childWrote": "삼스레 스르르 다가가 꼭",
+          "errorType": "단어 혼동(조심스레→삼스레, 쪽→꼭)"
+        },
+        {
+          "text": "배가 아파 떼굴떼굴 구르다가",
+          "pronunciation": "배가 아파 떼굴떼굴 구르다가",
+          "rules": [],
+          "childWrote": "비바가 아파 데걸데걸 구르다가",
+          "errorType": "단어 혼동(배가→비바가), 의태어 오류(떼굴떼굴→데걸데걸)"
+        },
+        {
+          "text": "호시탐탐 목표를 노려보고",
+          "pronunciation": "호시탐탐 목표를 노려보고",
+          "rules": [],
+          "childWrote": "숫세 숨긴 교과를 노력반고",
+          "errorType": "전체 혼동(호시탐탐→숫세숨긴, 목표를→교과를, 노려보고→노력반고) — 듣기 이해 어려움"
+        },
+        {
+          "text": "오토바이는 비행기보다 느리지",
+          "pronunciation": "오토바이는 비행기보다 느리지",
+          "rules": [],
+          "childWrote": "둥바이느 비행기보다 느리지",
+          "errorType": "단어 혼동(오토바이는→둥바이느)"
+        },
+        {
+          "text": "내려야 할 정류장을 지나쳐서",
+          "pronunciation": "내려야 할 정뉴장을 지나쳐서",
+          "rules": [
+            "비음화(정류장→정뉴장)"
+          ],
+          "childWrote": "내리에 할 정류장을 지나서가",
+          "errorType": "어미 오류(내려야→내리에), 동사 혼동(지나쳐서→지나서가)"
+        },
+        {
+          "text": "손님 태우고 출발하는 헬리콥터",
+          "pronunciation": "손님 태우고 출발하는 헬리콥터",
+          "rules": [],
+          "childWrote": "은님 터서옥 출발하는 솔림 킨스이",
+          "errorType": "전체 혼동(손님→은님, 태우고→터서옥, 헬리콥터→솔림킨스이) — 듣기 이해 어려움"
+        }
+      ],
+      "focusWords": [
+        "화들짝",
+        "외할머니께",
+        "함께",
+        "줄무늬",
+        "피아니스트",
+        "간호사",
+        "위험해",
+        "조심스레",
+        "떼굴떼굴",
+        "호시탐탐",
+        "오토바이",
+        "정류장",
+        "지나쳐서",
+        "헬리콥터"
+      ],
+      "childErrors": [
+        "경음화 표기 혼동: 께→게(외할머니께, 함께)",
+        "듣기 이해 어려움: 8번(간호사가 보살핀), 12번(호시탐탐), 15번(헬리콥터)",
+        "단어 인지 부족: 1번(화들짝), 10번(조심스레), 11번(떼굴떼굴), 13번(오토바이)"
+      ],
+      "analysisNote": "15문장 중 정답 2개(5,7번). 경음화 표기 혼동(2,4번), 부분 오류(3,6,9,10,11,13,14번), 전체 혼동(1,8,12,15번). 긴 문장·저빈도 어휘에서 듣기 이해 자체가 어려운 패턴.",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W12",
+      "sourceUnit": "차병원",
+      "topic": "받아쓰기"
+    }
+  ],
+  "allRuleTypes": [
+    "연음",
+    "경음화",
+    "비음화",
+    "격음화",
+    "구개음화"
+  ],
+  "errorPatterns": {
+    "경음화_표기": "경음화된 발음을 그대로 표기하는 경향 (께→게, 짚→찝 등)",
+    "듣기_이해": "긴 문장이나 저빈도 어휘에서 듣기 자체가 안 되는 경우",
+    "단어_인지": "비교적 쉬운 단어도 음운 변화가 있으면 인지 실패"
+  },
+  "notes": "매주 목요일 새 숙제 사진 업로드 시 이 파일 교체. 260305 동시 5편 + 260312 받아쓰기 15문장 포함.",
+  "cards": [
+    {
+      "cardId": "crd_2026W12_sth_a1b2c3",
+      "sourceRef": "speech-therapy/260312/spelling/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '외할머니게'라고 나요. 바르게 쓴 것은 무엇일까요?",
+        "ttsText": "외할머니게"
+      },
+      "answer": {
+        "correct": "외할머니께",
+        "options": [
+          "외할머니께",
+          "외할머니게",
+          "외할머니꼐"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "높임말에 쓰는 조사야. '게'로 소리 나지만 글자는 달라"
+      },
+      "skillTags": [
+        "경음화",
+        "높임말-표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "외할머니게",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 실제로 '게'로 쓴 오류. 경음화 표기 전환 연습.",
+      "rules": [
+        "경음화(께→게)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W12_sth_d4e5f6",
+      "sourceRef": "speech-therapy/260312/spelling/002",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '함게'라고 나요. 바르게 쓴 것은 무엇일까요?",
+        "ttsText": "함게"
+      },
+      "answer": {
+        "correct": "함께",
+        "options": [
+          "함께",
+          "함게",
+          "함꼐"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "같이 한다는 뜻이야. '게'로 소리 나지만 쓸 때는 달라"
+      },
+      "skillTags": [
+        "경음화",
+        "자주쓰는낱말"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "함게",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 실제로 '함게'로 쓴 오류. 빈출 단어 경음화 표기.",
+      "rules": [
+        "경음화(함께→함게)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W12_sth_g7h8i9",
+      "sourceRef": "speech-therapy/260312/spelling/003",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '점꽈'라고 나요. 바르게 쓴 것은 무엇일까요?",
+        "ttsText": "점꽈"
+      },
+      "answer": {
+        "correct": "점과",
+        "options": [
+          "점과",
+          "점꽈",
+          "점괘"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "받침 'ㅁ' 뒤에서 'ㄱ'이 세게 소리 나는 거야"
+      },
+      "skillTags": [
+        "경음화",
+        "조사-표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "점꽈",
+      "validationDetails": [],
+      "pedagogyNote": "경음화 규칙 조사 '과' 표기. 받침 뒤 경음화 패턴.",
+      "rules": [
+        "경음화(점과→점꽈)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W12_sth_j1k2l3",
+      "sourceRef": "speech-therapy/260312/spelling/004",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '칼꽈'라고 나요. 바르게 쓴 것은 무엇일까요?",
+        "ttsText": "칼꽈"
+      },
+      "answer": {
+        "correct": "칼과",
+        "options": [
+          "칼과",
+          "칼꽈",
+          "칼괘"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "받침 'ㄹ' 뒤에서 'ㄱ'이 세게 소리 나는 거야. '과'라고 써"
+      },
+      "skillTags": [
+        "경음화",
+        "조사-표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "칼꽈",
+      "validationDetails": [],
+      "pedagogyNote": "경음화 규칙 조사 '과' 표기. 받침 뒤 경음화 패턴 반복 연습.",
+      "rules": [
+        "경음화(칼과→칼꽈)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W12_sth_m4n5o6",
+      "sourceRef": "speech-therapy/260312/word-recognition/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "갑자기 깜짝 놀라는 것을 뜻하는 말은 무엇일까요?",
+        "ttsText": "갑자기 깜짝 놀라는 것을 뜻하는 말은 무엇일까요?"
+      },
+      "answer": {
+        "correct": "화들짝",
+        "options": [
+          "화들짝",
+          "화딱지",
+          "홀딱"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'화들짝 놀라다'라고 쓰는 표현이야"
+      },
+      "skillTags": [
+        "단어-인지",
+        "의태어"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "갑자기 깜짝 놀라는 것을 뜻하는 말은 무엇일까요?",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 '한울깅'으로 쓴 단어. 의성어/의태어 어휘 확장.",
+      "rules": []
+    },
+    {
+      "cardId": "crd_2026W12_sth_p7q8r9",
+      "sourceRef": "speech-therapy/260312/word-recognition/002",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "천이나 벽에 나타나는 무늬를 뭐라고 할까요? '줄( )'",
+        "ttsText": "천이나 벽에 나타나는 무늬를 뭐라고 할까요?"
+      },
+      "answer": {
+        "correct": "줄무늬",
+        "options": [
+          "줄무늬",
+          "줄떡",
+          "줄넘기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "호랑이 몸에도 이게 있어. 줄 모양 무늬!"
+      },
+      "skillTags": [
+        "단어-인지",
+        "어휘"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "천이나 벽에 나타나는 무늬를 뭐라고 할까요?",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 '줄떡'으로 쓴 단어. 합성어 의미 이해.",
+      "rules": []
+    },
+    {
+      "cardId": "crd_2026W12_sth_s1t2u3",
+      "sourceRef": "speech-therapy/260312/word-recognition/003",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "조심조심 살살 다가가는 모습을 뜻하는 말은 무엇일까요?",
+        "ttsText": "조심조심 살살 다가가는 모습을 뜻하는 말은 무엇일까요?"
+      },
+      "answer": {
+        "correct": "조심스레",
+        "options": [
+          "조심스레",
+          "삼스레",
+          "조용스레"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'조심'에 '-스레'가 붙어서 된 말이야"
+      },
+      "skillTags": [
+        "단어-인지",
+        "부사"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "조심조심 살살 다가가는 모습을 뜻하는 말은 무엇일까요?",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 '삼스레'로 쓴 단어. 파생어 구조 이해.",
+      "rules": []
+    },
+    {
+      "cardId": "crd_2026W12_sth_v4w5x6",
+      "sourceRef": "speech-therapy/260312/word-recognition/004",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "데구르르 굴러가는 모습을 나타내는 말은 무엇일까요?",
+        "ttsText": "데구르르 굴러가는 모습을 나타내는 말은 무엇일까요?"
+      },
+      "answer": {
+        "correct": "떼굴떼굴",
+        "options": [
+          "떼굴떼굴",
+          "데걸데걸",
+          "뒹굴뒹굴"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "공이 굴러가듯 몸을 굴리는 모습이야. 쌍ㄸ으로 시작해"
+      },
+      "skillTags": [
+        "단어-인지",
+        "의태어"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "데구르르 굴러가는 모습을 나타내는 말은 무엇일까요?",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 '데걸데걸'로 쓴 단어. 의태어 정확한 표기.",
+      "rules": []
+    },
+    {
+      "cardId": "crd_2026W12_sth_y7z8a9",
+      "sourceRef": "speech-therapy/260312/word-recognition/005",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "기회를 노리며 가만히 지켜보는 것을 뜻하는 사자성어는 무엇일까요?",
+        "ttsText": "기회를 노리며 가만히 지켜보는 것을 뜻하는 사자성어는 무엇일까요?"
+      },
+      "answer": {
+        "correct": "호시탐탐",
+        "options": [
+          "호시탐탐",
+          "허심탄회",
+          "호기심"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "호랑이가 먹이를 노려보듯이 기회를 엿보는 거야"
+      },
+      "skillTags": [
+        "단어-인지",
+        "사자성어"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.85,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "기회를 노리며 가만히 지켜보는 것을 뜻하는 사자성어는 무엇일까요?",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 전혀 인식 못한 단어. 사자성어 노출+뜻 이해.",
+      "rules": []
+    },
+    {
+      "cardId": "crd_2026W12_sth_b1c2d3",
+      "sourceRef": "speech-therapy/260312/correction/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 문장에서 빈칸에 알맞은 말을 고르세요: '내려야 할 ( )을 지나쳐서'",
+        "ttsText": "내려야 할 빈칸을 지나쳐서"
+      },
+      "answer": {
+        "correct": "정류장",
+        "options": [
+          "정류장",
+          "정거장",
+          "주차장"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "버스가 서는 곳이야. 소리는 '정뉴장'이라고 나"
+      },
+      "skillTags": [
+        "비음화",
+        "단어-인지"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "내려야 할 빈칸을 지나쳐서",
+      "validationDetails": [],
+      "pedagogyNote": "비음화(정류장→정뉴장) + 어미 오류(내려야→내리에). 문맥 단서로 단어 추론.",
+      "rules": [
+        "비음화(정류장→정뉴장)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W12_stp_z1a2b3",
+      "sourceRef": "speech-therapy/260305/spelling/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '눈싸람'이라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "눈사람",
+        "options": [
+          "눈사람",
+          "눈싸람",
+          "눈쌀암"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "겨울에 만드는 흰 모양의 인형이야. '싸'로 소리 나지만 글자는 달라"
+      },
+      "skillTags": [
+        "경음화",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.92,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "눈싸람",
+      "validationDetails": [],
+      "rules": [
+        "경음화(눈사람→눈싸람)"
+      ],
+      "pedagogyNote": "기초 경음화 패턴. 받침 ㅁ 뒤 ㅅ이 된소리. 시각적 대비로 표기 학습."
+    },
+    {
+      "cardId": "crd_2026W12_stp_c2d3e4",
+      "sourceRef": "speech-therapy/260305/spelling/002",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '기찬낄'이라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "기찻길",
+        "options": [
+          "기찻길",
+          "기찬낄",
+          "기찬길"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "기차가 다니는 길이야. '낄'로 소리 나지만 '길'이라고 써"
+      },
+      "skillTags": [
+        "경음화",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.92,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "기찬낄",
+      "validationDetails": [],
+      "rules": [
+        "비음화+경음화(기찻길→기찬낄)"
+      ],
+      "pedagogyNote": "복합 음운변화(비음화+경음화). 받침 ㅆ→ㄴ(비음화)→ㄱ이 ㄲ(경음화)."
+    },
+    {
+      "cardId": "crd_2026W12_stp_e4f5g6",
+      "sourceRef": "speech-therapy/260305/spelling/003",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '학꾜로'라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "학교로",
+        "options": [
+          "학교로",
+          "학꾜로",
+          "학꾸로"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "공부하는 곳이야. '-로'와 함께 쓰일 때도 '꾜'로 소리 나"
+      },
+      "skillTags": [
+        "경음화",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.91,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "학꾜로",
+      "validationDetails": [],
+      "rules": [
+        "경음화(학교→학꾜)"
+      ],
+      "pedagogyNote": "고빈출 단어 경음화. 조사 '-로' 결합 시에도 규칙 적용."
+    },
+    {
+      "cardId": "crd_2026W12_stp_g6h7i8",
+      "sourceRef": "speech-therapy/260305/spelling/004",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '닥짱'이라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "닭장",
+        "options": [
+          "닭장",
+          "닥짱",
+          "닥장"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "닭들이 사는 곳이야. ㄱ이 된소리 ㄲ으로 나"
+      },
+      "skillTags": [
+        "경음화",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.91,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "닥짱",
+      "validationDetails": [],
+      "rules": [
+        "경음화(닭장→닥짱)"
+      ],
+      "pedagogyNote": "쌍자음 된소리 경음화. 받침 ㄱ 뒤 ㄴ인데도 ㄲ으로 발음."
+    },
+    {
+      "cardId": "crd_2026W12_syn_i8j9k1",
+      "sourceRef": "speech-therapy/260305/sound-linking/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '겨우레'라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "겨울에",
+        "options": [
+          "겨울에",
+          "겨우레",
+          "겨으레"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "추운 계절이야. '을'이 '우'로 소리 나면서 다음 '에'와 연결"
+      },
+      "skillTags": [
+        "연음",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.91,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "겨우레",
+      "validationDetails": [],
+      "rules": [
+        "연음(겨울에→겨우레)"
+      ],
+      "pedagogyNote": "연음 기초 패턴. 받침 ㄹ이 다음 모음과 연결되는 현상."
+    },
+    {
+      "cardId": "crd_2026W12_syn_k1l2m3",
+      "sourceRef": "speech-therapy/260305/sound-linking/002",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '눈써비'라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "눈썹이",
+        "options": [
+          "눈썹이",
+          "눈써비",
+          "눈썸이"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "얼굴에 있는 털이야. '썹'이 '썹이'가 아니라 '써비'로 소리 나"
+      },
+      "skillTags": [
+        "연음",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.91,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "눈써비",
+      "validationDetails": [],
+      "rules": [
+        "연음(눈썹이→눈써비)"
+      ],
+      "pedagogyNote": "연음에서 수의적 비음화 포함. 받침 ㅇ→비음으로 연결."
+    },
+    {
+      "cardId": "crd_2026W12_syn_m3n4o5",
+      "sourceRef": "speech-therapy/260305/sound-linking/003",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '거러갑니다'라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "걸어갑니다",
+        "options": [
+          "걸어갑니다",
+          "거러갑니다",
+          "걸르갑니다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "발로 이동할 때 이렇게 해. '어'가 '어'로 실현되면서 '르'와 연결"
+      },
+      "skillTags": [
+        "연음",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "거러갑니다",
+      "validationDetails": [],
+      "rules": [
+        "연음(걸어갑니다→거러갑니다)"
+      ],
+      "pedagogyNote": "동사 어근 연음. 'ㄹ' 받침 + '-어' 연결에서 실현되는 음운 과정."
+    },
+    {
+      "cardId": "crd_2026W12_syn_o5p6q7",
+      "sourceRef": "speech-therapy/260305/sound-linking/004",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '찌저진'이라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "찢어진",
+        "options": [
+          "찢어진",
+          "찌저진",
+          "진저진"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "종이가 끊어질 때를 말해. '찢'이 '찢어'가 되면서 음운 변화"
+      },
+      "skillTags": [
+        "연음",
+        "표기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.88,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "찌저진",
+      "validationDetails": [],
+      "rules": [
+        "연음(찢어진→찌저진)"
+      ],
+      "pedagogyNote": "과거분사형 연음. 받침 복합자음 + '-어' 결합의 음운 최적화."
+    },
+    {
+      "cardId": "crd_2026W12_cmb_q7r8s9",
+      "sourceRef": "speech-therapy/260305/complex/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '난우라'라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "냇물아",
+        "options": [
+          "냇물아",
+          "난무라",
+          "난우라"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "작은 물줄기야. '냇'의 받침이 변하면서 '물아'와 연결"
+      },
+      "skillTags": [
+        "비음화",
+        "연음",
+        "복합규칙"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.87,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "난무라",
+      "validationDetails": [],
+      "rules": [
+        "비음화+연음(냇물아→난무라)"
+      ],
+      "pedagogyNote": "복합 음운변화. 받침 ㅆ→ㄴ(비음화)→ㅁ으로 연음되면서 '난무'로."
+    },
+    {
+      "cardId": "crd_2026W12_cmb_s9t1u2",
+      "sourceRef": "speech-therapy/260305/complex/002",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "소리는 '손뜽을 씬는'이라고 나요. 바르게 쓴 것은?"
+      },
+      "answer": {
+        "correct": "손등을 씻는",
+        "options": [
+          "손등을 씻는",
+          "손뜽을 씬는",
+          "손등을 싯는"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "손 뒷부분이야. 두 번의 경음화가 일어나는 문장"
+      },
+      "skillTags": [
+        "경음화",
+        "복합규칙"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.87,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "손뜽을 씬는",
+      "validationDetails": [],
+      "rules": [
+        "경음화(손등을→손뜽을)",
+        "경음화(씻는→씬는)"
+      ],
+      "pedagogyNote": "연속된 경음화. 같은 문장 내 두 번의 경음화 규칙 적용."
+    },
+    {
+      "cardId": "crd_2026W12_voc_u2v3w4",
+      "sourceRef": "speech-therapy/260305/vocabulary/001",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "기차가 지나가는 길을 뜻하는 말은?"
+      },
+      "answer": {
+        "correct": "기찻길",
+        "options": [
+          "기찻길",
+          "기차길",
+          "기찬길"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'기차' + '길'이 만난 합성어야. 발음은 다르지만 의미로 기억해"
+      },
+      "skillTags": [
+        "어휘",
+        "단어-인지"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.93,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "기찻길",
+      "validationDetails": [],
+      "rules": [],
+      "pedagogyNote": "합성어 의미 이해 + 음운변화 표기 동시 학습. 어휘 확장."
+    },
+    {
+      "cardId": "crd_2026W12_voc_w4x5y6",
+      "sourceRef": "speech-therapy/260305/vocabulary/002",
+      "runId": "2026-W12",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "차병원-260305-동시",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "닭이나 거위를 기르기 위해 만든 집을 뜻하는 말은?"
+      },
+      "answer": {
+        "correct": "닭장",
+        "options": [
+          "닭장",
+          "닭집",
+          "동물원"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'닭' + '장(곳)'의 합성어. 쟁이나 집이 아니야"
+      },
+      "skillTags": [
+        "어휘",
+        "단어-인지"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.92,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "ttsText": "닭장",
+      "validationDetails": [],
+      "rules": [],
+      "pedagogyNote": "동물 사육 관련 어휘. 합성어 구조 이해로 의미 추론 능력 향상."
+    }
+  ]
+}

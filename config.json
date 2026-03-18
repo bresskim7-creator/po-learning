@@ -1,0 +1,122 @@
+{
+  "version": "v4.4-phase0",
+  "updated": "2026-03-17",
+  "child": { "name": "PO", "grade": "초6", "interests": ["야구", "게임"] },
+  "sessionMode": {
+    "defaultMode": "A",
+    "modeEntryRules": {
+      "default": "A",
+      "thursday": "B_priority",
+      "friday": "C_enabled",
+      "parentOverride": true
+    },
+    "todayOverride": null
+  },
+  "modeA": {
+    "cardCount": { "min": 15, "max": 30, "default": 20 },
+    "timeLimit": { "soft": 18, "hard": 22, "unit": "minutes" },
+    "subjectMix": {
+      "english": { "ratio": 0.4, "enabled": true },
+      "comprehension": { "ratio": 0.3, "enabled": true },
+      "social_studies": { "ratio": 0, "enabled": false, "note": "v4.4 Phase 2에서 활성화. social-studies.json 파일 준비됨." },
+      "speech_therapy": { "slots": "full_lesson", "position": "last_block" }
+    },
+    "newToReviewRatio": { "new": 0.4, "review": 0.6 }
+  },
+  "ttsPolicy": {
+    "engine": "google_chirp3",
+    "fallback": "web_speech_api",
+    "rules": {
+      "new_first_exposure": "auto_play",
+      "new_same_day_repeat": "button",
+      "review": "button",
+      "consecutive_fail": "auto_hint"
+    },
+    "consecutiveFailThreshold": 3
+  },
+  "autoAdjust": {
+    "daily": {
+      "consecutiveCorrectToMaster": 3,
+      "consecutiveFailToHint": 3,
+      "missedDaysToReduce": 3,
+      "missedDaysReduction": 0.3,
+      "overtimeMinutes": 15
+    },
+    "weekly": {
+      "lowAccuracyThreshold": 0.7,
+      "highAccuracyThreshold": 0.9
+    }
+  },
+  "anchorConfig": {
+    "enabled": true,
+    "weeklyInputRequired": true,
+    "shadowMode": true,
+    "shadowModeStartDate": "2026-03-17",
+    "anchorAllocation": {
+      "anchor": 0.6,
+      "review": 0.3,
+      "extension": 0.1
+    },
+    "missedWeekPolicy": {
+      "1week": "carry_forward",
+      "2weeks": "warning",
+      "3weeks_plus": "review_mode"
+    },
+    "anchorTypes": [
+      {
+        "id": "speech-therapy",
+        "label": "차병원 숙제",
+        "inputType": "text"
+      },
+      {
+        "id": "school-english",
+        "label": "학교 영어",
+        "inputType": "dropdown",
+        "options": ["1단원", "2단원", "3단원", "4단원", "5단원", "6단원", "7단원", "8단원", "9단원", "10단원", "11단원", "12단원"]
+      },
+      {
+        "id": "reading-class",
+        "label": "독서 수업",
+        "inputType": "dropdown_or_text",
+        "options": []
+      },
+      {
+        "id": "school-social",
+        "label": "학교 사회",
+        "inputType": "dropdown",
+        "options": ["세계 여러 나라의 자연환경", "세계 여러 나라의 문화", "지속 가능한 지구촌", "우리나라의 경제 발전", "우리나라의 정치 발전", "우리나라와 가까운 나라들", "세계 속의 우리나라"]
+      },
+      {
+        "id": "short-reading",
+        "label": "3~5문장 독해",
+        "inputType": "auto",
+        "note": "앵커 맵 기반 자동 생성, 직접 입력 없음"
+      }
+    ]
+  },
+  "logging": {
+    "enabled": true,
+    "storage": "local_first",
+    "syncTarget": "google_sheets"
+  },
+  "helpStairs": {
+    "enabled": true,
+    "slowTTSRate": 0.7,
+    "maxRetries": 3,
+    "autoAdvanceAfterComplete": false
+  },
+  "recording": {
+    "upload": true,
+    "maxBatchSize": 15,
+    "retryOnNextSession": true,
+    "pendingStorageKey": "po_v4_pending_recordings"
+  },
+  "observationLog": {
+    "enabled": true,
+    "showInResults": true,
+    "struggleThreshold": {
+      "attempts": 2,
+      "stairLevel": 2
+    }
+  }
+}

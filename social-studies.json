@@ -1,0 +1,458 @@
+[
+  {
+    "cardId": "crd_2026W12_soc_a1b2c3",
+    "sourceRef": "school-social/U1-1/comp/001",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "우리나라는 광복 이후 남한과 북한으로 분단되었고, 6.25 전쟁을 겪으면서 분단이 굳어졌습니다. 분단으로 실향민과 이산가족은 고향과 가족을 잃은 아픔을 안고 살아가고 있습니다.",
+      "text": "우리나라의 남북 분단이 굳어진 계기는 무엇인가요?",
+      "ttsText": "우리나라의 남북 분단이 굳어진 계기는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "6.25 전쟁",
+      "options": [
+        "6.25 전쟁",
+        "광복",
+        "올림픽"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "1950년에 일어난 전쟁이야"
+    },
+    "skillTags": [
+      "fact",
+      "korean-division"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "우리나라의 남북 분단이 굳어진 계기는 무엇인가요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_d4e5f6",
+    "sourceRef": "school-social/U1-1/comp/002",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "분단 비용이란 우리나라가 분단되어 있어 발생하는 비용입니다. 남북의 군대를 유지하는 국방비, 북한 지역의 자원을 활용할 수 없어서 발생하는 비용, 대륙으로 길이 연결되지 않아 멀리 돌아가야 하는 비용도 분단 비용입니다. 이 밖에도 이산가족의 아픔, 약해진 국력 등 우리 사회가 치르는 비용이 분단 비용에 포함됩니다.",
+      "text": "'이산가족'은 어떤 사람들을 말하나요?",
+      "ttsText": "이산가족은 어떤 사람들을 말하나요?"
+    },
+    "answer": {
+      "correct": "분단으로 헤어진 가족",
+      "options": [
+        "분단으로 헤어진 가족",
+        "외국에 사는 가족",
+        "이사를 간 가족"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'이산'은 '흩어짐'이라는 뜻이야"
+    },
+    "skillTags": [
+      "fact",
+      "korean-division"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "이산가족은 어떤 사람들을 말하나요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_g7h8i9",
+    "sourceRef": "school-social/U1-1/comp/003",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "남한에서 '도넛'이라고 부르는 것을 북한에서는 '동글파'라고 부릅니다. '삼겹살'은 '돼지세겹살', '양파'는 '둥글파', '주스'는 '과일단물'이라고 합니다. 분단 이후 70여 년이 흐르면서 남북한의 언어 차이가 점점 커지고 있습니다.",
+      "text": "남한의 '주스'를 북한에서는 뭐라고 부르나요?",
+      "ttsText": "남한의 주스를 북한에서는 뭐라고 부르나요?"
+    },
+    "answer": {
+      "correct": "과일단물",
+      "options": [
+        "과일단물",
+        "동글파",
+        "가락지빵"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "과일로 만든 달콤한 물이라는 뜻이야"
+    },
+    "skillTags": [
+      "fact",
+      "language-difference"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "남한의 주스를 북한에서는 뭐라고 부르나요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_j1k2l3",
+    "sourceRef": "school-social/U1-1/comp/004",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "분단 비용이란 우리나라가 분단되어 있어 발생하는 비용입니다. 남북의 군대를 유지하는 국방비, 북한 자원을 활용할 수 없는 비용, 대륙으로 길이 연결되지 않아 돌아가야 하는 비용이 있습니다. 우리나라의 국방비는 2003년 17.5조 원에서 2023년 57.0조 원으로 크게 늘었습니다.",
+      "text": "다음 중 '분단 비용'에 해당하지 않는 것은?",
+      "ttsText": "다음 중 분단 비용에 해당하지 않는 것은?"
+    },
+    "answer": {
+      "correct": "학교 건설 비용",
+      "options": [
+        "학교 건설 비용",
+        "국방비",
+        "대륙 우회 비용"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "분단과 상관없이 어차피 드는 비용을 생각해 봐"
+    },
+    "skillTags": [
+      "inference",
+      "division-cost"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "다음 중 분단 비용에 해당하지 않는 것은?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_m4n5o6",
+    "sourceRef": "school-social/U1-1/comp/005",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "비무장 지대(DMZ)는 정전 협정에 따라 군사 분계선에서 남과 북 각각 2km 범위에 설정한 지대입니다. 여기서는 군사적 행위와 무기 휴대가 원칙적으로 금지됩니다. 비무장 지대는 자연환경이 잘 보전되어 있어 여러 희귀 식물과 멸종 위기 야생 동물이 살고 있습니다.",
+      "text": "비무장 지대(DMZ)는 군사 분계선에서 남과 북 각각 얼마나 떨어져 있나요?",
+      "ttsText": "비무장 지대는 군사 분계선에서 남과 북 각각 얼마나 떨어져 있나요?"
+    },
+    "answer": {
+      "correct": "각각 2km",
+      "options": [
+        "각각 2km",
+        "각각 10km",
+        "각각 100m"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "킬로미터 단위의 비교적 짧은 거리야"
+    },
+    "skillTags": [
+      "fact",
+      "dmz"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "비무장 지대는 군사 분계선에서 남과 북 각각 얼마나 떨어져 있나요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_p7q8r9",
+    "sourceRef": "school-social/U1-1/comp/006",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "6.25 전쟁 중 남쪽으로 피란을 왔다가 돌아가지 못한 사람들이 모여 살면서 만들어진 마을이 있습니다. 이 마을은 강원특별자치도 속초시에 있습니다.",
+      "text": "이 마을의 이름은 무엇인가요?",
+      "ttsText": "이 마을의 이름은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "아바이 마을",
+      "options": [
+        "아바이 마을",
+        "백마고지",
+        "판문점"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'아바이'는 '아버지'를 뜻하는 사투리야"
+    },
+    "skillTags": [
+      "fact",
+      "division-places"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "이 마을의 이름은 무엇인가요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_s1t2u3",
+    "sourceRef": "school-social/U1-1/comp/007",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "우리나라는 평화 통일을 위해 다양한 노력을 기울이고 있습니다. 1972년 분단 이후 처음으로 통일 원칙에 관한 합의를 담은 7.4 남북 공동 성명을 발표했습니다.",
+      "text": "7.4 남북 공동 성명이 발표된 해는 언제인가요?",
+      "ttsText": "7.4 남북 공동 성명이 발표된 해는 언제인가요?"
+    },
+    "answer": {
+      "correct": "1972년",
+      "options": [
+        "1972년",
+        "1991년",
+        "2000년"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "분단 이후 '처음으로' 통일 원칙에 합의한 해야"
+    },
+    "skillTags": [
+      "fact",
+      "unification-efforts"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "7.4 남북 공동 성명이 발표된 해는 언제인가요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_v4w5x6",
+    "sourceRef": "school-social/U1-1/comp/008",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "1991년에는 남북 화해, 평화, 교류와 협력 등의 내용이 담긴 남북 기본 합의서를 채택했습니다. 이후 다섯 차례 남북 정상 회담을 열었습니다. 남북 정상 회담은 2000년과 2007년에 평양에서, 2018년에 판문점에서 열렸습니다.",
+      "text": "'남북 기본 합의서'에 담긴 내용이 아닌 것은?",
+      "ttsText": "남북 기본 합의서에 담긴 내용이 아닌 것은?"
+    },
+    "answer": {
+      "correct": "군사 동맹",
+      "options": [
+        "군사 동맹",
+        "화해",
+        "교류와 협력"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "합의서는 평화적인 관계를 위한 것이야"
+    },
+    "skillTags": [
+      "inference",
+      "unification-efforts"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "남북 기본 합의서에 담긴 내용이 아닌 것은?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_y7z8a1",
+    "sourceRef": "school-social/U1-1/comp/009",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "남한과 북한은 경제 발전을 위해 경제 협력 사업을 진행했습니다. 북한의 개성 지역에 공업 단지를 만들어 남한의 자본과 기술, 북한의 노동력을 합해 상품을 생산했습니다. 이 밖에도 금강산 관광 사업과 남북 철도·도로 연결 사업 등이 이루어졌습니다.",
+      "text": "개성 공업 단지의 특징을 바르게 설명한 것은?",
+      "ttsText": "개성 공업 단지의 특징을 바르게 설명한 것은?"
+    },
+    "answer": {
+      "correct": "남한의 자본·기술 + 북한의 노동력",
+      "options": [
+        "남한의 자본·기술 + 북한의 노동력",
+        "북한의 자본으로만 운영",
+        "남한 기업만 참여"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "남과 북이 각각 잘하는 것을 합쳤어"
+    },
+    "skillTags": [
+      "fact",
+      "economic-cooperation"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "개성 공업 단지의 특징을 바르게 설명한 것은?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_b2c3d4",
+    "sourceRef": "school-social/U1-1/comp/010",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "남북의 국어학자들이 통일된 국어사전을 함께 만들기로 하고 2005년에 겨레말큰사전 편찬 사업을 시작했습니다. 이 사전에서는 남북이 다르게 쓰는 어휘를 한눈에 확인할 수 있습니다. 예를 들어 '통닭'은 남한에서 주로 '튀긴 닭'을 뜻하지만, 북한에서는 '삶은 닭'을 뜻합니다.",
+      "text": "겨레말큰사전 편찬 사업의 목적은 무엇인가요?",
+      "ttsText": "겨레말큰사전 편찬 사업의 목적은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "남북이 함께 쓰는 통일된 국어사전 만들기",
+      "options": [
+        "남북이 함께 쓰는 통일된 국어사전 만들기",
+        "북한 말을 없애기",
+        "외국어 사전 만들기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'겨레'는 '민족'이라는 뜻이야"
+    },
+    "skillTags": [
+      "inference",
+      "cultural-cooperation"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "겨레말큰사전 편찬 사업의 목적은 무엇인가요?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_e5f6g7",
+    "sourceRef": "school-social/U1-1/comp/011",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "1991년 일본에서 열린 세계 탁구 선수권 대회에 남한과 북한은 분단 이후 최초로 '코리아'라는 이름의 단일팀으로 출전했습니다. 이후 올림픽, 아시안 게임 등에서 남북이 한반도기를 흔들며 동시에 입장하기도 했습니다. 2018년에는 평창 동계 올림픽에서 남북 선수단이 공동 입장하여 전 국민에게 통일의 희망을 전했습니다.",
+      "text": "남한과 북한이 처음으로 단일팀을 구성한 대회는?",
+      "ttsText": "남한과 북한이 처음으로 단일팀을 구성한 대회는?"
+    },
+    "answer": {
+      "correct": "1991년 세계 탁구 선수권 대회",
+      "options": [
+        "1991년 세계 탁구 선수권 대회",
+        "2000년 시드니 올림픽",
+        "2018년 평창 동계 올림픽"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "공을 작은 라켓으로 치는 스포츠 대회야"
+    },
+    "skillTags": [
+      "fact",
+      "sports-cooperation"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "남한과 북한이 처음으로 단일팀을 구성한 대회는?",
+    "validationDetails": []
+  },
+  {
+    "cardId": "crd_2026W12_soc_h8i9j1",
+    "sourceRef": "school-social/U1-1/comp/012",
+    "runId": "2026-W12",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "우리나라가 분단의 아픔을 딛고 더 발전하려면 평화 통일이 필요합니다. 일상생활에서 평화 통일을 위해 할 수 있는 일을 실천하며 지속적으로 노력하는 모습을 찾아볼 수 있습니다. 예를 들어 평화통일 교육에 참여하거나, 북한 어린이에게 편지 쓰기 대회에 참가하는 것도 좋은 방법입니다.",
+      "text": "평화 통일을 위해 우리가 할 수 있는 일로 알맞은 것은?",
+      "ttsText": "평화 통일을 위해 우리가 할 수 있는 일로 알맞은 것은?"
+    },
+    "answer": {
+      "correct": "북한에 관심을 갖고 통일의 필요성을 알아가기",
+      "options": [
+        "북한에 관심을 갖고 통일의 필요성을 알아가기",
+        "북한 사람들을 무시하기",
+        "분단 문제를 모른 척하기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "관심과 이해가 평화의 첫걸음이야"
+    },
+    "skillTags": [
+      "opinion",
+      "peace-practice"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "approved",
+    "validationStatus": "pass",
+    "ttsText": "평화 통일을 위해 우리가 할 수 있는 일로 알맞은 것은?",
+    "validationDetails": []
+  }
+]
