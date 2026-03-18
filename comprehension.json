@@ -19,7 +19,8 @@
       "question": {
         "text": "투수는 무엇을 하는 선수인가요?",
         "ttsText": "투수는 무엇을 하는 선수인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "야구는 재미있는 스포츠예요. 야구 경기에서 투수는 공을 던지는 중요한 선수입니다. 투수가 잘 던져야 경기를 이길 수 있어요."
       },
       "answer": {
         "correct": "공을 던지는 선수",
@@ -58,7 +59,8 @@
       "question": {
         "text": "겨울에 사람들은 왜 두꺼운 옷을 입나요?",
         "ttsText": "겨울에 사람들은 왜 두꺼운 옷을 입나요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "겨울이 되면 날씨가 매우 추워집니다. 사람들은 추운 바람으로부터 몸을 보호하기 위해 두꺼운 옷을 입어요."
       },
       "answer": {
         "correct": "날씨가 추우니까",
@@ -97,7 +99,8 @@
       "question": {
         "text": "퍼즐 게임은 어떤 게임인가요?",
         "ttsText": "퍼즐 게임은 어떤 게임인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "퍼즐 게임은 우리의 머리를 쓰게 해주는 재미있는 게임이에요. 이 게임을 하면서 우리는 여러 문제를 풀고 생각력을 키워요."
       },
       "answer": {
         "correct": "머리를 써서 문제를 푸는 게임",
@@ -136,7 +139,8 @@
       "question": {
         "text": "프로야구 시즌은 몇 월에 시작하나요?",
         "ttsText": "프로야구 시즌은 몇 월에 시작하나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "프로야구는 매년 봄에 새로운 시즌을 시작합니다. 3월부터 각 팀의 경기가 시작되어 가을까지 계속 진행돼요."
       },
       "answer": {
         "correct": "3월",
@@ -175,7 +179,8 @@
       "question": {
         "text": "뿌리는 어디에서 물을 빨아들이나요?",
         "ttsText": "뿌리는 어디에서 물을 빨아들이나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "식물의 뿌리는 땅속 깊이 들어가 있어요. 이 뿌리들이 땅속에서 물과 영양분을 빨아들여서 식물을 자라게 해요."
       },
       "answer": {
         "correct": "땅속",
@@ -214,7 +219,8 @@
       "question": {
         "text": "지하철의 좋은 점은 무엇인가요?",
         "ttsText": "지하철의 좋은 점은 무엇인가요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "지하철은 도시의 중요한 교통수단이에요. 지하철은 정해진 시간에 정확히 와서 사람들이 늦지 않게 해줍니다."
       },
       "answer": {
         "correct": "정해진 시간에 와서 늦지 않는다",
@@ -253,7 +259,8 @@
       "question": {
         "text": "볼넷이 되려면 볼을 몇 개 받아야 하나요?",
         "ttsText": "볼넷이 되려면 볼을 몇 개 받아야 하나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "야구에서 볼넷은 특별한 상황이에요. 투수가 정확히 던지지 못해서 공이 네 개 들어오면 타자는 자동으로 1루로 갈 수 있어요."
       },
       "answer": {
         "correct": "네 개",
@@ -292,7 +299,8 @@
       "question": {
         "text": "불이 너무 세면 어떻게 되나요?",
         "ttsText": "불이 너무 세면 어떻게 되나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "요리할 때 불의 세기는 매우 중요합니다. 불이 너무 세면 음식이 쉽게 탈 수 있으니까 적절한 불의 세기를 유지해야 해요."
       },
       "answer": {
         "correct": "음식이 탄다",
@@ -332,7 +340,8 @@
       "question": {
         "text": "태양이 없으면 어떻게 될까요?",
         "ttsText": "태양이 없으면 어떻게 될까요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "태양은 지구의 모든 생물에게 에너지를 줍니다. 만약 태양이 없다면 생물들이 살 수 없는 어두운 지구가 되어버릴 거예요."
       },
       "answer": {
         "correct": "생물이 살 수 없다",
@@ -371,7 +380,8 @@
       "question": {
         "text": "옛날에 편지를 보내려면 어디에 가야 했나요?",
         "ttsText": "옛날에 편지를 보내려면 어디에 가야 했나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "옛날에는 편지를 보내는 방법이 오늘날과 달랐어요. 편지를 보내려면 사람들이 우체국에 가서 도움을 받아야 했답니다."
       },
       "answer": {
         "correct": "우체국",
@@ -410,7 +420,8 @@
       "question": {
         "text": "제구력이란 무엇인가요?",
         "ttsText": "제구력이란 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "투수의 제구력은 야구에서 가장 중요한 능력 중 하나예요. 제구력이 좋은 투수는 원하는 곳에 정확히 공을 던질 수 있어요."
       },
       "answer": {
         "correct": "원하는 곳에 정확히 공을 던지는 능력",
@@ -449,7 +460,8 @@
       "question": {
         "text": "물의 고체 상태는 무엇인가요?",
         "ttsText": "물의 고체 상태는 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "물은 세 가지 상태로 존재해요. 물이 매우 추워지면 얼음이 되는데, 얼음은 물의 고체 상태랍니다."
       },
       "answer": {
         "correct": "얼음",
@@ -488,7 +500,8 @@
       "question": {
         "text": "이 속담이 말하고 싶은 것은 무엇인가요?",
         "ttsText": "이 속담이 말하고 싶은 것은 무엇인가요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "예로부터 내려오는 말 중에 '열 손가락 깨물어도 아프지 않다'라는 속담이 있어요. 이 속담은 함께 하면 더 쉽고 낫다는 뜻을 담고 있어요."
       },
       "answer": {
         "correct": "함께 하면 더 쉽다",
@@ -527,7 +540,8 @@
       "question": {
         "text": "강아지가 슬플 때 다가오는 이유는 무엇인가요?",
         "ttsText": "강아지가 슬플 때 다가오는 이유는 무엇인가요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "강아지는 주인을 매우 사랑합니다. 주인이 슬플 때 강아지는 주인의 기분을 알아채고 다가와 함께해주곤 해요."
       },
       "answer": {
         "correct": "주인의 기분을 알아채니까",
@@ -570,7 +584,8 @@
       "question": {
         "text": "봄이 오면 나무에서 무엇이 자라나요?",
         "ttsText": "봄이 오면 나무에서 무엇이 자라나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "봄이 오면 자연이 아름답게 변해요. 겨울 동안 자고 있던 나무에서 새로운 잎이 자라나기 시작합니다."
       },
       "answer": {
         "correct": "새 잎",
@@ -610,7 +625,8 @@
       "question": {
         "text": "여름에 아이들은 어디에서 물놀이를 하나요?",
         "ttsText": "여름에 아이들은 어디에서 물놀이를 하나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "여름은 가장 더운 계절이에요. 아이들은 무더위를 피해 시원한 바다나 수영장에 가서 물놀이를 하며 즐거운 시간을 보내요."
       },
       "answer": {
         "correct": "바다나 수영장",
@@ -650,7 +666,8 @@
       "question": {
         "text": "가을에 나뭇잎이 변하는 것을 무엇이라고 하나요?",
         "ttsText": "가을에 나뭇잎이 변하는 것을 무엇이라고 하나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "가을에는 자연이 색깔 옷으로 갈아입습니다. 나뭇잎이 빨강, 노랑, 주황 색으로 물드는 것을 '단풍'이라고 부르는데 정말 아름다워요."
       },
       "answer": {
         "correct": "단풍",
@@ -690,7 +707,8 @@
       "question": {
         "text": "겨울에 장갑과 목도리를 챙겨야 하는 이유는?",
         "ttsText": "겨울에 장갑과 목도리를 챙겨야 하는 이유는?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "겨울이 되면 날씨가 몹시 추워집니다. 감기에 걸리지 않기 위해서 사람들은 따뜻하게 입고 장갑과 목도리를 챙겨 다녀요."
       },
       "answer": {
         "correct": "감기에 걸리지 않으려고",
@@ -730,7 +748,8 @@
       "question": {
         "text": "민수의 생일은 언제인가요?",
         "ttsText": "민수의 생일은 언제인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "민수는 5월이 생일인 친구입니다. 민수의 생일은 5월 7일이에요."
       },
       "answer": {
         "correct": "5월 7일",
@@ -770,7 +789,8 @@
       "question": {
         "text": "지구의 날에 사람들은 무엇을 하나요?",
         "ttsText": "지구의 날에 사람들은 무엇을 하나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "4월 22일은 지구의 날이라는 특별한 날이에요. 이날 사람들은 지구를 소중히 하기 위해 불을 끄고 쓰레기를 줄이려고 노력해요."
       },
       "answer": {
         "correct": "불을 끄고 쓰레기를 줄인다",
@@ -810,7 +830,8 @@
       "question": {
         "text": "더 자주 행복해지려면 어떻게 해야 하나요?",
         "ttsText": "더 자주 행복해지려면 어떻게 해야 하나요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "누구나 행복해지고 싶어 합니다. 작은 일에도 감사하는 마음을 가지면 더 자주 행복해질 수 있어요."
       },
       "answer": {
         "correct": "작은 일에도 감사하면 된다",
@@ -850,7 +871,8 @@
       "question": {
         "text": "준호는 왜 잠이 오지 않았나요?",
         "ttsText": "준호는 왜 잠이 오지 않았나요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "준호는 곧 있을 시험이 걱정됩니다. 시험 전날 밤에 준호는 너무 걱정되어서 잠이 오지 않았어요."
       },
       "answer": {
         "correct": "시험이 걱정되어서",
@@ -890,7 +912,8 @@
       "question": {
         "text": "도서관에서 지켜야 하는 규칙은 무엇인가요?",
         "ttsText": "도서관에서 지켜야 하는 규칙은 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "도서관은 공부하기 좋은 곳이에요. 도서관에서 지켜야 하는 가장 중요한 규칙은 다른 사람들을 방해하지 않으려고 조용히 하는 거예요."
       },
       "answer": {
         "correct": "조용히 해야 한다",
@@ -930,7 +953,8 @@
       "question": {
         "text": "병원은 어디 옆에 있나요?",
         "ttsText": "병원은 어디 옆에 있나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "도시에는 여러 공공시설들이 가까이 있어요. 병원은 은행 옆에 자리 잡고 있답니다."
       },
       "answer": {
         "correct": "은행",
@@ -970,7 +994,8 @@
       "question": {
         "text": "포수를 무엇이라고 부르기도 하나요?",
         "ttsText": "포수를 무엇이라고 부르기도 하나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "포수는 야구에서 매우 중요한 선수예요. 포수는 경기를 지휘하는 역할을 하기 때문에 '경기의 사령관'이라고 불리기도 해요."
       },
       "answer": {
         "correct": "경기의 사령관",
@@ -1009,7 +1034,8 @@
       "question": {
         "text": "전략 게임에서 승리의 비결은 무엇인가요?",
         "ttsText": "전략 게임에서 승리의 비결은 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "전략 게임에서 승리하는 것은 어렵습니다. 전략 게임에서 이기려면 상대방보다 빠르게 자원을 모아야 한다는 것이 핵심이에요."
       },
       "answer": {
         "correct": "상대방보다 빠르게 자원을 모으는 것",
@@ -1048,7 +1074,8 @@
       "question": {
         "text": "계절이 바뀌는 이유는 무엇인가요?",
         "ttsText": "계절이 바뀌는 이유는 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "지구는 태양 주위를 도는 행성입니다. 지구가 기울어진 채로 태양 주위를 도는 것 때문에 계절이 바뀌게 돼요."
       },
       "answer": {
         "correct": "지구가 기울어진 채로 태양 주위를 돌기 때문",
@@ -1089,7 +1116,8 @@
       "question": {
         "text": "한국 프로야구는 처음에 몇 개 팀으로 시작했나요?",
         "ttsText": "한국 프로야구는 처음에 몇 개 팀으로 시작했나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "한국 프로야구의 역사는 흥미로워요. 한국 프로야구는 처음에 6개 팀으로 시작했고 지금은 더 많은 팀이 있어요."
       },
       "answer": {
         "correct": "6개 팀",
@@ -1129,7 +1157,8 @@
       "question": {
         "text": "화가 났을 때 어떻게 하면 좋을까요?",
         "ttsText": "화가 났을 때 어떻게 하면 좋을까요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "우리는 가끔 화가 납니다. 하지만 화가 났을 때 마음속 생각을 말로 표현하면 더 좋다고 해요."
       },
       "answer": {
         "correct": "말로 표현하면 좋다",
@@ -1170,7 +1199,8 @@
       "question": {
         "text": "도서관 옆에는 무엇이 있나요?",
         "ttsText": "도서관 옆에는 무엇이 있나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "도시의 거리는 여러 건물로 이루어져 있어요. 도서관 옆에는 우체국이 자리 잡고 있어요."
       },
       "answer": {
         "correct": "우체국",
@@ -1211,7 +1241,8 @@
       "question": {
         "text": "구름은 무엇이 모여서 만들어지나요?",
         "ttsText": "구름은 무엇이 모여서 만들어지나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "하늘의 구름은 어떻게 만들어질까요? 구름은 물이 증발해서 작은 물방울들이 모여서 만들어지는 거예요."
       },
       "answer": {
         "correct": "작은 물방울",
@@ -1250,7 +1281,8 @@
       "question": {
         "text": "함께 즐겁게 게임하려면 무엇이 필요한가요?",
         "ttsText": "함께 즐겁게 게임하려면 무엇이 필요한가요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "친구들과 함께 게임하는 것은 재미있어요. 함께 즐겁게 게임하려면 서로를 존중하는 마음이 정말 필요해요."
       },
       "answer": {
         "correct": "서로 존중하는 마음",
@@ -1289,7 +1321,8 @@
       "question": {
         "text": "매일 몇 분씩 운동하면 좋나요?",
         "ttsText": "매일 몇 분씩 운동하면 좋나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "운동은 우리의 건강을 지킵니다. 의사들은 매일 30분씩 운동하면 우리 몸이 건강해진다고 말해요."
       },
       "answer": {
         "correct": "30분",
@@ -1328,7 +1361,8 @@
       "question": {
         "text": "공룡은 얼마 전에 사라졌나요?",
         "ttsText": "공룡은 얼마 전에 사라졌나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "공룡은 오래전에 사라진 생물입니다. 공룡은 약 6,600만 년 전에 지구에서 사라져버렸어요."
       },
       "answer": {
         "correct": "약 6,600만 년 전",
@@ -1367,7 +1401,8 @@
       "question": {
         "text": "1970년대에 유행한 게임 이름은 무엇인가요?",
         "ttsText": "1970년대에 유행한 게임 이름은 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "비디오 게임의 역사는 길어요. 1970년대에 유행한 게임은 '퐁'이라는 게임으로 지금의 게임과는 다르지만 무척 인기가 있었어요."
       },
       "answer": {
         "correct": "퐁",
@@ -1407,7 +1442,8 @@
       "question": {
         "text": "관중들이 응원가를 부르면 어떤 효과가 있나요?",
         "ttsText": "관중들이 응원가를 부르면 어떤 효과가 있나요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "스포츠 경기장에서 관중들의 역할은 중요합니다. 관중들이 응원가를 부르면 선수들에게 큰 힘과 용기를 주게 돼요."
       },
       "answer": {
         "correct": "선수에게 큰 힘이 된다",
@@ -1446,7 +1482,8 @@
       "question": {
         "text": "양치할 때 물을 아끼는 방법은 무엇인가요?",
         "ttsText": "양치할 때 물을 아끼는 방법은 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "우리는 물을 절약해야 해요. 양치할 때 물을 아끼려면 컵을 사용해서 입을 헹굴 때마다 필요한 만큼만 물을 사용하는 것이 좋아요."
       },
       "answer": {
         "correct": "컵을 사용한다",
@@ -1487,7 +1524,8 @@
       "question": {
         "text": "아침밥을 먹으면 어떤 점이 좋나요?",
         "ttsText": "아침밥을 먹으면 어떤 점이 좋나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "아침밥은 우리에게 매우 중요합니다. 아침에 밥을 먹으면 뇌에 에너지가 공급되어 공부를 더 잘할 수 있어요."
       },
       "answer": {
         "correct": "뇌에 에너지가 공급되어 공부를 잘할 수 있다",
@@ -1526,7 +1564,8 @@
       "question": {
         "text": "낮과 밤이 생기는 이유는 무엇인가요?",
         "ttsText": "낮과 밤이 생기는 이유는 무엇인가요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "지구는 계속 움직입니다. 지구가 자전하기 때문에 한 쪽은 태양을 향하고 한 쪽은 해를 보지 못해서 낮과 밤이 생기는 거예요."
       },
       "answer": {
         "correct": "지구가 자전하기 때문",
@@ -1566,7 +1605,8 @@
       "question": {
         "text": "책을 읽으면 마음이 넓어지는 이유는?",
         "ttsText": "책을 읽으면 마음이 넓어지는 이유는?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "책을 읽으면 우리의 마음이 넓어집니다. 책을 읽으면서 다양한 사람의 생각을 이해하게 되니까 우리의 마음이 더 커지는 거예요."
       },
       "answer": {
         "correct": "다양한 사람의 생각을 이해하게 되니까",
@@ -1605,7 +1645,8 @@
       "question": {
         "text": "분리배출을 잘하면 어떤 점이 좋나요?",
         "ttsText": "분리배출을 잘하면 어떤 점이 좋나요?",
-        "questionType": "inference"
+        "questionType": "inference",
+        "passage": "환경을 지키는 것은 모두의 책임이에요. 분리배출을 잘하면 환경을 보호하는 데 큰 도움이 된다고 해요."
       },
       "answer": {
         "correct": "환경을 보호하는 데 도움이 된다",
@@ -1644,7 +1685,8 @@
       "question": {
         "text": "방어율은 무엇을 나타내나요?",
         "ttsText": "방어율은 무엇을 나타내나요?",
-        "questionType": "factual"
+        "questionType": "factual",
+        "passage": "야구에서 방어율은 중요한 통계입니다. 방어율은 투수가 얼마나 적게 점수를 주는지를 나타내는 수치예요."
       },
       "answer": {
         "correct": "투수가 점수를 적게 주는 정도",
@@ -1938,7 +1980,8 @@
       "runId": "2026-W12",
       "question": {
         "text": "\"무안하다\"는 무슨 뜻인가요?",
-        "ttsText": "\"무안하다\"는 무슨 뜻인가요?"
+        "ttsText": "\"무안하다\"는 무슨 뜻인가요?",
+        "passage": "\"무안하다\"는 말은 마음에 부끄러움이 생기는 상태를 뜻해요. 부끄럽고 머쓱한 느낌이 들 때 우리는 무안하다고 표현한답니다."
       },
       "questionType": "choice",
       "answer": {
@@ -1976,7 +2019,8 @@
       "runId": "2026-W12",
       "question": {
         "text": "\"가엾슨 생각\"이 들었다는 것은 어떤 감정을 나타내나요?",
-        "ttsText": "\"가엾슨 생각\"이 들었다는 것은 어떤 감정을 나타내나요?"
+        "ttsText": "\"가엾슨 생각\"이 들었다는 것은 어떤 감정을 나타내나요?",
+        "passage": "\"가엾슨 생각\"은 상대방을 불쌍히 여기는 마음을 나타냅니다. 누군가 힘들어하는 모습을 보면 그 사람을 동정하고 도와주고 싶은 마음이 생겨요."
       },
       "questionType": "choice",
       "answer": {
@@ -2053,7 +2097,8 @@
       "runId": "2026-W12",
       "question": {
         "text": "\"허전하다\"는 무슨 뜻인가요?",
-        "ttsText": "\"허전하다\"는 무슨 뜻인가요?"
+        "ttsText": "\"허전하다\"는 무슨 뜻인가요?",
+        "passage": "\"허전하다\"는 무언가가 부족하다고 느끼는 감정이에요. 물건이 없거나 친구가 없을 때처럼 마음에 빈 자리가 있을 때 허전하다고 말하는 거죠."
       },
       "questionType": "choice",
       "answer": {
@@ -2130,7 +2175,8 @@
       "runId": "2026-W12",
       "question": {
         "text": "책을 읽을 때 가장 중요한 것은 무엇인가요?",
-        "ttsText": "책을 읽을 때 가장 중요한 것은 무엇인가요?"
+        "ttsText": "책을 읽을 때 가장 중요한 것은 무엇인가요?",
+        "passage": "책을 읽는 방법은 정말 중요합니다. 글자 하나하나를 천천히 읽으면서 작가의 마음으로 내용을 마음으로 받아들이는 것이 가장 중요해요."
       },
       "questionType": "choice",
       "answer": {

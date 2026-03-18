@@ -1272,9 +1272,13 @@ function renderCard() {
   const container = document.getElementById('card-container');
   let html = '';
 
-  // 지문 (독해용)
-  if (card.passage) {
-    html += '<div class="passage">' + escapeHtml(card.passage.text) + '</div>';
+  // 지문 (독해용) — card.passage 또는 card.question.passage
+  var passageData = card.passage || card.question.passage;
+  if (passageData) {
+    var passageText = typeof passageData === 'string' ? passageData : (passageData.text || '');
+    if (passageText) {
+      html += '<div class="passage">' + escapeHtml(passageText) + '</div>';
+    }
   }
 
   // 표시 단어/텍스트
