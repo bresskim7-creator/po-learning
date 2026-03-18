@@ -1454,6 +1454,126 @@ function showHint() {
 }
 
 // ===================================================================
+// v4.5: STT 엔진 + 일치도 판정 (읽기 보조 피드백)
+// ===================================================================
+
+// STT 결과 저장
+let sttRecognition = null;
+let sttResult = '';
+let sttConfidence = 0;
+let sttActive = false;
+
+function startSTT(lang) {
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    console.warn('[STT] Web Speech API 미지원');
+    return;
+  }
+
+  sttResult = '';
+  sttConfidence = 0;
+  sttActive = true;
+
+  sttRecognition = new SpeechRecognition();
+  sttRecognition.lang = lang || 'ko-KR';
+  sttRecognition.interimResults = false;
+  sttRecognition.maxAlternatives = 1;
+  sttRecognition.continuous = false;
+
+  sttRecognition.onresult = function(event) {
+    var r = event.results[0][0];
+    sttResult = r.transcript || '';
+    sttConfidence = r.confidence || 0;
+    console.log('[STT] 결과:', sttResult, '신뢰도:', sttConfidence);
+  };
+
+  sttRecognition.onerror = function(event) {
+    console.warn('[STT] 오류:', event.error);
+    sttResult = '';
+    sttConfidence = 0;
+  };
+
+  sttRecognition.onend = function() {
+    sttActive = false;
+  };
+
+  sttRecognition.start();
+  console.log('[STT] 시작');
+}
+
+function stopSTT() {
+  if (sttRecognition && sttActive) {
+    try { sttRecognition.stop(); } catch(e) {}
+  }
+  sttActive = false;
+}
+
+/**
+ * 문장 일치도 판정 (규칙 기반)
+ * @param {string} target - 원문 (ttsText)
+ * @param {string} spoken - STT 결과
+ * @param {number} sttConf - STT 신뢰도 (0~1)
+ * @returns {{ level: 'match'|'ambiguous'|'mismatch', score: number }}
+ */
+function assessMatch(target, spoken, sttConf) {
+  if (!spoken || spoken.trim() === '') {
+    return { level: 'mismatch', score: 0 };
+  }
+
+  // 정규화: 공백, 구두점 제거, 소문자
+  function normalize(s) {
+    return s.replace(/[.,!?~…·\-\s]/g, '').toLowerCase().replace(/[ㅋㅎㅠㅜ]/g, '');
+  }
+
+  var norm_target = normalize(target);
+  var norm_spoken = normalize(spoken);
+
+  if (norm_target === '' || norm_spoken === '') {
+    return { level: 'mismatch', score: 0 };
+  }
+
+  // 글자 단위 일치율 (Levenshtein 대신 간단한 방식)
+  var longer = norm_target.length >= norm_spoken.length ? norm_target : norm_spoken;
+  var shorter = norm_target.length >= norm_spoken.length ? norm_spoken : norm_target;
+
+  // 연속 일치 부분문자열 기반 점수
+  var matchCount = 0;
+  var usedIdx = new Set();
+  for (var i = 0; i < shorter.length; i++) {
+    for (var j = 0; j < longer.length; j++) {
+      if (!usedIdx.has(j) && shorter[i] === longer[j]) {
+        matchCount++;
+        usedIdx.add(j);
+        break;
+      }
+    }
+  }
+  var charScore = matchCount / longer.length;
+
+  // 단어 단위 일치율
+  var targetWords = target.trim().split(/\s+/);
+  var spokenWords = spoken.trim().split(/\s+/);
+  var wordMatch = 0;
+  spokenWords.forEach(function(w) {
+    if (targetWords.indexOf(w) >= 0) wordMatch++;
+  });
+  var wordScore = targetWords.length > 0 ? wordMatch / targetWords.length : 0;
+
+  // 종합 점수 (글자 60% + 단어 40%)
+  var score = charScore * 0.6 + wordScore * 0.4;
+
+  // STT 신뢰도가 낮으면 ambiguous 쪽으로
+  if (sttConf < 0.5) {
+    score = Math.min(score, 0.6);
+  }
+
+  // 판정
+  if (score >= 0.7) return { level: 'match', score: score };
+  if (score >= 0.4) return { level: 'ambiguous', score: score };
+  return { level: 'mismatch', score: score };
+}
+
+// ===================================================================
 // 녹음 (언어치료 마이크로 루틴)
 // ===================================================================
 
@@ -1470,6 +1590,7 @@ async function toggleRecording() {
   if (mediaRecorder && mediaRecorder.state === 'recording') {
     // 녹음 중지
     mediaRecorder.stop();
+    stopSTT();  // v4.5: STT 중지
     btn.classList.remove('recording');
     clearInterval(recordingTimer);
     timerEl.classList.add('hidden');
@@ -1488,34 +1609,123 @@ async function toggleRecording() {
       duration: recordingSeconds,
     });
 
-    // B-5: 녹음 완료 피드백 — "잘했어!" + 격려 문구
-    var feedbackEl = document.getElementById('recording-feedback');
-    if (feedbackEl) {
-      var praiseTexts = ['잘했어!', '잘 읽었어!', '멋지다!', '대단해!', '좋아!'];
-      var praise = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
-      var micro = getRandomPhrase('speech_therapy_micro');
-      feedbackEl.textContent = praise + ' ' + micro;
-      feedbackEl.classList.remove('hidden');
-    }
+    // ★ v4.5: STT 결과 대기 후 일치도 판정
+    // STT onresult가 비동기이므로 짧은 대기 후 판정
+    setTimeout(function() {
+      var targetText = card.question.ttsText || card.question.displayWord || '';
+      var match = assessMatch(targetText, sttResult, sttConfidence);
+      var attemptNum = card._observation ? card._observation.attemptNumber : 1;
+      var consecutiveMismatch = card._consecutiveMismatch || 0;
 
-    // B-3: 녹음 상태 변경
-    status.textContent = '녹음 저장됐어!';
+      // v4.5: STT 관찰 데이터 기록
+      if (card._observation) {
+        if (!card._observation.sttResults) card._observation.sttResults = [];
+        card._observation.sttResults.push({
+          spoken: sttResult,
+          confidence: sttConfidence,
+          matchLevel: match.level,
+          matchScore: match.score
+        });
+      }
 
-    // B-2: 녹음 완료 후 "한 번 들어볼래?" 버튼 노출 (Step 1)
-    var btnListen = document.getElementById('btn-listen');
-    if (btnListen) btnListen.classList.remove('hidden');
+      logEvent('stt_match', {
+        cardId: card.id,
+        target: targetText,
+        spoken: sttResult,
+        sttConfidence: sttConfidence,
+        matchLevel: match.level,
+        matchScore: match.score,
+        attempt: attemptNum
+      });
 
-    // v4.3: "한 번 더 해볼래?" 버튼 표시 + 다음 카드 자동 진행 버튼
-    var btnRetry = document.getElementById('btn-retry');
-    if (btnRetry) btnRetry.classList.remove('hidden');
+      var feedbackEl = document.getElementById('recording-feedback');
+      var btnListen = document.getElementById('btn-listen');
+      var btnRetry = document.getElementById('btn-retry');
 
-    // 녹음 완료 후 "다음으로" 버튼 표시 (중복 생성 방지)
-    if (!document.getElementById('btn-next-card')) {
-      var nextBtnHtml = '<button id="btn-next-card" class="btn-stair" onclick="finishRecordingCard()" style="margin-top:8px;">다음으로 \u2192</button>';
-      var nextArea = document.createElement('div');
-      nextArea.innerHTML = nextBtnHtml;
-      status.parentNode.appendChild(nextArea);
-    }
+      if (match.level === 'match') {
+        // ✅ 거의 일치 → 칭찬
+        card._consecutiveMismatch = 0;
+        if (feedbackEl) {
+          var praiseTexts = ['잘했어!', '잘 읽었어!', '멋지다!', '대단해!', '좋아!'];
+          var praise = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
+          feedbackEl.textContent = praise;
+          feedbackEl.classList.remove('hidden');
+        }
+        status.textContent = '녹음 저장됐어!';
+        if (btnListen) btnListen.classList.remove('hidden');
+        // 다음으로 버튼
+        if (!document.getElementById('btn-next-card')) {
+          var nextArea = document.createElement('div');
+          nextArea.innerHTML = '<button id="btn-next-card" class="btn-stair" onclick="finishRecordingCard()" style="margin-top:8px;">다음으로 →</button>';
+          status.parentNode.appendChild(nextArea);
+        }
+
+      } else if (match.level === 'ambiguous') {
+        // ⚠️ 애매함 → 재시도 유도 (정오 판정 금지)
+        consecutiveMismatch++;
+        card._consecutiveMismatch = consecutiveMismatch;
+
+        if (feedbackEl) {
+          feedbackEl.textContent = '한 번 더 들어보고 천천히 읽어볼까?';
+          feedbackEl.classList.remove('hidden');
+        }
+        status.textContent = '';
+        if (btnListen) btnListen.classList.remove('hidden');
+        if (btnRetry) btnRetry.classList.remove('hidden');
+        // 다음으로 버튼도 표시 (강제 안 함)
+        if (!document.getElementById('btn-next-card')) {
+          var nextArea2 = document.createElement('div');
+          nextArea2.innerHTML = '<button id="btn-next-card" class="btn-stair" onclick="finishRecordingCard()" style="margin-top:8px;opacity:0.6;">다음으로 →</button>';
+          status.parentNode.appendChild(nextArea2);
+        }
+
+      } else {
+        // ❌ 불일치
+        consecutiveMismatch++;
+        card._consecutiveMismatch = consecutiveMismatch;
+
+        if (consecutiveMismatch >= 3) {
+          // 3회 연속 불일치 → 카드 종료 (보류, 실패 아님)
+          if (feedbackEl) {
+            feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
+            feedbackEl.classList.remove('hidden');
+          }
+          status.textContent = '';
+          card._sttPending = true;  // 부모 화면용 마킹
+
+          logEvent('stt_card_pending', {
+            cardId: card.id,
+            attempts: attemptNum,
+            consecutiveMismatch: consecutiveMismatch
+          });
+
+          // 2초 후 자동으로 다음 카드
+          setTimeout(function() {
+            finishRecordingCard();
+          }, 2000);
+
+        } else if (consecutiveMismatch === 2) {
+          // 2회 연속 불일치 → "한 번 더 해볼까?" + 녹음 저장
+          if (feedbackEl) {
+            feedbackEl.textContent = '한 번 더 해볼까?';
+            feedbackEl.classList.remove('hidden');
+          }
+          status.textContent = '녹음은 저장됐어!';
+          if (btnListen) btnListen.classList.remove('hidden');
+          if (btnRetry) btnRetry.classList.remove('hidden');
+
+        } else {
+          // 1회 불일치 → 정오 판정 금지, 다시 듣기 유도
+          if (feedbackEl) {
+            feedbackEl.textContent = '다시 한번 들어볼까?';
+            feedbackEl.classList.remove('hidden');
+          }
+          status.textContent = '';
+          if (btnListen) btnListen.classList.remove('hidden');
+          if (btnRetry) btnRetry.classList.remove('hidden');
+        }
+      }
+    }, 500);  // STT 결과 수신 대기 500ms
 
     return;
   }
@@ -1579,6 +1789,12 @@ async function toggleRecording() {
     btn.classList.add('recording');
     status.textContent = '녹음 중... 다 읽으면 버튼을 다시 눌러';
     timerEl.classList.remove('hidden');
+
+    // v4.5: 녹음과 동시에 STT 시작
+    var card = APP.session.cards[APP.session.currentIndex];
+    var sttLang = (card && card.question && card.question.ttsText &&
+      /^[a-zA-Z\s.,!?'"]+$/.test(card.question.ttsText)) ? 'en-US' : 'ko-KR';
+    startSTT(sttLang);
 
     recordingTimer = setInterval(function() {
       recordingSeconds++;
@@ -1940,6 +2156,7 @@ function buildObservationSummary() {
 
   var solo = 0, helped = 0, skipped = 0;
   var struggles = [];
+  var sttMismatchFrequent = [];  // v4.5: STT 불일치 잦음
 
   stCards.forEach(function(card) {
     var obs = card._observation;
@@ -1957,9 +2174,27 @@ function buildObservationSummary() {
     if (obs.attemptNumber >= 2 || obs.helpStairsUsed.includes(2)) {
       struggles.push(card.question.ttsText || card.question.displayWord || card.question.text);
     }
+
+    // v4.5: STT 불일치 잦음 판정 (2회 이상 mismatch/ambiguous)
+    if (obs.sttResults) {
+      var mismatchCount = obs.sttResults.filter(function(r) {
+        return r.matchLevel === 'mismatch' || r.matchLevel === 'ambiguous';
+      }).length;
+      if (mismatchCount >= 2) {
+        sttMismatchFrequent.push(card.question.ttsText || card.question.displayWord || card.question.text);
+      }
+    }
+    // _sttPending 마킹된 카드도 포함
+    if (card._sttPending) {
+      var txt = card.question.ttsText || card.question.displayWord || card.question.text;
+      if (sttMismatchFrequent.indexOf(txt) < 0) sttMismatchFrequent.push(txt);
+    }
   });
 
-  return { total: stCards.length, solo: solo, helped: helped, skipped: skipped, struggles: struggles };
+  return {
+    total: stCards.length, solo: solo, helped: helped, skipped: skipped,
+    struggles: struggles, sttMismatchFrequent: sttMismatchFrequent
+  };
 }
 
 // ===================================================================
@@ -2043,6 +2278,11 @@ async function endSession() {
     if (obsSummary.struggles.length > 0) {
       obsHtml += '<div class="obs-row highlight-row"><span>반복 어려움</span><span>'
         + escapeHtml(obsSummary.struggles.join(', ')) + '</span></div>';
+    }
+    // v4.5: STT 불일치 잦음 (부모 화면용)
+    if (obsSummary.sttMismatchFrequent && obsSummary.sttMismatchFrequent.length > 0) {
+      obsHtml += '<div class="obs-row highlight-row" style="color:#E74C3C;"><span>STT 불일치 잦음</span><span>'
+        + escapeHtml(obsSummary.sttMismatchFrequent.join(', ')) + '</span></div>';
     }
     obsSummaryEl.innerHTML = obsHtml;
     obsSummaryEl.style.display = 'block';
