@@ -125,7 +125,7 @@
       "stage2": 0.85,
       "stage3": 0.7
     },
-    "matchThreshold": 0.7
+    "matchThreshold": 0.45
   },
   "observationLog": {
     "enabled": true,

@@ -1856,6 +1856,69 @@ function assessMatch(target, spoken, sttConf) {
   return { level: 'mismatch', score: score };
 }
 
+// 듣고 말하기 전용 판정 (완화된 기준)
+// - STT 신뢰도 페널티 제거 (청각기억 훈련이므로 STT 오류에 관대)
+// - 단어 단위 매칭 비중 확대 (글자 하나 틀려도 뜻 맞으면 OK)
+// - ambiguous도 match로 처리 (일부만 기억해도 인정)
+function assessMatchLR(target, spoken, sttConf) {
+  if (!spoken || spoken.trim() === '') {
+    return { level: 'mismatch', score: 0 };
+  }
+
+  function normalize(s) {
+    return s.replace(/[.,!?~…·\-\s]/g, '').toLowerCase().replace(/[ㅋㅎㅠㅜ]/g, '');
+  }
+
+  var norm_target = normalize(target);
+  var norm_spoken = normalize(spoken);
+
+  if (norm_target === '' || norm_spoken === '') {
+    return { level: 'mismatch', score: 0 };
+  }
+
+  // 글자 단위 일치율
+  var longer = norm_target.length >= norm_spoken.length ? norm_target : norm_spoken;
+  var shorter = norm_target.length >= norm_spoken.length ? norm_spoken : norm_target;
+  var matchCount = 0;
+  var usedIdx = new Set();
+  for (var i = 0; i < shorter.length; i++) {
+    for (var j = 0; j < longer.length; j++) {
+      if (!usedIdx.has(j) && shorter[i] === longer[j]) {
+        matchCount++;
+        usedIdx.add(j);
+        break;
+      }
+    }
+  }
+  var charScore = matchCount / longer.length;
+
+  // 단어 단위 일치율
+  var targetWords = target.trim().split(/\s+/);
+  var spokenWords = spoken.trim().split(/\s+/);
+  var wordMatch = 0;
+  spokenWords.forEach(function(w) {
+    var nw = normalize(w);
+    for (var t = 0; t < targetWords.length; t++) {
+      var nt = normalize(targetWords[t]);
+      // 부분 일치도 인정 (3글자 이상 겹치면)
+      if (nw === nt || (nw.length >= 3 && nt.includes(nw)) || (nt.length >= 3 && nw.includes(nt))) {
+        wordMatch++;
+        break;
+      }
+    }
+  });
+  var wordScore = targetWords.length > 0 ? wordMatch / targetWords.length : 0;
+
+  // 종합 점수: 단어 비중 높임 (글자 40% + 단어 60%)
+  // STT 신뢰도 페널티 없음 (아이 음성은 신뢰도 낮은 게 정상)
+  var score = charScore * 0.4 + wordScore * 0.6;
+
+  // 판정 기준 완화: 0.45 이상이면 match
+  if (score >= 0.45) return { level: 'match', score: score };
+  if (score >= 0.25) return { level: 'ambiguous', score: score };
+  return { level: 'mismatch', score: score };
+}
+
 // ===================================================================
 // 녹음 (언어치료 마이크로 루틴)
 // ===================================================================
@@ -2433,7 +2496,8 @@ async function lrProcessAttempt() {
     return;
   }
 
-  var result = assessMatch(card.ttsText || card.text, sttResult, sttConfidence);
+  // 듣고 말하기용 완화 판정: STT 신뢰도 페널티 무시 + 낮은 임계값
+  var result = assessMatchLR(card.ttsText || card.text, sttResult, sttConfidence);
 
   logEvent('lr_attempt', {
     cardId: card.cardId || card.id,
