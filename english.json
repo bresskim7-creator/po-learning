@@ -36,7 +36,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "영어로 인사할 때 'hi'나 'hello'를 써. 'hi'는 친한 친구, 'hello'는 누구한테나 쓸 수 있어."
     },
     {
       "id": "eng_vocab_002",
@@ -70,7 +71,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'What's your name?'에서 name이 나와. 사람을 부를 때 쓰는 그 '이름'이야."
     },
     {
       "id": "eng_vocab_003",
@@ -104,7 +106,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "boy + friend = boyfriend(남자친구), girl + friend = girlfriend(여자친구). friend가 '친구'야."
     },
     {
       "id": "eng_vocab_004",
@@ -138,7 +141,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'Nice to meet you'에서 나오는 단어야. bad(나쁜), big(큰), small(작은)은 전혀 다른 뜻이지."
     },
     {
       "id": "eng_vocab_005",
@@ -172,7 +176,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'Nice to meet you'에서 meet! 누군가를 처음 '만날 때' 쓰는 말이야."
     },
     {
       "id": "eng_vocab_006",
@@ -205,7 +210,8 @@
       "sourceUnit": "1단원",
       "topic": "general",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "매일 아침 가는 곳! '스쿨버스'의 그 school이야. bus = 버스, school = 학교."
     },
     {
       "id": "eng_vocab_007",
@@ -238,7 +244,8 @@
       "sourceUnit": "1단원",
       "topic": "general",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "student는 배우는 사람, teacher는 가르치는 사람. 반대 짝이야!"
     },
     {
       "id": "eng_vocab_008",
@@ -271,7 +278,8 @@
       "sourceUnit": "1단원",
       "topic": "general",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "teach(가르치다) + er(~하는 사람) = teacher! '-er'이 붙으면 '~하는 사람'이야."
     },
     {
       "id": "eng_vocab_009",
@@ -306,7 +314,8 @@
       "topic": "hobby",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "reviewNote": "힌트 변경 (play와 중복 방지)"
+      "reviewNote": "힌트 변경 (play와 중복 방지)",
+      "wrongExplanation": "'I like pizza' 하면 '피자 좋아해'. dislike는 반대로 '싫어하다'야."
     },
     {
       "id": "eng_vocab_010",
@@ -341,7 +350,8 @@
       "topic": "hobby",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "reviewNote": "힌트 변경 (like와 중복 방지)"
+      "reviewNote": "힌트 변경 (like와 중복 방지)",
+      "wrongExplanation": "play + 운동 = '~를 하다', play + the + 악기 = '~를 연주하다'. 둘 다 play야!"
     },
     {
       "id": "eng_vocab_011",
@@ -375,7 +385,8 @@
       "sourceUnit": "1단원",
       "topic": "hobby",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "favorite 안에 'favor(좋아함)'이 숨어있어. '가장'이라는 느낌을 주는 특별한 단어야!"
     },
     {
       "id": "eng_vocab_012",
@@ -409,7 +420,8 @@
       "sourceUnit": "1단원",
       "topic": "hobby",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'스포츠카'에서 온 말이야. 야구, 축구, 농구 같은 것들을 통틀어 sport라고 해."
     },
     {
       "id": "eng_vocab_013",
@@ -443,7 +455,8 @@
       "sourceUnit": "1단원",
       "topic": "emotion",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "sad(슬픈)의 반대! 'Happy birthday(생일 축하해)'에서 나오는 그 happy야."
     },
     {
       "id": "eng_vocab_014",
@@ -477,7 +490,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "bad(나쁜)의 반대! 'Good morning'에서 good이 '좋은'이라는 뜻이야."
     },
     {
       "id": "eng_vocab_015",
@@ -511,7 +525,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "afternoon = 오후, evening = 저녁, night = 밤. morning은 해가 뜨는 '아침'이야."
     },
     {
       "id": "eng_sent_001",
@@ -546,7 +561,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "I'm = I am = '나는 ~야'. Nice to meet you = '만나서 반가워'. 자기소개 기본 패턴이야!"
     },
     {
       "id": "eng_sent_002",
@@ -581,7 +597,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "What = 무엇, your = 네, name = 이름. 의문사 What이 맨 앞에 오는 패턴이야."
     },
     {
       "id": "eng_sent_003",
@@ -616,7 +633,8 @@
       "sourceUnit": "1단원",
       "topic": "greeting",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "My = 나의, name = 이름. 'My name is ~'는 이름을 말하는 기본 문장이야."
     },
     {
       "id": "eng_sent_004",
@@ -651,7 +669,8 @@
       "sourceUnit": "1단원",
       "topic": "hobby",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'I like ~'는 '나는 ~를 좋아해' 패턴이야. like 뒤에 좋아하는 걸 넣으면 돼."
     },
     {
       "id": "eng_sent_005",
@@ -686,7 +705,8 @@
       "sourceUnit": "1단원",
       "topic": "hobby",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "What + 명사로 시작하면 '어떤 ~?' 의미야. sport = 운동, food = 음식. 명사만 바꾸면 돼!"
     },
     {
       "id": "eng_sent_006",
@@ -722,7 +742,8 @@
       "topic": "greeting",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "reviewNote": "힌트 강화 (선택지 유사도 높음)"
+      "reviewNote": "힌트 강화 (선택지 유사도 높음)",
+      "wrongExplanation": "'too'가 핵심이야! '나도'라는 뜻. 상대가 먼저 반갑다고 하면 too를 붙여서 대답해."
     },
     {
       "id": "eng_u2_vocab_001",
@@ -756,7 +777,8 @@
         "seasons"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "봄→여름→가을→겨울 순서를 영어로: spring→summer→fall→winter. 리듬으로 외워봐!"
     },
     {
       "id": "eng_u2_vocab_002",
@@ -790,7 +812,8 @@
         "seasons"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "summer vacation = 여름방학! 수영하고 수박 먹는 그 계절이야."
     },
     {
       "id": "eng_u2_vocab_003",
@@ -824,7 +847,8 @@
         "seasons"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "fall에는 '떨어지다'라는 뜻도 있어. 나뭇잎이 떨어지는 계절이니까 fall이야! (autumn이라고도 해)"
     },
     {
       "id": "eng_u2_vocab_004",
@@ -858,7 +882,8 @@
         "seasons"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "winter sports = 겨울 스포츠! 스키, 스노보드 하는 그 추운 계절이야."
     },
     {
       "id": "eng_u2_vocab_005",
@@ -893,7 +918,8 @@
         "adjective"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "온도 순서: cold(차가운) < cool(시원한) < warm(따뜻한) < hot(뜨거운). warm은 봄날씨 느낌!"
     },
     {
       "id": "eng_u2_vocab_006",
@@ -928,7 +954,8 @@
         "adjective"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "cool은 가을 바람 같은 느낌이야. '멋지다'라는 뜻으로도 많이 쓰여!"
     },
     {
       "id": "eng_u2_vocab_007",
@@ -963,7 +990,8 @@
         "adjective"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'콜드브루 커피'의 cold! 차갑다는 뜻이야. warm(따뜻한)의 반대."
     },
     {
       "id": "eng_u2_vocab_008",
@@ -998,7 +1026,8 @@
         "activity"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'스위밍풀(swimming pool)'에서 swim이 나오지? 물에서 하는 운동이야."
     },
     {
       "id": "eng_u2_vocab_009",
@@ -1032,7 +1061,8 @@
         "seasons"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "snow(눈) + man(사람) = snowman! 영어는 이렇게 단어를 합쳐서 새 말을 만들어."
     },
     {
       "id": "eng_u2_vocab_010",
@@ -1067,7 +1097,8 @@
         "adjective"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "beauty(아름다움) + ful(가득한) = beautiful! '-ful'이 붙으면 '~가 가득한'이야."
     },
     {
       "id": "eng_u2_vocab_011",
@@ -1102,7 +1133,8 @@
         "adjective"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "color(색) + ful(가득한) = colorful! beautiful처럼 '-ful' 패턴이야."
     },
     {
       "id": "eng_u2_sent_001",
@@ -1137,7 +1169,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "season = 계절이야. 'What + 명사 + do you like?'는 '어떤 ~를 좋아해?' 패턴!"
     },
     {
       "id": "eng_u2_sent_002",
@@ -1172,7 +1205,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'I can ~'은 '~할 수 있어'라는 뜻이야. summer = 여름, swim = 수영. 단어를 하나씩 짚어봐!"
     },
     {
       "id": "eng_u2_sent_003",
@@ -1207,7 +1241,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "It's는 날씨를 말할 때 써. warm = 따뜻한, bright = 밝은. 봄 날씨를 표현한 거야."
     },
     {
       "id": "eng_u2_sent_004",
@@ -1242,7 +1277,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "겨울(winter)에 눈으로 만드는 건? sandcastle은 모래성(여름), flower은 꽃(봄)이야."
     },
     {
       "id": "eng_u2_sent_005",
@@ -1277,7 +1313,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "fall = 가을, colorful = 알록달록한. 단어 뜻을 알면 문장 전체가 보여!"
     },
     {
       "id": "eng_u3_vocab_001",
@@ -1311,7 +1348,8 @@
         "months"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "Jan(1월), Feb(2월), Mar(3월)... 달력 영어는 앞 3글자가 줄임말이야. Jan = 1월!"
     },
     {
       "id": "eng_u3_vocab_002",
@@ -1345,7 +1383,8 @@
         "months"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "새 학기가 시작되는 달! March, April, May가 봄이야."
     },
     {
       "id": "eng_u3_vocab_003",
@@ -1379,7 +1418,8 @@
         "months"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'에이프릴'이라고 읽어. 만우절(April Fools' Day)이 4월 1일이야!"
     },
     {
       "id": "eng_u3_vocab_004",
@@ -1413,7 +1453,8 @@
         "dates"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "birth(태어남) + day(날) = birthday! 태어난 날이니까 '생일'이야."
     },
     {
       "id": "eng_u3_vocab_005",
@@ -1447,7 +1488,8 @@
         "months"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "크리스마스가 있는 달! 한 해의 마지막 달이야. Decem은 라틴어로 '10'인데 12월이 됐어."
     },
     {
       "id": "eng_u3_vocab_006",
@@ -1481,7 +1523,8 @@
         "months"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'옥토버'라고 읽어. 할로윈(10월 31일)이 있는 달로 기억하면 쉬워!"
     },
     {
       "id": "eng_u3_vocab_007",
@@ -1515,7 +1558,8 @@
         "ordinal"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "first(1st), second(2nd), third(3rd)... 순서를 나타내는 말이야. first = 1등, 첫 번째!"
     },
     {
       "id": "eng_u3_vocab_008",
@@ -1549,7 +1593,8 @@
         "ordinal"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "시계의 '초'도 second야! 순서로는 '두 번째', 시간으로는 '초'라는 뜻이야."
     },
     {
       "id": "eng_u3_sent_001",
@@ -1584,7 +1629,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "When = 언제. Where(어디), What(뭐), When(언제) - 의문사를 구분하는 게 핵심이야!"
     },
     {
       "id": "eng_u3_sent_002",
@@ -1619,7 +1665,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "날짜를 말할 때 'It's on + 월 + 일' 패턴이야. April = 4월, 21st = 21일."
     },
     {
       "id": "eng_u3_sent_003",
@@ -1654,7 +1701,8 @@
         "unit3",
         "dates",
         "environment"
-      ]
+      ],
+      "wrongExplanation": "지구의 날은 4월 22일이야. 달 이름 영어가 헷갈리면 매달 하나씩 외워보자!"
     },
     {
       "id": "eng_u3_sent_004",
@@ -1689,7 +1737,8 @@
         "environment"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'save'에 '지키다'와 '아끼다' 두 가지 뜻이 있어. save the Earth = 지구를 지키자, save water = 물을 아끼자."
     },
     {
       "id": "eng_u4_vocab_001",
@@ -1723,7 +1772,8 @@
         "feelings"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "감정 단어 세트로 외워봐: happy(행복) ↔ sad(슬픔), angry(화남), scared(무서움)."
     },
     {
       "id": "eng_u4_vocab_002",
@@ -1757,7 +1807,8 @@
         "feelings"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "worry(걱정하다)에서 나온 말이야. '-ed'가 붙으면 '~한 상태'라는 뜻이 돼."
     },
     {
       "id": "eng_u4_vocab_003",
@@ -1791,7 +1842,8 @@
         "feelings"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "tire(지치게 하다) + d = tired. sleepy(졸린)랑은 다른 말이야! 피곤하지만 안 졸릴 수도 있지."
     },
     {
       "id": "eng_u4_vocab_004",
@@ -1825,7 +1877,8 @@
         "feelings"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "Why(왜?)로 물으면 Because(왜냐하면)로 대답해. 짝꿍이야!"
     },
     {
       "id": "eng_u4_vocab_005",
@@ -1860,7 +1913,8 @@
         "past_tense"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "break(부수다)의 과거형이 broke야. 현재-과거: break→broke, make→made처럼 변해."
     },
     {
       "id": "eng_u4_vocab_006",
@@ -1894,7 +1948,8 @@
         "feelings"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "sick은 몸이 아플 때 쓰는 말이야. '아이 씩씩하네~'가 아니라 '아프다'야! 발음 주의."
     },
     {
       "id": "eng_u4_sent_001",
@@ -1929,7 +1984,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "Why = 왜, When = 언제, Who = 누구. 의문사가 달라지면 뜻이 완전히 달라져!"
     },
     {
       "id": "eng_u4_sent_002",
@@ -1964,7 +2020,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "got = get(얻다)의 과거. black belt = 검은 띠(태권도). belt가 '벨트, 띠'야."
     },
     {
       "id": "eng_u4_sent_003",
@@ -1999,7 +2056,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "sad = 슬픈, sick = 아픈. 감정과 상태를 나타내는 단어를 하나씩 찾아가면 돼!"
     },
     {
       "id": "eng_u4_sent_004",
@@ -2034,7 +2092,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "Don't = ~하지 마. I'll = I will = 내가 ~할게. 이 두 패턴을 기억해두면 많이 써먹어!"
     },
     {
       "id": "eng_u4_sent_005",
@@ -2069,7 +2128,8 @@
         "unit4",
         "feelings",
         "key_sentence"
-      ]
+      ],
+      "wrongExplanation": "Why(왜?)에 대한 대답은 항상 Because(왜냐하면)! But(하지만), So(그래서), And(그리고)랑 다른 역할이야."
     },
     {
       "id": "eng_u5_vocab_001",
@@ -2103,7 +2163,8 @@
         "places"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'라이브러리'라고 읽어. 컴퓨터에서도 'library'가 '보관소'라는 뜻으로 쓰여."
     },
     {
       "id": "eng_u5_vocab_002",
@@ -2137,7 +2198,8 @@
         "places"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'호스피탈'이라고 읽어. host(주인)가 손님을 돌보던 데서 나온 말이야."
     },
     {
       "id": "eng_u5_vocab_003",
@@ -2171,7 +2233,8 @@
         "places"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'레스토랑'! 프랑스어에서 왔어. 밥 먹는 곳이야."
     },
     {
       "id": "eng_u5_vocab_004",
@@ -2205,7 +2268,8 @@
         "places"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "bank에는 '은행'이랑 '둑, 강둑' 두 가지 뜻이 있어. 여기서는 돈 맡기는 곳!"
     },
     {
       "id": "eng_u5_vocab_005",
@@ -2239,7 +2303,8 @@
         "directions"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "go = 가다, straight = 곧게. '곧게 가다' = 직진! 방향 표현의 기본이야."
     },
     {
       "id": "eng_u5_vocab_006",
@@ -2273,7 +2338,8 @@
         "directions"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "turn = 돌다, left = 왼쪽, right = 오른쪽. left/right만 기억하면 길 찾기 끝!"
     },
     {
       "id": "eng_u5_vocab_007",
@@ -2307,7 +2373,8 @@
         "directions"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "right에는 '오른쪽'이랑 '맞는, 옳은' 두 가지 뜻이 있어. 여기서는 방향!"
     },
     {
       "id": "eng_u5_vocab_008",
@@ -2341,7 +2408,8 @@
         "directions"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "next = 다음, to = ~에. 바로 옆에 붙어 있다는 뜻이야. behind(뒤), under(아래)랑 구분해."
     },
     {
       "id": "eng_u5_sent_001",
@@ -2376,7 +2444,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "Where = 어디. When(언제), What(뭐)이랑 헷갈리기 쉬워. 장소를 물으면 Where!"
     },
     {
       "id": "eng_u5_sent_002",
@@ -2411,7 +2480,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "and로 두 동작을 연결했어. 먼저 직진 → 그 다음 왼쪽. 순서를 잘 봐!"
     },
     {
       "id": "eng_u5_sent_003",
@@ -2446,7 +2516,8 @@
         "key_sentence"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "block = 건물 사이 한 구획. two blocks = 두 블록. 숫자와 방향(right/left)을 정확히 봐!"
     },
     {
       "id": "eng_u5_sent_004",
@@ -2481,7 +2552,8 @@
         "unit5",
         "directions",
         "key_sentence"
-      ]
+      ],
+      "wrongExplanation": "길을 안내할 때 go straight(직진), turn(돌아)을 써. sit down(앉아)이나 stop(멈춰)은 길 안내가 아니지!"
     },
     {
       "cardId": "crd_2026W12_eng_d4e5f6",
@@ -2520,7 +2592,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "두 번째",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "first(1), second(2), third(3), fourth(4), fifth(5), sixth(6). 숫자랑 짝지어 외워봐!"
     },
     {
       "cardId": "crd_2026W12_eng_g7h8i9",
@@ -2559,7 +2632,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "third",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "three → third. 숫자에 -th를 붙이면 순서가 돼. 단, 1,2,3은 특별해: first, second, third."
     },
     {
       "cardId": "crd_2026W12_eng_j1k2l3",
@@ -2598,7 +2672,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "네 번째",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "four → fourth. '-th'만 붙이면 끝! 가장 규칙적인 패턴이야."
     },
     {
       "cardId": "crd_2026W12_eng_m4n5o6",
@@ -2637,7 +2712,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "fifth",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "five에서 v가 f로 바뀌어: five → fifth. 발음도 '피프쓰'로 달라져!"
     },
     {
       "cardId": "crd_2026W12_eng_p7q8r9",
@@ -2676,7 +2752,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "여섯 번째",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "six → sixth. '-th'만 붙여! 우리가 6학년이니까 sixth grade야."
     },
     {
       "cardId": "crd_2026W12_eng_s1t2u3",
@@ -2715,7 +2792,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "grade",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "'What grade are you in?'에서 나오는 grade. 반(class)이나 교실(classroom)이랑 다른 말이야."
     },
     {
       "cardId": "crd_2026W12_eng_v4w5x6",
@@ -2754,7 +2832,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "read books",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "read = 읽다, books = 책들. '동사 + 명사'로 활동을 표현하는 패턴이야."
     },
     {
       "cardId": "crd_2026W12_eng_y7z8a1",
@@ -2793,7 +2872,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "play the guitar",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "악기 앞에는 'the'를 꼭 붙여! play the piano, play the violin처럼. 운동에는 안 붙여."
     },
     {
       "cardId": "crd_2026W12_eng_b2c3d4",
@@ -2832,7 +2912,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "음악을 듣다",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "listen 뒤에는 항상 'to'가 와! listen to music, listen to me. 'to'를 빼먹으면 안 돼."
     },
     {
       "cardId": "crd_2026W12_eng_e5f6g7",
@@ -2871,7 +2952,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "그림을 그리다",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "draw = 그리다. 연필로 하는 건 draw, 붓으로 하는 건 paint야!"
     },
     {
       "cardId": "crd_2026W12_eng_h8i9j1",
@@ -2910,7 +2992,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "자전거를 타다",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "ride = 올라타다. ride a bike(자전거), ride a horse(말). 올라타는 건 다 ride!"
     },
     {
       "cardId": "crd_2026W12_eng_k2l3m4",
@@ -2949,7 +3032,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "축구를 하다",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "운동할 때는 play + 운동이름: play soccer, play basketball. the 안 붙여! (악기랑 다르지?)"
     },
     {
       "cardId": "crd_2026W12_eng_n5o6p7",
@@ -2988,7 +3072,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "춤추다",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "sing = 노래하다, draw = 그리다, read = 읽다, dance = 춤추다. 각각 다른 동작이야!"
     },
     {
       "cardId": "crd_2026W12_eng_q8r9s1",
@@ -3026,7 +3111,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "What grade are you in?",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "grade = 학년, name = 이름, old = 나이. What 뒤에 오는 단어가 '뭘 묻는지'를 정해!"
     },
     {
       "cardId": "crd_2026W12_eng_t2u3v4",
@@ -3064,7 +3150,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "I'm in the sixth grade.",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "'I'm six years old'는 '6살이에요'야! sixth(6번째) grade(학년)이 '6학년'이야. 숫자랑 순서 구분!"
     },
     {
       "cardId": "crd_2026W12_eng_w5x6y7",
@@ -3102,7 +3189,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "How do you spell your name?",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "spell = 철자를 말하다. '이름이 뭐야?'는 What's your name이고, '철자가 어떻게 돼?'는 spell을 써."
     },
     {
       "cardId": "crd_2026W12_eng_z8a1b2",
@@ -3141,7 +3229,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "I play the guitar every day.",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "악기를 연주할 때는 play! ride(타다), read(읽다), draw(그리다)는 전혀 다른 동작이야."
     },
     {
       "cardId": "crd_2026W12_eng_c3d4e5",
@@ -3180,7 +3269,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "I'm from Mexico City, Mexico.",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "from = ~에서 온. to(~로), in(~안에), at(~에서)이랑 다 다른 뜻이야. 출신지는 from!"
     },
     {
       "cardId": "crd_2026W12_eng_f6g7h8",
@@ -3219,7 +3309,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "Where is Diego from?",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "'I'm from + 장소'가 출신을 말하는 패턴이야. from 뒤에 나오는 게 출신지!"
     },
     {
       "cardId": "crd_2026W12_eng_i9j1k2",
@@ -3258,7 +3349,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "What does Diego do every day?",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "'every day'는 '매일'이라는 뜻이야. 그 앞에 나오는 동작이 매일 하는 거!"
     },
     {
       "cardId": "crd_2026W12_eng_l3m4n5",
@@ -3297,7 +3389,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "ttsText": "Put the self-introduction in order.",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "자기소개는 기본정보부터: 이름 → 학년/나이 → 취미/특기. 자연스러운 흐름을 생각해봐!"
     }
   ],
   "focusWords": [

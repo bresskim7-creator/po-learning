@@ -350,6 +350,33 @@
     .feedback.correct { display: block; background: #E8F8E8; color: #27AE60; }
     .feedback.incorrect { display: block; background: #FDE8E8; color: #E74C3C; }
 
+    /* 오답 해설 */
+    .wrong-explanation {
+      display: none; margin-top: 12px; padding: 16px;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CC 100%);
+      border: 2px solid #FFD54F; border-radius: 14px;
+      font-size: 15px; line-height: 1.6; color: #333;
+      animation: slideUp 0.3s ease-out;
+    }
+    .wrong-explanation.visible { display: block; }
+    .wrong-explanation .exp-correct {
+      font-weight: 700; color: #2E7D32; font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .wrong-explanation .exp-body { color: #444; }
+    .btn-next-after-wrong {
+      display: none; margin: 16px auto 0; padding: 14px 48px;
+      background: #4A90D9; color: white; border: none; border-radius: 12px;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      animation: slideUp 0.3s ease-out;
+    }
+    .btn-next-after-wrong.visible { display: block; }
+    .btn-next-after-wrong:active { background: #3A7BC8; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* 과목 전환 안내 */
     .transition-msg {
       text-align: center; font-size: 15px; color: #888;
@@ -1553,6 +1580,15 @@ function renderCard() {
     html += '<div class="hint-area" id="hint-area">' + escapeHtml(card.hint.text) + '</div>';
   }
 
+  // 오답 해설 영역 (choice 타입 전용)
+  if (card.answer.type === 'choice') {
+    html += '<div class="wrong-explanation" id="wrong-explanation">'
+      + '<div class="exp-correct" id="exp-correct"></div>'
+      + '<div class="exp-body" id="exp-body"></div>'
+      + '</div>';
+    html += '<button class="btn-next-after-wrong" id="btn-next-after-wrong" onclick="goNextAfterWrong()">다음</button>';
+  }
+
   container.innerHTML = html;
 
   // 피드백 초기화
@@ -1628,11 +1664,58 @@ function selectAnswer(selectedIdx) {
     selectedIdx: selectedIdx, correctIdx: correctIdx
   });
 
-  // 다음 카드 (정답 1초, 오답 2초)
-  setTimeout(function() {
-    APP.session.currentIndex++;
-    renderCard();
-  }, isCorrect ? 1000 : 2000);
+  if (isCorrect) {
+    // 정답: 1초 후 자동 다음
+    setTimeout(function() {
+      APP.session.currentIndex++;
+      renderCard();
+    }, 1000);
+  } else {
+    // 오답: 해설 표시 + "다음" 버튼 수동 클릭
+    var selectedText = displayOptions[selectedIdx] || '';
+    showWrongExplanation(card, selectedText);
+  }
+}
+
+// 오답 해설 표시
+function showWrongExplanation(card, selectedText) {
+  var expBox = document.getElementById('wrong-explanation');
+  var expCorrect = document.getElementById('exp-correct');
+  var expBody = document.getElementById('exp-body');
+  var btnNext = document.getElementById('btn-next-after-wrong');
+
+  if (!expBox) return;
+
+  // 정답 표시
+  expCorrect.textContent = '🎯 정답: ' + card.answer.correct;
+
+  // 해설 본문 결정
+  var explanation = '';
+  if (card.wrongExplanation) {
+    // JSON에 미리 작성된 해설
+    explanation = card.wrongExplanation;
+  } else if (card.hint && card.hint.text) {
+    // fallback: 힌트가 있으면 활용
+    explanation = card.hint.text;
+  } else {
+    // 최종 fallback
+    explanation = '정답을 잘 기억해두자! 다음에 나오면 맞출 수 있어.';
+  }
+  expBody.textContent = explanation;
+
+  // 표시
+  expBox.classList.add('visible');
+  btnNext.classList.add('visible');
+
+  // 힌트 버튼 숨기기
+  var hintBtn = document.getElementById('btn-hint');
+  if (hintBtn) hintBtn.style.display = 'none';
+}
+
+// 오답 해설 후 다음 카드
+function goNextAfterWrong() {
+  APP.session.currentIndex++;
+  renderCard();
 }
 
 // ===================================================================

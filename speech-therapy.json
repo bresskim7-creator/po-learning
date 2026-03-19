@@ -739,7 +739,8 @@
       "pedagogyNote": "아이가 실제로 '게'로 쓴 오류. 경음화 표기 전환 연습.",
       "rules": [
         "경음화(께→게)"
-      ]
+      ],
+      "wrongExplanation": "'게'가 아니라 '께'야. 높임말에는 '께'를 쓰거든. 할머니'께', 선생님'께'처럼!"
     },
     {
       "cardId": "crd_2026W12_sth_d4e5f6",
@@ -780,7 +781,8 @@
       "pedagogyNote": "아이가 실제로 '함게'로 쓴 오류. 빈출 단어 경음화 표기.",
       "rules": [
         "경음화(함께→함게)"
-      ]
+      ],
+      "wrongExplanation": "'함게'가 아니라 '함께'야. 'ㄲ' 소리가 나지만 쓸 때는 'ㄲ'가 아니라 'ㅋ'야!"
     },
     {
       "cardId": "crd_2026W12_sth_g7h8i9",
@@ -821,7 +823,8 @@
       "pedagogyNote": "경음화 규칙 조사 '과' 표기. 받침 뒤 경음화 패턴.",
       "rules": [
         "경음화(점과→점꽈)"
-      ]
+      ],
+      "wrongExplanation": "소리는 '꽈'로 나지만, 쓸 때는 '과'야. 받침 뒤에 '과'가 오면 된소리로 발음되거든."
     },
     {
       "cardId": "crd_2026W12_sth_j1k2l3",
@@ -862,7 +865,8 @@
       "pedagogyNote": "경음화 규칙 조사 '과' 표기. 받침 뒤 경음화 패턴 반복 연습.",
       "rules": [
         "경음화(칼과→칼꽈)"
-      ]
+      ],
+      "wrongExplanation": "'칼'의 받침 'ㄹ' 뒤에 '과'가 오면 '꽈'로 들리지만, 쓸 때는 그냥 '과'야."
     },
     {
       "cardId": "crd_2026W12_sth_m4n5o6",
@@ -901,7 +905,8 @@
       "ttsText": "갑자기 깜짝 놀라는 것을 뜻하는 말은 무엇일까요?",
       "validationDetails": [],
       "pedagogyNote": "아이가 '한울깅'으로 쓴 단어. 의성어/의태어 어휘 확장.",
-      "rules": []
+      "rules": [],
+      "wrongExplanation": "갑자기 놀라는 모습! '화들짝 놀라다'라고 써. 소리랑 글자가 좀 달라서 주의해야 해."
     },
     {
       "cardId": "crd_2026W12_sth_p7q8r9",
@@ -940,7 +945,8 @@
       "ttsText": "천이나 벽에 나타나는 무늬를 뭐라고 할까요?",
       "validationDetails": [],
       "pedagogyNote": "아이가 '줄떡'으로 쓴 단어. 합성어 의미 이해.",
-      "rules": []
+      "rules": [],
+      "wrongExplanation": "'줄무늬'는 줄 + 무늬야. 줄 모양의 무늬라는 뜻이지. 발음이랑 다르게 '무늬'로 써야 해."
     },
     {
       "cardId": "crd_2026W12_sth_s1t2u3",
@@ -979,7 +985,8 @@
       "ttsText": "조심조심 살살 다가가는 모습을 뜻하는 말은 무엇일까요?",
       "validationDetails": [],
       "pedagogyNote": "아이가 '삼스레'로 쓴 단어. 파생어 구조 이해.",
-      "rules": []
+      "rules": [],
+      "wrongExplanation": "'조심스레'는 조심 + 스레야. 살살 조심하는 모습을 나타내는 말이야."
     },
     {
       "cardId": "crd_2026W12_sth_v4w5x6",
@@ -1018,7 +1025,8 @@
       "ttsText": "데구르르 굴러가는 모습을 나타내는 말은 무엇일까요?",
       "validationDetails": [],
       "pedagogyNote": "아이가 '데걸데걸'로 쓴 단어. 의태어 정확한 표기.",
-      "rules": []
+      "rules": [],
+      "wrongExplanation": "데구르르 구르는 모습이야. 쓸 때는 '떼굴떼굴'로 쌍시옷이 아니라 쌍디귿이야!"
     },
     {
       "cardId": "crd_2026W12_sth_y7z8a9",
@@ -1057,7 +1065,8 @@
       "ttsText": "기회를 노리며 가만히 지켜보는 것을 뜻하는 사자성어는 무엇일까요?",
       "validationDetails": [],
       "pedagogyNote": "아이가 전혀 인식 못한 단어. 사자성어 노출+뜻 이해.",
-      "rules": []
+      "rules": [],
+      "wrongExplanation": "호랑이가 먹이를 노려보듯 기회를 엿보는 거야. 한자어라서 소리대로 안 쓰여."
     },
     {
       "cardId": "crd_2026W12_sth_b1c2d3",
@@ -1098,7 +1107,8 @@
       "pedagogyNote": "비음화(정류장→정뉴장) + 어미 오류(내려야→내리에). 문맥 단서로 단어 추론.",
       "rules": [
         "비음화(정류장→정뉴장)"
-      ]
+      ],
+      "wrongExplanation": "버스나 기차가 멈추는 곳이야. '정류장'의 'ㅈ'이 소리가 변하지만 쓸 때는 그대로!"
     },
     {
       "cardId": "crd_2026W12_stp_z1a2b3",
@@ -1138,7 +1148,8 @@
       "rules": [
         "경음화(눈사람→눈싸람)"
       ],
-      "pedagogyNote": "기초 경음화 패턴. 받침 ㅁ 뒤 ㅅ이 된소리. 시각적 대비로 표기 학습."
+      "pedagogyNote": "기초 경음화 패턴. 받침 ㅁ 뒤 ㅅ이 된소리. 시각적 대비로 표기 학습.",
+      "wrongExplanation": "'눈'의 받침 때문에 '싸'로 소리 나지만, 쓸 때는 '사람'이야. 눈 + 사람!"
     },
     {
       "cardId": "crd_2026W12_stp_c2d3e4",
@@ -1178,7 +1189,8 @@
       "rules": [
         "비음화+경음화(기찻길→기찬낄)"
       ],
-      "pedagogyNote": "복합 음운변화(비음화+경음화). 받침 ㅆ→ㄴ(비음화)→ㄱ이 ㄲ(경음화)."
+      "pedagogyNote": "복합 음운변화(비음화+경음화). 받침 ㅆ→ㄴ(비음화)→ㄱ이 ㄲ(경음화).",
+      "wrongExplanation": "'기차'에 'ㅅ'이 붙어서 '기찻길'이야. 소리는 '기찬낄'로 나지만 원래 글자대로 써!"
     },
     {
       "cardId": "crd_2026W12_stp_e4f5g6",
@@ -1218,7 +1230,8 @@
       "rules": [
         "경음화(학교→학꾜)"
       ],
-      "pedagogyNote": "고빈출 단어 경음화. 조사 '-로' 결합 시에도 규칙 적용."
+      "pedagogyNote": "고빈출 단어 경음화. 조사 '-로' 결합 시에도 규칙 적용.",
+      "wrongExplanation": "'학'의 받침 때문에 '꾜'로 들리지만, 쓸 때는 '교로'야. 소리와 글자가 다르지?"
     },
     {
       "cardId": "crd_2026W12_stp_g6h7i8",
@@ -1258,7 +1271,8 @@
       "rules": [
         "경음화(닭장→닥짱)"
       ],
-      "pedagogyNote": "쌍자음 된소리 경음화. 받침 ㄱ 뒤 ㄴ인데도 ㄲ으로 발음."
+      "pedagogyNote": "쌍자음 된소리 경음화. 받침 ㄱ 뒤 ㄴ인데도 ㄲ으로 발음.",
+      "wrongExplanation": "'닭'에 'ㄹ'이 숨어있어! 소리는 '닥짱'이지만 받침 'ㄺ'을 살려서 '닭장'으로 써야 해."
     },
     {
       "cardId": "crd_2026W12_syn_i8j9k1",
@@ -1298,7 +1312,8 @@
       "rules": [
         "연음(겨울에→겨우레)"
       ],
-      "pedagogyNote": "연음 기초 패턴. 받침 ㄹ이 다음 모음과 연결되는 현상."
+      "pedagogyNote": "연음 기초 패턴. 받침 ㄹ이 다음 모음과 연결되는 현상.",
+      "wrongExplanation": "'겨울'의 'ㄹ' 받침이 '에'랑 연결되면서 '레'로 들리지만, 쓸 때는 '겨울에'야."
     },
     {
       "cardId": "crd_2026W12_syn_k1l2m3",
@@ -1338,7 +1353,8 @@
       "rules": [
         "연음(눈썹이→눈써비)"
       ],
-      "pedagogyNote": "연음에서 수의적 비음화 포함. 받침 ㅇ→비음으로 연결."
+      "pedagogyNote": "연음에서 수의적 비음화 포함. 받침 ㅇ→비음으로 연결.",
+      "wrongExplanation": "'눈썹'의 'ㅂ' 받침이 '이'를 만나면 '비'로 들려. 하지만 쓸 때는 '눈썹이'로!"
     },
     {
       "cardId": "crd_2026W12_syn_m3n4o5",
@@ -1378,7 +1394,8 @@
       "rules": [
         "연음(걸어갑니다→거러갑니다)"
       ],
-      "pedagogyNote": "동사 어근 연음. 'ㄹ' 받침 + '-어' 연결에서 실현되는 음운 과정."
+      "pedagogyNote": "동사 어근 연음. 'ㄹ' 받침 + '-어' 연결에서 실현되는 음운 과정.",
+      "wrongExplanation": "'걸'의 'ㄹ'이 '어'를 만나서 '거러'로 들리지만, 쓸 때는 '걸어'로 써야 해."
     },
     {
       "cardId": "crd_2026W12_syn_o5p6q7",
@@ -1418,7 +1435,8 @@
       "rules": [
         "연음(찢어진→찌저진)"
       ],
-      "pedagogyNote": "과거분사형 연음. 받침 복합자음 + '-어' 결합의 음운 최적화."
+      "pedagogyNote": "과거분사형 연음. 받침 복합자음 + '-어' 결합의 음운 최적화.",
+      "wrongExplanation": "'찢'의 쌍시옷이 숨어있어! 소리는 '찌저진'이지만 원래 글자 '찢어진'으로 써야 해."
     },
     {
       "cardId": "crd_2026W12_cmb_q7r8s9",
@@ -1459,7 +1477,8 @@
       "rules": [
         "비음화+연음(냇물아→난무라)"
       ],
-      "pedagogyNote": "복합 음운변화. 받침 ㅆ→ㄴ(비음화)→ㅁ으로 연음되면서 '난무'로."
+      "pedagogyNote": "복합 음운변화. 받침 ㅆ→ㄴ(비음화)→ㅁ으로 연음되면서 '난무'로.",
+      "wrongExplanation": "'냇물'에 'ㅅ'과 'ㄹ'이 숨어있어. 소리가 많이 변하지만 원래 글자를 살려서 써야 해."
     },
     {
       "cardId": "crd_2026W12_cmb_s9t1u2",
@@ -1500,7 +1519,8 @@
         "경음화(손등을→손뜽을)",
         "경음화(씻는→씬는)"
       ],
-      "pedagogyNote": "연속된 경음화. 같은 문장 내 두 번의 경음화 규칙 적용."
+      "pedagogyNote": "연속된 경음화. 같은 문장 내 두 번의 경음화 규칙 적용.",
+      "wrongExplanation": "'등'이 '뜽'으로, '씻는'이 '씬는'으로 소리 나지만, 쓸 때는 원래 글자대로!"
     },
     {
       "cardId": "crd_2026W12_voc_u2v3w4",
@@ -1538,7 +1558,8 @@
       "ttsText": "기찻길",
       "validationDetails": [],
       "rules": [],
-      "pedagogyNote": "합성어 의미 이해 + 음운변화 표기 동시 학습. 어휘 확장."
+      "pedagogyNote": "합성어 의미 이해 + 음운변화 표기 동시 학습. 어휘 확장.",
+      "wrongExplanation": "기차가 다니는 길! '기차' + 'ㅅ' + '길'로 만든 합성어야. 사이시옷 'ㅅ'에 주의해."
     },
     {
       "cardId": "crd_2026W12_voc_w4x5y6",
@@ -1576,7 +1597,8 @@
       "ttsText": "닭장",
       "validationDetails": [],
       "rules": [],
-      "pedagogyNote": "동물 사육 관련 어휘. 합성어 구조 이해로 의미 추론 능력 향상."
+      "pedagogyNote": "동물 사육 관련 어휘. 합성어 구조 이해로 의미 추론 능력 향상.",
+      "wrongExplanation": "닭을 기르는 집이야. '닭'의 받침이 'ㄺ'인 거 기억하지? 겹받침을 살려서 써야 해."
     }
   ],
   "listenRepeatCards": [
@@ -1594,7 +1616,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "살금살금 다가가서 화들짝 놀라게",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1612,7 +1637,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "외할머니께 연세를 여쭤봐",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1630,7 +1658,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "노란 바탕에 까만 점과 줄무늬",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1648,7 +1679,10 @@
       "difficulty": 1,
       "ttsLang": "ko",
       "ttsText": "함께 떠난 제주도 여행",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1666,7 +1700,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "비가 내리면 비행기는 뜰까",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1684,7 +1721,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "피아니스트가 피아노를 쳐요",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1702,7 +1742,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "나는 자라서 전투기 조종사가 돼야지",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1720,7 +1763,10 @@
       "difficulty": 1,
       "ttsLang": "ko",
       "ttsText": "간호사가 보살핀 환자",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1738,7 +1784,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "날카로운 칼과 가위는 위험해",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1756,7 +1805,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "조심스레 스르르 다가가 쪽",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1774,7 +1826,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "배가 아파 데굴데굴 구르다가",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1792,7 +1847,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "호시탐탐 목표를 노려보고",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1810,7 +1868,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "오토바이는 비행기보다는 느리지",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1828,7 +1889,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "내려야할 정류장을 지나쳐서",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     },
@@ -1846,7 +1910,10 @@
       "difficulty": 2,
       "ttsLang": "ko",
       "ttsText": "손님 태우고 출발하는 헬리콥터",
-      "skillTags": ["청각기억", "문장따라말하기"],
+      "skillTags": [
+        "청각기억",
+        "문장따라말하기"
+      ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
     }

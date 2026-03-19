@@ -43,7 +43,8 @@
       "sourceUnit": "general",
       "topic": "야구_규칙",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'투(投)'는 '던지다', '타(打)'는 '치다'라는 뜻이야. 이름에 역할이 숨어있지!"
     },
     {
       "id": "comp_002",
@@ -83,7 +84,8 @@
       "sourceUnit": "general",
       "topic": "일상_계절",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "원인→결과로 읽어봐. '춥다'가 원인이고, '두꺼운 옷을 입는다'가 결과야."
     },
     {
       "id": "comp_003",
@@ -123,7 +125,8 @@
       "sourceUnit": "general",
       "topic": "게임_종류",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "게임 종류마다 특징이 달라. 액션=움직이며 싸우기, 퍼즐=머리 쓰기. 뭐가 다른지 비교해봐."
     },
     {
       "id": "comp_004",
@@ -163,7 +166,8 @@
       "sourceUnit": "general",
       "topic": "야구_기록",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'시작'과 '끝'을 구분하는 게 핵심이야. 지문에 두 숫자가 나오면 어느 쪽을 물어보는지 잘 봐."
     },
     {
       "id": "comp_005",
@@ -203,7 +207,8 @@
       "sourceUnit": "general",
       "topic": "과학_식물",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "식물의 각 부분이 하는 일이 달라. 뿌리=땅속에서 물, 잎=햇빛으로 양분. 역할 분담이야."
     },
     {
       "id": "comp_006",
@@ -243,7 +248,8 @@
       "sourceUnit": "general",
       "topic": "일상_교통",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'좋은 점'과 '안 좋은 점'을 나눠서 읽어봐. '때문에'나 '하지만' 뒤에 다른 내용이 와."
     },
     {
       "id": "comp_007",
@@ -283,7 +289,8 @@
       "sourceUnit": "general",
       "topic": "야구_규칙",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "삼진아웃은 스트라이크 '3개'. 볼넷은 볼 '4개'. 숫자가 비슷해서 헷갈려! 이름에 힌트: 볼'넷'!"
     },
     {
       "id": "comp_008",
@@ -324,7 +331,8 @@
       "topic": "일상_요리",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "reviewNote": "힌트 사고유도형으로 변경"
+      "reviewNote": "힌트 사고유도형으로 변경",
+      "wrongExplanation": "'너무 ~하면 ~된다' 패턴이야. 세면→타고, 약하면→안 익고. 반대 상황을 같이 기억해!"
     },
     {
       "id": "comp_009",
@@ -364,7 +372,8 @@
       "sourceUnit": "general",
       "topic": "과학_우주",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'없으면 어떻게 될까?'는 지문에서 '없으면'이나 '못' 뒤에 나오는 결과를 찾아봐."
     },
     {
       "id": "comp_010",
@@ -404,7 +413,8 @@
       "sourceUnit": "general",
       "topic": "일상_기술",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'옛날에는 ~했다. 지금은 ~한다.' 비교 패턴이야. '옛날' 뒤에 나오는 방법을 찾아!"
     },
     {
       "id": "comp_011",
@@ -444,7 +454,8 @@
       "sourceUnit": "general",
       "topic": "야구_전략",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~란 ~이다' 패턴이 정의를 알려줘. '제구력이란' 뒤에 바로 답이 나와!"
     },
     {
       "id": "comp_012",
@@ -484,7 +495,8 @@
       "sourceUnit": "general",
       "topic": "과학_물질",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "세 가지 상태를 짝지어 외워: 액체=물, 고체=얼음, 기체=수증기. '고체'가 뭔지가 핵심!"
     },
     {
       "id": "comp_013",
@@ -524,7 +536,8 @@
       "sourceUnit": "general",
       "topic": "국어_속담",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "속담은 겉뜻이 아니라 속뜻을 찾아야 해. '가벼운 것도 같이 들면 쉽다' → 교훈이 뭘까?"
     },
     {
       "id": "comp_014",
@@ -564,7 +577,8 @@
       "sourceUnit": "general",
       "topic": "과학_동물",
       "reviewedBy": "ai",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "행동(다가옴)의 '이유'를 물어보는 거야. '~때문이다', '~해서' 같은 표현을 찾아봐."
     },
     {
       "id": "comp_015",
@@ -605,7 +619,8 @@
         "unit2_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "계절마다 자연이 달라져. 봄=새잎+꽃, 여름=무성, 가을=단풍, 겨울=앙상. 시기를 잘 봐!"
     },
     {
       "id": "comp_016",
@@ -646,7 +661,8 @@
         "unit2_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "상식으로도 풀 수 있어! 물놀이를 할 수 있는 곳이 어디일까 생각해봐."
     },
     {
       "id": "comp_017",
@@ -687,7 +703,8 @@
         "unit2_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'이것을 ~라고 한다'가 나오면 이름을 정의하는 거야. 새싹은 봄에 나오는 거고, 낙엽은 떨어진 잎이야."
     },
     {
       "id": "comp_018",
@@ -728,7 +745,8 @@
         "unit2_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~해야 ~않는다' 패턴이야. 원인(추위)과 결과(감기)를 연결해봐."
     },
     {
       "id": "comp_019",
@@ -769,7 +787,8 @@
         "unit3_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "숫자가 여러 개 나오면 '뭘 물어보는지'가 중요해. 날짜? 나이? 인원수? 정확히 봐."
     },
     {
       "id": "comp_020",
@@ -810,7 +829,8 @@
         "unit3_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~하려고 노력한다' 앞에 구체적인 행동이 나와. 목적(환경 보호)과 행동을 구분해봐."
     },
     {
       "id": "comp_021",
@@ -851,7 +871,8 @@
         "unit4_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~하면 ~할 수 있다' 패턴을 찾아봐. 방법을 물어보는 거니까 '하면' 앞의 내용이 답이야."
     },
     {
       "id": "comp_022",
@@ -892,7 +913,8 @@
         "unit4_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "원인→결과 순서로 읽어봐. '~해서 ~했다'에서 앞부분이 이유야."
     },
     {
       "id": "comp_023",
@@ -933,7 +955,8 @@
         "unit5_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "규칙은 '~해야 한다', '~하면 안 된다'로 나와. 그 부분을 찾아봐!"
     },
     {
       "id": "comp_024",
@@ -974,7 +997,8 @@
         "unit5_연계"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "길 안내 지문은 순서대로 따라가야 해. 직진→돌기→'옆에 있다'까지 차근차근!"
     },
     {
       "id": "comp_025",
@@ -1014,7 +1038,8 @@
         "야구"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~라고 부르기도 한다' 패턴이 별명을 알려줘. '그래서' 뒤에 나오는 별명을 찾아봐."
     },
     {
       "id": "comp_026",
@@ -1054,7 +1079,8 @@
         "게임"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'승리의 비결'이나 '가장 중요한 것' 같은 표현 뒤에 핵심 답이 나와. 그 문장을 찾아봐."
     },
     {
       "id": "comp_027",
@@ -1096,7 +1122,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~때문에'가 이유를 알려줘. 자전→낮/밤, 공전→계절. 뭐 때문에 뭐가 생기는지 짝지어봐."
     },
     {
       "id": "comp_028",
@@ -1137,7 +1164,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'처음에'와 '지금'을 구분해야 해. 시간 표현(1982년, 지금)을 잘 봐!"
     },
     {
       "id": "comp_029",
@@ -1179,7 +1207,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'대신'이라는 말이 핵심이야. 소리 지르는 '대신' 다른 방법을 쓰라는 거지."
     },
     {
       "id": "comp_030",
@@ -1221,7 +1250,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "위치 문제는 지도 그리듯 따라가 봐. 학교→문구점→도서관→우체국→공원→병원. 순서대로!"
     },
     {
       "id": "comp_031",
@@ -1261,7 +1291,8 @@
         "과학"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~이/가 모여서 ~이/가 된다' 패턴이야. 재료가 뭔지 찾는 거지."
     },
     {
       "id": "comp_032",
@@ -1301,7 +1332,8 @@
         "게임"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "물건(컴퓨터, 인터넷)이 아니라 마음가짐을 물어보는 거야. '필요하다' 앞에 뭐가 나오는지 봐."
     },
     {
       "id": "comp_033",
@@ -1341,7 +1373,8 @@
         "일상"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "구체적인 숫자를 물어볼 때는 지문에서 숫자가 나오는 문장을 찾아봐. '좋다' 앞에 기준이 있어."
     },
     {
       "id": "comp_034",
@@ -1381,7 +1414,8 @@
         "과학"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "숫자 크기에 주의! '100년'과 '6,600만 년'은 엄청나게 다르지. 지문의 숫자를 정확히 읽어."
     },
     {
       "id": "comp_035",
@@ -1422,7 +1456,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "연대(1950년대, 70년대, 80년대)마다 다른 게임이 나와. 시기와 이름을 짝지어 읽어봐."
     },
     {
       "id": "comp_036",
@@ -1462,7 +1497,8 @@
         "야구"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "직접적 효과(점수, 시간)가 아니라 심리적 효과(힘, 용기)를 물어보는 거야."
     },
     {
       "id": "comp_037",
@@ -1504,7 +1540,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~하면 ~할 수 있다'에서 방법을 찾아봐. 구체적인 도구나 행동이 답이야."
     },
     {
       "id": "comp_038",
@@ -1544,7 +1581,8 @@
         "일상"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "여러 좋은 점 중 '어떤' 좋은 점인지를 정확히 봐. 잠, 키가 아니라 공부/뇌 관련이야."
     },
     {
       "id": "comp_039",
@@ -1585,7 +1623,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "자전과 공전을 구분하는 게 핵심! 자전=하루 한 바퀴=낮밤, 공전=일 년 한 바퀴=계절."
     },
     {
       "id": "comp_040",
@@ -1625,7 +1664,8 @@
         "국어"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "이유를 물어볼 때는 '~때문에', '~해서', '~게 되어' 같은 표현을 찾아봐."
     },
     {
       "id": "comp_041",
@@ -1665,7 +1705,8 @@
         "일상"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "'~하면 ~에 도움이 된다'가 결론이야. 개인(집) 차원이 아니라 큰(환경) 차원의 효과를 봐."
     },
     {
       "id": "comp_042",
@@ -1706,7 +1747,8 @@
         "5문장독해"
       ],
       "reviewedBy": "parent",
-      "reviewedDate": "2026-03-17"
+      "reviewedDate": "2026-03-17",
+      "wrongExplanation": "타율→타자, 방어율→투수. 어떤 선수에 대한 숫자인지 구분하는 게 핵심이야."
     },
     {
       "cardId": "crd_2026W13_a3f1d2",
@@ -1743,7 +1785,8 @@
       "confidence": 1.0,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "'하지 않은 것'을 물어볼 때는 한 것 3개를 먼저 찾고, 보기에서 빼봐. 소거법이야!"
     },
     {
       "cardId": "crd_2026W13_b7e2c4",
@@ -1780,7 +1823,8 @@
       "confidence": 1.0,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "무인도에서 '먹는 문제'가 가장 급하잖아. 왜 그 역할이 중요했을지 이유를 생각해봐."
     },
     {
       "cardId": "crd_2026W13_c9d3e5",
@@ -1817,7 +1861,8 @@
       "confidence": 1.0,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "식물이 자라려면 뭐가 필요할까? 물(비)과 따뜻함! 눈이나 바람은 오히려 방해되지."
     },
     {
       "cardId": "crd_2026W13_d1f4a6",
@@ -1854,7 +1899,8 @@
       "confidence": 1.0,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "사막의 가장 큰 특징이 뭐야? 물이 없다는 거지. 장소 특성과 연결해서 생각해봐."
     },
     {
       "cardId": "crd_2026W13_e2a5b7",
@@ -1891,7 +1937,8 @@
       "confidence": 1.0,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "validationDetails": []
+      "validationDetails": [],
+      "wrongExplanation": "글의 흐름과 주제를 생각해봐. 어떤 탐험이 이 글과 가장 관련 있을까?"
     },
     {
       "cardId": "crd_2026W12_rcl_001",
@@ -1930,7 +1977,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "사건 순서대로 읽어봐. 머리핀이 나왔을 때 서영이가 '누구를' 떠올렸는지 찾아."
     },
     {
       "cardId": "crd_2026W12_rcl_002",
@@ -1969,7 +2017,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "감정이 어떻게 '변했는지'가 핵심이야. 처음 감정과 나중 감정이 어떻게 달라졌는지 비교해봐."
     },
     {
       "cardId": "crd_2026W12_rcl_003",
@@ -2008,7 +2057,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "비슷한 감정을 구분하는 문제야. '화남'과 '부끄러움'은 전혀 다른 감정이지!"
     },
     {
       "cardId": "crd_2026W12_rcl_004",
@@ -2047,7 +2097,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "'가엾다'는 '불쌍하다'와 비슷한 말이야. 미워하거나 무시하는 마음과는 정반대!"
     },
     {
       "cardId": "crd_2026W12_rcl_005",
@@ -2086,7 +2137,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "겉으로 보이는 이유(뽐내기)가 아니라 마음속 깊은 이유(두려움)를 물어보는 거야."
     },
     {
       "cardId": "crd_2026W12_rcl_006",
@@ -2125,7 +2177,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "'허전하다'는 뭔가 빠진 것 같은 느낌이야. 배가 '허전'하다고도 하잖아. 빈 느낌!"
     },
     {
       "cardId": "crd_2026W12_rcl_007",
@@ -2164,7 +2217,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "책 제목에 힌트가 있어! '악플'과 '전쟁'이 핵심 키워드야. 주제는 가장 큰 메시지를 찾는 거."
     },
     {
       "cardId": "crd_2026W12_rcl_008",
@@ -2203,7 +2257,8 @@
       "validationDetails": [],
       "validationStatus": "pass",
       "reviewStatus": "approved",
-      "difficulty": 2
+      "difficulty": 2,
+      "wrongExplanation": "'가장 중요한'이 나오면 여러 선택지 중 핵심 하나를 고르는 거야. 양보다 질이 중요해!"
     }
   ]
 }
