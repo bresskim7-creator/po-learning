@@ -16,10 +16,11 @@
     "cardCount": { "min": 15, "max": 40, "default": 30 },
     "timeLimit": { "soft": 18, "hard": 25, "unit": "minutes", "target": 20 },
     "subjectMix": {
-      "english": { "ratio": 0.4, "enabled": true },
-      "comprehension": { "ratio": 0.3, "enabled": true },
+      "english": { "ratio": 0.35, "enabled": true },
+      "comprehension": { "ratio": 0.25, "enabled": true },
       "social_studies": { "ratio": 0.15, "enabled": true },
-      "speech_therapy": { "slots": "full_lesson", "position": "last_block" }
+      "speech_therapy": { "slots": "full_lesson", "position": "last_block" },
+      "listen_repeat": { "ratio": 0.15, "enabled": true }
     },
     "newToReviewRatio": { "new": 0.4, "review": 0.6 }
   },
@@ -110,6 +111,21 @@
     "maxBatchSize": 15,
     "retryOnNextSession": true,
     "pendingStorageKey": "po_v4_pending_recordings"
+  },
+  "listenRepeat": {
+    "enabled": true,
+    "currentLevel": 2,
+    "cardsPerSession": 4,
+    "consecutiveL1Success": 0,
+    "consecutiveL3Fallback": 0,
+    "levelUpThreshold": 3,
+    "levelDownThreshold": 2,
+    "ttsSpeed": {
+      "stage1": 1.0,
+      "stage2": 0.85,
+      "stage3": 0.7
+    },
+    "matchThreshold": 0.7
   },
   "observationLog": {
     "enabled": true,

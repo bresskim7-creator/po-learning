@@ -198,6 +198,94 @@
       padding: 8px 24px; color: #999; font-size: 13px; cursor: pointer;
       margin-top: 16px; display: block; width: auto;
     }
+
+    /* ===== v4.6: 듣고 말하기 (listen-repeat) ===== */
+    .lr-container {
+      background: white; border-radius: 20px; padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      flex: 1; display: flex; flex-direction: column; gap: 16px;
+    }
+    .lr-header {
+      font-size: 18px; font-weight: 700; color: #2C6DB5;
+      text-align: center; padding: 8px 0;
+    }
+    .lr-list {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .lr-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px; border-radius: 14px; border: 2px solid #e0e0e0;
+      min-height: 52px; transition: all 0.3s;
+    }
+    .lr-item.lr-current {
+      border-color: #4A90D9; background: #EBF5FF;
+      box-shadow: 0 0 0 3px rgba(74,144,217,0.15);
+    }
+    .lr-item.lr-done {
+      border-color: #A5D6A7; background: #E8F8E8;
+    }
+    .lr-item.lr-pending {
+      opacity: 0.5;
+    }
+    .lr-text {
+      font-size: 17px; line-height: 1.5; flex: 1;
+    }
+    .lr-blurred {
+      color: transparent;
+      text-shadow: 0 0 18px rgba(0,0,0,0.35);
+      user-select: none;
+    }
+    .lr-check {
+      font-size: 20px; margin-left: 8px;
+    }
+    .lr-mic {
+      font-size: 20px; margin-left: 8px;
+    }
+    .lr-controls {
+      display: flex; gap: 12px; justify-content: center; padding: 8px 0;
+    }
+    .lr-btn {
+      padding: 14px 28px; border-radius: 24px; border: none;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .lr-btn:active { transform: scale(0.95); }
+    .lr-btn-listen {
+      background: #EBF3FC; color: #2C6DB5; border: 2px solid #4A90D9;
+    }
+    .lr-btn-speak {
+      background: #E74C3C; color: white;
+    }
+    .lr-btn-speak.lr-recording {
+      animation: pulse 1s infinite;
+    }
+    .lr-btn-speak:disabled {
+      background: #ccc; cursor: default;
+    }
+    .lr-feedback {
+      text-align: center; font-size: 18px; font-weight: 600;
+      color: #27AE60; min-height: 28px; padding: 4px 0;
+    }
+    .lr-word-chunk {
+      display: inline-block;
+      background-color: #E8F5E9;
+      color: #1B5E20;
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 12px;
+      border: 2px solid #A5D6A7;
+      margin: 3px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lr-word-chunk:active {
+      background-color: #C8E6C9;
+    }
+    .lr-word-chunk .lr-word-speaker {
+      font-size: 14px; margin-left: 4px;
+    }
+    .subject-badge.listen_repeat { background: #16A085; }
     .btn-skip:active { background: #f0f0f0; }
 
     /* B-4: 힌트 보기 — 카드 내부 작은 텍스트 링크 */
@@ -515,6 +603,7 @@ const APP = {
   socialStudiesCards: [],
   speechTherapyCards: [],
   speechTherapyLessons: [],
+  listenRepeatCards: [],  // v4.6
   currentLessonInfo: null,
   phrasePool: null,
   reviewQueue: {},
@@ -697,6 +786,7 @@ function showPage(pageId) {
 async function init() {
   loadSettingsUI();
   await loadContentFiles();
+  loadLrConfig();  // v4.6: listen-repeat 레벨 로드
   loadReviewQueue();
   APP.progress = loadAppProgress();
   initAnchorUI();
@@ -752,7 +842,16 @@ async function loadContentFiles() {
     APP.socialStudiesCards.forEach(function(c) { c.subject = c.subject || 'social_studies'; c.id = c.id || c.cardId; });
     APP.phrasePool = phraseRes;
     APP.config = cfgRes;
-    if (stRes) APP.speechTherapyCards = generateSpeechTherapyCards(stRes);
+    if (stRes) {
+      APP.speechTherapyCards = generateSpeechTherapyCards(stRes);
+      // v4.6: listenRepeatCards 로드
+      APP.listenRepeatCards = (stRes.listenRepeatCards || []).map(function(c) {
+        c.subject = 'listen_repeat';
+        c.id = c.id || c.cardId;
+        c._blockType = 'listen-repeat';
+        return c;
+      });
+    }
   } catch (e) {
     console.error('콘텐츠 로딩 실패:', e);
   }
@@ -964,12 +1063,21 @@ function buildSessionLegacy() {
   var ssCards = selectCardsForSubject(APP.socialStudiesCards, ssSlots2);
   var stqCards = selectCardsForSubject(stQuizCards, stQuizSlots);
 
-  // 블록 순서: 영어 → 독해 → 사회 → 언어치료 퀴즈 → 따라읽기
+  // v4.6: listen-repeat 카드 선출
+  var lrCards = [];
+  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
+    var lrCount = APP.config.listenRepeat.cardsPerSession || 4;
+    var lrLevel = APP.config.listenRepeat.currentLevel || 2;
+    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+  }
+
+  // 블록 순서: 영어 → 독해 → 사회 → 언어치료 퀴즈 → 듣고 말하기 → 따라읽기
   var result = [];
   result.push.apply(result, shuffleArray(engCards));
   result.push.apply(result, shuffleArray(compCards));
   result.push.apply(result, shuffleArray(ssCards));
   result.push.apply(result, shuffleArray(stqCards));
+  result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지)
   result.push.apply(result, stCards); // lesson 순서대로
 
   return { cards: result, lessonInfo: stLesson };
@@ -1030,7 +1138,15 @@ function buildSessionAnchored() {
   }
   selected = selected.slice(0, contentSlots);
 
-  // 블록 순서: 영어 → 독해 → 언어치료 퀴즈 → 따라읽기
+  // v4.6: listen-repeat 카드 선출
+  var lrCards = [];
+  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
+    var lrCount = APP.config.listenRepeat.cardsPerSession || 4;
+    var lrLevel = APP.config.listenRepeat.currentLevel || 2;
+    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+  }
+
+  // 블록 순서: 영어 → 독해 → 언어치료 퀴즈 → 듣고 말하기 → 따라읽기
   var engBlock = [], compBlock = [], stqBlock = [];
   selected.forEach(function(c) {
     if (c.subject === 'english') engBlock.push(c);
@@ -1042,6 +1158,7 @@ function buildSessionAnchored() {
   result.push.apply(result, shuffleArray(engBlock));
   result.push.apply(result, shuffleArray(compBlock));
   result.push.apply(result, shuffleArray(stqBlock));
+  result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록
   result.push.apply(result, stCards);
 
   return {
@@ -1175,6 +1292,58 @@ function selectCardsForSubject(allCards, targetCount) {
 }
 
 // ===================================================================
+// v4.6: listen-repeat 카드 선출
+// ===================================================================
+
+function selectListenRepeatCards(allCards, currentLevel, count) {
+  if (!allCards || allCards.length === 0) return [];
+
+  var warmup = allCards.filter(function(c) { return c.level === Math.max(1, currentLevel - 1); });
+  var main = allCards.filter(function(c) { return c.level === currentLevel; });
+  var challenge = allCards.filter(function(c) { return c.level === currentLevel + 1; });
+
+  var selected = [];
+
+  // 1장: 워밍업 (현재 레벨 - 1)
+  if (warmup.length > 0) {
+    selected.push(warmup[Math.floor(Math.random() * warmup.length)]);
+  } else if (main.length > 0) {
+    selected.push(main[Math.floor(Math.random() * main.length)]);
+  }
+
+  // count-2장: 현재 레벨
+  var shuffledMain = shuffleArray(main);
+  for (var i = 0; i < count - 2 && i < shuffledMain.length; i++) {
+    if (!selected.find(function(s) { return s.cardId === shuffledMain[i].cardId; })) {
+      selected.push(shuffledMain[i]);
+    }
+  }
+
+  // 1장: 도전 (현재 레벨 + 1, 없으면 현재 레벨)
+  if (challenge.length > 0) {
+    selected.push(challenge[Math.floor(Math.random() * challenge.length)]);
+  } else {
+    var remaining = main.filter(function(c) { return !selected.find(function(s) { return s.cardId === c.cardId; }); });
+    if (remaining.length > 0) selected.push(remaining[0]);
+  }
+
+  // 부족하면 현재 레벨에서 채움
+  while (selected.length < count && main.length > 0) {
+    selected.push(main[selected.length % main.length]);
+  }
+
+  // 전체 풀에서도 부족하면 아무 카드로 채움
+  while (selected.length < count && allCards.length > 0) {
+    selected.push(allCards[selected.length % allCards.length]);
+  }
+
+  // _blockType 마킹
+  selected.forEach(function(c) { c._blockType = 'listen-repeat'; c.subject = 'listen_repeat'; c.id = c.id || c.cardId; });
+
+  return selected;  // 워밍업이 첫 번째, 나머지는 순서 유지
+}
+
+// ===================================================================
 // 세션 시작
 // ===================================================================
 
@@ -1221,6 +1390,12 @@ function renderCard() {
 
   const card = s.cards[idx];
   s.cardStartTime = Date.now();
+
+  // v4.6: listen-repeat 블록 감지 → 별도 렌더러로 전환
+  if (card._blockType === 'listen-repeat') {
+    renderListenRepeatBlock();
+    return;
+  }
 
   // 진행률
   document.getElementById('progress-fill').style.width = ((idx / total) * 100) + '%';
@@ -1271,7 +1446,7 @@ function renderCard() {
 
   // 과목 뱃지
   var subjectLabels = {
-    english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습'
+    english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기'
   };
   var badgeExtra = '';
   if (card.subject === 'speech_therapy' && card._lessonTitle) {
@@ -1877,6 +2052,441 @@ function skipRecording() {
 }
 
 // ===================================================================
+// v4.6: 듣고 말하기 (listen-repeat) 블록
+// ===================================================================
+
+// 전역 상태
+var lrState = {
+  cards: [],
+  currentIndex: 0,
+  currentStage: 1,
+  results: [],
+  sessionStartIndex: 0,  // APP.session.cards 내 LR 블록 시작 인덱스
+  mediaRecorder: null,
+  recordingChunks: [],
+  isRecording: false
+};
+
+// listen-repeat 설정 로드/저장 (localStorage)
+function loadLrConfig() {
+  if (!APP.config || !APP.config.listenRepeat) return;
+  var saved = localStorage.getItem('po_listenRepeat');
+  if (saved) {
+    try {
+      var parsed = JSON.parse(saved);
+      Object.assign(APP.config.listenRepeat, parsed);
+    } catch(e) {}
+  }
+}
+function saveLrConfig(cfg) {
+  localStorage.setItem('po_listenRepeat', JSON.stringify({
+    currentLevel: cfg.currentLevel,
+    consecutiveL1Success: cfg.consecutiveL1Success,
+    consecutiveL3Fallback: cfg.consecutiveL3Fallback
+  }));
+}
+
+// TTS with speed wrapper
+function playTTSWithSpeed(text, lang, speed) {
+  return textToSpeech(text, lang, { rate: speed });
+}
+
+// 어절별 TTS (B-1)
+function lrPlayWord(word) {
+  var speed = APP.config.listenRepeat ? APP.config.listenRepeat.ttsSpeed.stage3 : 0.7;
+  textToSpeech(word, 'ko', { rate: speed });
+}
+
+// 블록 전체 렌더러
+function renderListenRepeatBlock() {
+  var s = APP.session;
+  var idx = s.currentIndex;
+
+  // LR 카드 모으기 (연속된 listen-repeat 카드)
+  lrState.cards = [];
+  lrState.sessionStartIndex = idx;
+  for (var i = idx; i < s.cards.length; i++) {
+    if (s.cards[i]._blockType === 'listen-repeat') {
+      lrState.cards.push(s.cards[i]);
+    } else {
+      break;
+    }
+  }
+
+  if (lrState.cards.length === 0) {
+    s.currentIndex++;
+    renderCard();
+    return;
+  }
+
+  lrState.currentIndex = 0;
+  lrState.currentStage = 1;
+  lrState.results = [];
+
+  // 진행률 업데이트
+  document.getElementById('progress-fill').style.width = ((idx / s.cards.length) * 100) + '%';
+  document.getElementById('progress-text').textContent = (idx + 1) + '/' + s.cards.length;
+
+  // 과목 전환 메시지
+  var transMsg = document.getElementById('transition-msg');
+  if (s.prevSubject && s.prevSubject !== 'listen_repeat') {
+    transMsg.textContent = '이제 듣고 말하기 해보자!';
+    transMsg.style.display = 'block';
+    setTimeout(function() { transMsg.style.display = 'none'; }, 2500);
+  }
+  var lessonProg = document.getElementById('lesson-progress');
+  lessonProg.style.display = 'none';
+  s.prevSubject = 'listen_repeat';
+
+  // 과목 뱃지
+  document.getElementById('subject-badge-area').innerHTML =
+    '<span class="subject-badge listen_repeat">듣고 말하기</span>';
+
+  // 블록 HTML 조립
+  var container = document.getElementById('card-container');
+  var html = '<div class="lr-container">';
+  html += '<div class="lr-header">🎧 듣고 말하기 (0/' + lrState.cards.length + ')</div>';
+  html += '<div class="lr-list" id="lr-list">';
+
+  for (var j = 0; j < lrState.cards.length; j++) {
+    var cls = j === 0 ? 'lr-current' : 'lr-pending';
+    html += '<div class="lr-item ' + cls + '" id="lr-item-' + j + '">';
+    html += '<span class="lr-text lr-blurred" id="lr-text-' + j + '">' + escapeHtml(lrState.cards[j].text || lrState.cards[j].ttsText) + '</span>';
+    if (j === 0) {
+      html += '<span class="lr-mic" id="lr-icon-' + j + '">🎤</span>';
+    } else {
+      html += '<span class="lr-check" id="lr-icon-' + j + '"></span>';
+    }
+    html += '</div>';
+  }
+
+  html += '</div>';
+  html += '<div class="lr-feedback" id="lr-feedback"></div>';
+  html += '<div class="lr-controls">';
+  html += '<button class="lr-btn lr-btn-listen" id="lr-btn-listen" onclick="lrPlayCurrentTTS()">🔊 다시 듣기</button>';
+  html += '<button class="lr-btn lr-btn-speak" id="lr-btn-speak" onclick="lrToggleRecording()">🎤 말하기</button>';
+  html += '</div>';
+  html += '</div>';
+
+  container.innerHTML = html;
+
+  // 피드백 초기화
+  var fb = document.getElementById('feedback');
+  fb.className = 'feedback';
+  fb.style.display = 'none';
+
+  // 첫 항목 시작
+  lrStartItem(0);
+}
+
+// 현재 항목 시작
+async function lrStartItem(index) {
+  lrState.currentIndex = index;
+  lrState.currentStage = 1;
+
+  updateLrUI();
+
+  // 말하기 버튼 비활성화 (TTS 재생 중)
+  var btnSpeak = document.getElementById('lr-btn-speak');
+  if (btnSpeak) btnSpeak.disabled = true;
+
+  // TTS 재생 (1단계: 보통 속도)
+  await lrPlayTTSForStage(1);
+
+  // 녹음 버튼 활성화
+  if (btnSpeak) btnSpeak.disabled = false;
+}
+
+// UI 업데이트
+function updateLrUI() {
+  var headerEl = document.querySelector('.lr-header');
+  var doneCount = lrState.results.length;
+  if (headerEl) headerEl.textContent = '🎧 듣고 말하기 (' + doneCount + '/' + lrState.cards.length + ')';
+
+  for (var i = 0; i < lrState.cards.length; i++) {
+    var item = document.getElementById('lr-item-' + i);
+    var icon = document.getElementById('lr-icon-' + i);
+    if (!item) continue;
+
+    item.className = 'lr-item';
+    if (i < lrState.currentIndex || lrState.results.find(function(r) { return r.cardId === lrState.cards[i].cardId; })) {
+      item.classList.add('lr-done');
+    } else if (i === lrState.currentIndex) {
+      item.classList.add('lr-current');
+      if (icon) icon.textContent = '🎤';
+    } else {
+      item.classList.add('lr-pending');
+      if (icon) icon.textContent = '';
+    }
+  }
+}
+
+// 블러 해제 (완료 시)
+function revealLrItem(index) {
+  var textEl = document.getElementById('lr-text-' + index);
+  var iconEl = document.getElementById('lr-icon-' + index);
+  var itemEl = document.getElementById('lr-item-' + index);
+  if (textEl) textEl.classList.remove('lr-blurred');
+  if (iconEl) iconEl.textContent = '✅';
+  if (itemEl) { itemEl.classList.remove('lr-current', 'lr-pending'); itemEl.classList.add('lr-done'); }
+}
+
+// 블러 해제 + 어절 블록 (3단계)
+function revealLrItemWithChunks(index) {
+  var textEl = document.getElementById('lr-text-' + index);
+  var iconEl = document.getElementById('lr-icon-' + index);
+  var itemEl = document.getElementById('lr-item-' + index);
+  if (!textEl) return;
+
+  var card = lrState.cards[index];
+  var text = card.text || card.ttsText || '';
+  var words = text.split(/\s+/);
+  var chunkHtml = words.map(function(word) {
+    return '<span class="lr-word-chunk" onclick="lrPlayWord(\'' + escapeHtml(word).replace(/'/g, "\\'") + '\')">'
+      + escapeHtml(word) + '<span class="lr-word-speaker"> 🔊</span></span>';
+  }).join('');
+
+  textEl.innerHTML = chunkHtml;
+  textEl.classList.remove('lr-blurred');
+  if (itemEl) { itemEl.classList.remove('lr-pending'); itemEl.classList.add('lr-current'); }
+}
+
+// 단계별 TTS 재생
+function lrPlayTTSForStage(stage) {
+  var card = lrState.cards[lrState.currentIndex];
+  var speed = 1.0;
+  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.ttsSpeed) {
+    speed = APP.config.listenRepeat.ttsSpeed['stage' + stage] || 1.0;
+  }
+  return playTTSWithSpeed(card.ttsText || card.text, card.ttsLang || 'ko', speed);
+}
+
+// 현재 항목 TTS 다시 듣기 버튼
+function lrPlayCurrentTTS() {
+  lrPlayTTSForStage(lrState.currentStage);
+}
+
+// 녹음 토글
+async function lrToggleRecording() {
+  var btnSpeak = document.getElementById('lr-btn-speak');
+
+  if (lrState.isRecording) {
+    // 녹음 중지
+    lrState.isRecording = false;
+    if (lrState.mediaRecorder && lrState.mediaRecorder.state === 'recording') {
+      lrState.mediaRecorder.stop();
+    }
+    stopSTT();
+    if (btnSpeak) { btnSpeak.textContent = '🎤 말하기'; btnSpeak.classList.remove('lr-recording'); }
+
+    // STT 결과 대기 후 판정
+    setTimeout(function() {
+      lrProcessAttempt();
+    }, 600);
+    return;
+  }
+
+  // 녹음 시작
+  try {
+    var stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, sampleRate: 16000, echoCancellation: true, noiseSuppression: true }
+    });
+
+    lrState.recordingChunks = [];
+    var mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+      ? 'audio/webm;codecs=opus' : 'audio/webm';
+    lrState.mediaRecorder = new MediaRecorder(stream, { mimeType: mimeType });
+
+    lrState.mediaRecorder.ondataavailable = function(e) {
+      if (e.data.size > 0) lrState.recordingChunks.push(e.data);
+    };
+
+    lrState.mediaRecorder.onstop = function() {
+      stream.getTracks().forEach(function(t) { t.stop(); });
+      var blob = new Blob(lrState.recordingChunks, { type: 'audio/webm' });
+
+      // 녹음 저장 (기존 session.recordings에 추가)
+      var card = lrState.cards[lrState.currentIndex];
+      if (card && APP.session.recordings) {
+        blobToBase64(blob).then(function(base64Data) {
+          var dateStr = new Date().toISOString().split('T')[0];
+          var seqNum = String(APP.session.recordings.length + 1).padStart(2, '0');
+          APP.session.recordings.push({
+            base64: base64Data,
+            filename: dateStr + '_PO_LR_' + (card.cardId || card.id) + '_' + seqNum + '.webm',
+            timestamp: new Date().toISOString(),
+            activityType: 'LR',
+            targetWord: card.ttsText || card.text || '',
+            durationSec: 0,
+            cardId: card.cardId || card.id,
+          });
+        }).catch(function() {});
+      }
+    };
+
+    lrState.mediaRecorder.start();
+    lrState.isRecording = true;
+    if (btnSpeak) { btnSpeak.textContent = '⏹ 멈추기'; btnSpeak.classList.add('lr-recording'); }
+
+    // STT 동시 시작
+    startSTT('ko-KR');
+
+  } catch (e) {
+    console.warn('[LR] 마이크 사용 불가:', e);
+    var feedbackEl = document.getElementById('lr-feedback');
+    if (feedbackEl) feedbackEl.textContent = '마이크를 사용할 수 없어요';
+  }
+}
+
+// 시도 판정
+async function lrProcessAttempt() {
+  var card = lrState.cards[lrState.currentIndex];
+  var feedbackEl = document.getElementById('lr-feedback');
+  var threshold = (APP.config && APP.config.listenRepeat) ? APP.config.listenRepeat.matchThreshold : 0.7;
+
+  // 3단계면 판정 없이 통과 (B-4)
+  if (lrState.currentStage === 3) {
+    lrOnStage3RecordingDone();
+    return;
+  }
+
+  var result = assessMatch(card.ttsText || card.text, sttResult, sttConfidence);
+
+  logEvent('lr_attempt', {
+    cardId: card.cardId || card.id,
+    stage: lrState.currentStage,
+    spoken: sttResult,
+    matchLevel: result.level,
+    matchScore: result.score
+  });
+
+  if (result.level === 'match' || result.score >= threshold) {
+    // 성공
+    lrState.results.push({
+      cardId: card.cardId || card.id,
+      reachedStage: lrState.currentStage,
+      matchScore: result.score,
+      sttTranscript: sttResult
+    });
+
+    revealLrItem(lrState.currentIndex);
+
+    if (lrState.currentStage === 1) {
+      if (feedbackEl) feedbackEl.textContent = '잘했어! 👏';
+    } else {
+      if (feedbackEl) feedbackEl.textContent = '두 번째에 해냈어! 💪';
+    }
+
+    setTimeout(function() {
+      if (feedbackEl) feedbackEl.textContent = '';
+      lrAdvance();
+    }, 1500);
+
+  } else if (lrState.currentStage === 1) {
+    // 1단계 실패 → 2단계
+    lrState.currentStage = 2;
+    if (feedbackEl) feedbackEl.textContent = '한 번 더 들어볼래?';
+
+    var btnSpeak = document.getElementById('lr-btn-speak');
+    if (btnSpeak) btnSpeak.disabled = true;
+
+    await lrPlayTTSForStage(2);
+
+    if (btnSpeak) btnSpeak.disabled = false;
+    setTimeout(function() { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
+
+  } else if (lrState.currentStage === 2) {
+    // 2단계 실패 → 3단계
+    lrState.currentStage = 3;
+    lrState.results.push({
+      cardId: card.cardId || card.id,
+      reachedStage: 3,
+      matchScore: result.score,
+      sttTranscript: sttResult
+    });
+
+    // 블러 해제 + 어절 블록
+    revealLrItemWithChunks(lrState.currentIndex);
+
+    if (feedbackEl) feedbackEl.textContent = '같이 읽어보자!';
+
+    var btnSpeak2 = document.getElementById('lr-btn-speak');
+    if (btnSpeak2) btnSpeak2.disabled = true;
+
+    await lrPlayTTSForStage(3);
+
+    if (btnSpeak2) btnSpeak2.disabled = false;
+  }
+}
+
+// 3단계 녹음 완료 콜백 (B-4: assessMatch 호출 금지)
+function lrOnStage3RecordingDone() {
+  revealLrItem(lrState.currentIndex);
+  var feedbackEl = document.getElementById('lr-feedback');
+  if (feedbackEl) feedbackEl.textContent = '잘했어!';
+  setTimeout(function() {
+    if (feedbackEl) feedbackEl.textContent = '';
+    lrAdvance();
+  }, 1200);
+}
+
+// 다음 항목으로 진행
+function lrAdvance() {
+  if (lrState.currentIndex < lrState.cards.length - 1) {
+    lrStartItem(lrState.currentIndex + 1);
+  } else {
+    // 블록 완료
+    adjustLrLevel();
+
+    // 세션 인덱스를 LR 블록 끝으로 이동
+    APP.session.currentIndex = lrState.sessionStartIndex + lrState.cards.length;
+    renderCard();
+  }
+}
+
+// 난이도 자동 조절
+function adjustLrLevel() {
+  var cfg = APP.config && APP.config.listenRepeat;
+  if (!cfg) return;
+
+  var results = lrState.results;
+  var l1Successes = results.filter(function(r) { return r.reachedStage === 1; }).length;
+  var l3Fallbacks = results.filter(function(r) { return r.reachedStage === 3; }).length;
+
+  if (l1Successes === results.length) {
+    cfg.consecutiveL1Success++;
+    cfg.consecutiveL3Fallback = 0;
+  } else if (l3Fallbacks >= 2) {
+    cfg.consecutiveL3Fallback++;
+    cfg.consecutiveL1Success = 0;
+  } else {
+    cfg.consecutiveL1Success = 0;
+    cfg.consecutiveL3Fallback = 0;
+  }
+
+  // 승급
+  if (cfg.consecutiveL1Success >= cfg.levelUpThreshold) {
+    cfg.currentLevel = Math.min(4, cfg.currentLevel + 1);
+    cfg.consecutiveL1Success = 0;
+  }
+  // 강등
+  if (cfg.consecutiveL3Fallback >= cfg.levelDownThreshold) {
+    cfg.currentLevel = Math.max(1, cfg.currentLevel - 1);
+    cfg.consecutiveL3Fallback = 0;
+  }
+
+  saveLrConfig(cfg);
+
+  logEvent('lr_level_adjust', {
+    newLevel: cfg.currentLevel,
+    l1Successes: l1Successes,
+    l3Fallbacks: l3Fallbacks,
+    consecutiveL1: cfg.consecutiveL1Success,
+    consecutiveL3: cfg.consecutiveL3Fallback
+  });
+}
+
+// ===================================================================
 // 도움 계단 (Help Stairs) — v4.3
 // ===================================================================
 
@@ -2216,10 +2826,25 @@ function buildObservationSummary() {
     }
   });
 
-  return {
+  var summary = {
     total: stCards.length, solo: solo, helped: helped, skipped: skipped,
     struggles: struggles, sttMismatchFrequent: sttMismatchFrequent
   };
+
+  // v4.6: listen-repeat 결과 추가
+  var lrResults = lrState.results || [];
+  if (lrResults.length > 0) {
+    summary.listenRepeat = {
+      total: lrResults.length,
+      l1Success: lrResults.filter(function(r) { return r.reachedStage === 1; }).length,
+      l2Success: lrResults.filter(function(r) { return r.reachedStage === 2; }).length,
+      l3Fallback: lrResults.filter(function(r) { return r.reachedStage === 3; }).length,
+      currentLevel: APP.config && APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 0,
+      avgScore: (lrResults.reduce(function(s, r) { return s + r.matchScore; }, 0) / lrResults.length).toFixed(2)
+    };
+  }
+
+  return summary;
 }
 
 // ===================================================================
@@ -2233,6 +2858,17 @@ async function endSession() {
 
   const s = APP.session;
   const duration = Math.round((Date.now() - s.startTime) / 1000);
+
+  // v4.6: listen-repeat 블록 통계
+  var lrResults = lrState.results || [];
+  if (lrResults.length > 0) {
+    s.subjectStats.listen_repeat = {
+      total: lrResults.length,
+      correct: lrResults.filter(function(r) { return r.reachedStage <= 2; }).length,
+    };
+    s.totalAttempts += lrResults.length;
+    s.correctCount += lrResults.filter(function(r) { return r.reachedStage <= 2; }).length;
+  }
 
   // ★ v4.4: speech_therapy 카드 통계를 먼저 계산 (UI 표시 전에)
   var stRecordingCards = s.cards.filter(function(c) { return c.subject === 'speech_therapy'; });
@@ -2271,7 +2907,7 @@ async function endSession() {
 
   // 과목별 정답률
   const breakdownEl = document.getElementById('subject-breakdown');
-  const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습' };
+  const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기' };
   let breakdownHtml = '';
   for (const subj in s.subjectStats) {
     const st = s.subjectStats[subj];
@@ -2309,6 +2945,18 @@ async function endSession() {
       obsHtml += '<div class="obs-row highlight-row" style="color:#E74C3C;"><span>STT 불일치 잦음</span><span>'
         + escapeHtml(obsSummary.sttMismatchFrequent.join(', ')) + '</span></div>';
     }
+    // v4.6: 듣고 말하기 섹션
+    if (obsSummary.listenRepeat) {
+      var lr = obsSummary.listenRepeat;
+      var levelLabels = {1: '~10음절', 2: '11~15음절', 3: '16~20음절', 4: '21음절+'};
+      var l1Pct = lr.total > 0 ? Math.round((lr.l1Success / lr.total) * 100) : 0;
+      obsHtml += '<h3 style="margin-top:12px;">🎧 듣고 말하기</h3>';
+      obsHtml += '<div class="obs-row"><span>1단계 성공</span><span>' + lr.l1Success + '문장 (' + l1Pct + '%)</span></div>';
+      obsHtml += '<div class="obs-row"><span>2단계 성공</span><span>' + lr.l2Success + '문장</span></div>';
+      obsHtml += '<div class="obs-row"><span>3단계 도달</span><span>' + lr.l3Fallback + '문장</span></div>';
+      obsHtml += '<div class="obs-row"><span>현재 레벨</span><span>' + lr.currentLevel + ' (' + (levelLabels[lr.currentLevel] || '') + ')</span></div>';
+    }
+
     obsSummaryEl.innerHTML = obsHtml;
     obsSummaryEl.style.display = 'block';
   } else if (obsSummaryEl) {
@@ -2347,6 +2995,15 @@ async function endSession() {
     timestamp: new Date().toISOString(),
   };
   if (obsSummary) sessionPayload.observationSummary = obsSummary;
+
+  // v4.6: listen-repeat 로깅
+  var lrResults = lrState.results || [];
+  if (lrResults.length > 0) {
+    sessionPayload.listenRepeatTotal = lrResults.length;
+    sessionPayload.listenRepeatL1Success = lrResults.filter(function(r) { return r.reachedStage === 1; }).length;
+    sessionPayload.listenRepeatL3Fallback = lrResults.filter(function(r) { return r.reachedStage === 3; }).length;
+    sessionPayload.listenRepeatLevel = APP.config && APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 0;
+  }
 
   // ★ v4.4: 완료 화면 먼저 전환 (사용자가 기다리지 않게)
   showPage('page-complete');
