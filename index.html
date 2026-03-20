@@ -288,6 +288,107 @@
     .subject-badge.listen_repeat { background: #16A085; }
     .btn-skip:active { background: #f0f0f0; }
 
+    /* ===== v4.8: 읽기 연습(따라읽기) — 260306 패턴 ===== */
+    .ra-container {
+      background: white; border-radius: 20px; padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      flex: 1; display: flex; flex-direction: column; gap: 16px;
+    }
+    .ra-header {
+      font-size: 18px; font-weight: 700; color: #E65100;
+      text-align: center; padding: 8px 0;
+    }
+    .ra-list {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .ra-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px; border-radius: 15px;
+      border: 2px solid #FFE0B2;
+      background: white;
+      min-height: 52px; transition: all 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .ra-item.ra-current {
+      border-color: #FF9800; background: #FFF8E1;
+      box-shadow: 0 0 0 3px rgba(255,152,0,0.15);
+    }
+    .ra-item.ra-done {
+      border-color: #A5D6A7; background: #F1F8E9;
+      opacity: 0.75;
+    }
+    .ra-item.ra-pending {
+      opacity: 0.5;
+    }
+    .ra-text {
+      flex: 1; display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .ra-word-chunk {
+      display: inline-block;
+      background-color: #FFF8E1;
+      color: #424242;
+      font-size: 1.6rem; font-weight: bold;
+      padding: 5px 12px; border-radius: 10px;
+      border: 1px solid #FFECB3;
+    }
+    .ra-item.ra-current .ra-word-chunk {
+      background-color: #FFE0B2;
+      border-color: #FFB74D;
+    }
+    .ra-item.ra-done .ra-word-chunk {
+      background-color: #E8F5E9;
+      border-color: #C8E6C9;
+    }
+    .ra-play-btn {
+      background-color: #FF9800; color: white; border: none;
+      border-radius: 50%; width: 44px; height: 44px;
+      font-size: 1.3rem; margin-left: 10px; cursor: pointer;
+      box-shadow: 0 3px 0 #F57C00; flex-shrink: 0;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .ra-play-btn:active { transform: translateY(3px); box-shadow: none; }
+    .ra-controls {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      padding: 12px 0;
+    }
+    .ra-feedback {
+      text-align: center; font-size: 18px; font-weight: 600;
+      color: #27AE60; min-height: 28px;
+    }
+    .ra-btn {
+      padding: 14px 28px; border-radius: 24px; border: none;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .ra-btn:active { transform: scale(0.95); }
+    .ra-btn-record {
+      background: #E74C3C; color: white;
+      width: 100%; max-width: 280px;
+    }
+    .ra-btn-record.ra-recording {
+      animation: pulse 1s infinite;
+    }
+    .ra-btn-listen, .ra-btn-slow {
+      background: #EBF3FC; color: #2C6DB5;
+      border: 2px solid #4A90D9;
+      width: 100%; max-width: 280px;
+    }
+    .ra-btn-skip {
+      background: none; border: none; color: #999;
+      font-size: 14px; cursor: pointer; padding: 8px;
+    }
+    .ra-hint-link {
+      font-size: 13px; color: #999; text-decoration: underline;
+    }
+    .ra-hint {
+      font-size: 14px; color: #FF6F00; background: #FFF3E0;
+      padding: 8px 16px; border-radius: 10px; text-align: center;
+    }
+    @media (max-width: 500px) {
+      .ra-word-chunk { font-size: 1.3rem; padding: 4px 8px; }
+      .ra-play-btn { width: 38px; height: 38px; font-size: 1.1rem; }
+    }
+
     /* B-4: 힌트 보기 — 카드 내부 작은 텍스트 링크 */
     .hint-link {
       font-size: 13px; color: #999; text-decoration: underline;
@@ -900,6 +1001,7 @@ function generateSpeechTherapyCards(data) {
         id: 'st_' + lesson.id + '_' + String(i + 1).padStart(3, '0'),
         type: 'speech_therapy',
         subject: 'speech_therapy',
+        _blockType: 'read-aloud',
         difficulty: 1,
         anchorType: lesson.anchorType || 'speech-therapy',
         anchorWeek: lesson.anchorWeek || getCurrentWeek(),
@@ -1421,6 +1523,12 @@ function renderCard() {
   // v4.6: listen-repeat 블록 감지 → 별도 렌더러로 전환
   if (card._blockType === 'listen-repeat') {
     renderListenRepeatBlock();
+    return;
+  }
+
+  // v4.8: 읽기 연습(따라읽기) 블록 감지 → 별도 렌더러로 전환
+  if (card._blockType === 'read-aloud') {
+    renderReadAloudBlock();
     return;
   }
 
@@ -2631,6 +2739,457 @@ function adjustLrLevel() {
     consecutiveL1: cfg.consecutiveL1Success,
     consecutiveL3: cfg.consecutiveL3Fallback
   });
+}
+
+// ===================================================================
+// v4.8: 읽기 연습(따라읽기) 블록
+// ===================================================================
+
+// 전역 상태
+var raState = {
+  cards: [],
+  sessionStartIndex: 0,
+  currentIndex: 0,
+  isRecording: false,
+  mediaRecorder: null,
+  recordingChunks: [],
+  recordingSeconds: 0,
+  recordingTimer: null,
+  results: []
+};
+
+// 블록 전체 렌더러
+function renderReadAloudBlock() {
+  var s = APP.session;
+  var idx = s.currentIndex;
+
+  // 1. 연속된 read-aloud 카드 수집
+  raState.cards = [];
+  raState.sessionStartIndex = idx;
+  for (var i = idx; i < s.cards.length; i++) {
+    if (s.cards[i]._blockType === 'read-aloud') {
+      raState.cards.push(s.cards[i]);
+    } else break;
+  }
+  if (raState.cards.length === 0) { s.currentIndex++; renderCard(); return; }
+
+  raState.currentIndex = 0;
+  raState.results = [];
+
+  // 2. 진행률 + 과목 뱃지 업데이트
+  document.getElementById('progress-fill').style.width = ((idx / s.cards.length) * 100) + '%';
+  document.getElementById('progress-text').textContent = (idx + 1) + '/' + s.cards.length;
+
+  // 과목 전환 메시지
+  var transMsg = document.getElementById('transition-msg');
+  if (s.prevSubject && s.prevSubject !== 'speech_therapy') {
+    var msg = '이제 따라읽기 해보자!';
+    if (raState.cards[0]._lessonTitle) {
+      msg += '\n오늘의 따라읽기: ' + raState.cards[0]._lessonTitle;
+    }
+    transMsg.textContent = msg;
+    transMsg.style.display = 'block';
+    setTimeout(function() { transMsg.style.display = 'none'; }, 2500);
+  }
+  var lessonProg = document.getElementById('lesson-progress');
+  lessonProg.style.display = 'none';
+  s.prevSubject = 'speech_therapy';
+
+  // 과목 뱃지
+  var badgeTitle = raState.cards[0]._lessonTitle || '따라읽기';
+  document.getElementById('subject-badge-area').innerHTML =
+    '<span class="subject-badge speech_therapy">' + escapeHtml(badgeTitle) + '</span>';
+
+  // 3. HTML 조립 — 전체 문장 목록
+  var container = document.getElementById('card-container');
+  var html = '<div class="ra-container">';
+  html += '<div class="ra-header">📖 따라읽기 — ' + escapeHtml(raState.cards[0]._lessonTitle) + ' (0/' + raState.cards.length + ')</div>';
+  html += '<div class="ra-list" id="ra-list">';
+
+  for (var j = 0; j < raState.cards.length; j++) {
+    var cls = j === 0 ? 'ra-current' : 'ra-pending';
+    html += '<div class="ra-item ' + cls + '" id="ra-item-' + j + '">';
+    html += '<div class="ra-text" id="ra-text-' + j + '">';
+
+    // 어절 블록으로 분리 (260306 패턴 핵심)
+    var text = raState.cards[j].question.ttsText || raState.cards[j].question.displayWord || '';
+    var words = text.split(/\s+/);
+    words.forEach(function(word) {
+      if (word.trim()) {
+        html += '<span class="ra-word-chunk">' + escapeHtml(word) + '</span>';
+      }
+    });
+
+    html += '</div>';
+    // 줄별 듣기 버튼
+    html += '<button class="ra-play-btn" onclick="raPlayLine(' + j + ')">🔊</button>';
+    html += '</div>';
+  }
+
+  html += '</div>';  // .ra-list 끝
+
+  // 4. 현재 줄 컨트롤 영역 (녹음 + 도움 계단)
+  html += '<div class="ra-controls" id="ra-controls">';
+  html += '<div class="ra-feedback" id="ra-feedback"></div>';
+  html += '<button class="ra-btn ra-btn-record" id="ra-btn-record" onclick="raToggleRecording()">🎤 읽어보기</button>';
+  html += '<button class="ra-btn ra-btn-listen hidden" id="ra-btn-listen" onclick="raHelpStair(1)">한 번 들어볼래?</button>';
+  html += '<button class="ra-btn ra-btn-slow hidden" id="ra-btn-slow" onclick="raHelpStair(2)">천천히 들어볼래?</button>';
+
+  // 힌트 (발음 다른 경우만)
+  html += '<a class="ra-hint-link hidden" id="ra-hint-link" href="#" onclick="raShowHint(); return false;">힌트 보기</a>';
+  html += '<div class="ra-hint hidden" id="ra-hint"></div>';
+
+  html += '<button class="ra-btn-skip" onclick="raSkipLine()">건너뛰기</button>';
+  html += '</div>';
+
+  html += '</div>';  // .ra-container 끝
+  container.innerHTML = html;
+
+  // 피드백 초기화
+  var fb = document.getElementById('feedback');
+  fb.className = 'feedback'; fb.style.display = 'none';
+
+  // 5. 첫 줄 시작
+  raStartLine(0);
+}
+
+// 현재 줄 시작
+function raStartLine(index) {
+  raState.currentIndex = index;
+  raUpdateUI();
+
+  var card = raState.cards[index];
+  // 관찰 데이터 초기화
+  card._observation = {
+    helpStairsUsed: [],
+    attemptNumber: 0,
+    listenCount: 0,
+    skipped: false,
+    cardStartTime: Date.now(),
+    recordingDurations: [],
+    sttResults: []
+  };
+  card._helpStairsUsed = [];
+  card._attemptNumber = 0;
+  card._consecutiveMismatch = 0;
+
+  // 녹음 버튼 리셋
+  var btnRecord = document.getElementById('ra-btn-record');
+  if (btnRecord) { btnRecord.textContent = '🎤 읽어보기'; btnRecord.classList.remove('ra-recording'); }
+
+  // 피드백 초기화
+  var feedbackEl = document.getElementById('ra-feedback');
+  if (feedbackEl) feedbackEl.textContent = '';
+
+  // 힌트 설정
+  var hintLink = document.getElementById('ra-hint-link');
+  var hintArea = document.getElementById('ra-hint');
+  if (card.hint) {
+    if (hintLink) hintLink.classList.remove('hidden');
+    if (hintArea) { hintArea.textContent = card.hint.text; hintArea.classList.add('hidden'); }
+  } else {
+    if (hintLink) hintLink.classList.add('hidden');
+    if (hintArea) hintArea.classList.add('hidden');
+  }
+
+  // 도움 계단 리셋
+  document.getElementById('ra-btn-listen').classList.add('hidden');
+  document.getElementById('ra-btn-slow').classList.add('hidden');
+
+  // 스크롤 현재 줄로
+  var currentItem = document.getElementById('ra-item-' + index);
+  if (currentItem) currentItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// UI 상태 업데이트
+function raUpdateUI() {
+  // 헤더 카운트 업데이트
+  var headerEl = document.querySelector('.ra-header');
+  var doneCount = raState.results.length;
+  if (headerEl) headerEl.textContent = '📖 따라읽기 — ' + escapeHtml(raState.cards[0]._lessonTitle) + ' (' + doneCount + '/' + raState.cards.length + ')';
+
+  // 줄별 상태 클래스 토글
+  for (var i = 0; i < raState.cards.length; i++) {
+    var item = document.getElementById('ra-item-' + i);
+    if (!item) continue;
+    item.className = 'ra-item';
+    if (i < raState.currentIndex || raState.results.find(function(r) { return r.index === i; })) {
+      item.classList.add('ra-done');
+    } else if (i === raState.currentIndex) {
+      item.classList.add('ra-current');
+    } else {
+      item.classList.add('ra-pending');
+    }
+  }
+}
+
+// 녹음 토글
+async function raToggleRecording() {
+  var btnRecord = document.getElementById('ra-btn-record');
+
+  if (raState.isRecording) {
+    // 녹음 중지
+    raState.isRecording = false;
+    if (raState.mediaRecorder && raState.mediaRecorder.state === 'recording') {
+      raState.mediaRecorder.stop();
+    }
+    stopSTT();
+    clearInterval(raState.recordingTimer);
+    if (btnRecord) { btnRecord.textContent = '🎤 읽어보기'; btnRecord.classList.remove('ra-recording'); }
+
+    var card = raState.cards[raState.currentIndex];
+    if (card && card._observation) {
+      card._observation.attemptNumber++;
+      card._observation.recordingDurations.push(raState.recordingSeconds);
+      card._attemptNumber = card._observation.attemptNumber;
+    }
+
+    logEvent('recording_save', { cardId: card ? card.id : null, duration: raState.recordingSeconds });
+
+    // STT 결과 대기 후 판정
+    setTimeout(function() {
+      var targetText = card.question.ttsText || card.question.displayWord || '';
+      var match = assessMatch(targetText, sttResult, sttConfidence);
+      var consecutiveMismatch = card._consecutiveMismatch || 0;
+
+      // STT 관찰 데이터 기록
+      if (card._observation) {
+        card._observation.sttResults.push({
+          spoken: sttResult,
+          confidence: sttConfidence,
+          matchLevel: match.level,
+          matchScore: match.score
+        });
+      }
+
+      logEvent('stt_match', {
+        cardId: card.id, target: targetText, spoken: sttResult,
+        sttConfidence: sttConfidence, matchLevel: match.level,
+        matchScore: match.score, attempt: card._observation ? card._observation.attemptNumber : 1
+      });
+
+      var feedbackEl = document.getElementById('ra-feedback');
+
+      if (match.level === 'match') {
+        // 일치 → 칭찬 + 다음 줄
+        card._consecutiveMismatch = 0;
+        var praiseTexts = ['잘했어!', '잘 읽었어!', '멋지다!', '대단해!', '좋아!'];
+        if (feedbackEl) feedbackEl.textContent = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
+
+        raState.results.push({ index: raState.currentIndex, matchScore: match.score });
+        setTimeout(function() {
+          if (feedbackEl) feedbackEl.textContent = '';
+          raAdvance();
+        }, 1500);
+
+      } else if (match.level === 'ambiguous') {
+        // 애매함 → 재시도 유도
+        consecutiveMismatch++;
+        card._consecutiveMismatch = consecutiveMismatch;
+        if (feedbackEl) feedbackEl.textContent = '한 번 더 들어보고 천천히 읽어볼까?';
+        document.getElementById('ra-btn-listen').classList.remove('hidden');
+
+        if (consecutiveMismatch >= 3) {
+          // 3회 도달 → 자동 진행
+          card._sttPending = true;
+          if (feedbackEl) feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
+          raState.results.push({ index: raState.currentIndex, matchScore: match.score, pending: true });
+          setTimeout(function() {
+            if (feedbackEl) feedbackEl.textContent = '';
+            raAdvance();
+          }, 2000);
+        }
+
+      } else {
+        // 불일치
+        consecutiveMismatch++;
+        card._consecutiveMismatch = consecutiveMismatch;
+
+        if (consecutiveMismatch >= 3) {
+          card._sttPending = true;
+          if (feedbackEl) feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
+          raState.results.push({ index: raState.currentIndex, matchScore: match.score, pending: true });
+          logEvent('stt_card_pending', {
+            cardId: card.id, attempts: card._observation ? card._observation.attemptNumber : 0,
+            consecutiveMismatch: consecutiveMismatch
+          });
+          setTimeout(function() {
+            if (feedbackEl) feedbackEl.textContent = '';
+            raAdvance();
+          }, 2000);
+        } else if (consecutiveMismatch === 2) {
+          if (feedbackEl) feedbackEl.textContent = '한 번 더 해볼까?';
+          document.getElementById('ra-btn-listen').classList.remove('hidden');
+          document.getElementById('ra-btn-slow').classList.remove('hidden');
+        } else {
+          if (feedbackEl) feedbackEl.textContent = '다시 한번 들어볼까?';
+          document.getElementById('ra-btn-listen').classList.remove('hidden');
+        }
+      }
+    }, 500);
+
+    return;
+  }
+
+  // 녹음 시작
+  try {
+    var stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, sampleRate: 16000, echoCancellation: true, noiseSuppression: true }
+    });
+
+    raState.recordingChunks = [];
+    raState.recordingSeconds = 0;
+
+    var mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+      ? 'audio/webm;codecs=opus' : 'audio/webm';
+    raState.mediaRecorder = new MediaRecorder(stream, { mimeType: mimeType });
+
+    raState.mediaRecorder.ondataavailable = function(e) {
+      if (e.data.size > 0) raState.recordingChunks.push(e.data);
+    };
+
+    raState.mediaRecorder.onstop = function() {
+      stream.getTracks().forEach(function(t) { t.stop(); });
+      var blob = new Blob(raState.recordingChunks, { type: 'audio/webm' });
+
+      // 녹음 저장 (기존 session.recordings에 추가)
+      var card = raState.cards[raState.currentIndex];
+      if (card && APP.session.recordings) {
+        blobToBase64(blob).then(function(base64Data) {
+          var dateStr = new Date().toISOString().split('T')[0];
+          var seqNum = String(APP.session.recordings.length + 1).padStart(2, '0');
+          var targetWord = (card.question.ttsText || card.question.displayWord || '').replace(/[^가-힣a-zA-Z0-9]/g, '').substring(0, 20);
+          APP.session.recordings.push({
+            base64: base64Data,
+            filename: dateStr + '_PO_RA_' + targetWord + '_' + seqNum + '.webm',
+            timestamp: new Date().toISOString(),
+            activityType: 'RA',
+            targetWord: card.question.ttsText || card.question.displayWord || '',
+            durationSec: raState.recordingSeconds,
+            cardId: card.id,
+            helpStairsUsed: card._helpStairsUsed || [],
+            attemptNumber: card._attemptNumber || 1
+          });
+        }).catch(function(e) { console.warn('[RA] Base64 변환 실패:', e); });
+      }
+    };
+
+    raState.mediaRecorder.start();
+    raState.isRecording = true;
+    if (btnRecord) { btnRecord.textContent = '⏹ 멈추기'; btnRecord.classList.add('ra-recording'); }
+
+    // STT 동시 시작
+    var card = raState.cards[raState.currentIndex];
+    var sttLang = (card && card.question && card.question.ttsText &&
+      /^[a-zA-Z\s.,!?'"]+$/.test(card.question.ttsText)) ? 'en-US' : 'ko-KR';
+    startSTT(sttLang);
+
+    raState.recordingTimer = setInterval(function() {
+      raState.recordingSeconds++;
+    }, 1000);
+
+  } catch (e) {
+    console.warn('[RA] 마이크 사용 불가:', e);
+    var feedbackEl = document.getElementById('ra-feedback');
+    if (feedbackEl) feedbackEl.textContent = '마이크를 사용할 수 없어요';
+  }
+}
+
+// 도움 계단
+async function raHelpStair(step) {
+  var card = raState.cards[raState.currentIndex];
+  if (!card) return;
+
+  var text = card.question.ttsText || card.question.displayWord || '';
+
+  if (step === 1) {
+    // 일반 속도 TTS
+    if (card._observation) {
+      card._observation.helpStairsUsed.push(1);
+      card._observation.listenCount++;
+      card._helpStairsUsed = card._observation.helpStairsUsed.slice();
+    }
+    logEvent('help_stair_used', { cardId: card.id, step: 1 });
+
+    APP.ttsPlaying = true;
+    try { await textToSpeech(text, 'ko'); } finally { APP.ttsPlaying = false; }
+
+    // Step 2 버튼 표시
+    document.getElementById('ra-btn-slow').classList.remove('hidden');
+
+  } else if (step === 2) {
+    // 느린 속도 TTS
+    var slowRate = (APP.config && APP.config.helpStairs) ? APP.config.helpStairs.slowTTSRate : 0.7;
+    if (card._observation) {
+      card._observation.helpStairsUsed.push(2);
+      card._observation.listenCount++;
+      card._helpStairsUsed = card._observation.helpStairsUsed.slice();
+    }
+    logEvent('help_stair_used', { cardId: card.id, step: 2 });
+
+    APP.ttsPlaying = true;
+    try { await textToSpeech(text, 'ko', { rate: slowRate }); } finally { APP.ttsPlaying = false; }
+  }
+}
+
+// 줄별 TTS 재생
+function raPlayLine(index) {
+  var card = raState.cards[index];
+  var text = card.question.ttsText || card.question.displayWord || '';
+  textToSpeech(text, 'ko');
+
+  if (card._observation) card._observation.listenCount++;
+}
+
+// 건너뛰기
+function raSkipLine() {
+  // 녹음 중이면 중지
+  if (raState.isRecording) {
+    raState.isRecording = false;
+    if (raState.mediaRecorder && raState.mediaRecorder.state === 'recording') {
+      raState.mediaRecorder.stop();
+    }
+    stopSTT();
+    clearInterval(raState.recordingTimer);
+  }
+
+  var card = raState.cards[raState.currentIndex];
+  if (card._observation) card._observation.skipped = true;
+
+  raState.results.push({ index: raState.currentIndex, skipped: true });
+  raAdvance();
+}
+
+// 힌트 보기
+function raShowHint() {
+  var hintArea = document.getElementById('ra-hint');
+  if (hintArea) hintArea.classList.toggle('hidden');
+}
+
+// 다음 줄 / 블록 완료
+function raAdvance() {
+  // 현재 줄 관찰 로그
+  var card = raState.cards[raState.currentIndex];
+  if (card && card._observation) {
+    logEvent('observation_complete', {
+      cardId: card.id,
+      helpStairs: card._observation.helpStairsUsed,
+      attempts: card._observation.attemptNumber,
+      listens: card._observation.listenCount,
+      skipped: card._observation.skipped,
+      timeOnCard: Math.round((Date.now() - card._observation.cardStartTime) / 1000),
+      recordingDurations: card._observation.recordingDurations,
+      sttResults: card._observation.sttResults
+    });
+  }
+
+  if (raState.currentIndex < raState.cards.length - 1) {
+    raStartLine(raState.currentIndex + 1);
+  } else {
+    // 블록 완료 → 세션 인덱스 이동
+    APP.session.currentIndex = raState.sessionStartIndex + raState.cards.length;
+    renderCard();
+  }
 }
 
 // ===================================================================
