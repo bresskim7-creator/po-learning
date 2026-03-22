@@ -620,31 +620,57 @@
 
 <!-- ===== 완료 화면 ===== -->
 <div id="page-complete" class="page">
-  <div class="emoji">&#127881;</div>
-  <h2 id="complete-message">오늘 학습 끝!</h2>
-  <div class="stats" id="complete-stats">
-    <div class="stat-row">
-      <span class="stat-label">맞은 개수</span>
-      <span class="stat-value" id="stat-correct">0/0</span>
-    </div>
-    <div class="stat-row">
-      <span class="stat-label">정답률</span>
-      <span class="stat-value" id="stat-accuracy">0%</span>
-    </div>
-    <div class="stat-row">
-      <span class="stat-label">소요 시간</span>
-      <span class="stat-value" id="stat-time">0분</span>
-    </div>
-    <div class="stat-row">
+  <!-- [v4.10 T4] 아이 화면 (기본) -->
+  <div id="child-result">
+    <div class="emoji">&#127881;</div>
+    <h2 id="complete-message">오늘 학습 끝!</h2>
+    <p id="child-role-summary" style="font-size:16px; color:#555; margin:8px 16px; line-height:1.6;"></p>
+    <div id="child-subject-checks" style="display:flex; gap:12px; justify-content:center; margin:16px 0; flex-wrap:wrap;"></div>
+    <div class="stat-row" style="justify-content:center;">
       <span class="stat-label">연속 학습</span>
       <span class="stat-value" id="stat-streak">0일</span>
     </div>
-    <div class="stat-divider"></div>
-    <div id="subject-breakdown"></div>
   </div>
-  <!-- v4.3: 관찰 요약 (따라읽기가 있었을 때만 표시) -->
-  <div class="observation-summary" id="observation-summary" style="display:none;"></div>
-  <button class="btn-start" onclick="showPage('page-home')">홈으로</button>
+
+  <!-- [v4.10 T4] 부모 화면 (PIN 잠금) -->
+  <div id="parent-result" style="display:none;">
+    <div class="stats" id="complete-stats">
+      <div class="stat-row">
+        <span class="stat-label">맞은 개수</span>
+        <span class="stat-value" id="stat-correct">0/0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">정답률</span>
+        <span class="stat-value" id="stat-accuracy">0%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">소요 시간</span>
+        <span class="stat-value" id="stat-time">0분</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div id="subject-breakdown"></div>
+    </div>
+    <div class="observation-summary" id="observation-summary" style="display:none;"></div>
+    <button class="btn-start" style="background:#888; font-size:14px; padding:10px 24px;" onclick="document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
+  </div>
+
+  <!-- [v4.10 T4] PIN 모달 -->
+  <div id="pin-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; display:none; align-items:center; justify-content:center;">
+    <div style="background:white; border-radius:16px; padding:24px; width:280px; text-align:center;">
+      <h3 id="pin-title" style="margin:0 0 16px;">부모 PIN 입력</h3>
+      <input type="password" id="pin-input" maxlength="4" pattern="[0-9]*" inputmode="numeric" style="font-size:24px; text-align:center; width:120px; padding:8px; border:2px solid #ddd; border-radius:8px;">
+      <p id="pin-error" style="color:#E74C3C; font-size:13px; min-height:20px;"></p>
+      <div style="display:flex; gap:8px; justify-content:center; margin-top:12px;">
+        <button type="button" onclick="closePinModal()" style="padding:10px 20px; border:1px solid #ddd; border-radius:8px; background:white; cursor:pointer;">취소</button>
+        <button type="button" onclick="submitPin()" style="padding:10px 20px; border:none; border-radius:8px; background:#4A90D9; color:white; cursor:pointer;">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:8px; justify-content:center; margin-top:16px;">
+    <button class="btn-start" onclick="showPage('page-home')">홈으로</button>
+    <button class="btn-start" style="background:#888; font-size:14px; padding:12px 20px;" onclick="openParentMode()">부모 모드</button>
+  </div>
 </div>
 
 <!-- ===== 설정 화면 ===== -->
@@ -690,7 +716,8 @@
       <span class="setting-label">카드 수</span>
       <input type="number" class="setting-input" id="set-card-count" value="20" min="10" max="30">
     </div>
-    <div class="setting-row">
+    <!-- [v4.10] Mode A/B deprecated — 역할 기반 세션으로 전환 -->
+    <div class="setting-row" style="display: none;">
       <span class="setting-label">오늘 모드 강제 지정</span>
       <select class="setting-input" id="set-mode-override">
         <option value="">자동</option>
@@ -763,7 +790,7 @@ const APP = {
 function getSettings() {
   return JSON.parse(localStorage.getItem('po_v4_settings') || 'null') || {
     serverUrl: '', pin: '', voiceKo: 'ko-KR-Chirp3-HD-Zephyr',
-    voiceEn: 'en-US-Chirp3-HD-Zephyr', cardCount: (APP.config && APP.config.modeA && APP.config.modeA.cardCount) ? APP.config.modeA.cardCount.default : 30,
+    voiceEn: 'en-US-Chirp3-HD-Zephyr', cardCount: (APP.config && APP.config.modeA && APP.config.modeA.cardCount) ? APP.config.modeA.cardCount.default : 30, // [v4.10] Mode A/B deprecated — modeA 참조는 하위호환용 유지
     modeOverride: '', sheetsUrl: ''
   };
 }
@@ -1173,15 +1200,67 @@ function updateCardState(cardId, correct) {
 // 카드 조합 알고리즘
 // ===================================================================
 
+// [v4.10 T15] 블록 내 난이도 순 정렬: Lv1 → Lv2 → Lv3
+function sortByDifficulty(cards) {
+  return cards.slice().sort(function(a, b) {
+    var dA = a.difficulty || 1;
+    var dB = b.difficulty || 1;
+    return dA - dB;
+  });
+}
+
+// [v4.10 T15] Lv3 제한 적용 (25장: 최대1개, 30장+: 최대2개)
+function applyLv3Limit(cards, cardCount) {
+  var maxLv3 = (cardCount <= 25) ? 1 : 2;
+  var lv3Count = 0;
+  return cards.filter(function(card) {
+    if ((card.difficulty || 1) >= 3) {
+      lv3Count++;
+      if (lv3Count > maxLv3) return false;
+    }
+    return true;
+  });
+}
+
+// [v4.10 T3] 확장 모드 판정: 최근 3세션 완료율 90%+ && 평균 15분 이하 → 30장
+function getExtendedMode() {
+  var history = JSON.parse(localStorage.getItem('po_v4_session_history') || '[]');
+  var recent3 = history.slice(-3);
+  if (recent3.length < 3) return false;
+  var avgCompletion = recent3.reduce(function(s, h) { return s + (h.completionRate || 0); }, 0) / 3;
+  var avgMinutes = recent3.reduce(function(s, h) { return s + (h.durationMinutes || 30); }, 0) / 3;
+  var cfg = APP.config && APP.config.extendCondition;
+  var minRate = (cfg && cfg.minCompletionRate) || 0.9;
+  var maxMin = (cfg && cfg.maxAvgMinutes) || 15;
+  return avgCompletion >= minRate && avgMinutes <= maxMin;
+}
+
+// [v4.10 T3] 역할 태깅
+function tagRoles(cards) {
+  cards.forEach(function(card) {
+    var subj = card.subject || card.anchorType || '';
+    if (subj === 'english' || subj === 'school-english' || subj === 'social_studies' || subj === 'school-social') {
+      card._role = 'curriculum-recall';
+    } else if (subj === 'comprehension' || subj === 'short-reading') {
+      card._role = 'reading-transfer';
+    } else {
+      card._role = 'review-stabilize';
+    }
+  });
+}
+
 // ----- 기존 방식 (레거시 셔플) -----
 function buildSessionLegacy() {
   var s = getSettings();
-  var totalCards = s.cardCount || 30;
+  // [v4.10 T3] 기본 25장, 확장 조건 충족 시 30장
+  var totalCards = getExtendedMode()
+    ? (APP.config && APP.config.extendedCards || 30)
+    : (APP.config && APP.config.cardsPerSession || s.cardCount || 25);
   var stLesson = selectSpeechTherapyLesson();
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
   var contentSlots = totalCards - stCards.length;
 
-  // 과목별 비율 (config 기반)
+  // 과목별 비율 (config 기반) // [v4.10] Mode A/B deprecated — modeA 참조는 하위호환용 유지
   var mix = (APP.config && APP.config.modeA && APP.config.modeA.subjectMix) || {};
   var engRatio = (mix.english && mix.english.enabled) ? (mix.english.ratio || 0.4) : 0.4;
   var compRatio = (mix.comprehension && mix.comprehension.enabled) ? (mix.comprehension.ratio || 0.3) : 0.3;
@@ -1189,6 +1268,8 @@ function buildSessionLegacy() {
 
   // speech-therapy 퀴즈 카드 (파이프라인 생성, 따라읽기가 아닌 것)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
+  // [v4.10 D7] blocked/parentOnly/duplicate 카드 제외
+  var validFilter = function(c) { return c.validationStatus !== 'blocked' && !c.parentOnly && !c.duplicate; };
   var stQuizSlots = stQuizCards.length > 0 ? Math.max(2, Math.round(contentSlots * 0.15)) : 0;
   var adjustedContentSlots = contentSlots - stQuizSlots;
 
@@ -1197,10 +1278,10 @@ function buildSessionLegacy() {
   var ssSlots2 = Math.round(adjustedContentSlots * (ssRatio / totalRatio));
   var compSlots2 = adjustedContentSlots - engSlots2 - ssSlots2;
 
-  var engCards = selectCardsForSubject(APP.englishCards, engSlots2);
-  var compCards = selectCardsForSubject(APP.comprehensionCards, compSlots2);
-  var ssCards = selectCardsForSubject(APP.socialStudiesCards, ssSlots2);
-  var stqCards = selectCardsForSubject(stQuizCards, stQuizSlots);
+  var engCards = selectCardsForSubject(APP.englishCards.filter(validFilter), engSlots2);
+  var compCards = selectCardsForSubject(APP.comprehensionCards.filter(validFilter), compSlots2);
+  var ssCards = selectCardsForSubject(APP.socialStudiesCards.filter(validFilter), ssSlots2);
+  var stqCards = selectCardsForSubject(stQuizCards.filter(validFilter), stQuizSlots);
 
   // v4.6: listen-repeat 카드 선출
   var lrCards = [];
@@ -1210,14 +1291,28 @@ function buildSessionLegacy() {
     lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
   }
 
-  // 블록 순서: 영어 → 독해 → 사회 → 언어치료 퀴즈 → 듣고 말하기 → 따라읽기
+  // [v4.10] 블록 순서 v3: 영어→독해→언어치료퀴즈→사회→LR→따라읽기
+  // [v4.10 T15] 각 블록 내 난이도 정렬 (Lv1→Lv2→Lv3). LR/따라읽기는 자체 순서 유지.
   var result = [];
-  result.push.apply(result, shuffleArray(engCards));
-  result.push.apply(result, shuffleArray(compCards));
-  result.push.apply(result, shuffleArray(ssCards));
-  result.push.apply(result, shuffleArray(stqCards));
-  result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지)
-  result.push.apply(result, stCards); // lesson 순서대로
+  result.push.apply(result, sortByDifficulty(engCards));
+  result.push.apply(result, sortByDifficulty(diversifyBySkillTag(compCards)));  // [v4.10 T6] 독해 스킬 다양성
+  result.push.apply(result, sortByDifficulty(stqCards));   // 언어치료 퀴즈 (독해 뒤, 사회 앞)
+  result.push.apply(result, sortByDifficulty(ssCards));     // 사회
+  result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지, 정렬 제외)
+  result.push.apply(result, stCards); // lesson 순서대로 (정렬 제외)
+
+  // [v4.10 T15] Lv3 제한 (content 블록에만 적용, LR/따라읽기 제외)
+  var contentEnd = result.length - lrCards.length - stCards.length;
+  var contentCards = applyLv3Limit(result.slice(0, contentEnd), totalCards);
+  result = [].concat(contentCards, lrCards, stCards);
+
+  // [v4.10 T15] 검증 로그
+  var firstHalf = contentCards.slice(0, Math.floor(contentCards.length * 0.7));
+  var lv1Ratio = firstHalf.filter(function(c) { return (c.difficulty || 1) === 1; }).length / (firstHalf.length || 1);
+  console.log('[v4.10] Legacy 전반 70% Lv1 비율: ' + (lv1Ratio * 100).toFixed(0) + '%');
+
+  // [v4.10 T3] 역할 태깅
+  tagRoles(result);
 
   return { cards: result, lessonInfo: stLesson };
 }
@@ -1225,7 +1320,10 @@ function buildSessionLegacy() {
 // ----- 앵커 기반 방식 (섀도/실전) -----
 function buildSessionAnchored() {
   var s = getSettings();
-  var totalCards = s.cardCount || 30;
+  // [v4.10 T3] 기본 25장, 확장 조건 충족 시 30장
+  var totalCards = getExtendedMode()
+    ? (APP.config && APP.config.extendedCards || 30)
+    : (APP.config && APP.config.cardsPerSession || s.cardCount || 25);
   var stLesson = selectSpeechTherapyLesson();
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
   var contentSlots = totalCards - stCards.length;
@@ -1243,7 +1341,14 @@ function buildSessionAnchored() {
 
   // speech-therapy 퀴즈 카드도 콘텐츠 풀에 포함 (따라읽기 lesson 카드 제외)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
-  var allContent = [].concat(APP.englishCards, APP.comprehensionCards, APP.socialStudiesCards, stQuizCards);
+  // [v4.10 D7] blocked 카드 제외 + parentOnly/duplicate 카드 제외
+  var validFilter = function(c) { return c.validationStatus !== 'blocked' && !c.parentOnly && !c.duplicate; };
+  var allContent = [].concat(
+    APP.englishCards.filter(validFilter),
+    APP.comprehensionCards.filter(validFilter),
+    APP.socialStudiesCards.filter(validFilter),
+    stQuizCards.filter(validFilter)
+  );
 
   // 1) 앵커 직결: 이번 주 앵커와 일치하는 카드
   var anchorCards = allContent.filter(function(c) {
@@ -1285,20 +1390,36 @@ function buildSessionAnchored() {
     lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
   }
 
-  // 블록 순서: 영어 → 독해 → 언어치료 퀴즈 → 듣고 말하기 → 따라읽기
-  var engBlock = [], compBlock = [], stqBlock = [];
+  // [v4.10] 블록 순서 v3: 영어→독해→언어치료퀴즈→사회→LR→따라읽기
+  var engBlock = [], compBlock = [], stqBlock = [], ssBlock = [];
   selected.forEach(function(c) {
     if (c.subject === 'english') engBlock.push(c);
     else if (c.subject === 'speech_therapy') stqBlock.push(c);
-    else compBlock.push(c);
+    else if (c.subject === 'social_studies') ssBlock.push(c);
+    else compBlock.push(c);  // comprehension + 기타
   });
 
+  // [v4.10 T15] 각 블록 내 난이도 정렬 (Lv1→Lv2→Lv3). LR/따라읽기는 자체 순서 유지.
   var result = [];
-  result.push.apply(result, shuffleArray(engBlock));
-  result.push.apply(result, shuffleArray(compBlock));
-  result.push.apply(result, shuffleArray(stqBlock));
-  result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록
-  result.push.apply(result, stCards);
+  result.push.apply(result, sortByDifficulty(engBlock));
+  result.push.apply(result, sortByDifficulty(diversifyBySkillTag(compBlock)));  // [v4.10 T6] 독해 스킬 다양성
+  result.push.apply(result, sortByDifficulty(stqBlock));   // 언어치료 퀴즈 (독해 뒤, 사회 앞)
+  result.push.apply(result, sortByDifficulty(ssBlock));     // 사회
+  result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지, 정렬 제외)
+  result.push.apply(result, stCards);  // 따라읽기 (정렬 제외)
+
+  // [v4.10 T15] Lv3 제한 (content 블록에만 적용, LR/따라읽기 제외)
+  var contentEnd = result.length - lrCards.length - stCards.length;
+  var contentCards = applyLv3Limit(result.slice(0, contentEnd), totalCards);
+  result = [].concat(contentCards, lrCards, stCards);
+
+  // [v4.10 T15] 검증 로그
+  var firstHalf = contentCards.slice(0, Math.floor(contentCards.length * 0.7));
+  var lv1Ratio = firstHalf.filter(function(c) { return (c.difficulty || 1) === 1; }).length / (firstHalf.length || 1);
+  console.log('[v4.10] Anchored 전반 70% Lv1 비율: ' + (lv1Ratio * 100).toFixed(0) + '%');
+
+  // [v4.10 T3] 역할 태깅
+  tagRoles(result);
 
   return {
     cards: result,
@@ -1312,39 +1433,88 @@ function buildSessionAnchored() {
 }
 
 // ----- lesson 선택 -----
+// [v4.10 T7] 레슨 숙달도 계산
+function getLessonMastery(lessonId) {
+  var history = JSON.parse(localStorage.getItem('po_v4_lesson_line_history') || '{}');
+  var lessonHistory = history[lessonId] || {};
+  var lineKeys = Object.keys(lessonHistory);
+  if (lineKeys.length === 0) return 0;
+
+  var totalScore = 0;
+  lineKeys.forEach(function(key) {
+    var lineResults = lessonHistory[key];
+    var recent3 = lineResults.slice(-3);
+    if (recent3.length === 0) { totalScore += 0; return; }
+    totalScore += recent3.filter(function(r) { return r.success; }).length / recent3.length;
+  });
+  return totalScore / lineKeys.length;
+}
+
+// [v4.10 T7] 줄별 결과 저장
+function recordReadAloudLineResult(lessonId, lineIndex, success) {
+  var history = JSON.parse(localStorage.getItem('po_v4_lesson_line_history') || '{}');
+  if (!history[lessonId]) history[lessonId] = {};
+  if (!history[lessonId][lineIndex]) history[lessonId][lineIndex] = [];
+
+  history[lessonId][lineIndex].push({
+    success: success,
+    date: new Date().toISOString()
+  });
+
+  // 줄당 최근 10회만 유지
+  if (history[lessonId][lineIndex].length > 10) {
+    history[lessonId][lineIndex] = history[lessonId][lineIndex].slice(-10);
+  }
+  localStorage.setItem('po_v4_lesson_line_history', JSON.stringify(history));
+}
+
+// [v4.10 T7] 레슨 선정: 앵커 매칭 → 숙달도 낮은 것 → 최근성
 function selectSpeechTherapyLesson() {
   var lessons = APP.speechTherapyLessons;
   if (!lessons || lessons.length === 0) return null;
 
-  // 1) 앵커 매칭 lesson 우선
-  var anchorData = getAnchorData();
   var currentWeek = getCurrentWeek();
-  var anchorLessons = lessons.filter(function(l) {
-    return l.anchorWeek === currentWeek;
-  });
 
-  // 2) 가장 최근에 안 한 lesson (lastPlayed 기록)
-  var lessonHistory = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
-
-  var candidates = anchorLessons.length > 0 ? anchorLessons : lessons;
-  candidates.sort(function(a, b) {
-    var aLast = lessonHistory[a.id] || '2000-01-01';
-    var bLast = lessonHistory[b.id] || '2000-01-01';
-    return aLast < bLast ? -1 : aLast > bLast ? 1 : 0;
-  });
-
-  var chosen = candidates[0];
-
-  // lesson 길이 제한 (10문장 초과 시 자르기)
-  if (chosen.cards.length > 10) {
-    chosen = Object.assign({}, chosen, { cards: chosen.cards.slice(0, 10) });
+  // 1순위: 앵커 매칭 (이번 주 치료 내용) — 숙달도 낮은 것 우선
+  var anchorLessons = lessons.filter(function(l) { return l.anchorWeek === currentWeek; });
+  if (anchorLessons.length > 0) {
+    anchorLessons.sort(function(a, b) { return getLessonMastery(a.id) - getLessonMastery(b.id); });
+    var chosen = anchorLessons[0];
+    if (chosen.cards.length > 10) chosen = Object.assign({}, chosen, { cards: chosen.cards.slice(0, 10) });
+    var lh = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
+    lh[chosen.id] = todayStr();
+    localStorage.setItem('po_v4_lesson_history', JSON.stringify(lh));
+    return chosen;
   }
 
-  // 이번 세션에서 사용한 lesson 기록
-  lessonHistory[chosen.id] = todayStr();
-  localStorage.setItem('po_v4_lesson_history', JSON.stringify(lessonHistory));
+  // 2순위: 숙달도 0.8 미만 (복습 필요)
+  var withMastery = lessons.map(function(l) {
+    return Object.assign({}, l, { _mastery: getLessonMastery(l.id) });
+  });
+  var needsReview = withMastery.filter(function(l) { return l._mastery < 0.8; });
+  if (needsReview.length > 0) {
+    needsReview.sort(function(a, b) { return a._mastery - b._mastery; });
+    var chosen2 = needsReview[0];
+    if (chosen2.cards.length > 10) chosen2 = Object.assign({}, chosen2, { cards: chosen2.cards.slice(0, 10) });
+    var lh2 = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
+    lh2[chosen2.id] = todayStr();
+    localStorage.setItem('po_v4_lesson_history', JSON.stringify(lh2));
+    return chosen2;
+  }
 
-  return chosen;
+  // 3순위: 최근성 (오래된 것 우선)
+  var lessonHistory = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
+  lessons.sort(function(a, b) {
+    var dateA = lessonHistory[a.id] || '1970-01-01';
+    var dateB = lessonHistory[b.id] || '1970-01-01';
+    return dateA < dateB ? -1 : dateA > dateB ? 1 : 0;
+  });
+
+  var chosen3 = lessons[0];
+  if (chosen3.cards.length > 10) chosen3 = Object.assign({}, chosen3, { cards: chosen3.cards.slice(0, 10) });
+  lessonHistory[chosen3.id] = todayStr();
+  localStorage.setItem('po_v4_lesson_history', JSON.stringify(lessonHistory));
+  return chosen3;
 }
 
 // ----- 메인 buildSession (섀도 모드 분기) -----
@@ -1428,6 +1598,57 @@ function selectCardsForSubject(allCards, targetCount) {
   }
 
   return selected.slice(0, targetCount);
+}
+
+// [v4.10 T6] 독해 카드 스킬 다양성 셔플 + 전이 스킬 우선 배치
+function diversifyBySkillTag(cards) {
+  if (cards.length <= 1) return cards;
+
+  // 전이 가능 스킬을 앞쪽에 배치
+  var transferTags = { 'main-idea': true, 'sequence': true, 'cause-effect': true, 'reference': true };
+  var transferCards = cards.filter(function(c) { return transferTags[c.skillTag || 'fact']; });
+  var otherCards = cards.filter(function(c) { return !transferTags[c.skillTag || 'fact']; });
+
+  // 각 그룹 내에서 같은 skillTag가 연속되지 않도록 재배치
+  function interleave(arr) {
+    var tagged = {};
+    arr.forEach(function(c) {
+      var tag = c.skillTag || 'fact';
+      if (!tagged[tag]) tagged[tag] = [];
+      tagged[tag].push(c);
+    });
+    var result = [];
+    var tagKeys = Object.keys(tagged);
+    var idx = 0;
+    var safety = arr.length * 2;
+    while (result.length < arr.length && safety-- > 0) {
+      var key = tagKeys[idx % tagKeys.length];
+      if (tagged[key] && tagged[key].length > 0) {
+        result.push(tagged[key].shift());
+      }
+      idx++;
+    }
+    return result;
+  }
+
+  return interleave(transferCards).concat(interleave(otherCards));
+}
+
+// [v4.10 T6] 독해 스킬 집계 (부모 화면용 데이터)
+function getSkillTagSummary(cards) {
+  var labels = { 'fact': '사실 확인', 'inference': '추론', 'main-idea': '요지 파악', 'sequence': '순서', 'cause-effect': '원인-결과', 'reference': '지시어' };
+  var counts = {};
+  cards.forEach(function(c) {
+    if (c.subject === 'comprehension') {
+      var tag = c.skillTag || 'fact';
+      counts[tag] = (counts[tag] || 0) + 1;
+    }
+  });
+  var summary = [];
+  Object.keys(counts).forEach(function(tag) {
+    summary.push({ tag: tag, label: labels[tag] || tag, count: counts[tag] });
+  });
+  return summary;
 }
 
 // ===================================================================
@@ -1550,15 +1771,17 @@ function renderCard() {
   var transMsg = document.getElementById('transition-msg');
   var lessonProg = document.getElementById('lesson-progress');
   if (s.prevSubject && s.prevSubject !== card.subject) {
+    // [v4.10] 블록 순서 v3: 영어→독해→언어치료퀴즈→사회→LR→따라읽기
     var blockMessages = {
       comprehension: '영어 끝! 이제 독해 시간이야!',
-      speech_therapy: '독해 끝! 이제 따라읽기 해보자!',
+      speech_therapy: '독해 끝! 이제 말하기 연습 시간이야!',
+      social_studies: '말하기 끝! 이제 사회 시간이야!',
     };
     var pool = APP.phrasePool;
     var msg = '';
     // phrase-pool에서 전환 문구 찾기
     if (pool && pool.transition) {
-      var conditions = { english: 'to_english', comprehension: 'to_comprehension', speech_therapy: 'to_speech_therapy' };
+      var conditions = { english: 'to_english', comprehension: 'to_comprehension', speech_therapy: 'to_speech_therapy', social_studies: 'to_social_studies' };
       var cond = conditions[card.subject];
       var matches = pool.transition.filter(function(t) { return t.condition === cond; });
       if (matches.length > 0) msg = matches[Math.floor(Math.random() * matches.length)].text;
@@ -1632,20 +1855,65 @@ function renderCard() {
   // 질문 텍스트
   html += '<div class="question-area">' + escapeHtml(card.question.text) + '</div>';
 
-  // 선택지 (choice 타입) — 매번 보기 순서 셔플
+  // 선택지 (choice 타입) — [v4.10 T12/T13] questionType 분기
   if (card.answer.type === 'choice') {
-    // 런타임 셔플 (원본 배열은 유지, 표시용만 섞기)
-    var shuffledOpts = card.answer.options.slice();
-    for (var si = shuffledOpts.length - 1; si > 0; si--) {
-      var sj = Math.floor(Math.random() * (si + 1));
-      var tmp = shuffledOpts[si]; shuffledOpts[si] = shuffledOpts[sj]; shuffledOpts[sj] = tmp;
+    var qType = card.questionType || 'mcq';
+
+    if (qType === 'sequence') {
+      // [v4.10 T13] 순서배열
+      var seqOpts = card.answer.options.slice();
+      // 셔플
+      for (var si2 = seqOpts.length - 1; si2 > 0; si2--) {
+        var sj2 = Math.floor(Math.random() * (si2 + 1));
+        var tmp2 = seqOpts[si2]; seqOpts[si2] = seqOpts[sj2]; seqOpts[sj2] = tmp2;
+      }
+      card._seqShuffled = seqOpts;
+      card._seqSelected = [];
+      html += '<div class="choices" id="seq-choices" style="gap:8px;">';
+      seqOpts.forEach(function(opt, i) {
+        html += '<button class="choice-btn seq-item" id="seq-item-' + i + '" onclick="selectSequenceItem(' + i + ')" '
+          + 'style="position:relative; min-height:48px; text-align:left;">'
+          + '<span class="seq-badge" id="seq-badge-' + i + '" style="display:none; position:absolute; left:8px; top:8px; '
+          + 'width:24px; height:24px; border-radius:50%; background:#4A90D9; color:white; font-size:13px; font-weight:700; '
+          + 'line-height:24px; text-align:center;"></span>'
+          + '<span style="margin-left:32px;">' + escapeHtml(opt) + '</span>'
+          + '</button>';
+      });
+      html += '</div>';
+      html += '<div style="display:flex; gap:8px; justify-content:center; margin-top:12px;">';
+      html += '<button class="choice-btn" onclick="resetSequence()" style="background:#f5f5f5; max-width:120px;">초기화</button>';
+      html += '<button class="choice-btn" id="seq-submit" onclick="submitSequence()" style="background:#4A90D9; color:white; max-width:120px;" disabled>확인</button>';
+      html += '</div>';
+
+    } else {
+      // mcq (기존) 또는 binary (2지선다)
+      var optSource = card.answer.options.slice();
+      if (qType === 'binary') {
+        // [v4.10 T12] 2지선다: 처음 2개만 사용
+        optSource = optSource.slice(0, 2);
+      }
+      // 런타임 셔플
+      for (var si = optSource.length - 1; si > 0; si--) {
+        var sj = Math.floor(Math.random() * (si + 1));
+        var tmp = optSource[si]; optSource[si] = optSource[sj]; optSource[sj] = tmp;
+      }
+      card._shuffledOptions = optSource;
+      var btnStyle = qType === 'binary' ? ' style="min-height:60px; font-size:17px;"' : '';
+      html += '<div class="choices">';
+      optSource.forEach(function(opt, i) {
+        html += '<button class="choice-btn" onclick="selectAnswer(' + i + ')"' + btnStyle + '>' + escapeHtml(opt) + '</button>';
+      });
+      html += '</div>';
     }
-    card._shuffledOptions = shuffledOpts;
-    html += '<div class="choices">';
-    shuffledOpts.forEach(function(opt, i) {
-      html += '<button class="choice-btn" onclick="selectAnswer(' + i + ')">' + escapeHtml(opt) + '</button>';
-    });
+  }
+
+  // [v4.10 T14] 도움 받기 버튼 (choice 타입에만, 오답 후 표시)
+  if (card.answer.type === 'choice') {
+    html += '<div id="help-stair-btn-area" style="display:none; text-align:center; margin-top:8px;">';
+    html += '<button class="choice-btn" onclick="advanceHelpStair()" style="background:#FFF3E0; border-color:#FFB74D; max-width:200px; font-size:14px;">도움 받기</button>';
     html += '</div>';
+    // 초기화 도움 계단 상태
+    card._helpStep = 0;
   }
 
   // 녹음 (recording 타입) — 도움 계단 UI (v4.3)
@@ -1733,6 +2001,117 @@ function renderCard() {
 }
 
 // ===================================================================
+// [v4.10 T13] 순서배열 문항 조작
+// ===================================================================
+
+function selectSequenceItem(idx) {
+  var card = APP.session.cards[APP.session.currentIndex];
+  var selected = card._seqSelected || [];
+  var alreadyIdx = selected.indexOf(idx);
+
+  if (alreadyIdx >= 0) {
+    // 이미 선택된 항목 재터치: 해당 순번 이후 모두 해제
+    var removed = selected.splice(alreadyIdx);
+    removed.forEach(function(ri) {
+      var badge = document.getElementById('seq-badge-' + ri);
+      var item = document.getElementById('seq-item-' + ri);
+      if (badge) badge.style.display = 'none';
+      if (item) { item.style.background = 'white'; item.style.borderColor = '#e0e0e0'; }
+    });
+  } else {
+    // 새로 선택
+    selected.push(idx);
+    var badge = document.getElementById('seq-badge-' + idx);
+    var item = document.getElementById('seq-item-' + idx);
+    if (badge) { badge.textContent = selected.length; badge.style.display = 'block'; }
+    if (item) { item.style.background = '#EBF3FC'; item.style.borderColor = '#4A90D9'; }
+  }
+
+  card._seqSelected = selected;
+  var submitBtn = document.getElementById('seq-submit');
+  if (submitBtn) submitBtn.disabled = (selected.length !== card._seqShuffled.length);
+}
+
+function resetSequence() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  var seqOpts = card._seqShuffled || [];
+  card._seqSelected = [];
+  seqOpts.forEach(function(opt, i) {
+    var badge = document.getElementById('seq-badge-' + i);
+    var item = document.getElementById('seq-item-' + i);
+    if (badge) badge.style.display = 'none';
+    if (item) { item.style.background = 'white'; item.style.borderColor = '#e0e0e0'; }
+  });
+  var submitBtn = document.getElementById('seq-submit');
+  if (submitBtn) submitBtn.disabled = true;
+}
+
+function submitSequence() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  var selected = card._seqSelected || [];
+  var shuffled = card._seqShuffled || [];
+  var correctOrder = card.answer.options;
+
+  var userOrder = selected.map(function(idx) { return shuffled[idx]; });
+  var isCorrect = correctOrder.every(function(opt, i) { return opt === userOrder[i]; });
+  var responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
+
+  APP.session.totalAttempts++;
+  updateCardState(card.id, isCorrect);
+
+  if (!APP.session.subjectStats[card.subject]) {
+    APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
+  }
+  APP.session.subjectStats[card.subject].total++;
+  card._correct = isCorrect;
+
+  // 버튼 UI: 정답 순서 표시
+  var seqItems = document.querySelectorAll('.seq-item');
+  seqItems.forEach(function(item) { item.disabled = true; });
+  document.getElementById('seq-submit').disabled = true;
+
+  // 피드백
+  var fb = document.getElementById('feedback');
+  if (isCorrect) {
+    APP.session.correctCount++;
+    APP.session.subjectStats[card.subject].correct++;
+    fb.textContent = getRandomPhrase('praise_correct');
+    fb.className = 'feedback correct';
+    // 정답 순서 뱃지를 녹색으로
+    selected.forEach(function(idx) {
+      var item = document.getElementById('seq-item-' + idx);
+      if (item) item.style.background = '#E8F5E9';
+    });
+  } else {
+    fb.textContent = getRandomPhrase('encouragement');
+    fb.className = 'feedback incorrect';
+    // 틀린 항목 빨간 표시
+    selected.forEach(function(idx, i) {
+      var item = document.getElementById('seq-item-' + idx);
+      if (item && shuffled[idx] !== correctOrder[i]) {
+        item.style.background = '#FFEBEE';
+      }
+    });
+  }
+  fb.style.display = 'block';
+
+  logEvent('card_attempt', {
+    cardId: card.id, subject: card.subject,
+    correct: isCorrect, responseTime: responseTime,
+    questionType: 'sequence'
+  });
+
+  if (isCorrect) {
+    setTimeout(function() {
+      APP.session.currentIndex++;
+      renderCard();
+    }, 1000);
+  } else {
+    showWrongExplanation(card, userOrder.join(' → '));
+  }
+}
+
+// ===================================================================
 // 정오답 판정
 // ===================================================================
 
@@ -1743,6 +2122,7 @@ function selectAnswer(selectedIdx) {
   const correctIdx = displayOptions.indexOf(card.answer.correct);
   const isCorrect = selectedIdx === correctIdx;
   const responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
+  card._correct = isCorrect; // [v4.10] 역할별 집계용
 
   APP.session.totalAttempts++;
 
@@ -1789,9 +2169,108 @@ function selectAnswer(selectedIdx) {
       renderCard();
     }, 1000);
   } else {
-    // 오답: 해설 표시 + "다음" 버튼 수동 클릭
+    // 오답: 해설 표시 + "다음" 버튼 수동 클릭 + 도움 받기 버튼 표시
     var selectedText = displayOptions[selectedIdx] || '';
     showWrongExplanation(card, selectedText);
+    // [v4.10 T14] 도움 받기 버튼 표시
+    var helpBtnArea = document.getElementById('help-stair-btn-area');
+    if (helpBtnArea) helpBtnArea.style.display = 'block';
+  }
+}
+
+// [v4.10 T14] 도움 계단 5단계 통일
+function advanceHelpStair() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  if (!card) return;
+  card._helpStep = (card._helpStep || 0) + 1;
+  var step = card._helpStep;
+  var qType = card.questionType || 'mcq';
+
+  logEvent('help_stair_advance', { cardId: card.id, step: step, questionType: qType });
+
+  if (step === 1) {
+    // 1단계: 다시 듣기 (동일 속도 TTS)
+    playTTS(card.id);
+
+  } else if (step === 2) {
+    // 2단계: 느린 TTS
+    var slowRate = (APP.config && APP.config.helpStairs && APP.config.helpStairs.step3_ttsRate) || 0.85;
+    playTTS(card.id, slowRate);
+
+  } else if (step === 3) {
+    // 3단계: 하이라이트 — 문항 유형별 분기
+    if (qType === 'mcq' || qType === 'binary') {
+      // 오답 1~2개 흐리게
+      var buttons = document.querySelectorAll('.choice-btn');
+      var correct = card.answer.correct;
+      var dimmed = 0;
+      buttons.forEach(function(btn) {
+        if (btn.textContent !== correct && !btn.classList.contains('incorrect') && dimmed < 2) {
+          btn.style.opacity = '0.3';
+          btn.disabled = true;
+          dimmed++;
+        }
+      });
+    } else if (qType === 'sequence') {
+      // 순서배열: 첫 항목 힌트
+      var firstCorrect = card.answer.options[0];
+      var seqItems = document.querySelectorAll('.seq-item');
+      seqItems.forEach(function(item) {
+        if (item.textContent.trim().indexOf(firstCorrect) >= 0) {
+          item.style.border = '3px solid #4CAF50';
+        }
+      });
+    }
+
+  } else if (step === 4) {
+    // 4단계: 정답 하이라이트
+    if (qType === 'mcq' || qType === 'binary') {
+      var buttons2 = document.querySelectorAll('.choice-btn');
+      buttons2.forEach(function(btn) {
+        if (btn.textContent === card.answer.correct) {
+          btn.style.background = '#C8E6C9';
+          btn.style.border = '3px solid #4CAF50';
+          btn.style.fontWeight = '700';
+        }
+      });
+    } else if (qType === 'sequence') {
+      // 절반 순서 표시
+      var half = Math.ceil(card.answer.options.length / 2);
+      var fb = document.getElementById('feedback');
+      if (fb) {
+        fb.textContent = '순서 힌트: ' + card.answer.options.slice(0, half).join(' → ') + ' → ...';
+        fb.className = 'feedback';
+        fb.style.display = 'block';
+      }
+    }
+
+  } else if (step >= 5) {
+    // 5단계: 정답 모델 제시 → 무오류 완료
+    var fb2 = document.getElementById('feedback');
+    if (fb2) {
+      fb2.textContent = '정답: ' + card.answer.correct;
+      fb2.className = 'feedback correct';
+      fb2.style.display = 'block';
+    }
+    // 도움 완료 → 다음으로 (consecutiveCorrect 미증가)
+    card._helpCompleted = true;
+    updateCardState(card.id, false); // 숙달 미증가
+    var helpBtnArea = document.getElementById('help-stair-btn-area');
+    if (helpBtnArea) helpBtnArea.style.display = 'none';
+    setTimeout(function() {
+      APP.session.currentIndex++;
+      renderCard();
+    }, 2000);
+    return;
+  }
+
+  // 도움 단계 피드백
+  var labels = ['', '다시 들어봐!', '천천히 들어봐!', '힌트를 줄게!', '거의 다 왔어!'];
+  var fb3 = document.getElementById('feedback');
+  if (fb3 && labels[step]) {
+    fb3.textContent = labels[step];
+    fb3.className = 'feedback';
+    fb3.style.display = 'block';
   }
 }
 
@@ -2667,11 +3146,15 @@ async function lrProcessAttempt() {
 
   if (result.level === 'match' || result.score >= threshold) {
     // 성공
+    // [v4.10 T11] 이중 기준: passed(아이 0.45) + strictPassed(치료 0.7)
+    var strictThreshold = 0.7;
     lrState.results.push({
       cardId: card.cardId || card.id,
       reachedStage: lrState.currentStage,
       matchScore: result.score,
-      sttTranscript: sttResult
+      sttTranscript: sttResult,
+      passed: true,
+      strictPassed: result.score >= strictThreshold
     });
 
     revealLrItem(lrState.currentIndex);
@@ -2703,11 +3186,14 @@ async function lrProcessAttempt() {
   } else if (lrState.currentStage === 2) {
     // 2단계 실패 → 3단계
     lrState.currentStage = 3;
+    // [v4.10 T11] 이중 기준
     lrState.results.push({
       cardId: card.cardId || card.id,
       reachedStage: 3,
       matchScore: result.score,
-      sttTranscript: sttResult
+      sttTranscript: sttResult,
+      passed: result.score >= threshold,
+      strictPassed: result.score >= 0.7
     });
 
     // 블러 해제 + 어절 블록
@@ -2817,19 +3303,67 @@ var raState = {
 };
 
 // 블록 전체 렌더러
+// [v4.10 T16] 레슨을 chunk로 분할
+function chunkLesson(cards, chunkSize) {
+  chunkSize = chunkSize || 3;
+  var chunks = [];
+  for (var i = 0; i < cards.length; i += chunkSize) {
+    chunks.push(cards.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
+
+function getReadAloudProgress(lessonId) {
+  var all = JSON.parse(localStorage.getItem('po_v4_readAloudProgress') || '{}');
+  return all[lessonId] || null;
+}
+
+function saveReadAloudProgress(lessonId, progress) {
+  var all = JSON.parse(localStorage.getItem('po_v4_readAloudProgress') || '{}');
+  all[lessonId] = progress;
+  localStorage.setItem('po_v4_readAloudProgress', JSON.stringify(all));
+}
+
+function completeChunk(lessonId, chunkIndex, totalChunks) {
+  var progress = getReadAloudProgress(lessonId) || {
+    chunkIndex: 0, completedChunks: [], lastSessionDate: ''
+  };
+  if (progress.completedChunks.indexOf(chunkIndex) < 0) {
+    progress.completedChunks.push(chunkIndex);
+  }
+  progress.chunkIndex = chunkIndex + 1;
+  progress.lastSessionDate = new Date().toISOString().split('T')[0];
+  if (progress.chunkIndex >= totalChunks) {
+    progress.chunkIndex = 0; // 리셋: 다음 세션에서 처음부터
+    progress.completedChunks = [];
+  }
+  saveReadAloudProgress(lessonId, progress);
+}
+
 function renderReadAloudBlock() {
   var s = APP.session;
   var idx = s.currentIndex;
 
   // 1. 연속된 read-aloud 카드 수집
-  raState.cards = [];
+  var allRaCards = [];
   raState.sessionStartIndex = idx;
   for (var i = idx; i < s.cards.length; i++) {
     if (s.cards[i]._blockType === 'read-aloud') {
-      raState.cards.push(s.cards[i]);
+      allRaCards.push(s.cards[i]);
     } else break;
   }
-  if (raState.cards.length === 0) { s.currentIndex++; renderCard(); return; }
+  if (allRaCards.length === 0) { s.currentIndex++; renderCard(); return; }
+
+  // [v4.10 T16] chunk 분할 + 진행률 복원
+  var lessonId = allRaCards[0]._lessonId || '';
+  var chunks = chunkLesson(allRaCards, 3);
+  var progress = lessonId ? getReadAloudProgress(lessonId) : null;
+  var currentChunkIdx = (progress && progress.chunkIndex < chunks.length) ? progress.chunkIndex : 0;
+  raState.cards = chunks[currentChunkIdx] || chunks[0];
+  raState._allRaCards = allRaCards;
+  raState._chunks = chunks;
+  raState._currentChunkIdx = currentChunkIdx;
+  raState._lessonId = lessonId;
 
   raState.currentIndex = 0;
   raState.results = [];
@@ -3048,6 +3582,8 @@ async function raToggleRecording() {
         if (feedbackEl) feedbackEl.textContent = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
 
         raState.results.push({ index: raState.currentIndex, matchScore: match.score });
+        // [v4.10 T7] 줄별 결과 저장 (성공)
+        if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, true);
         setTimeout(function() {
           if (feedbackEl) feedbackEl.textContent = '';
           raAdvance();
@@ -3065,6 +3601,8 @@ async function raToggleRecording() {
           card._sttPending = true;
           if (feedbackEl) feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
           raState.results.push({ index: raState.currentIndex, matchScore: match.score, pending: true });
+          // [v4.10 T7] 줄별 결과 저장 (ambiguous 3회 실패)
+          if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, false);
           setTimeout(function() {
             if (feedbackEl) feedbackEl.textContent = '';
             raAdvance();
@@ -3080,6 +3618,8 @@ async function raToggleRecording() {
           card._sttPending = true;
           if (feedbackEl) feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
           raState.results.push({ index: raState.currentIndex, matchScore: match.score, pending: true });
+          // [v4.10 T7] 줄별 결과 저장 (mismatch 3회 실패)
+          if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, false);
           logEvent('stt_card_pending', {
             cardId: card.id, attempts: card._observation ? card._observation.attemptNumber : 0,
             consecutiveMismatch: consecutiveMismatch
@@ -3234,6 +3774,8 @@ function raSkipLine() {
   if (card._observation) card._observation.skipped = true;
 
   raState.results.push({ index: raState.currentIndex, skipped: true });
+  // [v4.10 T7] 줄별 결과 저장 (스킵)
+  if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, false);
   raAdvance();
 }
 
@@ -3271,8 +3813,12 @@ function raAdvance() {
   if (raState.currentIndex < raState.cards.length - 1) {
     raStartLine(raState.currentIndex + 1);
   } else {
-    // 블록 완료 → 세션 인덱스 이동
-    APP.session.currentIndex = raState.sessionStartIndex + raState.cards.length;
+    // [v4.10 T16] chunk 완료 → 진행률 저장
+    if (raState._lessonId && raState._chunks) {
+      completeChunk(raState._lessonId, raState._currentChunkIdx, raState._chunks.length);
+    }
+    // 블록 완료 → 세션 인덱스 이동 (전체 RA 카드 길이만큼)
+    APP.session.currentIndex = raState.sessionStartIndex + (raState._allRaCards || raState.cards).length;
     renderCard();
   }
 }
@@ -3639,6 +4185,88 @@ function buildObservationSummary() {
 }
 
 // ===================================================================
+// [v4.10 T4] PIN / 부모 모드
+// ===================================================================
+
+function openParentMode() {
+  // 5분 이내 재입력 불필요
+  var unlocked = sessionStorage.getItem('po_v4_parent_unlocked');
+  if (unlocked && (Date.now() - parseInt(unlocked)) < 300000) {
+    showParentResult();
+    return;
+  }
+  var pin = localStorage.getItem('po_v4_parent_pin');
+  var modal = document.getElementById('pin-modal');
+  var title = document.getElementById('pin-title');
+  document.getElementById('pin-input').value = '';
+  document.getElementById('pin-error').textContent = '';
+  if (!pin) {
+    title.textContent = 'PIN 설정 (4자리)';
+  } else {
+    title.textContent = '부모 PIN 입력';
+  }
+  modal.style.display = 'flex';
+  document.getElementById('pin-input').focus();
+}
+
+function closePinModal() {
+  document.getElementById('pin-modal').style.display = 'none';
+}
+
+function submitPin() {
+  var input = document.getElementById('pin-input').value;
+  if (input.length !== 4 || !/^\d{4}$/.test(input)) {
+    document.getElementById('pin-error').textContent = '4자리 숫자를 입력하세요';
+    return;
+  }
+  var stored = localStorage.getItem('po_v4_parent_pin');
+  if (!stored) {
+    localStorage.setItem('po_v4_parent_pin', input);
+    sessionStorage.setItem('po_v4_parent_unlocked', String(Date.now()));
+    closePinModal();
+    showParentResult();
+    return;
+  }
+  if (input === stored) {
+    sessionStorage.setItem('po_v4_parent_unlocked', String(Date.now()));
+    closePinModal();
+    showParentResult();
+  } else {
+    document.getElementById('pin-error').textContent = 'PIN이 틀렸습니다';
+  }
+}
+
+function showParentResult() {
+  document.getElementById('child-result').style.display = 'none';
+  document.getElementById('parent-result').style.display = 'block';
+}
+
+// [v4.10 T5] 역할별 아이 메시지 생성
+function buildChildSummary(roleStats) {
+  var anchorData = getAnchorData();
+  var anchors = anchorData.anchors || {};
+  var lines = [];
+  if (roleStats['curriculum-recall'] && roleStats['curriculum-recall'].total > 0) {
+    var engAnchor = anchors['school-english'] || '';
+    var socAnchor = anchors['school-social'] || '';
+    if (engAnchor) {
+      lines.push(engAnchor + ' 수업 내용을 다시 봤어');
+    } else if (socAnchor) {
+      lines.push(socAnchor + ' 수업 내용을 다시 봤어');
+    } else {
+      lines.push('수업 복습을 했어');
+    }
+  }
+  if (roleStats['reading-transfer'] && roleStats['reading-transfer'].total > 0) {
+    lines.push('읽기 방법을 연습했어');
+  }
+  if (roleStats['review-stabilize'] && roleStats['review-stabilize'].total > 0) {
+    lines.push('말하기 연습을 복습했어');
+  }
+  return lines.length > 0 ? '오늘은 ' + lines.join(', ') + '!' : '';
+}
+
+// ===================================================================
 // 세션 종료
 // ===================================================================
 
@@ -3653,9 +4281,16 @@ async function endSession() {
   // v4.6: listen-repeat 블록 통계
   var lrResults = lrState.results || [];
   if (lrResults.length > 0) {
+    // [v4.10 T11] 이중 기준 집계
+    var lrPassedCount = lrResults.filter(function(r) { return r.passed; }).length;
+    var lrStrictCount = lrResults.filter(function(r) { return r.strictPassed; }).length;
     s.subjectStats.listen_repeat = {
       total: lrResults.length,
       correct: lrResults.filter(function(r) { return r.reachedStage <= 2; }).length,
+      passedRate: lrResults.length > 0 ? Math.round((lrPassedCount / lrResults.length) * 100) : 0,
+      strictRate: lrResults.length > 0 ? Math.round((lrStrictCount / lrResults.length) * 100) : 0,
+      passedCount: lrPassedCount,
+      strictCount: lrStrictCount
     };
     s.totalAttempts += lrResults.length;
     s.correctCount += lrResults.filter(function(r) { return r.reachedStage <= 2; }).length;
@@ -3693,10 +4328,30 @@ async function endSession() {
   updateStreak();
   document.getElementById('stat-streak').textContent = APP.progress.stats.streak + '일';
 
-  // 완료 메시지
-  document.getElementById('complete-message').textContent = getRandomPhrase('completion');
+  // [v4.10 T4] 수행 중심 칭찬 (정답률 미노출)
+  var childPraises = [
+    '오늘 열심히 했어! 대단해!',
+    '어려운 것도 끝까지 해냈네!',
+    '오늘도 멋지게 해냈어!',
+    '끝까지 집중했어, 최고야!'
+  ];
+  document.getElementById('complete-message').textContent = childPraises[Math.floor(Math.random() * childPraises.length)];
 
-  // 과목별 정답률
+  // [v4.10 T4] 아이 화면 초기화 (부모 화면 숨기기)
+  document.getElementById('child-result').style.display = 'block';
+  document.getElementById('parent-result').style.display = 'none';
+
+  // [v4.10 T4] 아이 화면: 과목별 체크마크
+  var subjectIcons = { english: '📖 영어', comprehension: '📚 독해', social_studies: '🌍 사회', speech_therapy: '🗣️ 말하기', listen_repeat: '🎧 듣기' };
+  var subjectsUsed = {};
+  s.cards.forEach(function(c) { if (c.subject) subjectsUsed[c.subject] = true; });
+  var checksHtml = '';
+  for (var subj in subjectsUsed) {
+    checksHtml += '<span style="background:#E8F5E9; padding:6px 12px; border-radius:16px; font-size:14px;">' + (subjectIcons[subj] || subj) + ' ✓</span>';
+  }
+  document.getElementById('child-subject-checks').innerHTML = checksHtml;
+
+  // 과목별 정답률 (부모 화면용)
   const breakdownEl = document.getElementById('subject-breakdown');
   const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기' };
   let breakdownHtml = '';
@@ -3754,11 +4409,74 @@ async function endSession() {
     obsSummaryEl.style.display = 'none';
   }
 
+  // [v4.10 T3] 세션 히스토리 저장 (확장 모드 판정용)
+  var sessionHistory = JSON.parse(localStorage.getItem('po_v4_session_history') || '[]');
+  sessionHistory.push({
+    date: new Date().toISOString(),
+    completionRate: s.totalAttempts > 0 ? s.correctCount / s.totalAttempts : 0,
+    durationMinutes: duration / 60,
+    cardCount: s.cards.length
+  });
+  if (sessionHistory.length > 10) sessionHistory.shift();
+  localStorage.setItem('po_v4_session_history', JSON.stringify(sessionHistory));
+
+  // [v4.10 T3] 역할별 집계 (부모 화면용)
+  var roleLabels = { 'curriculum-recall': '수업 복습', 'reading-transfer': '읽기 전이', 'review-stabilize': '복습 안정화' };
+  var roleStats = {};
+  s.cards.forEach(function(card) {
+    var role = card._role || 'review-stabilize';
+    if (!roleStats[role]) roleStats[role] = { total: 0, correct: 0 };
+    roleStats[role].total++;
+    if (card._correct) roleStats[role].correct++;
+  });
+  var roleHtml = '';
+  for (var role in roleStats) {
+    var rs = roleStats[role];
+    roleHtml += '<div class="subject-stat"><span class="label">' + (roleLabels[role] || role) + '</span>'
+      + '<span>' + rs.correct + '/' + rs.total + '</span></div>';
+  }
+  if (roleHtml) {
+    breakdownHtml += '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>역할별</span><span></span></div>'
+      + roleHtml + '</div>';
+    breakdownEl.innerHTML = breakdownHtml;
+  }
+
+  // [v4.10 T5] 아이용 역할 요약 메시지
+  var childSummaryMsg = buildChildSummary(roleStats);
+  if (childSummaryMsg) {
+    document.getElementById('child-role-summary').textContent = childSummaryMsg;
+  }
+
+  // [v4.10 T6] 독해 스킬 요약 (부모 화면용)
+  var skillSummary = getSkillTagSummary(s.cards);
+  if (skillSummary.length > 0) {
+    var skillHtml = '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>오늘 연습한 읽기 기술</span><span></span></div>';
+    skillSummary.forEach(function(item) {
+      skillHtml += '<div class="subject-stat"><span class="label">' + item.label + '</span><span>' + item.count + '장</span></div>';
+    });
+    skillHtml += '</div>';
+    breakdownEl.innerHTML += skillHtml;
+  }
+
+  // [v4.10 T11] 부모 화면: LR 이중 기준 통계
+  if (s.subjectStats.listen_repeat && s.subjectStats.listen_repeat.total > 0) {
+    var lrSt = s.subjectStats.listen_repeat;
+    var lrDualHtml = '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>듣고말하기 성공률</span><span></span></div>'
+      + '<div class="subject-stat"><span class="label">아이 기준 (0.45)</span><span>' + lrSt.passedRate + '% (' + lrSt.passedCount + '/' + lrSt.total + ')</span></div>'
+      + '<div class="subject-stat"><span class="label">치료 기준 (0.7)</span><span>' + lrSt.strictRate + '% (' + lrSt.strictCount + '/' + lrSt.total + ')</span></div>'
+      + '</div>';
+    breakdownEl.innerHTML += lrDualHtml;
+  }
+
   // 로그
   logEvent('session_end', {
     mode: 'A', duration: duration, correct: s.correctCount,
     total: s.totalAttempts, accuracy: accuracy,
     subjectStats: s.subjectStats,
+    roleStats: roleStats,
   });
 
   // 앱 진도 업데이트
@@ -4017,7 +4735,8 @@ function initAnchorUI() {
   var anchorTypes = (cfg && cfg.anchorTypes) || [
     { id: 'speech-therapy', label: '차병원 숙제', inputType: 'text' },
     { id: 'school-english', label: '학교 영어', inputType: 'dropdown', options: ['1단원','2단원','3단원','4단원','5단원','6단원','7단원','8단원','9단원','10단원','11단원','12단원'] },
-    { id: 'reading', label: '독서', inputType: 'dropdown_or_text', options: [] }
+    { id: 'reading', label: '독서', inputType: 'dropdown_or_text', options: [] },
+    { id: 'school-social', label: '학교 사회', inputType: 'dropdown', options: ['세계 여러 나라의 자연환경','세계 여러 나라의 문화','지속 가능한 지구촌','우리나라의 경제 발전','우리나라의 정치 발전','우리나라와 가까운 나라들','세계 속의 우리나라'] }
   ];
 
   var data = getAnchorData();
@@ -4093,7 +4812,8 @@ function saveAnchors() {
   var anchorTypes = (cfg && cfg.anchorTypes) || [
     { id: 'speech-therapy', inputType: 'text' },
     { id: 'school-english', inputType: 'dropdown' },
-    { id: 'reading', inputType: 'dropdown_or_text' }
+    { id: 'reading', inputType: 'dropdown_or_text' },
+    { id: 'school-social', inputType: 'dropdown' }
   ];
 
   var data = getAnchorData();

@@ -1599,6 +1599,426 @@
       "rules": [],
       "pedagogyNote": "동물 사육 관련 어휘. 합성어 구조 이해로 의미 추론 능력 향상.",
       "wrongExplanation": "닭을 기르는 집이야. '닭'의 받침이 'ㄺ'인 거 기억하지? 겹받침을 살려서 써야 해."
+    },
+    {
+      "cardId": "crd_2026W13_sth_001",
+      "sourceRef": "speech-therapy/260319/consultation/word-addition",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-상담내용",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "아이가 '크게 보여주는 망원경'이라고 했는데, 앞에 뭘 더 붙였나요?",
+        "ttsText": "크게 보여주는 망원경"
+      },
+      "answer": {
+        "correct": "물체를",
+        "options": [
+          "물체를",
+          "것을",
+          "상자를"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "망원경으로 뭘 봐야 하는지 아이가 알고 있었어"
+      },
+      "skillTags": [
+        "청각기억력",
+        "문장추가"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "아이가 문장을 받아말할 때 목적어를 임의로 추가하는 경향. 이는 청각 기억력 약함과 자동 추론의 혼합. 형/누나 톤으로 친절히 설명.",
+      "wrongExplanation": {
+        "text": "아이가 자기가 알고 있는 것 같아서 앞에 '물체를'이라고 붙인 거야. 망원경은 물체를 크게 봐야 하니까 맞게 생각한 거지! 근데 주어진 문장을 그대로 따라하는 게 더 좋아."
+      },
+      "ttsText": "크게 보여주는 망원경",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_002",
+      "sourceRef": "speech-therapy/260319/consultation/word-substitution-1",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-상담내용",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "선생님이 읽어준 문장을 아이가 처음 들었을 때 어떻게 말했나요?",
+        "ttsText": "안녕하세요"
+      },
+      "answer": {
+        "correct": "안녕 찜그랑 한 푼 동전 등",
+        "options": [
+          "안녕 찜그랑 한 푼 동전 등",
+          "안녕하세요",
+          "안녕 한 무더기 동전"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "아이가 잘못 들었거나 비슷하게 들린 거라고 생각해봐"
+      },
+      "skillTags": [
+        "청각기억력",
+        "음운혼동"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.85,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "청각 처리 어려움으로 인한 심각한 오류. 단어를 전혀 다르게 인지. 이는 청각 기억력 훈련의 필요성을 보여줌.",
+      "wrongExplanation": {
+        "text": "아이가 들은 소리를 그렇게 이해했나봐. 비슷하게 들리는 소리들이라서 헷갈린 거야. 이래서 자꾸 반복해서 들으면서 연습하는 게 중요해!"
+      },
+      "ttsText": "안녕하세요",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_003",
+      "sourceRef": "speech-therapy/260319/consultation/sound-confusion-1",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-상담내용",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "'피아니스트가 피아노를 쳐요'는 어떻게 되나요?",
+        "ttsText": "피아니스트가 피아노를 쳐요"
+      },
+      "answer": {
+        "correct": "피아니스트가 피아노를 쳐요",
+        "options": [
+          "피아니스트가 피아노를 쳐요",
+          "파아니스트가 파아노를 쳐요",
+          "피아노가 피아니스트를 쳐요"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "악기 이름과 악기를 다루는 사람을 구분해서 생각해봐"
+      },
+      "skillTags": [
+        "단어인식",
+        "주어목적어구분"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "문장 구조 이해와 주요 단어 분별. 비교적 명확한 단어들이므로 정확히 인지 가능.",
+      "wrongExplanation": {
+        "text": "'피아니스트'는 피아노를 치는 사람이야. 사람이 악기를 치는 거니까 이렇게 해야 맞아!"
+      },
+      "ttsText": "피아니스트가 피아노를 쳐요",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_004",
+      "sourceRef": "speech-therapy/260319/consultation/auditory-memory-definition",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-상담내용",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "언어치료사가 중요하다고 말한 능력은 뭘까요?",
+        "ttsText": "청각 기억력"
+      },
+      "answer": {
+        "correct": "청각 기억력",
+        "options": [
+          "청각 기억력",
+          "시각 기억력",
+          "쓰기 능력"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "귀로 들은 것을 머리에 잘 간직하는 거야"
+      },
+      "skillTags": [
+        "학습전략",
+        "용어이해"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "상담 내용의 핵심 개념 인지. 아이가 왜 이 훈련을 하는지 이해하도록 도움.",
+      "wrongExplanation": {
+        "text": "'청각 기억력'은 귀로 들은 것을 기억하는 능력이야. 상대방 말을 듣고 그대로 따라하거나 이해하려면 이게 중요해!"
+      },
+      "ttsText": "청각 기억력",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_005",
+      "sourceRef": "speech-therapy/260319/consultation/homework-assignment",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-상담내용",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "이번 숙제는 뭘까요?",
+        "ttsText": "숙제"
+      },
+      "answer": {
+        "correct": "부모가 문장을 읽어주고 아이가 글자를 보지 않고 따라말하기",
+        "options": [
+          "부모가 문장을 읽어주고 아이가 글자를 보지 않고 따라말하기",
+          "아이가 문장을 혼자 읽고 외우기",
+          "부모가 문장을 여러 번 써서 보여주기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "귀로만 듣고 따라해야 청각 기억력이 늘어"
+      },
+      "skillTags": [
+        "학습방법",
+        "부모역할"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "부모의 역할과 아이의 학습 목표를 명확히 설명. 글자를 보지 않는 것의 중요성 강조.",
+      "wrongExplanation": {
+        "text": "글자를 보면서 하면 청각 기억력이 안 커. 부모 목소리만 듣고 똑같이 말해야 귀가 발달하는 거야!"
+      },
+      "ttsText": "숙제",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_006",
+      "sourceRef": "speech-therapy/260319/dictation/word-addition-pattern",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-쓰기",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "아이가 문장을 받아 적을 때 자주 하는 실수는 뭘까요?",
+        "ttsText": "단어 추가 또는 생략"
+      },
+      "answer": {
+        "correct": "단어를 추가하거나 생략함",
+        "options": [
+          "단어를 추가하거나 생략함",
+          "낱자를 빠뜨림",
+          "조사를 바꿈"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "들은 것에 자기 생각을 섞어서 쓴다고 생각해봐"
+      },
+      "skillTags": [
+        "오류분석",
+        "청각기억"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.88,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "아이의 주요 오류 패턴 인식. 이것이 청각 기억력 부족에서 비롯되는 것을 이해하도록 함.",
+      "wrongExplanation": {
+        "text": "아이가 이미지를 그려가며 자기가 알고 있는 단어를 더해서 쓰는 거야. 이건 나쁜 거 아니고 뇌가 열심히 일하는 증거야! 근데 '소리 나는 대로'를 하는 훈련을 하려면 여기서 멈춰야 해."
+      },
+      "ttsText": "단어 추가 또는 생략",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_007",
+      "sourceRef": "speech-therapy/260319/psychological-evaluation",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-심리평가",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "심리 검사에서 나타난 아이의 약점은 뭘까요?",
+        "ttsText": "청각 단기 기억"
+      },
+      "answer": {
+        "correct": "청각 단기 기억이 낮음",
+        "options": [
+          "청각 단기 기억이 낮음",
+          "읽기 속도가 느림",
+          "집중력이 부족함"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "잠깐 동안 귀로 들은 것을 기억하는 능력이야"
+      },
+      "skillTags": [
+        "평가이해",
+        "자기인식"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.92,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "심리평가 결과 이해와 그에 따른 훈련의 필요성 연결.",
+      "wrongExplanation": {
+        "text": "단기 기억은 방금 들은 것을 금방 잊는 거야. 그래서 자꾸 반복해서 듣고 말해야 장기 기억으로 넘어가는 거야!"
+      },
+      "ttsText": "청각 단기 기억",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_008",
+      "sourceRef": "speech-therapy/260319/learning-importance",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-학습원리",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "청각 기억력이 학습에서 중요한 이유는 뭘까요?",
+        "ttsText": "상대방 말을 듣고 이해하기"
+      },
+      "answer": {
+        "correct": "상대방의 말을 듣고 이해해서 대답할 수 있게 하기",
+        "options": [
+          "상대방의 말을 듣고 이해해서 대답할 수 있게 하기",
+          "빠르게 읽기 위해서",
+          "글을 아름답게 쓰기 위해서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "학교에서 선생님 말씀을 이해하고 대답해야 하잖아"
+      },
+      "skillTags": [
+        "학습전략",
+        "의사소통"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.9,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "청각 기억력의 실제 학습 가치 이해. 학교생활과의 연결성 명확히.",
+      "wrongExplanation": {
+        "text": "선생님이 말씀하는 것을 듣고 그걸 기억해서 이해하고 또 대답해야 하잖아. 그게 학교에서 가장 중요한 능력이야!"
+      },
+      "ttsText": "상대방 말을 듣고 이해하기",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_009",
+      "sourceRef": "speech-therapy/260319/practice-importance",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-훈련방법",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "청각 기억력을 키우려면 어떻게 해야 할까요?",
+        "ttsText": "반복 연습"
+      },
+      "answer": {
+        "correct": "계속 반복해서 연습하기",
+        "options": [
+          "계속 반복해서 연습하기",
+          "한 번 크게 들으면 되기",
+          "책으로 여러 번 읽기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "뭐든 반복해야 익숙해지잖아"
+      },
+      "skillTags": [
+        "학습태도",
+        "인내심"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "반복 학습의 중요성. 인내심 있게 꾸준히 훈련하도록 격려.",
+      "wrongExplanation": {
+        "text": "한 번으로는 부족해. 자꾸 반복해서 들으니까 우리 뇌가 '아, 이 소리구나!' 하고 기억하게 되는 거야!"
+      },
+      "ttsText": "반복 연습",
+      "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W13_sth_010",
+      "sourceRef": "speech-therapy/260319/consultation/subject-object-confusion",
+      "runId": "2026-W13",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-상담내용",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "아이가 가끔 주어와 목적어를 바꾸는 경우가 있다고 했어요. 어떤 예를 들었을까요?",
+        "ttsText": "주어와 목적어 바꾸기"
+      },
+      "answer": {
+        "correct": "내가 얘를 때렸는데 '민수가 때렸다'고 말하는 경우",
+        "options": [
+          "내가 얘를 때렸는데 '민수가 때렸다'고 말하는 경우",
+          "시간을 말하는 것을 인물로 말하는 경우",
+          "색깔을 말하는 것을 물건으로 말하는 경우"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "내 이야기를 다른 사람 이야기로 바꾸는 거"
+      },
+      "skillTags": [
+        "문법이해",
+        "대화기술"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "confidence": 0.85,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "pedagogyNote": "복잡한 문장 구조 이해 어려움을 보여주는 사례. 주어-목적어 명확화 훈련의 필요성.",
+      "wrongExplanation": {
+        "text": "청각으로 들을 때 '나'와 '민수'를 헷갈리는 거야. 깨끗이 구분해서 들으려면 이런 문장을 자꾸 따라해야 해!"
+      },
+      "ttsText": "주어와 목적어 바꾸기",
+      "parentOnly": true
     }
   ],
   "listenRepeatCards": [
@@ -1862,12 +2282,12 @@
       "anchorWeek": "2026-W13",
       "sourceUnit": "260319",
       "runId": "2026-W13",
-      "text": "오토바이는 비행기보다는 느리지",
+      "text": "오토바이는 비행기보다 느리지",
       "syllableCount": 14,
       "level": 2,
       "difficulty": 2,
       "ttsLang": "ko",
-      "ttsText": "오토바이는 비행기보다는 느리지",
+      "ttsText": "오토바이는 비행기보다 느리지",
       "skillTags": [
         "청각기억",
         "문장따라말하기"
@@ -1883,12 +2303,12 @@
       "anchorWeek": "2026-W13",
       "sourceUnit": "260319",
       "runId": "2026-W13",
-      "text": "내려야할 정류장을 지나쳐서",
+      "text": "내려야 할 정류장을 지나쳐서",
       "syllableCount": 12,
       "level": 2,
       "difficulty": 2,
       "ttsLang": "ko",
-      "ttsText": "내려야할 정류장을 지나쳐서",
+      "ttsText": "내려야 할 정류장을 지나쳐서",
       "skillTags": [
         "청각기억",
         "문장따라말하기"
@@ -1916,6 +2336,258 @@
       ],
       "reviewStatus": "approved",
       "validationStatus": "pass"
+    },
+    {
+      "cardId": "crd_2026W13_lr_001",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "살금살금 다가가서 화들짝 놀라게",
+      "syllableCount": 14,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "살금살금 다가가서 화들짝 놀라게",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_001"
+    },
+    {
+      "cardId": "crd_2026W13_lr_002",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "외할머니께 연세를 여쭤봐",
+      "syllableCount": 11,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "외할머니께 연세를 여쭤봐",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_002"
+    },
+    {
+      "cardId": "crd_2026W13_lr_003",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "노란 바탕에 까만 점과 줄무늬",
+      "syllableCount": 12,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "노란 바탕에 까만 점과 줄무늬",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_003"
+    },
+    {
+      "cardId": "crd_2026W13_lr_004",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "함께 떠난 제주도 여행",
+      "syllableCount": 9,
+      "level": 1,
+      "ttsLang": "ko",
+      "ttsText": "함께 떠난 제주도 여행",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_004"
+    },
+    {
+      "cardId": "crd_2026W13_lr_005",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "비가 내리면 비행기는 뜰까",
+      "syllableCount": 11,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "비가 내리면 비행기는 뜰까",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_005"
+    },
+    {
+      "cardId": "crd_2026W13_lr_006",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "피아니스트가 피아노를 쳐요",
+      "syllableCount": 12,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "피아니스트가 피아노를 쳐요",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_006"
+    },
+    {
+      "cardId": "crd_2026W13_lr_007",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "나는 자라서 전투기 조종사가 돼야지",
+      "syllableCount": 15,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "나는 자라서 전투기 조종사가 돼야지",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_007"
+    },
+    {
+      "cardId": "crd_2026W13_lr_008",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "간호사가 보살핀 환자",
+      "syllableCount": 9,
+      "level": 1,
+      "ttsLang": "ko",
+      "ttsText": "간호사가 보살핀 환자",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_008"
+    },
+    {
+      "cardId": "crd_2026W13_lr_009",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "날카로운 칼과 가위는 위험해",
+      "syllableCount": 12,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "날카로운 칼과 가위는 위험해",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_009"
+    },
+    {
+      "cardId": "crd_2026W13_lr_010",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "배가 아파 데굴데굴 구르다가",
+      "syllableCount": 12,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "배가 아파 데굴데굴 구르다가",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_011"
+    },
+    {
+      "cardId": "crd_2026W13_lr_011",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "호시탐탐 목표를 노려보고",
+      "syllableCount": 11,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "호시탐탐 목표를 노려보고",
+      "difficulty": 1,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_012"
+    },
+    {
+      "cardId": "crd_2026W13_lr_012",
+      "type": "listen-repeat",
+      "subject": "listen_repeat",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기4단원-짧은글",
+      "runId": "2026-W13",
+      "text": "손님 태우고 출발하는 헬리콥터",
+      "syllableCount": 13,
+      "level": 2,
+      "ttsLang": "ko",
+      "ttsText": "손님 태우고 출발하는 헬리콥터",
+      "difficulty": 2,
+      "confidence": 0.95,
+      "reviewStatus": "approved",
+      "validationStatus": "pass",
+      "validationDetails": [],
+      "anchorType": "speech-therapy",
+      "duplicate": true,
+      "duplicateOf": "st_lr_015"
     }
   ]
 }

@@ -1,8 +1,22 @@
 {
-  "version": "v4.4-phase0",
-  "updated": "2026-03-17",
+  "version": "v4.10-phase2",
+  "updated": "2026-03-22",
   "child": { "name": "PO", "grade": "초6", "interests": ["야구", "게임"] },
+  "cardsPerSession": 25,
+  "extendedCards": 30,
+  "roles": {
+    "curriculum-recall": { "label": "수업 복습", "subjects": ["english", "social_studies"] },
+    "reading-transfer": { "label": "읽기 전이", "subjects": ["comprehension"] },
+    "review-stabilize": { "label": "복습 안정화", "subjects": ["speech_therapy", "listen_repeat"] }
+  },
+  "extendCondition": {
+    "minSessions": 3,
+    "minCompletionRate": 0.9,
+    "maxAvgMinutes": 15
+  },
   "sessionMode": {
+    "deprecated": true,
+    "note": "v4.10에서 역할 기반 세션으로 전환. Mode A/B 구분 폐기.",
     "defaultMode": "A",
     "modeEntryRules": {
       "default": "A",
@@ -100,11 +114,25 @@
     "storage": "local_first",
     "syncTarget": "google_sheets"
   },
+  "speech_therapy_block": {
+    "quizPosition": "mid_block",
+    "quizPositionNote": "v4.10: 독해 뒤, 사회 앞 (3번째 블록)",
+    "lrPosition": "last_block",
+    "lrPositionNote": "v4.10: 5번째 블록 (사회 뒤)",
+    "readAloudPosition": "final_block",
+    "readAloudPositionNote": "v4.10: 6번째 블록 (마지막)"
+  },
   "helpStairs": {
     "enabled": true,
+    "steps": 5,
+    "autoAdvance": false,
+    "labels": ["혼자 시도", "다시 듣기", "느린/청크 듣기", "하이라이트", "정답 모델"],
+    "step3_ttsRate": 0.85,
+    "step5_autoComplete": true,
     "slowTTSRate": 0.7,
     "maxRetries": 3,
-    "autoAdvanceAfterComplete": false
+    "autoAdvanceAfterComplete": false,
+    "note": "v4.10: 5단계 통일. 아이 주도형 (도움 받기 버튼). 5단계 도달 시 무오류 완료."
   },
   "recording": {
     "upload": true,

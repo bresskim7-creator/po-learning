@@ -3,7 +3,7 @@
   "generated": "2026-03-17",
   "weekOf": "2026-03-17",
   "reviewedBy": null,
-  "note": "v4.1 확충판. 기존 14장 + 28장 신규 = 42장. 앵커 메타데이터 포함. 부모 검수 필요.",
+  "note": "v4.10 기준. 총 68장 중 유효 63장 (blocked 5장 제외). 앵커 메타데이터 포함.",
   "cards": [
     {
       "id": "comp_001",
@@ -44,7 +44,8 @@
       "topic": "야구_규칙",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'투(投)'는 '던지다', '타(打)'는 '치다'라는 뜻이야. 이름에 역할이 숨어있지!"
+      "wrongExplanation": "'투(投)'는 '던지다', '타(打)'는 '치다'라는 뜻이야. 이름에 역할이 숨어있지!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_002",
@@ -85,7 +86,8 @@
       "topic": "일상_계절",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "원인→결과로 읽어봐. '춥다'가 원인이고, '두꺼운 옷을 입는다'가 결과야."
+      "wrongExplanation": "원인→결과로 읽어봐. '춥다'가 원인이고, '두꺼운 옷을 입는다'가 결과야.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_003",
@@ -126,7 +128,8 @@
       "topic": "게임_종류",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "게임 종류마다 특징이 달라. 액션=움직이며 싸우기, 퍼즐=머리 쓰기. 뭐가 다른지 비교해봐."
+      "wrongExplanation": "게임 종류마다 특징이 달라. 액션=움직이며 싸우기, 퍼즐=머리 쓰기. 뭐가 다른지 비교해봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_004",
@@ -167,7 +170,8 @@
       "topic": "야구_기록",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'시작'과 '끝'을 구분하는 게 핵심이야. 지문에 두 숫자가 나오면 어느 쪽을 물어보는지 잘 봐."
+      "wrongExplanation": "'시작'과 '끝'을 구분하는 게 핵심이야. 지문에 두 숫자가 나오면 어느 쪽을 물어보는지 잘 봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_005",
@@ -208,7 +212,8 @@
       "topic": "과학_식물",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "식물의 각 부분이 하는 일이 달라. 뿌리=땅속에서 물, 잎=햇빛으로 양분. 역할 분담이야."
+      "wrongExplanation": "식물의 각 부분이 하는 일이 달라. 뿌리=땅속에서 물, 잎=햇빛으로 양분. 역할 분담이야.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_006",
@@ -249,7 +254,8 @@
       "topic": "일상_교통",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'좋은 점'과 '안 좋은 점'을 나눠서 읽어봐. '때문에'나 '하지만' 뒤에 다른 내용이 와."
+      "wrongExplanation": "'좋은 점'과 '안 좋은 점'을 나눠서 읽어봐. '때문에'나 '하지만' 뒤에 다른 내용이 와.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_007",
@@ -290,7 +296,8 @@
       "topic": "야구_규칙",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "삼진아웃은 스트라이크 '3개'. 볼넷은 볼 '4개'. 숫자가 비슷해서 헷갈려! 이름에 힌트: 볼'넷'!"
+      "wrongExplanation": "삼진아웃은 스트라이크 '3개'. 볼넷은 볼 '4개'. 숫자가 비슷해서 헷갈려! 이름에 힌트: 볼'넷'!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_008",
@@ -332,7 +339,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "reviewNote": "힌트 사고유도형으로 변경",
-      "wrongExplanation": "'너무 ~하면 ~된다' 패턴이야. 세면→타고, 약하면→안 익고. 반대 상황을 같이 기억해!"
+      "wrongExplanation": "'너무 ~하면 ~된다' 패턴이야. 세면→타고, 약하면→안 익고. 반대 상황을 같이 기억해!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_009",
@@ -373,7 +381,8 @@
       "topic": "과학_우주",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'없으면 어떻게 될까?'는 지문에서 '없으면'이나 '못' 뒤에 나오는 결과를 찾아봐."
+      "wrongExplanation": "'없으면 어떻게 될까?'는 지문에서 '없으면'이나 '못' 뒤에 나오는 결과를 찾아봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_010",
@@ -414,7 +423,8 @@
       "topic": "일상_기술",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'옛날에는 ~했다. 지금은 ~한다.' 비교 패턴이야. '옛날' 뒤에 나오는 방법을 찾아!"
+      "wrongExplanation": "'옛날에는 ~했다. 지금은 ~한다.' 비교 패턴이야. '옛날' 뒤에 나오는 방법을 찾아!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_011",
@@ -455,7 +465,8 @@
       "topic": "야구_전략",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~란 ~이다' 패턴이 정의를 알려줘. '제구력이란' 뒤에 바로 답이 나와!"
+      "wrongExplanation": "'~란 ~이다' 패턴이 정의를 알려줘. '제구력이란' 뒤에 바로 답이 나와!",
+      "skillTag": "main-idea"
     },
     {
       "id": "comp_012",
@@ -496,7 +507,8 @@
       "topic": "과학_물질",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "세 가지 상태를 짝지어 외워: 액체=물, 고체=얼음, 기체=수증기. '고체'가 뭔지가 핵심!"
+      "wrongExplanation": "세 가지 상태를 짝지어 외워: 액체=물, 고체=얼음, 기체=수증기. '고체'가 뭔지가 핵심!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_013",
@@ -537,7 +549,8 @@
       "topic": "국어_속담",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "속담은 겉뜻이 아니라 속뜻을 찾아야 해. '가벼운 것도 같이 들면 쉽다' → 교훈이 뭘까?"
+      "wrongExplanation": "속담은 겉뜻이 아니라 속뜻을 찾아야 해. '가벼운 것도 같이 들면 쉽다' → 교훈이 뭘까?",
+      "skillTag": "fact"
     },
     {
       "id": "comp_014",
@@ -578,7 +591,8 @@
       "topic": "과학_동물",
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "행동(다가옴)의 '이유'를 물어보는 거야. '~때문이다', '~해서' 같은 표현을 찾아봐."
+      "wrongExplanation": "행동(다가옴)의 '이유'를 물어보는 거야. '~때문이다', '~해서' 같은 표현을 찾아봐.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_015",
@@ -620,7 +634,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "계절마다 자연이 달라져. 봄=새잎+꽃, 여름=무성, 가을=단풍, 겨울=앙상. 시기를 잘 봐!"
+      "wrongExplanation": "계절마다 자연이 달라져. 봄=새잎+꽃, 여름=무성, 가을=단풍, 겨울=앙상. 시기를 잘 봐!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_016",
@@ -662,7 +677,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "상식으로도 풀 수 있어! 물놀이를 할 수 있는 곳이 어디일까 생각해봐."
+      "wrongExplanation": "상식으로도 풀 수 있어! 물놀이를 할 수 있는 곳이 어디일까 생각해봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_017",
@@ -704,7 +720,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'이것을 ~라고 한다'가 나오면 이름을 정의하는 거야. 새싹은 봄에 나오는 거고, 낙엽은 떨어진 잎이야."
+      "wrongExplanation": "'이것을 ~라고 한다'가 나오면 이름을 정의하는 거야. 새싹은 봄에 나오는 거고, 낙엽은 떨어진 잎이야.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_018",
@@ -746,7 +763,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~해야 ~않는다' 패턴이야. 원인(추위)과 결과(감기)를 연결해봐."
+      "wrongExplanation": "'~해야 ~않는다' 패턴이야. 원인(추위)과 결과(감기)를 연결해봐.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_019",
@@ -788,7 +806,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "숫자가 여러 개 나오면 '뭘 물어보는지'가 중요해. 날짜? 나이? 인원수? 정확히 봐."
+      "wrongExplanation": "숫자가 여러 개 나오면 '뭘 물어보는지'가 중요해. 날짜? 나이? 인원수? 정확히 봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_020",
@@ -830,7 +849,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~하려고 노력한다' 앞에 구체적인 행동이 나와. 목적(환경 보호)과 행동을 구분해봐."
+      "wrongExplanation": "'~하려고 노력한다' 앞에 구체적인 행동이 나와. 목적(환경 보호)과 행동을 구분해봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_021",
@@ -872,7 +892,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~하면 ~할 수 있다' 패턴을 찾아봐. 방법을 물어보는 거니까 '하면' 앞의 내용이 답이야."
+      "wrongExplanation": "'~하면 ~할 수 있다' 패턴을 찾아봐. 방법을 물어보는 거니까 '하면' 앞의 내용이 답이야.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_022",
@@ -914,7 +935,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "원인→결과 순서로 읽어봐. '~해서 ~했다'에서 앞부분이 이유야."
+      "wrongExplanation": "원인→결과 순서로 읽어봐. '~해서 ~했다'에서 앞부분이 이유야.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_023",
@@ -956,7 +978,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "규칙은 '~해야 한다', '~하면 안 된다'로 나와. 그 부분을 찾아봐!"
+      "wrongExplanation": "규칙은 '~해야 한다', '~하면 안 된다'로 나와. 그 부분을 찾아봐!",
+      "skillTag": "main-idea"
     },
     {
       "id": "comp_024",
@@ -998,7 +1021,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "길 안내 지문은 순서대로 따라가야 해. 직진→돌기→'옆에 있다'까지 차근차근!"
+      "wrongExplanation": "길 안내 지문은 순서대로 따라가야 해. 직진→돌기→'옆에 있다'까지 차근차근!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_025",
@@ -1039,7 +1063,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~라고 부르기도 한다' 패턴이 별명을 알려줘. '그래서' 뒤에 나오는 별명을 찾아봐."
+      "wrongExplanation": "'~라고 부르기도 한다' 패턴이 별명을 알려줘. '그래서' 뒤에 나오는 별명을 찾아봐.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_026",
@@ -1080,7 +1105,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'승리의 비결'이나 '가장 중요한 것' 같은 표현 뒤에 핵심 답이 나와. 그 문장을 찾아봐."
+      "wrongExplanation": "'승리의 비결'이나 '가장 중요한 것' 같은 표현 뒤에 핵심 답이 나와. 그 문장을 찾아봐.",
+      "skillTag": "main-idea"
     },
     {
       "id": "comp_027",
@@ -1123,7 +1149,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~때문에'가 이유를 알려줘. 자전→낮/밤, 공전→계절. 뭐 때문에 뭐가 생기는지 짝지어봐."
+      "wrongExplanation": "'~때문에'가 이유를 알려줘. 자전→낮/밤, 공전→계절. 뭐 때문에 뭐가 생기는지 짝지어봐.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_028",
@@ -1165,7 +1192,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'처음에'와 '지금'을 구분해야 해. 시간 표현(1982년, 지금)을 잘 봐!"
+      "wrongExplanation": "'처음에'와 '지금'을 구분해야 해. 시간 표현(1982년, 지금)을 잘 봐!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_029",
@@ -1208,7 +1236,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'대신'이라는 말이 핵심이야. 소리 지르는 '대신' 다른 방법을 쓰라는 거지."
+      "wrongExplanation": "'대신'이라는 말이 핵심이야. 소리 지르는 '대신' 다른 방법을 쓰라는 거지.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_030",
@@ -1251,7 +1280,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "위치 문제는 지도 그리듯 따라가 봐. 학교→문구점→도서관→우체국→공원→병원. 순서대로!"
+      "wrongExplanation": "위치 문제는 지도 그리듯 따라가 봐. 학교→문구점→도서관→우체국→공원→병원. 순서대로!",
+      "skillTag": "fact"
     },
     {
       "id": "comp_031",
@@ -1292,7 +1322,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~이/가 모여서 ~이/가 된다' 패턴이야. 재료가 뭔지 찾는 거지."
+      "wrongExplanation": "'~이/가 모여서 ~이/가 된다' 패턴이야. 재료가 뭔지 찾는 거지.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_032",
@@ -1333,7 +1364,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "물건(컴퓨터, 인터넷)이 아니라 마음가짐을 물어보는 거야. '필요하다' 앞에 뭐가 나오는지 봐."
+      "wrongExplanation": "물건(컴퓨터, 인터넷)이 아니라 마음가짐을 물어보는 거야. '필요하다' 앞에 뭐가 나오는지 봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_033",
@@ -1374,7 +1406,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "구체적인 숫자를 물어볼 때는 지문에서 숫자가 나오는 문장을 찾아봐. '좋다' 앞에 기준이 있어."
+      "wrongExplanation": "구체적인 숫자를 물어볼 때는 지문에서 숫자가 나오는 문장을 찾아봐. '좋다' 앞에 기준이 있어.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_034",
@@ -1415,7 +1448,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "숫자 크기에 주의! '100년'과 '6,600만 년'은 엄청나게 다르지. 지문의 숫자를 정확히 읽어."
+      "wrongExplanation": "숫자 크기에 주의! '100년'과 '6,600만 년'은 엄청나게 다르지. 지문의 숫자를 정확히 읽어.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_035",
@@ -1457,7 +1491,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "연대(1950년대, 70년대, 80년대)마다 다른 게임이 나와. 시기와 이름을 짝지어 읽어봐."
+      "wrongExplanation": "연대(1950년대, 70년대, 80년대)마다 다른 게임이 나와. 시기와 이름을 짝지어 읽어봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_036",
@@ -1498,7 +1533,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "직접적 효과(점수, 시간)가 아니라 심리적 효과(힘, 용기)를 물어보는 거야."
+      "wrongExplanation": "직접적 효과(점수, 시간)가 아니라 심리적 효과(힘, 용기)를 물어보는 거야.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_037",
@@ -1541,7 +1577,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~하면 ~할 수 있다'에서 방법을 찾아봐. 구체적인 도구나 행동이 답이야."
+      "wrongExplanation": "'~하면 ~할 수 있다'에서 방법을 찾아봐. 구체적인 도구나 행동이 답이야.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_038",
@@ -1582,7 +1619,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "여러 좋은 점 중 '어떤' 좋은 점인지를 정확히 봐. 잠, 키가 아니라 공부/뇌 관련이야."
+      "wrongExplanation": "여러 좋은 점 중 '어떤' 좋은 점인지를 정확히 봐. 잠, 키가 아니라 공부/뇌 관련이야.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_039",
@@ -1624,7 +1662,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "자전과 공전을 구분하는 게 핵심! 자전=하루 한 바퀴=낮밤, 공전=일 년 한 바퀴=계절."
+      "wrongExplanation": "자전과 공전을 구분하는 게 핵심! 자전=하루 한 바퀴=낮밤, 공전=일 년 한 바퀴=계절.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_040",
@@ -1665,7 +1704,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "이유를 물어볼 때는 '~때문에', '~해서', '~게 되어' 같은 표현을 찾아봐."
+      "wrongExplanation": "이유를 물어볼 때는 '~때문에', '~해서', '~게 되어' 같은 표현을 찾아봐.",
+      "skillTag": "cause-effect"
     },
     {
       "id": "comp_041",
@@ -1706,7 +1746,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "'~하면 ~에 도움이 된다'가 결론이야. 개인(집) 차원이 아니라 큰(환경) 차원의 효과를 봐."
+      "wrongExplanation": "'~하면 ~에 도움이 된다'가 결론이야. 개인(집) 차원이 아니라 큰(환경) 차원의 효과를 봐.",
+      "skillTag": "fact"
     },
     {
       "id": "comp_042",
@@ -1748,7 +1789,8 @@
       ],
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
-      "wrongExplanation": "타율→타자, 방어율→투수. 어떤 선수에 대한 숫자인지 구분하는 게 핵심이야."
+      "wrongExplanation": "타율→타자, 방어율→투수. 어떤 선수에 대한 숫자인지 구분하는 게 핵심이야.",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W13_a3f1d2",
@@ -1786,7 +1828,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "validationDetails": [],
-      "wrongExplanation": "'하지 않은 것'을 물어볼 때는 한 것 3개를 먼저 찾고, 보기에서 빼봐. 소거법이야!"
+      "wrongExplanation": "'하지 않은 것'을 물어볼 때는 한 것 3개를 먼저 찾고, 보기에서 빼봐. 소거법이야!",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W13_b7e2c4",
@@ -1824,7 +1867,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "validationDetails": [],
-      "wrongExplanation": "무인도에서 '먹는 문제'가 가장 급하잖아. 왜 그 역할이 중요했을지 이유를 생각해봐."
+      "wrongExplanation": "무인도에서 '먹는 문제'가 가장 급하잖아. 왜 그 역할이 중요했을지 이유를 생각해봐.",
+      "skillTag": "main-idea"
     },
     {
       "cardId": "crd_2026W13_c9d3e5",
@@ -1862,7 +1906,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "validationDetails": [],
-      "wrongExplanation": "식물이 자라려면 뭐가 필요할까? 물(비)과 따뜻함! 눈이나 바람은 오히려 방해되지."
+      "wrongExplanation": "식물이 자라려면 뭐가 필요할까? 물(비)과 따뜻함! 눈이나 바람은 오히려 방해되지.",
+      "skillTag": "cause-effect"
     },
     {
       "cardId": "crd_2026W13_d1f4a6",
@@ -1900,7 +1945,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "validationDetails": [],
-      "wrongExplanation": "사막의 가장 큰 특징이 뭐야? 물이 없다는 거지. 장소 특성과 연결해서 생각해봐."
+      "wrongExplanation": "사막의 가장 큰 특징이 뭐야? 물이 없다는 거지. 장소 특성과 연결해서 생각해봐.",
+      "skillTag": "inference"
     },
     {
       "cardId": "crd_2026W13_e2a5b7",
@@ -1938,7 +1984,8 @@
       "reviewStatus": "approved",
       "validationStatus": "pass",
       "validationDetails": [],
-      "wrongExplanation": "글의 흐름과 주제를 생각해봐. 어떤 탐험이 이 글과 가장 관련 있을까?"
+      "wrongExplanation": "글의 흐름과 주제를 생각해봐. 어떤 탐험이 이 글과 가장 관련 있을까?",
+      "skillTag": "inference"
     },
     {
       "cardId": "crd_2026W12_rcl_001",
@@ -1978,7 +2025,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "사건 순서대로 읽어봐. 머리핀이 나왔을 때 서영이가 '누구를' 떠올렸는지 찾아."
+      "wrongExplanation": "사건 순서대로 읽어봐. 머리핀이 나왔을 때 서영이가 '누구를' 떠올렸는지 찾아.",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W12_rcl_002",
@@ -2018,7 +2066,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "감정이 어떻게 '변했는지'가 핵심이야. 처음 감정과 나중 감정이 어떻게 달라졌는지 비교해봐."
+      "wrongExplanation": "감정이 어떻게 '변했는지'가 핵심이야. 처음 감정과 나중 감정이 어떻게 달라졌는지 비교해봐.",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W12_rcl_003",
@@ -2058,7 +2107,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "비슷한 감정을 구분하는 문제야. '화남'과 '부끄러움'은 전혀 다른 감정이지!"
+      "wrongExplanation": "비슷한 감정을 구분하는 문제야. '화남'과 '부끄러움'은 전혀 다른 감정이지!",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W12_rcl_004",
@@ -2098,7 +2148,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "'가엾다'는 '불쌍하다'와 비슷한 말이야. 미워하거나 무시하는 마음과는 정반대!"
+      "wrongExplanation": "'가엾다'는 '불쌍하다'와 비슷한 말이야. 미워하거나 무시하는 마음과는 정반대!",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W12_rcl_005",
@@ -2138,7 +2189,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "겉으로 보이는 이유(뽐내기)가 아니라 마음속 깊은 이유(두려움)를 물어보는 거야."
+      "wrongExplanation": "겉으로 보이는 이유(뽐내기)가 아니라 마음속 깊은 이유(두려움)를 물어보는 거야.",
+      "skillTag": "cause-effect"
     },
     {
       "cardId": "crd_2026W12_rcl_006",
@@ -2178,7 +2230,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "'허전하다'는 뭔가 빠진 것 같은 느낌이야. 배가 '허전'하다고도 하잖아. 빈 느낌!"
+      "wrongExplanation": "'허전하다'는 뭔가 빠진 것 같은 느낌이야. 배가 '허전'하다고도 하잖아. 빈 느낌!",
+      "skillTag": "fact"
     },
     {
       "cardId": "crd_2026W12_rcl_007",
@@ -2218,7 +2271,8 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "책 제목에 힌트가 있어! '악플'과 '전쟁'이 핵심 키워드야. 주제는 가장 큰 메시지를 찾는 거."
+      "wrongExplanation": "책 제목에 힌트가 있어! '악플'과 '전쟁'이 핵심 키워드야. 주제는 가장 큰 메시지를 찾는 거.",
+      "skillTag": "sequence"
     },
     {
       "cardId": "crd_2026W12_rcl_008",
@@ -2258,7 +2312,581 @@
       "validationStatus": "pass",
       "reviewStatus": "approved",
       "difficulty": 2,
-      "wrongExplanation": "'가장 중요한'이 나오면 여러 선택지 중 핵심 하나를 고르는 거야. 양보다 질이 중요해!"
+      "wrongExplanation": "'가장 중요한'이 나오면 여러 선택지 중 핵심 하나를 고르는 거야. 양보다 질이 중요해!",
+      "skillTag": "main-idea"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "자신을 믿는 것이 다른 사람의 믿음과 어떤 관계가 있나요?",
+        "ttsText": "자신을 믿는 것이 다른 사람의 믿음과 어떤 관계가 있나요?",
+        "passage": "누구나 다른 사람의 믿음을 받고 싶어 한다. 하지만 그 앞에 중요한 것이 있다. 먼저 자신을 믿을 수 있는 사람이 되어야 한다. 자신을 믿는 사람이 될 때 비로소 다른 사람들도 우리를 믿게 될 것이다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "먼저 자신을 믿을 수 있는 사람이 되어야 다른 사람도 나를 믿게 된다",
+        "options": [
+          "먼저 자신을 믿을 수 있는 사람이 되어야 다른 사람도 나를 믿게 된다",
+          "다른 사람이 먼저 나를 믿으면 내가 자신을 갖게 된다",
+          "자신을 믿는 것은 다른 사람의 믿음과 전혀 관계가 없다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님은 '누구보다 난 자신을 믿는 게 중요해'라고 하셨습니다."
+      },
+      "skillTags": [
+        "self-belief",
+        "trust",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "자신을 믿는 것이 다른 사람의 믿음과 어떤 관계가 있나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "자신을 믿는 것이 먼저예요. 그래야 세상도 우리를 믿게 돼. 다른 사람이 먼저 믿어주기를 기다리면 안 돼.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "'믿음'이라는 주제에서 가장 중요한 메시지는 무엇인가요?",
+        "ttsText": "'믿음'이라는 주제에서 가장 중요한 메시지는 무엇인가요?",
+        "passage": "믿음은 한 사람을 살릴 수 있다. 우리가 서로를 얼마나 믿는지에 따라 앞으로 나아갈 수 있는 정도가 결정된다. 그리고 그 믿음을 쌓으려면 우리가 먼저 좋은 친구가 되어야 한다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "믿음은 한 사람을 살릴 수 있고, 우리 앞으로의 나아감을 결정한다",
+        "options": [
+          "믿음은 한 사람을 살릴 수 있고, 우리 앞으로의 나아감을 결정한다",
+          "많은 친구를 가지고 있는 것이 가장 중요하다",
+          "빨리 많이 배우는 것이 인생에서 가장 중요하다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님은 '믿음은 한 사람을 살릴 수 있지'라고 말씀하셨어요. 그리고 우리가 믿는 만큼 앞으로 나갈 수 있다고요."
+      },
+      "skillTags": [
+        "theme-understanding",
+        "core-message",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "'믿음'이라는 주제에서 가장 중요한 메시지는 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "책에서는 물건이 아니라 사람 간의 관계를 말하고 있어. '믿음'이 얼마나 소중한지 배우는 거야.",
+      "skillTag": "main-idea"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "'소중한 것을 나눌 수 있을 만큼 의지하는 마음'이 무엇을 뜻하나요?",
+        "ttsText": "'소중한 것을 나눌 수 있을 만큼 의지하는 마음'이 무엇을 뜻하나요?",
+        "passage": "친구 관계에서 우리는 물건뿐만 아니라 마음도 나눈다. 깊게 신뢰할 수 있는 친구에게 우리의 소중한 것, 즉 우리의 진심과 고민, 두려움까지도 나눌 수 있다. 그것이 바로 참된 우정의 모습이다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "믿는 친구에게 자신의 진심과 고민까지도 나눌 수 있는 신뢰의 마음",
+        "options": [
+          "믿는 친구에게 자신의 진심과 고민까지도 나눌 수 있는 신뢰의 마음",
+          "물건을 많이 나누는 친구 관계",
+          "가끔 만나는 그냥 일반적인 친구"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "여기서 '소중한 것'은 물건이 아니라 마음을 말하는 거예요. 진심을 나눌 수 있다는 뜻이야."
+      },
+      "skillTags": [
+        "vocabulary",
+        "deeper-understanding",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "'소중한 것을 나눌 수 있을 만큼 의지하는 마음'이 무엇을 뜻하나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "물건을 많이 사주는 게 아니라, 마음을 나누는 거예요. 고민도 얘기하고, 약한 모습도 보여줄 수 있는 그런 친구를 말하는 거야.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "책에서 강조한 '좋은 친구가 되는 방법'은 무엇인가요?",
+        "ttsText": "책에서 강조한 '좋은 친구가 되는 방법'은 무엇인가요?",
+        "passage": "좋은 친구가 오기를 바라지 말고, 내가 먼저 좋은 친구가 되는 것이 중요하다. 누군가의 믿음을 바라기 전에 먼저 나부터 다른 사람을 믿어주는 사람이 되어야 한다. 하루를 시작할 때 늘 스스로 어떤 사람이 되고 싶은지 생각하며 살아가기."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "좋은 친구를 기다리지 말고 내가 먼저 좋은 친구가 되는 것",
+        "options": [
+          "좋은 친구를 기다리지 말고 내가 먼저 좋은 친구가 되는 것",
+          "많은 친구들을 모으는 것",
+          "친구들에게 좋은 것들을 많이 사주는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "기다리는 게 아니라 '나부터' 시작해야 한다고 했어요. 능동적으로 행동하는 거지."
+      },
+      "skillTags": [
+        "life-lesson",
+        "character-development",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "책에서 강조한 '좋은 친구가 되는 방법'은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "기다리면 안 돼. 내가 먼저 움직이고 먼저 믿어주고 먼저 좋은 행동을 해야 세상도 그렇게 대해줄 거야.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "보경이는 장미를 무엇이라고 불렀나요?",
+        "ttsText": "보경이는 장미를 무엇이라고 불렀나요?",
+        "passage": "장미라는 이름을 가진 여학생이 있었다. 그런데 보경이라는 친구가 장미의 이름을 놀리면서 다르게 부르기 시작했다. 엄마 아빠가 예쁘게 지어준 이름을 친구가 놀리며 부르는 것이 얼마나 상처가 되는지 보여준다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "발장미",
+        "options": [
+          "발장미",
+          "짧은 장미",
+          "나쁜 장미"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미(장)의 글자를 놀리면서 다르게 만든 이름이었어요."
+      },
+      "skillTags": [
+        "character-analysis",
+        "bullying",
+        "reading-comprehension"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "보경이는 장미를 무엇이라고 불렀나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 1,
+      "wrongExplanation": "친구의 이름을 놀리고 다르게 부르는 것도 학교 폭력의 한 종류야. 친구의 이름을 존중해야 해.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "보경이가 장미에게 한 행동 중 가장 심각한 폭력은 무엇인가요?",
+        "ttsText": "보경이가 장미에게 한 행동 중 가장 심각한 폭력은 무엇인가요?",
+        "passage": "보경이는 장미와 친구들을 데리고 놀이터로 갔다. 높은 담 위에서 뛰어내리자고 제안했다. 무서워하는 장미를 겁쟁이라고 놀리며 강압적으로 손을 잡고 함께 뛰어내리도록 한다. 장미는 상처를 입게 되고, 친구들과 남겨지면서 정서적으로 상처받는다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "높은 곳에서 뛰어내리도록 강압하여 상처를 입게 한 행동",
+        "options": [
+          "높은 곳에서 뛰어내리도록 강압하여 상처를 입게 한 행동",
+          "단순히 놀이터에 함께 가자고 한 행동",
+          "친구들과 함께 노는 것을 제안한 행동"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님은 '무섭다고 했는데 왜 뛰어내렸나?'라고 물었어요. 겁쟁이라고 놀려서 안 할 수 없게 한 거죠."
+      },
+      "skillTags": [
+        "violence-recognition",
+        "bullying",
+        "critical-thinking"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "보경이가 장미에게 한 행동 중 가장 심각한 폭력은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "친구를 겁쟁이라고 부르면서 겁나는 일을 하도록 강압하는 것은 학교 폭력이야. 상대방의 의사를 무시하고 피해를 주는 행동이거든.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "장미가 뛰어내린 후 친구들이 자리에 남겨두었을 때 장미의 감정은 무엇이었나요?",
+        "ttsText": "장미가 뛰어내린 후 친구들이 자리에 남겨두었을 때 장미의 감정은 무엇이었나요?",
+        "passage": "장미가 보경이의 손을 잡고 함께 담에서 뛰어내렸다. 하지만 보경이와 혜미는 손을 놓고 그 자리에 서 있었다. 장미만 뛰어내린 것이었다. 친구들은 웃으며 올라가 버렸고, 장미는 혼자 떨어지고 배반당한 느낌으로 분하고 답답하고 화가 났다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "배반당하고 놀림당한 데에 대한 분함과 화",
+        "options": [
+          "배반당하고 놀림당한 데에 대한 분함과 화",
+          "친구들과 재밌게 논 기쁨",
+          "담장 밑에서 안전하게 내려온 만족감"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님이 '왜 소리를 질렀나?'라고 물었을 때 학생이 '분해서'라고 답했어요."
+      },
+      "skillTags": [
+        "emotion-analysis",
+        "character-understanding",
+        "empathy"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "장미가 뛰어내린 후 친구들이 자리에 남겨두었을 때 장미의 감정은 무엇이었나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "속았어. 약속했는데 혼자만 뛰어내린 거야. 그럼 당연히 화나고 분해지겠지. 그런 마음을 이해해야 돼.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_rcl_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음+분홍원피스-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W13",
+      "question": {
+        "text": "학교 폭력에서 가장 중요한 깨달음은 무엇인가요?",
+        "ttsText": "학교 폭력에서 가장 중요한 깨달음은 무엇인가요?",
+        "passage": "학교 폭력을 당하고 어딘가에 숨어 울고 있을 아이들을 생각해야 한다. 누군가에게는 장난도 다른 누군가에겐 깊은 상처가 될 수 있다. 아무리 자신보다 약한 친구라도 함부로 대할 권리는 없다. 모든 사람은 존중받으며 살아야 한다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장난이라도 누군가에겐 깊은 상처가 될 수 있으므로 모두를 존중해야 한다",
+        "options": [
+          "장난이라도 누군가에겐 깊은 상처가 될 수 있으므로 모두를 존중해야 한다",
+          "약한 친구들을 피해야 한다",
+          "학교에서 많은 친구를 만드는 것이 가장 중요하다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님은 '이게 우리가 읽고 있는 책에서 가장 중요한 부분 중 하나'라고 하셨어요. 누구나 존중받을 권리가 있다는 거야."
+      },
+      "skillTags": [
+        "life-lesson",
+        "empathy",
+        "respect"
+      ],
+      "anchorType": "reading-class",
+      "confidence": 0.7,
+      "ttsText": "학교 폭력에서 가장 중요한 깨달음은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "approved",
+      "difficulty": 2,
+      "wrongExplanation": "내가 장난이라고 생각해도 상대방은 상처받을 수 있어. 상대방의 마음을 생각하고 존중하는 것이 정말 중요해.",
+      "skillTag": "main-idea"
+    },
+    {
+      "cardId": "crd_2026W13_a3f1d2",
+      "sourceRef": "short-reading/cross-link-01/q1",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 직업",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "로빈슨 크루소는 무인도에서 살아남기 위해 여러 가지 일을 해야 했습니다. 집을 짓고, 음식을 구하고, 옷을 만들었지요. 그는 혼자서 목수, 농부, 재봉사가 되어야 했습니다.",
+        "text": "로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?",
+        "ttsText": "로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?"
+      },
+      "answer": {
+        "correct": "배를 수리하기",
+        "options": [
+          "집을 짓기",
+          "옷을 만들기",
+          "배를 수리하기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "지문에서 로빈슨이 한 일 3가지를 찾아보세요."
+      },
+      "ttsText": "로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?",
+      "skillTags": [
+        "fact"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "blocked",
+      "validationDetails": [
+        {
+          "ruleId": "V07",
+          "result": "blocked",
+          "message": "cardId 중복: crd_2026W13_a3f1d2"
+        },
+        {
+          "ruleId": "V13",
+          "result": "blocked",
+          "message": "기존 카드와 질문 중복: '로빈슨 크루소가 무인도에서 하지 않은 일은 무엇인가요?...' (기존: comprehension.json/crd_2026W13_a3f1d2)"
+        }
+      ],
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W13_b7e2c4",
+      "sourceRef": "short-reading/cross-link-01/q2",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 직업",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "영어 시간에 배운 직업 중에는 파일럿, 요리사, 과학자가 있었습니다. 로빈슨 크루소도 무인도에서 여러 직업을 경험했지요. 그는 특히 농부 역할이 가장 중요했다고 합니다.",
+        "text": "로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요?",
+        "ttsText": "로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요?"
+      },
+      "answer": {
+        "correct": "농부",
+        "options": [
+          "파일럿",
+          "농부",
+          "과학자"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "지문 마지막 문장을 다시 읽어보세요."
+      },
+      "ttsText": "로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요?",
+      "skillTags": [
+        "fact"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "blocked",
+      "validationDetails": [
+        {
+          "ruleId": "V07",
+          "result": "blocked",
+          "message": "cardId 중복: crd_2026W13_b7e2c4"
+        },
+        {
+          "ruleId": "V13",
+          "result": "blocked",
+          "message": "기존 카드와 질문 중복: '로빈슨 크루소가 가장 중요하게 생각한 역할은 무엇인가요...' (기존: comprehension.json/crd_2026W13_b7e2c4)"
+        }
+      ],
+      "skillTag": "main-idea"
+    },
+    {
+      "cardId": "crd_2026W13_c9d3e5",
+      "sourceRef": "short-reading/environment-01/q1",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 자연환경",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "로빈슨 크루소가 도착한 무인도는 열대 기후였습니다. 비가 자주 내리고 날씨가 따뜻했지요. 그래서 농사를 짓기에 좋은 환경이었습니다. 하지만 태풍이 올 때는 매우 위험했습니다.",
+        "text": "무인도의 기후가 농사에 좋았던 이유는 무엇인가요?",
+        "ttsText": "무인도의 기후가 농사에 좋았던 이유는 무엇인가요?"
+      },
+      "answer": {
+        "correct": "비가 자주 오고 따뜻해서",
+        "options": [
+          "눈이 많이 와서",
+          "비가 자주 오고 따뜻해서",
+          "바람이 강해서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "열대 기후의 특징을 생각해보세요."
+      },
+      "ttsText": "무인도의 기후가 농사에 좋았던 이유는 무엇인가요?",
+      "skillTags": [
+        "inference"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "blocked",
+      "validationDetails": [
+        {
+          "ruleId": "V07",
+          "result": "blocked",
+          "message": "cardId 중복: crd_2026W13_c9d3e5"
+        },
+        {
+          "ruleId": "V13",
+          "result": "blocked",
+          "message": "기존 카드와 질문 중복: '무인도의 기후가 농사에 좋았던 이유는 무엇인가요?...' (기존: comprehension.json/crd_2026W13_c9d3e5)"
+        }
+      ],
+      "skillTag": "cause-effect"
+    },
+    {
+      "cardId": "crd_2026W13_d1f4a6",
+      "sourceRef": "short-reading/environment-01/q2",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 자연환경",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "question": {
+        "passage": "세계에는 다양한 기후가 있습니다. 사막 기후는 비가 거의 오지 않고, 열대 기후는 비가 많이 옵니다. 만약 로빈슨 크루소가 사막에 떨어졌다면 어떻게 되었을까요?",
+        "text": "로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?",
+        "ttsText": "로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?"
+      },
+      "answer": {
+        "correct": "물 구하기",
+        "options": [
+          "물 구하기",
+          "집 짓기",
+          "옷 만들기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "사막에서 가장 부족한 것을 생각해보세요."
+      },
+      "ttsText": "로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?",
+      "skillTags": [
+        "inference"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "blocked",
+      "validationDetails": [
+        {
+          "ruleId": "V07",
+          "result": "blocked",
+          "message": "cardId 중복: crd_2026W13_d1f4a6"
+        },
+        {
+          "ruleId": "V13",
+          "result": "blocked",
+          "message": "기존 카드와 질문 중복: '로빈슨 크루소가 사막에 떨어졌다면 가장 어려웠을 것은?...' (기존: comprehension.json/crd_2026W13_d1f4a6)"
+        }
+      ],
+      "skillTag": "inference"
+    },
+    {
+      "cardId": "crd_2026W13_e2a5b7",
+      "sourceRef": "short-reading/cross-link-01/q3",
+      "runId": "2026-W13",
+      "sourceId": "short-reading",
+      "sourceUnit": "탐험과 직업",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "question": {
+        "passage": "요즘에는 탐험가라는 직업이 많지 않습니다. 하지만 우주 탐험가나 심해 탐험가처럼 새로운 곳을 연구하는 직업은 있습니다. 여러분은 어떤 탐험을 해보고 싶나요?",
+        "text": "이 글을 읽고 여러분의 생각을 골라보세요.",
+        "ttsText": "이 글을 읽고 여러분의 생각을 골라보세요."
+      },
+      "answer": {
+        "correct": "우주 탐험",
+        "options": [
+          "우주 탐험",
+          "심해 탐험",
+          "산 탐험"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "정답이 없는 문제예요. 자유롭게 골라보세요!"
+      },
+      "ttsText": "이 글을 읽고 여러분의 생각을 골라보세요.",
+      "skillTags": [
+        "opinion"
+      ],
+      "questionType": "choice",
+      "anchorType": "short-reading",
+      "confidence": 1.0,
+      "reviewStatus": "approved",
+      "validationStatus": "blocked",
+      "validationDetails": [
+        {
+          "ruleId": "V07",
+          "result": "blocked",
+          "message": "cardId 중복: crd_2026W13_e2a5b7"
+        },
+        {
+          "ruleId": "V13",
+          "result": "blocked",
+          "message": "기존 카드와 질문 중복: '이 글을 읽고 여러분의 생각을 골라보세요....' (기존: comprehension.json/crd_2026W13_e2a5b7)"
+        }
+      ],
+      "skillTag": "inference"
     }
   ]
 }
