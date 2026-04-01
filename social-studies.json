@@ -947,7 +947,6 @@
     "validationDetails": [],
     "wrongExplanation": "바티칸 시국은 이탈리아 로마 안에 있는 세계에서 가장 작은 나라야. 사방이 이탈리아 영토로 둘러싸여 있어. 일본, 오스트레일리아, 뉴질랜드는 바다로 둘러싸인 섬나라지."
   },
-
   {
     "cardId": "crd_2026W14_soc_u12_001",
     "sourceRef": "school-social/U1-2/comp/001",
@@ -974,7 +973,10 @@
     "hint": {
       "text": "1960년 3월 15일에 있었던 일을 떠올려 봐"
     },
-    "skillTags": ["fact", "democratization"],
+    "skillTags": [
+      "fact",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1010,7 +1012,10 @@
     "hint": {
       "text": "'부정'은 '올바르지 않다'는 뜻이야"
     },
-    "skillTags": ["vocabulary", "democratization"],
+    "skillTags": [
+      "vocabulary",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1046,7 +1051,10 @@
     "hint": {
       "text": "전라남도에 있는 도시야"
     },
-    "skillTags": ["fact", "democratization"],
+    "skillTags": [
+      "fact",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1082,7 +1090,10 @@
     "hint": {
       "text": "국민이 '직접' 대통령을 뽑겠다는 거야"
     },
-    "skillTags": ["fact", "democratization"],
+    "skillTags": [
+      "fact",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1118,7 +1129,10 @@
     "hint": {
       "text": "연도를 생각해 봐: 1960, 1980, 1987"
     },
-    "skillTags": ["sequence", "democratization"],
+    "skillTags": [
+      "sequence",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1154,7 +1168,10 @@
     "hint": {
       "text": "'직접'과 '간접'의 차이를 생각해 봐"
     },
-    "skillTags": ["comparison", "democratization"],
+    "skillTags": [
+      "comparison",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1190,10 +1207,13 @@
     "hint": {
       "text": "박종철과 이한열의 신분과 피해 원인을 생각해 봐"
     },
-    "skillTags": ["inference", "democratization"],
+    "skillTags": [
+      "inference",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
-    "confidence": 0.90,
+    "confidence": 0.9,
     "reviewStatus": "parent_review",
     "validationStatus": "pass",
     "ttsText": "6월 민주 항쟁의 도화선이 된 두 사건의 공통점은?",
@@ -1226,7 +1246,10 @@
     "hint": {
       "text": "독일 '기자'라는 직업을 생각해 봐"
     },
-    "skillTags": ["fact", "democratization"],
+    "skillTags": [
+      "fact",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1262,7 +1285,10 @@
     "hint": {
       "text": "경제는 빠르게 성장했지만, 일하는 사람들은 어땠을까?"
     },
-    "skillTags": ["inference", "industrialization"],
+    "skillTags": [
+      "inference",
+      "industrialization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1298,7 +1324,10 @@
     "hint": {
       "text": "'지방'의 일을 '자치'(스스로 다스림)한다는 뜻이야"
     },
-    "skillTags": ["vocabulary", "democratization"],
+    "skillTags": [
+      "vocabulary",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1334,7 +1363,10 @@
     "hint": {
       "text": "세 사건 모두 '누가' 나서서 바꿨는지 생각해 봐"
     },
-    "skillTags": ["inference", "democratization"],
+    "skillTags": [
+      "inference",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.88,
@@ -1370,7 +1402,10 @@
     "hint": {
       "text": "산업화의 '문제점'과 민주화의 '장점'을 연결해 봐"
     },
-    "skillTags": ["inference", "democratization"],
+    "skillTags": [
+      "inference",
+      "democratization"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.88,
@@ -1380,7 +1415,6 @@
     "validationDetails": [],
     "wrongExplanation": "산업화로 경제는 성장했지만 환경 오염, 노동 문제 같은 부작용이 생겼어. 민주화 덕분에 시민들이 이런 문제를 자유롭게 말하고 해결을 요구할 수 있게 된 거야. 둘은 서로 연결되어 있어."
   },
-
   {
     "cardId": "crd_2026W14_soc_u21_001",
     "sourceRef": "school-social/U2-1/comp/001",
@@ -1407,7 +1441,10 @@
     "hint": {
       "text": "'주권'은 '가장 높은 권력'이라는 뜻이야"
     },
-    "skillTags": ["vocabulary", "democracy"],
+    "skillTags": [
+      "vocabulary",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1443,7 +1480,10 @@
     "hint": {
       "text": "'꽃'은 가장 중요하고 아름다운 부분을 뜻하는 비유야"
     },
-    "skillTags": ["inference", "democracy"],
+    "skillTags": [
+      "inference",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1479,7 +1519,10 @@
     "hint": {
       "text": "법원의 최고 책임자는 선거가 아닌 다른 방법으로 임명돼"
     },
-    "skillTags": ["fact", "democracy"],
+    "skillTags": [
+      "fact",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1515,7 +1558,10 @@
     "hint": {
       "text": "고등학교 3학년쯤 되는 나이야"
     },
-    "skillTags": ["fact", "democracy"],
+    "skillTags": [
+      "fact",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1551,7 +1597,10 @@
     "hint": {
       "text": "후보자가 등록하고 나면, 자기를 알리는 활동을 해야지"
     },
-    "skillTags": ["sequence", "democracy"],
+    "skillTags": [
+      "sequence",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1587,7 +1636,10 @@
     "hint": {
       "text": "'공'은 공개, '약'은 약속이라는 뜻이야"
     },
-    "skillTags": ["vocabulary", "democracy"],
+    "skillTags": [
+      "vocabulary",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1623,7 +1675,10 @@
     "hint": {
       "text": "'평등'은 '같다'는 뜻이야. 표의 가치가 같다는 거야"
     },
-    "skillTags": ["vocabulary", "democracy"],
+    "skillTags": [
+      "vocabulary",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1659,7 +1714,10 @@
     "hint": {
       "text": "누구에게 투표했는지 '비밀'로 해야 하니까"
     },
-    "skillTags": ["inference", "democracy"],
+    "skillTags": [
+      "inference",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.95,
@@ -1695,7 +1753,10 @@
     "hint": {
       "text": "'관리'한다는 건 제대로 되도록 살피는 거야"
     },
-    "skillTags": ["fact", "democracy"],
+    "skillTags": [
+      "fact",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1731,7 +1792,10 @@
     "hint": {
       "text": "1표 차이로 당선된 사례를 생각해 봐"
     },
-    "skillTags": ["inference", "democracy"],
+    "skillTags": [
+      "inference",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
     "confidence": 0.93,
@@ -1768,10 +1832,13 @@
     "hint": {
       "text": "'직접' 본인이 해야 한다는 뜻이야"
     },
-    "skillTags": ["inference", "democracy"],
+    "skillTags": [
+      "inference",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
-    "confidence": 0.90,
+    "confidence": 0.9,
     "reviewStatus": "parent_review",
     "validationStatus": "pass",
     "ttsText": "대리인이 대신 투표할 수 없다는 것은 어떤 선거 원칙에 해당하나요?",
@@ -1804,14 +1871,1457 @@
     "hint": {
       "text": "선거 공보와 토론회가 왜 있는지 생각해 봐"
     },
-    "skillTags": ["inference", "democracy"],
+    "skillTags": [
+      "inference",
+      "democracy"
+    ],
     "questionType": "choice",
     "anchorType": "school-social",
-    "confidence": 0.90,
+    "confidence": 0.9,
     "reviewStatus": "parent_review",
     "validationStatus": "pass",
     "ttsText": "유권자가 현명하게 투표하기 위해 가장 먼저 해야 할 일은?",
     "validationDetails": [],
     "wrongExplanation": "현명한 투표를 하려면 후보자의 공약과 경력을 비교해야 해. 남이 찍는 대로 따라가거나 유명세만 보고 찍으면 안 돼. 선거 공보와 토론회가 있는 이유가 바로 이거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_001",
+    "sourceRef": "school-social/U2-2/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "국회는 국민이 뽑은 국회의원들이 모여 법을 만들고 나라의 중요한 일을 결정하는 곳입니다. 국회는 입법기관이라고도 합니다.",
+      "text": "국회에서 하는 가장 중요한 일은 무엇인가요?",
+      "ttsText": "국회에서 하는 가장 중요한 일은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "법을 만드는 일",
+      "options": [
+        "법을 만드는 일",
+        "재판하는 일",
+        "나라를 지키는 일",
+        "세금을 걷는 일"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "입법기관이라고도 해요"
+    },
+    "skillTags": [
+      "fact",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "국회에서 하는 가장 중요한 일은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "국회는 '입법'기관이야. '입법'은 법을 만든다는 뜻이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_002",
+    "sourceRef": "school-social/U2-2/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "행정부는 대통령과 국무총리가 이끌며, 국회에서 만든 법에 따라 나라의 살림을 맡아서 하는 기관입니다.",
+      "text": "행정부를 이끄는 사람은 누구인가요?",
+      "ttsText": "행정부를 이끄는 사람은 누구인가요?"
+    },
+    "answer": {
+      "correct": "대통령과 국무총리",
+      "options": [
+        "대통령과 국무총리",
+        "국회의장",
+        "대법원장",
+        "시장과 군수"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "나라의 살림을 맡아 하는 곳의 우두머리야"
+    },
+    "skillTags": [
+      "fact",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "행정부를 이끄는 사람은 누구인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "행정부의 최고 책임자는 대통령이고, 국무총리가 함께 이끌어. 국회의장은 국회를 이끄는 사람이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_003",
+    "sourceRef": "school-social/U2-2/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "법원은 재판을 통해 갈등을 해결하고 사회 질서를 유지하는 사법기관입니다. 법관은 다른 기관의 영향을 받지 않고 독립적으로 재판합니다.",
+      "text": "법원에서 하는 일은 무엇인가요?",
+      "ttsText": "법원에서 하는 일은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "재판을 통해 갈등을 해결하는 일",
+      "options": [
+        "재판을 통해 갈등을 해결하는 일",
+        "법을 만드는 일",
+        "세금을 관리하는 일",
+        "외교를 하는 일"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "사법기관이라고도 해요"
+    },
+    "skillTags": [
+      "fact",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "법원에서 하는 일은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "법원은 '사법'기관이야. 법에 따라 재판해서 옳고 그름을 가리는 곳이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_004",
+    "sourceRef": "school-social/U2-2/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "권력 분립이란 국가 권력을 국회, 행정부, 법원이 나누어 맡는 제도입니다. 한 곳에 권력이 집중되면 국민의 자유와 권리가 위험해질 수 있기 때문입니다.",
+      "text": "권력 분립을 하는 이유는 무엇인가요?",
+      "ttsText": "권력 분립을 하는 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "권력이 한 곳에 집중되는 것을 막기 위해",
+      "options": [
+        "권력이 한 곳에 집중되는 것을 막기 위해",
+        "일을 빨리 처리하기 위해",
+        "돈을 절약하기 위해",
+        "외국과 교류하기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "한 곳에 권력이 모이면 위험해요"
+    },
+    "skillTags": [
+      "concept",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "권력 분립을 하는 이유는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "한 사람이 모든 권력을 가지면 독재가 될 수 있어. 그래서 나누는 거야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_005",
+    "sourceRef": "school-social/U2-2/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "국회는 행정부가 일을 잘 하고 있는지 감시합니다. 국정감사를 통해 행정부의 업무를 확인하고, 예산안을 심의하여 나라의 돈이 올바르게 쓰이도록 합니다.",
+      "text": "국회가 행정부를 감시하는 방법이 아닌 것은?",
+      "ttsText": "국회가 행정부를 감시하는 방법이 아닌 것은?"
+    },
+    "answer": {
+      "correct": "재판을 여는 것",
+      "options": [
+        "국정감사",
+        "예산안 심의",
+        "재판을 여는 것",
+        "인사청문회"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "재판은 어디서 하는 걸까?"
+    },
+    "skillTags": [
+      "apply",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "국회가 행정부를 감시하는 방법이 아닌 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "재판은 법원이 하는 거야. 국회는 국정감사, 예산 심의, 인사청문회로 행정부를 감시해."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_006",
+    "sourceRef": "school-social/U2-2/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "삼심 제도란 같은 사건에 대해 세 번까지 재판을 받을 수 있는 제도입니다. 1심 판결에 불복하면 2심, 2심에도 불복하면 3심까지 갈 수 있습니다. 이를 통해 잘못된 판결을 바로잡을 수 있습니다.",
+      "text": "삼심 제도가 필요한 이유는 무엇인가요?",
+      "ttsText": "삼심 제도가 필요한 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "잘못된 판결을 바로잡을 기회를 주기 위해",
+      "options": [
+        "잘못된 판결을 바로잡을 기회를 주기 위해",
+        "재판을 빨리 끝내기 위해",
+        "법관을 더 많이 뽑기 위해",
+        "범인을 꼭 잡기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "한 번의 재판으로 충분할까?"
+    },
+    "skillTags": [
+      "concept",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "삼심 제도가 필요한 이유는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "사람이 판단하는 거라 실수할 수 있잖아. 그래서 3번까지 기회를 주는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_007",
+    "sourceRef": "school-social/U2-2/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "대통령은 국회가 만든 법률안에 대해 다시 생각해 달라고 요청할 수 있는 거부권을 가지고 있습니다. 이것은 행정부가 국회를 견제하는 방법 중 하나입니다.",
+      "text": "대통령의 거부권은 어떤 기관을 견제하는 것인가요?",
+      "ttsText": "대통령의 거부권은 어떤 기관을 견제하는 것인가요?"
+    },
+    "answer": {
+      "correct": "국회",
+      "options": [
+        "국회",
+        "법원",
+        "행정부",
+        "지방자치단체"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "법률안을 만드는 곳을 견제해요"
+    },
+    "skillTags": [
+      "apply",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "대통령의 거부권은 어떤 기관을 견제하는 것인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "법을 만드는 건 국회야. 대통령이 '이 법 다시 생각해봐'라고 할 수 있는 게 거부권이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_008",
+    "sourceRef": "school-social/U2-2/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "국회의원은 국민이 직접 투표로 뽑습니다. 국회의원이 국민의 뜻에 맞게 일하지 않으면, 국민은 다음 선거에서 다른 사람을 뽑을 수 있습니다. 이것이 국민이 권력을 견제하는 방법입니다.",
+      "text": "국민이 국회의원을 견제하는 가장 기본적인 방법은?",
+      "ttsText": "국민이 국회의원을 견제하는 가장 기본적인 방법은?"
+    },
+    "answer": {
+      "correct": "선거를 통해 다른 사람을 뽑는 것",
+      "options": [
+        "선거를 통해 다른 사람을 뽑는 것",
+        "국정감사를 하는 것",
+        "재판을 여는 것",
+        "거부권을 행사하는 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "투표할 때 할 수 있는 일이야"
+    },
+    "skillTags": [
+      "apply",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "국민이 국회의원을 견제하는 가장 기본적인 방법은?",
+    "validationDetails": [],
+    "wrongExplanation": "국정감사는 국회가, 재판은 법원이, 거부권은 대통령이 하는 거야. 국민은 선거로 견제해!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_009",
+    "sourceRef": "school-social/U2-2/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "인사청문회는 대통령이 임명하려는 고위 공무원이 그 자리에 적합한지 국회가 심사하는 회의입니다. 이를 통해 국회는 행정부의 인사를 견제합니다.",
+      "text": "인사청문회의 목적은 무엇인가요?",
+      "ttsText": "인사청문회의 목적은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "고위 공무원의 적합성을 심사하기 위해",
+      "options": [
+        "고위 공무원의 적합성을 심사하기 위해",
+        "새로운 법을 만들기 위해",
+        "예산을 확인하기 위해",
+        "재판 결과를 검토하기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'청문'은 의견을 듣는다는 뜻이야"
+    },
+    "skillTags": [
+      "concept",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "인사청문회의 목적은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "인사청문회는 '이 사람이 이 자리에 맞는 사람인가?' 확인하는 자리야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_010",
+    "sourceRef": "school-social/U2-2/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "국회, 행정부, 법원은 서로 견제하고 균형을 이룹니다. 국회는 법을 만들고 행정부를 감시하며, 행정부는 법을 집행하고 거부권을 행사할 수 있고, 법원은 법에 어긋나는 것을 판단합니다.",
+      "text": "다음 중 행정부의 역할에 해당하는 것은?",
+      "ttsText": "다음 중 행정부의 역할에 해당하는 것은?"
+    },
+    "answer": {
+      "correct": "국회가 만든 법을 집행하는 것",
+      "options": [
+        "국회가 만든 법을 집행하는 것",
+        "법을 만드는 것",
+        "재판을 진행하는 것",
+        "국정감사를 하는 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "법을 '실행'하는 곳이야"
+    },
+    "skillTags": [
+      "apply",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다음 중 행정부의 역할에 해당하는 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "법을 만드는 건 국회, 재판은 법원, 국정감사도 국회야. 행정부는 만들어진 법을 실행해!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_011",
+    "sourceRef": "school-social/U2-2/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "어떤 시민이 공장 매연 때문에 건강이 나빠졌습니다. 법원에 손해배상 소송을 냈고, 법원은 공장이 시민에게 배상금을 지급하라고 판결했습니다. 이처럼 법원은 국민의 권리를 보호합니다.",
+      "text": "이 사례에서 법원이 한 역할은 무엇인가요?",
+      "ttsText": "이 사례에서 법원이 한 역할은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "피해를 입은 시민의 권리를 보호한 것",
+      "options": [
+        "피해를 입은 시민의 권리를 보호한 것",
+        "공장을 폐쇄한 것",
+        "새로운 환경법을 만든 것",
+        "공장에 벌금을 부과한 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "법원은 법에 따라 판결해서 권리를 지켜줘요"
+    },
+    "skillTags": [
+      "critical",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "이 사례에서 법원이 한 역할은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "법원은 법을 만들거나 공장을 폐쇄하는 게 아니야. 피해자의 권리를 판결로 보호해 주는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u22_012",
+    "sourceRef": "school-social/U2-2/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "만약 한 사람이 법도 만들고, 법을 집행하고, 재판까지 한다면 어떻게 될까요? 자기에게 유리한 법을 만들고, 자기 마음대로 집행하며, 잘못해도 처벌받지 않을 수 있습니다.",
+      "text": "권력 분립이 없다면 일어날 수 있는 문제는?",
+      "ttsText": "권력 분립이 없다면 일어날 수 있는 문제는?"
+    },
+    "answer": {
+      "correct": "자기에게 유리한 법을 만들고 처벌을 피할 수 있다",
+      "options": [
+        "자기에게 유리한 법을 만들고 처벌을 피할 수 있다",
+        "나라의 일이 더 빨리 처리된다",
+        "모든 국민이 평등해진다",
+        "세금이 줄어든다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "아무도 견제하지 않으면 어떤 일이 생길까?"
+    },
+    "skillTags": [
+      "critical",
+      "government"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "권력 분립이 없다면 일어날 수 있는 문제는?",
+    "validationDetails": [],
+    "wrongExplanation": "견제가 없으면 빨라질 순 있지만, 공정하지 않게 돼. 독재로 이어질 수 있어!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_001",
+    "sourceRef": "school-social/U2-3/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "미디어란 사람들이 정보를 주고받으며 의사소통하기 위해 사용하는 수단입니다. 신문, 방송, 인터넷, SNS 등이 미디어에 해당합니다.",
+      "text": "미디어란 무엇인가요?",
+      "ttsText": "미디어란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "정보를 주고받기 위한 의사소통 수단",
+      "options": [
+        "정보를 주고받기 위한 의사소통 수단",
+        "돈을 보내는 방법",
+        "물건을 사는 곳",
+        "학교에서 배우는 과목"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "신문, 방송, SNS 같은 것들이에요"
+    },
+    "skillTags": [
+      "fact",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "미디어란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "미디어는 정보를 전달하는 수단이야. 신문, TV, 유튜브 같은 걸 생각하면 돼!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_002",
+    "sourceRef": "school-social/U2-3/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "1인 미디어란 개인이 글, 사진, 영상을 직접 만들어 다른 사람들과 공유하는 방식입니다. 유튜브나 블로그가 대표적인 1인 미디어입니다.",
+      "text": "1인 미디어의 예로 알맞은 것은?",
+      "ttsText": "1인 미디어의 예로 알맞은 것은?"
+    },
+    "answer": {
+      "correct": "유튜브 채널",
+      "options": [
+        "유튜브 채널",
+        "신문사 기사",
+        "교과서",
+        "뉴스 방송"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "개인이 직접 만들어 공유하는 거예요"
+    },
+    "skillTags": [
+      "fact",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "1인 미디어의 예로 알맞은 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "신문사나 뉴스는 회사에서 만드는 거야. 개인이 직접 만드는 유튜브가 1인 미디어야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_003",
+    "sourceRef": "school-social/U2-3/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "허위 조작 정보(가짜 뉴스)란 사실과 다른 내용을 진짜처럼 꾸며서 전달하는 정보입니다. 가짜 뉴스는 사람들의 판단을 흐리게 하고 민주주의를 위협합니다.",
+      "text": "가짜 뉴스란 무엇인가요?",
+      "ttsText": "가짜 뉴스란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "사실과 다른 내용을 진짜처럼 꾸민 정보",
+      "options": [
+        "사실과 다른 내용을 진짜처럼 꾸민 정보",
+        "오래된 뉴스",
+        "외국 뉴스",
+        "어려운 뉴스"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "진짜가 아닌데 진짜처럼 보이게 만든 거예요"
+    },
+    "skillTags": [
+      "fact",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "가짜 뉴스란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "오래되거나 외국 뉴스라고 가짜는 아니야. '거짓인데 진짜처럼 꾸민 것'이 가짜 뉴스야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_004",
+    "sourceRef": "school-social/U2-3/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "여론이란 사회 문제에 대해 많은 사람이 공통으로 가지고 있는 의견입니다. 미디어는 여론을 만들고 전달하는 데 큰 영향을 미칩니다.",
+      "text": "여론이란 무엇인가요?",
+      "ttsText": "여론이란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "많은 사람이 공통으로 가진 의견",
+      "options": [
+        "많은 사람이 공통으로 가진 의견",
+        "한 사람의 생각",
+        "법원의 판결",
+        "정부의 명령"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'여러 사람'의 '론(의견)'이에요"
+    },
+    "skillTags": [
+      "fact",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "여론이란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "여론은 '여러 사람의 의견'이야. 한 사람 생각이나 정부 명령과는 달라!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_005",
+    "sourceRef": "school-social/U2-3/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "미디어는 사회 문제를 알리고 사람들의 관심을 모읍니다. 예를 들어, 환경오염 뉴스를 보고 사람들이 환경 보호에 관심을 갖게 되면, 정부도 환경 정책을 바꿀 수 있습니다.",
+      "text": "미디어가 민주주의에서 중요한 이유는?",
+      "ttsText": "미디어가 민주주의에서 중요한 이유는?"
+    },
+    "answer": {
+      "correct": "사회 문제를 알려 시민의 관심과 참여를 이끌어내므로",
+      "options": [
+        "사회 문제를 알려 시민의 관심과 참여를 이끌어내므로",
+        "돈을 벌어다 주므로",
+        "법을 직접 만들 수 있으므로",
+        "선거를 대신해 주므로"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "뉴스를 보면 사회 문제에 관심을 갖게 되잖아"
+    },
+    "skillTags": [
+      "concept",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "미디어가 민주주의에서 중요한 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "미디어는 법을 만들거나 선거를 하진 않아. 하지만 사람들이 문제를 알게 해서 참여하게 만들지!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_006",
+    "sourceRef": "school-social/U2-3/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "같은 사건도 미디어에 따라 다르게 보도될 수 있습니다. 어떤 신문은 긍정적으로, 다른 신문은 부정적으로 보도할 수 있습니다. 그래서 하나의 미디어만 보지 말고 여러 미디어를 비교해야 합니다.",
+      "text": "미디어를 이용할 때 주의할 점은?",
+      "ttsText": "미디어를 이용할 때 주의할 점은?"
+    },
+    "answer": {
+      "correct": "여러 미디어를 비교해서 보는 것",
+      "options": [
+        "여러 미디어를 비교해서 보는 것",
+        "가장 유명한 것만 보는 것",
+        "사진이 많은 것만 보는 것",
+        "빨리 나온 뉴스만 보는 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "하나만 보면 한쪽 시각에 치우칠 수 있어요"
+    },
+    "skillTags": [
+      "apply",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "미디어를 이용할 때 주의할 점은?",
+    "validationDetails": [],
+    "wrongExplanation": "유명하거나 빠르다고 정확한 게 아니야. 여러 곳을 비교해봐야 진짜를 알 수 있어!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_007",
+    "sourceRef": "school-social/U2-3/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "딥페이크란 인공지능(AI)으로 만든 합성 이미지나 영상입니다. 실제 사람의 얼굴이나 목소리를 합성해서 가짜 영상을 만들 수 있어, 미디어의 신뢰성을 해칩니다.",
+      "text": "딥페이크가 위험한 이유는?",
+      "ttsText": "딥페이크가 위험한 이유는?"
+    },
+    "answer": {
+      "correct": "진짜처럼 보이는 가짜 영상으로 사람들을 속일 수 있어서",
+      "options": [
+        "진짜처럼 보이는 가짜 영상으로 사람들을 속일 수 있어서",
+        "영상 화질이 나빠서",
+        "인터넷 속도가 느려져서",
+        "컴퓨터가 고장 나서"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "AI로 진짜처럼 만든 가짜예요"
+    },
+    "skillTags": [
+      "concept",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "딥페이크가 위험한 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "딥페이크는 화질이나 속도 문제가 아니야. '진짜 같은 가짜'를 만들어서 속일 수 있어서 위험해!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_008",
+    "sourceRef": "school-social/U2-3/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "맞춤형 정보란 내가 자주 보는 것과 비슷한 정보만 계속 보여주는 것입니다. 편리하지만, 한쪽 관점의 정보만 접하게 되어 편견이 생길 수 있습니다.",
+      "text": "맞춤형 정보의 문제점은?",
+      "ttsText": "맞춤형 정보의 문제점은?"
+    },
+    "answer": {
+      "correct": "한쪽 관점만 접하게 되어 편견이 생길 수 있다",
+      "options": [
+        "한쪽 관점만 접하게 되어 편견이 생길 수 있다",
+        "정보가 너무 많아진다",
+        "인터넷 속도가 느려진다",
+        "광고가 사라진다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "내가 좋아하는 것만 계속 보면 어떻게 될까?"
+    },
+    "skillTags": [
+      "concept",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "맞춤형 정보의 문제점은?",
+    "validationDetails": [],
+    "wrongExplanation": "좋아하는 것만 보면 편하지만, 다른 생각을 못 보게 돼. 그러면 편견이 생길 수 있어!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_009",
+    "sourceRef": "school-social/U2-3/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "가짜 뉴스를 구별하려면 먼저 출처를 확인합니다. 누가 만들었는지, 믿을 만한 곳인지 살펴보고, 다른 뉴스에서도 같은 내용을 보도하는지 비교합니다.",
+      "text": "가짜 뉴스를 구별하는 방법으로 가장 적절한 것은?",
+      "ttsText": "가짜 뉴스를 구별하는 방법으로 가장 적절한 것은?"
+    },
+    "answer": {
+      "correct": "출처를 확인하고 다른 뉴스와 비교한다",
+      "options": [
+        "출처를 확인하고 다른 뉴스와 비교한다",
+        "사진이 있으면 진짜로 믿는다",
+        "댓글이 많으면 진짜로 판단한다",
+        "제목만 보고 판단한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "누가 만들었는지, 다른 곳에서도 같은 이야기를 하는지 확인해요"
+    },
+    "skillTags": [
+      "apply",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "가짜 뉴스를 구별하는 방법으로 가장 적절한 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "사진이 있어도, 댓글이 많아도 가짜일 수 있어. 출처 확인과 비교가 가장 중요해!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_010",
+    "sourceRef": "school-social/U2-3/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "옛날에는 벽화, 편지, 책 등으로 정보를 전달했습니다. 오늘날에는 인터넷과 SNS 덕분에 전 세계 사람들과 빠르게 정보를 주고받을 수 있습니다.",
+      "text": "옛날 미디어와 오늘날 미디어의 가장 큰 차이는?",
+      "ttsText": "옛날 미디어와 오늘날 미디어의 가장 큰 차이는?"
+    },
+    "answer": {
+      "correct": "정보 전달 속도와 범위",
+      "options": [
+        "정보 전달 속도와 범위",
+        "글자의 크기",
+        "종이의 종류",
+        "사용하는 언어"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "편지와 SNS를 비교해 보면?"
+    },
+    "skillTags": [
+      "apply",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "옛날 미디어와 오늘날 미디어의 가장 큰 차이는?",
+    "validationDetails": [],
+    "wrongExplanation": "글자 크기나 종이가 아니라, 얼마나 '빠르게' '많은 사람에게' 전달하느냐가 핵심 차이야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_011",
+    "sourceRef": "school-social/U2-3/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "A 학생은 SNS에서 '특정 음식을 먹으면 키가 10cm 자란다'는 글을 보았습니다. 좋아요가 1만 개나 달렸고, 유명한 사람이 공유한 글이었습니다.",
+      "text": "A 학생이 이 정보를 어떻게 판단해야 할까요?",
+      "ttsText": "A 학생이 이 정보를 어떻게 판단해야 할까요?"
+    },
+    "answer": {
+      "correct": "좋아요 수와 관계없이 과학적 근거가 있는지 확인해야 한다",
+      "options": [
+        "좋아요 수와 관계없이 과학적 근거가 있는지 확인해야 한다",
+        "좋아요가 많으니 사실이다",
+        "유명한 사람이 공유했으니 믿어도 된다",
+        "SNS 글은 모두 거짓이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "인기 있다고 사실인 건 아니에요"
+    },
+    "skillTags": [
+      "critical",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "A 학생이 이 정보를 어떻게 판단해야 할까요?",
+    "validationDetails": [],
+    "wrongExplanation": "좋아요가 많거나 유명인이 공유해도 거짓일 수 있어. 과학적 근거를 꼭 확인해야 해!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u23_012",
+    "sourceRef": "school-social/U2-3/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-3",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "민수네 반에서 학급 회장 선거가 있습니다. 한 후보의 친구들이 SNS에 다른 후보의 가짜 소문을 퍼뜨렸습니다. 이 때문에 많은 학생들이 잘못된 정보를 믿고 투표했습니다.",
+      "text": "이 사례가 보여주는 가짜 뉴스의 가장 큰 문제점은?",
+      "ttsText": "이 사례가 보여주는 가짜 뉴스의 가장 큰 문제점은?"
+    },
+    "answer": {
+      "correct": "민주적 의사 결정을 방해한다",
+      "options": [
+        "민주적 의사 결정을 방해한다",
+        "인터넷 속도가 느려진다",
+        "선생님이 화를 낸다",
+        "SNS 사용이 금지된다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "올바른 정보 없이 투표하면 어떻게 될까?"
+    },
+    "skillTags": [
+      "critical",
+      "media"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "이 사례가 보여주는 가짜 뉴스의 가장 큰 문제점은?",
+    "validationDetails": [],
+    "wrongExplanation": "가짜 정보 때문에 공정한 선거가 안 됐어. 이게 민주주의에서 가장 위험한 점이야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_001",
+    "sourceRef": "school-social/U3-1/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "지구본은 실제 지구의 모습을 축소해서 만든 입체 모형입니다. 나라의 위치, 면적, 거리를 비교적 정확하게 나타낼 수 있습니다.",
+      "text": "지구본의 가장 큰 장점은 무엇인가요?",
+      "ttsText": "지구본의 가장 큰 장점은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "위치, 면적, 거리가 비교적 정확하다",
+      "options": [
+        "위치, 면적, 거리가 비교적 정확하다",
+        "가지고 다니기 편하다",
+        "한눈에 전체를 볼 수 있다",
+        "가격이 싸다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "둥근 지구를 둥근 모형으로 나타낸 거예요"
+    },
+    "skillTags": [
+      "fact",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구본의 가장 큰 장점은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "지구본은 무겁고 크지만, 둥근 지구를 둥글게 나타내서 정확도가 높아!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_002",
+    "sourceRef": "school-social/U3-1/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "세계 지도는 둥근 지구를 평면으로 펼쳐서 나타낸 것입니다. 한눈에 세계 전체를 볼 수 있고 가지고 다니기 편하지만, 면적이나 거리가 실제와 다르게 나타날 수 있습니다.",
+      "text": "세계 지도의 단점은 무엇인가요?",
+      "ttsText": "세계 지도의 단점은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "면적이나 거리가 실제와 다르게 나타날 수 있다",
+      "options": [
+        "면적이나 거리가 실제와 다르게 나타날 수 있다",
+        "전체를 볼 수 없다",
+        "글자가 너무 작다",
+        "색깔이 없다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "둥근 것을 평평하게 펼치면 어떻게 될까?"
+    },
+    "skillTags": [
+      "fact",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계 지도의 단점은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "오렌지 껍질을 평평하게 펼치면 찢어지잖아? 지도도 마찬가지로 왜곡이 생겨!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_003",
+    "sourceRef": "school-social/U3-1/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "위도는 적도를 기준으로 남쪽과 북쪽의 거리를 나타냅니다. 적도에서 북쪽은 북위, 남쪽은 남위라고 합니다. 위도는 0도에서 90도까지 있습니다.",
+      "text": "위도의 기준이 되는 선은 무엇인가요?",
+      "ttsText": "위도의 기준이 되는 선은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "적도",
+      "options": [
+        "적도",
+        "본초 자오선",
+        "날짜 변경선",
+        "경계선"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "지구의 허리띠 같은 선이에요"
+    },
+    "skillTags": [
+      "fact",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "위도의 기준이 되는 선은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "위도는 적도(가로선)가 기준이야. 본초 자오선(세로선)은 경도의 기준이야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_004",
+    "sourceRef": "school-social/U3-1/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "경도는 본초 자오선을 기준으로 동쪽과 서쪽의 거리를 나타냅니다. 동쪽은 동경, 서쪽은 서경이라고 합니다. 경도는 0도에서 180도까지 있습니다.",
+      "text": "경도의 기준이 되는 선은 무엇인가요?",
+      "ttsText": "경도의 기준이 되는 선은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "본초 자오선",
+      "options": [
+        "본초 자오선",
+        "적도",
+        "날짜 변경선",
+        "국경선"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "영국 런던을 지나는 세로선이에요"
+    },
+    "skillTags": [
+      "fact",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "경도의 기준이 되는 선은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "경도는 본초 자오선(세로선)이 기준이야. 영국 그리니치 천문대를 지나는 선이야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_005",
+    "sourceRef": "school-social/U3-1/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "위도가 낮은 지역(저위도)은 적도에 가까워 햇볕을 많이 받아 기온이 높습니다. 위도가 높은 지역(고위도)은 극지방에 가까워 햇볕을 적게 받아 기온이 낮습니다.",
+      "text": "적도 근처 나라들의 기온이 높은 이유는?",
+      "ttsText": "적도 근처 나라들의 기온이 높은 이유는?"
+    },
+    "answer": {
+      "correct": "위도가 낮아서 햇볕을 많이 받기 때문",
+      "options": [
+        "위도가 낮아서 햇볕을 많이 받기 때문",
+        "경도가 높기 때문",
+        "바다가 가깝기 때문",
+        "산이 많기 때문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "적도 = 저위도 = 햇볕을 많이 받음"
+    },
+    "skillTags": [
+      "concept",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "적도 근처 나라들의 기온이 높은 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "경도는 동서 위치야. 기온에 영향을 주는 건 위도(남북 위치)야. 저위도일수록 더워!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_006",
+    "sourceRef": "school-social/U3-1/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "지구는 기울어진 채로 태양 주위를 돕니다. 그래서 북반구가 여름일 때 남반구는 겨울이고, 북반구가 겨울일 때 남반구는 여름입니다.",
+      "text": "우리나라가 여름일 때 호주는 어떤 계절인가요?",
+      "ttsText": "우리나라가 여름일 때 호주는 어떤 계절인가요?"
+    },
+    "answer": {
+      "correct": "겨울",
+      "options": [
+        "겨울",
+        "여름",
+        "봄",
+        "가을"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "우리나라는 북반구, 호주는 남반구예요"
+    },
+    "skillTags": [
+      "apply",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "우리나라가 여름일 때 호주는 어떤 계절인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "우리나라(북반구)와 호주(남반구)는 계절이 반대야. 우리가 여름이면 호주는 겨울!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_007",
+    "sourceRef": "school-social/U3-1/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "디지털 영상 지도는 항공 사진이나 위성 영상에 지역 이름이나 경계선을 표시한 지도입니다. 확대·축소가 자유롭고 최신 정보를 빠르게 반영할 수 있습니다.",
+      "text": "디지털 영상 지도의 장점이 아닌 것은?",
+      "ttsText": "디지털 영상 지도의 장점이 아닌 것은?"
+    },
+    "answer": {
+      "correct": "인터넷 없이도 항상 사용할 수 있다",
+      "options": [
+        "인터넷 없이도 항상 사용할 수 있다",
+        "확대와 축소가 자유롭다",
+        "최신 정보를 빠르게 반영한다",
+        "위성 사진으로 실제 모습을 볼 수 있다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "디지털이라서 필요한 것이 있어요"
+    },
+    "skillTags": [
+      "apply",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "디지털 영상 지도의 장점이 아닌 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "디지털 지도는 인터넷이 필요해! 대신 확대·축소, 최신 반영, 위성 사진 등 장점이 많아."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_008",
+    "sourceRef": "school-social/U3-1/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "경도에 따라 시간이 달라집니다. 경도 15도마다 약 1시간의 시차가 생깁니다. 그래서 우리나라가 낮일 때 미국은 밤이 됩니다.",
+      "text": "나라마다 시간이 다른 이유는?",
+      "ttsText": "나라마다 시간이 다른 이유는?"
+    },
+    "answer": {
+      "correct": "경도가 다르기 때문",
+      "options": [
+        "경도가 다르기 때문",
+        "위도가 다르기 때문",
+        "인구가 다르기 때문",
+        "면적이 다르기 때문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "동서 위치의 차이가 시간에 영향을 줘요"
+    },
+    "skillTags": [
+      "concept",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "나라마다 시간이 다른 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "위도는 기온, 경도는 시간에 영향을 줘. 동서로 멀리 떨어지면 시차가 생기는 거야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_009",
+    "sourceRef": "school-social/U3-1/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "세계 지도에서 그린란드는 아프리카 대륙만큼 크게 보이지만, 실제로 그린란드는 아프리카의 약 14분의 1 크기입니다. 이것은 둥근 지구를 평면으로 만들 때 생기는 왜곡입니다.",
+      "text": "세계 지도에서 그린란드가 실제보다 크게 보이는 이유는?",
+      "ttsText": "세계 지도에서 그린란드가 실제보다 크게 보이는 이유는?"
+    },
+    "answer": {
+      "correct": "둥근 지구를 평면으로 나타낼 때 생기는 왜곡",
+      "options": [
+        "둥근 지구를 평면으로 나타낼 때 생기는 왜곡",
+        "그린란드가 실제로 커서",
+        "지도를 잘못 그려서",
+        "아프리카가 실제로 작아서"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "고위도 지역일수록 더 크게 왜곡돼요"
+    },
+    "skillTags": [
+      "concept",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계 지도에서 그린란드가 실제보다 크게 보이는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "그린란드는 실제로 작아! 고위도 지역은 지도에서 늘어나서 커 보이는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_010",
+    "sourceRef": "school-social/U3-1/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "1884년 국제 자오선 회의에서 영국 런던의 그리니치 천문대를 지나는 선을 경도 0도, 즉 본초 자오선으로 정했습니다. 이 선을 기준으로 동경과 서경을 나눕니다.",
+      "text": "본초 자오선이 지나는 곳은 어디인가요?",
+      "ttsText": "본초 자오선이 지나는 곳은 어디인가요?"
+    },
+    "answer": {
+      "correct": "영국 런던 그리니치 천문대",
+      "options": [
+        "영국 런던 그리니치 천문대",
+        "미국 뉴욕",
+        "프랑스 파리",
+        "대한민국 서울"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "1884년 국제 회의에서 정한 곳이에요"
+    },
+    "skillTags": [
+      "fact",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "본초 자오선이 지나는 곳은 어디인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "본초 자오선(경도 0도)은 영국 그리니치 천문대를 지나. 국제 회의에서 정한 거야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_011",
+    "sourceRef": "school-social/U3-1/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "서울에서 화상 회의를 하려고 합니다. 상대방은 영국 런던에 있습니다. 서울은 동경 127도, 런던은 경도 0도 부근입니다. 경도 15도마다 1시간 시차가 생깁니다.",
+      "text": "서울이 오후 6시일 때 런던은 대략 몇 시인가요?",
+      "ttsText": "서울이 오후 6시일 때 런던은 대략 몇 시인가요?"
+    },
+    "answer": {
+      "correct": "오전 9시쯤",
+      "options": [
+        "오전 9시쯤",
+        "오후 6시",
+        "자정(밤 12시)",
+        "오후 3시"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "127÷15 ≒ 약 8~9시간 시차가 있어요. 서울이 더 동쪽이에요."
+    },
+    "skillTags": [
+      "critical",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "서울이 오후 6시일 때 런던은 대략 몇 시인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "서울은 런던보다 동쪽이라 약 9시간 빨라. 서울 오후 6시면 런던은 오전 9시쯤이야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u31_012",
+    "sourceRef": "school-social/U3-1/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "수진이네 가족이 여행을 계획하고 있습니다. 지구본으로 보면 캐나다에서 한국까지 북극 위로 가는 길이 더 짧아 보입니다. 하지만 세계 지도에서는 태평양을 건너는 길이 더 짧아 보입니다.",
+      "text": "지구본과 세계 지도에서 경로가 다르게 보이는 이유는?",
+      "ttsText": "지구본과 세계 지도에서 경로가 다르게 보이는 이유는?"
+    },
+    "answer": {
+      "correct": "세계 지도는 평면이라 거리가 왜곡되기 때문",
+      "options": [
+        "세계 지도는 평면이라 거리가 왜곡되기 때문",
+        "지구본이 잘못 만들어져서",
+        "비행기가 곧장 날 수 없어서",
+        "두 나라의 위치가 계속 바뀌어서"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "둥근 것과 평평한 것의 차이를 생각해 봐요"
+    },
+    "skillTags": [
+      "critical",
+      "geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구본과 세계 지도에서 경로가 다르게 보이는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "지구본이 실제에 가까워. 지도는 평면이라 고위도 거리가 늘어나서 다르게 보이는 거야!"
   }
 ]

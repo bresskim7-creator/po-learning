@@ -2593,7 +2593,8 @@
       "validationStatus": "pass",
       "ttsText": "두 번째",
       "validationDetails": [],
-      "wrongExplanation": "first(1), second(2), third(3), fourth(4), fifth(5), sixth(6). 숫자랑 짝지어 외워봐!"
+      "wrongExplanation": "first(1), second(2), third(3), fourth(4), fifth(5), sixth(6). 숫자랑 짝지어 외워봐!",
+      "id": "eng_u45_voca_072"
     },
     {
       "cardId": "crd_2026W12_eng_g7h8i9",
@@ -2633,7 +2634,8 @@
       "validationStatus": "pass",
       "ttsText": "third",
       "validationDetails": [],
-      "wrongExplanation": "three → third. 숫자에 -th를 붙이면 순서가 돼. 단, 1,2,3은 특별해: first, second, third."
+      "wrongExplanation": "three → third. 숫자에 -th를 붙이면 순서가 돼. 단, 1,2,3은 특별해: first, second, third.",
+      "id": "eng_u45_voca_073"
     },
     {
       "cardId": "crd_2026W12_eng_j1k2l3",
@@ -2673,7 +2675,8 @@
       "validationStatus": "pass",
       "ttsText": "네 번째",
       "validationDetails": [],
-      "wrongExplanation": "four → fourth. '-th'만 붙이면 끝! 가장 규칙적인 패턴이야."
+      "wrongExplanation": "four → fourth. '-th'만 붙이면 끝! 가장 규칙적인 패턴이야.",
+      "id": "eng_u45_voca_074"
     },
     {
       "cardId": "crd_2026W12_eng_m4n5o6",
@@ -2713,7 +2716,8 @@
       "validationStatus": "pass",
       "ttsText": "fifth",
       "validationDetails": [],
-      "wrongExplanation": "five에서 v가 f로 바뀌어: five → fifth. 발음도 '피프쓰'로 달라져!"
+      "wrongExplanation": "five에서 v가 f로 바뀌어: five → fifth. 발음도 '피프쓰'로 달라져!",
+      "id": "eng_u45_voca_075"
     },
     {
       "cardId": "crd_2026W12_eng_p7q8r9",
@@ -2753,7 +2757,8 @@
       "validationStatus": "pass",
       "ttsText": "여섯 번째",
       "validationDetails": [],
-      "wrongExplanation": "six → sixth. '-th'만 붙여! 우리가 6학년이니까 sixth grade야."
+      "wrongExplanation": "six → sixth. '-th'만 붙여! 우리가 6학년이니까 sixth grade야.",
+      "id": "eng_u45_voca_076"
     },
     {
       "cardId": "crd_2026W12_eng_s1t2u3",
@@ -2793,7 +2798,8 @@
       "validationStatus": "pass",
       "ttsText": "grade",
       "validationDetails": [],
-      "wrongExplanation": "'What grade are you in?'에서 나오는 grade. 반(class)이나 교실(classroom)이랑 다른 말이야."
+      "wrongExplanation": "'What grade are you in?'에서 나오는 grade. 반(class)이나 교실(classroom)이랑 다른 말이야.",
+      "id": "eng_u45_voca_077"
     },
     {
       "cardId": "crd_2026W12_eng_v4w5x6",
@@ -2833,7 +2839,8 @@
       "validationStatus": "pass",
       "ttsText": "read books",
       "validationDetails": [],
-      "wrongExplanation": "read = 읽다, books = 책들. '동사 + 명사'로 활동을 표현하는 패턴이야."
+      "wrongExplanation": "read = 읽다, books = 책들. '동사 + 명사'로 활동을 표현하는 패턴이야.",
+      "id": "eng_u45_voca_078"
     },
     {
       "cardId": "crd_2026W12_eng_y7z8a1",
@@ -2873,7 +2880,8 @@
       "validationStatus": "pass",
       "ttsText": "play the guitar",
       "validationDetails": [],
-      "wrongExplanation": "악기 앞에는 'the'를 꼭 붙여! play the piano, play the violin처럼. 운동에는 안 붙여."
+      "wrongExplanation": "악기 앞에는 'the'를 꼭 붙여! play the piano, play the violin처럼. 운동에는 안 붙여.",
+      "id": "eng_u45_voca_079"
     },
     {
       "cardId": "crd_2026W12_eng_b2c3d4",
@@ -2913,7 +2921,8 @@
       "validationStatus": "pass",
       "ttsText": "음악을 듣다",
       "validationDetails": [],
-      "wrongExplanation": "listen 뒤에는 항상 'to'가 와! listen to music, listen to me. 'to'를 빼먹으면 안 돼."
+      "wrongExplanation": "listen 뒤에는 항상 'to'가 와! listen to music, listen to me. 'to'를 빼먹으면 안 돼.",
+      "id": "eng_u45_voca_080"
     },
     {
       "cardId": "crd_2026W12_eng_e5f6g7",
@@ -2953,7 +2962,8 @@
       "validationStatus": "pass",
       "ttsText": "그림을 그리다",
       "validationDetails": [],
-      "wrongExplanation": "draw = 그리다. 연필로 하는 건 draw, 붓으로 하는 건 paint야!"
+      "wrongExplanation": "draw = 그리다. 연필로 하는 건 draw, 붓으로 하는 건 paint야!",
+      "id": "eng_u45_voca_081"
     },
     {
       "cardId": "crd_2026W12_eng_h8i9j1",
@@ -2993,7 +3003,8 @@
       "validationStatus": "pass",
       "ttsText": "자전거를 타다",
       "validationDetails": [],
-      "wrongExplanation": "ride = 올라타다. ride a bike(자전거), ride a horse(말). 올라타는 건 다 ride!"
+      "wrongExplanation": "ride = 올라타다. ride a bike(자전거), ride a horse(말). 올라타는 건 다 ride!",
+      "id": "eng_u45_voca_082"
     },
     {
       "cardId": "crd_2026W12_eng_k2l3m4",
@@ -3033,7 +3044,8 @@
       "validationStatus": "pass",
       "ttsText": "축구를 하다",
       "validationDetails": [],
-      "wrongExplanation": "운동할 때는 play + 운동이름: play soccer, play basketball. the 안 붙여! (악기랑 다르지?)"
+      "wrongExplanation": "운동할 때는 play + 운동이름: play soccer, play basketball. the 안 붙여! (악기랑 다르지?)",
+      "id": "eng_u45_voca_083"
     },
     {
       "cardId": "crd_2026W12_eng_n5o6p7",
@@ -3073,7 +3085,8 @@
       "validationStatus": "pass",
       "ttsText": "춤추다",
       "validationDetails": [],
-      "wrongExplanation": "sing = 노래하다, draw = 그리다, read = 읽다, dance = 춤추다. 각각 다른 동작이야!"
+      "wrongExplanation": "sing = 노래하다, draw = 그리다, read = 읽다, dance = 춤추다. 각각 다른 동작이야!",
+      "id": "eng_u45_voca_084"
     },
     {
       "cardId": "crd_2026W12_eng_q8r9s1",
@@ -3112,7 +3125,8 @@
       "validationStatus": "pass",
       "ttsText": "What grade are you in?",
       "validationDetails": [],
-      "wrongExplanation": "grade = 학년, name = 이름, old = 나이. What 뒤에 오는 단어가 '뭘 묻는지'를 정해!"
+      "wrongExplanation": "grade = 학년, name = 이름, old = 나이. What 뒤에 오는 단어가 '뭘 묻는지'를 정해!",
+      "id": "eng_u45_sent_085"
     },
     {
       "cardId": "crd_2026W12_eng_t2u3v4",
@@ -3151,7 +3165,8 @@
       "validationStatus": "pass",
       "ttsText": "I'm in the sixth grade.",
       "validationDetails": [],
-      "wrongExplanation": "'I'm six years old'는 '6살이에요'야! sixth(6번째) grade(학년)이 '6학년'이야. 숫자랑 순서 구분!"
+      "wrongExplanation": "'I'm six years old'는 '6살이에요'야! sixth(6번째) grade(학년)이 '6학년'이야. 숫자랑 순서 구분!",
+      "id": "eng_u45_sent_086"
     },
     {
       "cardId": "crd_2026W12_eng_w5x6y7",
@@ -3190,7 +3205,8 @@
       "validationStatus": "pass",
       "ttsText": "How do you spell your name?",
       "validationDetails": [],
-      "wrongExplanation": "spell = 철자를 말하다. '이름이 뭐야?'는 What's your name이고, '철자가 어떻게 돼?'는 spell을 써."
+      "wrongExplanation": "spell = 철자를 말하다. '이름이 뭐야?'는 What's your name이고, '철자가 어떻게 돼?'는 spell을 써.",
+      "id": "eng_u45_sent_087"
     },
     {
       "cardId": "crd_2026W12_eng_z8a1b2",
@@ -3230,7 +3246,8 @@
       "validationStatus": "pass",
       "ttsText": "I play the guitar every day.",
       "validationDetails": [],
-      "wrongExplanation": "악기를 연주할 때는 play! ride(타다), read(읽다), draw(그리다)는 전혀 다른 동작이야."
+      "wrongExplanation": "악기를 연주할 때는 play! ride(타다), read(읽다), draw(그리다)는 전혀 다른 동작이야.",
+      "id": "eng_u45_sent_088"
     },
     {
       "cardId": "crd_2026W12_eng_c3d4e5",
@@ -3270,7 +3287,8 @@
       "validationStatus": "pass",
       "ttsText": "I'm from Mexico City, Mexico.",
       "validationDetails": [],
-      "wrongExplanation": "from = ~에서 온. to(~로), in(~안에), at(~에서)이랑 다 다른 뜻이야. 출신지는 from!"
+      "wrongExplanation": "from = ~에서 온. to(~로), in(~안에), at(~에서)이랑 다 다른 뜻이야. 출신지는 from!",
+      "id": "eng_u45_sent_089"
     },
     {
       "cardId": "crd_2026W12_eng_f6g7h8",
@@ -3310,7 +3328,8 @@
       "validationStatus": "pass",
       "ttsText": "Where is Diego from?",
       "validationDetails": [],
-      "wrongExplanation": "'I'm from + 장소'가 출신을 말하는 패턴이야. from 뒤에 나오는 게 출신지!"
+      "wrongExplanation": "'I'm from + 장소'가 출신을 말하는 패턴이야. from 뒤에 나오는 게 출신지!",
+      "id": "eng_u45_sent_090"
     },
     {
       "cardId": "crd_2026W12_eng_i9j1k2",
@@ -3350,7 +3369,8 @@
       "validationStatus": "pass",
       "ttsText": "What does Diego do every day?",
       "validationDetails": [],
-      "wrongExplanation": "'every day'는 '매일'이라는 뜻이야. 그 앞에 나오는 동작이 매일 하는 거!"
+      "wrongExplanation": "'every day'는 '매일'이라는 뜻이야. 그 앞에 나오는 동작이 매일 하는 거!",
+      "id": "eng_u45_sent_091"
     },
     {
       "cardId": "crd_2026W12_eng_l3m4n5",
@@ -3390,7 +3410,390 @@
       "validationStatus": "pass",
       "ttsText": "Put the self-introduction in order.",
       "validationDetails": [],
-      "wrongExplanation": "자기소개는 기본정보부터: 이름 → 학년/나이 → 취미/특기. 자연스러운 흐름을 생각해봐!"
+      "wrongExplanation": "자기소개는 기본정보부터: 이름 → 학년/나이 → 취미/특기. 자연스러운 흐름을 생각해봐!",
+      "id": "eng_u45_sent_092"
+    },
+    {
+      "id": "eng_u6_vocab_001",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "eye",
+        "displayWord": "eye"
+      },
+      "answer": {
+        "correct": "눈",
+        "options": [
+          "눈",
+          "귀",
+          "코",
+          "입"
+        ]
+      },
+      "hint": "발음: eye",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_002",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "hair",
+        "displayWord": "hair"
+      },
+      "answer": {
+        "correct": "머리카락",
+        "options": [
+          "머리카락",
+          "손",
+          "발",
+          "귀"
+        ]
+      },
+      "hint": "발음: hair",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_003",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "glasses",
+        "displayWord": "glasses"
+      },
+      "answer": {
+        "correct": "안경",
+        "options": [
+          "안경",
+          "모자",
+          "시계",
+          "가방"
+        ]
+      },
+      "hint": "발음: glasses",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_004",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "dress",
+        "displayWord": "dress"
+      },
+      "answer": {
+        "correct": "원피스, 드레스",
+        "options": [
+          "원피스, 드레스",
+          "바지",
+          "치마",
+          "양말"
+        ]
+      },
+      "hint": "발음: dress",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_005",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "shirt",
+        "displayWord": "shirt"
+      },
+      "answer": {
+        "correct": "셔츠",
+        "options": [
+          "셔츠",
+          "바지",
+          "모자",
+          "장갑"
+        ]
+      },
+      "hint": "발음: shirt",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_006",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "pants",
+        "displayWord": "pants"
+      },
+      "answer": {
+        "correct": "바지",
+        "options": [
+          "바지",
+          "셔츠",
+          "모자",
+          "치마"
+        ]
+      },
+      "hint": "발음: pants",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_007",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "curly",
+        "displayWord": "curly"
+      },
+      "answer": {
+        "correct": "곱슬곱슬한",
+        "options": [
+          "곱슬곱슬한",
+          "긴",
+          "짧은",
+          "곧은"
+        ]
+      },
+      "hint": "발음: curly",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_vocab_008",
+      "type": "vocabulary",
+      "subject": "english",
+      "difficulty": 1,
+      "question": {
+        "text": "이 영어 단어의 뜻은?",
+        "ttsText": "straight",
+        "displayWord": "straight"
+      },
+      "answer": {
+        "correct": "곧은, 일자의",
+        "options": [
+          "곧은, 일자의",
+          "곱슬한",
+          "짧은",
+          "긴"
+        ]
+      },
+      "hint": "발음: straight",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_sent_001",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 문장의 뜻은?",
+        "ttsText": "She has blue eyes.",
+        "displayWord": "She has blue eyes."
+      },
+      "answer": {
+        "correct": "그녀는 파란 눈을 가지고 있어요.",
+        "options": [
+          "그녀는 파란 눈을 가지고 있어요.",
+          "그녀는 파란 옷을 입었어요.",
+          "그녀는 파란 가방이 있어요.",
+          "그녀는 파란색을 좋아해요."
+        ]
+      },
+      "hint": "has = ~를 가지고 있다",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "wrongExplanation": "has blue eyes는 '파란 눈을 가지고 있다'는 뜻이에요.",
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_sent_002",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 문장의 뜻은?",
+        "ttsText": "He is wearing a red shirt.",
+        "displayWord": "He is wearing a red shirt."
+      },
+      "answer": {
+        "correct": "그는 빨간 셔츠를 입고 있어요.",
+        "options": [
+          "그는 빨간 셔츠를 입고 있어요.",
+          "그는 빨간 모자를 쓰고 있어요.",
+          "그는 빨간색을 좋아해요.",
+          "그는 빨간 가방을 가지고 있어요."
+        ]
+      },
+      "hint": "is wearing = ~를 입고 있다",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "wrongExplanation": "is wearing a red shirt는 '빨간 셔츠를 입고 있다'는 뜻이에요.",
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_sent_003",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 문장의 뜻은?",
+        "ttsText": "What does she look like?",
+        "displayWord": "What does she look like?"
+      },
+      "answer": {
+        "correct": "그녀는 어떻게 생겼나요?",
+        "options": [
+          "그녀는 어떻게 생겼나요?",
+          "그녀는 무엇을 좋아하나요?",
+          "그녀는 어디에 있나요?",
+          "그녀는 무엇을 하고 있나요?"
+        ]
+      },
+      "hint": "look like = ~처럼 보이다 / 생김새",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "wrongExplanation": "What does she look like?는 외모를 묻는 표현이에요.",
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_sent_004",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 문장의 뜻은?",
+        "ttsText": "She has long curly hair.",
+        "displayWord": "She has long curly hair."
+      },
+      "answer": {
+        "correct": "그녀는 긴 곱슬머리를 가지고 있어요.",
+        "options": [
+          "그녀는 긴 곱슬머리를 가지고 있어요.",
+          "그녀는 짧은 머리예요.",
+          "그녀는 긴 생머리예요.",
+          "그녀는 곱슬한 옷을 입었어요."
+        ]
+      },
+      "hint": "curly = 곱슬곱슬한",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "wrongExplanation": "long curly hair는 '긴 곱슬머리'라는 뜻이에요.",
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
+    },
+    {
+      "id": "eng_u6_sent_005",
+      "type": "sentence",
+      "subject": "english",
+      "difficulty": 2,
+      "question": {
+        "text": "다음 문장의 뜻은?",
+        "ttsText": "He is tall and thin.",
+        "displayWord": "He is tall and thin."
+      },
+      "answer": {
+        "correct": "그는 키가 크고 말랐어요.",
+        "options": [
+          "그는 키가 크고 말랐어요.",
+          "그는 작고 뚱뚱해요.",
+          "그는 키가 크고 뚱뚱해요.",
+          "그는 작고 말랐어요."
+        ]
+      },
+      "hint": "tall = 키가 큰, thin = 마른",
+      "tags": [
+        "unit6",
+        "appearance"
+      ],
+      "wrongExplanation": "tall and thin은 '키가 크고 마른'이라는 뜻이에요.",
+      "meta": {
+        "topic": "appearance",
+        "sourceUnit": "6단원"
+      }
     }
   ],
   "focusWords": [
