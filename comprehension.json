@@ -3,7 +3,7 @@
   "generated": "2026-03-17",
   "weekOf": "2026-03-17",
   "reviewedBy": null,
-  "note": "v4.10 기준. 총 84장 중 유효 79장 (blocked 5장 제외). W14: 수업37(미루기와용기) 8장 + 수업38(마무리) 8장 추가.",
+  "note": "v5.0.6 기준. 총 100장. W14: 수업35(악플전쟁) 8장 + 수업36(믿음과가족) 8장 + 수업37(미루기와용기) 8장 + 수업38(마무리) 8장 추가.",
   "cards": [
     {
       "id": "comp_001",
@@ -2888,7 +2888,6 @@
       ],
       "skillTag": "inference"
     },
-
     {
       "cardId": "crd_2026W14_rcl_001",
       "type": "comprehension",
@@ -2915,7 +2914,10 @@
       "hint": {
         "text": "오늘 해야 할 일을 언제로 넘기는지 지문에서 찾아봐"
       },
-      "skillTags": ["vocabulary", "reading-comprehension"],
+      "skillTags": [
+        "vocabulary",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.85,
       "ttsText": "미루다는 무슨 뜻인가요?",
@@ -2953,9 +2955,13 @@
       "hint": {
         "text": "\"계속 미루다가\" 뒤에 어떤 결과가 나오는지 봐"
       },
-      "skillTags": ["cause-effect", "reading-comprehension", "inference"],
+      "skillTags": [
+        "cause-effect",
+        "reading-comprehension",
+        "inference"
+      ],
       "anchorType": "reading-class",
-      "confidence": 0.80,
+      "confidence": 0.8,
       "ttsText": "지금 해야 할 일을 계속 미루면 어떻게 될까요?",
       "rules": [],
       "validationDetails": [],
@@ -2991,9 +2997,12 @@
       "hint": {
         "text": "\"안 좋은 결과를 알면서도\" 뒤에 왜 미루는지 써 있어"
       },
-      "skillTags": ["motivation", "reading-comprehension"],
+      "skillTags": [
+        "motivation",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
-      "confidence": 0.80,
+      "confidence": 0.8,
       "ttsText": "우리가 일을 미루는 가장 큰 이유는 무엇인가요?",
       "rules": [],
       "validationDetails": [],
@@ -3029,7 +3038,10 @@
       "hint": {
         "text": "엄마가 \"간절히 바란다\"고 했어. 뭘 원했던 걸까?"
       },
-      "skillTags": ["character-analysis", "inference"],
+      "skillTags": [
+        "character-analysis",
+        "inference"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.75,
       "ttsText": "엄마가 서영이에게 분홍 원피스를 입으라고 한 이유는 무엇인가요?",
@@ -3067,7 +3079,10 @@
       "hint": {
         "text": "\"그 이후로\" 뒤에 서영이가 어떻게 했는지 찾아봐"
       },
-      "skillTags": ["emotion-analysis", "reading-comprehension"],
+      "skillTags": [
+        "emotion-analysis",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.78,
       "ttsText": "보경이가 서영이의 옷을 놀렸을 때 서영이는 어떻게 했나요?",
@@ -3105,7 +3120,11 @@
       "hint": {
         "text": "서영이가 \"먼저 손을 내밀었다\"는 게 핵심이야"
       },
-      "skillTags": ["emotion-understanding", "friendship", "inference"],
+      "skillTags": [
+        "emotion-understanding",
+        "friendship",
+        "inference"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.72,
       "ttsText": "민주가 서영이를 배신했을 때 서영이가 가장 힘들었던 이유는?",
@@ -3143,9 +3162,13 @@
       "hint": {
         "text": "\"처음에\"와 \"하지만\" 뒤에 생각이 어떻게 바뀌었는지 봐"
       },
-      "skillTags": ["character-growth", "self-reflection", "inference"],
+      "skillTags": [
+        "character-growth",
+        "self-reflection",
+        "inference"
+      ],
       "anchorType": "reading-class",
-      "confidence": 0.70,
+      "confidence": 0.7,
       "ttsText": "서영이는 탄자니아로 간 것에 대해 처음엔 어떻게 생각했고, 나중엔 어떻게 바뀌었나요?",
       "rules": [],
       "validationDetails": [],
@@ -3181,7 +3204,11 @@
       "hint": {
         "text": "미루기, 도망, 용기 중 어떤 게 가장 중요한 메시지일까?"
       },
-      "skillTags": ["theme", "main-idea", "life-lesson"],
+      "skillTags": [
+        "theme",
+        "main-idea",
+        "life-lesson"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.75,
       "ttsText": "이 수업에서 배운 가장 중요한 교훈은 무엇인가요?",
@@ -3193,7 +3220,6 @@
       "wrongExplanation": "서영이가 배운 건 편함을 쫓는 게 아니라 어려운 것도 마주하는 용기야. 그게 성장의 비결이야.",
       "skillTag": "theme"
     },
-
     {
       "cardId": "crd_2026W14_rcl_009",
       "type": "comprehension",
@@ -3220,7 +3246,10 @@
       "hint": {
         "text": "\"끝까지\"라는 단어가 중요해. 무엇을 끝까지 하는 거야?"
       },
-      "skillTags": ["vocabulary", "life-lesson"],
+      "skillTags": [
+        "vocabulary",
+        "life-lesson"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.85,
       "ttsText": "책에서 말하는 마무리는 무엇인가요?",
@@ -3258,9 +3287,13 @@
       "hint": {
         "text": "\"다른 곳에 눈이 간다\"고 했어. 호기심이 어디로 가는 걸까?"
       },
-      "skillTags": ["inference", "cause-effect", "reading-comprehension"],
+      "skillTags": [
+        "inference",
+        "cause-effect",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
-      "confidence": 0.80,
+      "confidence": 0.8,
       "ttsText": "흥미로운 일도 시간이 지나면 왜 지루해질까요?",
       "rules": [],
       "validationDetails": [],
@@ -3296,7 +3329,11 @@
       "hint": {
         "text": "호기심은 좋은 거야. 그런데 뭐가 더 필요한 걸까?"
       },
-      "skillTags": ["inference", "critical-thinking", "reading-comprehension"],
+      "skillTags": [
+        "inference",
+        "critical-thinking",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.78,
       "ttsText": "호기심만으로는 일이 완성될 수 없는 이유는 무엇인가요?",
@@ -3334,7 +3371,11 @@
       "hint": {
         "text": "\"내가 할 수 있는 일이 많아졌다\"고 했어. 그건 뭐의 증거야?"
       },
-      "skillTags": ["emotion-analysis", "character-development", "reading-comprehension"],
+      "skillTags": [
+        "emotion-analysis",
+        "character-development",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.82,
       "ttsText": "시작한 일을 끝까지 마무리하면 어떤 느낌이 생길까요?",
@@ -3372,9 +3413,12 @@
       "hint": {
         "text": "누군가를 좋은 방식으로 도와주는 거야"
       },
-      "skillTags": ["vocabulary", "reading-comprehension"],
+      "skillTags": [
+        "vocabulary",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
-      "confidence": 0.80,
+      "confidence": 0.8,
       "ttsText": "두둔해 주다는 무슨 뜻인가요?",
       "rules": [],
       "validationDetails": [],
@@ -3410,9 +3454,13 @@
       "hint": {
         "text": "\"가슴이 두근거리고 긴장되었다\"는 표현을 봐"
       },
-      "skillTags": ["emotion-analysis", "inference", "reading-comprehension"],
+      "skillTags": [
+        "emotion-analysis",
+        "inference",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
-      "confidence": 0.80,
+      "confidence": 0.8,
       "ttsText": "서영이가 교실에서 아이들의 귓속말을 듣고 어떤 감정을 느꼈나요?",
       "rules": [],
       "validationDetails": [],
@@ -3448,7 +3496,11 @@
       "hint": {
         "text": "\"예전에 겪었던\" 일이 뭔지 생각해 봐"
       },
-      "skillTags": ["cause-effect", "emotional-understanding", "reading-comprehension"],
+      "skillTags": [
+        "cause-effect",
+        "emotional-understanding",
+        "reading-comprehension"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.75,
       "ttsText": "서영이가 다시 긴장한 이유는 무엇인가요?",
@@ -3486,7 +3538,11 @@
       "hint": {
         "text": "\"보나마나\"는 '뻔하게'라는 뜻이야. 서영이는 뭘 당연하게 생각하고 있을까?"
       },
-      "skillTags": ["character-analysis", "psychological-understanding", "inference"],
+      "skillTags": [
+        "character-analysis",
+        "psychological-understanding",
+        "inference"
+      ],
       "anchorType": "reading-class",
       "confidence": 0.72,
       "ttsText": "보나마나 나를 비웃는 거겠지라는 말에서 서영이의 어떤 심리를 알 수 있나요?",
@@ -3497,6 +3553,646 @@
       "difficulty": 3,
       "wrongExplanation": "서영이가 확인한 게 아니야. '보나마나'는 당연히 그럴 거라고 지레짐작하는 거야. 상처받은 사람은 최악을 먼저 생각하게 돼. 그만큼 불안한 거야.",
       "skillTag": "character"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "진정한 독서란 무엇인가요?",
+        "ttsText": "진정한 독서란 무엇인가요?",
+        "passage": "독서란 글을 빨리 많이 읽는 것이 아니라, 천천히 읽으면서 마음과 생각을 키워가는 것이에요. 읽은 내용이 기억에 남지 않으면 진정한 독서가 아닙니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "천천히 읽으면서 마음과 생각을 키우는 것",
+        "options": [
+          "빨리 많이 읽는 것",
+          "천천히 읽으면서 마음과 생각을 키우는 것",
+          "한 번에 한 권을 끝내는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "빠르게 읽는 것보다 더 중요한 게 있어요"
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "진정한 독서란 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "많이 읽어도 기억에 안 남으면 소용없어. 천천히 느끼면서 읽는 게 진짜 독서야!",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "서영이가 가방에서 발견한 것은 무엇인가요?",
+        "ttsText": "서영이가 가방에서 발견한 것은 무엇인가요?",
+        "passage": "서영이는 자기 가방에서 미라의 머리띠를 발견했습니다. 누가 가방에 넣었는지 모르지만, 서영이는 민주를 의심하기 시작했습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "미라의 머리띠",
+        "options": [
+          "미라의 머리띠",
+          "민주의 필통",
+          "선생님의 편지"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "다른 친구의 물건이 들어 있었어요"
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "서영이가 가방에서 발견한 것은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "서영이 가방에서 나온 건 미라의 머리띠야. 누가 넣었는지가 미스터리!",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "서영이가 민주를 의심한 이유는?",
+        "ttsText": "서영이가 민주를 의심한 이유는?",
+        "passage": "서영이는 민주가 자신을 피하고 태도가 변했다고 느꼈습니다. 가방에서 미라의 머리띠가 나온 뒤, 서영이는 민주가 일부러 넣었을 거라고 의심하게 됩니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "민주의 태도가 변하고 자신을 피했기 때문",
+        "options": [
+          "민주가 직접 말해서",
+          "민주의 태도가 변하고 자신을 피했기 때문",
+          "선생님이 알려줘서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "직접적인 증거가 아니라 행동 변화 때문이에요"
+      },
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "서영이가 민주를 의심한 이유는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "누가 말해준 게 아니야. 민주의 '태도 변화'를 보고 서영이가 스스로 의심하게 된 거야.",
+      "skillTag": "inference"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "서영이에게 일어난 사건은 무엇인가요?",
+        "ttsText": "서영이에게 일어난 사건은 무엇인가요?",
+        "passage": "서영이가 길을 걸어가고 있을 때, 갑자기 오토바이가 다가와 서영이의 옆구리를 들이받았습니다. 서영이는 교통사고를 당해 크게 다치게 됩니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "오토바이에 부딪혀 교통사고를 당했다",
+        "options": [
+          "학교에서 넘어졌다",
+          "오토바이에 부딪혀 교통사고를 당했다",
+          "자전거에서 떨어졌다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "길에서 갑자기 일어난 사건이에요"
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "서영이에게 일어난 사건은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "학교가 아니라 길에서, 자전거가 아니라 오토바이에 부딪힌 교통사고야.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "책 읽기를 싫어하는 친구에게 해줄 수 있는 조언은?",
+        "ttsText": "책 읽기를 싫어하는 친구에게 해줄 수 있는 조언은?",
+        "passage": "책을 잘 읽으려면 처음부터 많이 읽으려 하지 말고, 하루에 한 줄씩이라도 읽는 것부터 시작하면 좋습니다. 좋아하는 음악을 들으면서 읽으면 더 즐겁게 읽을 수 있어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "하루에 한 줄이라도 읽는 것부터 시작하라고 알려준다",
+        "options": [
+          "무조건 하루에 한 권을 읽으라고 한다",
+          "하루에 한 줄이라도 읽는 것부터 시작하라고 알려준다",
+          "읽기 싫으면 안 읽어도 된다고 말한다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "작은 목표부터 시작하는 게 좋아요"
+      },
+      "skillTags": [
+        "apply"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "책 읽기를 싫어하는 친구에게 해줄 수 있는 조언은?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "한 권은 너무 부담스러워. 한 줄부터 시작해서 조금씩 늘리는 게 좋은 방법이야!",
+      "skillTag": "apply"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "'허전하다'의 뜻으로 알맞은 것은?",
+        "ttsText": "'허전하다'의 뜻으로 알맞은 것은?",
+        "passage": "'허전하다'는 무언가가 빠진 것 같은 느낌이에요. 좋은 친구가 이사를 간 뒤에 마음에 빈자리가 생긴 것처럼요. 배가 '허전하다'고도 하죠."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "무언가 부족하거나 빈 것 같은 느낌",
+        "options": [
+          "무언가 부족하거나 빈 것 같은 느낌",
+          "열받고 화나는 느낌",
+          "가슴이 두근거리는 느낌"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "빈자리가 생긴 느낌이에요"
+      },
+      "skillTags": [
+        "vocabulary"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "'허전하다'의 뜻으로 알맞은 것은?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "허전하다 = 뭔가 빠진 것 같은 느낌. 화나는 것(분하다)과는 달라!",
+      "skillTag": "vocabulary"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "이 책 '악플전쟁'의 핵심 메시지는?",
+        "ttsText": "이 책 '악플전쟁'의 핵심 메시지는?",
+        "passage": "서영이, 민주, 미라 세 친구는 한때 아주 친했지만, 오해와 갈등 때문에 사이가 멀어졌습니다. 하지만 책의 핵심 메시지는 악플의 피해를 알리고, 용서를 통해 치유할 수 있다는 것입니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "악플의 피해를 알리고 용서를 통해 치유할 수 있다는 것",
+        "options": [
+          "인터넷을 사용하지 말라는 것",
+          "악플의 피해를 알리고 용서를 통해 치유할 수 있다는 것",
+          "친구는 필요 없다는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "갈등과 화해의 과정에서 배울 수 있는 점이에요"
+      },
+      "skillTags": [
+        "main-idea"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "이 책 '악플전쟁'의 핵심 메시지는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "인터넷을 안 쓰라는 게 아니야. 악플이 주는 상처와 용서의 힘이 핵심 메시지야!",
+      "skillTag": "main-idea"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s35_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "악플전쟁-수업35",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "서영이의 의심에서 배울 수 있는 교훈은?",
+        "ttsText": "서영이의 의심에서 배울 수 있는 교훈은?",
+        "passage": "서영이는 민주를 의심했지만, 직접적인 증거는 없었습니다. 가방에 머리띠가 있었고, 민주의 태도가 변한 것만으로 판단한 것이죠."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "확실한 증거 없이 사람을 의심하면 안 된다",
+        "options": [
+          "확실한 증거 없이 사람을 의심하면 안 된다",
+          "친구를 절대 의심하면 안 된다",
+          "의심이 들면 바로 선생님께 말해야 한다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "증거와 추측의 차이를 생각해 보세요"
+      },
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "서영이의 의심에서 배울 수 있는 교훈은?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 3,
+      "wrongExplanation": "의심 자체가 나쁜 건 아니지만, 확실한 증거 없이 단정 짓는 건 위험해!",
+      "skillTag": "critical"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "다른 사람의 믿음을 얻으려면 가장 먼저 해야 할 것은?",
+        "ttsText": "다른 사람의 믿음을 얻으려면 가장 먼저 해야 할 것은?",
+        "passage": "자신을 믿는 것은 매우 중요합니다. 스스로 '나는 할 수 있어'라고 믿어야 다른 사람도 나를 믿어줍니다. 자신을 믿지 못하는 사람은 다른 사람의 믿음도 얻기 어렵습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자기 자신을 먼저 믿는 것",
+        "options": [
+          "다른 사람에게 잘하는 것",
+          "자기 자신을 먼저 믿는 것",
+          "공부를 열심히 하는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "나를 믿어야 남도 나를 믿어줘요"
+      },
+      "skillTags": [
+        "main-idea"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "다른 사람의 믿음을 얻으려면 가장 먼저 해야 할 것은?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "남에게 잘하는 것도 중요하지만, '나 자신을 먼저 믿는 것'이 출발점이야!",
+      "skillTag": "main-idea"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "엄마의 분식점이 유명해진 이유는?",
+        "ttsText": "엄마의 분식점이 유명해진 이유는?",
+        "passage": "장미네 엄마는 분식점을 운영하고 있습니다. 엄마가 만든 김밥이 맛있다며 누군가가 SNS(인스타그램, 유튜브)에 올렸고, 그 뒤로 손님이 크게 늘었습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "SNS에 김밥이 맛있다고 소개되어서",
+        "options": [
+          "TV 광고를 해서",
+          "SNS에 김밥이 맛있다고 소개되어서",
+          "신문에 실려서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "인스타그램이나 유튜브 같은 곳이에요"
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "엄마의 분식점이 유명해진 이유는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "TV나 신문이 아니라, 인스타그램/유튜브 같은 SNS에 소개되면서 유명해진 거야!",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "언니와 장미의 가장 큰 성격 차이는?",
+        "ttsText": "언니와 장미의 가장 큰 성격 차이는?",
+        "passage": "언니는 항상 예쁘게 꾸미고 나가는 타입이에요. 반면 장미는 꾸미는 것보다 먹는 것을 좋아하는 소탈한 성격입니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "언니는 꾸미기를 좋아하고 장미는 소탈하다",
+        "options": [
+          "언니는 꾸미기를 좋아하고 장미는 소탈하다",
+          "언니는 조용하고 장미는 활발하다",
+          "둘 다 비슷한 성격이다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "한 사람은 외모를 중시하고, 다른 한 사람은 그렇지 않아요"
+      },
+      "skillTags": [
+        "character"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "언니와 장미의 가장 큰 성격 차이는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "언니는 예쁘게 꾸미는 걸 좋아하고, 장미는 소탈하게 잘 먹는 타입이야!",
+      "skillTag": "character"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "언니의 병 이름은 무엇인가요?",
+        "ttsText": "언니의 병 이름은 무엇인가요?",
+        "passage": "언니에게 백혈병이라는 병이 생겼습니다. 백혈병은 암세포가 피에 퍼지는 무서운 질병입니다. 항암 치료를 받으면서 언니의 머리카락이 모두 빠졌고, 팔에는 주사 자국이 가득했습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "백혈병",
+        "options": [
+          "감기",
+          "백혈병",
+          "골절"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "암세포가 피에 퍼지는 병이에요"
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "언니의 병 이름은 무엇인가요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "백혈병은 '하얀 피'라는 뜻으로, 암세포가 혈액에 생기는 심각한 병이야.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "항암 치료의 부작용으로 언니에게 나타난 변화는?",
+        "ttsText": "항암 치료의 부작용으로 언니에게 나타난 변화는?",
+        "passage": "항암 치료를 받으면 몸속의 암세포를 없앨 수 있지만, 부작용도 있습니다. 머리카락이 빠지거나 구토를 하기도 합니다. 언니는 머리카락이 다 빠져서 토끼 모자를 쓰고 다녔습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "머리카락이 모두 빠졌다",
+        "options": [
+          "키가 줄었다",
+          "머리카락이 모두 빠졌다",
+          "눈이 나빠졌다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "토끼 모자를 쓰고 다닌 이유를 생각해 보세요"
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "항암 치료의 부작용으로 언니에게 나타난 변화는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "항암 치료 때문에 머리카락이 다 빠져서 토끼 모자를 쓰게 된 거야.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "'믿음이 한 사람을 살릴 수 있다'는 말의 의미는?",
+        "ttsText": "'믿음이 한 사람을 살릴 수 있다'는 말의 의미는?",
+        "passage": "믿음은 한 사람을 살릴 수도 있는 큰 힘입니다. 아플 때도, 힘들 때도 '넌 할 수 있어'라는 한마디가 큰 용기가 됩니다. 믿음만큼 앞으로 나아갈 수 있습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "누군가를 믿어주는 것이 큰 힘과 용기를 준다",
+        "options": [
+          "병을 고칠 수 있다",
+          "누군가를 믿어주는 것이 큰 힘과 용기를 준다",
+          "돈이 많아진다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "힘든 상황에서 '넌 할 수 있어'라는 말을 들으면 어떤 느낌이 들까요?"
+      },
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "'믿음이 한 사람을 살릴 수 있다'는 말의 의미는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "물리적으로 병을 고치는 게 아니라, 마음의 힘과 용기를 준다는 뜻이야!",
+      "skillTag": "inference"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "장미가 평소와 다르게 행동한 이유는?",
+        "ttsText": "장미가 평소와 다르게 행동한 이유는?",
+        "passage": "장미는 꾸미는 것에 관심이 없고 소탈했지만, 언니가 아프고 나서 언니를 위해 정성껏 준비하는 모습을 보여줍니다. 사람은 소중한 사람이 힘들 때 자신의 평소 모습과 다르게 행동할 수 있습니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "소중한 언니가 아파서 돕고 싶었기 때문",
+        "options": [
+          "소중한 언니가 아파서 돕고 싶었기 때문",
+          "엄마가 시켰기 때문",
+          "학교 숙제였기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "사람은 소중한 사람을 위해 변할 수 있어요"
+      },
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "장미가 평소와 다르게 행동한 이유는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 3,
+      "wrongExplanation": "누가 시킨 게 아니야. 소중한 사람이 아프면 자발적으로 변하게 되는 거야.",
+      "skillTag": "inference"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s36_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "믿음과가족-수업36",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "SNS로 가게가 유명해졌을 때 생길 수 있는 문제는?",
+        "ttsText": "SNS로 가게가 유명해졌을 때 생길 수 있는 문제는?",
+        "passage": "우리 주변에는 SNS 때문에 갑자기 유명해지는 가게들이 있습니다. 장미네 분식점처럼 누군가가 소개해주면 많은 사람이 찾아옵니다. 하지만 유명세가 꼭 좋기만 한 것은 아닙니다."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "갑자기 손님이 몰려서 감당하기 어려울 수 있다",
+        "options": [
+          "갑자기 손님이 몰려서 감당하기 어려울 수 있다",
+          "음식 맛이 변한다",
+          "가게가 커진다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "갑자기 유명해지면 준비가 안 된 상태에서 어떤 일이 생길까요?"
+      },
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W12",
+      "confidence": 0.85,
+      "ttsText": "SNS로 가게가 유명해졌을 때 생길 수 있는 문제는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 3,
+      "wrongExplanation": "갑자기 유명해지면 손님이 너무 많아져서 준비가 부족할 수 있어. 유명세가 항상 좋은 건 아니야!",
+      "skillTag": "critical"
     }
   ]
 }
