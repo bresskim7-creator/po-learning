@@ -49,6 +49,17 @@
     /* ===== 카드 화면 ===== */
     #page-card { background: #f0f4f8; gap: 16px; }
 
+    /* 카드 네비게이션 바 */
+    .card-nav {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .btn-card-nav {
+      background: none; border: 1px solid #ccc; border-radius: 8px;
+      padding: 6px 12px; font-size: 13px; color: #666; cursor: pointer;
+    }
+    .btn-card-nav:active { background: #eee; }
+    .btn-card-nav:disabled { opacity: 0.3; pointer-events: none; }
+
     /* 진행률 바 */
     .progress-area { display: flex; align-items: center; gap: 12px; }
     .progress-bar {
@@ -588,7 +599,7 @@
     /* ===== v5.0 홈 화면 ===== */
     .subject-tiles {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-      padding: 0 16px; margin: 8px 0;
+      padding: 0 16px; margin: 8px 0; width: 100%; max-width: 400px;
     }
     .subject-tile {
       background: white; border-radius: 12px; padding: 14px 12px;
@@ -608,7 +619,7 @@
     }
     .subject-tile.tile-empty { opacity: 0.5; pointer-events: none; }
     .btn-mixed-session {
-      display: block; width: calc(100% - 32px); margin: 6px 16px 16px;
+      display: block; width: 100%; max-width: 400px; margin: 6px auto 16px;
       padding: 12px; border: 2px solid #2F5496; background: #F0F4FA;
       border-radius: 12px; font-size: 16px; font-weight: 600;
       color: #2F5496; cursor: pointer; text-align: center;
@@ -673,6 +684,10 @@
 
 <!-- ===== 카드 화면 ===== -->
 <div id="page-card" class="page">
+  <div class="card-nav">
+    <button class="btn-card-nav" id="btn-prev-card" onclick="showPrevCard()" disabled>◀ 이전</button>
+    <button class="btn-card-nav" onclick="quitSession()">✕ 그만하기</button>
+  </div>
   <div class="progress-area">
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     <div class="progress-text" id="progress-text">0/0</div>
@@ -2402,6 +2417,10 @@ function renderCard() {
   const idx = s.currentIndex;
   const total = s.cards.length;
 
+  // 이전 버튼 상태 업데이트
+  var prevBtn = document.getElementById('btn-prev-card');
+  if (prevBtn) prevBtn.disabled = (idx <= 0);
+
   if (idx >= total) {
     // T9: 재노출 처리 (모든 카드 소진 후)
     if (!s.reexposureAdded && s.reexposureQueue && s.reexposureQueue.length > 0) {
@@ -2416,6 +2435,13 @@ function renderCard() {
   }
 
   const card = s.cards[idx];
+
+  // [v5.0.2] 이미 답한 카드 → 리뷰 모드
+  if (card._answered && s._reviewMode) {
+    renderCardReview(card, idx, total);
+    return;
+  }
+  s._reviewMode = false;
   s.cardStartTime = Date.now();
 
   // v4.6: listen-repeat 블록 감지 → 별도 렌더러로 전환
@@ -2734,6 +2760,7 @@ function handleVocabFlipResponse(knows) {
   var s = APP.session;
   var card = s.cards[s.currentIndex];
 
+  card._answered = true;
   // 자기평가 기록 (정오답 아님)
   s.events.push({
     cardId: getCardId(card),
@@ -2774,6 +2801,70 @@ function savePendingSession() {
 
 function clearPendingSession() {
   localStorage.removeItem('po_v5_pending_session');
+}
+
+// ===================================================================
+// [v5.0.2] 그만하기 + 이전 카드
+// ===================================================================
+
+function quitSession() {
+  if (!APP.session) { showPage('page-home'); return; }
+  var idx = APP.session.currentIndex;
+  var total = APP.session.cards.length;
+  if (idx < total && !confirm((idx + 1) + '/' + total + ' 진행 중이에요. 그만할까요?')) return;
+  savePendingSession();
+  showPage('page-home');
+  renderSubjectTileHome();
+}
+
+function showPrevCard() {
+  var s = APP.session;
+  if (!s || s.currentIndex <= 0) return;
+  s.currentIndex--;
+  s._reviewMode = true;
+  renderCard();
+}
+
+function renderCardReview(card, idx, total) {
+  // 진행률
+  document.getElementById('progress-fill').style.width = ((idx / total) * 100) + '%';
+  document.getElementById('progress-text').textContent = (idx + 1) + '/' + total;
+
+  // 과목 뱃지
+  var badgeClass = card.subject || 'english';
+  document.getElementById('subject-badge-area').innerHTML =
+    '<span class="subject-badge ' + badgeClass + '">' + (APP.config.subjectSession.tileMeta && APP.config.subjectSession.tileMeta[badgeClass] ? APP.config.subjectSession.tileMeta[badgeClass].name : badgeClass) + '</span>';
+
+  var container = document.getElementById('card-container');
+  container.className = 'card';
+  var html = '<div style="text-align:center; color:#888; font-size:12px; margin-bottom:4px;">이전 카드 확인 중</div>';
+
+  if (card.type === 'vocab_flip') {
+    html += '<div style="text-align:center;">';
+    html += '<div class="display-word">' + escapeHtml(card.word) + '</div>';
+    html += '<div style="font-size:22px; font-weight:600; color:#333; margin-top:8px;">' + escapeHtml(card.meaning) + '</div>';
+    if (card.pos) html += '<div style="font-size:13px; color:#888;">' + escapeHtml(card.pos) + '</div>';
+    html += '</div>';
+  } else {
+    // MCQ / binary / sequence
+    if (card.question) html += '<div class="question-area">' + escapeHtml(card.question) + '</div>';
+    if (card.displayWord) html += '<div class="display-word">' + escapeHtml(card.displayWord) + '</div>';
+    if (card.answer && card.answer.correct) {
+      html += '<div style="text-align:center; margin-top:8px;">';
+      html += '<span style="background:#E8F8E8; color:#27AE60; padding:8px 16px; border-radius:8px; font-weight:600; font-size:15px;">정답: ' + escapeHtml(card.answer.correct) + '</span>';
+      html += '</div>';
+    }
+    if (card._correct === false) {
+      html += '<div style="text-align:center; margin-top:6px; font-size:13px; color:#E74C3C;">틀렸던 문제</div>';
+    }
+  }
+
+  html += '<div style="text-align:center; margin-top:16px;">';
+  html += '<button class="btn-card-nav" onclick="APP.session.currentIndex++; APP.session._reviewMode=false; renderCard();">돌아가기 ▶</button>';
+  html += '</div>';
+
+  container.innerHTML = html;
+  document.getElementById('feedback').style.display = 'none';
 }
 
 // ===================================================================
@@ -2899,6 +2990,7 @@ function selectAnswer(selectedIdx) {
   const isCorrect = selectedIdx === correctIdx;
   const responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
   card._correct = isCorrect; // [v4.10] 역할별 집계용
+  card._answered = true;
 
   APP.session.totalAttempts++;
 
