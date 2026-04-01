@@ -24,7 +24,7 @@
 
     /* ===== 홈 화면 ===== */
     #page-home {
-      justify-content: center; align-items: center; gap: 24px;
+      justify-content: center; align-items: center; gap: 14px;
       background: linear-gradient(135deg, #4A90D9 0%, #357ABD 100%);
       color: white;
     }
@@ -72,9 +72,9 @@
 
     /* 카드 본체 */
     .card {
-      background: white; border-radius: 20px; padding: 24px;
+      background: white; border-radius: 20px; padding: 18px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      flex: 1; display: flex; flex-direction: column; gap: 20px;
+      flex: 1; display: flex; flex-direction: column; gap: 14px;
     }
 
     /* 지문 (3문장 독해용) */
@@ -110,10 +110,10 @@
     .btn-tts.playing svg { fill: white; }
 
     /* 선택지 */
-    .choices { display: flex; flex-direction: column; gap: 12px; }
+    .choices { display: flex; flex-direction: column; gap: 8px; }
     .choice-btn {
-      background: white; border: 2px solid #e0e0e0; border-radius: 12px;
-      padding: 14px 20px; font-size: 16px; text-align: left; cursor: pointer;
+      background: white; border: 2px solid #e0e0e0; border-radius: 10px;
+      padding: 10px 16px; font-size: 15px; text-align: left; cursor: pointer;
       transition: all 0.15s;
     }
     .choice-btn:active { background: #f0f4f8; }
@@ -587,18 +587,18 @@
 
     /* ===== v5.0 홈 화면 ===== */
     .subject-tiles {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-      padding: 0 16px; margin: 16px 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 0 16px; margin: 8px 0;
     }
     .subject-tile {
-      background: white; border-radius: 12px; padding: 20px 12px;
+      background: white; border-radius: 12px; padding: 14px 12px;
       text-align: center; cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       transition: transform 0.15s, box-shadow 0.15s;
       position: relative;
     }
     .subject-tile:active { transform: scale(0.96); box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
-    .subject-tile .tile-emoji { font-size: 32px; display: block; margin-bottom: 8px; }
+    .subject-tile .tile-emoji { font-size: 26px; display: block; margin-bottom: 4px; }
     .subject-tile .tile-name { font-size: 15px; font-weight: 600; color: #333; display: block; }
     .subject-tile .tile-info { font-size: 12px; color: #888; margin-top: 4px; display: block; }
     .subject-tile .tile-badge {
@@ -608,8 +608,8 @@
     }
     .subject-tile.tile-empty { opacity: 0.5; pointer-events: none; }
     .btn-mixed-session {
-      display: block; width: calc(100% - 32px); margin: 8px 16px 24px;
-      padding: 16px; border: 2px solid #2F5496; background: #F0F4FA;
+      display: block; width: calc(100% - 32px); margin: 6px 16px 16px;
+      padding: 12px; border: 2px solid #2F5496; background: #F0F4FA;
       border-radius: 12px; font-size: 16px; font-weight: 600;
       color: #2F5496; cursor: pointer; text-align: center;
     }
@@ -2545,7 +2545,7 @@ function renderCard() {
       html += '<div class="choices" id="seq-choices" style="gap:8px;">';
       seqOpts.forEach(function(opt, i) {
         html += '<button class="choice-btn seq-item" id="seq-item-' + i + '" onclick="selectSequenceItem(' + i + ')" '
-          + 'style="position:relative; min-height:48px; text-align:left;">'
+          + 'style="position:relative; min-height:40px; text-align:left;">'
           + '<span class="seq-badge" id="seq-badge-' + i + '" style="display:none; position:absolute; left:8px; top:8px; '
           + 'width:24px; height:24px; border-radius:50%; background:#4A90D9; color:white; font-size:13px; font-weight:700; '
           + 'line-height:24px; text-align:center;"></span>'
@@ -2571,7 +2571,7 @@ function renderCard() {
         var tmp = optSource[si]; optSource[si] = optSource[sj]; optSource[sj] = tmp;
       }
       card._shuffledOptions = optSource;
-      var btnStyle = qType === 'binary' ? ' style="min-height:60px; font-size:17px;"' : '';
+      var btnStyle = qType === 'binary' ? ' style="min-height:44px; font-size:16px;"' : '';
       html += '<div class="choices">';
       optSource.forEach(function(opt, i) {
         html += '<button class="choice-btn" onclick="selectAnswer(' + i + ')"' + btnStyle + '>' + escapeHtml(opt) + '</button>';
