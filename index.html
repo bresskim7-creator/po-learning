@@ -2718,7 +2718,7 @@ function renderVocabFlipCard(card) {
 
   // TTS 자동재생
   if (card.ttsText) {
-    setTimeout(function() { speakTTS(card.ttsText, card.ttsLang || 'en'); }, 300);
+    setTimeout(function() { textToSpeech(card.ttsText, card.ttsLang || 'en'); }, 300);
   }
 
   // 하단 버튼
