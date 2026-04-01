@@ -871,11 +871,15 @@ const APP = {
 // ===================================================================
 
 function getSettings() {
-  return JSON.parse(localStorage.getItem('po_v4_settings') || 'null') || {
+  var s = JSON.parse(localStorage.getItem('po_v4_settings') || 'null') || {
     serverUrl: '', pin: '', voiceKo: 'ko-KR-Chirp3-HD-Zephyr',
     voiceEn: 'en-US-Chirp3-HD-Zephyr', cardCount: (APP.config && APP.config.modeA && APP.config.modeA.cardCount) ? APP.config.modeA.cardCount.default : 30, // [v4.10] Mode A/B deprecated — modeA 참조는 하위호환용 유지
     modeOverride: '', sheetsUrl: ''
   };
+  // [v5.0.2] 구버전 키 폴백 (po_worker_url, po_app_pin)
+  if (!s.serverUrl) s.serverUrl = localStorage.getItem('po_worker_url') || '';
+  if (!s.pin) s.pin = localStorage.getItem('po_app_pin') || '';
+  return s;
 }
 
 async function workerFetch(path, options = {}) {
@@ -3435,11 +3439,11 @@ function assessMatchLR(target, spoken, sttConf) {
 }
 
 // [v5.0 T13] Whisper API 전사 (Cloudflare Worker 배포 후 활성화)
-var WHISPER_WORKER_URL = ''; // TODO: Worker 배포 후 URL 입력
-
+// [v5.0.2] Whisper STT — 기존 workerFetch(/api/stt) 활용
 async function transcribeWithWhisper(audioBlob) {
-  if (!WHISPER_WORKER_URL) {
-    console.warn('[Whisper] Worker URL 미설정. 오프라인 모드.');
+  var s = getSettings();
+  if (!s.serverUrl) {
+    console.warn('[Whisper] serverUrl 미설정. Web Speech API 폴백.');
     return null;
   }
   try {
@@ -3447,8 +3451,11 @@ async function transcribeWithWhisper(audioBlob) {
     formData.append('file', audioBlob, 'recording.webm');
     formData.append('model', 'gpt-4o-mini-transcribe');
     formData.append('language', 'ko');
-    var response = await fetch(WHISPER_WORKER_URL + '/transcribe', {
+    var headers = {};
+    if (s.pin) headers['X-App-Pin'] = s.pin;
+    var response = await fetch(s.serverUrl.replace(/\/+$/, '') + '/api/stt', {
       method: 'POST',
+      headers: headers,
       body: formData
     });
     if (!response.ok) throw new Error('Whisper API failed: ' + response.status);
@@ -3498,7 +3505,7 @@ async function savePendingRecording(audioBlob, cardId, expectedText) {
 }
 
 async function processPendingRecordings() {
-  if (!navigator.onLine || !WHISPER_WORKER_URL) return;
+  if (!navigator.onLine || !getSettings().serverUrl) return;
   try {
     var db = await openRecordingsDB();
     var tx = db.transaction('pending', 'readonly');
