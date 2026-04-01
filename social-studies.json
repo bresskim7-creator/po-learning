@@ -466,5 +466,1352 @@
     "ttsText": "평화 통일을 위해 우리가 할 수 있는 일로 알맞은 것은?",
     "validationDetails": [],
     "wrongExplanation": "무기를 만들거나 싸우는 게 아니야. 관심을 갖고 왜 통일이 필요한지 알아가는 게 시작이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_001",
+    "sourceRef": "school-social/U2/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "지구본은 실제 지구의 모습을 작게 줄여 만든 모형입니다. 세계 여러 나라의 위치, 면적, 지역 간 거리 등이 비교적 정확하게 나타나 있습니다.",
+      "text": "지구본의 장점은 무엇인가요?",
+      "ttsText": "지구본의 장점은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "위치, 면적, 거리가 비교적 정확하다",
+      "options": [
+        "위치, 면적, 거리가 비교적 정확하다",
+        "세계 모습을 한눈에 볼 수 있다",
+        "가지고 다니기 편리하다",
+        "확대와 축소가 자유롭다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "실제 지구를 줄여 만든 모형이니까 뭐가 좋을까?"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구본의 장점은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "지구본은 실제 지구를 그대로 줄인 거라서 위치, 면적, 거리가 꽤 정확해. 한눈에 보거나 들고 다니기 편한 건 세계지도의 장점이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_002",
+    "sourceRef": "school-social/U2/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "세계지도는 둥근 지구를 평면으로 나타낸 것입니다. 세계의 모습을 한눈에 살펴볼 수 있으며, 가지고 다니기 편리합니다. 그러나 위치, 면적, 거리 등이 실제와 다르게 나타날 수 있습니다.",
+      "text": "세계지도의 단점은 무엇인가요?",
+      "ttsText": "세계지도의 단점은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "위치, 면적, 거리가 실제와 다를 수 있다",
+      "options": [
+        "위치, 면적, 거리가 실제와 다를 수 있다",
+        "세계 모습을 한눈에 볼 수 없다",
+        "가지고 다니기 불편하다",
+        "사진이나 영상을 볼 수 없다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "둥근 지구를 평면으로 펼치면 어떤 문제가 생길까?"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계지도의 단점은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "둥근 공을 억지로 평면으로 펴면 늘어나거나 찌그러지잖아? 그래서 면적이나 거리가 실제랑 달라질 수 있어."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_003",
+    "sourceRef": "school-social/U2/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "위도는 적도를 기준으로 남북으로 얼마나 떨어져 있는지를 나타냅니다. 적도를 기준으로 북쪽을 북위, 남쪽을 남위라고 합니다.",
+      "text": "위도의 기준이 되는 선은 무엇인가요?",
+      "ttsText": "위도의 기준이 되는 선은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "적도",
+      "options": [
+        "적도",
+        "본초 자오선",
+        "북극선",
+        "남극선"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "위도 0도인 가로선이야"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "위도의 기준이 되는 선은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "위도는 가로선이고, 그 기준은 적도(위도 0°)야. 본초 자오선은 경도의 기준이 되는 세로선이야. 헷갈리기 쉬우니까 '위=가로, 경=세로'로 기억해!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_004",
+    "sourceRef": "school-social/U2/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "경도는 본초 자오선을 기준으로 동서로 얼마나 떨어져 있는지를 나타냅니다. 본초 자오선은 영국 런던의 그리니치 천문대를 지나는 경도 0° 선입니다.",
+      "text": "본초 자오선이 지나는 곳은 어디인가요?",
+      "ttsText": "본초 자오선이 지나는 곳은 어디인가요?"
+    },
+    "answer": {
+      "correct": "영국 런던의 그리니치 천문대",
+      "options": [
+        "영국 런던의 그리니치 천문대",
+        "프랑스 파리의 에펠 탑",
+        "미국 워싱턴의 백악관",
+        "대한민국 서울의 광화문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "1884년 국제 회의에서 이 나라의 천문대를 기준으로 정했어"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "본초 자오선이 지나는 곳은 어디인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "본초 자오선(경도 0°)은 영국 런던의 그리니치 천문대를 지나. 1884년에 국제 회의에서 여기를 기준으로 정한 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_005",
+    "sourceRef": "school-social/U2/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "지구는 둥글어서 위도에 따라 햇볕을 받는 양이 다릅니다. 저위도 지역은 햇볕을 많이 받아 기온이 높고, 고위도 지역은 햇볕을 적게 받아 기온이 낮습니다.",
+      "text": "적도 근처의 저위도 지역이 고위도 지역보다 기온이 높은 까닭은?",
+      "ttsText": "적도 근처의 저위도 지역이 고위도 지역보다 기온이 높은 까닭은?"
+    },
+    "answer": {
+      "correct": "햇볕을 더 많이 받기 때문이다",
+      "options": [
+        "햇볕을 더 많이 받기 때문이다",
+        "바다가 가까이 있기 때문이다",
+        "산이 적기 때문이다",
+        "바람이 적게 불기 때문이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "지구가 둥글어서 위도마다 햇볕 받는 양이 달라"
+    },
+    "skillTags": [
+      "cause-effect",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "적도 근처의 저위도 지역이 고위도 지역보다 기온이 높은 까닭은?",
+    "validationDetails": [],
+    "wrongExplanation": "지구가 둥글잖아? 적도 근처는 햇빛이 거의 수직으로 내려와서 열이 집중되고, 극지방은 비스듬하게 들어와서 열이 넓게 퍼져. 그래서 기온 차이가 나는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_006",
+    "sourceRef": "school-social/U2/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "북반구가 태양 쪽으로 기울어지면 북반구는 여름이 되지만, 남반구는 겨울이 됩니다. 따라서 북반구와 남반구의 계절이 서로 반대로 나타납니다.",
+      "text": "우리나라가 여름일 때, 오스트레일리아의 계절은?",
+      "ttsText": "우리나라가 여름일 때, 오스트레일리아의 계절은?"
+    },
+    "answer": {
+      "correct": "겨울",
+      "options": [
+        "겨울",
+        "여름",
+        "봄",
+        "가을"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "오스트레일리아는 남반구에 있어"
+    },
+    "skillTags": [
+      "application",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "우리나라가 여름일 때, 오스트레일리아의 계절은?",
+    "validationDetails": [],
+    "wrongExplanation": "우리나라는 북반구, 오스트레일리아는 남반구에 있어. 북반구가 여름이면 남반구는 겨울이야. 계절이 정반대라서, 크리스마스에 해수욕을 한대!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_007",
+    "sourceRef": "school-social/U2/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "지구는 하루에 한 바퀴씩 스스로 회전하기 때문에 경도에 따라 시각이 달라져 시차가 발생합니다.",
+      "text": "나라마다 시간이 다른 까닭은 무엇인가요?",
+      "ttsText": "나라마다 시간이 다른 까닭은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "지구가 스스로 회전하기 때문이다",
+      "options": [
+        "지구가 스스로 회전하기 때문이다",
+        "나라마다 달력이 다르기 때문이다",
+        "위도가 다르기 때문이다",
+        "지구가 태양 주위를 돌기 때문이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "지구가 하루에 한 바퀴 돌면 어떤 일이 생길까?"
+    },
+    "skillTags": [
+      "cause-effect",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "나라마다 시간이 다른 까닭은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "지구가 하루에 한 바퀴 자전(스스로 회전)하니까, 경도가 다른 곳은 해가 뜨는 시각이 달라져. 이게 시차야. 위도는 기온에 영향을 주고, 경도는 시간에 영향을 줘."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_008",
+    "sourceRef": "school-social/U2/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "바다로 둘러싸인 커다란 육지를 대륙이라고 합니다. 아시아, 유럽, 아프리카, 북아메리카, 남아메리카, 오세아니아, 남극 대륙이 있습니다.",
+      "text": "세계에서 가장 넓은 대륙은 어디인가요?",
+      "ttsText": "세계에서 가장 넓은 대륙은 어디인가요?"
+    },
+    "answer": {
+      "correct": "아시아",
+      "options": [
+        "아시아",
+        "아프리카",
+        "북아메리카",
+        "남극"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "우리나라가 속한 대륙이야"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계에서 가장 넓은 대륙은 어디인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "아시아가 세계에서 가장 넓은 대륙이야. 우리나라, 중국, 일본, 인도 다 아시아에 있어. 아프리카가 두 번째로 넓고."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_009",
+    "sourceRef": "school-social/U2/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "세계의 바다 가운데 넓은 바다를 대양이라고 합니다. 태평양, 대서양, 인도양, 북극해, 남극해가 있습니다. 모든 대륙을 합쳐도 태평양보다 면적이 작습니다.",
+      "text": "세계에서 가장 넓은 대양은 어디인가요?",
+      "ttsText": "세계에서 가장 넓은 대양은 어디인가요?"
+    },
+    "answer": {
+      "correct": "태평양",
+      "options": [
+        "태평양",
+        "대서양",
+        "인도양",
+        "북극해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "모든 대륙을 합쳐도 이 바다보다 작대"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계에서 가장 넓은 대양은 어디인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "태평양이 가장 넓어. 엄청나게 넓어서 모든 대륙을 합쳐도 태평양보다 작다고 해! 대서양이 두 번째, 인도양이 세 번째야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_010",
+    "sourceRef": "school-social/U2/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "디지털 영상 지도는 항공 사진이나 위성 영상에 장소나 지역의 이름, 경계선 등을 표시한 지도입니다. 확대와 축소가 자유로워 특정 지역을 자세히 살펴보거나 세계의 모습을 전체적으로 볼 수 있습니다.",
+      "text": "디지털 영상 지도가 지구본이나 세계지도보다 편리한 점은?",
+      "ttsText": "디지털 영상 지도가 지구본이나 세계지도보다 편리한 점은?"
+    },
+    "answer": {
+      "correct": "확대와 축소가 자유롭고 사진이나 영상으로 볼 수 있다",
+      "options": [
+        "확대와 축소가 자유롭고 사진이나 영상으로 볼 수 있다",
+        "면적과 거리가 가장 정확하다",
+        "인터넷 없이도 사용할 수 있다",
+        "입체적으로 지구를 돌려볼 수 있다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "스마트폰 지도 앱 생각해봐"
+    },
+    "skillTags": [
+      "comparison",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "디지털 영상 지도가 지구본이나 세계지도보다 편리한 점은?",
+    "validationDetails": [],
+    "wrongExplanation": "디지털 영상 지도(네이버 지도, 구글 맵 같은 거)는 확대·축소가 자유롭고, 실제 사진이나 영상으로 볼 수 있어서 편리해. 입체적으로 돌려보는 건 지구본이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_011",
+    "sourceRef": "school-social/U2/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "지도에서 그린란드는 남아메리카만큼 넓어 보이지만, 실제 그린란드의 면적은 남아메리카의 약 1/8밖에 되지 않습니다.",
+      "text": "세계지도에서 그린란드가 실제보다 넓어 보이는 까닭은?",
+      "ttsText": "세계지도에서 그린란드가 실제보다 넓어 보이는 까닭은?"
+    },
+    "answer": {
+      "correct": "둥근 지구를 평면으로 나타내면서 면적이 왜곡되었기 때문이다",
+      "options": [
+        "둥근 지구를 평면으로 나타내면서 면적이 왜곡되었기 때문이다",
+        "그린란드가 최근에 커졌기 때문이다",
+        "남아메리카를 작게 그렸기 때문이다",
+        "지도 제작자의 실수 때문이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "둥근 공을 억지로 평면으로 펼치면 어떻게 될까?"
+    },
+    "skillTags": [
+      "inference",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계지도에서 그린란드가 실제보다 넓어 보이는 까닭은?",
+    "validationDetails": [],
+    "wrongExplanation": "둥근 지구를 평면으로 펴면 특히 극지방(위도가 높은 곳) 쪽이 많이 늘어나. 그린란드는 북극 가까이 있어서 지도에서 엄청 크게 보이지만, 실제로는 남아메리카의 1/8밖에 안 돼!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_geo_012",
+    "sourceRef": "school-social/U2/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "세계여러국가의위치와영토",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "오세아니아는 세계에서 가장 작은 대륙으로, 대부분 남반구에 분포해 있습니다. 한편 유럽에 있는 산마리노와 바티칸 시국은 다른 나라의 영토에 둘러싸여 있습니다.",
+      "text": "다음 중 다른 나라 영토에 완전히 둘러싸인 나라는?",
+      "ttsText": "다음 중 다른 나라 영토에 완전히 둘러싸인 나라는?"
+    },
+    "answer": {
+      "correct": "바티칸 시국",
+      "options": [
+        "바티칸 시국",
+        "일본",
+        "오스트레일리아",
+        "뉴질랜드"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "유럽에 있는 아주 작은 나라야. 이탈리아 안에 있어"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다음 중 다른 나라 영토에 완전히 둘러싸인 나라는?",
+    "validationDetails": [],
+    "wrongExplanation": "바티칸 시국은 이탈리아 로마 안에 있는 세계에서 가장 작은 나라야. 사방이 이탈리아 영토로 둘러싸여 있어. 일본, 오스트레일리아, 뉴질랜드는 바다로 둘러싸인 섬나라지."
+  },
+
+  {
+    "cardId": "crd_2026W14_soc_u12_001",
+    "sourceRef": "school-social/U1-2/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "1960년 3월 15일, 이승만 대통령은 선거에서 이기기 위해 부정 선거를 벌였습니다. 이에 분노한 시민과 학생들이 1960년 4월 19일 대규모 시위를 벌였고, 결국 이승만 대통령은 대통령 자리에서 물러났습니다.",
+      "text": "4·19 혁명이 일어난 직접적인 원인은 무엇인가요?",
+      "ttsText": "4·19 혁명이 일어난 직접적인 원인은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "이승만 대통령의 부정 선거",
+      "options": [
+        "이승만 대통령의 부정 선거",
+        "6·25 전쟁의 발발",
+        "일본의 식민 지배"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "1960년 3월 15일에 있었던 일을 떠올려 봐"
+    },
+    "skillTags": ["fact", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "4·19 혁명이 일어난 직접적인 원인은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "이승만 대통령이 3·15 부정 선거를 한 게 직접적인 원인이야. 시민과 학생들이 이에 분노해서 4월 19일에 시위를 벌인 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_002",
+    "sourceRef": "school-social/U1-2/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "부정 선거란 부당한 방법으로 치른 선거를 말합니다. 유권자에게 돈이나 물건을 주고 특정 후보에게 투표하도록 하거나, 투표함을 바꿔치기하는 행위 등이 해당합니다.",
+      "text": "'부정 선거'란 무엇인가요?",
+      "ttsText": "부정 선거란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "부당한 방법으로 치른 선거",
+      "options": [
+        "부당한 방법으로 치른 선거",
+        "투표율이 낮은 선거",
+        "후보가 한 명뿐인 선거"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'부정'은 '올바르지 않다'는 뜻이야"
+    },
+    "skillTags": ["vocabulary", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "부정 선거란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "부정 선거는 돈을 주거나 투표함을 바꿔치기하는 등 부당한 방법으로 치른 선거야. 투표율이 낮거나 후보가 적은 것과는 달라."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_003",
+    "sourceRef": "school-social/U1-2/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "1980년 5월, 광주에서 시민들이 민주화를 요구하며 시위를 벌였습니다. 전두환이 이끄는 군부는 계엄군을 보내 시위를 무력으로 진압했고, 많은 시민이 희생되었습니다. 이 사건을 5·18 민주화 운동이라고 합니다.",
+      "text": "5·18 민주화 운동이 일어난 도시는 어디인가요?",
+      "ttsText": "5·18 민주화 운동이 일어난 도시는 어디인가요?"
+    },
+    "answer": {
+      "correct": "광주",
+      "options": [
+        "광주",
+        "서울",
+        "부산"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "전라남도에 있는 도시야"
+    },
+    "skillTags": ["fact", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "5·18 민주화 운동이 일어난 도시는 어디인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "5·18 민주화 운동은 1980년 5월에 광주에서 일어났어. 광주 시민들이 민주화를 요구하며 군부에 맞선 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_004",
+    "sourceRef": "school-social/U1-2/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "1987년 6월, 시민들은 대통령을 국민이 직접 뽑는 직선제 개헌을 요구하며 대규모 시위를 벌였습니다. 결국 정부는 국민의 요구를 받아들여 대통령 직선제를 도입했습니다. 이것을 6월 민주 항쟁이라고 합니다.",
+      "text": "6월 민주 항쟁에서 시민들이 요구한 것은 무엇인가요?",
+      "ttsText": "6월 민주 항쟁에서 시민들이 요구한 것은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "대통령 직선제",
+      "options": [
+        "대통령 직선제",
+        "국회 해산",
+        "대통령 임기 연장"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "국민이 '직접' 대통령을 뽑겠다는 거야"
+    },
+    "skillTags": ["fact", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "6월 민주 항쟁에서 시민들이 요구한 것은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "6월 민주 항쟁의 핵심 요구는 대통령 직선제야. 그때까지는 간선제여서 국민이 직접 대통령을 뽑을 수 없었거든."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_005",
+    "sourceRef": "school-social/U1-2/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "4·19 혁명(1960)으로 이승만 대통령이 물러났고, 5·18 민주화 운동(1980)에서 광주 시민들이 군부에 맞섰으며, 6월 민주 항쟁(1987)으로 대통령 직선제를 이뤄 냈습니다.",
+      "text": "다음 민주화 운동을 일어난 순서대로 나열한 것은?",
+      "ttsText": "다음 민주화 운동을 일어난 순서대로 나열한 것은?"
+    },
+    "answer": {
+      "correct": "4·19 혁명 → 5·18 민주화 운동 → 6월 민주 항쟁",
+      "options": [
+        "4·19 혁명 → 5·18 민주화 운동 → 6월 민주 항쟁",
+        "5·18 민주화 운동 → 4·19 혁명 → 6월 민주 항쟁",
+        "6월 민주 항쟁 → 4·19 혁명 → 5·18 민주화 운동"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "연도를 생각해 봐: 1960, 1980, 1987"
+    },
+    "skillTags": ["sequence", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다음 민주화 운동을 일어난 순서대로 나열한 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "4·19 혁명이 1960년, 5·18이 1980년, 6월 민주 항쟁이 1987년이야. 시간 순서대로 기억하면 돼!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_006",
+    "sourceRef": "school-social/U1-2/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "직선제는 국민이 직접 투표로 대통령을 뽑는 방식이고, 간선제는 국민이 선거인단을 뽑으면 그 선거인단이 대통령을 뽑는 방식입니다.",
+      "text": "'간선제'와 '직선제'의 가장 큰 차이점은 무엇인가요?",
+      "ttsText": "간선제와 직선제의 가장 큰 차이점은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "국민이 직접 대통령을 뽑느냐 아니냐",
+      "options": [
+        "국민이 직접 대통령을 뽑느냐 아니냐",
+        "투표 날짜가 다르다",
+        "후보 수가 다르다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'직접'과 '간접'의 차이를 생각해 봐"
+    },
+    "skillTags": ["comparison", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "간선제와 직선제의 가장 큰 차이점은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "직선제는 국민이 '직접' 대통령을 뽑고, 간선제는 선거인단이 '대신' 뽑아. 핵심은 국민이 직접 뽑느냐 마느냐야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_007",
+    "sourceRef": "school-social/U1-2/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "1987년 1월, 서울대학교 학생 박종철이 경찰의 고문으로 사망했습니다. 같은 해 6월에는 대학생 이한열이 시위 도중 경찰이 쏜 최루탄에 맞아 크게 다쳤습니다. 이 사건들은 국민의 분노를 키워 6월 민주 항쟁으로 이어졌습니다.",
+      "text": "6월 민주 항쟁의 도화선이 된 두 사건의 공통점은?",
+      "ttsText": "6월 민주 항쟁의 도화선이 된 두 사건의 공통점은?"
+    },
+    "answer": {
+      "correct": "대학생이 정부의 폭력으로 희생되었다",
+      "options": [
+        "대학생이 정부의 폭력으로 희생되었다",
+        "군인들이 시위를 주도했다",
+        "외국 언론이 보도를 막았다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "박종철과 이한열의 신분과 피해 원인을 생각해 봐"
+    },
+    "skillTags": ["inference", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.90,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "6월 민주 항쟁의 도화선이 된 두 사건의 공통점은?",
+    "validationDetails": [],
+    "wrongExplanation": "박종철은 경찰 고문으로, 이한열은 최루탄에 맞아 다쳤어. 둘 다 대학생이었고, 정부의 폭력으로 희생된 거야. 이 사건들이 국민을 분노하게 만들었어."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_008",
+    "sourceRef": "school-social/U1-2/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "독일 기자 위르겐 힌츠페터는 5·18 민주화 운동 당시 광주에 들어가 계엄군의 폭력 진압을 촬영하여 세계에 알렸습니다. 그의 활동은 영화 〈택시운전사〉로 만들어졌습니다.",
+      "text": "위르겐 힌츠페터가 5·18 민주화 운동에서 한 역할은?",
+      "ttsText": "위르겐 힌츠페터가 5·18 민주화 운동에서 한 역할은?"
+    },
+    "answer": {
+      "correct": "광주의 상황을 촬영하여 세계에 알렸다",
+      "options": [
+        "광주의 상황을 촬영하여 세계에 알렸다",
+        "시민군을 이끌고 싸웠다",
+        "정부와 시민 사이를 중재했다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "독일 '기자'라는 직업을 생각해 봐"
+    },
+    "skillTags": ["fact", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "위르겐 힌츠페터가 5·18 민주화 운동에서 한 역할은?",
+    "validationDetails": [],
+    "wrongExplanation": "힌츠페터는 독일 기자로서 광주에 들어가 계엄군의 진압 장면을 촬영해 세계에 알렸어. 직접 싸운 게 아니라 '알린' 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_009",
+    "sourceRef": "school-social/U1-2/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "산업화란 농업 중심이던 사회가 공장과 기업을 중심으로 바뀌는 것을 말합니다. 우리나라는 1960~1970년대에 빠르게 산업화가 이루어져 '한강의 기적'이라 불리는 경제 성장을 이루었습니다. 하지만 노동자들은 낮은 임금과 열악한 환경에서 오랜 시간 일해야 했습니다.",
+      "text": "우리나라의 빠른 산업화 과정에서 생긴 문제점은?",
+      "ttsText": "우리나라의 빠른 산업화 과정에서 생긴 문제점은?"
+    },
+    "answer": {
+      "correct": "노동자들의 낮은 임금과 열악한 노동 환경",
+      "options": [
+        "노동자들의 낮은 임금과 열악한 노동 환경",
+        "공장이 너무 적어서 일자리가 부족했다",
+        "외국과의 무역이 완전히 중단되었다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "경제는 빠르게 성장했지만, 일하는 사람들은 어땠을까?"
+    },
+    "skillTags": ["inference", "industrialization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "우리나라의 빠른 산업화 과정에서 생긴 문제점은?",
+    "validationDetails": [],
+    "wrongExplanation": "경제는 빠르게 성장했지만, 노동자들은 낮은 임금에 오랜 시간 일해야 했어. 공장이 적은 게 아니라 오히려 많아졌는데, 대우가 나빴던 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_010",
+    "sourceRef": "school-social/U1-2/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "민주화 이후 지방 자치제가 다시 시작되었습니다. 지방 자치제란 지역 주민이 직접 지역의 대표를 뽑고, 지역의 일을 스스로 결정하는 제도입니다. 또한 시민 단체가 활발하게 활동하며 사회 문제 해결에 참여하게 되었습니다.",
+      "text": "민주화 이후 다시 시작된, 지역 주민이 스스로 대표를 뽑는 제도는?",
+      "ttsText": "민주화 이후 다시 시작된, 지역 주민이 스스로 대표를 뽑는 제도는?"
+    },
+    "answer": {
+      "correct": "지방 자치제",
+      "options": [
+        "지방 자치제",
+        "간선제",
+        "계엄 제도"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'지방'의 일을 '자치'(스스로 다스림)한다는 뜻이야"
+    },
+    "skillTags": ["vocabulary", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "민주화 이후 다시 시작된, 지역 주민이 스스로 대표를 뽑는 제도는?",
+    "validationDetails": [],
+    "wrongExplanation": "지방 자치제는 지역 주민이 직접 시장·도지사·의원을 뽑고 지역 일을 결정하는 제도야. 간선제는 대통령 선출 방식이고, 계엄은 비상 상황에서 군대가 질서를 유지하는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_011",
+    "sourceRef": "school-social/U1-2/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "4·19 혁명은 부정 선거에 맞선 시민의 힘으로 독재 정권을 무너뜨렸고, 5·18 민주화 운동은 군부 독재에 맞선 시민의 희생을 보여 주었으며, 6월 민주 항쟁은 직선제를 쟁취하여 오늘날 민주주의의 토대를 마련했습니다.",
+      "text": "세 민주화 운동이 오늘날 우리에게 주는 공통된 교훈은 무엇일까요?",
+      "ttsText": "세 민주화 운동이 오늘날 우리에게 주는 공통된 교훈은 무엇일까요?"
+    },
+    "answer": {
+      "correct": "민주주의는 시민의 참여와 노력으로 지켜진다",
+      "options": [
+        "민주주의는 시민의 참여와 노력으로 지켜진다",
+        "경제 성장이 가장 중요하다",
+        "정부의 결정에 따르는 것이 최선이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "세 사건 모두 '누가' 나서서 바꿨는지 생각해 봐"
+    },
+    "skillTags": ["inference", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.88,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세 민주화 운동이 오늘날 우리에게 주는 공통된 교훈은 무엇일까요?",
+    "validationDetails": [],
+    "wrongExplanation": "4·19, 5·18, 6월 항쟁 모두 시민들이 직접 나서서 민주주의를 지키고 발전시킨 거야. 저절로 되는 게 아니라 시민의 참여가 있어야 한다는 교훈이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u12_012",
+    "sourceRef": "school-social/U1-2/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U1-2",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "산업화로 경제가 빠르게 성장하면서 사람들의 생활이 편리해졌지만, 환경 오염, 빈부 격차, 노동 문제 등 새로운 사회 문제도 생겼습니다. 한편 민주화 덕분에 시민들은 이런 문제를 자유롭게 이야기하고 해결을 요구할 수 있게 되었습니다.",
+      "text": "민주화와 산업화의 관계를 가장 잘 설명한 것은?",
+      "ttsText": "민주화와 산업화의 관계를 가장 잘 설명한 것은?"
+    },
+    "answer": {
+      "correct": "산업화로 생긴 문제를 민주화 덕분에 자유롭게 해결할 수 있게 되었다",
+      "options": [
+        "산업화로 생긴 문제를 민주화 덕분에 자유롭게 해결할 수 있게 되었다",
+        "산업화가 되면 민주화는 필요 없어진다",
+        "민주화와 산업화는 서로 관계가 없다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산업화의 '문제점'과 민주화의 '장점'을 연결해 봐"
+    },
+    "skillTags": ["inference", "democratization"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.88,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "민주화와 산업화의 관계를 가장 잘 설명한 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "산업화로 경제는 성장했지만 환경 오염, 노동 문제 같은 부작용이 생겼어. 민주화 덕분에 시민들이 이런 문제를 자유롭게 말하고 해결을 요구할 수 있게 된 거야. 둘은 서로 연결되어 있어."
+  },
+
+  {
+    "cardId": "crd_2026W14_soc_u21_001",
+    "sourceRef": "school-social/U2-1/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "민주주의란 나라의 주인이 국민이며, 국민의 뜻에 따라 나라를 운영하는 정치 제도입니다. 나라의 중요한 일을 결정하는 최고 권력이 국민에게 있는 것을 '국민 주권'이라고 합니다.",
+      "text": "'국민 주권'이란 무엇인가요?",
+      "ttsText": "국민 주권이란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "나라의 중요한 일을 결정하는 최고 권력이 국민에게 있는 것",
+      "options": [
+        "나라의 중요한 일을 결정하는 최고 권력이 국민에게 있는 것",
+        "국회의원이 법을 만드는 것",
+        "대통령이 모든 것을 결정하는 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'주권'은 '가장 높은 권력'이라는 뜻이야"
+    },
+    "skillTags": ["vocabulary", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "국민 주권이란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "국민 주권은 나라의 최고 권력이 '국민'에게 있다는 뜻이야. 대통령이나 국회의원이 아니라 국민이 주인이라는 거지."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_002",
+    "sourceRef": "school-social/U2-1/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "선거란 국민이 자신들을 대신할 대표를 투표로 뽑는 일입니다. 민주주의 사회에서 선거는 국민 주권을 실현하는 가장 기본적인 방법이기 때문에 '민주주의의 꽃'이라고 부릅니다.",
+      "text": "선거를 '민주주의의 꽃'이라고 부르는 까닭은?",
+      "ttsText": "선거를 민주주의의 꽃이라고 부르는 까닭은?"
+    },
+    "answer": {
+      "correct": "국민 주권을 실현하는 가장 기본적인 방법이기 때문에",
+      "options": [
+        "국민 주권을 실현하는 가장 기본적인 방법이기 때문에",
+        "선거일에 꽃을 나눠 주기 때문에",
+        "후보자가 꽃다발을 받기 때문에"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'꽃'은 가장 중요하고 아름다운 부분을 뜻하는 비유야"
+    },
+    "skillTags": ["inference", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "선거를 민주주의의 꽃이라고 부르는 까닭은?",
+    "validationDetails": [],
+    "wrongExplanation": "선거는 국민이 직접 대표를 뽑아서 주권을 행사하는 가장 기본적인 방법이야. 그래서 민주주의에서 가장 중요하다는 뜻으로 '꽃'이라고 부르는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_003",
+    "sourceRef": "school-social/U2-1/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "우리나라에서 선거로 뽑는 사람에는 대통령, 국회의원, 도지사, 시장, 군수, 구청장, 도의원, 시의원, 군의원, 구의원, 교육감 등이 있습니다.",
+      "text": "다음 중 선거로 뽑는 사람이 아닌 것은?",
+      "ttsText": "다음 중 선거로 뽑는 사람이 아닌 것은?"
+    },
+    "answer": {
+      "correct": "대법원장",
+      "options": [
+        "대법원장",
+        "대통령",
+        "국회의원"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "법원의 최고 책임자는 선거가 아닌 다른 방법으로 임명돼"
+    },
+    "skillTags": ["fact", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다음 중 선거로 뽑는 사람이 아닌 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "대통령, 국회의원은 국민이 선거로 뽑지만, 대법원장은 대통령이 임명해. 선거로 뽑는 게 아니야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_004",
+    "sourceRef": "school-social/U2-1/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 1,
+    "question": {
+      "passage": "유권자란 선거에서 대표를 뽑을 수 있는 권리를 가진 사람입니다. 우리나라에서는 만 18세 이상의 국민이 유권자가 됩니다.",
+      "text": "우리나라에서 투표할 수 있는 나이는 만 몇 세 이상인가요?",
+      "ttsText": "우리나라에서 투표할 수 있는 나이는 만 몇 세 이상인가요?"
+    },
+    "answer": {
+      "correct": "만 18세",
+      "options": [
+        "만 18세",
+        "만 20세",
+        "만 15세"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "고등학교 3학년쯤 되는 나이야"
+    },
+    "skillTags": ["fact", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "우리나라에서 투표할 수 있는 나이는 만 몇 세 이상인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "우리나라에서는 만 18세 이상이면 투표할 수 있어. 예전에는 만 19세였는데, 2020년부터 만 18세로 낮아졌어."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_005",
+    "sourceRef": "school-social/U2-1/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "선거 과정은 유권자 명단 작성 → 후보자 등록 → 선거운동 → 투표 → 개표 → 당선자 결정 순서로 진행됩니다.",
+      "text": "선거에서 '후보자 등록' 다음에 이루어지는 단계는?",
+      "ttsText": "선거에서 후보자 등록 다음에 이루어지는 단계는?"
+    },
+    "answer": {
+      "correct": "선거운동",
+      "options": [
+        "선거운동",
+        "개표",
+        "당선자 결정"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "후보자가 등록하고 나면, 자기를 알리는 활동을 해야지"
+    },
+    "skillTags": ["sequence", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "선거에서 후보자 등록 다음에 이루어지는 단계는?",
+    "validationDetails": [],
+    "wrongExplanation": "후보자 등록 다음은 선거운동이야. 후보자들이 자기 공약을 알리고, 그 다음에 투표 → 개표 → 당선자 결정 순서로 진행돼."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_006",
+    "sourceRef": "school-social/U2-1/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "공약이란 후보자가 당선되면 꼭 실천하겠다고 국민에게 약속하는 정책입니다. 유권자는 후보자의 공약을 꼼꼼히 살펴보고, 지역과 나라에 도움이 되는 공약을 내세운 후보에게 투표해야 합니다.",
+      "text": "'공약'이란 무엇인가요?",
+      "ttsText": "공약이란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "후보자가 당선되면 실천하겠다고 약속하는 정책",
+      "options": [
+        "후보자가 당선되면 실천하겠다고 약속하는 정책",
+        "선거에서 이기기 위한 거짓말",
+        "투표 용지에 적힌 후보 이름"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'공'은 공개, '약'은 약속이라는 뜻이야"
+    },
+    "skillTags": ["vocabulary", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "공약이란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "공약은 후보자가 '당선되면 이것을 하겠다'고 국민에게 공개적으로 약속하는 정책이야. 거짓말이 아니라 진지한 약속이어야 해."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_007",
+    "sourceRef": "school-social/U2-1/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "우리나라 선거의 4대 원칙은 보통 선거, 평등 선거, 직접 선거, 비밀 선거입니다. 보통 선거는 만 18세 이상 모든 국민이 투표할 수 있다는 것이고, 평등 선거는 한 사람에게 한 표의 동등한 가치가 있다는 뜻입니다.",
+      "text": "'평등 선거'가 뜻하는 것은?",
+      "ttsText": "평등 선거가 뜻하는 것은?"
+    },
+    "answer": {
+      "correct": "모든 사람의 한 표가 같은 가치를 갖는다",
+      "options": [
+        "모든 사람의 한 표가 같은 가치를 갖는다",
+        "남녀가 같은 후보에게 투표해야 한다",
+        "모든 후보가 같은 수의 표를 받는다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'평등'은 '같다'는 뜻이야. 표의 가치가 같다는 거야"
+    },
+    "skillTags": ["vocabulary", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "평등 선거가 뜻하는 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "평등 선거는 누구든 한 표의 가치가 똑같다는 뜻이야. 부자든 가난하든, 한 사람에게 한 표이고 그 무게가 같아."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_008",
+    "sourceRef": "school-social/U2-1/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "비밀 선거란 누가 누구에게 투표했는지 아무도 알 수 없도록 하는 것입니다. 투표할 때 기표소에 혼자 들어가서 도장을 찍고, 투표 용지를 접어서 투표함에 넣는 이유가 바로 이것입니다.",
+      "text": "기표소에 혼자 들어가는 이유는 어떤 선거 원칙 때문인가요?",
+      "ttsText": "기표소에 혼자 들어가는 이유는 어떤 선거 원칙 때문인가요?"
+    },
+    "answer": {
+      "correct": "비밀 선거",
+      "options": [
+        "비밀 선거",
+        "보통 선거",
+        "직접 선거"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "누구에게 투표했는지 '비밀'로 해야 하니까"
+    },
+    "skillTags": ["inference", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "기표소에 혼자 들어가는 이유는 어떤 선거 원칙 때문인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "기표소에 혼자 들어가는 건 '비밀 선거' 원칙 때문이야. 다른 사람이 내가 누구를 찍었는지 모르게 하려고 혼자 들어가서 찍는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_009",
+    "sourceRef": "school-social/U2-1/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "선거 관리 위원회는 선거가 공정하고 투명하게 진행되도록 관리하는 기관입니다. 유권자 명단을 작성하고, 후보자 등록을 받고, 투표와 개표를 관리합니다.",
+      "text": "선거 관리 위원회가 하는 일은?",
+      "ttsText": "선거 관리 위원회가 하는 일은?"
+    },
+    "answer": {
+      "correct": "선거가 공정하게 진행되도록 관리한다",
+      "options": [
+        "선거가 공정하게 진행되도록 관리한다",
+        "후보자의 공약을 대신 만들어 준다",
+        "당선될 후보를 미리 정한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'관리'한다는 건 제대로 되도록 살피는 거야"
+    },
+    "skillTags": ["fact", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "선거 관리 위원회가 하는 일은?",
+    "validationDetails": [],
+    "wrongExplanation": "선거 관리 위원회는 선거가 '공정하게' 진행되도록 관리하는 곳이야. 유권자 명단 작성, 후보 등록, 투표·개표 관리를 해. 공약을 만들거나 당선자를 정하는 곳은 아니야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_010",
+    "sourceRef": "school-social/U2-1/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 2,
+    "question": {
+      "passage": "선거에서 단 한 표 차이로 당선자가 결정된 사례가 있습니다. 나의 한 표가 선거 결과를 바꿀 수 있기 때문에, 소중한 한 표를 반드시 행사하는 것이 중요합니다.",
+      "text": "투표 참여가 중요한 까닭은 무엇인가요?",
+      "ttsText": "투표 참여가 중요한 까닭은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "한 표 차이로도 결과가 달라질 수 있기 때문에",
+      "options": [
+        "한 표 차이로도 결과가 달라질 수 있기 때문에",
+        "투표하지 않으면 벌금을 내야 하기 때문에",
+        "투표소에 가면 선물을 주기 때문에"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "1표 차이로 당선된 사례를 생각해 봐"
+    },
+    "skillTags": ["inference", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "투표 참여가 중요한 까닭은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "나의 한 표가 선거 결과를 바꿀 수 있어. 실제로 1표 차이로 당선자가 바뀐 일이 있거든. 벌금이나 선물과는 관계없어."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_011",
+    "sourceRef": "school-social/U2-1/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "선거의 4대 원칙은 보통 선거, 평등 선거, 직접 선거, 비밀 선거입니다. 보통 선거는 일정 나이 이상이면 누구나, 평등 선거는 한 사람에 한 표, 직접 선거는 대리인 없이 본인이, 비밀 선거는 투표 내용을 비밀로 한다는 원칙입니다.",
+      "text": "'대리인이 대신 투표할 수 없다'는 것은 어떤 선거 원칙에 해당하나요?",
+      "ttsText": "대리인이 대신 투표할 수 없다는 것은 어떤 선거 원칙에 해당하나요?"
+    },
+    "answer": {
+      "correct": "직접 선거",
+      "options": [
+        "직접 선거",
+        "비밀 선거",
+        "평등 선거",
+        "보통 선거"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'직접' 본인이 해야 한다는 뜻이야"
+    },
+    "skillTags": ["inference", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.90,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "대리인이 대신 투표할 수 없다는 것은 어떤 선거 원칙에 해당하나요?",
+    "validationDetails": [],
+    "wrongExplanation": "대리인 없이 본인이 직접 투표해야 한다는 건 '직접 선거' 원칙이야. 비밀 선거는 투표 내용 비공개, 평등 선거는 표의 가치 동등, 보통 선거는 누구나 투표 가능이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u21_012",
+    "sourceRef": "school-social/U2-1/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U2-1",
+    "type": "comprehension",
+    "subject": "social_studies",
+    "difficulty": 3,
+    "question": {
+      "passage": "선거 공보에는 후보자의 학력, 경력, 공약 등이 실려 있고, 후보자 토론회에서는 후보자들이 서로의 공약에 대해 질문하고 답변합니다. 유권자는 이런 정보를 꼼꼼히 확인한 뒤 투표해야 합니다.",
+      "text": "유권자가 현명하게 투표하기 위해 가장 먼저 해야 할 일은?",
+      "ttsText": "유권자가 현명하게 투표하기 위해 가장 먼저 해야 할 일은?"
+    },
+    "answer": {
+      "correct": "후보자의 공약과 경력을 꼼꼼히 비교한다",
+      "options": [
+        "후보자의 공약과 경력을 꼼꼼히 비교한다",
+        "주변 사람들이 찍는 사람을 따라 찍는다",
+        "가장 유명한 후보를 무조건 선택한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "선거 공보와 토론회가 왜 있는지 생각해 봐"
+    },
+    "skillTags": ["inference", "democracy"],
+    "questionType": "choice",
+    "anchorType": "school-social",
+    "confidence": 0.90,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "유권자가 현명하게 투표하기 위해 가장 먼저 해야 할 일은?",
+    "validationDetails": [],
+    "wrongExplanation": "현명한 투표를 하려면 후보자의 공약과 경력을 비교해야 해. 남이 찍는 대로 따라가거나 유명세만 보고 찍으면 안 돼. 선거 공보와 토론회가 있는 이유가 바로 이거야."
   }
 ]

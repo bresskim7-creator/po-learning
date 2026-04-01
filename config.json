@@ -162,5 +162,23 @@
       "attempts": 2,
       "stairLevel": 2
     }
+  },
+  "subjectSession": {
+    "enabled": true,
+    "cardsPerSession": 20,
+    "cardsPerSubject": {
+      "english": null,
+      "comprehension": null,
+      "social_studies": null,
+      "speech_therapy_quiz": null,
+      "listen_repeat": 6,
+      "read_aloud": "lesson"
+    },
+    "lrCardsPerSession": 6,
+    "difficultySort": true,
+    "lv3Cap": 0.1,
+    "newReviewRatio": { "new": 0.4, "review": 0.6 },
+    "tileOrder": ["english", "comprehension", "social_studies", "speech_therapy_quiz", "listen_repeat", "read_aloud"],
+    "note": "v5.0: 과목 선택 중심. null은 cardsPerSession(20) 사용."
   }
 }

@@ -584,6 +584,65 @@
       background: none; border: none; font-size: 20px; cursor: pointer;
       padding: 8px; color: white; opacity: 0.8;
     }
+
+    /* ===== v5.0 홈 화면 ===== */
+    .subject-tiles {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      padding: 0 16px; margin: 16px 0;
+    }
+    .subject-tile {
+      background: white; border-radius: 12px; padding: 20px 12px;
+      text-align: center; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+    .subject-tile:active { transform: scale(0.96); box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+    .subject-tile .tile-emoji { font-size: 32px; display: block; margin-bottom: 8px; }
+    .subject-tile .tile-name { font-size: 15px; font-weight: 600; color: #333; display: block; }
+    .subject-tile .tile-info { font-size: 12px; color: #888; margin-top: 4px; display: block; }
+    .subject-tile .tile-badge {
+      position: absolute; top: 8px; right: 8px;
+      background: #FF6B35; color: white; font-size: 10px;
+      padding: 2px 6px; border-radius: 8px; font-weight: 600;
+    }
+    .subject-tile.tile-empty { opacity: 0.5; pointer-events: none; }
+    .btn-mixed-session {
+      display: block; width: calc(100% - 32px); margin: 8px 16px 24px;
+      padding: 16px; border: 2px solid #2F5496; background: #F0F4FA;
+      border-radius: 12px; font-size: 16px; font-weight: 600;
+      color: #2F5496; cursor: pointer; text-align: center;
+    }
+    .btn-mixed-session:active { background: #D6E4F0; }
+    .btn-mixed-session .mixed-sub { display: block; font-size: 12px; font-weight: 400; color: #888; margin-top: 4px; }
+    .resume-banner {
+      background: #FFF8E1; border: 1px solid #FFD54F; border-radius: 10px;
+      margin: 8px 16px; padding: 12px 16px; display: flex; align-items: center; gap: 8px;
+    }
+    .resume-banner span { flex: 1; font-size: 14px; color: #5D4037; }
+    .resume-btn {
+      background: #FF8F00; color: white; border: none; padding: 6px 14px;
+      border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .resume-close { background: none; border: none; font-size: 18px; color: #999; cursor: pointer; padding: 4px; }
+
+    /* T5: vocab_flip 카드 */
+    .card-flip-mode { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; }
+    .flip-container { width: 280px; height: 200px; perspective: 1000px; cursor: pointer; margin-bottom: 20px; }
+    .flip-inner { width: 100%; height: 100%; transition: transform 0.3s; transform-style: preserve-3d; position: relative; }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; }
+    .flip-front { background: #E3F2FD; }
+    .flip-word { font-size: 36px; font-weight: 700; color: #2F5496; }
+    .flip-hint-text { font-size: 13px; color: #888; margin-top: 12px; }
+    .flip-back { background: #FFF8E1; transform: rotateY(180deg); }
+    .flip-meaning { font-size: 28px; font-weight: 600; color: #333; }
+    .flip-pos { font-size: 14px; color: #888; margin-top: 4px; }
+    .flip-example { margin-top: 12px; text-align: center; }
+    .flip-ex-en { display: block; font-size: 14px; color: #555; font-style: italic; }
+    .flip-ex-ko { display: block; font-size: 13px; color: #888; margin-top: 2px; }
+    .flip-buttons { display: flex; gap: 12px; margin-top: 16px; }
+    .btn-flip-know { background: #4CAF50; color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .btn-flip-dont { background: #FF7043; color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -594,13 +653,22 @@
     <button class="btn-settings" onclick="showPage('page-settings')">&#9881;</button>
   </div>
   <h1>PO 학습</h1>
-  <div class="greeting" id="greeting-text">로딩 중...</div>
-  <div class="today-info">
-    <div class="card-count" id="today-card-count">-</div>
-    <div class="card-label">오늘의 카드</div>
-    <div class="streak-home" id="streak-home"></div>
+  <div class="streak-home" id="streak-home"></div>
+  <div id="resume-banner" class="resume-banner" style="display:none;">
+    <span id="resume-banner-text"></span>
+    <button class="resume-btn" onclick="resumePendingSession()">이어하기</button>
+    <button class="resume-close" onclick="dismissPendingSession()">✕</button>
   </div>
-  <button class="btn-start" onclick="startSession()">시작하기</button>
+  <div id="subject-tiles" class="subject-tiles"></div>
+  <button class="btn-mixed-session" onclick="startSubjectSession('mixed')">🔄 전체 복습 · 25장<span class="mixed-sub">여러 과목 섞어서</span></button>
+  <div id="legacy-home" style="display:none;">
+    <div class="greeting" id="greeting-text">로딩 중...</div>
+    <div class="today-info">
+      <div class="card-count" id="today-card-count">-</div>
+      <div class="card-label">오늘의 카드</div>
+    </div>
+    <button class="btn-start" onclick="startSession()">시작하기</button>
+  </div>
 </div>
 
 <!-- ===== 카드 화면 ===== -->
@@ -1094,18 +1162,609 @@ function generateSpeechTherapyCards(data) {
 // ===================================================================
 
 function updateHomeScreen() {
-  const phrase = getRandomPhrase('greeting');
-  document.getElementById('greeting-text').textContent = phrase;
-  const s = getSettings();
-  document.getElementById('today-card-count').textContent = s.cardCount;
+  if (!APP.config || !APP.config.subjectSession || !APP.config.subjectSession.enabled) {
+    renderLegacyHome();
+    return;
+  }
+  renderSubjectTileHome();
+}
 
-  const progress = APP.progress || loadAppProgress();
-  const streakEl = document.getElementById('streak-home');
+function renderLegacyHome() {
+  document.getElementById('subject-tiles').style.display = 'none';
+  document.querySelector('.btn-mixed-session').style.display = 'none';
+  document.getElementById('resume-banner').style.display = 'none';
+  var legacyEl = document.getElementById('legacy-home');
+  if (legacyEl) {
+    legacyEl.style.display = '';
+    var phrase = getRandomPhrase('greeting');
+    document.getElementById('greeting-text').textContent = phrase;
+    var s = getSettings();
+    document.getElementById('today-card-count').textContent = s.cardCount;
+  }
+  var progress = APP.progress || loadAppProgress();
+  var streakEl = document.getElementById('streak-home');
   if (progress.stats.streak > 0) {
     streakEl.textContent = progress.stats.streak + '일 연속 학습 중!';
   } else {
     streakEl.textContent = '';
   }
+}
+
+function renderSubjectTileHome() {
+  document.getElementById('legacy-home').style.display = 'none';
+  document.getElementById('subject-tiles').style.display = '';
+  document.querySelector('.btn-mixed-session').style.display = '';
+  var progress = APP.progress || loadAppProgress();
+  var streakEl = document.getElementById('streak-home');
+  if (progress.stats.streak > 0) {
+    streakEl.textContent = '\uD83D\uDD25 ' + progress.stats.streak + '일 연속 학습 중!';
+    streakEl.style.cssText = 'text-align:center; font-size:14px; color:#E65100; margin:8px 0;';
+  } else {
+    streakEl.textContent = '';
+  }
+  var tileOrder = (APP.config.subjectSession.tileOrder || ['english','comprehension','social_studies','speech_therapy_quiz','listen_repeat','read_aloud']);
+  var tileMeta = {
+    english: { emoji: '\uD83D\uDD24', name: '영어' },
+    comprehension: { emoji: '\uD83D\uDCD6', name: '독해' },
+    social_studies: { emoji: '\uD83C\uDFDB\uFE0F', name: '사회' },
+    speech_therapy_quiz: { emoji: '\uD83D\uDDE3\uFE0F', name: '언어치료' },
+    listen_repeat: { emoji: '\uD83D\uDC42', name: '듣고말하기' },
+    read_aloud: { emoji: '\uD83D\uDCDA', name: '따라읽기' }
+  };
+  var stats = loadSubjectStats();
+  var recommended = getRecommendedSubjects(stats);
+  var recommendedSet = {};
+  recommended.forEach(function(r) { recommendedSet[r.subject] = true; });
+  var tilesEl = document.getElementById('subject-tiles');
+  tilesEl.innerHTML = '';
+  tileOrder.forEach(function(subject) {
+    var meta = tileMeta[subject];
+    if (!meta) return;
+    var poolCount = getSubjectCardPoolCount(subject);
+    var info = getSubjectTileInfo(subject, stats, poolCount);
+    var tile = document.createElement('div');
+    tile.className = 'subject-tile' + (poolCount === 0 ? ' tile-empty' : '');
+    tile.setAttribute('data-subject', subject);
+    tile.onclick = function() { if (poolCount === 0) return; startSubjectSession(subject); };
+    var html = '<span class="tile-emoji">' + meta.emoji + '</span>';
+    html += '<span class="tile-name">' + meta.name + '</span>';
+    html += '<span class="tile-info">' + info + '</span>';
+    if (recommendedSet[subject] && poolCount > 0) {
+      html += '<span class="tile-badge">추천</span>';
+    }
+    tile.innerHTML = html;
+    tilesEl.appendChild(tile);
+  });
+  renderResumeBanner();
+}
+
+function getSubjectCardPoolCount(subject) {
+  var filterBlocked = function(c) { return c.reviewStatus !== 'blocked' && c.status !== 'blocked'; };
+  switch(subject) {
+    case 'english': return (APP.englishCards || []).filter(filterBlocked).length;
+    case 'comprehension': return (APP.comprehensionCards || []).filter(filterBlocked).length;
+    case 'social_studies': return (APP.socialStudiesCards || []).filter(filterBlocked).length;
+    case 'speech_therapy_quiz': return (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && filterBlocked(c); }).length;
+    case 'listen_repeat': return (APP.listenRepeatCards || []).filter(filterBlocked).length;
+    case 'read_aloud': return (APP.speechTherapyLessons || []).length;
+    default: return 0;
+  }
+}
+
+function getSubjectTileInfo(subject, stats, poolCount) {
+  if (poolCount === 0) return '준비 중';
+  var subStats = stats[subject];
+  if (subject === 'listen_repeat') {
+    var lvl = (APP.config.listenRepeat && APP.config.listenRepeat.currentLevel) || 1;
+    if (subStats && subStats.currentLevel != null) lvl = subStats.currentLevel;
+    return 'Lv' + lvl;
+  }
+  if (subject === 'read_aloud') {
+    var total = (APP.speechTherapyLessons || []).length;
+    var completed = (subStats && subStats.completedLessons) || 0;
+    return completed + '/' + total + '편';
+  }
+  if (subStats && subStats.recentAccuracy != null) {
+    return Math.round(subStats.recentAccuracy * 100) + '%';
+  }
+  var target = getSubjectCardsPerSession(subject);
+  if (poolCount < target) return poolCount + '장 가능';
+  return '새로 시작';
+}
+
+function getSubjectCardsPerSession(subject) {
+  var cfg = APP.config.subjectSession;
+  if (cfg.cardsPerSubject && cfg.cardsPerSubject[subject] != null) {
+    return cfg.cardsPerSubject[subject];
+  }
+  return cfg.cardsPerSession || 20;
+}
+
+function loadSubjectStats() {
+  try { return JSON.parse(localStorage.getItem('po_v5_subject_stats') || '{}'); }
+  catch(e) { return {}; }
+}
+
+function saveSubjectStats(stats) {
+  localStorage.setItem('po_v5_subject_stats', JSON.stringify(stats));
+}
+
+// T6: 과목별 진도 추적
+function appendSubjectSession(subject, record) {
+  var stats = loadSubjectStats();
+  if (!stats[subject]) stats[subject] = { sessions: [] };
+  if (!stats[subject].sessions) stats[subject].sessions = [];
+  stats[subject].sessions.push(record);
+  // 최근 30건만 유지
+  if (stats[subject].sessions.length > 30) {
+    stats[subject].sessions = stats[subject].sessions.slice(-30);
+  }
+  // recentAccuracy 재계산 (최근 3회, mixed에서 3장 미만은 제외)
+  var validSessions = stats[subject].sessions.filter(function(s) {
+    return s.total >= 3;
+  });
+  var recent = validSessions.slice(-3);
+  if (recent.length > 0) {
+    var totalCorrect = 0, totalCards = 0;
+    recent.forEach(function(s) { totalCorrect += s.correct; totalCards += s.total; });
+    stats[subject].recentAccuracy = totalCards > 0 ? totalCorrect / totalCards : null;
+  }
+  saveSubjectStats(stats);
+}
+
+function decomposeToSubjectStats(sessionCards, results) {
+  var bySubject = {};
+  sessionCards.forEach(function(card, i) {
+    var subj = card.subject || 'unknown';
+    if (!bySubject[subj]) bySubject[subj] = [];
+    bySubject[subj].push({ card: card, correct: results[i] && results[i].correct });
+  });
+  for (var subject in bySubject) {
+    var items = bySubject[subject];
+    if (items.length < 3) continue;
+    var correct = items.filter(function(it) { return it.correct; }).length;
+    appendSubjectSession(subject, {
+      date: todayStr(),
+      total: items.length,
+      correct: correct,
+      accuracy: correct / items.length,
+      type: 'mixed'
+    });
+  }
+}
+
+function getRecommendedSubjects(stats) {
+  var recommendations = [];
+  var subjects = ['english','comprehension','social_studies','speech_therapy_quiz'];
+  subjects.forEach(function(subject) {
+    var data = stats[subject];
+    var score = 0;
+    if (!data || !data.sessions || data.sessions.length === 0) {
+      score = 50;
+    } else {
+      var lastDate = data.sessions[data.sessions.length - 1].date;
+      var daysSince = Math.floor((Date.now() - new Date(lastDate).getTime()) / 86400000);
+      score = daysSince * 10;
+      if (data.recentAccuracy != null) {
+        if (data.recentAccuracy < 0.7) score += 30;
+        if (data.recentAccuracy < 0.6) score += 20;
+      }
+    }
+    recommendations.push({ subject: subject, score: score });
+  });
+  recommendations.sort(function(a, b) { return b.score - a.score; });
+  return recommendations.slice(0, 2);
+}
+
+function renderResumeBanner() {
+  var banner = document.getElementById('resume-banner');
+  try {
+    var pending = JSON.parse(localStorage.getItem('po_v5_pending_session'));
+    if (!pending) { banner.style.display = 'none'; return; }
+    if (Date.now() - new Date(pending.savedAt).getTime() > 86400000) {
+      expirePendingSession(pending);
+      banner.style.display = 'none';
+      return;
+    }
+    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', speech_therapy_quiz:'언어치료', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'전체 복습' };
+    var name = subjectNames[pending.subject] || '학습';
+    document.getElementById('resume-banner-text').textContent = name + ' ' + pending.currentIndex + '/' + pending.cards.length + '장 진행 중';
+    banner.style.display = 'flex';
+  } catch(e) { banner.style.display = 'none'; }
+}
+
+function startSubjectSession(subject) {
+  if (subject === 'mixed') { startSession(); return; }
+
+  if (subject === 'listen_repeat') {
+    startLRSubjectSession();
+    return;
+  }
+  if (subject === 'read_aloud') {
+    startReadAloudSubjectSession();
+    return;
+  }
+
+  var result = buildSubjectSession(subject);
+  if (result.status === 'empty') {
+    alert('카드를 추가해주세요');
+    return;
+  }
+
+  dismissAndSavePendingPartial();
+
+  APP.session = {
+    cards: result.cards,
+    currentIndex: 0,
+    startTime: Date.now(),
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: Date.now(),
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+    recordings: [],
+    sessionType: 'subject',
+    sessionSubject: subject,
+    reexposureQueue: [],
+    reexposureAdded: false
+  };
+
+  logEvent('session_start', { mode: 'subject', subject: subject, cardCount: result.cards.length });
+  showPage('page-card');
+  renderCard();
+}
+
+// T4: buildSubjectSession 및 관련 함수들
+function buildSubjectSession(subject) {
+  var pool = getApprovedCards(subject);
+  var targetCount = getSubjectCardsPerSession(subject);
+
+  if (pool.length === 0) return { cards: [], status: 'empty' };
+
+  // 중복 방지: 최근 4시간 이내 같은 과목 세션 카드 제외
+  var recentIds = getRecentSessionCardIds(subject, 4);
+  var filtered = pool.filter(function(c) { return !recentIds.has(getCardId(c)); });
+  if (filtered.length < 5) filtered = pool;
+
+  // 영어: vocab_flip Phase 세션
+  if (subject === 'english') {
+    return buildEnglishPhaseSession(filtered, targetCount);
+  }
+
+  // 사회: concept_study/ox_quiz Phase (v5.1 폴백)
+  if (subject === 'social_studies') {
+    var conceptPool = filtered.filter(function(c) { return c.type === 'concept_study'; });
+    var oxPool = filtered.filter(function(c) { return c.type === 'ox_quiz'; });
+    if (conceptPool.length > 0 || oxPool.length > 0) {
+      return buildSocialPhaseSession(filtered, conceptPool, oxPool, targetCount);
+    }
+  }
+
+  // 기본: 독해, 언어치료, 사회(폴백)
+  return buildDefaultSubjectSession(filtered, subject, targetCount);
+}
+
+function getCardId(card) {
+  return card.id || card.cardId;
+}
+
+function getApprovedCards(subject) {
+  var pool;
+  switch(subject) {
+    case 'english': pool = APP.englishCards || []; break;
+    case 'comprehension': pool = APP.comprehensionCards || []; break;
+    case 'social_studies': pool = APP.socialStudiesCards || []; break;
+    case 'speech_therapy_quiz':
+      pool = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId; });
+      break;
+    default: pool = [];
+  }
+  return pool.filter(function(c) {
+    var status = c.reviewStatus || c.status || '';
+    return status !== 'blocked';
+  });
+}
+
+function getRecentSessionCardIds(subject, hours) {
+  try {
+    var recent = JSON.parse(localStorage.getItem('po_v5_recent_cards') || '{}');
+    var cutoff = Date.now() - (hours * 3600000);
+    var entries = (recent[subject] || []).filter(function(e) { return e.timestamp > cutoff; });
+    var ids = new Set();
+    entries.forEach(function(e) { e.cardIds.forEach(function(id) { ids.add(id); }); });
+    return ids;
+  } catch(e) { return new Set(); }
+}
+
+function saveRecentSessionCards(subject, cardIds) {
+  try {
+    var recent = JSON.parse(localStorage.getItem('po_v5_recent_cards') || '{}');
+    if (!recent[subject]) recent[subject] = [];
+    recent[subject].push({ cardIds: cardIds, timestamp: Date.now() });
+    var cutoff = Date.now() - 86400000;
+    recent[subject] = recent[subject].filter(function(e) { return e.timestamp > cutoff; });
+    localStorage.setItem('po_v5_recent_cards', JSON.stringify(recent));
+  } catch(e) {}
+}
+
+function getDifficultyRatio(subject) {
+  var stats = loadSubjectStats();
+  var subStats = stats[subject];
+  var accuracy = (subStats && subStats.recentAccuracy != null) ? subStats.recentAccuracy : 0.8;
+  if (accuracy >= 0.8) return { lv1: 0.4, lv2: 0.5, lv3: 0.1 };
+  if (accuracy >= 0.6) return { lv1: 0.6, lv2: 0.35, lv3: 0.05 };
+  return { lv1: 0.7, lv2: 0.3, lv3: 0.0 };
+}
+
+function buildDefaultSubjectSession(pool, subject, targetCount) {
+  var ratio = getDifficultyRatio(subject);
+  var selected = selectCardsForSubject(pool, targetCount);
+
+  // Lv3 제한
+  var lv3Max = Math.max(Math.round(targetCount * ratio.lv3), 0);
+  var lv3Count = 0;
+  selected = selected.filter(function(c) {
+    if ((c.difficulty || 1) >= 3) {
+      lv3Count++;
+      return lv3Count <= lv3Max;
+    }
+    return true;
+  });
+
+  // 부족하면 채우기
+  if (selected.length < targetCount) {
+    var usedIds = new Set(selected.map(function(c) { return getCardId(c); }));
+    var extra = pool.filter(function(c) { return !usedIds.has(getCardId(c)) && (c.difficulty || 1) < 3; });
+    selected = selected.concat(shuffleArray(extra).slice(0, targetCount - selected.length));
+  }
+
+  // 독해: skillTag 다양화
+  if (subject === 'comprehension') {
+    selected = diversifyBySkillTag(selected);
+  }
+
+  selected = sortByDifficulty(selected);
+
+  var actual = Math.min(selected.length, targetCount);
+  selected = selected.slice(0, actual);
+
+  return {
+    cards: selected,
+    status: actual < targetCount ? 'partial' : 'full',
+    actualCount: actual
+  };
+}
+
+// 영어 Phase 세션 (vocab_flip + 4지선다)
+function buildEnglishPhaseSession(pool, targetCount) {
+  var vocabPool = pool.filter(function(c) { return c.type === 'vocabulary'; });
+  var nonVocabPool = pool.filter(function(c) { return c.type !== 'vocabulary'; });
+
+  // Phase 1: vocab_flip (new 단어, 최대 5장)
+  var newVocab = vocabPool.filter(function(c) {
+    var cs = getCardState(getCardId(c));
+    return cs.state === 'new';
+  });
+  if (newVocab.length === 0) newVocab = vocabPool;
+  var flipCount = Math.min(5, newVocab.length);
+  var flipSource = shuffleArray(newVocab).slice(0, flipCount);
+  var flipCards = flipSource.map(function(c) { return toVocabFlip(c); });
+
+  // Phase 2+4: 4지선다 (나머지 채움)
+  var quizCount = targetCount - flipCount;
+  var excludeIds = new Set(flipSource.map(function(c) { return getCardId(c); }));
+  var quizPool = pool.filter(function(c) { return !excludeIds.has(getCardId(c)); });
+  var quizCards = selectCardsForSubject(quizPool, quizCount);
+  quizCards = sortByDifficulty(quizCards);
+
+  // Lv3 제한 (퀴즈 부분만)
+  var ratio = getDifficultyRatio('english');
+  var lv3Max = Math.max(Math.round(targetCount * ratio.lv3), 0);
+  var lv3Count = 0;
+  quizCards = quizCards.filter(function(c) {
+    if ((c.difficulty || 1) >= 3) { lv3Count++; return lv3Count <= lv3Max; }
+    return true;
+  });
+
+  var allCards = flipCards.concat(quizCards);
+  return {
+    cards: allCards,
+    status: allCards.length < targetCount ? 'partial' : 'full',
+    actualCount: allCards.length
+  };
+}
+
+function toVocabFlip(vocabCard) {
+  return {
+    id: getCardId(vocabCard) + '_flip',
+    type: 'vocab_flip',
+    subject: 'english',
+    word: (vocabCard.question && vocabCard.question.displayWord) || (vocabCard.question && vocabCard.question.ttsText) || '',
+    pos: '',
+    meaning: (vocabCard.answer && vocabCard.answer.correct) || '',
+    example_en: '',
+    example_ko: '',
+    ttsText: (vocabCard.question && vocabCard.question.ttsText) || '',
+    difficulty: vocabCard.difficulty || 1,
+    sourceId: getCardId(vocabCard)
+  };
+}
+
+// 사회 Phase 세션 (concept_study + ox_quiz + 4지선다)
+function buildSocialPhaseSession(pool, conceptPool, oxPool, targetCount) {
+  var conceptCards = shuffleArray(conceptPool).slice(0, Math.min(4, conceptPool.length));
+  var oxCards = shuffleArray(oxPool).slice(0, Math.min(4, oxPool.length));
+  var quizPool = pool.filter(function(c) { return c.type === 'comprehension'; });
+  var remaining = targetCount - conceptCards.length - oxCards.length - 2;
+  var quizCards = selectCardsForSubject(quizPool, Math.max(remaining, 0));
+  quizCards = sortByDifficulty(quizCards);
+  var reviewCards = selectCardsForSubject(quizPool, 2);
+  var allCards = conceptCards.concat(oxCards).concat(quizCards).concat(reviewCards);
+  return {
+    cards: allCards.slice(0, targetCount + 2),
+    status: allCards.length >= targetCount ? 'full' : 'partial',
+    actualCount: Math.min(allCards.length, targetCount + 2)
+  };
+}
+
+// LR 과목 세션
+function startLRSubjectSession() {
+  var lrLevel = APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 2;
+  var lrCount = (APP.config.subjectSession && APP.config.subjectSession.lrCardsPerSession) || 6;
+  var lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+  if (!lrCards || lrCards.length === 0) {
+    alert('듣고말하기 카드가 없습니다.');
+    return;
+  }
+  dismissAndSavePendingPartial();
+  APP.session = {
+    cards: lrCards,
+    currentIndex: 0,
+    startTime: Date.now(),
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: Date.now(),
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+    recordings: [],
+    sessionType: 'subject',
+    sessionSubject: 'listen_repeat',
+    reexposureQueue: [],
+    reexposureAdded: false
+  };
+  logEvent('session_start', { mode: 'subject', subject: 'listen_repeat', cardCount: lrCards.length });
+  showPage('page-card');
+  renderCard();
+}
+
+// 따라읽기 과목 세션
+function startReadAloudSubjectSession() {
+  var lessons = APP.speechTherapyLessons || [];
+  if (lessons.length === 0) {
+    alert('따라읽기 레슨이 없습니다.');
+    return;
+  }
+  // 진행률 기반 다음 레슨 선택
+  var stats = loadSubjectStats();
+  var raStats = stats.read_aloud || {};
+  var completed = raStats.completedLessons || 0;
+  var lessonIdx = completed % lessons.length;
+  var lesson = lessons[lessonIdx];
+
+  APP.currentLessonInfo = { id: lesson.id, title: lesson.title, type: 'read_aloud_subject' };
+
+  // lesson의 lines를 read-aloud 카드로 변환
+  var raCards = lesson.lines.map(function(line, i) {
+    return {
+      _raCard: true,
+      _lessonId: lesson.id,
+      _lineIndex: i,
+      type: 'read_aloud',
+      subject: 'speech_therapy',
+      text: line.text,
+      pronunciation: line.pronunciation || '',
+      rules: line.rules || [],
+      ttsText: line.text,
+      difficulty: 1
+    };
+  });
+
+  dismissAndSavePendingPartial();
+  APP.session = {
+    cards: raCards,
+    currentIndex: 0,
+    startTime: Date.now(),
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: Date.now(),
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+    recordings: [],
+    sessionType: 'subject',
+    sessionSubject: 'read_aloud',
+    reexposureQueue: [],
+    reexposureAdded: false
+  };
+  logEvent('session_start', { mode: 'subject', subject: 'read_aloud', cardCount: raCards.length });
+  showPage('page-card');
+  renderCard();
+}
+
+// 기존 pending 세션 폐기 + 부분결과 저장
+function dismissAndSavePendingPartial() {
+  try {
+    var pending = JSON.parse(localStorage.getItem('po_v5_pending_session'));
+    if (pending && pending.partialResults && pending.partialResults.length > 0) {
+      // 부분 결과를 subject_stats에 기록
+      var correct = pending.partialResults.filter(function(r) { return r.correct; }).length;
+      var total = pending.partialResults.length;
+      if (total >= 3 && pending.subject) {
+        appendSubjectSession(pending.subject, {
+          date: todayStr(),
+          total: total,
+          correct: correct,
+          accuracy: correct / total,
+          duration: 0,
+          type: 'partial'
+        });
+      }
+    }
+    localStorage.removeItem('po_v5_pending_session');
+  } catch(e) {}
+}
+
+function resumePendingSession() {
+  try {
+    var pending = JSON.parse(localStorage.getItem('po_v5_pending_session'));
+    if (!pending) {
+      alert('이어하기 세션이 없습니다.');
+      return;
+    }
+
+    // 24시간 이상 지났으면 만료
+    if (Date.now() - new Date(pending.savedAt).getTime() > 86400000) {
+      expirePendingSession(pending);
+      alert('이어하기 세션이 만료되었습니다.');
+      return;
+    }
+
+    // 세션 복구
+    APP.session = {
+      cards: pending.cards,
+      currentIndex: pending.currentIndex,
+      startTime: Date.now() - (new Date(pending.startedAt).getTime() % 1000), // 대략적인 시작 시간
+      correctCount: 0,
+      totalAttempts: 0,
+      cardStartTime: Date.now(),
+      events: [],
+      subjectStats: {},
+      prevSubject: null,
+      recordings: [],
+      sessionType: 'subject',
+      sessionSubject: pending.subject,
+      reexposureQueue: [],
+      reexposureAdded: false
+    };
+
+    logEvent('session_resume', { subject: pending.subject, cardCount: pending.cards.length, resumedIndex: pending.currentIndex });
+    showPage('page-card');
+    renderCard();
+  } catch(e) {
+    console.error('resumePendingSession 에러:', e);
+    alert('이어하기 복구 실패');
+  }
+}
+
+function dismissPendingSession() {
+  localStorage.removeItem('po_v5_pending_session');
+  document.getElementById('resume-banner').style.display = 'none';
+}
+
+function expirePendingSession(pending) {
+  localStorage.removeItem('po_v5_pending_session');
 }
 
 function getRandomPhrase(category) {
@@ -1744,6 +2403,14 @@ function renderCard() {
   const total = s.cards.length;
 
   if (idx >= total) {
+    // T9: 재노출 처리 (모든 카드 소진 후)
+    if (!s.reexposureAdded && s.reexposureQueue && s.reexposureQueue.length > 0) {
+      var reexpose = shuffleArray(s.reexposureQueue).slice(0, 2);
+      s.cards = s.cards.concat(reexpose);
+      s.reexposureAdded = true;
+      renderCard();
+      return;
+    }
     endSession();
     return;
   }
@@ -1760,6 +2427,12 @@ function renderCard() {
   // v4.8: 읽기 연습(따라읽기) 블록 감지 → 별도 렌더러로 전환
   if (card._blockType === 'read-aloud') {
     renderReadAloudBlock();
+    return;
+  }
+
+  // T5: vocab_flip 카드 감지 → 별도 렌더러로 전환
+  if (card.type === 'vocab_flip') {
+    renderVocabFlipCard(card);
     return;
   }
 
@@ -2001,6 +2674,109 @@ function renderCard() {
 }
 
 // ===================================================================
+// T5: vocab_flip 카드 렌더러
+// ===================================================================
+
+function renderVocabFlipCard(card) {
+  var container = document.getElementById('card-container');
+  container.innerHTML = '';
+  container.className = 'card card-flip-mode';
+
+  // 진행률
+  var s = APP.session;
+  var idx = s.currentIndex;
+  var total = s.cards.length;
+  document.getElementById('progress-fill').style.width = ((idx / total) * 100) + '%';
+  document.getElementById('progress-text').textContent = (idx + 1) + '/' + total;
+
+  // 과목 뱃지
+  document.getElementById('subject-badge-area').innerHTML =
+    '<span class="subject-badge english">영어</span>';
+
+  var flipDiv = document.createElement('div');
+  flipDiv.className = 'flip-container';
+  flipDiv.innerHTML =
+    '<div class="flip-inner">' +
+      '<div class="flip-front">' +
+        '<span class="flip-word">' + escapeHtml(card.word) + '</span>' +
+        '<span class="flip-hint-text">탭하면 뜻 보기</span>' +
+      '</div>' +
+      '<div class="flip-back">' +
+        '<span class="flip-meaning">' + escapeHtml(card.meaning) + '</span>' +
+        (card.pos ? '<span class="flip-pos">' + escapeHtml(card.pos) + '</span>' : '') +
+        (card.example_en ? '<div class="flip-example"><span class="flip-ex-en">' + escapeHtml(card.example_en) + '</span><span class="flip-ex-ko">' + escapeHtml(card.example_ko || '') + '</span></div>' : '') +
+      '</div>' +
+    '</div>';
+
+  var flipped = false;
+  flipDiv.onclick = function() {
+    flipped = !flipped;
+    flipDiv.querySelector('.flip-inner').style.transform = flipped ? 'rotateY(180deg)' : '';
+  };
+
+  container.appendChild(flipDiv);
+
+  // TTS 자동재생
+  if (card.ttsText) {
+    setTimeout(function() { speakTTS(card.ttsText, card.ttsLang || 'en'); }, 300);
+  }
+
+  // 하단 버튼
+  var btnDiv = document.createElement('div');
+  btnDiv.className = 'flip-buttons';
+  btnDiv.innerHTML =
+    '<button class="btn-flip-know" onclick="handleVocabFlipResponse(true)">알아요 ✓</button>' +
+    '<button class="btn-flip-dont" onclick="handleVocabFlipResponse(false)">모르겠어요 ✗</button>';
+  container.appendChild(btnDiv);
+}
+
+function handleVocabFlipResponse(knows) {
+  var s = APP.session;
+  var card = s.cards[s.currentIndex];
+
+  // 자기평가 기록 (정오답 아님)
+  s.events.push({
+    cardId: getCardId(card),
+    type: 'vocab_flip',
+    response: knows ? 'KNOW' : 'DONT_KNOW',
+    timestamp: Date.now()
+  });
+
+  if (!knows) {
+    // 재노출 큐에 추가
+    s.reexposureQueue = s.reexposureQueue || [];
+    s.reexposureQueue.push(card);
+  }
+
+  // 다음 카드
+  savePendingSession();
+  APP.session.currentIndex++;
+  renderCard();
+}
+
+// T8 + T9: pending_session 저장 및 재노출 처리
+function savePendingSession() {
+  if (!APP.session || !APP.session.sessionType) return;
+  if (APP.session.sessionType !== 'subject') return;
+  try {
+    var pending = {
+      sessionType: 'subject',
+      subject: APP.session.sessionSubject,
+      cards: APP.session.cards,
+      currentIndex: APP.session.currentIndex,
+      partialResults: (APP.session.events || []).filter(function(e) { return e.correct != null; }),
+      startedAt: new Date(APP.session.startTime).toISOString(),
+      savedAt: new Date().toISOString()
+    };
+    localStorage.setItem('po_v5_pending_session', JSON.stringify(pending));
+  } catch(e) {}
+}
+
+function clearPendingSession() {
+  localStorage.removeItem('po_v5_pending_session');
+}
+
+// ===================================================================
 // [v4.10 T13] 순서배열 문항 조작
 // ===================================================================
 
@@ -2165,6 +2941,7 @@ function selectAnswer(selectedIdx) {
   if (isCorrect) {
     // 정답: 1초 후 자동 다음
     setTimeout(function() {
+      savePendingSession();
       APP.session.currentIndex++;
       renderCard();
     }, 1000);
@@ -2311,6 +3088,7 @@ function showWrongExplanation(card, selectedText) {
 
 // 오답 해설 후 다음 카드
 function goNextAfterWrong() {
+  savePendingSession();
   APP.session.currentIndex++;
   renderCard();
 }
@@ -2390,6 +3168,7 @@ function stopSTT() {
   sttActive = false;
 }
 
+// [v5.0 deprecated — assessMatchV5 사용] 이전 greedy character matching 방식
 /**
  * 문장 일치도 판정 (규칙 기반)
  * @param {string} target - 원문 (ttsText)
@@ -2455,7 +3234,52 @@ function assessMatch(target, spoken, sttConf) {
   return { level: 'mismatch', score: score };
 }
 
-// 듣고 말하기 전용 판정 (완화된 기준)
+// [v5.0 T12] Levenshtein 편집 거리 기반 매칭 (assessMatch/assessMatchLR 대체)
+function levenshteinDistance(a, b) {
+  var m = a.length, n = b.length;
+  var dp = [];
+  for (var i = 0; i <= m; i++) {
+    dp[i] = [i];
+    for (var j = 1; j <= n; j++) {
+      dp[i][j] = 0;
+    }
+  }
+  for (var j2 = 0; j2 <= n; j2++) dp[0][j2] = j2;
+  for (var i2 = 1; i2 <= m; i2++) {
+    for (var j3 = 1; j3 <= n; j3++) {
+      if (a[i2-1] === b[j3-1]) {
+        dp[i2][j3] = dp[i2-1][j3-1];
+      } else {
+        dp[i2][j3] = 1 + Math.min(dp[i2-1][j3], dp[i2][j3-1], dp[i2-1][j3-1]);
+      }
+    }
+  }
+  return dp[m][n];
+}
+
+function assessMatchV5(expected, transcribed) {
+  if (!transcribed || transcribed.trim() === '') {
+    return { level: 'mismatch', score: 0, match: false };
+  }
+  var norm = function(s) { return s.replace(/[\s.,!?'"~…·\-]/g, '').toLowerCase(); };
+  var a = norm(expected);
+  var b = norm(transcribed);
+  if (a === '' || b === '') return { level: 'mismatch', score: 0, match: false };
+  if (a === b) return { level: 'match', score: 1.0, match: true };
+  var distance = levenshteinDistance(a, b);
+  var maxLen = Math.max(a.length, b.length);
+  var similarity = 1 - (distance / maxLen);
+  var level = similarity >= 0.7 ? 'match' : (similarity >= 0.4 ? 'ambiguous' : 'mismatch');
+  return {
+    score: similarity,
+    match: similarity >= 0.7,
+    level: level,
+    distance: distance,
+    details: { expected: a, transcribed: b }
+  };
+}
+
+// [v5.0 deprecated — assessMatchV5 사용] 이전 완화된 기준
 // - STT 신뢰도 페널티 제거 (청각기억 훈련이므로 STT 오류에 관대)
 // - 단어 단위 매칭 비중 확대 (글자 하나 틀려도 뜻 맞으면 OK)
 // - ambiguous도 match로 처리 (일부만 기억해도 인정)
@@ -2518,6 +3342,104 @@ function assessMatchLR(target, spoken, sttConf) {
   return { level: 'mismatch', score: score };
 }
 
+// [v5.0 T13] Whisper API 전사 (Cloudflare Worker 배포 후 활성화)
+var WHISPER_WORKER_URL = ''; // TODO: Worker 배포 후 URL 입력
+
+async function transcribeWithWhisper(audioBlob) {
+  if (!WHISPER_WORKER_URL) {
+    console.warn('[Whisper] Worker URL 미설정. 오프라인 모드.');
+    return null;
+  }
+  try {
+    var formData = new FormData();
+    formData.append('file', audioBlob, 'recording.webm');
+    formData.append('model', 'gpt-4o-mini-transcribe');
+    formData.append('language', 'ko');
+    var response = await fetch(WHISPER_WORKER_URL + '/transcribe', {
+      method: 'POST',
+      body: formData
+    });
+    if (!response.ok) throw new Error('Whisper API failed: ' + response.status);
+    var data = await response.json();
+    return data.text || '';
+  } catch(e) {
+    console.warn('[Whisper] 전사 실패:', e);
+    return null;
+  }
+}
+
+// [v5.0 T14] 오프라인 녹음 저장 + 후채점
+function openRecordingsDB() {
+  return new Promise(function(resolve, reject) {
+    var request = indexedDB.open('po_recordings', 1);
+    request.onupgradeneeded = function(event) {
+      var db = event.target.result;
+      if (!db.objectStoreNames.contains('pending')) {
+        db.createObjectStore('pending', { keyPath: 'id' });
+      }
+    };
+    request.onsuccess = function(event) { resolve(event.target.result); };
+    request.onerror = function(event) { reject(event.target.error); };
+  });
+}
+
+async function savePendingRecording(audioBlob, cardId, expectedText) {
+  try {
+    var db = await openRecordingsDB();
+    var tx = db.transaction('pending', 'readwrite');
+    var store = tx.objectStore('pending');
+    store.add({
+      id: crypto.randomUUID ? crypto.randomUUID() : ('rec_' + Date.now() + '_' + Math.random().toString(36).substr(2,6)),
+      audioBlob: audioBlob,
+      cardId: cardId,
+      expectedText: expectedText,
+      timestamp: Date.now(),
+      status: 'pending'
+    });
+    return new Promise(function(resolve, reject) {
+      tx.oncomplete = resolve;
+      tx.onerror = function() { reject(tx.error); };
+    });
+  } catch(e) {
+    console.warn('[Offline] 녹음 저장 실패:', e);
+  }
+}
+
+async function processPendingRecordings() {
+  if (!navigator.onLine || !WHISPER_WORKER_URL) return;
+  try {
+    var db = await openRecordingsDB();
+    var tx = db.transaction('pending', 'readonly');
+    var store = tx.objectStore('pending');
+    var getAll = store.getAll();
+    getAll.onsuccess = async function() {
+      var records = getAll.result || [];
+      for (var i = 0; i < records.length; i++) {
+        var record = records[i];
+        try {
+          var transcribed = await transcribeWithWhisper(record.audioBlob);
+          if (transcribed !== null) {
+            var result = assessMatchV5(record.expectedText, transcribed);
+            console.log('[Offline] 후채점:', record.cardId, result);
+            // 결과를 subject_stats에 반영 가능 (향후)
+            var delTx = db.transaction('pending', 'readwrite');
+            delTx.objectStore('pending').delete(record.id);
+          }
+        } catch(e) {
+          console.warn('[Offline] 후채점 실패:', record.cardId, e);
+        }
+      }
+    };
+  } catch(e) {
+    console.warn('[Offline] processPending 실패:', e);
+  }
+}
+
+// 온라인 복귀 시 자동 처리
+window.addEventListener('online', function() {
+  setTimeout(processPendingRecordings, 2000);
+});
+
 // ===================================================================
 // 녹음 (언어치료 마이크로 루틴)
 // ===================================================================
@@ -2558,7 +3480,7 @@ async function toggleRecording() {
     // STT onresult가 비동기이므로 짧은 대기 후 판정
     setTimeout(function() {
       var targetText = card.question.ttsText || card.question.displayWord || '';
-      var match = assessMatch(targetText, sttResult, sttConfidence);
+      var match = assessMatchV5(targetText, sttResult);
       var attemptNum = card._observation ? card._observation.attemptNumber : 1;
       var consecutiveMismatch = card._consecutiveMismatch || 0;
 
@@ -3125,7 +4047,7 @@ async function lrProcessAttempt() {
   }
 
   // 듣고 말하기용 완화 판정: STT 신뢰도 페널티 무시 + 낮은 임계값
-  var result = assessMatchLR(card.ttsText || card.text, sttResult, sttConfidence);
+  var result = assessMatchV5(card.ttsText || card.text, sttResult);
 
   console.log('[LR판정]', {
     target: card.ttsText || card.text,
@@ -3545,7 +4467,7 @@ async function raToggleRecording() {
     // STT 결과 대기 후 판정
     setTimeout(function() {
       var targetText = card.question.ttsText || card.question.displayWord || '';
-      var match = assessMatch(targetText, sttResult, sttConfidence);
+      var match = assessMatchV5(targetText, sttResult);
       var consecutiveMismatch = card._consecutiveMismatch || 0;
 
       console.log('[RA판정]', {
@@ -4420,6 +5342,24 @@ async function endSession() {
   if (sessionHistory.length > 10) sessionHistory.shift();
   localStorage.setItem('po_v4_session_history', JSON.stringify(sessionHistory));
 
+  // T7: subject_stats에 세션 기록 (과목 선택 모드)
+  if (s.sessionType === 'subject' && s.sessionSubject) {
+    appendSubjectSession(s.sessionSubject, {
+      date: todayStr(),
+      total: s.totalAttempts,
+      correct: s.correctCount,
+      accuracy: s.totalAttempts > 0 ? s.correctCount / s.totalAttempts : 0,
+      duration: duration,
+      type: 'subject'
+    });
+    // 최근 카드 ID 저장 (중복 방지용)
+    var sessionCardIds = s.cards.map(function(c) { return getCardId(c); });
+    saveRecentSessionCards(s.sessionSubject, sessionCardIds);
+  } else if (s.sessionType !== 'subject') {
+    // T6: mixed 세션이면 과목별로 분해
+    decomposeToSubjectStats(s.cards, s.events.map(function(e) { return { correct: e.correct }; }));
+  }
+
   // [v4.10 T3] 역할별 집계 (부모 화면용)
   var roleLabels = { 'curriculum-recall': '수업 복습', 'reading-transfer': '읽기 전이', 'review-stabilize': '복습 안정화' };
   var roleStats = {};
@@ -4525,6 +5465,9 @@ async function endSession() {
   try {
     await uploadRecordings();
   } catch (e) { console.warn('[PO] 녹음 업로드 에러:', e); }
+
+  // T8: pending 세션 정리
+  clearPendingSession();
 }
 
 // ===================================================================
