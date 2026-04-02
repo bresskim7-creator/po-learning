@@ -1156,6 +1156,7 @@ function generateSpeechTherapyCards(data) {
       anchorType: lesson.anchorType,
       anchorWeek: lesson.anchorWeek,
       cards: lessonCards,
+      lines: lesson.lines || [],  // [v5.0.9] 원본 lines 보존 (따라읽기용)
     };
   });
 
