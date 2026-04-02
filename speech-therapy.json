@@ -1,7 +1,7 @@
 {
   "version": "260312",
-  "updated": "2026-03-31",
-  "source": "차병원 260305 숙제 (동시 5편) + 260312 숙제 (받아쓰기 15문장)",
+  "updated": "2026-04-02",
+  "source": "차병원 읽기자신감4권 p152,155 (시각주의력 훈련 + 소리나는대로쓰기)",
   "lessons": [
     {
       "id": "snowman",
@@ -560,10 +560,8 @@
         },
         {
           "text": "노란 바탕에 까만 점과 줄무늬",
-          "pronunciation": "노란 바탕에 까만 점꽈 줄무늬",
-          "rules": [
-            "경음화(점과→점꽈)"
-          ],
+          "pronunciation": "노란 바탕에 까만 점과 줄무늬",
+          "rules": [],
           "childWrote": "노란 바탕에 까만은 점과 줄떡",
           "errorType": "까만→까만은(조사 추가), 줄무늬→줄떡(단어 혼동)"
         },
@@ -606,10 +604,8 @@
         },
         {
           "text": "날카로운 칼과 가위는 위험해",
-          "pronunciation": "날카로운 칼꽈 가위는 위험해",
-          "rules": [
-            "경음화(칼과→칼꽈)"
-          ],
+          "pronunciation": "날카로운 칼과 가위는 위험해",
+          "rules": [],
           "childWrote": "날카로운 칼과 가위는 위험에",
           "errorType": "어미 오류(해→에)"
         },
@@ -783,90 +779,6 @@
         "경음화(함께→함게)"
       ],
       "wrongExplanation": "'함게'가 아니라 '함께'야. 'ㄲ' 소리가 나지만 쓸 때는 'ㄲ'가 아니라 'ㅋ'야!"
-    },
-    {
-      "cardId": "crd_2026W12_sth_g7h8i9",
-      "sourceRef": "speech-therapy/260312/spelling/003",
-      "runId": "2026-W12",
-      "sourceId": "speech-therapy",
-      "sourceUnit": "읽기자신감4권-p152",
-      "type": "speech_therapy",
-      "subject": "speech_therapy",
-      "difficulty": 2,
-      "question": {
-        "text": "소리는 '점꽈'라고 나요. 바르게 쓴 것은 무엇일까요?",
-        "ttsText": "점꽈"
-      },
-      "answer": {
-        "correct": "점과",
-        "options": [
-          "점꽈",
-          "점괘",
-          "점과"
-        ],
-        "type": "choice"
-      },
-      "hint": {
-        "text": "받침 'ㅁ' 뒤에서 'ㄱ'이 세게 소리 나는 거야"
-      },
-      "skillTags": [
-        "경음화",
-        "조사-표기"
-      ],
-      "questionType": "choice",
-      "anchorType": "speech-therapy",
-      "confidence": 0.9,
-      "reviewStatus": "approved",
-      "validationStatus": "pass",
-      "ttsText": "점꽈",
-      "validationDetails": [],
-      "pedagogyNote": "경음화 규칙 조사 '과' 표기. 받침 뒤 경음화 패턴.",
-      "rules": [
-        "경음화(점과→점꽈)"
-      ],
-      "wrongExplanation": "소리는 '꽈'로 나지만, 쓸 때는 '과'야. 받침 뒤에 '과'가 오면 된소리로 발음되거든."
-    },
-    {
-      "cardId": "crd_2026W12_sth_j1k2l3",
-      "sourceRef": "speech-therapy/260312/spelling/004",
-      "runId": "2026-W12",
-      "sourceId": "speech-therapy",
-      "sourceUnit": "읽기자신감4권-p152",
-      "type": "speech_therapy",
-      "subject": "speech_therapy",
-      "difficulty": 2,
-      "question": {
-        "text": "소리는 '칼꽈'라고 나요. 바르게 쓴 것은 무엇일까요?",
-        "ttsText": "칼꽈"
-      },
-      "answer": {
-        "correct": "칼과",
-        "options": [
-          "칼괘",
-          "칼꽈",
-          "칼과"
-        ],
-        "type": "choice"
-      },
-      "hint": {
-        "text": "받침 'ㄹ' 뒤에서 'ㄱ'이 세게 소리 나는 거야. '과'라고 써"
-      },
-      "skillTags": [
-        "경음화",
-        "조사-표기"
-      ],
-      "questionType": "choice",
-      "anchorType": "speech-therapy",
-      "confidence": 0.9,
-      "reviewStatus": "approved",
-      "validationStatus": "pass",
-      "ttsText": "칼꽈",
-      "validationDetails": [],
-      "pedagogyNote": "경음화 규칙 조사 '과' 표기. 받침 뒤 경음화 패턴 반복 연습.",
-      "rules": [
-        "경음화(칼과→칼꽈)"
-      ],
-      "wrongExplanation": "'칼'의 받침 'ㄹ' 뒤에 '과'가 오면 '꽈'로 들리지만, 쓸 때는 그냥 '과'야."
     },
     {
       "cardId": "crd_2026W12_sth_m4n5o6",
@@ -1448,14 +1360,14 @@
       "subject": "speech_therapy",
       "difficulty": 2,
       "question": {
-        "text": "소리는 '난우라'라고 나요. 바르게 쓴 것은?"
+        "text": "소리는 '낸무라'라고 나요. 바르게 쓴 것은?"
       },
       "answer": {
         "correct": "냇물아",
         "options": [
           "냇물아",
-          "난무라",
-          "난우라"
+          "낸무라",
+          "낸물아"
         ],
         "type": "choice"
       },
@@ -1472,12 +1384,12 @@
       "confidence": 0.87,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "ttsText": "난무라",
+      "ttsText": "낸무라",
       "validationDetails": [],
       "rules": [
-        "비음화+연음(냇물아→난무라)"
+        "비음화+연음(냇물아→낸무라)"
       ],
-      "pedagogyNote": "복합 음운변화. 받침 ㅆ→ㄴ(비음화)→ㅁ으로 연음되면서 '난무'로.",
+      "pedagogyNote": "복합 음운변화. 받침 ㅅ→ㄷ(대표음)→ㄴ(비음화), 물아→무라(연음).",
       "wrongExplanation": "'냇물'에 'ㅅ'과 'ㄹ'이 숨어있어. 소리가 많이 변하지만 원래 글자를 살려서 써야 해."
     },
     {
@@ -2019,6 +1931,661 @@
       },
       "ttsText": "주어와 목적어 바꾸기",
       "parentOnly": true
+    },
+    {
+      "cardId": "crd_2026W14_va_8-2_01",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-2",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "옆에서 동생이 코를 심하게 골아서 잠을 못 잤어요.",
+        "displayWord": "앞에 동생이 코를 심하게 골아서 잠을 잘 못 잤어요."
+      },
+      "answer": {
+        "correct": "앞에",
+        "options": [
+          "앞에",
+          "심하게",
+          "잤어요",
+          "골아서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "문장 맨 앞 단어를 잘 들어봐!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.9,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-2: 인쇄문장과 음성문장의 다른 부분 1개 찾기. 인쇄본 '앞에' → 음성 '옆에서'",
+      "rules": [
+        "다른부분(앞에→옆에서)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '옆에서'라고 했는데, 화면에는 '앞에'라고 적혀 있어. 앞에↔옆에서, 위치도 다르고 '서'도 붙었어!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-2_02",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-2",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "배에서 포르륵 소리가 나는 걸 보니까 배가 고픈가 보다.",
+        "displayWord": "배에서 포르륵 소리가 나는 걸 보니 배가 고픈가 보다."
+      },
+      "answer": {
+        "correct": "보니",
+        "options": [
+          "보니",
+          "포르륵",
+          "배에서",
+          "고픈가"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'보니' 뒤에 뭔가 더 붙지 않았나?"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.9,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-2: 인쇄문장과 음성문장의 다른 부분 1개 찾기. 인쇄본 '보니' → 음성 '보니까'",
+      "rules": [
+        "다른부분(보니→보니까)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '보니까'라고 했는데, 화면에는 '보니'라고만 적혀 있어. '까'가 빠져 있지!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-2_03",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-2",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "어제는 온 가족들이 모여 올 겨울에 먹을 김장을 담갔습니다.",
+        "displayWord": "어제는 가족들이 모여 올 겨울에 먹을 김장을 담갔습니다."
+      },
+      "answer": {
+        "correct": "가족들이",
+        "options": [
+          "가족들이",
+          "어제는",
+          "김장을",
+          "올"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'가족들이' 앞에 뭔가 더 들리지 않았어?"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.9,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-2: 인쇄본 '가족들이' → 음성 '온 가족들이'",
+      "rules": [
+        "다른부분(가족들이→온 가족들이)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '온 가족들이'라고 했는데, 화면에는 그냥 '가족들이'라고만 적혀 있어. '온'이 빠져 있지!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-2_04",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-2",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "공부하는 중이어서 전화를 받기 어려우니까 나중에 하세요.",
+        "displayWord": "공부하는 중이어서 전화 받기 어려우니까 나중에 하세요."
+      },
+      "answer": {
+        "correct": "전화",
+        "options": [
+          "전화",
+          "공부하는",
+          "어려우니까",
+          "나중에"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'전화' 뒤에 조사가 붙었는지 잘 들어봐!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.9,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-2: 인쇄문장과 음성문장의 다른 부분 1개 찾기. 인쇄본 '전화' → 음성 '전화를'",
+      "rules": [
+        "다른부분(전화→전화를)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '전화를 받기'라고 했는데, 화면에는 '전화 받기'라고만 적혀 있어. '를'이 빠져 있지!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-3_01",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-3",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐! (2개)",
+        "ttsText": "지혜야 횡단보도를 건널 때는 양쪽을 살피고서 건너라.",
+        "displayWord": "지혜야 횡단보도 건널 때는 양쪽을 살피고 건너라."
+      },
+      "answer": {
+        "correct": "횡단보도",
+        "options": [
+          "횡단보도",
+          "살피고",
+          "양쪽을",
+          "건너라"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'횡단보도' 뒤와 '살피고' 뒤에 뭔가 더 들리지 않았어?"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "문장수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-3: 횡단보도→횡단보도를, 살피고→살피고서",
+      "rules": [
+        "다른부분(횡단보도→횡단보도를)",
+        "다른부분(살피고→살피고서)"
+      ],
+      "wrongExplanation": "2개가 달라! ① '횡단보도'가 아니라 '횡단보도를' — '를'이 빠져 있어. ② '살피고'가 아니라 '살피고서' — '서'가 빠져 있어."
+    },
+    {
+      "cardId": "crd_2026W14_va_8-3_02",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-3",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐! (2개)",
+        "ttsText": "어촌은 바닷가에서 물고기를 잡으며 살아가는 마을이다.",
+        "displayWord": "어촌은 바닷가서 물고기 잡으며 살아가는 마을이다."
+      },
+      "answer": {
+        "correct": "바닷가서",
+        "options": [
+          "바닷가서",
+          "물고기",
+          "살아가는",
+          "마을이다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "조사가 빠진 곳이 2군데야! '에서'와 '를'을 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "문장수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-3: 인쇄문장과 음성문장의 다른 부분 2개 찾기.",
+      "rules": [
+        "다른부분(바닷가서→바닷가에서)",
+        "다른부분(물고기→물고기를)"
+      ],
+      "wrongExplanation": "2개가 달라! ① '바닷가서'가 아니라 '바닷가에서' — '에'가 빠져 있어. ② '물고기'가 아니라 '물고기를' — '를'이 빠져 있어."
+    },
+    {
+      "cardId": "crd_2026W14_va_8-3_03",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-3",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐! (2개)",
+        "ttsText": "아버지께서 지금 방에서 주무시고 계시는 것 같아요.",
+        "displayWord": "아버지가 지금 방에서 주무시고 있는 것 같아요."
+      },
+      "answer": {
+        "correct": "아버지가",
+        "options": [
+          "아버지가",
+          "있는",
+          "방에서",
+          "같아요"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'아버지'를 높여서 말하면? 그리고 '있는'의 높임말은?"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "문장수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-3: 아버지가→아버지께서, 있는→계시는 (높임법)",
+      "rules": [
+        "다른부분(아버지가→아버지께서)",
+        "다른부분(있는→계시는)"
+      ],
+      "wrongExplanation": "2개가 달라! ① '아버지가'가 아니라 '아버지께서' — 높임말 조사야. ② '있는'이 아니라 '계시는' — '있다'의 높임말이 '계시다'야!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-3_04",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-3",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐! (2개)",
+        "ttsText": "엄마한테 혼날까봐 겁이 나서 거짓말을 했어요.",
+        "displayWord": "엄마한테 혼날까봐서 겁이 나서 거짓말 했어요."
+      },
+      "answer": {
+        "correct": "혼날까봐서",
+        "options": [
+          "혼날까봐서",
+          "거짓말",
+          "엄마한테",
+          "겁이"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'서'가 빠진 곳과 '을'이 추가된 곳, 2군데야!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "문장수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-3: 인쇄문장과 음성문장의 다른 부분 2개 찾기.",
+      "rules": [
+        "다른부분(혼날까봐서→혼날까봐)",
+        "다른부분(거짓말→거짓말을)"
+      ],
+      "wrongExplanation": "2개가 달라! ① '혼날까봐서'가 아니라 '혼날까봐' — '서'가 빠졌어. ② '거짓말'이 아니라 '거짓말을' — '을'이 추가됐어."
+    },
+    {
+      "cardId": "crd_2026W14_va_8-3_05",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-3",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p155",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐! (2개)",
+        "ttsText": "그 요리는 만드는데 시간이 많이 걸리니까 빠른 걸로 만들자.",
+        "displayWord": "그 요리는 만드는데 시간 많이 걸리니까 빠른 걸 만들자."
+      },
+      "answer": {
+        "correct": "시간",
+        "options": [
+          "시간",
+          "걸",
+          "요리는",
+          "만들자"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'시간' 뒤와 '걸' 뒤에 뭔가 더 들리지 않았어?"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "문장수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-3: 시간→시간이, 걸→걸로",
+      "rules": [
+        "다른부분(시간→시간이)",
+        "다른부분(걸→걸로)"
+      ],
+      "wrongExplanation": "2개가 달라! ① '시간'이 아니라 '시간이' — '이'가 빠져 있어. ② '걸'이 아니라 '걸로' — '로'가 빠져 있어."
+    },
+    {
+      "cardId": "crd_2026W14_sth_phon_01",
+      "sourceRef": "읽기자신감4권-p152-11",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152-11",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "'블록 빼기'를 소리 나는 대로 쓰면 어떻게 될까?",
+        "ttsText": "블록 빼기"
+      },
+      "answer": {
+        "correct": "블록 빼기",
+        "options": [
+          "블록 빼기",
+          "블록 빠기",
+          "블록 배기",
+          "불록 빼기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'빼'는 그대로 '빼'로 소리 나. 헷갈리지 마!"
+      },
+      "skillTags": [
+        "모음구별",
+        "ㅐ-ㅏ"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "소리 나는 대로 쓰기 과제에서 아이가 틀린 패턴 기반 퀴즈.",
+      "rules": [
+        "빼→빼(변화없음)"
+      ],
+      "wrongExplanation": "'빼기'는 소리도 그대로 '빼기'야. '빠기'로 쓰면 틀려!"
+    },
+    {
+      "cardId": "crd_2026W14_sth_phon_02",
+      "sourceRef": "읽기자신감4권-p152-12",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152-12",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "'왼쪽 방향으로'를 소리 나는 대로 쓰면?",
+        "ttsText": "왼쪽 방향으로"
+      },
+      "answer": {
+        "correct": "왼쪽 방향으로",
+        "options": [
+          "왼쪽 방향으로",
+          "원쪽 밤향으로",
+          "웬쪽 방향으로",
+          "왼쪽 밤향으로"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'왼'은 '왼'으로, '방향'은 '방향'으로 소리 나."
+      },
+      "skillTags": [
+        "자음변별",
+        "ㅘ-ㅝ"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "소리 나는 대로 쓰기 과제에서 아이가 틀린 패턴 기반 퀴즈.",
+      "rules": [
+        "왼→왼(변화없음)"
+      ],
+      "wrongExplanation": "'왼쪽 방향으로'는 소리도 그대로야. '원쪽'이나 '밤향'으로 쓰면 틀려!"
+    },
+    {
+      "cardId": "crd_2026W14_sth_phon_03",
+      "sourceRef": "읽기자신감4권-p152-13",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152-13",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "'오른쪽 방향으로'를 소리 나는 대로 쓰면?",
+        "ttsText": "오른쪽 방향으로"
+      },
+      "answer": {
+        "correct": "오른쪽 방향으로",
+        "options": [
+          "오른쪽 방향으로",
+          "오른짝 밤향으로",
+          "오른쪽 밤향으로",
+          "오른짝 방향으로"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'쪽'은 그대로 '쪽', '방향'도 그대로 '방향'이야."
+      },
+      "skillTags": [
+        "자음변별",
+        "ㅉ-ㅉ"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "소리 나는 대로 쓰기 과제에서 아이가 틀린 패턴 기반 퀴즈.",
+      "rules": [
+        "쪽→쪽(변화없음)"
+      ],
+      "wrongExplanation": "'오른쪽'은 '오른짝'이 아니야! '쪽'과 '짝'은 다른 글자야. '방향'도 '밤향'이 아니고!"
+    },
+    {
+      "cardId": "crd_2026W14_sth_phon_04",
+      "sourceRef": "읽기자신감4권-p152-14",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152-14",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "'신나서 펄쩍펄쩍 뛰어다니'를 소리 나는 대로 쓰면?",
+        "ttsText": "신나서 펄쩍펄쩍 뛰어다니"
+      },
+      "answer": {
+        "correct": "신나서 펄쩍펄쩍 뛰어다니",
+        "options": [
+          "신나서 펄쩍펄쩍 뛰어다니",
+          "신어서 펄짝펄짝 뛰어다니",
+          "시나서 펄쩍펄쩍 뛰어다니",
+          "신나서 펄짝펄짝 뛰어다니"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'신나서'에서 '나'가 맞아, '어'가 아니야!"
+      },
+      "skillTags": [
+        "모음구별",
+        "ㅏ-ㅓ",
+        "경음화"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "소리 나는 대로 쓰기 과제에서 아이가 틀린 패턴 기반 퀴즈.",
+      "rules": [
+        "신나→신나(변화없음)",
+        "펄쩍→펄쩍(변화없음)"
+      ],
+      "wrongExplanation": "'신나서'를 '신어서'로 쓰면 틀려! '나'와 '어'는 다른 소리야. '펄쩍'도 '펄짝'이 아니야!"
+    },
+    {
+      "cardId": "crd_2026W14_sth_phon_05",
+      "sourceRef": "읽기자신감4권-p152-12",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152-12",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '가눈길'이라고 나요. 바르게 쓴 것은?",
+        "ttsText": "가눈길"
+      },
+      "answer": {
+        "correct": "가는 길",
+        "options": [
+          "가는 길",
+          "가눈 길",
+          "가는길",
+          "간은 길"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'가눈'은 연음 때문에 그렇게 들리는 거야. 원래 글자는?"
+      },
+      "skillTags": [
+        "연음법칙",
+        "띄어쓰기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "소리 나는 대로 쓰기 과제에서 아이가 틀린 패턴 기반 퀴즈.",
+      "rules": [
+        "연음(가는길→가눈길)"
+      ],
+      "wrongExplanation": "'가는 길'에서 '는'의 받침 'ㄴ'이 '길'로 넘어가서 '가눈길'처럼 들려. 하지만 바르게 쓸 때는 '가는 길'이야!"
+    },
+    {
+      "cardId": "crd_2026W14_sth_phon_06",
+      "sourceRef": "읽기자신감4권-p152-13",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p152-13",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "소리는 '농짱짱'이라고 나요. 바르게 쓴 것은?",
+        "ttsText": "농짱짱"
+      },
+      "answer": {
+        "correct": "농장장",
+        "options": [
+          "농장장",
+          "농짱짱",
+          "농장짱",
+          "농짱장"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'짱'으로 소리 나지만 원래 글자는 '장'이야."
+      },
+      "skillTags": [
+        "경음화",
+        "된소리되기"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "소리 나는 대로 쓰기 과제에서 아이가 틀린 패턴 기반 퀴즈.",
+      "rules": [
+        "경음화(장장→짱짱)"
+      ],
+      "wrongExplanation": "'농장장'에서 '장'이 겹치면서 '짱짱'처럼 된소리가 나. 하지만 바르게 쓸 때는 '농장장'이야!"
     }
   ],
   "listenRepeatCards": [
