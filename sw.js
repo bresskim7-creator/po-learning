@@ -1,4 +1,4 @@
-const CACHE_NAME = 'po-learning-v507';
+const CACHE_NAME = 'po-learning-v508';
 const PRECACHE = [
   './',
   './index.html',

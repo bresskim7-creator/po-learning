@@ -80,6 +80,7 @@
     .subject-badge.comprehension { background: #E67E22; }
     .subject-badge.social_studies { background: #8E44AD; }
     .subject-badge.speech_therapy { background: #27AE60; }
+    .subject-badge.speaking_practice { background: #27AE60; }
 
     /* 카드 본체 */
     .card {
@@ -149,7 +150,7 @@
       margin: 0 auto; display: block;
     }
 
-    /* 녹음 (언어치료 마이크로 루틴) */
+    /* 녹음 (말하기 연습 마이크로 루틴) */
     .recording-area {
       display: flex; flex-direction: column; align-items: center; gap: 16px;
     }
@@ -1221,14 +1222,12 @@ function renderSubjectTileHome() {
   } else {
     streakEl.textContent = '';
   }
-  var tileOrder = (APP.config.subjectSession.tileOrder || ['english','comprehension','social_studies','speech_therapy_quiz','listen_repeat','read_aloud']);
+  var tileOrder = (APP.config.subjectSession.tileOrder || ['english','comprehension','social_studies','speaking_practice']);
   var tileMeta = {
     english: { emoji: '\uD83D\uDD24', name: '영어' },
     comprehension: { emoji: '\uD83D\uDCD6', name: '독해' },
     social_studies: { emoji: '\uD83C\uDFDB\uFE0F', name: '사회' },
-    speech_therapy_quiz: { emoji: '\uD83D\uDDE3\uFE0F', name: '언어치료' },
-    listen_repeat: { emoji: '\uD83D\uDC42', name: '듣고말하기' },
-    read_aloud: { emoji: '\uD83D\uDCDA', name: '따라읽기' }
+    speaking_practice: { emoji: '\uD83C\uDFA4', name: '말하기 연습' }
   };
   var stats = loadSubjectStats();
   var recommended = getRecommendedSubjects(stats);
@@ -1263,9 +1262,11 @@ function getSubjectCardPoolCount(subject) {
     case 'english': return (APP.englishCards || []).filter(filterBlocked).length;
     case 'comprehension': return (APP.comprehensionCards || []).filter(filterBlocked).length;
     case 'social_studies': return (APP.socialStudiesCards || []).filter(filterBlocked).length;
-    case 'speech_therapy_quiz': return (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && filterBlocked(c); }).length;
-    case 'listen_repeat': return (APP.listenRepeatCards || []).filter(filterBlocked).length;
-    case 'read_aloud': return (APP.speechTherapyLessons || []).length;
+    case 'speaking_practice':
+      var stqCount = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && filterBlocked(c); }).length;
+      var lrCount = (APP.listenRepeatCards || []).filter(filterBlocked).length;
+      var raCount = (APP.speechTherapyLessons || []).length;
+      return stqCount + lrCount + raCount;
     default: return 0;
   }
 }
@@ -1273,15 +1274,13 @@ function getSubjectCardPoolCount(subject) {
 function getSubjectTileInfo(subject, stats, poolCount) {
   if (poolCount === 0) return '준비 중';
   var subStats = stats[subject];
-  if (subject === 'listen_repeat') {
-    var lvl = (APP.config.listenRepeat && APP.config.listenRepeat.currentLevel) || 1;
-    if (subStats && subStats.currentLevel != null) lvl = subStats.currentLevel;
-    return 'Lv' + lvl;
-  }
-  if (subject === 'read_aloud') {
-    var total = (APP.speechTherapyLessons || []).length;
-    var completed = (subStats && subStats.completedLessons) || 0;
-    return completed + '/' + total + '편';
+  if (subject === 'speaking_practice') {
+    // 통합: 말하기 연습 타일 정보
+    var spStats = stats.speaking_practice || stats.speech_therapy_quiz || {};
+    if (spStats && spStats.recentAccuracy != null) {
+      return Math.round(spStats.recentAccuracy * 100) + '%';
+    }
+    return '새로 시작';
   }
   if (subStats && subStats.recentAccuracy != null) {
     return Math.round(subStats.recentAccuracy * 100) + '%';
@@ -1354,7 +1353,7 @@ function decomposeToSubjectStats(sessionCards, results) {
 
 function getRecommendedSubjects(stats) {
   var recommendations = [];
-  var subjects = ['english','comprehension','social_studies','speech_therapy_quiz'];
+  var subjects = ['english','comprehension','social_studies','speaking_practice'];
   subjects.forEach(function(subject) {
     var data = stats[subject];
     var score = 0;
@@ -1385,7 +1384,7 @@ function renderResumeBanner() {
       banner.style.display = 'none';
       return;
     }
-    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', speech_therapy_quiz:'언어치료', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'전체 복습' };
+    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', speaking_practice:'말하기 연습', speech_therapy_quiz:'말하기', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'전체 복습' };
     var name = subjectNames[pending.subject] || '학습';
     document.getElementById('resume-banner-text').textContent = name + ' ' + pending.currentIndex + '/' + pending.cards.length + '장 진행 중';
     banner.style.display = 'flex';
@@ -1395,14 +1394,9 @@ function renderResumeBanner() {
 function startSubjectSession(subject) {
   if (subject === 'mixed') { startSession(); return; }
 
-  if (subject === 'listen_repeat') {
-    startLRSubjectSession();
-    return;
-  }
-  if (subject === 'read_aloud') {
-    startReadAloudSubjectSession();
-    return;
-  }
+  if (subject === 'listen_repeat') { startLRSubjectSession(); return; }
+  if (subject === 'read_aloud') { startReadAloudSubjectSession(); return; }
+  if (subject === 'speaking_practice') { startSpeakingPracticeSession(); return; }
 
   var result = buildSubjectSession(subject);
   if (result.status === 'empty') {
@@ -1460,7 +1454,7 @@ function buildSubjectSession(subject) {
     }
   }
 
-  // 기본: 독해, 언어치료, 사회(폴백)
+  // 기본: 독해, 말하기, 사회(폴백)
   return buildDefaultSubjectSession(filtered, subject, targetCount);
 }
 
@@ -1708,6 +1702,74 @@ function startReadAloudSubjectSession() {
     reexposureAdded: false
   };
   logEvent('session_start', { mode: 'subject', subject: 'read_aloud', cardCount: raCards.length });
+  showPage('page-card');
+  renderCard();
+}
+
+// [v5.0.8] 말하기 연습 통합 세션 (퀴즈 + 듣고말하기 + 따라읽기)
+function startSpeakingPracticeSession() {
+  var allCards = [];
+
+  // Block 1: 말하기 퀴즈 (4지선다, 최대 5장)
+  var stqPool = (APP.speechTherapyCards || []).filter(function(c) {
+    return !c._lessonId && c.reviewStatus !== 'blocked' && c.status !== 'blocked';
+  });
+  if (stqPool.length > 0) {
+    var stqCards = shuffleArray(stqPool.slice()).slice(0, 5);
+    stqCards = sortByDifficulty(stqCards);
+    allCards = allCards.concat(stqCards);
+  }
+
+  // Block 2: 듣고말하기 (최대 4장)
+  var lrLevel = APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 2;
+  var lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, 4);
+  if (lrCards && lrCards.length > 0) {
+    allCards = allCards.concat(lrCards);
+  }
+
+  // Block 3: 따라읽기 (다음 레슨 1편, 줄 카드로 변환)
+  var lessons = APP.speechTherapyLessons || [];
+  if (lessons.length > 0) {
+    var stats = loadSubjectStats();
+    var raStats = stats.read_aloud || {};
+    var completed = raStats.completedLessons || 0;
+    var lessonIdx = completed % lessons.length;
+    var lesson = lessons[lessonIdx];
+    APP.currentLessonInfo = { id: lesson.id, title: lesson.title, type: 'read_aloud_subject' };
+    var raCards = lesson.lines.map(function(line, i) {
+      return {
+        _raCard: true, _lessonId: lesson.id, _lineIndex: i,
+        type: 'read_aloud', subject: 'speech_therapy',
+        text: line.text, pronunciation: line.pronunciation || '',
+        rules: line.rules || [], ttsText: line.text, difficulty: 1
+      };
+    });
+    allCards = allCards.concat(raCards);
+  }
+
+  if (allCards.length === 0) {
+    alert('말하기 연습 카드가 없습니다.');
+    return;
+  }
+
+  dismissAndSavePendingPartial();
+  APP.session = {
+    cards: allCards,
+    currentIndex: 0,
+    startTime: Date.now(),
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: Date.now(),
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+    recordings: [],
+    sessionType: 'subject',
+    sessionSubject: 'speaking_practice',
+    reexposureQueue: [],
+    reexposureAdded: false
+  };
+  logEvent('session_start', { mode: 'subject', subject: 'speaking_practice', cardCount: allCards.length });
   showPage('page-card');
   renderCard();
 }
@@ -1969,12 +2031,12 @@ function buildSessionLegacy() {
     lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
   }
 
-  // [v4.10] 블록 순서 v3: 영어→독해→언어치료퀴즈→사회→LR→따라읽기
+  // [v4.10] 블록 순서 v3: 영어→독해→말하기퀴즈→사회→LR→따라읽기
   // [v4.10 T15] 각 블록 내 난이도 정렬 (Lv1→Lv2→Lv3). LR/따라읽기는 자체 순서 유지.
   var result = [];
   result.push.apply(result, sortByDifficulty(engCards));
   result.push.apply(result, sortByDifficulty(diversifyBySkillTag(compCards)));  // [v4.10 T6] 독해 스킬 다양성
-  result.push.apply(result, sortByDifficulty(stqCards));   // 언어치료 퀴즈 (독해 뒤, 사회 앞)
+  result.push.apply(result, sortByDifficulty(stqCards));   // 말하기 퀴즈 (독해 뒤, 사회 앞)
   result.push.apply(result, sortByDifficulty(ssCards));     // 사회
   result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지, 정렬 제외)
   result.push.apply(result, stCards); // lesson 순서대로 (정렬 제외)
@@ -2068,7 +2130,7 @@ function buildSessionAnchored() {
     lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
   }
 
-  // [v4.10] 블록 순서 v3: 영어→독해→언어치료퀴즈→사회→LR→따라읽기
+  // [v4.10] 블록 순서 v3: 영어→독해→말하기퀴즈→사회→LR→따라읽기
   var engBlock = [], compBlock = [], stqBlock = [], ssBlock = [];
   selected.forEach(function(c) {
     if (c.subject === 'english') engBlock.push(c);
@@ -2081,7 +2143,7 @@ function buildSessionAnchored() {
   var result = [];
   result.push.apply(result, sortByDifficulty(engBlock));
   result.push.apply(result, sortByDifficulty(diversifyBySkillTag(compBlock)));  // [v4.10 T6] 독해 스킬 다양성
-  result.push.apply(result, sortByDifficulty(stqBlock));   // 언어치료 퀴즈 (독해 뒤, 사회 앞)
+  result.push.apply(result, sortByDifficulty(stqBlock));   // 말하기 퀴즈 (독해 뒤, 사회 앞)
   result.push.apply(result, sortByDifficulty(ssBlock));     // 사회
   result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지, 정렬 제외)
   result.push.apply(result, stCards);  // 따라읽기 (정렬 제외)
@@ -2474,11 +2536,11 @@ function renderCard() {
   var transMsg = document.getElementById('transition-msg');
   var lessonProg = document.getElementById('lesson-progress');
   if (s.prevSubject && s.prevSubject !== card.subject) {
-    // [v4.10] 블록 순서 v3: 영어→독해→언어치료퀴즈→사회→LR→따라읽기
+    // [v4.10] 블록 순서 v3: 영어→독해→말하기퀴즈→사회→LR→따라읽기
     var blockMessages = {
       comprehension: '영어 끝! 이제 독해 시간이야!',
-      speech_therapy: '독해 끝! 이제 말하기 연습 시간이야!',
-      social_studies: '말하기 끝! 이제 사회 시간이야!',
+      speech_therapy: '독해 끝! 이제 소리 연습 시간이야!',
+      social_studies: '소리 연습 끝! 이제 사회 시간이야!',
     };
     var pool = APP.phrasePool;
     var msg = '';
@@ -2517,7 +2579,7 @@ function renderCard() {
 
   // 과목 뱃지
   var subjectLabels = {
-    english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기'
+    english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '말하기 연습', listen_repeat: '듣고 말하기'
   };
   var badgeExtra = '';
   if (card.subject === 'speech_therapy' && card._lessonTitle) {
@@ -3540,7 +3602,7 @@ window.addEventListener('online', function() {
 });
 
 // ===================================================================
-// 녹음 (언어치료 마이크로 루틴)
+// 녹음 (말하기 연습 마이크로 루틴)
 // ===================================================================
 
 let mediaRecorder = null;
@@ -5363,7 +5425,7 @@ async function endSession() {
   document.getElementById('parent-result').style.display = 'none';
 
   // [v4.10 T4] 아이 화면: 과목별 체크마크
-  var subjectIcons = { english: '📖 영어', comprehension: '📚 독해', social_studies: '🌍 사회', speech_therapy: '🗣️ 말하기', listen_repeat: '🎧 듣기' };
+  var subjectIcons = { english: '📖 영어', comprehension: '📚 독해', social_studies: '🌍 사회', speech_therapy: '🎤 말하기 연습', listen_repeat: '🎧 듣기' };
   var subjectsUsed = {};
   s.cards.forEach(function(c) { if (c.subject) subjectsUsed[c.subject] = true; });
   var checksHtml = '';
@@ -5384,7 +5446,7 @@ async function endSession() {
       + '<span>' + st.correct + '/' + st.total + ' (' + acc + '%)</span>'
       + '</div>';
   }
-  // 언어치료 녹음 카드 수
+  // 말하기 연습 녹음 카드 수
   const stCount = s.cards.filter(function(c) { return c.subject === 'speech_therapy'; }).length;
   if (stCount > 0 && !s.subjectStats.speech_therapy) {
     breakdownHtml += '<div class="subject-stat">'
