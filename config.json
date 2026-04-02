@@ -178,7 +178,7 @@
     "difficultySort": true,
     "lv3Cap": 0.1,
     "newReviewRatio": { "new": 0.4, "review": 0.6 },
-    "tileOrder": ["english", "comprehension", "social_studies", "speech_therapy_quiz", "listen_repeat", "read_aloud"],
+    "tileOrder": ["english", "comprehension", "social_studies", "speaking_practice"],
     "note": "v5.0: 과목 선택 중심. null은 cardsPerSession(20) 사용."
   }
 }

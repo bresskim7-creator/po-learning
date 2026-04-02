@@ -1222,7 +1222,15 @@ function renderSubjectTileHome() {
   } else {
     streakEl.textContent = '';
   }
-  var tileOrder = (APP.config.subjectSession.tileOrder || ['english','comprehension','social_studies','speaking_practice']);
+  // [v5.0.8] tileOrder 마이그레이션: 옛 3타일 → speaking_practice 통합
+  var rawOrder = APP.config.subjectSession.tileOrder || [];
+  var hasOldTiles = rawOrder.indexOf('speech_therapy_quiz') >= 0 || rawOrder.indexOf('listen_repeat') >= 0 || rawOrder.indexOf('read_aloud') >= 0;
+  var tileOrder;
+  if (hasOldTiles || rawOrder.length === 0) {
+    tileOrder = ['english','comprehension','social_studies','speaking_practice'];
+  } else {
+    tileOrder = rawOrder;
+  }
   var tileMeta = {
     english: { emoji: '\uD83D\uDD24', name: '영어' },
     comprehension: { emoji: '\uD83D\uDCD6', name: '독해' },
