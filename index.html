@@ -1437,7 +1437,10 @@ function startSubjectSession(subject) {
     sessionType: 'subject',
     sessionSubject: subject,
     reexposureQueue: [],
-    reexposureAdded: false
+    reexposureAdded: false,
+    bonusRoundDone: false,    // [v5.17]
+    bonusCorrectCount: 0,     // [v5.17]
+    bonusTotalAttempts: 0     // [v5.17]
   };
 
   logEvent('session_start', { mode: 'subject', subject: subject, cardCount: result.cards.length });
@@ -1663,7 +1666,10 @@ function startLRSubjectSession() {
     sessionType: 'subject',
     sessionSubject: 'listen_repeat',
     reexposureQueue: [],
-    reexposureAdded: false
+    reexposureAdded: false,
+    bonusRoundDone: false,    // [v5.17]
+    bonusCorrectCount: 0,     // [v5.17]
+    bonusTotalAttempts: 0     // [v5.17]
   };
   logEvent('session_start', { mode: 'subject', subject: 'listen_repeat', cardCount: lrCards.length });
   showPage('page-card');
@@ -1717,7 +1723,10 @@ function startReadAloudSubjectSession() {
     sessionType: 'subject',
     sessionSubject: 'read_aloud',
     reexposureQueue: [],
-    reexposureAdded: false
+    reexposureAdded: false,
+    bonusRoundDone: false,    // [v5.17]
+    bonusCorrectCount: 0,     // [v5.17]
+    bonusTotalAttempts: 0     // [v5.17]
   };
   logEvent('session_start', { mode: 'subject', subject: 'read_aloud', cardCount: raCards.length });
   showPage('page-card');
@@ -1785,7 +1794,10 @@ function startSpeakingPracticeSession() {
     sessionType: 'subject',
     sessionSubject: 'speaking_practice',
     reexposureQueue: [],
-    reexposureAdded: false
+    reexposureAdded: false,
+    bonusRoundDone: false,    // [v5.17]
+    bonusCorrectCount: 0,     // [v5.17]
+    bonusTotalAttempts: 0     // [v5.17]
   };
   logEvent('session_start', { mode: 'subject', subject: 'speaking_practice', cardCount: allCards.length });
   showPage('page-card');
@@ -1845,7 +1857,10 @@ function resumePendingSession() {
       sessionType: 'subject',
       sessionSubject: pending.subject,
       reexposureQueue: [],
-      reexposureAdded: false
+      reexposureAdded: false,
+      bonusRoundDone: !!pending.bonusRoundDone,  // [v5.17]
+      bonusCorrectCount: pending.bonusCorrectCount || 0,  // [v5.17]
+      bonusTotalAttempts: pending.bonusTotalAttempts || 0  // [v5.17]
     };
 
     logEvent('session_resume', { subject: pending.subject, cardCount: pending.cards.length, resumedIndex: pending.currentIndex });
@@ -2495,6 +2510,26 @@ function startSession() {
 }
 
 // ===================================================================
+// [v5.17] 보너스 라운드 안내 화면
+// ===================================================================
+
+function showBonusIntro(count) {
+  var container = document.getElementById('card-container');
+  container.innerHTML =
+    '<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:280px; text-align:center; padding:40px 20px;">' +
+      '<div style="font-size:40px; margin-bottom:16px;">💪</div>' +
+      '<div style="font-size:24px; font-weight:700; color:#2C3E50; margin-bottom:8px;">한 번 더!</div>' +
+      '<div style="font-size:16px; color:#666; margin-bottom:32px;">' + count + '문제</div>' +
+      '<button onclick="renderCard()" style="background:#4A90D9; color:#fff; border:none; border-radius:12px; padding:14px 40px; font-size:16px; font-weight:600; cursor:pointer;">시작하기</button>' +
+    '</div>';
+  // 진행 바 업데이트
+  var progressText = document.getElementById('progress-text');
+  if (progressText) {
+    progressText.textContent = (APP.session.currentIndex + 1) + '/' + APP.session.cards.length;
+  }
+}
+
+// ===================================================================
 // 카드 렌더링
 // ===================================================================
 
@@ -2515,6 +2550,30 @@ function renderCard() {
       s.reexposureAdded = true;
       renderCard();
       return;
+    }
+    // [v5.17] 보너스 라운드: 틀린 문제 재도전
+    if (!s.bonusRoundDone) {
+      var wrongCards = s.cards.filter(function(c) {
+        return c._correct === false
+          && c.subject !== 'speech_therapy'
+          && c.subject !== 'listen_repeat'
+          && c._blockType !== 'listen-repeat'
+          && c._blockType !== 'read-aloud';
+      });
+      if (wrongCards.length > 0) {
+        s.bonusRoundDone = true;
+        wrongCards.forEach(function(c) {
+          c._answered = false;
+          c._correct = undefined;
+          c._helpStep = 0;
+          c._isBonus = true;
+        });
+        s.cards = s.cards.concat(shuffleArray(wrongCards));
+        s.bonusCorrectCount = 0;
+        s.bonusTotalAttempts = wrongCards.length;
+        showBonusIntro(wrongCards.length);
+        return;
+      }
     }
     endSession();
     return;
@@ -2880,7 +2939,10 @@ function savePendingSession() {
       currentIndex: APP.session.currentIndex,
       partialResults: (APP.session.events || []).filter(function(e) { return e.correct != null; }),
       startedAt: new Date(APP.session.startTime).toISOString(),
-      savedAt: new Date().toISOString()
+      savedAt: new Date().toISOString(),
+      bonusRoundDone: !!APP.session.bonusRoundDone,  // [v5.17]
+      bonusCorrectCount: APP.session.bonusCorrectCount || 0,  // [v5.17]
+      bonusTotalAttempts: APP.session.bonusTotalAttempts || 0  // [v5.17]
     };
     localStorage.setItem('po_v5_pending_session', JSON.stringify(pending));
   } catch(e) {}
@@ -3010,13 +3072,17 @@ function submitSequence() {
   var isCorrect = correctOrder.every(function(opt, i) { return opt === userOrder[i]; });
   var responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
 
-  APP.session.totalAttempts++;
-  updateCardState(card.id, isCorrect);
-
-  if (!APP.session.subjectStats[card.subject]) {
-    APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
+  // [v5.17] 보너스 카드는 별도 집계
+  if (card._isBonus) {
+    if (isCorrect) APP.session.bonusCorrectCount = (APP.session.bonusCorrectCount || 0) + 1;
+  } else {
+    APP.session.totalAttempts++;
+    if (!APP.session.subjectStats[card.subject]) {
+      APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
+    }
+    APP.session.subjectStats[card.subject].total++;
   }
-  APP.session.subjectStats[card.subject].total++;
+  updateCardState(card.id, isCorrect);
   card._correct = isCorrect;
 
   // 버튼 UI: 정답 순서 표시
@@ -3027,8 +3093,11 @@ function submitSequence() {
   // 피드백
   var fb = document.getElementById('feedback');
   if (isCorrect) {
-    APP.session.correctCount++;
-    APP.session.subjectStats[card.subject].correct++;
+    // [v5.17] 보너스 카드는 correctCount/subjectStats에 합산하지 않음
+    if (!card._isBonus) {
+      APP.session.correctCount++;
+      APP.session.subjectStats[card.subject].correct++;
+    }
     fb.textContent = getRandomPhrase('praise_correct');
     fb.className = 'feedback correct';
     // 정답 순서 뱃지를 녹색으로
@@ -3052,7 +3121,7 @@ function submitSequence() {
   logEvent('card_attempt', {
     cardId: card.id, subject: card.subject,
     correct: isCorrect, responseTime: responseTime,
-    questionType: 'sequence'
+    questionType: 'sequence', isBonus: !!card._isBonus
   });
 
   if (isCorrect) {
@@ -3079,16 +3148,20 @@ function selectAnswer(selectedIdx) {
   card._correct = isCorrect; // [v4.10] 역할별 집계용
   card._answered = true;
 
-  APP.session.totalAttempts++;
+  // [v5.17] 보너스 카드는 별도 집계
+  if (card._isBonus) {
+    if (isCorrect) APP.session.bonusCorrectCount = (APP.session.bonusCorrectCount || 0) + 1;
+  } else {
+    APP.session.totalAttempts++;
+    // 과목별 통계
+    if (!APP.session.subjectStats[card.subject]) {
+      APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
+    }
+    APP.session.subjectStats[card.subject].total++;
+  }
 
   // 리뷰 큐 업데이트
   updateCardState(card.id, isCorrect);
-
-  // 과목별 통계
-  if (!APP.session.subjectStats[card.subject]) {
-    APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
-  }
-  APP.session.subjectStats[card.subject].total++;
 
   // 버튼 상태
   const buttons = document.querySelectorAll('.choice-btn');
@@ -3101,8 +3174,11 @@ function selectAnswer(selectedIdx) {
   // 피드백
   const fb = document.getElementById('feedback');
   if (isCorrect) {
-    APP.session.correctCount++;
-    APP.session.subjectStats[card.subject].correct++;
+    // [v5.17] 보너스 카드는 correctCount/subjectStats에 합산하지 않음
+    if (!card._isBonus) {
+      APP.session.correctCount++;
+      APP.session.subjectStats[card.subject].correct++;
+    }
     fb.textContent = getRandomPhrase('praise_correct');
     fb.className = 'feedback correct';
   } else {
@@ -3113,7 +3189,7 @@ function selectAnswer(selectedIdx) {
 
   logEvent('card_attempt', {
     cardId: card.id, subject: card.subject,
-    correct: isCorrect, responseTime: responseTime,
+    correct: isCorrect, responseTime: responseTime, isBonus: !!card._isBonus,
     selectedIdx: selectedIdx, correctIdx: correctIdx
   });
 
@@ -5544,10 +5620,11 @@ async function endSession() {
     decomposeToSubjectStats(s.cards, s.events.map(function(e) { return { correct: e.correct }; }));
   }
 
-  // [v4.10 T3] 역할별 집계 (부모 화면용)
+  // [v4.10 T3] 역할별 집계 (부모 화면용) — [v5.17] 보너스 카드 제외
   var roleLabels = { 'curriculum-recall': '수업 복습', 'reading-transfer': '읽기 전이', 'review-stabilize': '복습 안정화' };
   var roleStats = {};
   s.cards.forEach(function(card) {
+    if (card._isBonus) return; // [v5.17] 보너스 카드는 역할별 집계에서 제외
     var role = card._role || 'review-stabilize';
     if (!roleStats[role]) roleStats[role] = { total: 0, correct: 0 };
     roleStats[role].total++;
@@ -5595,12 +5672,27 @@ async function endSession() {
     breakdownEl.innerHTML += lrDualHtml;
   }
 
+  // [v5.17] 부모 화면: 보너스 라운드 결과
+  if (s.bonusTotalAttempts && s.bonusTotalAttempts > 0) {
+    var bonusCorrect = s.bonusCorrectCount || 0;
+    var bonusHtml = '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>💪 보너스 라운드</span><span></span></div>';
+    if (bonusCorrect === s.bonusTotalAttempts) {
+      bonusHtml += '<div class="subject-stat"><span class="label">' + s.bonusTotalAttempts + '문제 중 ' + bonusCorrect + '문제 정답</span><span>✓</span></div>';
+    } else {
+      bonusHtml += '<div class="subject-stat"><span class="label">' + s.bonusTotalAttempts + '문제 중 ' + bonusCorrect + '문제 정답</span><span>' + (s.bonusTotalAttempts - bonusCorrect) + '문제 재오답</span></div>';
+    }
+    bonusHtml += '</div>';
+    breakdownEl.innerHTML += bonusHtml;
+  }
+
   // 로그
   logEvent('session_end', {
     mode: 'A', duration: duration, correct: s.correctCount,
     total: s.totalAttempts, accuracy: accuracy,
     subjectStats: s.subjectStats,
     roleStats: roleStats,
+    bonusRound: s.bonusTotalAttempts > 0 ? { total: s.bonusTotalAttempts, correct: s.bonusCorrectCount || 0 } : undefined,
   });
 
   // 앱 진도 업데이트
@@ -5628,6 +5720,14 @@ async function endSession() {
     timestamp: new Date().toISOString(),
   };
   if (obsSummary) sessionPayload.observationSummary = obsSummary;
+
+  // [v5.17] 보너스 라운드 데이터
+  if (s.bonusTotalAttempts && s.bonusTotalAttempts > 0) {
+    sessionPayload.bonusRound = {
+      total: s.bonusTotalAttempts,
+      correct: s.bonusCorrectCount || 0
+    };
+  }
 
   // v4.6: listen-repeat 로깅
   var lrResults = lrState.results || [];
