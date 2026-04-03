@@ -620,6 +620,7 @@
       padding: 2px 6px; border-radius: 8px; font-weight: 600;
     }
     .subject-tile.tile-empty { opacity: 0.5; pointer-events: none; }
+    .subject-tile.tile-wide { grid-column: span 2; }
     .btn-mixed-session {
       display: block; width: 100%; max-width: 400px; margin: 6px auto 16px;
       padding: 12px; border: 2px solid #2F5496; background: #F0F4FA;
@@ -1256,7 +1257,7 @@ function renderSubjectTileHome() {
     var poolCount = getSubjectCardPoolCount(subject);
     var info = getSubjectTileInfo(subject, stats, poolCount);
     var tile = document.createElement('div');
-    tile.className = 'subject-tile' + (poolCount === 0 ? ' tile-empty' : '');
+    tile.className = 'subject-tile' + (poolCount === 0 ? ' tile-empty' : '') + (subject === 'speaking_practice' ? ' tile-wide' : '');
     tile.setAttribute('data-subject', subject);
     tile.onclick = function() { if (poolCount === 0) return; startSubjectSession(subject); };
     var html = '<span class="tile-emoji">' + meta.emoji + '</span>';
