@@ -102,6 +102,12 @@
         "options": ["세계 여러 나라의 자연환경", "세계 여러 나라의 문화", "지속 가능한 지구촌", "우리나라의 경제 발전", "우리나라의 정치 발전", "우리나라와 가까운 나라들", "세계 속의 우리나라"]
       },
       {
+        "id": "school-science",
+        "label": "학교 과학",
+        "inputType": "dropdown",
+        "options": ["산과 염기", "물체의 운동", "식물의 구조와 기능", "빛과 렌즈", "여러 가지 기체"]
+      },
+      {
         "id": "short-reading",
         "label": "3~5문장 독해",
         "inputType": "auto",
@@ -178,7 +184,7 @@
     "difficultySort": true,
     "lv3Cap": 0.1,
     "newReviewRatio": { "new": 0.4, "review": 0.6 },
-    "tileOrder": ["english", "comprehension", "social_studies", "speaking_practice"],
-    "note": "v5.0: 과목 선택 중심. null은 cardsPerSession(20) 사용."
+    "tileOrder": ["english", "comprehension", "social_studies", "science", "speaking_practice"],
+    "note": "v5.14: 과학 추가. 과목 선택 중심. null은 cardsPerSession(20) 사용."
   }
 }

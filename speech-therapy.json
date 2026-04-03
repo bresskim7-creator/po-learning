@@ -1,7 +1,7 @@
 {
   "version": "260312",
-  "updated": "2026-04-02",
-  "source": "차병원 읽기자신감4권 p152,155 (시각주의력 훈련 + 소리나는대로쓰기)",
+  "updated": "2026-04-03",
+  "source": "차병원 읽기자신감4권 p152,155 (시각주의력 훈련 + 소리나는대로쓰기) + 시각주의력 8-1(5장)",
   "lessons": [
     {
       "id": "snowman",
@@ -1548,9 +1548,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "아이가 문장을 받아말할 때 목적어를 임의로 추가하는 경향. 이는 청각 기억력 약함과 자동 추론의 혼합. 형/누나 톤으로 친절히 설명.",
-      "wrongExplanation": {
-        "text": "아이가 자기가 알고 있는 것 같아서 앞에 '물체를'이라고 붙인 거야. 망원경은 물체를 크게 봐야 하니까 맞게 생각한 거지! 근데 주어진 문장을 그대로 따라하는 게 더 좋아."
-      },
+      "wrongExplanation": "아이가 자기가 알고 있는 것 같아서 앞에 '물체를'이라고 붙인 거야. 망원경은 물체를 크게 봐야 하니까 맞게 생각한 거지! 근데 주어진 문장을 그대로 따라하는 게 더 좋아.",
       "ttsText": "크게 보여주는 망원경",
       "parentOnly": true
     },
@@ -1590,9 +1588,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "청각 처리 어려움으로 인한 심각한 오류. 단어를 전혀 다르게 인지. 이는 청각 기억력 훈련의 필요성을 보여줌.",
-      "wrongExplanation": {
-        "text": "아이가 들은 소리를 그렇게 이해했나봐. 비슷하게 들리는 소리들이라서 헷갈린 거야. 이래서 자꾸 반복해서 들으면서 연습하는 게 중요해!"
-      },
+      "wrongExplanation": "아이가 들은 소리를 그렇게 이해했나봐. 비슷하게 들리는 소리들이라서 헷갈린 거야. 이래서 자꾸 반복해서 들으면서 연습하는 게 중요해!",
       "ttsText": "안녕하세요",
       "parentOnly": true
     },
@@ -1632,9 +1628,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "문장 구조 이해와 주요 단어 분별. 비교적 명확한 단어들이므로 정확히 인지 가능.",
-      "wrongExplanation": {
-        "text": "'피아니스트'는 피아노를 치는 사람이야. 사람이 악기를 치는 거니까 이렇게 해야 맞아!"
-      },
+      "wrongExplanation": "'피아니스트'는 피아노를 치는 사람이야. 사람이 악기를 치는 거니까 이렇게 해야 맞아!",
       "ttsText": "피아니스트가 피아노를 쳐요",
       "parentOnly": true
     },
@@ -1674,9 +1668,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "상담 내용의 핵심 개념 인지. 아이가 왜 이 훈련을 하는지 이해하도록 도움.",
-      "wrongExplanation": {
-        "text": "'청각 기억력'은 귀로 들은 것을 기억하는 능력이야. 상대방 말을 듣고 그대로 따라하거나 이해하려면 이게 중요해!"
-      },
+      "wrongExplanation": "'청각 기억력'은 귀로 들은 것을 기억하는 능력이야. 상대방 말을 듣고 그대로 따라하거나 이해하려면 이게 중요해!",
       "ttsText": "청각 기억력",
       "parentOnly": true
     },
@@ -1716,9 +1708,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "부모의 역할과 아이의 학습 목표를 명확히 설명. 글자를 보지 않는 것의 중요성 강조.",
-      "wrongExplanation": {
-        "text": "글자를 보면서 하면 청각 기억력이 안 커. 부모 목소리만 듣고 똑같이 말해야 귀가 발달하는 거야!"
-      },
+      "wrongExplanation": "글자를 보면서 하면 청각 기억력이 안 커. 부모 목소리만 듣고 똑같이 말해야 귀가 발달하는 거야!",
       "ttsText": "숙제",
       "parentOnly": true
     },
@@ -1758,9 +1748,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "아이의 주요 오류 패턴 인식. 이것이 청각 기억력 부족에서 비롯되는 것을 이해하도록 함.",
-      "wrongExplanation": {
-        "text": "아이가 이미지를 그려가며 자기가 알고 있는 단어를 더해서 쓰는 거야. 이건 나쁜 거 아니고 뇌가 열심히 일하는 증거야! 근데 '소리 나는 대로'를 하는 훈련을 하려면 여기서 멈춰야 해."
-      },
+      "wrongExplanation": "아이가 이미지를 그려가며 자기가 알고 있는 단어를 더해서 쓰는 거야. 이건 나쁜 거 아니고 뇌가 열심히 일하는 증거야! 근데 '소리 나는 대로'를 하는 훈련을 하려면 여기서 멈춰야 해.",
       "ttsText": "단어 추가 또는 생략",
       "parentOnly": true
     },
@@ -1800,9 +1788,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "심리평가 결과 이해와 그에 따른 훈련의 필요성 연결.",
-      "wrongExplanation": {
-        "text": "단기 기억은 방금 들은 것을 금방 잊는 거야. 그래서 자꾸 반복해서 듣고 말해야 장기 기억으로 넘어가는 거야!"
-      },
+      "wrongExplanation": "단기 기억은 방금 들은 것을 금방 잊는 거야. 그래서 자꾸 반복해서 듣고 말해야 장기 기억으로 넘어가는 거야!",
       "ttsText": "청각 단기 기억",
       "parentOnly": true
     },
@@ -1842,9 +1828,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "청각 기억력의 실제 학습 가치 이해. 학교생활과의 연결성 명확히.",
-      "wrongExplanation": {
-        "text": "선생님이 말씀하는 것을 듣고 그걸 기억해서 이해하고 또 대답해야 하잖아. 그게 학교에서 가장 중요한 능력이야!"
-      },
+      "wrongExplanation": "선생님이 말씀하는 것을 듣고 그걸 기억해서 이해하고 또 대답해야 하잖아. 그게 학교에서 가장 중요한 능력이야!",
       "ttsText": "상대방 말을 듣고 이해하기",
       "parentOnly": true
     },
@@ -1884,9 +1868,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "반복 학습의 중요성. 인내심 있게 꾸준히 훈련하도록 격려.",
-      "wrongExplanation": {
-        "text": "한 번으로는 부족해. 자꾸 반복해서 들으니까 우리 뇌가 '아, 이 소리구나!' 하고 기억하게 되는 거야!"
-      },
+      "wrongExplanation": "한 번으로는 부족해. 자꾸 반복해서 들으니까 우리 뇌가 '아, 이 소리구나!' 하고 기억하게 되는 거야!",
       "ttsText": "반복 연습",
       "parentOnly": true
     },
@@ -1926,9 +1908,7 @@
       "validationStatus": "pass",
       "validationDetails": [],
       "pedagogyNote": "복잡한 문장 구조 이해 어려움을 보여주는 사례. 주어-목적어 명확화 훈련의 필요성.",
-      "wrongExplanation": {
-        "text": "청각으로 들을 때 '나'와 '민수'를 헷갈리는 거야. 깨끗이 구분해서 들으려면 이런 문장을 자꾸 따라해야 해!"
-      },
+      "wrongExplanation": "청각으로 들을 때 '나'와 '민수'를 헷갈리는 거야. 깨끗이 구분해서 들으려면 이런 문장을 자꾸 따라해야 해!",
       "ttsText": "주어와 목적어 바꾸기",
       "parentOnly": true
     },
@@ -2586,6 +2566,226 @@
         "경음화(장장→짱짱)"
       ],
       "wrongExplanation": "'농장장'에서 '장'이 겹치면서 '짱짱'처럼 된소리가 나. 하지만 바르게 쓸 때는 '농장장'이야!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-1_01",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-1",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p154",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "비단 이불을 햇빛에 수놓은 듯 아름답다.",
+        "displayWord": "비단 이불을 햇살에 수놓은 듯 아름답다."
+      },
+      "answer": {
+        "correct": "햇살에",
+        "options": [
+          "햇살에",
+          "이불을",
+          "아름답다",
+          "수놓은"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "햇빛과 비슷하지만 다른 단어가 들렸어!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.8,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-1: 다른 부분 1개 찾기. 인쇄본 '햇살에' → 음성 '햇빛에'",
+      "rules": [
+        "다른부분(햇살에→햇빛에)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '햇빛에'라고 했는데, 화면에는 '햇살에'라고 적혀 있어. 비슷하지만 다른 단어야!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-1_02",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-1",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p154",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "아름다운 종소리가 마을에 울려 퍼졌습니다.",
+        "displayWord": "아름다운 종소리가 마음에 울려 퍼졌습니다."
+      },
+      "answer": {
+        "correct": "마음에",
+        "options": [
+          "마음에",
+          "종소리가",
+          "퍼졌습니다",
+          "울려"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'마음'과 '마을'은 비슷하게 생겼어. 잘 들어봐!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.9,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-1: 인쇄본 '마음에' → 음성 '마을에'. 시각적으로 유사한 글자 비교.",
+      "rules": [
+        "다른부분(마음에→마을에)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '마을에'라고 했는데, 화면에는 '마음에'라고 적혀 있어. '음'과 '을' 한 글자 차이야!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-1_03",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-1",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p154",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "넓은 마을에 동물 친구들이 모두 모여 있었습니다.",
+        "displayWord": "높은 마을에 동물 친구들이 모두 모여 있었습니다."
+      },
+      "answer": {
+        "correct": "높은",
+        "options": [
+          "높은",
+          "모두",
+          "친구들이",
+          "있었습니다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "마을을 설명하는 첫 번째 단어가 다른 것 같아!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-1: 인쇄본 '높은' → 음성 '넓은'. 형용사 1글자 차이.",
+      "rules": [
+        "다른부분(높은→넓은)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '넓은 마을에'라고 했는데, 화면에는 '높은 마을에'라고 적혀 있어. '높'과 '넓' 한 글자 차이야!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-1_04",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-1",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p154",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "맑은 물에 사는 통통한 꽃이 물속에 퐁덩 들어갔다.",
+        "displayWord": "맑은 물에 사는 통통한 꽃이 물에 퐁덩 들어갔다."
+      },
+      "answer": {
+        "correct": "물에",
+        "options": [
+          "물에",
+          "통통한",
+          "맑은",
+          "들어갔다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'물에'와 '물속에' — 한 글자 차이야!"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.8,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-1: 인쇄본 '물에' → 음성 '물속에'. '속' 누락.",
+      "rules": [
+        "다른부분(물에→물속에)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '물속에'라고 했는데, 화면에는 '물에'라고만 적혀 있어. '속'이 빠져 있지!"
+    },
+    {
+      "cardId": "crd_2026W14_va_8-1_05",
+      "sourceRef": "speech-therapy/260402/visual-attention/8-1",
+      "runId": "2026-W14",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p154",
+      "type": "speech_therapy",
+      "subject": "speech_therapy",
+      "difficulty": 1,
+      "question": {
+        "text": "문장을 듣고, 화면과 다른 부분을 찾아봐!",
+        "ttsText": "마당의 화단에 핀 빨간 캐나리아가 너무 예쁘다.",
+        "displayWord": "마당의 화단에 핀 빨간 캐나리가 너무 예쁘다."
+      },
+      "answer": {
+        "correct": "캐나리가",
+        "options": [
+          "캐나리가",
+          "화단에",
+          "빨간",
+          "예쁘다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "꽃 이름을 잘 들어봐. 끝에 뭔가 더 있지 않아?"
+      },
+      "skillTags": [
+        "시각주의력",
+        "듣고비교하기",
+        "음절수준"
+      ],
+      "questionType": "choice",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각 주의력 훈련 8-1: 인쇄본 '캐나리가' → 음성 '캐나리아가'. '아' 탈락.",
+      "rules": [
+        "다른부분(캐나리가→캐나리아가)"
+      ],
+      "wrongExplanation": "들려준 문장에서는 '캐나리아가'라고 했는데, 화면에는 '캐나리가'라고만 적혀 있어. '아'가 빠져 있지!"
     }
   ],
   "listenRepeatCards": [

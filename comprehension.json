@@ -3,7 +3,7 @@
   "generated": "2026-03-17",
   "weekOf": "2026-03-17",
   "reviewedBy": null,
-  "note": "v5.0.6 기준. 총 100장. W14: 수업35(악플전쟁) 8장 + 수업36(믿음과가족) 8장 + 수업37(미루기와용기) 8장 + 수업38(마무리) 8장 추가.",
+  "note": "v5.14 기준. 총 108장. W14: 수업39(깊이이해하기+손장미) 8장 추가.",
   "cards": [
     {
       "id": "comp_001",
@@ -4192,6 +4192,326 @@
       "reviewStatus": "parent_review",
       "difficulty": 3,
       "wrongExplanation": "갑자기 유명해지면 손님이 너무 많아져서 준비가 부족할 수 있어. 유명세가 항상 좋은 건 아니야!",
+      "skillTag": "critical"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "깊이이해하기-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "깊이 이해하기에서 말하는 '이해'란 무엇일까요?",
+        "ttsText": "깊이 이해하기에서 말하는 '이해'란 무엇일까요?",
+        "passage": "깊이 있게 생각하려면 오랫동안 자세히 봐야 해. 눈에 보이는 것만 봐서는 안 돼. 눈에 보이지 않는 더 깊은 부분까지도 알아야 진짜 이해하는 거야. 이해란 눈에 보이지 않는 부분까지도 알게 되는 거예요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "눈에 보이지 않는 부분까지도 알게 되는 것",
+        "options": [
+          "무언가를 한 번 본 것",
+          "눈에 보이지 않는 부분까지도 알게 되는 것",
+          "책을 빨리 읽는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님이 '눈에 보이지 않는 부분'을 여러 번 강조했어. 그게 진짜 이해하는 거라고 말했잖아."
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.88,
+      "ttsText": "깊이 이해하기에서 말하는 '이해'란 무엇일까요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "눈에 보이는 것만 봐서는 진짜 이해가 아니야. 깊이 있게 생각하려면 더 깊은 부분까지 알아야 한다고 했거든.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "깊이이해하기-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "책에 나온 사진 속 아이는 식물을 보면서 뭘 하고 있었나요?",
+        "ttsText": "책에 나온 사진 속 아이는 식물을 보면서 뭘 하고 있었나요?",
+        "passage": "사진 속 아이는 책을 집중해서 보거나 앞의 식물을 뚫어지게 보고 있었다. 단순히 그냥 식물을 보고 지나칠 수도 있는데, 그 아이는 오랫동안 생각하고 있었다. 뭔가를 발견하고 싶어서 꽃의 장점과 단점을 생각하며 오래 보고 있었던 거야."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "오랫동안 생각하면서 꽃의 장점과 단점을 발견하려고",
+        "options": [
+          "꽃이 예쁜지 아닌지 확인하려고",
+          "오랫동안 생각하면서 꽃의 장점과 단점을 발견하려고",
+          "그냥 심심해서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님이 '얘는 무를 발견하고 싶어서 그래'라고 말했어. 어떤 걸 발견하려고 했을까?"
+      },
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.85,
+      "ttsText": "책에 나온 사진 속 아이는 식물을 보면서 뭘 하고 있었나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "아니야. 그 아이는 단순히 보기만 한 게 아니라 오랫동안 생각하고 있었어. 사물의 더 깊은 부분을 알려고 노력했다고.",
+      "skillTag": "inference"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "깊이이해하기-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "사다리는 어떨 때만 필요할까요?",
+        "ttsText": "사다리는 어떨 때만 필요할까요?",
+        "passage": "보통 사람들은 사다리를 올라갈 때만 필요하다고 생각해. 하지만 깊이 이해하는 사람은 다르게 생각해. 사다리는 올라갈 때도 필요하지만 내려올 때도 꼭 필요한 거야. 사물을 깊이 있게 이해하면 이전에는 보이지 않았던 것이 보이는 거지."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "올라갈 때와 내려올 때 모두",
+        "options": [
+          "올라갈 때만",
+          "올라갈 때와 내려올 때 모두",
+          "내려올 때만"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보통은 올라갈 때만 생각하지만, 깊이 이해하는 사람은 다른 상황도 생각해."
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.9,
+      "ttsText": "사다리는 어떨 때만 필요할까요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "사다리는 올라갈 때도 필요하고 내려올 때도 필요해. 깊이 있게 생각하면 두 가지 경우를 다 알 수 있다고.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "깊이이해하기-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "생명이 없는 것들까지 이해하려면 어떻게 해야 할까요?",
+        "ttsText": "생명이 없는 것들까지 이해하려면 어떻게 해야 할까요?",
+        "passage": "로봇처럼 생명이 있다고 생각할 수도 있고 없다고 생각할 수도 있어. 이런 것들까지 이해하려면 어떻게 해야 될까? 매일매일 관찰을 해야 해. 관찰을 하면서 그것과 얽혀 있는 게 뭐가 있는지 잘 살펴보는 게 중요해."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "매일매일 관찰하면서 그것과 얽혀 있는 것들을 살펴보기",
+        "options": [
+          "한 번만 깊게 생각하기",
+          "매일매일 관찰하면서 그것과 얽혀 있는 것들을 살펴보기",
+          "책에서 답을 찾기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'매일매일'이라는 단어가 힌트야. 꾸준하게 뭘 해야 한다고 했어?"
+      },
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.82,
+      "ttsText": "생명이 없는 것들까지 이해하려면 어떻게 해야 할까요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "한 번만 생각해서는 안 돼. 매일매일 꾸준히 관찰해야 깊이 있게 이해할 수 있다고 했어.",
+      "skillTag": "inference"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "손장미가괴롭힐때-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "괴롭히는 아이들이 손장미에게 한 행동 3가지는?",
+        "ttsText": "괴롭히는 아이들이 손장미에게 한 행동 3가지는?",
+        "passage": "보경이와 친구들은 손장미를 여러 방법으로 괴롭혔어. 첫 번째는 김치 폭탄이라고 해서 김치를 줬어. 두 번째는 뾰족한 샤프로 팔꿈치를 찌르거나 밀치는 거야. 세 번째는 더 심각한데, 보경이가 손장미의 어깨에 세게 밀쳐서 바닥에 넘어뜨린 거야."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "김치 주기, 샤프로 찌르기, 밀어서 넘어뜨리기",
+        "options": [
+          "욕하기, 놀리기, 물리기",
+          "김치 주기, 샤프로 찌르기, 밀어서 넘어뜨리기",
+          "숙제 빼앗기, 밀기, 물건 숨기기"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "책에 나온 대로 손장미가 겪은 일들을 찾아보세요. 김치 폭탄이 첫 번째고..."
+      },
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.87,
+      "ttsText": "괴롭히는 아이들이 손장미에게 한 행동 3가지는?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "책에 분명히 나왔어. 보경이가 한 일들을 다시 읽어보면 알 수 있어.",
+      "skillTag": "fact"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "손장미가괴롭힐때-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "서영이가 손장미 일에 관심을 갖지 말자고 생각한 첫 번째 이유는 뭐였나요?",
+        "ttsText": "서영이가 손장미 일에 관심을 갖지 말자고 생각한 첫 번째 이유는 뭐였나요?",
+        "passage": "서영이는 이미 충분히 어렵고 복잡한 초등학교를 벗어나 아무 일 없이 중학교에 올라가고 싶었어. 다른 아이들의 일에 끼어들었다가 또 어떤 일을 당할지 몰라서 두렵고 무서웠어. 다른 아이들 일에 휘말리지 않는 게 가장 안전하다고 생각했어."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "다른 아이들 일에 휘말리고 싶지 않아서",
+        "options": [
+          "손장미가 싫어서",
+          "다른 아이들 일에 휘말리고 싶지 않아서",
+          "보경이가 무서워서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이는 자신도 피해를 입을까 봐 걱정했어. 선생님이 말한 '관계가 없는 아이'라는 표현을 기억해봐."
+      },
+      "skillTags": [
+        "cause-effect"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.84,
+      "ttsText": "서영이가 손장미 일에 관심을 갖지 말자고 생각한 첫 번째 이유는 뭐였나요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 2,
+      "wrongExplanation": "서영이는 손장미를 싫어한 게 아니라, 자신이 피해를 입을까 봐서 관심을 갖지 말려고 한 거야.",
+      "skillTag": "cause-effect"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "손장미가괴롭힐때-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "보경이가 손장미에게 밀친 이유를 보경이는 뭐라고 말했을까요?",
+        "ttsText": "보경이가 손장미에게 밀친 이유를 보경이는 뭐라고 말했을까요?",
+        "passage": "보경이가 손장미를 세게 밀쳐서 바닥에 넘어뜨렸어. 손장미가 아파하며 울음이 나올 듯한 얼굴로 있자, 보경이는 당당하게 '슬쩍 쳤는데 그렇게 픽 쓰러지니?'라고 말했어. 보경이는 그걸 장난이라고만 생각했어. 큰 일도 아니라고 생각한 거지."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장난이라고 말했어",
+        "options": [
+          "자기가 실수했다고 말했어",
+          "장난이라고 말했어",
+          "손장미가 잘못했다고 말했어"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이는 계속 '장난'이라고 말했어. 자기 행동을 진짜 장난이라고만 생각했어."
+      },
+      "skillTags": [
+        "vocab"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.88,
+      "ttsText": "보경이가 손장미에게 밀친 이유를 보경이는 뭐라고 말했을까요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 1,
+      "wrongExplanation": "책에 분명히 보경이는 '장난'이라고 했어. 마치 아무것도 아닌 장난이라고 생각한 거야.",
+      "skillTag": "vocab"
+    },
+    {
+      "cardId": "crd_2026W14_rcl_s39_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "sourceUnit": "손장미가괴롭힐때-수업39",
+      "sourceId": "reading-class",
+      "runId": "2026-W14",
+      "question": {
+        "text": "서영이가 보경이의 부당한 태도를 보고 뭘 했을까요?",
+        "ttsText": "서영이가 보경이의 부당한 태도를 보고 뭘 했을까요?",
+        "passage": "보경이가 손장미를 밀쳐서 넘어뜨린 후, '슬쩍 쳤는데 그렇게 픽 쓰러지니?'라고 당당하게 말했어. 손장미가 울려고 할 때 보경이는 아무렇지도 않게 가버렸어. 서영이는 이 장면을 보고 화가 났지만, 혹시 자신한테도 피해가 올까봐 참기로 결심했어."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "화가 났지만 관심을 갖지 말자고 생각하고 참았어",
+        "options": [
+          "선생님한테 바로 말했어",
+          "보경이에게 따졌어",
+          "화가 났지만 관심을 갖지 말자고 생각하고 참았어"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이는 '괜히 나한테 불똥이 튈까봐' 걱정했어. 어떻게 하기로 결심했어?"
+      },
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W14",
+      "confidence": 0.81,
+      "ttsText": "서영이가 보경이의 부당한 태도를 보고 뭘 했을까요?",
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "difficulty": 3,
+      "wrongExplanation": "서영이는 화를 냈지만 자신이 피해를 입을까봐 참기로 결심했어. 이건 복잡한 상황 속에서 한 선택이야. 정답이 뭐라고 생각했니?",
       "skillTag": "critical"
     }
   ]

@@ -1,0 +1,914 @@
+[
+  {
+    "cardId": "crd_2026W14_sci_u1_001",
+    "sourceRef": "school-science/U1/comp/001",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "우리 주변에는 여러 가지 용액이 있습니다. 가게에는 요리, 청소, 빨래 등을 할 때 사용하는 다양한 용액이 종류별로 진열되어 있습니다.",
+      "text": "용액의 색깔, 냄새, 투명한 정도 등을 알아내는 성질을 무엇이라고 부르나요?",
+      "ttsText": "용액의 색깔, 냄새, 투명한 정도 등을 알아내는 성질을 무엇이라고 부르나요?"
+    },
+    "answer": {
+      "correct": "겉보기 성질",
+      "options": [
+        "물리적 성질",
+        "화학적 성질",
+        "겉보기 성질"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "감각기관이나 간단한 도구를 이용해 알아낼 수 있는 성질입니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "용액의 색깔, 냄새, 투명한 정도 등을 알아내는 성질을 무엇이라고 부르나요?",
+    "validationDetails": [],
+    "wrongExplanation": "화학적 성질과 물리적 성질은 용액의 다른 특성을 나타냅니다. 겉보기 성질은 색깔, 냄새, 투명성처럼 감각기관으로 직접 알 수 있는 성질입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_002",
+    "sourceRef": "school-science/U1/comp/002",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "지시약은 어떤 용액을 만났을 때 그 용액의 성질에 따라 색깔 변화가 나타나는 물질입니다. 리트머스 시험지와 페놀프탈레인 용액이 자주 사용됩니다.",
+      "text": "산성 용액과 염기성 용액을 구분하기 위해 사용하는 물질을 무엇이라고 부르나요?",
+      "ttsText": "산성 용액과 염기성 용액을 구분하기 위해 사용하는 물질을 무엇이라고 부르나요?"
+    },
+    "answer": {
+      "correct": "지시약",
+      "options": [
+        "지시약",
+        "산성 물질",
+        "염기성 물질"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "색깔 변화로 용액의 성질을 알 수 있는 물질입니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성 용액과 염기성 용액을 구분하기 위해 사용하는 물질을 무엇이라고 부르나요?",
+    "validationDetails": [],
+    "wrongExplanation": "산성 물질과 염기성 물질은 분류하려는 용액이 아니라 용액을 분류하기 위한 도구가 아닙니다. 지시약은 색깔 변화로 용액의 성질을 판별하는 물질입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_003",
+    "sourceRef": "school-science/U1/comp/003",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "산성 용액에 사는 생물들은 어떻게 될까요? 산성 용액은 달걀 껍데기와 조개껍데기를 녹이는 특별한 성질이 있습니다.",
+      "text": "산성 용액에 담그면 녹는 것은 무엇인가요?",
+      "ttsText": "산성 용액에 담그면 녹는 것은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "달걀 껍데기와 조개껍데기",
+      "options": [
+        "달걀 껍데기와 조개껍데기",
+        "삶은 닭 가슴살",
+        "삶은 달걀흰자"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "탄산칼슘 성분이 있는 것들이 산성 용액에서 녹습니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.92,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성 용액에 담그면 녹는 것은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "달걀흰자와 닭 가슴살은 염기성 용액에 녹습니다. 산성 용액에는 달걀 껍데기와 조개껍데기처럼 탄산칼슘이 있는 것들이 녹습니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_004",
+    "sourceRef": "school-science/U1/comp/004",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "우리는 식초, 레몬즙, 제빵 소다 용액 등 여러 종류의 산성 용액과 염기성 용액을 이용합니다. 생선 요리에 레몬이 같이 나오는 이유가 있습니다.",
+      "text": "생선 요리에 산성 용액인 레몬이 같이 나오는 주된 이유는 무엇인가요?",
+      "ttsText": "생선 요리에 산성 용액인 레몬이 같이 나오는 주된 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "생선의 비린내를 없애기 위해",
+      "options": [
+        "생선의 비린내를 없애기 위해",
+        "생선의 맛을 짜게 만들기 위해",
+        "생선을 더 딱딱하게 만들기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산성 용액이 생선의 냄새 성분과 반응합니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.88,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "생선 요리에 산성 용액인 레몬이 같이 나오는 주된 이유는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "레몬은 생선의 질감을 변화시키거나 단순히 맛을 짜게 만들지 않습니다. 산성인 레몬의 주된 역할은 생선의 비린내를 없애는 것입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_005",
+    "sourceRef": "school-science/U1/comp/005",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "산성 용액에 염기성 용액을 계속 넣으면 산성이 점점 약해지다가 염기성으로 변합니다. 반대로 염기성 용액에 산성 용액을 계속 넣으면 염기성이 점점 약해지다가 산성으로 변합니다.",
+      "text": "산성인 묽은 염산에 염기성인 묽은 수산화 나트륨 용액을 넣으면 용액의 성질은 어떻게 될까요?",
+      "ttsText": "산성인 묽은 염산에 염기성인 묽은 수산화 나트륨 용액을 넣으면 용액의 성질은 어떻게 될까요?"
+    },
+    "answer": {
+      "correct": "산성이 점점 약해지다가 염기성으로 변한다",
+      "options": [
+        "색깔만 변하고 성질은 변하지 않는다",
+        "계속 산성을 유지한다",
+        "산성이 점점 약해지다가 염기성으로 변한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산성과 염기성이 섞이면 서로 중화되는 과정이 일어납니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성인 묽은 염산에 염기성인 묽은 수산화 나트륨 용액을 넣으면 용액의 성질은 어떻게 될까요?",
+    "validationDetails": [],
+    "wrongExplanation": "산성과 염기성이 섞이면 중화 반응이 일어나 산성이 약해집니다. 계속 염기성 용액을 넣으면 결국 염기성으로 변합니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_006",
+    "sourceRef": "school-science/U1/comp/006",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "산성화된 토양에 염기성 물질을 뿌려 식물이 잘 자랄 수 있게 합니다. 공장이나 운반 차량에서 염산이 새어 나오는 사고가 발생하면 염기성 물질을 뿌려 산성을 약하게 합니다.",
+      "text": "산성으로 손상된 환경을 복구할 때 사용하는 물질은 무엇인가요?",
+      "ttsText": "산성으로 손상된 환경을 복구할 때 사용하는 물질은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "염기성 물질",
+      "options": [
+        "더 강한 산성 물질",
+        "중성 물질",
+        "염기성 물질"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산성과 반대되는 성질을 가진 물질입니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.92,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성으로 손상된 환경을 복구할 때 사용하는 물질은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "산성으로 손상된 환경을 복구하려면 더 강한 산성 물질이 아니라 염기성 물질이 필요합니다. 중성 물질도 적절한 해결책이 아닙니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_007",
+    "sourceRef": "school-science/U1/comp/007",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "산성비, 해양 산성화, 토양 산성화는 생태계에 큰 피해를 줍니다. 산성비의 주된 원인은 대기 중 오염 물질이며, 해양 산성화의 주된 원인은 이산화 탄소입니다.",
+      "text": "다음 중 해양 산성화의 주된 원인은 무엇인가요?",
+      "ttsText": "다음 중 해양 산성화의 주된 원인은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "이산화 탄소",
+      "options": [
+        "이산화 탄소",
+        "화학 비료",
+        "대기 오염 물질"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "대기 중으로 배출되는 기체 물질입니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다음 중 해양 산성화의 주된 원인은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "대기 오염 물질은 산성비의 원인이고, 화학 비료는 토양 산성화의 원인입니다. 해양 산성화는 주로 이산화 탄소가 해양에 용해되어 일어납니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_008",
+    "sourceRef": "school-science/U1/comp/008",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "토양 산성화는 화학 비료나 농약의 과도한 사용과 산성비 등으로 인해 발생합니다. 산성화된 호수에 염기성 물질을 뿌리는 까닭을 생각해 봅시다.",
+      "text": "산성화된 호수에 염기성 물질을 뿌리는 주된 이유는 무엇일까요?",
+      "ttsText": "산성화된 호수에 염기성 물질을 뿌리는 주된 이유는 무엇일까요?"
+    },
+    "answer": {
+      "correct": "호수의 산성도를 낮춰 생태계를 복구하기 위해",
+      "options": [
+        "호수의 산성도를 낮춰 생태계를 복구하기 위해",
+        "호수의 색깔을 밝게 하기 위해",
+        "호수의 물을 더 염기성으로 만들기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산성과 염기성의 중화 반응을 이용합니다."
+    },
+    "skillTags": [
+      "analysis"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.88,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성화된 호수에 염기성 물질을 뿌리는 주된 이유는 무엇일까요?",
+    "validationDetails": [],
+    "wrongExplanation": "염기성 물질을 뿌리는 목표는 호수를 완전히 염기성으로 만드는 것이 아니라 과도한 산성도를 낮춰 환경을 복구하는 것입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_009",
+    "sourceRef": "school-science/U1/comp/009",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "푸른색 리트머스 시험지는 산성 용액에서 붉은색으로 변합니다. 붉은색 리트머스 시험지는 염기성 용액에서 파란색으로 변합니다.",
+      "text": "산성 용액을 확인하기 위해 어떤 리트머스 시험지를 사용하나요?",
+      "ttsText": "산성 용액을 확인하기 위해 어떤 리트머스 시험지를 사용하나요?"
+    },
+    "answer": {
+      "correct": "푸른색 리트머스 시험지",
+      "options": [
+        "푸른색 리트머스 시험지",
+        "초록색 리트머스 시험지",
+        "붉은색 리트머스 시험지"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산성 용액에서 색깔이 변하는 시험지입니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성 용액을 확인하기 위해 어떤 리트머스 시험지를 사용하나요?",
+    "validationDetails": [],
+    "wrongExplanation": "푸른색 리트머스 시험지는 산성에서 붉은색으로 변하므로 산성을 확인할 수 있습니다. 붉은색 리트머스 시험지는 염기성을 확인하는 데 사용합니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_010",
+    "sourceRef": "school-science/U1/comp/010",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "페놀프탈레인 용액은 산성 용액에서 색깔 변화가 없지만, 염기성 용액에서 붉은색 또는 분홍색으로 변합니다.",
+      "text": "페놀프탈레인 용액을 사용하여 염기성 용액을 확인할 때 어떤 색깔로 변하나요?",
+      "ttsText": "페놀프탈레인 용액을 사용하여 염기성 용액을 확인할 때 어떤 색깔로 변하나요?"
+    },
+    "answer": {
+      "correct": "붉은색 또는 분홍색",
+      "options": [
+        "노란색",
+        "파란색",
+        "붉은색 또는 분홍색"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "따뜻한 색 계열로 변합니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "페놀프탈레인 용액을 사용하여 염기성 용액을 확인할 때 어떤 색깔로 변하나요?",
+    "validationDetails": [],
+    "wrongExplanation": "페놀프탈레인은 염기성 용액에서만 색깔이 변합니다. 파란색이나 노란색이 아니라 붉은색 또는 분홍색으로 변합니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_011",
+    "sourceRef": "school-science/U1/comp/011",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "속이 쓰릴 때 먹는 제산제에는 염기성 물질이 들어 있습니다. 산성인 위액이 많이 나와 속이 쓸 때 염기성 물질이 산성을 중화시킵니다.",
+      "text": "속이 쓰릴 때 먹는 제산제가 효과가 있는 이유는 무엇인가요?",
+      "ttsText": "속이 쓰릴 때 먹는 제산제가 효과가 있는 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "염기성 물질이 산성 위액을 중화시키기 때문",
+      "options": [
+        "산성을 더 강하게 만들기 때문",
+        "위액의 냄새를 없애기 때문",
+        "염기성 물질이 산성 위액을 중화시키기 때문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "산성과 염기성의 중화 반응입니다."
+    },
+    "skillTags": [
+      "analysis"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.91,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "속이 쓰릴 때 먹는 제산제가 효과가 있는 이유는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "제산제는 산성을 더 강하게 만들지 않습니다. 염기성 물질이 산성 위액과 만나 중화 반응을 일으켜 산성을 약하게 만들기 때문에 효과가 있습니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u1_012",
+    "sourceRef": "school-science/U1/comp/012",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U1",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "산성화의 원인을 줄이기 위해 친환경 에너지를 사용하고, 자전거나 대중교통을 이용하여 대기 중으로 배출되는 이산화 탄소의 양을 줄여야 합니다.",
+      "text": "산성화를 줄이기 위해 개인이 할 수 있는 행동으로 가장 적절한 것은 무엇인가요?",
+      "ttsText": "산성화를 줄이기 위해 개인이 할 수 있는 행동으로 가장 적절한 것은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "자전거나 대중교통 이용하기",
+      "options": [
+        "자전거나 대중교통 이용하기",
+        "더 많은 화학 비료 사용하기",
+        "산성 물질 직접 배출하기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "이산화 탄소 배출을 줄이는 활동입니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.92,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "산성화를 줄이기 위해 개인이 할 수 있는 행동으로 가장 적절한 것은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "더 많은 화학 비료 사용이나 산성 물질 배출은 산성화를 증가시킵니다. 자전거나 대중교통 이용으로 이산화 탄소 배출을 줄이는 것이 산성화 예방에 도움됩니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_013",
+    "sourceRef": "school-science/U2/comp/013",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "운동장에 놓여 있는 공을 차면 공이 굴러갑니다. 가만히 놓여 있는 공과 굴러 가는 공이 있습니다.",
+      "text": "운동하는 물체의 가장 큰 특징은 무엇인가요?",
+      "ttsText": "운동하는 물체의 가장 큰 특징은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "시간이 지남에 따라 물체의 위치가 변한다",
+      "options": [
+        "물체가 항상 빠르게 움직인다",
+        "물체의 색깔이 변한다",
+        "시간이 지남에 따라 물체의 위치가 변한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "처음 위치와 나중 위치가 달라집니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "운동하는 물체의 가장 큰 특징은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "운동하는 물체가 항상 빠르게 움직이거나 색깔이 변하는 것은 아닙니다. 가장 중요한 특징은 시간이 지남에 따라 위치가 변한다는 것입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_014",
+    "sourceRef": "school-science/U2/comp/014",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "물체의 운동은 물체가 이동하는 데 걸린 시간과 물체의 위치 변화로 표현합니다. 이때 물체의 위치 변화는 처음 위치와 나중 위치로 나타냅니다.",
+      "text": "물체의 운동을 표현하기 위해 필요한 두 가지 정보는 무엇인가요?",
+      "ttsText": "물체의 운동을 표현하기 위해 필요한 두 가지 정보는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "이동 시간과 위치 변화",
+      "options": [
+        "이동 시간과 위치 변화",
+        "모양과 무게",
+        "색깔과 크기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "시간에 따른 변화를 나타냅니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.94,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "물체의 운동을 표현하기 위해 필요한 두 가지 정보는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "물체의 색깔, 크기, 모양, 무게는 운동을 표현하는 데 필요하지 않습니다. 이동 시간과 위치 변화가 물체의 운동을 나타내는 핵심 정보입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_015",
+    "sourceRef": "school-science/U2/comp/015",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "두 친구가 동시에 출발하여 같은 시간 동안 달리더라도 도착하는 위치는 다를 수 있습니다. 한 친구는 짧은 거리를 이동하고 다른 친구는 긴 거리를 이동합니다.",
+      "text": "같은 시간 동안 물체의 빠르기를 비교할 때 가장 중요한 기준은 무엇인가요?",
+      "ttsText": "같은 시간 동안 물체의 빠르기를 비교할 때 가장 중요한 기준은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "이동한 거리",
+      "options": [
+        "물체의 무게",
+        "물체의 색깔",
+        "이동한 거리"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "더 긴 거리를 이동한 물체가 더 빠릅니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "같은 시간 동안 물체의 빠르기를 비교할 때 가장 중요한 기준은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "물체의 무게나 색깔은 빠르기를 비교하는 데 직접적인 영향을 주지 않습니다. 같은 시간에 이동한 거리가 빠르기를 결정합니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_016",
+    "sourceRef": "school-science/U2/comp/016",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "달리기 경기에서 여러 선수가 같은 거리를 달려 빠르기를 겨룹니다. 50m를 9초 동안 달린 친구가 10초 동안 달린 친구보다 더 빠릅니다.",
+      "text": "같은 거리를 이동한 물체의 빠르기를 비교할 때 어떤 정보를 사용하나요?",
+      "ttsText": "같은 거리를 이동한 물체의 빠르기를 비교할 때 어떤 정보를 사용하나요?"
+    },
+    "answer": {
+      "correct": "이동하는 데 걸린 시간",
+      "options": [
+        "이동한 거리",
+        "이동하는 데 걸린 시간",
+        "물체의 크기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "시간이 짧을수록 더 빠릅니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.94,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "같은 거리를 이동한 물체의 빠르기를 비교할 때 어떤 정보를 사용하나요?",
+    "validationDetails": [],
+    "wrongExplanation": "같은 거리를 이동했으므로 거리 정보는 같습니다. 걸린 시간으로 빠르기를 비교합니다. 물체의 크기는 빠르기와 무관합니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_017",
+    "sourceRef": "school-science/U2/comp/017",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "속력은 일정한 시간 동안 물체가 이동한 거리를 뜻합니다. 속력은 물체가 이동한 거리를 걸린 시간으로 나누어 구합니다. 2시간 동안 120 km를 이동한 자동차의 속력은 60 km/h입니다.",
+      "text": "속력을 구하는 공식으로 올바른 것은 무엇인가요?",
+      "ttsText": "속력을 구하는 공식으로 올바른 것은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "속력 = 거리 ÷ 시간",
+      "options": [
+        "속력 = 거리 ÷ 시간",
+        "속력 = 시간 ÷ 거리",
+        "속력 = 거리 × 시간"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "거리를 시간으로 나눕니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "속력을 구하는 공식으로 올바른 것은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "속력은 거리 × 시간이 아니라 거리 ÷ 시간입니다. 시간 ÷ 거리도 틀린 공식입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_018",
+    "sourceRef": "school-science/U2/comp/018",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "자동차의 속력 60 km/h는 자동차가 1시간 동안 60 km를 이동한 것과 같은 빠르기를 말합니다. 속력의 단위에는 km/h (킬로미터 매 시)와 m/s(미터 매 초) 등이 있습니다.",
+      "text": "속력의 단위 km/h를 읽는 방법으로 올바른 것은 무엇인가요?",
+      "ttsText": "속력의 단위 km/h를 읽는 방법으로 올바른 것은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "킬로미터 매 시",
+      "options": [
+        "시간당 킬로미터 미터",
+        "킬로미터 매 시",
+        "킬로미터 시간"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "'매'는 '당'이라는 의미입니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.92,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "속력의 단위 km/h를 읽는 방법으로 올바른 것은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "km/h는 '시간당 킬로미터'를 의미하며, 올바른 읽기는 '킬로미터 매 시'입니다. 다른 읽기 방법들은 정확하지 않습니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_019",
+    "sourceRef": "school-science/U2/comp/019",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "1초 동안 108 m를 이동할 수 있는 송골매보다 133 m를 이동할 수 있는 드론이 더 빠릅니다. 속력의 단위가 같을 때 속력을 나타내는 숫자가 클수록 속력이 더 빠릅니다.",
+      "text": "송골매와 드론 중 어느 것이 더 빠른가요? 그 이유는 무엇인가요?",
+      "ttsText": "송골매와 드론 중 어느 것이 더 빠른가요? 그 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "드론이 더 빠르다. 같은 시간에 더 긴 거리를 이동하기 때문이다",
+      "options": [
+        "드론이 더 빠르다. 같은 시간에 더 긴 거리를 이동하기 때문이다",
+        "송골매가 더 빠르다. 자연 생물이기 때문이다",
+        "둘 다 같은 속도로 이동한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "같은 시간(1초) 동안 이동한 거리를 비교합니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.9,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "송골매와 드론 중 어느 것이 더 빠른가요?",
+    "validationDetails": [],
+    "wrongExplanation": "자연 생물이라고 해서 더 빠른 것은 아닙니다. 같은 1초 동안 드론(133m)이 송골매(108m)보다 더 긴 거리를 이동하므로 드론이 더 빠릅니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_020",
+    "sourceRef": "school-science/U2/comp/020",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "어린이 보호 구역에는 자동차의 속력을 제한하는 표지판이 있습니다. 이곳에서 자동차는 제한 속력보다 천천히 달려야 합니다.",
+      "text": "어린이 보호 구역에서 속력을 제한하는 주된 이유는 무엇인가요?",
+      "ttsText": "어린이 보호 구역에서 속력을 제한하는 주된 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "아이들의 안전을 보호하기 위해",
+      "options": [
+        "아이들의 안전을 보호하기 위해",
+        "자동차의 연비를 줄이기 위해",
+        "자동차의 속도계를 확인하기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "속력이 빠를수록 사고의 위험이 커집니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.94,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "어린이 보호 구역에서 속력을 제한하는 주된 이유는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "속력 제한은 연비와 무관하며, 속도계를 확인하기 위한 것도 아닙니다. 빠른 속도로 인한 사고를 예방하고 아이들의 안전을 보호하기 위한 것입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_021",
+    "sourceRef": "school-science/U2/comp/021",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "속력이 빠른 물체는 바로 멈추기 어려워 안전사고가 발생할 위험이 커집니다. 안전사고를 예방하기 위해서는 횡단보도를 건널 때 좌우를 살피며 천천히 건너는 등 안전 수칙을 잘 지켜야 합니다.",
+      "text": "일상생활에서 안전사고를 줄이기 위해 개인이 실천할 수 있는 행동으로 가장 적절한 것은 무엇인가요?",
+      "ttsText": "일상생활에서 안전사고를 줄이기 위해 개인이 실천할 수 있는 행동으로 가장 적절한 것은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "교통 안전 수칙을 잘 지키기",
+      "options": [
+        "더 빠르게 달리기",
+        "교통 안전 수칙을 잘 지키기",
+        "신호를 무시하기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "안전을 우선으로 하는 행동입니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "일상생활에서 안전사고를 줄이기 위해 개인이 실천할 수 있는 행동으로 가장 적절한 것은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "더 빠르게 달리거나 신호를 무시하는 것은 안전사고를 증가시킵니다. 교통 안전 수칙을 잘 지키는 것이 안전사고를 줄이는 올바른 방법입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_022",
+    "sourceRef": "school-science/U2/comp/022",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "에어백은 자동차가 빠른 속력으로 충돌할 때 공기주머니를 부풀려 탑승자를 보호합니다. 안전띠는 자동차가 충돌하거나 갑자기 멈출 때 탑승자를 자동차의 좌석에 고정해 줍니다.",
+      "text": "자동차의 에어백과 안전띠의 공통된 역할은 무엇인가요?",
+      "ttsText": "자동차의 에어백과 안전띠의 공통된 역할은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "충돌 시 탑승자의 상해를 줄이기",
+      "options": [
+        "충돌 시 탑승자의 상해를 줄이기",
+        "자동차의 속력을 높이기",
+        "자동차의 색깔을 보호하기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "두 장치 모두 안전 장치입니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.92,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "자동차의 에어백과 안전띠의 공통된 역할은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "에어백과 안전띠는 자동차의 속력을 높이거나 색깔을 보호하는 장치가 아닙니다. 충돌이나 급정거 시 탑승자를 보호하는 안전 장치들입니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_023",
+    "sourceRef": "school-science/U2/comp/023",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "도로에 설치된 과속 방지턱은 자동차의 속력을 줄입니다. 과속 경보 시스템은 운전자가 현재 속력을 확인하고 스스로 속력을 줄일 수 있도록 도와줍니다.",
+      "text": "과속 방지턱과 과속 경보 시스템의 차이점은 무엇인가요?",
+      "ttsText": "과속 방지턱과 과속 경보 시스템의 차이점은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "과속 방지턱은 물리적으로 속력을 줄이고, 과속 경보 시스템은 정보 제공으로 운전자가 스스로 속력을 줄인다",
+      "options": [
+        "과속 방지턱만 효과적이다",
+        "둘 다 같은 역할을 한다",
+        "과속 방지턱은 물리적으로 속력을 줄이고, 과속 경보 시스템은 정보 제공으로 운전자가 스스로 속력을 줄인다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "작동 방식이 다릅니다."
+    },
+    "skillTags": [
+      "analysis"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.88,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "과속 방지턱과 과속 경보 시스템의 차이점은 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "과속 방지턱과 과속 경보 시스템은 다른 방식으로 작동합니다. 과속 방지턱은 도로 구조물로 직접 속력을 줄이고, 과속 경보 시스템은 운전자에게 정보를 제공합니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u2_024",
+    "sourceRef": "school-science/U2/comp/024",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U2",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "스포츠에서는 경기의 긴장감과 재미를 더하고 경기의 분석을 도와주는 다양한 첨단 기술을 활용합니다. 초고속 카메라는 1초에 수천 장의 사진을 찍어 어느 선수가 먼저 결승선에 도착하는지 보여 줍니다.",
+      "text": "스포츠에서 초고속 카메라를 사용하는 주된 이유는 무엇인가요?",
+      "ttsText": "스포츠에서 초고속 카메라를 사용하는 주된 이유는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "사람의 눈으로 판단하기 어려운 경우에 공정한 판정을 하기 위해",
+      "options": [
+        "선수들의 움직임을 느리게 보기 위해",
+        "사람의 눈으로 판단하기 어려운 경우에 공정한 판정을 하기 위해",
+        "경기의 재미있는 장면만 촬영하기 위해"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "매우 짧은 시간의 차이를 구분하기 위해 사용합니다."
+    },
+    "skillTags": [
+      "application"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.89,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "스포츠에서 초고속 카메라를 사용하는 주된 이유는 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "초고속 카메라는 단순히 재미있는 장면만 촬영하거나 움직임을 느리게 보기 위한 것이 아닙니다. 사람의 눈으로는 판단 불가능한 미세한 차이를 포착하여 공정한 판정을 할 수 있게 해줍니다."
+  }
+]

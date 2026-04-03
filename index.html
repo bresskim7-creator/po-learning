@@ -79,6 +79,7 @@
     .subject-badge.english { background: #4A90D9; }
     .subject-badge.comprehension { background: #E67E22; }
     .subject-badge.social_studies { background: #8E44AD; }
+    .subject-badge.science { background: #27AE60; }
     .subject-badge.speech_therapy { background: #27AE60; }
     .subject-badge.speaking_practice { background: #27AE60; }
 
@@ -1080,10 +1081,11 @@ function saveSettings() {
 
 async function loadContentFiles() {
   try {
-    const [engRes, compRes, ssRes, phraseRes, stRes, cfgRes] = await Promise.all([
+    const [engRes, compRes, ssRes, sciRes, phraseRes, stRes, cfgRes] = await Promise.all([
       fetch('english.json').then(r => r.json()).catch(() => ({ cards: [] })),
       fetch('comprehension.json').then(r => r.json()).catch(() => ({ cards: [] })),
       fetch('social-studies.json').then(r => r.json()).catch(() => []),
+      fetch('science.json').then(r => r.json()).catch(() => []),
       fetch('phrase-pool.json').then(r => r.json()).catch(() => null),
       fetch('speech-therapy.json').then(r => r.json()).catch(() => null),
       fetch('config.json').then(r => r.json()).catch(() => null),
@@ -1093,6 +1095,9 @@ async function loadContentFiles() {
     APP.socialStudiesCards = Array.isArray(ssRes) ? ssRes : (ssRes.cards || []);
     // 사회 카드에 subject 보장
     APP.socialStudiesCards.forEach(function(c) { c.subject = c.subject || 'social_studies'; c.id = c.id || c.cardId; });
+    // [v5.14] 과학 카드 로드
+    APP.scienceCards = Array.isArray(sciRes) ? sciRes : (sciRes.cards || []);
+    APP.scienceCards.forEach(function(c) { c.subject = c.subject || 'science'; c.id = c.id || c.cardId; });
     APP.phrasePool = phraseRes;
     APP.config = cfgRes;
     if (stRes) {
@@ -1228,7 +1233,7 @@ function renderSubjectTileHome() {
   var hasOldTiles = rawOrder.indexOf('speech_therapy_quiz') >= 0 || rawOrder.indexOf('listen_repeat') >= 0 || rawOrder.indexOf('read_aloud') >= 0;
   var tileOrder;
   if (hasOldTiles || rawOrder.length === 0) {
-    tileOrder = ['english','comprehension','social_studies','speaking_practice'];
+    tileOrder = ['english','comprehension','social_studies','science','speaking_practice'];
   } else {
     tileOrder = rawOrder;
   }
@@ -1236,6 +1241,7 @@ function renderSubjectTileHome() {
     english: { emoji: '\uD83D\uDD24', name: '영어' },
     comprehension: { emoji: '\uD83D\uDCD6', name: '독해' },
     social_studies: { emoji: '\uD83C\uDFDB\uFE0F', name: '사회' },
+    science: { emoji: '\uD83D\uDD2C', name: '과학' },
     speaking_practice: { emoji: '\uD83C\uDFA4', name: '말하기 연습' }
   };
   var stats = loadSubjectStats();
@@ -1271,6 +1277,7 @@ function getSubjectCardPoolCount(subject) {
     case 'english': return (APP.englishCards || []).filter(filterBlocked).length;
     case 'comprehension': return (APP.comprehensionCards || []).filter(filterBlocked).length;
     case 'social_studies': return (APP.socialStudiesCards || []).filter(filterBlocked).length;
+    case 'science': return (APP.scienceCards || []).filter(filterBlocked).length;
     case 'speaking_practice':
       var stqCount = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && filterBlocked(c); }).length;
       var lrCount = (APP.listenRepeatCards || []).filter(filterBlocked).length;
@@ -1362,7 +1369,7 @@ function decomposeToSubjectStats(sessionCards, results) {
 
 function getRecommendedSubjects(stats) {
   var recommendations = [];
-  var subjects = ['english','comprehension','social_studies','speaking_practice'];
+  var subjects = ['english','comprehension','social_studies','science','speaking_practice'];
   subjects.forEach(function(subject) {
     var data = stats[subject];
     var score = 0;
@@ -1393,7 +1400,7 @@ function renderResumeBanner() {
       banner.style.display = 'none';
       return;
     }
-    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', speaking_practice:'말하기 연습', speech_therapy_quiz:'말하기', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'전체 복습' };
+    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', science:'과학', speaking_practice:'말하기 연습', speech_therapy_quiz:'말하기', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'전체 복습' };
     var name = subjectNames[pending.subject] || '학습';
     document.getElementById('resume-banner-text').textContent = name + ' ' + pending.currentIndex + '/' + pending.cards.length + '장 진행 중';
     banner.style.display = 'flex';
@@ -1477,6 +1484,7 @@ function getApprovedCards(subject) {
     case 'english': pool = APP.englishCards || []; break;
     case 'comprehension': pool = APP.comprehensionCards || []; break;
     case 'social_studies': pool = APP.socialStudiesCards || []; break;
+    case 'science': pool = APP.scienceCards || []; break;
     case 'speech_therapy_quiz':
       pool = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId; });
       break;
@@ -1988,7 +1996,7 @@ function getExtendedMode() {
 function tagRoles(cards) {
   cards.forEach(function(card) {
     var subj = card.subject || card.anchorType || '';
-    if (subj === 'english' || subj === 'school-english' || subj === 'social_studies' || subj === 'school-social') {
+    if (subj === 'english' || subj === 'school-english' || subj === 'social_studies' || subj === 'school-social' || subj === 'science' || subj === 'school-science') {
       card._role = 'curriculum-recall';
     } else if (subj === 'comprehension' || subj === 'short-reading') {
       card._role = 'reading-transfer';
@@ -2139,12 +2147,13 @@ function buildSessionAnchored() {
     lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
   }
 
-  // [v4.10] 블록 순서 v3: 영어→독해→말하기퀴즈→사회→LR→따라읽기
-  var engBlock = [], compBlock = [], stqBlock = [], ssBlock = [];
+  // [v5.14] 블록 순서: 영어→독해→말하기퀴즈→사회→과학→LR→따라읽기
+  var engBlock = [], compBlock = [], stqBlock = [], ssBlock = [], sciBlock = [];
   selected.forEach(function(c) {
     if (c.subject === 'english') engBlock.push(c);
     else if (c.subject === 'speech_therapy') stqBlock.push(c);
     else if (c.subject === 'social_studies') ssBlock.push(c);
+    else if (c.subject === 'science') sciBlock.push(c);
     else compBlock.push(c);  // comprehension + 기타
   });
 
@@ -2154,6 +2163,7 @@ function buildSessionAnchored() {
   result.push.apply(result, sortByDifficulty(diversifyBySkillTag(compBlock)));  // [v4.10 T6] 독해 스킬 다양성
   result.push.apply(result, sortByDifficulty(stqBlock));   // 말하기 퀴즈 (독해 뒤, 사회 앞)
   result.push.apply(result, sortByDifficulty(ssBlock));     // 사회
+  result.push.apply(result, sortByDifficulty(sciBlock));    // 과학
   result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지, 정렬 제외)
   result.push.apply(result, stCards);  // 따라읽기 (정렬 제외)
 
@@ -2550,12 +2560,13 @@ function renderCard() {
       comprehension: '영어 끝! 이제 독해 시간이야!',
       speech_therapy: '독해 끝! 이제 소리 연습 시간이야!',
       social_studies: '소리 연습 끝! 이제 사회 시간이야!',
+      science: '자, 이제 과학 시간이야!',
     };
     var pool = APP.phrasePool;
     var msg = '';
     // phrase-pool에서 전환 문구 찾기
     if (pool && pool.transition) {
-      var conditions = { english: 'to_english', comprehension: 'to_comprehension', speech_therapy: 'to_speech_therapy', social_studies: 'to_social_studies' };
+      var conditions = { english: 'to_english', comprehension: 'to_comprehension', speech_therapy: 'to_speech_therapy', social_studies: 'to_social_studies', science: 'to_science' };
       var cond = conditions[card.subject];
       var matches = pool.transition.filter(function(t) { return t.condition === cond; });
       if (matches.length > 0) msg = matches[Math.floor(Math.random() * matches.length)].text;
@@ -2588,7 +2599,7 @@ function renderCard() {
 
   // 과목 뱃지
   var subjectLabels = {
-    english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '말하기 연습', listen_repeat: '듣고 말하기'
+    english: '영어', comprehension: '독해', social_studies: '사회', science: '과학', speech_therapy: '말하기 연습', listen_repeat: '듣고 말하기'
   };
   var badgeExtra = '';
   if (card.subject === 'speech_therapy' && card._lessonTitle) {
@@ -5434,7 +5445,7 @@ async function endSession() {
   document.getElementById('parent-result').style.display = 'none';
 
   // [v4.10 T4] 아이 화면: 과목별 체크마크
-  var subjectIcons = { english: '📖 영어', comprehension: '📚 독해', social_studies: '🌍 사회', speech_therapy: '🎤 말하기 연습', listen_repeat: '🎧 듣기' };
+  var subjectIcons = { english: '📖 영어', comprehension: '📚 독해', social_studies: '🌍 사회', science: '🔬 과학', speech_therapy: '🎤 말하기 연습', listen_repeat: '🎧 듣기' };
   var subjectsUsed = {};
   s.cards.forEach(function(c) { if (c.subject) subjectsUsed[c.subject] = true; });
   var checksHtml = '';
@@ -5445,7 +5456,7 @@ async function endSession() {
 
   // 과목별 정답률 (부모 화면용)
   const breakdownEl = document.getElementById('subject-breakdown');
-  const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기' };
+  const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', science: '과학', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기' };
   let breakdownHtml = '';
   for (const subj in s.subjectStats) {
     const st = s.subjectStats[subj];
