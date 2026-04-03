@@ -2447,14 +2447,14 @@ function selectListenRepeatCards(allCards, currentLevel, count) {
     if (remaining.length > 0) selected.push(remaining[0]);
   }
 
-  // 부족하면 현재 레벨에서 채움
-  while (selected.length < count && main.length > 0) {
-    selected.push(main[selected.length % main.length]);
-  }
-
-  // 전체 풀에서도 부족하면 아무 카드로 채움
-  while (selected.length < count && allCards.length > 0) {
-    selected.push(allCards[selected.length % allCards.length]);
+  // 부족하면 현재 레벨 → 전체 풀 순서로 채우되, 중복 카드 방지
+  var fillPools = [main, allCards];
+  for (var fp = 0; fp < fillPools.length && selected.length < count; fp++) {
+    var pool = fillPools[fp];
+    var remaining = pool.filter(function(c) { return !selected.find(function(s) { return s.cardId === c.cardId; }); });
+    for (var ri = 0; ri < remaining.length && selected.length < count; ri++) {
+      selected.push(remaining[ri]);
+    }
   }
 
   // _blockType 마킹
@@ -4060,7 +4060,7 @@ function updateLrUI() {
     if (!item) continue;
 
     item.className = 'lr-item';
-    if (i < lrState.currentIndex || lrState.results.find(function(r) { return r.cardId === lrState.cards[i].cardId; })) {
+    if (i < lrState.currentIndex || lrState.results.find(function(r) { return r.lrIndex === i; })) {
       item.classList.add('lr-done');
     } else if (i === lrState.currentIndex) {
       item.classList.add('lr-current');
@@ -4254,6 +4254,7 @@ async function lrProcessAttempt() {
     var strictThreshold = 0.7;
     lrState.results.push({
       cardId: card.cardId || card.id,
+      lrIndex: lrState.currentIndex,
       reachedStage: lrState.currentStage,
       matchScore: result.score,
       sttTranscript: sttResult,
@@ -4293,6 +4294,7 @@ async function lrProcessAttempt() {
     // [v4.10 T11] 이중 기준
     lrState.results.push({
       cardId: card.cardId || card.id,
+      lrIndex: lrState.currentIndex,
       reachedStage: 3,
       matchScore: result.score,
       sttTranscript: sttResult,
