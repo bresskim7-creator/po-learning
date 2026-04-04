@@ -2103,14 +2103,15 @@
         "displayWord": "지혜야 횡단보도 건널 때는 양쪽을 살피고 건너라."
       },
       "answer": {
-        "correct": "횡단보도",
+        "correct": ["횡단보도", "살피고"],
         "options": [
           "횡단보도",
           "살피고",
           "양쪽을",
           "건너라"
         ],
-        "type": "choice"
+        "type": "choice",
+        "requiredCount": 2
       },
       "hint": {
         "text": "'횡단보도' 뒤와 '살피고' 뒤에 뭔가 더 들리지 않았어?"
@@ -2120,7 +2121,7 @@
         "듣고비교하기",
         "문장수준"
       ],
-      "questionType": "choice",
+      "questionType": "multi_choice",
       "anchorType": "speech-therapy",
       "anchorWeek": "2026-W14",
       "confidence": 0.85,
@@ -2148,14 +2149,15 @@
         "displayWord": "어촌은 바닷가서 물고기 잡으며 살아가는 마을이다."
       },
       "answer": {
-        "correct": "바닷가서",
+        "correct": ["바닷가서", "물고기"],
         "options": [
           "바닷가서",
           "물고기",
           "살아가는",
           "마을이다"
         ],
-        "type": "choice"
+        "type": "choice",
+        "requiredCount": 2
       },
       "hint": {
         "text": "조사가 빠진 곳이 2군데야! '에서'와 '를'을 잘 들어봐."
@@ -2165,7 +2167,7 @@
         "듣고비교하기",
         "문장수준"
       ],
-      "questionType": "choice",
+      "questionType": "multi_choice",
       "anchorType": "speech-therapy",
       "anchorWeek": "2026-W14",
       "confidence": 0.85,
@@ -2193,14 +2195,15 @@
         "displayWord": "아버지가 지금 방에서 주무시고 있는 것 같아요."
       },
       "answer": {
-        "correct": "아버지가",
+        "correct": ["아버지가", "있는"],
         "options": [
           "아버지가",
           "있는",
           "방에서",
           "같아요"
         ],
-        "type": "choice"
+        "type": "choice",
+        "requiredCount": 2
       },
       "hint": {
         "text": "'아버지'를 높여서 말하면? 그리고 '있는'의 높임말은?"
@@ -2210,7 +2213,7 @@
         "듣고비교하기",
         "문장수준"
       ],
-      "questionType": "choice",
+      "questionType": "multi_choice",
       "anchorType": "speech-therapy",
       "anchorWeek": "2026-W14",
       "confidence": 0.85,
@@ -2238,14 +2241,15 @@
         "displayWord": "엄마한테 혼날까봐서 겁이 나서 거짓말 했어요."
       },
       "answer": {
-        "correct": "혼날까봐서",
+        "correct": ["혼날까봐서", "거짓말"],
         "options": [
           "혼날까봐서",
           "거짓말",
           "엄마한테",
           "겁이"
         ],
-        "type": "choice"
+        "type": "choice",
+        "requiredCount": 2
       },
       "hint": {
         "text": "'서'가 빠진 곳과 '을'이 추가된 곳, 2군데야!"
@@ -2255,7 +2259,7 @@
         "듣고비교하기",
         "문장수준"
       ],
-      "questionType": "choice",
+      "questionType": "multi_choice",
       "anchorType": "speech-therapy",
       "anchorWeek": "2026-W14",
       "confidence": 0.85,
@@ -2283,14 +2287,15 @@
         "displayWord": "그 요리는 만드는데 시간 많이 걸리니까 빠른 걸 만들자."
       },
       "answer": {
-        "correct": "시간",
+        "correct": ["시간", "걸"],
         "options": [
           "시간",
           "걸",
           "요리는",
           "만들자"
         ],
-        "type": "choice"
+        "type": "choice",
+        "requiredCount": 2
       },
       "hint": {
         "text": "'시간' 뒤와 '걸' 뒤에 뭔가 더 들리지 않았어?"
@@ -2300,7 +2305,7 @@
         "듣고비교하기",
         "문장수준"
       ],
-      "questionType": "choice",
+      "questionType": "multi_choice",
       "anchorType": "speech-therapy",
       "anchorWeek": "2026-W14",
       "confidence": 0.85,
