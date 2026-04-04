@@ -5855,6 +5855,8 @@ async function endSession() {
     subjectStats: s.subjectStats,
     events: s.events,
     timestamp: new Date().toISOString(),
+    sessionType: s.sessionType || 'mixed',
+    sessionSubject: s.sessionSubject || 'mixed',
   };
   if (obsSummary) sessionPayload.observationSummary = obsSummary;
 
