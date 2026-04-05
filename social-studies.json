@@ -468,291 +468,11 @@
     "wrongExplanation": "무기를 만들거나 싸우는 게 아니야. 관심을 갖고 왜 통일이 필요한지 알아가는 게 시작이야."
   },
   {
-    "cardId": "crd_2026W14_soc_geo_001",
-    "sourceRef": "school-social/U2/comp/001",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 1,
-    "question": {
-      "passage": "지구본은 실제 지구의 모습을 작게 줄여 만든 모형입니다. 세계 여러 나라의 위치, 면적, 지역 간 거리 등이 비교적 정확하게 나타나 있습니다.",
-      "text": "지구본의 장점은 무엇인가요?",
-      "ttsText": "지구본의 장점은 무엇인가요?"
-    },
-    "answer": {
-      "correct": "위치, 면적, 거리가 비교적 정확하다",
-      "options": [
-        "위치, 면적, 거리가 비교적 정확하다",
-        "세계 모습을 한눈에 볼 수 있다",
-        "가지고 다니기 편리하다",
-        "확대와 축소가 자유롭다"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "실제 지구를 줄여 만든 모형이니까 뭐가 좋을까?"
-    },
-    "skillTags": [
-      "fact",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "지구본의 장점은 무엇인가요?",
-    "validationDetails": [],
-    "wrongExplanation": "지구본은 실제 지구를 그대로 줄인 거라서 위치, 면적, 거리가 꽤 정확해. 한눈에 보거나 들고 다니기 편한 건 세계지도의 장점이야."
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_002",
-    "sourceRef": "school-social/U2/comp/002",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 1,
-    "question": {
-      "passage": "세계지도는 둥근 지구를 평면으로 나타낸 것입니다. 세계의 모습을 한눈에 살펴볼 수 있으며, 가지고 다니기 편리합니다. 그러나 위치, 면적, 거리 등이 실제와 다르게 나타날 수 있습니다.",
-      "text": "세계지도의 단점은 무엇인가요?",
-      "ttsText": "세계지도의 단점은 무엇인가요?"
-    },
-    "answer": {
-      "correct": "위치, 면적, 거리가 실제와 다를 수 있다",
-      "options": [
-        "위치, 면적, 거리가 실제와 다를 수 있다",
-        "세계 모습을 한눈에 볼 수 없다",
-        "가지고 다니기 불편하다",
-        "사진이나 영상을 볼 수 없다"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "둥근 지구를 평면으로 펼치면 어떤 문제가 생길까?"
-    },
-    "skillTags": [
-      "fact",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "세계지도의 단점은 무엇인가요?",
-    "validationDetails": [],
-    "wrongExplanation": "둥근 공을 억지로 평면으로 펴면 늘어나거나 찌그러지잖아? 그래서 면적이나 거리가 실제랑 달라질 수 있어."
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_003",
-    "sourceRef": "school-social/U2/comp/003",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 1,
-    "question": {
-      "passage": "위도는 적도를 기준으로 남북으로 얼마나 떨어져 있는지를 나타냅니다. 적도를 기준으로 북쪽을 북위, 남쪽을 남위라고 합니다.",
-      "text": "위도의 기준이 되는 선은 무엇인가요?",
-      "ttsText": "위도의 기준이 되는 선은 무엇인가요?"
-    },
-    "answer": {
-      "correct": "적도",
-      "options": [
-        "적도",
-        "본초 자오선",
-        "북극선",
-        "남극선"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "위도 0도인 가로선이야"
-    },
-    "skillTags": [
-      "fact",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "위도의 기준이 되는 선은 무엇인가요?",
-    "validationDetails": [],
-    "wrongExplanation": "위도는 가로선이고, 그 기준은 적도(위도 0°)야. 본초 자오선은 경도의 기준이 되는 세로선이야. 헷갈리기 쉬우니까 '위=가로, 경=세로'로 기억해!"
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_004",
-    "sourceRef": "school-social/U2/comp/004",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 1,
-    "question": {
-      "passage": "경도는 본초 자오선을 기준으로 동서로 얼마나 떨어져 있는지를 나타냅니다. 본초 자오선은 영국 런던의 그리니치 천문대를 지나는 경도 0° 선입니다.",
-      "text": "본초 자오선이 지나는 곳은 어디인가요?",
-      "ttsText": "본초 자오선이 지나는 곳은 어디인가요?"
-    },
-    "answer": {
-      "correct": "영국 런던의 그리니치 천문대",
-      "options": [
-        "영국 런던의 그리니치 천문대",
-        "프랑스 파리의 에펠 탑",
-        "미국 워싱턴의 백악관",
-        "대한민국 서울의 광화문"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "1884년 국제 회의에서 이 나라의 천문대를 기준으로 정했어"
-    },
-    "skillTags": [
-      "fact",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "본초 자오선이 지나는 곳은 어디인가요?",
-    "validationDetails": [],
-    "wrongExplanation": "본초 자오선(경도 0°)은 영국 런던의 그리니치 천문대를 지나. 1884년에 국제 회의에서 여기를 기준으로 정한 거야."
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_005",
-    "sourceRef": "school-social/U2/comp/005",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 2,
-    "question": {
-      "passage": "지구는 둥글어서 위도에 따라 햇볕을 받는 양이 다릅니다. 저위도 지역은 햇볕을 많이 받아 기온이 높고, 고위도 지역은 햇볕을 적게 받아 기온이 낮습니다.",
-      "text": "적도 근처의 저위도 지역이 고위도 지역보다 기온이 높은 까닭은?",
-      "ttsText": "적도 근처의 저위도 지역이 고위도 지역보다 기온이 높은 까닭은?"
-    },
-    "answer": {
-      "correct": "햇볕을 더 많이 받기 때문이다",
-      "options": [
-        "햇볕을 더 많이 받기 때문이다",
-        "바다가 가까이 있기 때문이다",
-        "산이 적기 때문이다",
-        "바람이 적게 불기 때문이다"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "지구가 둥글어서 위도마다 햇볕 받는 양이 달라"
-    },
-    "skillTags": [
-      "cause-effect",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "적도 근처의 저위도 지역이 고위도 지역보다 기온이 높은 까닭은?",
-    "validationDetails": [],
-    "wrongExplanation": "지구가 둥글잖아? 적도 근처는 햇빛이 거의 수직으로 내려와서 열이 집중되고, 극지방은 비스듬하게 들어와서 열이 넓게 퍼져. 그래서 기온 차이가 나는 거야."
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_006",
-    "sourceRef": "school-social/U2/comp/006",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 2,
-    "question": {
-      "passage": "북반구가 태양 쪽으로 기울어지면 북반구는 여름이 되지만, 남반구는 겨울이 됩니다. 따라서 북반구와 남반구의 계절이 서로 반대로 나타납니다.",
-      "text": "우리나라가 여름일 때, 오스트레일리아의 계절은?",
-      "ttsText": "우리나라가 여름일 때, 오스트레일리아의 계절은?"
-    },
-    "answer": {
-      "correct": "겨울",
-      "options": [
-        "겨울",
-        "여름",
-        "봄",
-        "가을"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "오스트레일리아는 남반구에 있어"
-    },
-    "skillTags": [
-      "application",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "우리나라가 여름일 때, 오스트레일리아의 계절은?",
-    "validationDetails": [],
-    "wrongExplanation": "우리나라는 북반구, 오스트레일리아는 남반구에 있어. 북반구가 여름이면 남반구는 겨울이야. 계절이 정반대라서, 크리스마스에 해수욕을 한대!"
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_007",
-    "sourceRef": "school-social/U2/comp/007",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 2,
-    "question": {
-      "passage": "지구는 하루에 한 바퀴씩 스스로 회전하기 때문에 경도에 따라 시각이 달라져 시차가 발생합니다.",
-      "text": "나라마다 시간이 다른 까닭은 무엇인가요?",
-      "ttsText": "나라마다 시간이 다른 까닭은 무엇인가요?"
-    },
-    "answer": {
-      "correct": "지구가 스스로 회전하기 때문이다",
-      "options": [
-        "지구가 스스로 회전하기 때문이다",
-        "나라마다 달력이 다르기 때문이다",
-        "위도가 다르기 때문이다",
-        "지구가 태양 주위를 돌기 때문이다"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "지구가 하루에 한 바퀴 돌면 어떤 일이 생길까?"
-    },
-    "skillTags": [
-      "cause-effect",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "나라마다 시간이 다른 까닭은 무엇인가요?",
-    "validationDetails": [],
-    "wrongExplanation": "지구가 하루에 한 바퀴 자전(스스로 회전)하니까, 경도가 다른 곳은 해가 뜨는 시각이 달라져. 이게 시차야. 위도는 기온에 영향을 주고, 경도는 시간에 영향을 줘."
-  },
-  {
     "cardId": "crd_2026W14_soc_geo_008",
     "sourceRef": "school-social/U2/comp/008",
     "runId": "2026-W14",
     "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
+    "sourceUnit": "U3-2",
     "type": "comprehension",
     "subject": "social_studies",
     "difficulty": 2,
@@ -792,7 +512,7 @@
     "sourceRef": "school-social/U2/comp/009",
     "runId": "2026-W14",
     "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
+    "sourceUnit": "U3-2",
     "type": "comprehension",
     "subject": "social_studies",
     "difficulty": 2,
@@ -828,91 +548,11 @@
     "wrongExplanation": "태평양이 가장 넓어. 엄청나게 넓어서 모든 대륙을 합쳐도 태평양보다 작다고 해! 대서양이 두 번째, 인도양이 세 번째야."
   },
   {
-    "cardId": "crd_2026W14_soc_geo_010",
-    "sourceRef": "school-social/U2/comp/010",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 2,
-    "question": {
-      "passage": "디지털 영상 지도는 항공 사진이나 위성 영상에 장소나 지역의 이름, 경계선 등을 표시한 지도입니다. 확대와 축소가 자유로워 특정 지역을 자세히 살펴보거나 세계의 모습을 전체적으로 볼 수 있습니다.",
-      "text": "디지털 영상 지도가 지구본이나 세계지도보다 편리한 점은?",
-      "ttsText": "디지털 영상 지도가 지구본이나 세계지도보다 편리한 점은?"
-    },
-    "answer": {
-      "correct": "확대와 축소가 자유롭고 사진이나 영상으로 볼 수 있다",
-      "options": [
-        "확대와 축소가 자유롭고 사진이나 영상으로 볼 수 있다",
-        "면적과 거리가 가장 정확하다",
-        "인터넷 없이도 사용할 수 있다",
-        "입체적으로 지구를 돌려볼 수 있다"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "스마트폰 지도 앱 생각해봐"
-    },
-    "skillTags": [
-      "comparison",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "디지털 영상 지도가 지구본이나 세계지도보다 편리한 점은?",
-    "validationDetails": [],
-    "wrongExplanation": "디지털 영상 지도(네이버 지도, 구글 맵 같은 거)는 확대·축소가 자유롭고, 실제 사진이나 영상으로 볼 수 있어서 편리해. 입체적으로 돌려보는 건 지구본이야."
-  },
-  {
-    "cardId": "crd_2026W14_soc_geo_011",
-    "sourceRef": "school-social/U2/comp/011",
-    "runId": "2026-W14",
-    "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
-    "type": "comprehension",
-    "subject": "social_studies",
-    "difficulty": 3,
-    "question": {
-      "passage": "지도에서 그린란드는 남아메리카만큼 넓어 보이지만, 실제 그린란드의 면적은 남아메리카의 약 1/8밖에 되지 않습니다.",
-      "text": "세계지도에서 그린란드가 실제보다 넓어 보이는 까닭은?",
-      "ttsText": "세계지도에서 그린란드가 실제보다 넓어 보이는 까닭은?"
-    },
-    "answer": {
-      "correct": "둥근 지구를 평면으로 나타내면서 면적이 왜곡되었기 때문이다",
-      "options": [
-        "둥근 지구를 평면으로 나타내면서 면적이 왜곡되었기 때문이다",
-        "그린란드가 최근에 커졌기 때문이다",
-        "남아메리카를 작게 그렸기 때문이다",
-        "지도 제작자의 실수 때문이다"
-      ],
-      "type": "choice"
-    },
-    "hint": {
-      "text": "둥근 공을 억지로 평면으로 펼치면 어떻게 될까?"
-    },
-    "skillTags": [
-      "inference",
-      "world-geography"
-    ],
-    "questionType": "choice",
-    "anchorType": "school-social",
-    "confidence": 0.95,
-    "reviewStatus": "parent_review",
-    "validationStatus": "pass",
-    "ttsText": "세계지도에서 그린란드가 실제보다 넓어 보이는 까닭은?",
-    "validationDetails": [],
-    "wrongExplanation": "둥근 지구를 평면으로 펴면 특히 극지방(위도가 높은 곳) 쪽이 많이 늘어나. 그린란드는 북극 가까이 있어서 지도에서 엄청 크게 보이지만, 실제로는 남아메리카의 1/8밖에 안 돼!"
-  },
-  {
     "cardId": "crd_2026W14_soc_geo_012",
     "sourceRef": "school-social/U2/comp/012",
     "runId": "2026-W14",
     "sourceId": "school-social",
-    "sourceUnit": "세계여러국가의위치와영토",
+    "sourceUnit": "U3-2",
     "type": "comprehension",
     "subject": "social_studies",
     "difficulty": 3,
@@ -3323,5 +2963,356 @@
     "ttsText": "지구본과 세계 지도에서 경로가 다르게 보이는 이유는?",
     "validationDetails": [],
     "wrongExplanation": "지구본이 실제에 가까워. 지도는 평면이라 고위도 거리가 늘어나서 다르게 보이는 거야!"
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_001",
+    "sourceRef": "school-social/U3-2/continent/001",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 1,
+    "question": {
+      "passage": "바다로 둘러싸인 커다란 육지를 대륙이라고 합니다. 세계에는 아시아, 유럽, 아프리카, 북아메리카, 남아메리카, 오세아니아, 남극 대륙이 있습니다.",
+      "text": "세계의 대륙은 모두 몇 개인가요?",
+      "ttsText": "세계의 대륙은 모두 몇 개인가요?"
+    },
+    "answer": {
+      "correct": "7개",
+      "options": [
+        "5개",
+        "6개",
+        "7개",
+        "8개"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "아시아, 유럽, 아프리카… 하나씩 세어 보자"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계의 대륙은 모두 몇 개인가요?",
+    "wrongExplanation": "세계에는 7개 대륙이 있어. 아시아, 유럽, 아프리카, 북아메리카, 남아메리카, 오세아니아, 남극까지 7개야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_002",
+    "sourceRef": "school-social/U3-2/korea/002",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 1,
+    "question": {
+      "passage": "우리나라는 북반구에 있으며, 아시아 대륙의 동쪽에 있습니다. 한반도와 한반도에 속한 여러 섬으로 이루어져 있고, 동쪽·서쪽·남쪽 삼면이 바다입니다.",
+      "text": "우리나라는 어느 반구에 있나요?",
+      "ttsText": "우리나라는 어느 반구에 있나요?"
+    },
+    "answer": {
+      "correct": "북반구",
+      "options": [
+        "북반구",
+        "남반구",
+        "동반구",
+        "서반구"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "적도보다 위에 있을까, 아래에 있을까?"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "우리나라는 어느 반구에 있나요?",
+    "wrongExplanation": "우리나라는 적도보다 위쪽, 그러니까 북반구에 있어. 아시아 대륙의 동쪽에 있고, 삼면이 바다로 둘러싸인 반도 나라야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_003",
+    "sourceRef": "school-social/U3-2/japan/003",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 1,
+    "question": {
+      "passage": "일본은 우리나라의 동쪽에 있으며, 태평양에 접해 있는 섬나라입니다. 네 개의 큰 섬과 수천 개의 작은 섬으로 이루어져 있습니다.",
+      "text": "일본은 어떤 나라인가요?",
+      "ttsText": "일본은 어떤 나라인가요?"
+    },
+    "answer": {
+      "correct": "여러 섬으로 이루어진 섬나라",
+      "options": [
+        "여러 섬으로 이루어진 섬나라",
+        "바다에 접하지 않은 내륙국",
+        "두 대륙을 잇는 반도 나라",
+        "한 도시로 이루어진 나라"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "일본은 큰 섬 4개와 작은 섬 수천 개로 되어 있어"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "일본은 어떤 나라인가요?",
+    "wrongExplanation": "일본은 네 개의 큰 섬과 수천 개의 작은 섬으로 이루어진 섬나라야. 바다로 둘러싸여 있고, 우리나라 동쪽에 있어."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_004",
+    "sourceRef": "school-social/U3-2/china/004",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 2,
+    "question": {
+      "passage": "중국은 우리나라의 서쪽에 있으며, 영토가 동서로 넓게 펼쳐져 있습니다. 동쪽에서 서쪽으로 갈수록 지형이 높아집니다.",
+      "text": "중국 영토의 지형 특징은 무엇인가요?",
+      "ttsText": "중국 영토의 지형 특징은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "동쪽에서 서쪽으로 갈수록 지형이 높아진다",
+      "options": [
+        "동쪽에서 서쪽으로 갈수록 지형이 높아진다",
+        "남쪽에서 북쪽으로 갈수록 지형이 높아진다",
+        "전체가 평평한 평야이다",
+        "동쪽에서 서쪽으로 갈수록 지형이 낮아진다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "중국 서쪽에는 히말라야산맥이 있어"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.94,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "중국 영토의 지형 특징은 무엇인가요?",
+    "wrongExplanation": "중국은 동쪽은 낮고 서쪽은 높아. 서쪽으로 갈수록 산이 많아지거든. 영토가 동서로 아주 넓게 펼쳐져 있어."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_005",
+    "sourceRef": "school-social/U3-2/europe-asia/005",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 2,
+    "question": {
+      "passage": "유럽은 우랄산맥을 경계로 아시아의 서쪽에 있으며, 북쪽으로 북극해, 서쪽으로 대서양과 접해 있습니다. 유럽은 작은 대륙이지만 많은 나라가 있습니다.",
+      "text": "유럽과 아시아를 나누는 경계는 무엇인가요?",
+      "ttsText": "유럽과 아시아를 나누는 경계는 무엇인가요?"
+    },
+    "answer": {
+      "correct": "우랄산맥",
+      "options": [
+        "우랄산맥",
+        "안데스산맥",
+        "히말라야산맥",
+        "알프스산맥"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "러시아를 동서로 나누는 산맥이야"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.94,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "유럽과 아시아를 나누는 경계는 무엇인가요?",
+    "wrongExplanation": "유럽과 아시아의 경계는 우랄산맥이야. 러시아 같은 나라는 우랄산맥 서쪽은 유럽, 동쪽은 아시아에 속해."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_006",
+    "sourceRef": "school-social/U3-2/africa-border/006",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 2,
+    "question": {
+      "passage": "아프리카 여러 나라의 국경선이 반듯한 까닭은, 과거 유럽의 여러 나라가 아프리카를 식민지로 삼으면서 원래 국경을 무시하고 위도나 경도에 따라 직선을 그어 새로운 국경으로 삼았기 때문입니다.",
+      "text": "아프리카 여러 나라의 국경선이 직선인 까닭은 무엇인가요?",
+      "ttsText": "아프리카 여러 나라의 국경선이 직선인 까닭은 무엇인가요?"
+    },
+    "answer": {
+      "correct": "과거 유럽 나라들이 위도나 경도에 따라 직선으로 국경을 그었기 때문이다",
+      "options": [
+        "과거 유럽 나라들이 위도나 경도에 따라 직선으로 국경을 그었기 때문이다",
+        "산맥이나 강이 직선으로 흐르기 때문이다",
+        "나라들이 서로 합의해서 직선으로 나눴기 때문이다",
+        "땅이 평평해서 자연스럽게 직선이 된 것이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "유럽이 아프리카를 지배했던 시절과 관련이 있어"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "아프리카 여러 나라의 국경선이 직선인 까닭은 무엇인가요?",
+    "wrongExplanation": "과거에 유럽 나라들이 아프리카를 식민지로 삼으면서, 원래 있던 국경을 무시하고 위도나 경도를 따라 직선으로 국경을 그었기 때문이야."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_007",
+    "sourceRef": "school-social/U3-2/africa/007",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 2,
+    "question": {
+      "passage": "아프리카는 유럽의 남쪽에 있으며, 아시아 다음으로 넓은 대륙입니다. 북반구와 남반구에 걸쳐 있으며, 동쪽은 인도양, 서쪽은 대서양과 접해 있습니다. 아프리카에는 가장 많은 나라가 있습니다.",
+      "text": "아프리카 대륙의 특징으로 알맞은 것은?",
+      "ttsText": "아프리카 대륙의 특징으로 알맞은 것은?"
+    },
+    "answer": {
+      "correct": "세계에서 나라 수가 가장 많은 대륙이다",
+      "options": [
+        "세계에서 나라 수가 가장 많은 대륙이다",
+        "세계에서 가장 넓은 대륙이다",
+        "전체가 남반구에 있다",
+        "세계에서 가장 작은 대륙이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "아시아가 가장 넓고, 아프리카는 다른 특징으로 1등이야"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.94,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "아프리카 대륙의 특징으로 알맞은 것은?",
+    "wrongExplanation": "아프리카는 아시아 다음으로 넓은 대륙이야. 그리고 세계에서 나라 수가 가장 많아. 북반구와 남반구에 걸쳐 있고."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_008",
+    "sourceRef": "school-social/U3-2/enclave/008",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 3,
+    "question": {
+      "passage": "세계 여러 나라 중에는 한 나라 안에 섬처럼 자리 잡은 나라들이 있습니다. 유럽에 있는 산마리노와 바티칸 시국, 아프리카에 있는 레소토는 다른 나라의 영토에 둘러싸여 있습니다.",
+      "text": "다른 나라 영토 안에 둘러싸여 있는 나라가 아닌 것은?",
+      "ttsText": "다른 나라 영토 안에 둘러싸여 있는 나라가 아닌 것은?"
+    },
+    "answer": {
+      "correct": "영국",
+      "options": [
+        "산마리노",
+        "바티칸 시국",
+        "레소토",
+        "영국"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "영국은 섬나라야. 나머지 세 나라는 다른 나라 안에 있어"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다른 나라 영토 안에 둘러싸여 있는 나라가 아닌 것은?",
+    "wrongExplanation": "산마리노, 바티칸 시국, 레소토는 다른 나라 영토에 완전히 둘러싸여 있어. 영국은 유럽 서쪽에 있는 섬나라라서 바다로 둘러싸여 있지."
+  },
+  {
+    "cardId": "crd_2026W14_soc_u32_009",
+    "sourceRef": "school-social/U3-2/americas/009",
+    "runId": "2026-W14",
+    "sourceId": "school-social",
+    "sourceUnit": "U3-2",
+    "type": "comprehension",
+    "subject": "school-social",
+    "difficulty": 3,
+    "question": {
+      "passage": "남아메리카는 대부분 남반구에 속해 있습니다. 남아메리카에는 세계에서 가장 긴 산맥인 안데스산맥이 있습니다. 파나마는 북아메리카와 남아메리카를 잇는 지협에 있는 나라입니다.",
+      "text": "세계에서 가장 긴 산맥이 있는 대륙은 어디인가요?",
+      "ttsText": "세계에서 가장 긴 산맥이 있는 대륙은 어디인가요?"
+    },
+    "answer": {
+      "correct": "남아메리카",
+      "options": [
+        "남아메리카",
+        "아시아",
+        "아프리카",
+        "유럽"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "안데스산맥이 있는 대륙이야"
+    },
+    "skillTags": [
+      "fact",
+      "world-geography"
+    ],
+    "questionType": "mcq",
+    "anchorType": "school-social",
+    "confidence": 0.93,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "세계에서 가장 긴 산맥이 있는 대륙은 어디인가요?",
+    "wrongExplanation": "세계에서 가장 긴 산맥은 안데스산맥이고, 남아메리카에 있어. 남아메리카는 대부분 남반구에 있는 대륙이야."
   }
 ]
