@@ -677,7 +677,7 @@
     <button class="resume-close" onclick="dismissPendingSession()">✕</button>
   </div>
   <div id="subject-tiles" class="subject-tiles"></div>
-  <button class="btn-mixed-session" onclick="startSubjectSession('mixed')">🔄 전체 복습 · 25장<span class="mixed-sub">여러 과목 섞어서</span></button>
+  <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
   <div id="legacy-home" style="display:none;">
     <div class="greeting" id="greeting-text">로딩 중...</div>
     <div class="today-info">
@@ -1224,6 +1224,9 @@ function renderSubjectTileHome() {
   document.getElementById('legacy-home').style.display = 'none';
   document.getElementById('subject-tiles').style.display = '';
   document.querySelector('.btn-mixed-session').style.display = '';
+  // [v5.20] mixed 버튼 카드 수 동적 표시
+  var mixedCountEl = document.getElementById('mixed-card-count');
+  if (mixedCountEl) { mixedCountEl.textContent = getMixedSessionCardCount(); }
   var progress = APP.progress || loadAppProgress();
   var streakEl = document.getElementById('streak-home');
   if (progress.stats.streak > 0) {
@@ -2027,15 +2030,27 @@ function tagRoles(cards) {
 }
 
 // ----- 기존 방식 (레거시 셔플) -----
+// [v5.20] 전체복습 카드 수 계산 (설정 UI 입력값 우선)
+function getMixedSessionCardCount() {
+  var s = getSettings();
+  return s.cardCount || (APP.config && APP.config.modeA && APP.config.modeA.cardCount ? APP.config.modeA.cardCount.default : 30);
+}
+
 function buildSessionLegacy() {
   var s = getSettings();
-  // [v4.10 T3] 기본 25장, 확장 조건 충족 시 30장
-  var totalCards = getExtendedMode()
-    ? (APP.config && APP.config.extendedCards || 30)
-    : (APP.config && APP.config.cardsPerSession || s.cardCount || 25);
+  // [v5.20] 설정 UI 입력값(s.cardCount) 우선. config.cardsPerSession은 폴백.
+  var totalCards = getMixedSessionCardCount();
   var stLesson = selectSpeechTherapyLesson();
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
-  var contentSlots = totalCards - stCards.length;
+  // [v5.20] LR 카드를 totalCards 예산 안에 포함
+  var lrCards = [];
+  var lrCount = 0;
+  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
+    lrCount = APP.config.listenRepeat.cardsPerSession || 4;
+    var lrLevel = APP.config.listenRepeat.currentLevel || 2;
+    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+  }
+  var contentSlots = totalCards - stCards.length - lrCards.length;
 
   // 과목별 비율 (config 기반) // [v4.10] Mode A/B deprecated — modeA 참조는 하위호환용 유지
   var mix = (APP.config && APP.config.modeA && APP.config.modeA.subjectMix) || {};
@@ -2059,14 +2074,6 @@ function buildSessionLegacy() {
   var compCards = selectCardsForSubject(APP.comprehensionCards.filter(validFilter), compSlots2);
   var ssCards = selectCardsForSubject(APP.socialStudiesCards.filter(validFilter), ssSlots2);
   var stqCards = selectCardsForSubject(stQuizCards.filter(validFilter), stQuizSlots);
-
-  // v4.6: listen-repeat 카드 선출
-  var lrCards = [];
-  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
-    var lrCount = APP.config.listenRepeat.cardsPerSession || 4;
-    var lrLevel = APP.config.listenRepeat.currentLevel || 2;
-    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
-  }
 
   // [v4.10] 블록 순서 v3: 영어→독해→말하기퀴즈→사회→LR→따라읽기
   // [v4.10 T15] 각 블록 내 난이도 정렬 (Lv1→Lv2→Lv3). LR/따라읽기는 자체 순서 유지.
@@ -2097,13 +2104,19 @@ function buildSessionLegacy() {
 // ----- 앵커 기반 방식 (섀도/실전) -----
 function buildSessionAnchored() {
   var s = getSettings();
-  // [v4.10 T3] 기본 25장, 확장 조건 충족 시 30장
-  var totalCards = getExtendedMode()
-    ? (APP.config && APP.config.extendedCards || 30)
-    : (APP.config && APP.config.cardsPerSession || s.cardCount || 25);
+  // [v5.20] 설정 UI 입력값(s.cardCount) 우선.
+  var totalCards = getMixedSessionCardCount();
   var stLesson = selectSpeechTherapyLesson();
   var stCards = stLesson ? stLesson.cards.slice(0, 10) : [];
-  var contentSlots = totalCards - stCards.length;
+
+  // [v5.20] LR 카드를 totalCards 예산 안에 포함
+  var lrCards = [];
+  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
+    var lrCount = APP.config.listenRepeat.cardsPerSession || 4;
+    var lrLevel = APP.config.listenRepeat.currentLevel || 2;
+    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+  }
+  var contentSlots = totalCards - stCards.length - lrCards.length;
 
   var cfg = APP.config && APP.config.anchorConfig;
   var allocation = (cfg && cfg.anchorAllocation) || { anchor: 0.6, review: 0.3, extension: 0.1 };
@@ -2158,14 +2171,6 @@ function buildSessionAnchored() {
     selected.push.apply(selected, shuffleArray(extras).slice(0, contentSlots - selected.length));
   }
   selected = selected.slice(0, contentSlots);
-
-  // v4.6: listen-repeat 카드 선출
-  var lrCards = [];
-  if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
-    var lrCount = APP.config.listenRepeat.cardsPerSession || 4;
-    var lrLevel = APP.config.listenRepeat.currentLevel || 2;
-    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
-  }
 
   // [v5.14] 블록 순서: 영어→독해→말하기퀴즈→사회→과학→LR→따라읽기
   var engBlock = [], compBlock = [], stqBlock = [], ssBlock = [], sciBlock = [];
