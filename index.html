@@ -1671,6 +1671,7 @@ function startSubjectSession(subject) {
   }
 
   dismissAndSavePendingPartial();
+  resetSessionState();  // [v5.25]
 
   APP.session = {
     cards: result.cards,
@@ -1973,6 +1974,7 @@ function startLRSubjectSession() {
     return;
   }
   dismissAndSavePendingPartial();
+  resetSessionState();  // [v5.25]
   APP.session = {
     cards: lrCards,
     currentIndex: 0,
@@ -2030,6 +2032,7 @@ function startReadAloudSubjectSession() {
   });
 
   dismissAndSavePendingPartial();
+  resetSessionState();  // [v5.25]
   APP.session = {
     cards: raCards,
     currentIndex: 0,
@@ -2102,6 +2105,7 @@ function startSpeakingPracticeSession() {
   }
 
   dismissAndSavePendingPartial();
+  resetSessionState();  // [v5.25]
   APP.session = {
     cards: allCards,
     currentIndex: 0,
@@ -2165,6 +2169,7 @@ function resumePendingSession() {
     }
 
     // 세션 복구
+    resetSessionState();  // [v5.25]
     APP.session = {
       cards: pending.cards,
       currentIndex: pending.currentIndex,
@@ -2822,6 +2827,57 @@ function selectListenRepeatCards(allCards, currentLevel, count) {
 // 세션 시작
 // ===================================================================
 
+// [v5.25] 세션 간 상태 초기화 — 두 번째 세션부터 endSession 안 되는 버그 등 방지
+function resetSessionState() {
+  // endSession 중복호출 방지 플래그 리셋
+  APP._endSessionCalled = false;
+  // TTS 재생 중 플래그 리셋 (이전 세션에서 TTS 중단 시 stuck 방지)
+  APP.ttsPlaying = false;
+
+  // STT 글로벌 상태 리셋
+  if (sttRecognition && sttActive) {
+    try { sttRecognition.stop(); } catch(e) {}
+  }
+  sttResult = '';
+  sttConfidence = 0;
+  sttActive = false;
+  sttRecognition = null;
+
+  // LR 상태 정리
+  if (lrState.sttTimeout) { clearTimeout(lrState.sttTimeout); lrState.sttTimeout = null; }
+  if (lrState.mediaRecorder && lrState.mediaRecorder.state === 'recording') {
+    try { lrState.mediaRecorder.stop(); } catch(e) {}
+  }
+  lrState.cards = [];
+  lrState.currentIndex = 0;
+  lrState.currentStage = 1;
+  lrState.results = [];
+  lrState.sessionStartIndex = 0;
+  lrState.mediaRecorder = null;
+  lrState.recordingChunks = [];
+  lrState.isRecording = false;
+  lrState.sttAutoCompleted = false;
+
+  // RA 상태 정리
+  if (raState.recordingTimer) { clearInterval(raState.recordingTimer); raState.recordingTimer = null; }
+  if (raState.mediaRecorder && raState.mediaRecorder.state === 'recording') {
+    try { raState.mediaRecorder.stop(); } catch(e) {}
+  }
+  raState.cards = [];
+  raState.sessionStartIndex = 0;
+  raState.currentIndex = 0;
+  raState.isRecording = false;
+  raState.mediaRecorder = null;
+  raState.recordingChunks = [];
+  raState.recordingSeconds = 0;
+  raState.results = [];
+  // [v5.25] chunk 관련 동적 속성 리셋
+  raState._allRaCards = null;
+  raState._chunks = null;
+  raState._currentChunkIdx = null;
+  raState._lessonId = null;
+}
+
 function startSession() {
   const cards = buildSession();
 
@@ -2830,6 +2886,7 @@ function startSession() {
     return;
   }
 
+  resetSessionState();  // [v5.25]
   APP.session = {
     cards,
     currentIndex: 0,
@@ -4609,6 +4666,7 @@ function renderListenRepeatBlock() {
 async function lrStartItem(index) {
   lrState.currentIndex = index;
   lrState.currentStage = 1;
+  lrState._processing = false;  // [v5.25] 이중호출 방지 리셋
 
   updateLrUI();
 
@@ -4793,12 +4851,20 @@ async function lrToggleRecording() {
 
 // 시도 판정
 async function lrProcessAttempt() {
+  // [v5.25] 이중 호출 방지 (lrAutoComplete + 수동정지 동시 발생 시)
+  if (lrState._processing) return;
+  lrState._processing = true;
+
+  // 세션 리셋 후 콜백이 도착한 경우 안전하게 탈출
+  if (!lrState.cards || lrState.cards.length === 0) { lrState._processing = false; return; }
+
   var card = lrState.cards[lrState.currentIndex];
   var feedbackEl = document.getElementById('lr-feedback');
   var threshold = (APP.config && APP.config.listenRepeat) ? APP.config.listenRepeat.matchThreshold : 0.7;
 
   // 3단계면 판정 없이 통과 (B-4)
   if (lrState.currentStage === 3) {
+    lrState._processing = false;
     lrOnStage3RecordingDone();
     return;
   }
@@ -4845,6 +4911,7 @@ async function lrProcessAttempt() {
       if (feedbackEl) feedbackEl.textContent = '두 번째에 해냈어! 💪';
     }
 
+    lrState._processing = false;  // [v5.25] 성공 처리 완료, 다음 시도 허용
     setTimeout(function() {
       if (feedbackEl) feedbackEl.textContent = '';
       lrAdvance();
@@ -4861,6 +4928,7 @@ async function lrProcessAttempt() {
     await lrPlayTTSForStage(2);
 
     if (btnSpeak) btnSpeak.disabled = false;
+    lrState._processing = false;  // [v5.25] Stage 전환 완료, 다음 시도 허용
     setTimeout(function() { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
 
   } else if (lrState.currentStage === 2) {
@@ -4888,6 +4956,7 @@ async function lrProcessAttempt() {
     await lrPlayTTSForStage(3);
 
     if (btnSpeak2) btnSpeak2.disabled = false;
+    lrState._processing = false;  // [v5.25] Stage 전환 완료, 다음 시도 허용
   }
 }
 
@@ -4909,14 +4978,16 @@ function lrAdvance() {
   var baseIndex = lrState.sessionStartIndex;
   var completedInBlock = lrState.currentIndex + 1;
   var effectiveIndex = baseIndex + completedInBlock;
-  document.getElementById('progress-fill').style.width = ((effectiveIndex / totalCards) * 100) + '%';
-  document.getElementById('progress-text').textContent = effectiveIndex + '/' + totalCards;
+  var pf = document.getElementById('progress-fill');
+  var pt = document.getElementById('progress-text');
+  if (pf) pf.style.width = ((effectiveIndex / totalCards) * 100) + '%';
+  if (pt) pt.textContent = effectiveIndex + '/' + totalCards;
 
   if (lrState.currentIndex < lrState.cards.length - 1) {
     lrStartItem(lrState.currentIndex + 1);
   } else {
     // 블록 완료
-    adjustLrLevel();
+    try { adjustLrLevel(); } catch(e) { console.error('[LR] adjustLrLevel error:', e); }
 
     // 세션 인덱스를 LR 블록 끝으로 이동
     APP.session.currentIndex = lrState.sessionStartIndex + lrState.cards.length;
@@ -5488,16 +5559,20 @@ function raAdvance() {
   var baseIndex = raState.sessionStartIndex;
   var completedInBlock = raState.currentIndex + 1;
   var effectiveIndex = baseIndex + completedInBlock;
-  document.getElementById('progress-fill').style.width = ((effectiveIndex / totalCards) * 100) + '%';
-  document.getElementById('progress-text').textContent = effectiveIndex + '/' + totalCards;
+  var pf = document.getElementById('progress-fill');
+  var pt = document.getElementById('progress-text');
+  if (pf) pf.style.width = ((effectiveIndex / totalCards) * 100) + '%';
+  if (pt) pt.textContent = effectiveIndex + '/' + totalCards;
 
   if (raState.currentIndex < raState.cards.length - 1) {
     raStartLine(raState.currentIndex + 1);
   } else {
     // [v4.10 T16] chunk 완료 → 진행률 저장
-    if (raState._lessonId && raState._chunks) {
-      completeChunk(raState._lessonId, raState._currentChunkIdx, raState._chunks.length);
-    }
+    try {
+      if (raState._lessonId && raState._chunks) {
+        completeChunk(raState._lessonId, raState._currentChunkIdx, raState._chunks.length);
+      }
+    } catch(e) { console.error('[RA] completeChunk error:', e); }
     // 블록 완료 → 세션 인덱스 이동 (전체 RA 카드 길이만큼)
     APP.session.currentIndex = raState.sessionStartIndex + (raState._allRaCards || raState.cards).length;
     renderCard();
