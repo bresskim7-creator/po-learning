@@ -660,14 +660,65 @@
     .flip-buttons { display: flex; gap: 12px; margin-top: 16px; }
     .btn-flip-know { background: #4CAF50; color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
     .btn-flip-dont { background: #FF7043; color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
+
+    /* ===== 설정 PIN 잠금 팝업 ===== */
+    .pin-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); z-index: 9999;
+      justify-content: center; align-items: center;
+    }
+    .pin-overlay.active { display: flex; }
+    .pin-dialog {
+      background: white; border-radius: 20px; padding: 32px 28px; width: 280px;
+      text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .pin-dialog h3 { font-size: 18px; margin-bottom: 8px; color: #333; }
+    .pin-dialog .pin-subtitle { font-size: 13px; color: #888; margin-bottom: 20px; }
+    .pin-input {
+      width: 160px; text-align: center; font-size: 28px; letter-spacing: 12px;
+      border: 2px solid #ddd; border-radius: 12px; padding: 12px 16px;
+      -webkit-text-security: disc; outline: none; transition: border-color 0.2s;
+    }
+    .pin-input:focus { border-color: #4A90D9; }
+    .pin-input.shake {
+      animation: pinShake 0.4s ease-in-out;
+      border-color: #e74c3c;
+    }
+    @keyframes pinShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .pin-error { font-size: 13px; color: #e74c3c; margin-top: 8px; min-height: 20px; }
+    .pin-buttons { display: flex; gap: 10px; margin-top: 16px; justify-content: center; }
+    .pin-btn {
+      border: none; border-radius: 10px; padding: 10px 24px; font-size: 15px;
+      font-weight: 600; cursor: pointer;
+    }
+    .pin-btn-confirm { background: #4A90D9; color: white; }
+    .pin-btn-cancel { background: #f0f0f0; color: #666; }
   </style>
 </head>
 <body>
 
+<!-- ===== 설정 PIN 잠금 팝업 ===== -->
+<div id="pin-overlay" class="pin-overlay">
+  <div class="pin-dialog">
+    <h3>설정 잠금</h3>
+    <p class="pin-subtitle">PIN을 입력하세요</p>
+    <input type="tel" id="pin-input" class="pin-input" maxlength="4" inputmode="numeric" autocomplete="off">
+    <div id="pin-error" class="pin-error"></div>
+    <div class="pin-buttons">
+      <button type="button" class="pin-btn pin-btn-cancel" onclick="closePinDialog()">취소</button>
+      <button type="button" class="pin-btn pin-btn-confirm" onclick="verifySettingsPin()">확인</button>
+    </div>
+  </div>
+</div>
+
 <!-- ===== 홈 화면 ===== -->
 <div id="page-home" class="page active">
   <div class="header" style="position:absolute;top:16px;right:16px;">
-    <button class="btn-settings" onclick="showPage('page-settings')">&#9881;</button>
+    <button class="btn-settings" onclick="openPinDialog()">&#9881;</button>
   </div>
   <h1>PO 학습</h1>
   <div class="streak-home" id="streak-home"></div>
@@ -834,6 +885,20 @@
       <button type="button" class="btn-anchor-carry" onclick="carryForwardAnchors()">지난주와 동일</button>
       <button type="button" class="btn-anchor-save" onclick="saveAnchors()">앵커 저장</button>
     </div>
+  </div>
+
+  <div class="settings-group">
+    <h3>설정 잠금 PIN</h3>
+    <div class="setting-row">
+      <span class="setting-label">현재 PIN</span>
+      <input type="tel" class="setting-input" id="set-current-pin" placeholder="현재 PIN" maxlength="4" inputmode="numeric" autocomplete="off" style="-webkit-text-security:disc;">
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">새 PIN</span>
+      <input type="tel" class="setting-input" id="set-new-pin" placeholder="새 PIN (4자리)" maxlength="4" inputmode="numeric" autocomplete="off" style="-webkit-text-security:disc;">
+    </div>
+    <button type="button" style="background:#FF9800;color:white;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;width:100%;margin-top:8px;" onclick="changeSettingsPin()">PIN 변경</button>
+    <div id="pin-change-msg" style="font-size:13px;margin-top:8px;min-height:20px;text-align:center;"></div>
   </div>
 
   <button type="button" class="btn-start" style="background:#4A90D9;color:white;width:100%;margin-top:8px;" onclick="saveSettings()">저장</button>
@@ -1053,6 +1118,92 @@ async function init() {
   retryPendingRecordings();  // v4.3: 대기 중인 녹음 재전송
 }
 
+// ===================================================================
+// 설정 PIN 잠금
+// ===================================================================
+var SETTINGS_PIN_KEY = 'po_settings_pin';
+var SETTINGS_PIN_DEFAULT = '1234';
+
+function getSettingsPin() {
+  return localStorage.getItem(SETTINGS_PIN_KEY) || SETTINGS_PIN_DEFAULT;
+}
+
+function openPinDialog() {
+  var overlay = document.getElementById('pin-overlay');
+  var input = document.getElementById('pin-input');
+  var error = document.getElementById('pin-error');
+  input.value = '';
+  error.textContent = '';
+  input.classList.remove('shake');
+  overlay.classList.add('active');
+  setTimeout(function() { input.focus(); }, 100);
+}
+
+function closePinDialog() {
+  var overlay = document.getElementById('pin-overlay');
+  overlay.classList.remove('active');
+  document.getElementById('pin-input').value = '';
+  document.getElementById('pin-error').textContent = '';
+}
+
+function verifySettingsPin() {
+  var input = document.getElementById('pin-input');
+  var error = document.getElementById('pin-error');
+  var entered = input.value.trim();
+
+  if (entered === getSettingsPin()) {
+    closePinDialog();
+    loadSettingsUI();
+    showPage('page-settings');
+  } else {
+    error.textContent = 'PIN이 틀렸습니다';
+    input.classList.add('shake');
+    setTimeout(function() { input.classList.remove('shake'); }, 400);
+    input.value = '';
+    input.focus();
+  }
+}
+
+function changeSettingsPin() {
+  var msgEl = document.getElementById('pin-change-msg');
+  var currentInput = document.getElementById('set-current-pin');
+  var newInput = document.getElementById('set-new-pin');
+  var currentVal = currentInput.value.trim();
+  var newVal = newInput.value.trim();
+
+  msgEl.style.color = '#e74c3c';
+
+  if (currentVal !== getSettingsPin()) {
+    msgEl.textContent = '현재 PIN이 틀렸습니다';
+    return;
+  }
+  if (!/^\d{4}$/.test(newVal)) {
+    msgEl.textContent = '새 PIN은 숫자 4자리여야 합니다';
+    return;
+  }
+  if (currentVal === newVal) {
+    msgEl.textContent = '현재 PIN과 동일합니다';
+    return;
+  }
+
+  localStorage.setItem(SETTINGS_PIN_KEY, newVal);
+  currentInput.value = '';
+  newInput.value = '';
+  msgEl.style.color = '#4CAF50';
+  msgEl.textContent = 'PIN이 변경되었습니다';
+  setTimeout(function() { msgEl.textContent = ''; }, 3000);
+}
+
+// PIN 입력창에서 Enter 키 처리
+document.addEventListener('DOMContentLoaded', function() {
+  var pinInput = document.getElementById('pin-input');
+  if (pinInput) {
+    pinInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); verifySettingsPin(); }
+    });
+  }
+});
+
 function loadSettingsUI() {
   const s = getSettings();
   document.getElementById('set-server-url').value = s.serverUrl;
@@ -1062,6 +1213,10 @@ function loadSettingsUI() {
   document.getElementById('set-card-count').value = s.cardCount;
   document.getElementById('set-mode-override').value = s.modeOverride;
   document.getElementById('set-sheets-url').value = s.sheetsUrl;
+  // PIN 변경 필드 초기화
+  document.getElementById('set-current-pin').value = '';
+  document.getElementById('set-new-pin').value = '';
+  document.getElementById('pin-change-msg').textContent = '';
 }
 
 function saveSettings() {
