@@ -1108,6 +1108,8 @@ function showPage(pageId) {
 
 async function init() {
   loadSettingsUI();
+  await downloadSettingsFromCloud();  // [v5.24] 클라우드 설정 먼저 다운로드
+  loadSettingsUI();  // [v5.24] 다운로드 후 UI 갱신
   await loadContentFiles();
   loadLrConfig();  // v4.6: listen-repeat 레벨 로드
   loadReviewQueue();
@@ -1230,8 +1232,94 @@ function saveSettings() {
     sheetsUrl: document.getElementById('set-sheets-url').value.trim(),
   };
   localStorage.setItem('po_v4_settings', JSON.stringify(settings));
+  // [v5.24] 설정 저장 후 클라우드 동기화 업로드
+  uploadSettingsToCloud(settings);
   showPage('page-home');
   updateHomeScreen();
+}
+
+// ===================================================================
+// [v5.24] 설정 클라우드 동기화
+// - 동기화 대상: voiceKo, voiceEn, cardCount, sheetsUrl, 앵커 설정
+// - 동기화 제외: serverUrl, pin (API 인증), 설정 잠금 PIN
+// ===================================================================
+
+function getSyncableSettings(settings) {
+  return {
+    voiceKo: settings.voiceKo || '',
+    voiceEn: settings.voiceEn || '',
+    cardCount: settings.cardCount || 30,
+    sheetsUrl: settings.sheetsUrl || '',
+    anchors: getAnchorData()
+  };
+}
+
+function uploadSettingsToCloud(settings) {
+  var sheetsUrl = settings.sheetsUrl || '';
+  if (!sheetsUrl) return;
+  var syncData = getSyncableSettings(settings);
+  try {
+    fetch(sheetsUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ type: 'settings_sync', settings: syncData })
+    }).then(function() {
+      console.log('[v5.24] Settings synced to cloud');
+    }).catch(function(err) {
+      console.warn('[v5.24] Settings sync upload failed:', err.message);
+    });
+  } catch(e) {
+    console.warn('[v5.24] Settings sync error:', e.message);
+  }
+}
+
+async function downloadSettingsFromCloud() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  try {
+    var url = s.sheetsUrl + '?action=get_settings';
+    var resp = await fetch(url);
+    var result = await resp.json();
+    if (result.status !== 'ok' || !result.settings) return;
+
+    var cloud = result.settings;
+    var changed = false;
+
+    // 동기화 대상만 덮어쓰기 (serverUrl, pin은 건드리지 않음)
+    if (cloud.voiceKo && cloud.voiceKo !== s.voiceKo) { s.voiceKo = cloud.voiceKo; changed = true; }
+    if (cloud.voiceEn && cloud.voiceEn !== s.voiceEn) { s.voiceEn = cloud.voiceEn; changed = true; }
+    if (cloud.cardCount && cloud.cardCount !== s.cardCount) { s.cardCount = cloud.cardCount; changed = true; }
+    // sheetsUrl은 이미 설정되어 있으므로 덮어쓰지 않음 (순환 방지)
+
+    if (changed) {
+      localStorage.setItem('po_v4_settings', JSON.stringify(s));
+      console.log('[v5.24] Settings downloaded from cloud');
+    }
+
+    // 앵커 동기화: 클라우드가 더 최신이면 덮어쓰기
+    if (cloud.anchors && cloud.anchors.weekOf) {
+      var local = getAnchorData();
+      var cloudTime = cloud.anchors.anchors ? getLatestAnchorTime(cloud.anchors) : '';
+      var localTime = local.anchors ? getLatestAnchorTime(local) : '';
+      if (cloudTime > localTime) {
+        saveAnchorData(cloud.anchors);
+        console.log('[v5.24] Anchors downloaded from cloud (cloud newer)');
+      }
+    }
+  } catch(e) {
+    console.warn('[v5.24] Settings download failed:', e.message);
+  }
+}
+
+function getLatestAnchorTime(anchorData) {
+  var latest = '';
+  var anchors = anchorData.anchors || {};
+  for (var key in anchors) {
+    if (anchors[key] && anchors[key].updatedAt && anchors[key].updatedAt > latest) {
+      latest = anchors[key].updatedAt;
+    }
+  }
+  return latest;
 }
 
 // ===================================================================
@@ -1621,6 +1709,23 @@ function buildSubjectSession(subject) {
   var filtered = pool.filter(function(c) { return !recentIds.has(getCardId(c)); });
   if (filtered.length < 5) filtered = pool;
 
+  // [v5.24] 단원 필터링: 선택 단원 카드 우선, 부족하면 나머지로 채움
+  var unitResult = filterBySelectedUnit(filtered, subject);
+  if (unitResult.unitCode) {
+    var unitCards = unitResult.prioritized;
+    var otherCards = unitResult.rest;
+    if (unitCards.length >= targetCount) {
+      // 선택 단원 카드가 충분 → 해당 단원만
+      filtered = shuffleArray(unitCards);
+      console.log('[v5.24] Unit filter: ' + unitResult.unitCode + ', ' + unitCards.length + ' cards (enough)');
+    } else if (unitCards.length > 0) {
+      // 선택 단원 카드가 부족 → 단원 카드 전부 + 나머지로 채움
+      filtered = unitCards.concat(shuffleArray(otherCards).slice(0, targetCount - unitCards.length));
+      console.log('[v5.24] Unit filter: ' + unitResult.unitCode + ', ' + unitCards.length + ' + ' + (filtered.length - unitCards.length) + ' fill');
+    }
+    // unitCards.length === 0 → 필터 무시, 전체 사용
+  }
+
   // 영어: vocab_flip Phase 세션
   if (subject === 'english') {
     return buildEnglishPhaseSession(filtered, targetCount);
@@ -1659,6 +1764,61 @@ function getApprovedCards(subject) {
     var status = c.reviewStatus || c.status || '';
     return status !== 'blocked';
   });
+}
+
+// ===================================================================
+// [v5.24] 단원 필터링 — 앵커 설정 단원 → 카드 sourceUnit 매핑
+// ===================================================================
+function getSubjectAnchorId(subject) {
+  var map = {
+    'english': 'school-english',
+    'social_studies': 'school-social',
+    'science': 'school-science',
+    'comprehension': 'reading-class'
+  };
+  return map[subject] || null;
+}
+
+function extractUnitCode(dropdownValue, subject) {
+  if (!dropdownValue) return null;
+  var val = dropdownValue.trim();
+  if (subject === 'english') {
+    // "1단원" → "1단원" (직접 매칭)
+    return val;
+  }
+  if (subject === 'social_studies') {
+    // "1-1 평화 통일을 위한 노력" → "U1-1"
+    var m = val.match(/^(\d+-\d+)/);
+    return m ? 'U' + m[1] : null;
+  }
+  if (subject === 'science') {
+    // "U1 산과 염기" → "U1"
+    var m2 = val.match(/^(U\d+)/);
+    return m2 ? m2[1] : null;
+  }
+  return null;
+}
+
+function getSelectedUnitCode(subject) {
+  var anchorId = getSubjectAnchorId(subject);
+  if (!anchorId) return null;
+  var data = getAnchorData();
+  if (!data.anchors || !data.anchors[anchorId]) return null;
+  var entry = data.anchors[anchorId];
+  var dropdownVal = entry.unit || entry.chapter || entry.text || null;
+  return extractUnitCode(dropdownVal, subject);
+}
+
+function filterBySelectedUnit(cards, subject) {
+  var unitCode = getSelectedUnitCode(subject);
+  if (!unitCode) return { prioritized: cards, unitCode: null };
+  var matched = cards.filter(function(c) {
+    return (c.sourceUnit || '') === unitCode;
+  });
+  var rest = cards.filter(function(c) {
+    return (c.sourceUnit || '') !== unitCode;
+  });
+  return { prioritized: matched, rest: rest, unitCode: unitCode };
 }
 
 function getRecentSessionCardIds(subject, hours) {
@@ -2301,6 +2461,21 @@ function buildSessionAnchored() {
     return c.anchorWeek === currentWeek;
   });
 
+  // [v5.24] 앵커 카드 내에서 설정 단원 우선 정렬
+  var unitCodes = {};
+  ['english', 'social_studies', 'science', 'comprehension'].forEach(function(subj) {
+    var code = getSelectedUnitCode(subj);
+    if (code) unitCodes[subj] = code;
+  });
+  if (Object.keys(unitCodes).length > 0) {
+    anchorCards.sort(function(a, b) {
+      var aMatch = unitCodes[a.subject] && a.sourceUnit === unitCodes[a.subject] ? 0 : 1;
+      var bMatch = unitCodes[b.subject] && b.sourceUnit === unitCodes[b.subject] ? 0 : 1;
+      return aMatch - bMatch;
+    });
+    console.log('[v5.24] Anchored unit priority:', JSON.stringify(unitCodes));
+  }
+
   // 2) 복습: 이전 주차 카드 중 복습 시점 도래 또는 틀린 카드
   var reviewCards = allContent.filter(function(c) {
     if (c.anchorWeek === currentWeek) return false;
@@ -2314,7 +2489,8 @@ function buildSessionAnchored() {
   });
 
   var selected = [];
-  selected.push.apply(selected, shuffleArray(anchorCards).slice(0, anchorSlots));
+  // [v5.24] 앵커 카드는 단원 우선 정렬 상태이므로 slice만 (shuffle 제거)
+  selected.push.apply(selected, anchorCards.slice(0, anchorSlots));
   selected.push.apply(selected, shuffleArray(reviewCards).slice(0, reviewSlots));
   selected.push.apply(selected, shuffleArray(extensionCards).slice(0, extensionSlots));
 
@@ -6400,6 +6576,8 @@ function saveAnchors() {
 
   saveAnchorData(data);
   initAnchorUI(); // 경고 갱신
+  // [v5.24] 앵커 저장 후 클라우드 동기화
+  uploadSettingsToCloud(getSettings());
 }
 
 function carryForwardAnchors() {
@@ -6428,6 +6606,8 @@ function carryForwardAnchors() {
 
   saveAnchorData(data);
   initAnchorUI();
+  // [v5.24] 앵커 이월 후 클라우드 동기화
+  uploadSettingsToCloud(getSettings());
 }
 
 // ===================================================================
