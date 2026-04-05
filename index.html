@@ -2751,6 +2751,10 @@ function renderCard() {
       card._shuffledOptions = mcOptSource;
       card._multiSelected = [];
       var reqCount = card.answer.requiredCount || 2;
+      html += '<div id="multi-select-guide" style="text-align:center; margin-bottom:8px; font-size:14px; color:#4A90D9; font-weight:600;">'
+        + '👆 ' + reqCount + '개를 골라봐! '
+        + '<span id="multi-select-count" style="color:#888;">(0/' + reqCount + ')</span>'
+        + '</div>';
       html += '<div class="choices" id="multi-choices">';
       mcOptSource.forEach(function(opt, i) {
         html += '<button class="choice-btn" onclick="selectMultiAnswer(' + i + ')">' + escapeHtml(opt) + '</button>';
@@ -3022,12 +3026,17 @@ function renderCardReview(card, idx, total) {
     if (card.pos) html += '<div style="font-size:13px; color:#888;">' + escapeHtml(card.pos) + '</div>';
     html += '</div>';
   } else {
-    // MCQ / binary / sequence
-    if (card.question) html += '<div class="question-area">' + escapeHtml(card.question) + '</div>';
+    // MCQ / binary / sequence / multi_choice
+    if (card.question) {
+      var qText = typeof card.question === 'object' ? card.question.text : card.question;
+      html += '<div class="question-area">' + escapeHtml(qText) + '</div>';
+    }
     if (card.displayWord) html += '<div class="display-word">' + escapeHtml(card.displayWord) + '</div>';
     if (card.answer && card.answer.correct) {
+      var reviewCorrect = Array.isArray(card.answer.correct)
+        ? card.answer.correct.join(', ') : card.answer.correct;
       html += '<div style="text-align:center; margin-top:8px;">';
-      html += '<span style="background:#E8F8E8; color:#27AE60; padding:8px 16px; border-radius:8px; font-weight:600; font-size:15px;">정답: ' + escapeHtml(card.answer.correct) + '</span>';
+      html += '<span style="background:#E8F8E8; color:#27AE60; padding:8px 16px; border-radius:8px; font-weight:600; font-size:15px;">정답: ' + escapeHtml(reviewCorrect) + '</span>';
       html += '</div>';
     }
     if (card._correct === false) {
@@ -3153,6 +3162,7 @@ function submitSequence() {
 
   if (isCorrect) {
     setTimeout(function() {
+      savePendingSession();
       APP.session.currentIndex++;
       renderCard();
     }, 1000);
@@ -3237,6 +3247,17 @@ function selectAnswer(selectedIdx) {
   }
 }
 
+// [v5.22] 다중선택 카운트 업데이트
+function updateMultiSelectCount(current, required) {
+  var el = document.getElementById('multi-select-count');
+  if (!el) return;
+  el.textContent = '(' + current + '/' + required + ')';
+  if (current > 0 && current < required) {
+    el.style.color = '#4A90D9';
+    el.style.fontWeight = '600';
+  }
+}
+
 // [v5.18] 다중선택 정답 처리 (시각주의력 8-3 등)
 function selectMultiAnswer(selectedIdx) {
   var card = APP.session.cards[APP.session.currentIndex];
@@ -3253,12 +3274,14 @@ function selectMultiAnswer(selectedIdx) {
     // 선택 해제
     card._multiSelected.splice(alreadyIdx, 1);
     if (btn) btn.classList.remove('multi-selected');
+    updateMultiSelectCount(card._multiSelected.length, reqCount);
     return;
   }
 
   // 새 선택 추가
   card._multiSelected.push(selectedIdx);
   if (btn) btn.classList.add('multi-selected');
+  updateMultiSelectCount(card._multiSelected.length, reqCount);
 
   // 아직 필요한 개수 안 됨 → 대기
   if (card._multiSelected.length < reqCount) return;
@@ -3353,7 +3376,7 @@ function advanceHelpStair() {
       var mcCorrectArr = card.answer.correct;
       var mcDimmed = 0;
       mcButtons.forEach(function(btn) {
-        if (mcCorrectArr.indexOf(btn.textContent) < 0 && !btn.classList.contains('incorrect') && mcDimmed < 1) {
+        if (mcCorrectArr.indexOf(btn.textContent.trim()) < 0 && !btn.classList.contains('incorrect') && mcDimmed < 1) {
           btn.style.opacity = '0.3';
           btn.disabled = true;
           mcDimmed++;
@@ -3365,7 +3388,7 @@ function advanceHelpStair() {
       var correct = card.answer.correct;
       var dimmed = 0;
       buttons.forEach(function(btn) {
-        if (btn.textContent !== correct && !btn.classList.contains('incorrect') && dimmed < 2) {
+        if (btn.textContent.trim() !== correct && !btn.classList.contains('incorrect') && dimmed < 2) {
           btn.style.opacity = '0.3';
           btn.disabled = true;
           dimmed++;
@@ -3388,7 +3411,7 @@ function advanceHelpStair() {
       var mcButtons2 = document.querySelectorAll('#multi-choices .choice-btn');
       var mcCorrectArr2 = card.answer.correct;
       mcButtons2.forEach(function(btn) {
-        if (mcCorrectArr2.indexOf(btn.textContent) >= 0) {
+        if (mcCorrectArr2.indexOf(btn.textContent.trim()) >= 0) {
           btn.style.background = '#C8E6C9';
           btn.style.border = '3px solid #4CAF50';
           btn.style.fontWeight = '700';
@@ -3397,7 +3420,7 @@ function advanceHelpStair() {
     } else if (qType === 'mcq' || qType === 'binary') {
       var buttons2 = document.querySelectorAll('.choice-btn');
       buttons2.forEach(function(btn) {
-        if (btn.textContent === card.answer.correct) {
+        if (btn.textContent.trim() === card.answer.correct) {
           btn.style.background = '#C8E6C9';
           btn.style.border = '3px solid #4CAF50';
           btn.style.fontWeight = '700';
@@ -3430,6 +3453,7 @@ function advanceHelpStair() {
     var helpBtnArea = document.getElementById('help-stair-btn-area');
     if (helpBtnArea) helpBtnArea.style.display = 'none';
     setTimeout(function() {
+      savePendingSession();
       APP.session.currentIndex++;
       renderCard();
     }, 2000);
@@ -4090,6 +4114,7 @@ function finishRecordingCard() {
       recordingDurations: card._observation.recordingDurations
     });
   }
+  savePendingSession();
   APP.session.currentIndex++;
   renderCard();
 }
@@ -4114,6 +4139,7 @@ function skipRecording() {
     });
   }
   logEvent('card_skip', { cardId: card ? card.id : null });
+  savePendingSession();
   APP.session.currentIndex++;
   renderCard();
 }
