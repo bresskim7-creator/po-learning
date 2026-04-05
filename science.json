@@ -910,5 +910,1409 @@
     "ttsText": "스포츠에서 초고속 카메라를 사용하는 주된 이유는 무엇인가요?",
     "validationDetails": [],
     "wrongExplanation": "초고속 카메라는 단순히 재미있는 장면만 촬영하거나 움직임을 느리게 보기 위한 것이 아닙니다. 사람의 눈으로는 판단 불가능한 미세한 차이를 포착하여 공정한 판정을 할 수 있게 해줍니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_025",
+    "sourceRef": "school-science/U3/comp/025",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "생물을 이루는 기본 단위는 세포입니다. 식물 세포에는 세포막, 세포벽, 둥근 핵이 있습니다.",
+      "text": "식물 세포에 있는 것은?",
+      "ttsText": "식물 세포에 있는 것은?"
+    },
+    "answer": {
+      "correct": "세포막, 세포벽, 핵",
+      "options": [
+        "세포막, 세포벽, 핵",
+        "세포막, 미토콘드리아, 엽록체",
+        "세포벽, 중심체, 핵",
+        "세포막만 있음"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "세포벽은 식물 세포만의 특징이에요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "식물 세포에 있는 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "식물 세포의 주요 구조는 세포막, 세포벽, 그리고 둥근 핵이에요. 세포벽은 식물 세포만 가지고 있는 특별한 부분이니까 잘 기억해 두자."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_026",
+    "sourceRef": "school-science/U3/comp/026",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "뿌리는 식물의 땅속 부분입니다. 뿌리의 역할은 물을 흡수하고, 식물을 지지하며, 양분을 저장합니다.",
+      "text": "뿌리의 역할이 아닌 것은?",
+      "ttsText": "뿌리의 역할이 아닌 것은?"
+    },
+    "answer": {
+      "correct": "광합성을 하는 것",
+      "options": [
+        "물을 흡수하는 것",
+        "식물을 지지하는 것",
+        "광합성을 하는 것",
+        "양분을 저장하는 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "뿌리는 땅속에 있으니까 빛이 없어요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "뿌리의 역할이 아닌 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "뿌리는 물 흡수, 식물 지지, 양분 저장이 역할이에요. 광합성은 빛이 필요하니까 뿌리가 하는 일이 아니야. 그건 잎이 하는 거야!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_027",
+    "sourceRef": "school-science/U3/comp/027",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "줄기는 식물의 중요한 기관입니다. 줄기는 물과 양분이 이동하는 통로이고, 식물 전체를 지지하며, 양분을 저장합니다.",
+      "text": "줄기의 역할은?",
+      "ttsText": "줄기의 역할은?"
+    },
+    "answer": {
+      "correct": "물과 양분이 이동하는 통로",
+      "options": [
+        "빛을 받아서 광합성을 함",
+        "물과 양분이 이동하는 통로",
+        "흙속에서 물을 흡수함",
+        "씨를 만드는 역할을 함"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "줄기는 뿌리에서 흡수한 물을 위로 올려보내요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "줄기의 역할은?",
+    "validationDetails": [],
+    "wrongExplanation": "줄기는 뿌리에서 흡수한 물을 잎까지 운반하고, 양분을 위로 올려주는 통로 역할을 해. 식물 구조에서 매우 중요한 부분이야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_028",
+    "sourceRef": "school-science/U3/comp/028",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "잎에서는 광합성이 일어납니다. 광합성은 빛, 이산화탄소, 물을 이용해서 식물이 필요한 양분을 만드는 과정입니다.",
+      "text": "광합성의 재료가 아닌 것은?",
+      "ttsText": "광합성의 재료가 아닌 것은?"
+    },
+    "answer": {
+      "correct": "산소",
+      "options": [
+        "빛",
+        "이산화탄소",
+        "산소",
+        "물"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "광합성의 재료는 빛, 이산화탄소, 물이에요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "광합성의 재료가 아닌 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "광합성에서는 빛, 이산화탄소, 물을 사용해서 양분을 만들어. 산소는 광합성의 부산물로 만들어지는 거지, 필요한 재료가 아니야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_029",
+    "sourceRef": "school-science/U3/comp/029",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "증산작용은 식물의 잎에서 일어나는 중요한 현상입니다. 푸른색 염화코발트 종이를 잎 뒷면에 붙이면 색이 변합니다.",
+      "text": "증산작용을 확인하는 실험에서 염화코발트 종이의 색이 변하는 이유는?",
+      "ttsText": "증산작용을 확인하는 실험에서 염화코발트 종이의 색이 변하는 이유는?"
+    },
+    "answer": {
+      "correct": "잎에서 나오는 수증기가 종이를 적시기 때문",
+      "options": [
+        "잎에서 산소가 나오기 때문",
+        "잎에서 나오는 수증기가 종이를 적시기 때문",
+        "잎에서 이산화탄소가 나오기 때문",
+        "태양빛이 종이에 닿기 때문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "증산작용은 잎에서 수증기가 빠져나가는 현상이야."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "증산작용을 확인하는 실험에서 염화코발트 종이의 색이 변하는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "염화코발트 종이는 수분에 반응해서 색이 변해. 잎 뒷면에 붙이면 증산작용으로 나오는 수증기가 종이를 적시면서 색이 변하는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_030",
+    "sourceRef": "school-science/U3/comp/030",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "꽃은 식물의 생식기관으로, 씨를 만드는 역할을 합니다.",
+      "text": "꽃의 주요 역할은?",
+      "ttsText": "꽃의 주요 역할은?"
+    },
+    "answer": {
+      "correct": "씨를 만드는 것",
+      "options": [
+        "물을 흡수하는 것",
+        "양분을 저장하는 것",
+        "씨를 만드는 것",
+        "광합성을 하는 것"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "꽃은 식물이 새로운 개체를 만들 때 필요한 기관이야."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "꽃의 주요 역할은?",
+    "validationDetails": [],
+    "wrongExplanation": "꽃은 씨를 만드는 중요한 역할을 해. 다른 기관들은 물 흡수나 광합성 같은 생명 유지 기능을 하는데, 꽃은 새로운 식물을 만들기 위한 씨를 만들어."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_031",
+    "sourceRef": "school-science/U3/comp/031",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "꽃가루는 형태가 매우 안정적이어서, 3D프린팅 잉크, 범죄수사, 과거 기후조사 등에 활용됩니다.",
+      "text": "꽃가루가 활용되지 않는 분야는?",
+      "ttsText": "꽃가루가 활용되지 않는 분야는?"
+    },
+    "answer": {
+      "correct": "건축 자재 제조",
+      "options": [
+        "3D프린팅 잉크",
+        "범죄수사",
+        "건축 자재 제조",
+        "과거 기후조사"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "꽃가루는 매우 작고 형태가 안정적이어서 기술과 과학 분야에서 활용돼."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "꽃가루가 활용되지 않는 분야는?",
+    "validationDetails": [],
+    "wrongExplanation": "꽃가루는 3D프린팅 잉크, 범죄수사, 과거 기후조사 등에 활용돼. 건축 자재 제조에는 활용되지 않아."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_032",
+    "sourceRef": "school-science/U3/comp/032",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "식물의 기관들은 뿌리에서 시작해 줄기, 잎, 꽃을 거쳐 씨까지 모두 연결되어 있습니다.",
+      "text": "식물 기관 중에서 뿌리에서 흡수한 물을 잎까지 운반하는 역할을 하는 기관은?",
+      "ttsText": "식물 기관 중에서 뿌리에서 흡수한 물을 잎까지 운반하는 역할을 하는 기관은?"
+    },
+    "answer": {
+      "correct": "줄기",
+      "options": [
+        "뿌리",
+        "줄기",
+        "잎",
+        "꽃"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "뿌리와 잎 사이에서 물을 나르는 통로 역할을 해."
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "식물 기관 중에서 뿌리에서 흡수한 물을 잎까지 운반하는 역할을 하는 기관은?",
+    "validationDetails": [],
+    "wrongExplanation": "뿌리에서 흡수한 물은 줄기를 통해 위로 이동해. 줄기는 식물의 운송로라고 생각하면 돼."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_033",
+    "sourceRef": "school-science/U3/comp/033",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "광합성은 빛, 이산화탄소, 물을 이용해서 양분을 만드는 과정입니다. 만약 잎이 손상되면 어떻게 될까요?",
+      "text": "잎이 손상되면 식물 전체에 어떤 영향이 미칠 수 있을까?",
+      "ttsText": "잎이 손상되면 식물 전체에 어떤 영향이 미칠 수 있을까?"
+    },
+    "answer": {
+      "correct": "광합성이 감소해서 식물이 필요한 양분이 부족해질 수 있다",
+      "options": [
+        "뿌리의 물 흡수가 증가한다",
+        "광합성이 감소해서 식물이 필요한 양분이 부족해질 수 있다",
+        "증산작용이 멈춘다",
+        "꽃이 더 많이 피게 된다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "잎은 광합성으로 양분을 만드는 가장 중요한 기관이야."
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "잎이 손상되면 식물 전체에 어떤 영향이 미칠 수 있을까?",
+    "validationDetails": [],
+    "wrongExplanation": "잎이 손상되면 광합성이 감소해서 식물이 필요한 양분을 충분히 만들지 못하게 돼. 뿌리부터 꽃까지 모든 부분에 영향을 미치게 되는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_034",
+    "sourceRef": "school-science/U3/comp/034",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "뿌리는 물을 흡수하고, 줄기는 물을 운반하며, 잎은 광합성에 물을 사용합니다. 만약 뿌리가 물을 흡수하지 못한다면?",
+      "text": "뿌리가 물을 흡수하지 못하면 어떤 연쇄 반응이 일어날까?",
+      "ttsText": "뿌리가 물을 흡수하지 못하면 어떤 연쇄 반응이 일어날까?"
+    },
+    "answer": {
+      "correct": "줄기가 잎으로 물을 운반할 수 없어서 광합성이 불가능해진다",
+      "options": [
+        "꽃이 피지 않는다",
+        "줄기가 잎으로 물을 운반할 수 없어서 광합성이 불가능해진다",
+        "뿌리가 더 깊이 자라난다",
+        "잎의 증산작용이 증가한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "뿌리→줄기→잎 순서로 물이 이동한다는 걸 생각해 봐."
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "뿌리가 물을 흡수하지 못하면 어떤 연쇄 반응이 일어날까?",
+    "validationDetails": [],
+    "wrongExplanation": "뿌리가 물을 흡수하지 못하면 줄기가 운반할 물이 없으니까 잎도 광합성에 필요한 물을 얻을 수 없게 돼. 한 기관의 문제가 전체 식물에 영향을 미치는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_035",
+    "sourceRef": "school-science/U3/comp/035",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "증산작용은 잎에서 수증기가 빠져나가는 현상입니다. 뿌리에서 흡수한 물이 줄기를 거쳐 잎에 도달하면, 일부는 수증기가 되어 식물 밖으로 빠져나갑니다.",
+      "text": "증산작용이란 무엇인가요?",
+      "ttsText": "증산작용이란 무엇인가요?"
+    },
+    "answer": {
+      "correct": "잎에서 수증기가 빠져나가는 현상",
+      "options": [
+        "뿌리에서 물을 흡수하는 현상",
+        "잎에서 수증기가 빠져나가는 현상",
+        "줄기에서 양분이 이동하는 현상",
+        "꽃에서 꽃가루가 퍼지는 현상"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "잎에서 일어나는 물의 변화를 생각해 봐."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "증산작용이란 무엇인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "증산작용은 잎에서 물이 수증기 형태로 빠져나가는 현상이야. 뿌리의 물 흡수나 줄기의 양분 이동과는 다른 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u3_036",
+    "sourceRef": "school-science/U3/comp/036",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U3",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "꽃가루는 형태가 매우 안정적이어서 오래 보존됩니다. 꽃가루 화석을 분석하면 과거 지구의 기후를 조사할 수 있습니다.",
+      "text": "꽃가루가 과거 기후조사에 활용될 수 있는 이유는?",
+      "ttsText": "꽃가루가 과거 기후조사에 활용될 수 있는 이유는?"
+    },
+    "answer": {
+      "correct": "형태가 안정적이어서 오래 보존되고 당시의 환경 정보를 담고 있기 때문",
+      "options": [
+        "식물이 만드는 산소 때문",
+        "형태가 안정적이어서 오래 보존되고 당시의 환경 정보를 담고 있기 때문",
+        "매우 가볍기 때문",
+        "색깔이 다양하기 때문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "안정적이라는 것은 오래 변하지 않는다는 뜻이야."
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "꽃가루가 과거 기후조사에 활용될 수 있는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "꽃가루의 형태가 안정적이라는 건 오래된 지층에서도 그 모양이 변하지 않는다는 뜻이야. 옛날 꽃가루로 당시 기후가 어땠는지 알 수 있어."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_037",
+    "sourceRef": "school-science/U4/comp/037",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "지구는 자신의 축을 중심으로 계속 돌고 있습니다. 이 운동을 자전이라고 합니다.",
+      "text": "지구가 자신의 축을 중심으로 도는 운동의 이름은?",
+      "ttsText": "지구가 자신의 축을 중심으로 도는 운동의 이름은?"
+    },
+    "answer": {
+      "correct": "자전",
+      "options": [
+        "자전",
+        "공전",
+        "공축",
+        "회전"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "지구가 자신의 축 중심으로 돈다는 뜻이야."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구가 자신의 축을 중심으로 도는 운동의 이름은?",
+    "validationDetails": [],
+    "wrongExplanation": "자전은 지구가 자신의 축을 중심으로 도는 거고, 공전은 태양 주위를 도는 거야. 구분해서 기억하면 쉬워."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_038",
+    "sourceRef": "school-science/U4/comp/038",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "지구의 자전 주기는 약 24시간입니다. 지구가 태양을 향한 쪽은 낮이고 반대쪽은 밤입니다.",
+      "text": "낮과 밤이 생기는 이유는?",
+      "ttsText": "낮과 밤이 생기는 이유는?"
+    },
+    "answer": {
+      "correct": "지구가 자전하면서 태양을 향한 쪽은 낮이고 반대쪽은 밤이기 때문",
+      "options": [
+        "지구가 자전하면서 태양을 향한 쪽은 낮이고 반대쪽은 밤이기 때문",
+        "태양이 하루에 두 번 떠올라서",
+        "지구가 공전하면서",
+        "별들이 움직이면서"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "햇빛이 닿는 곳과 닿지 않는 곳을 생각해 봐."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "낮과 밤이 생기는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "낮과 밤은 태양이 도는 게 아니라 지구가 자전하면서 햇빛이 닿는 쪽과 안 닿는 쪽이 생기는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_039",
+    "sourceRef": "school-science/U4/comp/039",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "지구가 태양 주위를 한 바퀴 도는 데 걸리는 시간은 약 365일입니다. 이 운동을 공전이라고 합니다.",
+      "text": "지구가 태양 주위를 도는 운동의 이름은?",
+      "ttsText": "지구가 태양 주위를 도는 운동의 이름은?"
+    },
+    "answer": {
+      "correct": "공전",
+      "options": [
+        "공전",
+        "자전",
+        "궤도",
+        "회전"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "태양 주위를 도는 운동이야."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구가 태양 주위를 도는 운동의 이름은?",
+    "validationDetails": [],
+    "wrongExplanation": "공전은 태양 주위를 약 365일(1년)에 한 바퀴 도는 거야. 자전과 헷갈리지 말고 잘 기억해."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_040",
+    "sourceRef": "school-science/U4/comp/040",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "지구는 자전과 공전을 동시에 하고 있습니다. 두 운동 모두 서쪽에서 동쪽으로 일어납니다.",
+      "text": "지구의 자전과 공전이 일어나는 방향은?",
+      "ttsText": "지구의 자전과 공전이 일어나는 방향은?"
+    },
+    "answer": {
+      "correct": "서쪽에서 동쪽으로",
+      "options": [
+        "서쪽에서 동쪽으로",
+        "동쪽에서 서쪽으로",
+        "남쪽에서 북쪽으로",
+        "북쪽에서 남쪽으로"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "태양이 동쪽에서 올라오는 거와 관련이 있어."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구의 자전과 공전이 일어나는 방향은?",
+    "validationDetails": [],
+    "wrongExplanation": "지구가 서쪽에서 동쪽으로 자전하니까 우리 눈에는 태양이 동쪽에서 떠서 서쪽으로 지는 것처럼 보여."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_041",
+    "sourceRef": "school-science/U4/comp/041",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "하루 동안 태양의 위치가 변합니다. 이것은 지구의 자전 때문입니다.",
+      "text": "하루 동안 태양의 위치가 변하는 근본적인 원인은?",
+      "ttsText": "하루 동안 태양의 위치가 변하는 근본적인 원인은?"
+    },
+    "answer": {
+      "correct": "지구가 자전하기 때문",
+      "options": [
+        "지구가 자전하기 때문",
+        "태양이 움직이기 때문",
+        "대기가 변하기 때문",
+        "별들이 움직이기 때문"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "태양이 정말로 움직이는 걸까, 아니면 우리가 움직이는 걸까?"
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "하루 동안 태양의 위치가 변하는 근본적인 원인은?",
+    "validationDetails": [],
+    "wrongExplanation": "태양이 실제로 움직이는 게 아니라 지구가 자전하면서 우리가 움직이니까 태양의 위치가 변해 보이는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_042",
+    "sourceRef": "school-science/U4/comp/042",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "독수리자리는 여름철에 가장 잘 보이지만, 봄과 가을에도 볼 수 있습니다. 계절별 대표 별자리가 그 계절에만 보이는 것은 아닙니다.",
+      "text": "독수리자리를 볼 수 있는 계절은?",
+      "ttsText": "독수리자리를 볼 수 있는 계절은?"
+    },
+    "answer": {
+      "correct": "여름에 가장 잘 보이지만 봄과 가을에도 보인다",
+      "options": [
+        "여름에만 보인다",
+        "여름에 가장 잘 보이지만 봄과 가을에도 보인다",
+        "사계절 내내 보인다",
+        "겨울에 가장 잘 보인다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "대표 별자리가 그 계절에만 보이는 것은 아니야."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "독수리자리를 볼 수 있는 계절은?",
+    "validationDetails": [],
+    "wrongExplanation": "독수리자리는 여름에 가장 잘 보이지만 봄과 가을에도 볼 수 있어. 별자리는 여러 계절에 걸쳐 보일 수 있단다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_043",
+    "sourceRef": "school-science/U4/comp/043",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "지구 주위를 공전하는 인공위성 중 어떤 것은 움직이지 않는 것처럼 보입니다.",
+      "text": "인공위성이 움직이지 않는 것처럼 보이는 이유는?",
+      "ttsText": "인공위성이 움직이지 않는 것처럼 보이는 이유는?"
+    },
+    "answer": {
+      "correct": "지구의 자전 속도와 같은 속도로 공전하기 때문",
+      "options": [
+        "지구의 자전 속도와 같은 속도로 공전하기 때문",
+        "인공위성이 정말로 멈춰 있어서",
+        "지구의 그림자에 가려져서",
+        "태양빛이 반사되지 않아서"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "같은 속도로 달리는 두 차를 보면 옆 차가 멈춘 것처럼 보이지?"
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "인공위성이 움직이지 않는 것처럼 보이는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "인공위성은 실제로 공전하고 있어. 다만 지구의 자전 속도와 같은 속도로 같은 방향으로 공전하니까 멈춘 것처럼 보이는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_044",
+    "sourceRef": "school-science/U4/comp/044",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "천체 투영관은 돔 모양으로 만들어져 있어서, 낮과 밤, 날씨에 관계없이 밤하늘 영상을 관람할 수 있습니다.",
+      "text": "천체 투영관의 장점은?",
+      "ttsText": "천체 투영관의 장점은?"
+    },
+    "answer": {
+      "correct": "날씨나 시간에 관계없이 밤하늘을 관찰할 수 있다",
+      "options": [
+        "날씨나 시간에 관계없이 밤하늘을 관찰할 수 있다",
+        "실제 별보다 더 정확하다",
+        "무료로 이용할 수 있다",
+        "별을 직접 만질 수 있다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "밤하늘 관찰의 어려운 점을 생각해 봐."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "천체 투영관의 장점은?",
+    "validationDetails": [],
+    "wrongExplanation": "천체 투영관은 날씨, 시간에 관계없이 언제든 밤하늘을 볼 수 있어서 별자리 학습에 효율적이야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_045",
+    "sourceRef": "school-science/U4/comp/045",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "지구가 태양 주위를 공전하면서 지구의 위치가 달라집니다. 지구의 위치가 달라지면 밤하늘에 보이는 별자리가 달라집니다.",
+      "text": "같은 별자리가 계절마다 다른 위치에 보이는 이유는?",
+      "ttsText": "같은 별자리가 계절마다 다른 위치에 보이는 이유는?"
+    },
+    "answer": {
+      "correct": "지구의 공전 때문에 관찰 방향이 바뀌어서",
+      "options": [
+        "지구의 공전 때문에 관찰 방향이 바뀌어서",
+        "별자리가 실제로 움직여서",
+        "대기가 변해서",
+        "지구의 자전만으로"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "공전은 1년 주기야. 계절이 변한다는 게 뭘 의미할까?"
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "같은 별자리가 계절마다 다른 위치에 보이는 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "별자리는 하늘에 고정되어 있어. 하지만 지구가 태양 주위를 돌면서 우리가 보는 각도가 바뀌니까 별자리의 위치가 달라 보이는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_046",
+    "sourceRef": "school-science/U4/comp/046",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "지구는 자전과 공전을 동시에 합니다. 자전 주기는 약 24시간, 공전 주기는 약 365일입니다.",
+      "text": "지구의 자전이 없다면 어떤 일이 일어날까?",
+      "ttsText": "지구의 자전이 없다면 어떤 일이 일어날까?"
+    },
+    "answer": {
+      "correct": "항상 같은 면이 태양을 향해 낮과 밤이 바뀌지 않는다",
+      "options": [
+        "항상 같은 면이 태양을 향해 낮과 밤이 바뀌지 않는다",
+        "별자리가 보이지 않는다",
+        "인공위성이 떨어진다",
+        "계절이 더 빨리 바뀐다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "자전이 없으면 낮과 밤이 어떻게 될까?"
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구의 자전이 없다면 어떤 일이 일어날까?",
+    "validationDetails": [],
+    "wrongExplanation": "자전이 있어야 지구의 모든 곳이 태양 빛을 받아 낮과 밤이 생겨. 자전이 없으면 한쪽은 계속 낮이고 다른 한쪽은 계속 밤일 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_047",
+    "sourceRef": "school-science/U4/comp/047",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 3,
+    "question": {
+      "passage": "여름에 독수리자리를 볼 수 있고, 겨울에 오리온자리를 볼 수 있습니다. 이것은 지구의 공전과 관련이 있습니다.",
+      "text": "계절마다 다른 별자리를 볼 수 있는 근본적인 이유는?",
+      "ttsText": "계절마다 다른 별자리를 볼 수 있는 근본적인 이유는?"
+    },
+    "answer": {
+      "correct": "지구가 태양 주위를 공전하면서 관찰 방향이 달라지니까",
+      "options": [
+        "지구가 태양 주위를 공전하면서 관찰 방향이 달라지니까",
+        "별자리가 계절마다 다른 위치로 움직여서",
+        "지구의 자전 때문에",
+        "태양의 밝기가 계절마다 달라서"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "봄, 여름, 가을, 겨울에 지구의 위치가 태양 주위에서 어떻게 다를까?"
+    },
+    "skillTags": [
+      "reasoning"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "계절마다 다른 별자리를 볼 수 있는 근본적인 이유는?",
+    "validationDetails": [],
+    "wrongExplanation": "지구가 태양 주위를 공전하면서 태양의 반대편이 바뀌어. 그래서 봄엔 이 방향, 여름엔 저 방향의 별자리를 보게 되는 거야."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u4_048",
+    "sourceRef": "school-science/U4/comp/048",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U4",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "지구의 자전 주기는 약 24시간이고, 공전 주기는 약 365일입니다.",
+      "text": "지구의 공전 주기는 약 얼마인가요?",
+      "ttsText": "지구의 공전 주기는 약 얼마인가요?"
+    },
+    "answer": {
+      "correct": "약 365일",
+      "options": [
+        "약 365일",
+        "약 24시간",
+        "약 30일",
+        "약 12시간"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "태양 주위를 한 바퀴 도는 데 걸리는 시간이야. 1년이 몇 일이지?"
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지구의 공전 주기는 약 얼마인가요?",
+    "validationDetails": [],
+    "wrongExplanation": "지구의 공전 주기는 약 365일, 즉 1년이야. 자전 주기가 약 24시간인 것과 구분해서 기억해."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_049",
+    "sourceRef": "school-science/U5/comp/049",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "힘은 물체를 밀거나 당겨서 움직이게 하는 작용입니다. 무거운 물체일수록 더 큰 힘이 필요합니다.",
+      "text": "힘의 정의로 올바른 것은?",
+      "ttsText": "힘의 정의로 올바른 것은?"
+    },
+    "answer": {
+      "correct": "물체를 밀거나 당겨서 움직이게 하는 작용",
+      "options": [
+        "물체를 밀거나 당겨서 움직이게 하는 작용",
+        "물체의 무게를 재는 방법",
+        "물체를 지탱하는 바닥의 저항력",
+        "물체가 가진 에너지의 크기"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "힘은 물체에 어떤 변화를 일으키는 작용입니다."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "힘의 정의로 올바른 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "힘은 물체를 밀거나 당겨서 움직이게 하는 것이에요. 물체의 무게를 재는 것이나 바닥의 저항력과는 다르답니다!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_050",
+    "sourceRef": "school-science/U5/comp/050",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "지레는 받침대(지점)를 중심으로 물체를 들어올리는 도구이고, 빗면은 경사진 평면으로 물체를 들어올리는 도구입니다. 두 도구 모두 물체의 무게보다 작은 힘으로 들어올릴 수 있습니다.",
+      "text": "지레와 빗면을 사용하는 공통점은?",
+      "ttsText": "지레와 빗면을 사용하는 공통점은?"
+    },
+    "answer": {
+      "correct": "물체의 무게보다 작은 힘으로 들어올릴 수 있다",
+      "options": [
+        "물체의 무게보다 작은 힘으로 들어올릴 수 있다",
+        "물체를 수평으로만 옮길 수 있다",
+        "받침대가 반드시 필요하다",
+        "수직으로만 사용할 수 있다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "두 도구의 가장 큰 장점은 무엇일까요?"
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "지레와 빗면을 사용하는 공통점은?",
+    "validationDetails": [],
+    "wrongExplanation": "지레와 빗면은 사용 방법이 다르지만, 둘 다 더 작은 힘으로 무거운 물체를 움직일 수 있게 해주는 도구예요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_051",
+    "sourceRef": "school-science/U5/comp/051",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "밀물은 바닷물이 육지 쪽으로 밀려 들어오는 것이고, 썰물은 바닷물이 바다 쪽으로 빠져나가는 것입니다.",
+      "text": "바닷물의 높이가 높아지는 현상을 무엇이라고 부르나요?",
+      "ttsText": "바닷물의 높이가 높아지는 현상을 무엇이라고 부르나요?"
+    },
+    "answer": {
+      "correct": "밀물",
+      "options": [
+        "밀물",
+        "썰물",
+        "해일",
+        "파도"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "물이 밀려 들어온다고 생각해보세요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "바닷물의 높이가 높아지는 현상을 무엇이라고 부르나요?",
+    "validationDetails": [],
+    "wrongExplanation": "바닷물이 육지 쪽으로 들어오면서 높이가 높아지는 현상이 밀물이에요. 반대로 빠져나가는 것이 썰물이랍니다!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_052",
+    "sourceRef": "school-science/U5/comp/052",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "갯벌은 밀물 때 물에 잠기고 썰물 때 드러나는 편평한 땅입니다. 갯벌에는 농게, 나문재, 조개 등 다양한 생물이 서식하고, 오염 물질을 걸러주는 역할을 합니다.",
+      "text": "갯벌의 특징으로 옳지 않은 것은?",
+      "ttsText": "갯벌의 특징으로 옳지 않은 것은?"
+    },
+    "answer": {
+      "correct": "갯벌은 썰물 때 물에 잠긴다",
+      "options": [
+        "갯벌은 썰물 때 물에 잠긴다",
+        "갯벌에는 다양한 생물이 산다",
+        "갯벌은 오염 물질을 걸러준다",
+        "우리나라 갯벌은 유네스코 세계 자연유산이다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "밀물과 썰물 때 갯벌의 모습을 생각해봐요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "갯벌의 특징으로 옳지 않은 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "갯벌은 밀물 때 물에 잠기고 썰물 때 드러나요. 반대라고 생각했다면 이번엔 기억해두자!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_053",
+    "sourceRef": "school-science/U5/comp/053",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "감염병은 병원체가 몸에 들어와 걸리는 질병입니다. 감염 경로는 접촉, 비말, 공기, 물, 침 등 여러 가지입니다.",
+      "text": "감염병의 정의로 올바른 것은?",
+      "ttsText": "감염병의 정의로 올바른 것은?"
+    },
+    "answer": {
+      "correct": "병원체가 몸에 들어와 걸리는 질병",
+      "options": [
+        "병원체가 몸에 들어와 걸리는 질병",
+        "음식을 잘못 먹어서 생기는 질병",
+        "추운 날씨로 인한 질병",
+        "유전적으로 타고나는 질병"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "병원체라는 말에 주목해보세요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "감염병의 정의로 올바른 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "감염병은 병원체(바이러스, 박테리아 등)가 우리 몸에 들어와서 생기는 질병이에요. 감기, 독감, 수족구병 같은 것들이 있어요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_054",
+    "sourceRef": "school-science/U5/comp/054",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "코로나19는 발생 2달 만에 전 세계로 확산되었습니다. 감염병 예방 방법은 손 씻기, 기침 예절, 환기, 규칙적 운동, 충분한 휴식입니다.",
+      "text": "감염병 예방 방법으로 올바른 것은?",
+      "ttsText": "감염병 예방 방법으로 올바른 것은?"
+    },
+    "answer": {
+      "correct": "손을 자주 씻고 기침할 때 입을 가린다",
+      "options": [
+        "손을 자주 씻고 기침할 때 입을 가린다",
+        "환기를 피하고 실내에만 있는다",
+        "규칙적 운동을 하지 않는다",
+        "충분히 자지 않아도 된다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "감염병을 막으려면 어떻게 해야 할까요?"
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "감염병 예방 방법으로 올바른 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "감염병을 예방하려면 손 씻기, 기침 예절, 환기, 규칙적 운동, 충분한 휴식이 모두 중요해요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_055",
+    "sourceRef": "school-science/U5/comp/055",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "달의 모양은 초승달, 상현달, 보름달, 하현달, 그믐달로 변합니다. 이 변화는 약 30일 주기로 반복됩니다.",
+      "text": "달의 모양 변화 순서로 올바른 것은?",
+      "ttsText": "달의 모양 변화 순서로 올바른 것은?"
+    },
+    "answer": {
+      "correct": "초승달 → 상현달 → 보름달 → 하현달 → 그믐달",
+      "options": [
+        "초승달 → 상현달 → 보름달 → 하현달 → 그믐달",
+        "보름달 → 초승달 → 상현달 → 그믐달 → 하현달",
+        "상현달 → 초승달 → 보름달 → 그믐달 → 하현달",
+        "그믐달 → 하현달 → 보름달 → 상현달 → 초승달"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "달이 처음 뜨는 시기부터 점점 커졌다가 줄어들어요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "달의 모양 변화 순서로 올바른 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "달의 모양은 초승달부터 시작해서 차츰 커지다가 보름달이 되고, 다시 줄어들었다가 그믐달이 돼요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_056",
+    "sourceRef": "school-science/U5/comp/056",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "음력은 달의 모양을 기준으로 만든 달력입니다. 음력 3일부터 15일 사이에는 저녁에 달을 관찰할 수 있습니다.",
+      "text": "음력 15일 밤에 관찰할 수 있는 달의 모양은?",
+      "ttsText": "음력 15일 밤에 관찰할 수 있는 달의 모양은?"
+    },
+    "answer": {
+      "correct": "보름달",
+      "options": [
+        "보름달",
+        "초승달",
+        "상현달",
+        "하현달"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "음력 15일은 달이 가장 밝게 보이는 날이에요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "음력 15일 밤에 관찰할 수 있는 달의 모양은?",
+    "validationDetails": [],
+    "wrongExplanation": "음력 15일은 보름달이에요! 이때는 달이 가장 밝고 둥글게 떠 있는 모습을 볼 수 있답니다."
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_057",
+    "sourceRef": "school-science/U5/comp/057",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "기체의 부피는 온도에 따라 변합니다. 온도가 높아지면 기체의 부피가 늘어나고, 온도가 낮아지면 줄어듭니다.",
+      "text": "온도가 높아질 때 기체의 부피는 어떻게 변할까요?",
+      "ttsText": "온도가 높아질 때 기체의 부피는 어떻게 변할까요?"
+    },
+    "answer": {
+      "correct": "부피가 늘어난다",
+      "options": [
+        "부피가 늘어난다",
+        "부피가 줄어든다",
+        "부피가 변하지 않는다",
+        "색깔이 변한다"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "더워질 때를 생각하면서 기체의 움직임을 상상해봐요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "온도가 높아질 때 기체의 부피는 어떻게 변할까요?",
+    "validationDetails": [],
+    "wrongExplanation": "온도가 높아지면 기체의 분자들이 더 활발하게 움직이면서 부피가 늘어나요. 풍선을 따뜻한 곳에 두면 부풀어오르는 것처럼요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_058",
+    "sourceRef": "school-science/U5/comp/058",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "산소는 호흡에 필수이고 연소를 도와줍니다. 이산화탄소는 탄산음료와 소화기에 사용됩니다. 질소는 식품 보존에, 수소는 친환경 연료로 사용됩니다. 헬륨은 공기보다 가벼워 풍선과 비행선에 사용됩니다.",
+      "text": "다음 중 친환경 연료로 주목받고 있는 기체는?",
+      "ttsText": "다음 중 친환경 연료로 주목받고 있는 기체는?"
+    },
+    "answer": {
+      "correct": "수소",
+      "options": [
+        "수소",
+        "산소",
+        "질소",
+        "이산화탄소"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "수소차, 수소 드론과 같은 말이 있어요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "다음 중 친환경 연료로 주목받고 있는 기체는?",
+    "validationDetails": [],
+    "wrongExplanation": "수소는 친환경 연료로서 수소차나 수소 드론과 같은 미래 기술에 사용돼요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_059",
+    "sourceRef": "school-science/U5/comp/059",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 1,
+    "question": {
+      "passage": "기후는 30년 이상의 오랜 기간 동안의 평균적인 날씨를 말합니다. 기후변화란 이 평균적인 날씨가 변하는 것입니다.",
+      "text": "기후의 정의로 올바른 것은?",
+      "ttsText": "기후의 정의로 올바른 것은?"
+    },
+    "answer": {
+      "correct": "30년 이상 오랜 기간의 평균적인 날씨",
+      "options": [
+        "30년 이상 오랜 기간의 평균적인 날씨",
+        "하루의 날씨 변화",
+        "어제와 오늘의 날씨 비교",
+        "한 달 동안의 날씨"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "기후는 오랜 기간을 기준으로 해요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "기후의 정의로 올바른 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "기후는 '날씨'와 다르게 30년 이상의 오랜 기간 동안의 평균적인 날씨를 말해요!"
+  },
+  {
+    "cardId": "crd_2026W14_sci_u5_060",
+    "sourceRef": "school-science/U5/comp/060",
+    "runId": "2026-W14",
+    "sourceId": "school-science",
+    "sourceUnit": "U5",
+    "type": "comprehension",
+    "subject": "science",
+    "difficulty": 2,
+    "question": {
+      "passage": "최근 100년간 기후변화가 급격하게 일어나고 있습니다. 원인은 산림 훼손, 화석연료 사용, 에너지 낭비 등 인간 활동 때문입니다.",
+      "text": "기후변화의 원인으로 옳지 않은 것은?",
+      "ttsText": "기후변화의 원인으로 옳지 않은 것은?"
+    },
+    "answer": {
+      "correct": "나무를 심는 활동",
+      "options": [
+        "나무를 심는 활동",
+        "화석연료 사용",
+        "산림 훼손",
+        "에너지 낭비"
+      ],
+      "type": "choice"
+    },
+    "hint": {
+      "text": "기후변화를 악화시키는 원인과 개선하는 활동을 구분해봐요."
+    },
+    "skillTags": [
+      "fact"
+    ],
+    "questionType": "choice",
+    "anchorType": "school-science",
+    "confidence": 0.95,
+    "reviewStatus": "parent_review",
+    "validationStatus": "pass",
+    "ttsText": "기후변화의 원인으로 옳지 않은 것은?",
+    "validationDetails": [],
+    "wrongExplanation": "나무를 심는 것은 오히려 기후변화를 막는 대응 방법이에요. 기후변화의 원인은 산림 훼손, 화석연료 사용, 에너지 낭비 같은 것들이랍니다!"
   }
 ]

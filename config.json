@@ -105,7 +105,7 @@
         "id": "school-science",
         "label": "학교 과학",
         "inputType": "dropdown",
-        "options": ["산과 염기", "물체의 운동", "식물의 구조와 기능", "빛과 렌즈", "여러 가지 기체"]
+        "options": ["U1 산과 염기", "U2 물체의 운동", "U3 식물의 구조와 기능", "U4 지구의 운동", "U5 개정 보완자료"]
       },
       {
         "id": "short-reading",
