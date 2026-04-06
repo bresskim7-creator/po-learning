@@ -766,6 +766,8 @@
     <h2 id="complete-message">오늘 학습 끝!</h2>
     <p id="child-role-summary" style="font-size:16px; color:#555; margin:8px 16px; line-height:1.6;"></p>
     <div id="child-subject-checks" style="display:flex; gap:12px; justify-content:center; margin:16px 0; flex-wrap:wrap;"></div>
+    <!-- [v5.28 C2] 수행 중심 피드백 -->
+    <div id="child-performance" style="display:flex; flex-direction:column; gap:8px; align-items:center; margin:12px 0; font-size:16px; color:#333;"></div>
     <div class="stat-row" style="justify-content:center;">
       <span class="stat-label">연속 학습</span>
       <span class="stat-value" id="stat-streak">0일</span>
@@ -3570,6 +3572,53 @@ function selectAnswer(selectedIdx) {
   const correctIdx = displayOptions.indexOf(card.answer.correct);
   const isCorrect = selectedIdx === correctIdx;
   const responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
+  var qType = card.questionType || 'mcq';
+
+  // [v5.28 B안] mcq 재시도 모드: 이미 1회 틀린 후 다른 버튼 클릭
+  if (card._retryMode) {
+    var choiceBtns = document.querySelectorAll('.choices .choice-btn');
+    if (isCorrect) {
+      // 재시도 성공: 도움 받아 정답 찾음
+      card._correct = true;
+      card._assistedCorrect = true;
+      choiceBtns.forEach(function(btn, i) {
+        btn.disabled = true;
+        if (i === correctIdx) btn.classList.add('correct');
+      });
+      var fb = document.getElementById('feedback');
+      fb.textContent = getRandomPhrase('praise_correct');
+      fb.className = 'feedback correct';
+      fb.style.display = 'block';
+      updateCardState(card.id, false); // 도움 받았으므로 숙달 미증가
+      var helpBtnArea = document.getElementById('help-stair-btn-area');
+      if (helpBtnArea) helpBtnArea.style.display = 'none';
+      logEvent('card_retry_success', {
+        cardId: card.id, subject: card.subject,
+        helpSteps: card._helpStep || 0
+      });
+      showWrongExplanation(card, '');
+      card._wrongExplanationShown = true;
+    } else {
+      // 재시도 실패: 해당 버튼만 추가 비활성화
+      if (choiceBtns[selectedIdx]) {
+        choiceBtns[selectedIdx].classList.add('incorrect');
+        choiceBtns[selectedIdx].disabled = true;
+      }
+      logEvent('card_retry_wrong', {
+        cardId: card.id, selectedIdx: selectedIdx
+      });
+      // 활성 버튼 1개만 남으면 자동 선택 (정답 확정)
+      var activeCount = 0, lastActiveIdx = -1;
+      choiceBtns.forEach(function(b, idx) {
+        if (!b.disabled) { activeCount++; lastActiveIdx = idx; }
+      });
+      if (activeCount === 1) {
+        setTimeout(function() { selectAnswer(lastActiveIdx); }, 500);
+      }
+    }
+    return;
+  }
+
   card._correct = isCorrect; // [v4.10] 역할별 집계용
   card._answered = true;
 
@@ -3585,32 +3634,10 @@ function selectAnswer(selectedIdx) {
     APP.session.subjectStats[card.subject].total++;
   }
 
-  // 리뷰 큐 업데이트
-  updateCardState(card.id, isCorrect);
-
-  // 버튼 상태
-  const buttons = document.querySelectorAll('.choice-btn');
-  buttons.forEach(function(btn, i) {
-    btn.disabled = true;
-    if (i === correctIdx) btn.classList.add('correct');
-    if (i === selectedIdx && !isCorrect) btn.classList.add('incorrect');
-  });
-
   // 피드백
-  const fb = document.getElementById('feedback');
-  if (isCorrect) {
-    // [v5.17] 보너스 카드는 correctCount/subjectStats에 합산하지 않음
-    if (!card._isBonus) {
-      APP.session.correctCount++;
-      APP.session.subjectStats[card.subject].correct++;
-    }
-    fb.textContent = getRandomPhrase('praise_correct');
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = getRandomPhrase('encouragement');
-    fb.className = 'feedback incorrect';
-  }
-  fb.style.display = 'block';
+  var fb = document.getElementById('feedback');
+  var choiceBtns = document.querySelectorAll('.choices .choice-btn');
+  var isMcqRetryable = (qType === 'mcq') && !card._isBonus;
 
   logEvent('card_attempt', {
     cardId: card.id, subject: card.subject,
@@ -3619,19 +3646,57 @@ function selectAnswer(selectedIdx) {
   });
 
   if (isCorrect) {
-    // 정답: 1초 후 자동 다음
+    // 정답: 즉시 처리
+    updateCardState(card.id, true);
+    if (!card._isBonus) {
+      APP.session.correctCount++;
+      APP.session.subjectStats[card.subject].correct++;
+    }
+    choiceBtns.forEach(function(btn, i) {
+      btn.disabled = true;
+      if (i === correctIdx) btn.classList.add('correct');
+    });
+    fb.textContent = getRandomPhrase('praise_correct');
+    fb.className = 'feedback correct';
+    fb.style.display = 'block';
     setTimeout(function() {
       savePendingSession();
       APP.session.currentIndex++;
       renderCard();
     }, 1000);
-  } else {
-    // 오답: 해설 표시 + "다음" 버튼 수동 클릭 + 도움 받기 버튼 표시
-    var selectedText = displayOptions[selectedIdx] || '';
-    showWrongExplanation(card, selectedText);
-    // [v4.10 T14] 도움 받기 버튼 표시
+
+  } else if (isMcqRetryable) {
+    // [v5.28 B안] mcq 오답: 재시도 모드 진입 — 정답 미노출, 다른 버튼 활성 유지
+    card._retryMode = true;
+    choiceBtns.forEach(function(btn, i) {
+      if (i === selectedIdx) {
+        btn.classList.add('incorrect');
+        btn.disabled = true;
+      }
+    });
+    fb.textContent = getRandomPhrase('encouragement');
+    fb.className = 'feedback incorrect';
+    fb.style.display = 'block';
+    // 도움 받기 버튼 표시
     var helpBtnArea = document.getElementById('help-stair-btn-area');
     if (helpBtnArea) helpBtnArea.style.display = 'block';
+    // 다음으로 버튼 표시 (포기 옵션)
+    var btnNext = document.getElementById('btn-next-after-wrong');
+    if (btnNext) btnNext.classList.add('visible');
+
+  } else {
+    // binary/보너스 등: 기존 동작 — 정답 즉시 표시 + 해설
+    updateCardState(card.id, false);
+    choiceBtns.forEach(function(btn, i) {
+      btn.disabled = true;
+      if (i === correctIdx) btn.classList.add('correct');
+      if (i === selectedIdx) btn.classList.add('incorrect');
+    });
+    fb.textContent = getRandomPhrase('encouragement');
+    fb.className = 'feedback incorrect';
+    fb.style.display = 'block';
+    var selectedText = displayOptions[selectedIdx] || '';
+    showWrongExplanation(card, selectedText);
   }
 }
 
@@ -3732,8 +3797,7 @@ function selectMultiAnswer(selectedIdx) {
     }, 1000);
   } else {
     showWrongExplanation(card, selectedTexts.join(', '));
-    var helpBtnArea = document.getElementById('help-stair-btn-area');
-    if (helpBtnArea) helpBtnArea.style.display = 'block';
+    // multi_choice는 B안 대상 외 — 도움 계단 미표시
   }
 }
 
@@ -3772,7 +3836,7 @@ function advanceHelpStair() {
       });
     } else if (qType === 'mcq' || qType === 'binary') {
       // 오답 1~2개 흐리게
-      var buttons = document.querySelectorAll('.choice-btn');
+      var buttons = document.querySelectorAll('.choices .choice-btn');
       var correct = card.answer.correct;
       var dimmed = 0;
       buttons.forEach(function(btn) {
@@ -3806,12 +3870,13 @@ function advanceHelpStair() {
         }
       });
     } else if (qType === 'mcq' || qType === 'binary') {
-      var buttons2 = document.querySelectorAll('.choice-btn');
+      var buttons2 = document.querySelectorAll('.choices .choice-btn');
       buttons2.forEach(function(btn) {
         if (btn.textContent.trim() === card.answer.correct) {
           btn.style.background = '#C8E6C9';
           btn.style.border = '3px solid #4CAF50';
           btn.style.fontWeight = '700';
+          btn.disabled = false; // [v5.28 B안] 정답 버튼 활성화 — 아이가 클릭 가능
         }
       });
     } else if (qType === 'sequence') {
@@ -3826,7 +3891,7 @@ function advanceHelpStair() {
     }
 
   } else if (step >= 5) {
-    // 5단계: 정답 모델 제시 → 무오류 완료
+    // 5단계: 정답 모델 제시 → 해설 표시 → 수동 이동
     var fb2 = document.getElementById('feedback');
     if (fb2) {
       var correctDisplay = Array.isArray(card.answer.correct)
@@ -3835,16 +3900,23 @@ function advanceHelpStair() {
       fb2.className = 'feedback correct';
       fb2.style.display = 'block';
     }
-    // 도움 완료 → 다음으로 (consecutiveCorrect 미증가)
+    // 정답 버튼 하이라이트 + 전체 비활성화
+    var choiceBtns5 = document.querySelectorAll('.choices .choice-btn');
+    choiceBtns5.forEach(function(btn) {
+      btn.disabled = true;
+      if (btn.textContent.trim() === (Array.isArray(card.answer.correct) ? '' : card.answer.correct)) {
+        btn.classList.add('correct');
+      }
+    });
+    // 도움 완료
     card._helpCompleted = true;
+    card._correct = false;
     updateCardState(card.id, false); // 숙달 미증가
     var helpBtnArea = document.getElementById('help-stair-btn-area');
     if (helpBtnArea) helpBtnArea.style.display = 'none';
-    setTimeout(function() {
-      savePendingSession();
-      APP.session.currentIndex++;
-      renderCard();
-    }, 2000);
+    // [v5.28 B안] 해설 표시 → "다음" 버튼으로 수동 이동
+    showWrongExplanation(card, '');
+    card._wrongExplanationShown = true;
     return;
   }
 
@@ -3897,6 +3969,30 @@ function showWrongExplanation(card, selectedText) {
 
 // 오답 해설 후 다음 카드
 function goNextAfterWrong() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  // [v5.28 B안] 재시도 모드에서 포기: 정답+해설 먼저 보여준 후, 두 번째 클릭 시 이동
+  if (card && card._retryMode && !card._wrongExplanationShown) {
+    card._correct = false;
+    updateCardState(card.id, false);
+    // 정답 표시
+    var displayOptions = card._shuffledOptions || card.answer.options;
+    var correctIdx = displayOptions.indexOf(card.answer.correct);
+    var choiceBtns = document.querySelectorAll('.choices .choice-btn');
+    choiceBtns.forEach(function(btn, i) {
+      btn.disabled = true;
+      if (i === correctIdx) btn.classList.add('correct');
+    });
+    // 도움 버튼 숨기기
+    var helpBtnArea = document.getElementById('help-stair-btn-area');
+    if (helpBtnArea) helpBtnArea.style.display = 'none';
+    // 해설 표시
+    showWrongExplanation(card, '');
+    card._wrongExplanationShown = true;
+    logEvent('card_retry_skip', {
+      cardId: card.id, helpSteps: card._helpStep || 0
+    });
+    return;
+  }
   savePendingSession();
   APP.session.currentIndex++;
   renderCard();
@@ -6106,6 +6202,22 @@ async function endSession() {
     checksHtml += '<span style="background:#E8F5E9; padding:6px 12px; border-radius:16px; font-size:14px;">' + (subjectIcons[subj] || subj) + ' ✓</span>';
   }
   document.getElementById('child-subject-checks').innerHTML = checksHtml;
+
+  // [v5.28 C2] 수행 중심 피드백 (아이 화면)
+  var perfHtml = '';
+  var totalCards = s.cards.length;
+  perfHtml += '<span style="background:#E3F2FD; padding:8px 16px; border-radius:16px; font-weight:600;">오늘 ' + totalCards + '장 완료!</span>';
+  // 자력 정답 수 (도움 없이 맞춘 카드)
+  var selfCorrect = s.cards.filter(function(c) { return c._correct && !c._assistedCorrect; }).length;
+  if (selfCorrect > 0) {
+    perfHtml += '<span style="background:#FFF3E0; padding:8px 16px; border-radius:16px;">혼자 힘으로 ' + selfCorrect + '장 맞혔어!</span>';
+  }
+  // 도움 받아 맞춘 카드
+  var assistedCorrect = s.cards.filter(function(c) { return c._assistedCorrect; }).length;
+  if (assistedCorrect > 0) {
+    perfHtml += '<span style="background:#F3E5F5; padding:8px 16px; border-radius:16px;">도움 받아 ' + assistedCorrect + '장 더 맞혔어!</span>';
+  }
+  document.getElementById('child-performance').innerHTML = perfHtml;
 
   // 과목별 정답률 (부모 화면용)
   const breakdownEl = document.getElementById('subject-breakdown');

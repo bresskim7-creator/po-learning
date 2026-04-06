@@ -1,4 +1,4 @@
-const CACHE_NAME = 'po-learning-v527';
+const CACHE_NAME = 'po-learning-v528';
 const PRECACHE = [
   './',
   './index.html',
@@ -45,6 +45,4 @@ self.addEventListener('fetch', event => {
         caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         return response;
       })
-      .catch(() => caches.match(event.request))
-  );
-});
+      .cat
