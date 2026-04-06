@@ -4073,6 +4073,36 @@ function stopSTT() {
   sttActive = false;
 }
 
+// [v5.29] Whisper 우선 STT — audioBlob → Whisper 전사, 실패 시 Web Speech API 폴백
+// 반환: { text: string, confidence: number, engine: 'whisper'|'web_speech'|'none' }
+async function getSTTResult(audioBlob) {
+  // Web Speech API 결과를 먼저 캡처 (Whisper 대기 중 글로벌 변수가 리셋될 수 있으므로)
+  var webSpeechText = sttResult || '';
+  var webSpeechConf = sttConfidence || 0;
+
+  // 1) Whisper 시도 (serverUrl 설정 + audioBlob 존재 시)
+  if (audioBlob && getSettings().serverUrl) {
+    try {
+      var whisperText = await transcribeWithWhisper(audioBlob);
+      if (whisperText !== null && whisperText.trim() !== '') {
+        console.log('[STT] Whisper 성공:', whisperText);
+        return { text: whisperText.trim(), confidence: 0.95, engine: 'whisper' };
+      }
+      console.log('[STT] Whisper 빈 결과 → Web Speech 폴백');
+    } catch(e) {
+      console.warn('[STT] Whisper 실패 → Web Speech 폴백:', e);
+    }
+  }
+  // 2) Web Speech API 폴백 (캡처해둔 값 사용)
+  if (webSpeechText && webSpeechText.trim() !== '') {
+    console.log('[STT] Web Speech 결과:', webSpeechText);
+    return { text: webSpeechText, confidence: webSpeechConf, engine: 'web_speech' };
+  }
+  // 3) 둘 다 실패
+  console.log('[STT] 인식 결과 없음');
+  return { text: '', confidence: 0, engine: 'none' };
+}
+
 // [v5.0 deprecated — assessMatchV5 사용] 이전 greedy character matching 방식
 /**
  * 문장 일치도 판정 (규칙 기반)
@@ -4384,11 +4414,20 @@ async function toggleRecording() {
       duration: recordingSeconds,
     });
 
-    // ★ v4.5: STT 결과 대기 후 일치도 판정
-    // STT onresult가 비동기이므로 짧은 대기 후 판정
-    setTimeout(function() {
+    // [v5.29] Whisper 우선 STT 판정 — audioBlob은 onstop에서 생성되므로 짧은 대기 후 blob 획득
+    status.textContent = '확인 중...';
+    setTimeout(async function() {
+      // recordingChunks에서 blob 생성 (onstop에서 이미 처리했으나, 판정용으로 별도 생성)
+      var audioBlob = (recordingChunks && recordingChunks.length > 0)
+        ? new Blob(recordingChunks, { type: 'audio/webm' }) : null;
+
+      var sttRes = await getSTTResult(audioBlob);
+      var spokenText = sttRes.text;
+      var spokenConf = sttRes.confidence;
+      var sttEngine = sttRes.engine;
+
       var targetText = card.question.ttsText || card.question.displayWord || '';
-      var match = assessMatchV5(targetText, sttResult);
+      var match = assessMatchV5(targetText, spokenText);
       var attemptNum = card._observation ? card._observation.attemptNumber : 1;
       var consecutiveMismatch = card._consecutiveMismatch || 0;
 
@@ -4396,22 +4435,35 @@ async function toggleRecording() {
       if (card._observation) {
         if (!card._observation.sttResults) card._observation.sttResults = [];
         card._observation.sttResults.push({
-          spoken: sttResult,
-          confidence: sttConfidence,
+          spoken: spokenText,
+          confidence: spokenConf,
           matchLevel: match.level,
-          matchScore: match.score
+          matchScore: match.score,
+          engine: sttEngine
         });
       }
 
       logEvent('stt_match', {
         cardId: card.id,
         target: targetText,
-        spoken: sttResult,
-        sttConfidence: sttConfidence,
+        spoken: spokenText,
+        sttConfidence: spokenConf,
+        sttEngine: sttEngine,
         matchLevel: match.level,
         matchScore: match.score,
         attempt: attemptNum
       });
+
+      // [v5.29] recordings 배열 마지막 항목에 STT 결과 추가 (Apps Script 전달용)
+      if (APP.session.recordings && APP.session.recordings.length > 0) {
+        var lastRec = APP.session.recordings[APP.session.recordings.length - 1];
+        if (lastRec.cardId === card.id) {
+          lastRec.sttResult = spokenText;
+          lastRec.sttEngine = sttEngine;
+          lastRec.sttMatchLevel = match.level;
+          lastRec.sttMatchScore = match.score;
+        }
+      }
 
       var feedbackEl = document.getElementById('recording-feedback');
       var btnListen = document.getElementById('btn-listen');
@@ -4500,7 +4552,7 @@ async function toggleRecording() {
           if (btnRetry) btnRetry.classList.remove('hidden');
         }
       }
-    }, 500);  // STT 결과 수신 대기 500ms
+    }, 300);  // [v5.29] onstop blob 생성 대기 300ms 후 Whisper 호출
 
     return;
   }
@@ -4879,10 +4931,10 @@ async function lrToggleRecording() {
     stopSTT();
     if (btnSpeak) { btnSpeak.textContent = '🎤 말하기'; btnSpeak.classList.remove('lr-recording'); }
 
-    // STT 결과 대기 후 판정
+    // [v5.29] Whisper 우선 STT — blob 생성 대기 후 판정
     setTimeout(function() {
       lrProcessAttempt();
-    }, 600);
+    }, 300);
     return;
   }
 
@@ -4965,13 +5017,21 @@ async function lrProcessAttempt() {
     return;
   }
 
-  // 듣고 말하기용 완화 판정: STT 신뢰도 페널티 무시 + 낮은 임계값
-  var result = assessMatchV5(card.ttsText || card.text, sttResult);
+  // [v5.29] Whisper 우선 STT — lrState.recordingChunks에서 blob 생성
+  var lrAudioBlob = (lrState.recordingChunks && lrState.recordingChunks.length > 0)
+    ? new Blob(lrState.recordingChunks, { type: 'audio/webm' }) : null;
+  var sttRes = await getSTTResult(lrAudioBlob);
+  var spokenText = sttRes.text;
+  var spokenConf = sttRes.confidence;
+  var sttEngine = sttRes.engine;
+
+  var result = assessMatchV5(card.ttsText || card.text, spokenText);
 
   console.log('[LR판정]', {
     target: card.ttsText || card.text,
-    spoken: sttResult,
-    sttConf: sttConfidence,
+    spoken: spokenText,
+    sttConf: spokenConf,
+    sttEngine: sttEngine,
     score: result.score,
     level: result.level,
     stage: lrState.currentStage
@@ -4980,7 +5040,8 @@ async function lrProcessAttempt() {
   logEvent('lr_attempt', {
     cardId: card.cardId || card.id,
     stage: lrState.currentStage,
-    spoken: sttResult,
+    spoken: spokenText,
+    sttEngine: sttEngine,
     matchLevel: result.level,
     matchScore: result.score
   });
@@ -4994,7 +5055,8 @@ async function lrProcessAttempt() {
       lrIndex: lrState.currentIndex,
       reachedStage: lrState.currentStage,
       matchScore: result.score,
-      sttTranscript: sttResult,
+      sttTranscript: spokenText,
+      sttEngine: sttEngine,
       passed: true,
       strictPassed: result.score >= strictThreshold
     });
@@ -5036,7 +5098,8 @@ async function lrProcessAttempt() {
       lrIndex: lrState.currentIndex,
       reachedStage: 3,
       matchScore: result.score,
-      sttTranscript: sttResult,
+      sttTranscript: spokenText,
+      sttEngine: sttEngine,
       passed: result.score >= threshold,
       strictPassed: result.score >= 0.7
     });
@@ -5390,16 +5453,24 @@ async function raToggleRecording() {
 
     logEvent('recording_save', { cardId: card ? card.id : null, duration: raState.recordingSeconds });
 
-    // STT 결과 대기 후 판정
-    setTimeout(function() {
+    // [v5.29] Whisper 우선 STT 판정
+    setTimeout(async function() {
+      var raAudioBlob = (raState.recordingChunks && raState.recordingChunks.length > 0)
+        ? new Blob(raState.recordingChunks, { type: 'audio/webm' }) : null;
+      var sttRes = await getSTTResult(raAudioBlob);
+      var spokenText = sttRes.text;
+      var spokenConf = sttRes.confidence;
+      var sttEngine = sttRes.engine;
+
       var targetText = card.question.ttsText || card.question.displayWord || '';
-      var match = assessMatchV5(targetText, sttResult);
+      var match = assessMatchV5(targetText, spokenText);
       var consecutiveMismatch = card._consecutiveMismatch || 0;
 
       console.log('[RA판정]', {
         target: targetText,
-        spoken: sttResult,
-        sttConf: sttConfidence,
+        spoken: spokenText,
+        sttConf: spokenConf,
+        sttEngine: sttEngine,
         score: match.score,
         level: match.level,
         attempt: card._observation ? card._observation.attemptNumber : 1
@@ -5408,18 +5479,30 @@ async function raToggleRecording() {
       // STT 관찰 데이터 기록
       if (card._observation) {
         card._observation.sttResults.push({
-          spoken: sttResult,
-          confidence: sttConfidence,
+          spoken: spokenText,
+          confidence: spokenConf,
           matchLevel: match.level,
-          matchScore: match.score
+          matchScore: match.score,
+          engine: sttEngine
         });
       }
 
       logEvent('stt_match', {
-        cardId: card.id, target: targetText, spoken: sttResult,
-        sttConfidence: sttConfidence, matchLevel: match.level,
+        cardId: card.id, target: targetText, spoken: spokenText,
+        sttConfidence: spokenConf, sttEngine: sttEngine, matchLevel: match.level,
         matchScore: match.score, attempt: card._observation ? card._observation.attemptNumber : 1
       });
+
+      // [v5.29] recordings 배열 마지막 항목에 STT 결과 추가 (Apps Script 전달용)
+      if (APP.session.recordings && APP.session.recordings.length > 0) {
+        var lastRec = APP.session.recordings[APP.session.recordings.length - 1];
+        if (lastRec.cardId === card.id) {
+          lastRec.sttResult = spokenText;
+          lastRec.sttEngine = sttEngine;
+          lastRec.sttMatchLevel = match.level;
+          lastRec.sttMatchScore = match.score;
+        }
+      }
 
       var feedbackEl = document.getElementById('ra-feedback');
 
