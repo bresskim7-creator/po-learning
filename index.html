@@ -727,8 +727,9 @@
     <button class="resume-btn" onclick="resumePendingSession()">이어하기</button>
     <button class="resume-close" onclick="dismissPendingSession()">✕</button>
   </div>
-  <div id="subject-tiles" class="subject-tiles"></div>
-  <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
+  <div id="home-loading" style="text-align:center; padding:40px 0; color:#999; font-size:14px;">불러오는 중...</div>
+  <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
+  <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')" style="display:none;">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
   <div id="legacy-home" style="display:none;">
     <div class="greeting" id="greeting-text">로딩 중...</div>
     <div class="today-info">
@@ -1110,9 +1111,13 @@ function showPage(pageId) {
 
 async function init() {
   loadSettingsUI();
-  await downloadSettingsFromCloud();  // [v5.24] 클라우드 설정 먼저 다운로드
-  loadSettingsUI();  // [v5.24] 다운로드 후 UI 갱신
-  await loadContentFiles();
+  // [v5.29] 클라우드 설정과 콘텐츠 JSON을 병렬 로드 (초기 렌더링 지연 개선)
+  await Promise.all([
+    downloadSettingsFromCloud().then(function() {
+      loadSettingsUI();  // 다운로드 후 UI 갱신
+    }),
+    loadContentFiles()
+  ]);
   loadLrConfig();  // v4.6: listen-repeat 레벨 로드
   loadReviewQueue();
   APP.progress = loadAppProgress();
@@ -1466,6 +1471,9 @@ function renderLegacyHome() {
 }
 
 function renderSubjectTileHome() {
+  // [v5.29] 로딩 인디케이터 제거
+  var loadingEl = document.getElementById('home-loading');
+  if (loadingEl) loadingEl.style.display = 'none';
   document.getElementById('legacy-home').style.display = 'none';
   document.getElementById('subject-tiles').style.display = '';
   document.querySelector('.btn-mixed-session').style.display = '';
@@ -4073,34 +4081,41 @@ function stopSTT() {
   sttActive = false;
 }
 
-// [v5.29] Whisper 우선 STT — audioBlob → Whisper 전사, 실패 시 Web Speech API 폴백
-// 반환: { text: string, confidence: number, engine: 'whisper'|'web_speech'|'none' }
+// [v5.29] Web Speech 즉시 피드백 + Whisper 백그라운드 로그
+// 반환: { text: string, confidence: number, engine: 'web_speech'|'none' }
+// Whisper 결과는 비동기로 logEvent에 별도 기록 (아이 피드백 지연 없음)
 async function getSTTResult(audioBlob) {
-  // Web Speech API 결과를 먼저 캡처 (Whisper 대기 중 글로벌 변수가 리셋될 수 있으므로)
   var webSpeechText = sttResult || '';
   var webSpeechConf = sttConfidence || 0;
 
-  // 1) Whisper 시도 (serverUrl 설정 + audioBlob 존재 시)
+  // Whisper 백그라운드 실행 (피드백 블로킹 없음)
   if (audioBlob && getSettings().serverUrl) {
-    try {
-      var whisperText = await transcribeWithWhisper(audioBlob);
-      if (whisperText !== null && whisperText.trim() !== '') {
-        console.log('[STT] Whisper 성공:', whisperText);
-        return { text: whisperText.trim(), confidence: 0.95, engine: 'whisper' };
-      }
-      console.log('[STT] Whisper 빈 결과 → Web Speech 폴백');
-    } catch(e) {
-      console.warn('[STT] Whisper 실패 → Web Speech 폴백:', e);
-    }
+    _whisperBackground(audioBlob, webSpeechText);
   }
-  // 2) Web Speech API 폴백 (캡처해둔 값 사용)
+
+  // Web Speech API 결과로 즉시 반환
   if (webSpeechText && webSpeechText.trim() !== '') {
-    console.log('[STT] Web Speech 결과:', webSpeechText);
+    console.log('[STT] Web Speech 결과 (즉시):', webSpeechText);
     return { text: webSpeechText, confidence: webSpeechConf, engine: 'web_speech' };
   }
-  // 3) 둘 다 실패
   console.log('[STT] 인식 결과 없음');
   return { text: '', confidence: 0, engine: 'none' };
+}
+
+// [v5.29] Whisper 백그라운드 — 비교 로그만 기록 (피드백에 영향 없음)
+function _whisperBackground(audioBlob, webSpeechText) {
+  transcribeWithWhisper(audioBlob).then(function(whisperText) {
+    if (whisperText === null) whisperText = '';
+    console.log('[STT비교] Web Speech:', JSON.stringify(webSpeechText),
+      '| Whisper:', JSON.stringify(whisperText));
+    logEvent('stt_whisper_compare', {
+      webSpeech: webSpeechText,
+      whisper: whisperText.trim(),
+      match: webSpeechText.trim() === whisperText.trim()
+    });
+  }).catch(function(e) {
+    console.warn('[STT] Whisper 백그라운드 실패:', e);
+  });
 }
 
 // [v5.0 deprecated — assessMatchV5 사용] 이전 greedy character matching 방식
