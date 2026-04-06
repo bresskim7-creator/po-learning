@@ -4081,41 +4081,42 @@ function stopSTT() {
   sttActive = false;
 }
 
-// [v5.29] Web Speech 즉시 피드백 + Whisper 백그라운드 로그
-// 반환: { text: string, confidence: number, engine: 'web_speech'|'none' }
-// Whisper 결과는 비동기로 logEvent에 별도 기록 (아이 피드백 지연 없음)
+// [v5.29] Whisper 우선 STT — 정확한 판정이 빠른 반응보다 중요
+// Web Speech API는 인식률이 낮아 아이가 잘 말해도 mismatch 반복 유발 (lessons-learned 3-1)
+// Whisper 1~2초 대기가 잘못된 판정보다 나은 경험
+// 반환: { text: string, confidence: number, engine: 'whisper'|'web_speech'|'none' }
 async function getSTTResult(audioBlob) {
+  // Web Speech 결과를 먼저 캡처 (Whisper 대기 중 글로벌 변수 리셋 방지)
   var webSpeechText = sttResult || '';
   var webSpeechConf = sttConfidence || 0;
 
-  // Whisper 백그라운드 실행 (피드백 블로킹 없음)
-  if (audioBlob && getSettings().serverUrl) {
-    _whisperBackground(audioBlob, webSpeechText);
+  // 1) Whisper 시도 (serverUrl 설정 + audioBlob 존재 + 온라인 시)
+  if (audioBlob && getSettings().serverUrl && navigator.onLine) {
+    try {
+      var whisperText = await transcribeWithWhisper(audioBlob);
+      if (whisperText !== null && whisperText.trim() !== '') {
+        console.log('[STT] Whisper 성공:', whisperText);
+        // 비교 로그 (Web Speech vs Whisper 정확도 비교용)
+        logEvent('stt_engine_compare', {
+          webSpeech: webSpeechText,
+          whisper: whisperText.trim(),
+          agreed: webSpeechText.trim() === whisperText.trim()
+        });
+        return { text: whisperText.trim(), confidence: 0.95, engine: 'whisper' };
+      }
+      console.log('[STT] Whisper 빈 결과 → Web Speech 폴백');
+    } catch(e) {
+      console.warn('[STT] Whisper 실패 → Web Speech 폴백:', e);
+    }
   }
-
-  // Web Speech API 결과로 즉시 반환
+  // 2) Web Speech API 폴백 (오프라인 또는 Whisper 실패 시)
   if (webSpeechText && webSpeechText.trim() !== '') {
-    console.log('[STT] Web Speech 결과 (즉시):', webSpeechText);
+    console.log('[STT] Web Speech 폴백:', webSpeechText);
     return { text: webSpeechText, confidence: webSpeechConf, engine: 'web_speech' };
   }
+  // 3) 둘 다 실패
   console.log('[STT] 인식 결과 없음');
   return { text: '', confidence: 0, engine: 'none' };
-}
-
-// [v5.29] Whisper 백그라운드 — 비교 로그만 기록 (피드백에 영향 없음)
-function _whisperBackground(audioBlob, webSpeechText) {
-  transcribeWithWhisper(audioBlob).then(function(whisperText) {
-    if (whisperText === null) whisperText = '';
-    console.log('[STT비교] Web Speech:', JSON.stringify(webSpeechText),
-      '| Whisper:', JSON.stringify(whisperText));
-    logEvent('stt_whisper_compare', {
-      webSpeech: webSpeechText,
-      whisper: whisperText.trim(),
-      match: webSpeechText.trim() === whisperText.trim()
-    });
-  }).catch(function(e) {
-    console.warn('[STT] Whisper 백그라운드 실패:', e);
-  });
 }
 
 // [v5.0 deprecated — assessMatchV5 사용] 이전 greedy character matching 방식
@@ -5032,6 +5033,10 @@ async function lrProcessAttempt() {
     return;
   }
 
+  // [v5.29] "확인 중..." 표시 (Whisper 대기 시 아이에게 피드백)
+  var feedbackEl = document.getElementById('lr-feedback');
+  if (feedbackEl && getSettings().serverUrl) feedbackEl.textContent = '확인 중...';
+
   // [v5.29] Whisper 우선 STT — lrState.recordingChunks에서 blob 생성
   var lrAudioBlob = (lrState.recordingChunks && lrState.recordingChunks.length > 0)
     ? new Blob(lrState.recordingChunks, { type: 'audio/webm' }) : null;
@@ -5468,7 +5473,10 @@ async function raToggleRecording() {
 
     logEvent('recording_save', { cardId: card ? card.id : null, duration: raState.recordingSeconds });
 
-    // [v5.29] Whisper 우선 STT 판정
+    // [v5.29] "확인 중..." 표시 + Whisper 우선 STT 판정
+    var raFeedback = document.getElementById('ra-feedback');
+    if (raFeedback && getSettings().serverUrl) raFeedback.textContent = '확인 중...';
+
     setTimeout(async function() {
       var raAudioBlob = (raState.recordingChunks && raState.recordingChunks.length > 0)
         ? new Blob(raState.recordingChunks, { type: 'audio/webm' }) : null;
