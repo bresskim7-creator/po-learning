@@ -1,4 +1,4 @@
-const CACHE_NAME = 'po-learning-v46';
+const CACHE_NAME = 'po-learning-v527';
 const PRECACHE = [
   './',
   './index.html',
@@ -8,6 +8,7 @@ const PRECACHE = [
   './phrase-pool.json',
   './speech-therapy.json',
   './social-studies.json',
+  './science.json',
   './weekly-anchor.json',
 ];
 
