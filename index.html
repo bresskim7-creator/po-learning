@@ -197,7 +197,7 @@
     .btn-stair:active { transform: scale(0.96); }
     .btn-stair.used {
       opacity: 0.45; pointer-events: none;
-      border-color: #aaa; background: #f0f0f0; color: #999;
+      border-color: #aaa; background: #f0f0f0; color: #666;
     }
     .btn-stair.btn-slow {
       border-color: #F5A623; background: #FFF8E8; color: #C47F00;
@@ -765,10 +765,10 @@
   <div id="child-result">
     <div class="emoji">&#127881;</div>
     <h2 id="complete-message">오늘 학습 끝!</h2>
-    <p id="child-role-summary" style="font-size:16px; color:#555; margin:8px 16px; line-height:1.6;"></p>
+    <p id="child-role-summary" style="font-size:16px; color:rgba(255,255,255,0.9); margin:8px 16px; line-height:1.6;"></p>
     <div id="child-subject-checks" style="display:flex; gap:12px; justify-content:center; margin:16px 0; flex-wrap:wrap;"></div>
     <!-- [v5.28 C2] 수행 중심 피드백 -->
-    <div id="child-performance" style="display:flex; flex-direction:column; gap:8px; align-items:center; margin:12px 0; font-size:16px; color:#333;"></div>
+    <div id="child-performance" style="display:flex; flex-direction:column; gap:8px; align-items:center; margin:12px 0; font-size:16px; color:rgba(255,255,255,0.95);"></div>
     <div class="stat-row" style="justify-content:center;">
       <span class="stat-label">연속 학습</span>
       <span class="stat-value" id="stat-streak">0일</span>
@@ -794,7 +794,7 @@
       <div id="subject-breakdown"></div>
     </div>
     <div class="observation-summary" id="observation-summary" style="display:none;"></div>
-    <button class="btn-start" style="background:#888; font-size:14px; padding:10px 24px;" onclick="document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
   </div>
 
   <!-- [v4.10 T4] PIN 모달 -->
@@ -812,7 +812,7 @@
 
   <div style="display:flex; gap:8px; justify-content:center; margin-top:16px;">
     <button class="btn-start" onclick="showPage('page-home')">홈으로</button>
-    <button class="btn-start" style="background:#888; font-size:14px; padding:12px 20px;" onclick="openParentMode()">부모 모드</button>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:12px 20px; border:1px solid rgba(255,255,255,0.4);" onclick="openParentMode()">부모 모드</button>
   </div>
 </div>
 
@@ -6205,8 +6205,10 @@ function buildChildSummary(roleStats) {
   var anchors = anchorData.anchors || {};
   var lines = [];
   if (roleStats['curriculum-recall'] && roleStats['curriculum-recall'].total > 0) {
-    var engAnchor = anchors['school-english'] || '';
-    var socAnchor = anchors['school-social'] || '';
+    var engRaw = anchors['school-english'] || '';
+    var socRaw = anchors['school-social'] || '';
+    var engAnchor = (typeof engRaw === 'object') ? (engRaw.text || engRaw.unit || engRaw.chapter || '') : engRaw;
+    var socAnchor = (typeof socRaw === 'object') ? (socRaw.text || socRaw.unit || socRaw.chapter || '') : socRaw;
     if (engAnchor) {
       lines.push(engAnchor + ' 수업 내용을 다시 봤어');
     } else if (socAnchor) {
@@ -6305,23 +6307,23 @@ async function endSession() {
   s.cards.forEach(function(c) { if (c.subject) subjectsUsed[c.subject] = true; });
   var checksHtml = '';
   for (var subj in subjectsUsed) {
-    checksHtml += '<span style="background:#E8F5E9; padding:6px 12px; border-radius:16px; font-size:14px;">' + (subjectIcons[subj] || subj) + ' ✓</span>';
+    checksHtml += '<span style="background:rgba(255,255,255,0.25); color:white; padding:6px 12px; border-radius:16px; font-size:14px;">' + (subjectIcons[subj] || subj) + ' ✓</span>';
   }
   document.getElementById('child-subject-checks').innerHTML = checksHtml;
 
   // [v5.28 C2] 수행 중심 피드백 (아이 화면)
   var perfHtml = '';
   var totalCards = s.cards.length;
-  perfHtml += '<span style="background:#E3F2FD; padding:8px 16px; border-radius:16px; font-weight:600;">오늘 ' + totalCards + '장 완료!</span>';
+  perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px; font-weight:600;">오늘 ' + totalCards + '장 완료!</span>';
   // 자력 정답 수 (도움 없이 맞춘 카드)
   var selfCorrect = s.cards.filter(function(c) { return c._correct && !c._assistedCorrect; }).length;
   if (selfCorrect > 0) {
-    perfHtml += '<span style="background:#FFF3E0; padding:8px 16px; border-radius:16px;">혼자 힘으로 ' + selfCorrect + '장 맞혔어!</span>';
+    perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px;">혼자 힘으로 ' + selfCorrect + '장 맞혔어!</span>';
   }
   // 도움 받아 맞춘 카드
   var assistedCorrect = s.cards.filter(function(c) { return c._assistedCorrect; }).length;
   if (assistedCorrect > 0) {
-    perfHtml += '<span style="background:#F3E5F5; padding:8px 16px; border-radius:16px;">도움 받아 ' + assistedCorrect + '장 더 맞혔어!</span>';
+    perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px;">도움 받아 ' + assistedCorrect + '장 더 맞혔어!</span>';
   }
   document.getElementById('child-performance').innerHTML = perfHtml;
 
