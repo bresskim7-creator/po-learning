@@ -2103,7 +2103,10 @@
         "displayWord": "지혜야 횡단보도 건널 때는 양쪽을 살피고 건너라."
       },
       "answer": {
-        "correct": ["횡단보도", "살피고"],
+        "correct": [
+          "횡단보도",
+          "살피고"
+        ],
         "options": [
           "횡단보도",
           "살피고",
@@ -2149,7 +2152,10 @@
         "displayWord": "어촌은 바닷가서 물고기 잡으며 살아가는 마을이다."
       },
       "answer": {
-        "correct": ["바닷가서", "물고기"],
+        "correct": [
+          "바닷가서",
+          "물고기"
+        ],
         "options": [
           "바닷가서",
           "물고기",
@@ -2195,7 +2201,10 @@
         "displayWord": "아버지가 지금 방에서 주무시고 있는 것 같아요."
       },
       "answer": {
-        "correct": ["아버지가", "있는"],
+        "correct": [
+          "아버지가",
+          "있는"
+        ],
         "options": [
           "아버지가",
           "있는",
@@ -2241,7 +2250,10 @@
         "displayWord": "엄마한테 혼날까봐서 겁이 나서 거짓말 했어요."
       },
       "answer": {
-        "correct": ["혼날까봐서", "거짓말"],
+        "correct": [
+          "혼날까봐서",
+          "거짓말"
+        ],
         "options": [
           "혼날까봐서",
           "거짓말",
@@ -2287,7 +2299,10 @@
         "displayWord": "그 요리는 만드는데 시간 많이 걸리니까 빠른 걸 만들자."
       },
       "answer": {
-        "correct": ["시간", "걸"],
+        "correct": [
+          "시간",
+          "걸"
+        ],
         "options": [
           "시간",
           "걸",
@@ -2790,6 +2805,1230 @@
         "다른부분(캐나리가→캐나리아가)"
       ],
       "wrongExplanation": "들려준 문장에서는 '캐나리아가'라고 했는데, 화면에는 '캐나리가'라고만 적혀 있어. '아'가 빠져 있지!"
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_01",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "영수는 아버지 따라 동네 도서관 가서 책을 보았다.",
+        "ttsText": "영수는 아버지 따라서 동네 도서관에 가서 책을 보았다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "따라",
+            "displayIndex": 2,
+            "audioWord": "따라서",
+            "options": [
+              "따라서",
+              "따라도",
+              "따라가"
+            ],
+            "explanation": "'따라' 뒤에 '서'가 붙어서 '따라서'로 들려!"
+          },
+          {
+            "displayWord": "도서관",
+            "displayIndex": 4,
+            "audioWord": "도서관에",
+            "options": [
+              "도서관에",
+              "도서관을",
+              "도서관은"
+            ],
+            "explanation": "'도서관' 뒤에 '에'가 붙어서 '도서관에'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사가 달라진 곳이 2군데야! '따라' 뒤와 '도서관' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 따라→따라서(조사 첨가), 도서관→도서관에(조사 첨가)",
+      "rules": [
+        "다른부분(따라→따라서)",
+        "다른부분(도서관→도서관에)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_02",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "우리 반은 어제 체육 시간에 2반 아이들과 축구 경기를 하였다.",
+        "ttsText": "우리 반은 어제 체육 시간에 2반 애들과 축구 경기를 했다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "아이들과",
+            "displayIndex": 6,
+            "audioWord": "애들과",
+            "options": [
+              "애들과",
+              "아이고",
+              "아이까"
+            ],
+            "explanation": "'아이들'이 '애들'로 줄어들어서 들려!"
+          },
+          {
+            "displayWord": "하였다.",
+            "displayIndex": 9,
+            "audioWord": "했다.",
+            "options": [
+              "했다.",
+              "하였다.",
+              "했었다."
+            ],
+            "explanation": "'하였다'가 '했다'로 줄어들어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "긴 단어가 짧게 줄어든 곳이 2군데야! 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "단어축약"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 아이들과→애들과(축약), 하였다→했다(축약)",
+      "rules": [
+        "다른부분(아이들과→애들과)",
+        "다른부분(하였다→했다)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_03",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "머리에 수건 쓰고, 떡을 쓰는 어머니 모습이 떠올랐다.",
+        "ttsText": "머리에 수건을 쓰고, 떡을 쓰는 어머니의 모습이 떠올랐다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "수건",
+            "displayIndex": 1,
+            "audioWord": "수건을",
+            "options": [
+              "수건을",
+              "수건이",
+              "수건은"
+            ],
+            "explanation": "'수건' 뒤에 '을'이 붙어서 '수건을'로 들려!"
+          },
+          {
+            "displayWord": "어머니",
+            "displayIndex": 5,
+            "audioWord": "어머니의",
+            "options": [
+              "어머니의",
+              "어머니가",
+              "어머니는"
+            ],
+            "explanation": "'어머니' 뒤에 '의'가 붙어서 '어머니의'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사가 달라진 곳이 2군데야! '수건' 뒤와 '어머니' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 수건→수건을(목적격조사), 어머니→어머니의(소유격조사)",
+      "rules": [
+        "다른부분(수건→수건을)",
+        "다른부분(어머니→어머니의)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_04",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "식목일날에 아버지와 함께 마을 뒷산에 가서 나무 심었다.",
+        "ttsText": "식목날에 아버지와 함께 마을 뒷산에 가서 나무를 심었다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "식목일날에",
+            "displayIndex": 0,
+            "audioWord": "식목날에",
+            "options": [
+              "식목날에",
+              "식목일에",
+              "식목일날"
+            ],
+            "explanation": "'식목일날에'에서 '일'이 빠져서 '식목날에'로 들려!"
+          },
+          {
+            "displayWord": "나무",
+            "displayIndex": 6,
+            "audioWord": "나무를",
+            "options": [
+              "나무를",
+              "나무가",
+              "나무는"
+            ],
+            "explanation": "'나무' 뒤에 '를'이 붙어서 '나무를'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "첫 단어에서 한 글자가 빠졌고, '나무' 뒤에 조사가 붙었어! 두 곳을 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 식목일날에→식목날에(글자생략), 나무→나무를(목적격조사)",
+      "rules": [
+        "다른부분(식목일날에→식목날에)",
+        "다른부분(나무→나무를)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_05",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "아이들과 함께 동물원에 가서 코끼리랑 호랑이 구경했어요.",
+        "ttsText": "아이들과 함께 동물원에서 코끼리랑 호랑이를 구경했어요.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "동물원에",
+            "displayIndex": 2,
+            "audioWord": "동물원에서",
+            "options": [
+              "동물원에서",
+              "동물원에는",
+              "동물원에도"
+            ],
+            "explanation": "'동물원에' 뒤에 '서'가 붙어서 '동물원에서'로 들려!"
+          },
+          {
+            "displayWord": "호랑이",
+            "displayIndex": 5,
+            "audioWord": "호랑이를",
+            "options": [
+              "호랑이를",
+              "호랑이가",
+              "호랑이는"
+            ],
+            "explanation": "'호랑이' 뒤에 '를'이 붙어서 '호랑이를'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사가 달라진 곳이 2군데야! '동물원에' 뒤와 '호랑이' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 동물원에→동물원에서(위치격조사), 호랑이→호랑이를(목적격조사)",
+      "rules": [
+        "다른부분(동물원에→동물원에서)",
+        "다른부분(호랑이→호랑이를)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_06",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "여의도에 가면은 벚꽃 구경하러 온 사람들이 많아요.",
+        "ttsText": "여의도에 가면 벚꽃을 구경하러 온 사람들이 많아요.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "가면은",
+            "displayIndex": 1,
+            "audioWord": "가면",
+            "options": [
+              "가면",
+              "가면은",
+              "가면도"
+            ],
+            "explanation": "'가면은'에서 '은'이 빠져서 '가면'으로 들려!"
+          },
+          {
+            "displayWord": "벚꽃",
+            "displayIndex": 2,
+            "audioWord": "벚꽃을",
+            "options": [
+              "벚꽃을",
+              "벚꽃이",
+              "벚꽃은"
+            ],
+            "explanation": "'벚꽃' 뒤에 '을'이 붙어서 '벚꽃을'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사가 달라진 곳이 2군데야! '가면' 뒤와 '벚꽃' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 가면은→가면(조사생략), 벚꽃→벚꽃을(목적격조사)",
+      "rules": [
+        "다른부분(가면은→가면)",
+        "다른부분(벚꽃→벚꽃을)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_07",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "나는 외삼촌과 함께 마을 뒷산에 올라갑니다.",
+        "ttsText": "나는 외삼촌과 함께 마을 뒷산으로 올라갔습니다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "뒷산에",
+            "displayIndex": 4,
+            "audioWord": "뒷산으로",
+            "options": [
+              "뒷산으로",
+              "뒷산에서",
+              "뒷산을"
+            ],
+            "explanation": "'뒷산에'에서 '으로'로 바뀌어서 '뒷산으로'로 들려!"
+          },
+          {
+            "displayWord": "올라갑니다.",
+            "displayIndex": 5,
+            "audioWord": "올라갔습니다.",
+            "options": [
+              "올라갔습니다.",
+              "올라갑니다.",
+              "올라갔어요."
+            ],
+            "explanation": "'올라갑니다'가 '올라갔습니다'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사와 동사 어미가 달라진 곳이 2군데야! '뒷산' 뒤와 '올라' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 뒷산에→뒷산으로(방향격조사), 올라갑니다→올라갔습니다(과거시제어미)",
+      "rules": [
+        "다른부분(뒷산에→뒷산으로)",
+        "다른부분(올라갑니다→올라갔습니다)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_08",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "넓은 바다에 배들이 많이 다니고 있습니다.",
+        "ttsText": "넓은 바다에 배들이 많이 떠다니고 있었습니다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "다니고",
+            "displayIndex": 4,
+            "audioWord": "떠다니고",
+            "options": [
+              "떠다니고",
+              "다니고",
+              "다니며"
+            ],
+            "explanation": "'다니고'가 '떠다니고'로 바뀌어서 들려!"
+          },
+          {
+            "displayWord": "있습니다.",
+            "displayIndex": 5,
+            "audioWord": "있었습니다.",
+            "options": [
+              "있었습니다.",
+              "있습니다.",
+              "있거든요."
+            ],
+            "explanation": "'있습니다'가 '있었습니다'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "동사와 어미가 달라진 곳이 2군데야! '다니고'와 '있습니다' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "어미감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 다니고→떠다니고(동사교체), 있습니다→있었습니다(과거시제)",
+      "rules": [
+        "다른부분(다니고→떠다니고)",
+        "다른부분(있습니다→있었습니다)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_09",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "비 와서 밖에 나가기 귀찮으니까 집에서 만나자.",
+        "ttsText": "비가 와서 밖에 나가기가 귀찮으니까 집에서 만나자.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "비",
+            "displayIndex": 0,
+            "audioWord": "비가",
+            "options": [
+              "비가",
+              "비는",
+              "비를"
+            ],
+            "explanation": "'비' 뒤에 '가'가 붙어서 '비가'로 들려!"
+          },
+          {
+            "displayWord": "나가기",
+            "displayIndex": 3,
+            "audioWord": "나가기가",
+            "options": [
+              "나가기가",
+              "나가기는",
+              "나가기를"
+            ],
+            "explanation": "'나가기' 뒤에 '가'가 붙어서 '나가기가'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "주격조사 '가'가 붙은 곳이 2군데야! 첫 단어와 '나가기' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 비→비가(주격조사), 나가기→나가기가(주격조사)",
+      "rules": [
+        "다른부분(비→비가)",
+        "다른부분(나가기→나가기가)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-5_10",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p157",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p157",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 1개를 찾아봐!",
+        "displaySentence": "숨도 차고 땀도 났지만 끝까지 올라갔습니다.",
+        "ttsText": "숨도 차고 땀도 났지만 나는 끝까지 올라갔습니다.",
+        "ttsLang": "ko",
+        "diffCount": 1
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "끝까지",
+            "displayIndex": 4,
+            "audioWord": "나는 끝까지",
+            "options": [
+              "나는 끝까지",
+              "끝까지",
+              "끝내기"
+            ],
+            "explanation": "'끝까지' 앞에 '나는'이 들어가서 '나는 끝까지'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "'끝까지' 앞에 뭔가 추가된 게 있어! 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "단어삽입"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-5: 나는 삽입 (했지만 앞에 '나는' 추가)",
+      "rules": [
+        "다른부분(나는삽입)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_01",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "친구가 약도를 그려주어서 약속 장소를 금방 찾을 수 있었다.",
+        "ttsText": "친구가 약도를 그려줘서 약속 장소를 금방 찾을 수 있다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "그려주어서",
+            "displayIndex": 2,
+            "audioWord": "그려줘서",
+            "options": [
+              "그려줘서",
+              "그려주어서",
+              "그려주며서"
+            ],
+            "explanation": "'그려주어서'가 '그려줘서'로 줄어들어서 들려!"
+          },
+          {
+            "displayWord": "있었다.",
+            "displayIndex": 8,
+            "audioWord": "있다.",
+            "options": [
+              "있다.",
+              "있었다.",
+              "있었어요."
+            ],
+            "explanation": "'있었다'가 '있다'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "어미가 달라진 곳이 2군데야! '그려주어서' 부분과 문장 끝 '있었다'를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "어미감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 그려주어서→그려줘서(어미축약), 있었다→있다(시제변경)",
+      "rules": [
+        "다른부분(그려주어서→그려줘서)",
+        "다른부분(있었다→있다)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_02",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "정상에 올라가 보니 멀리 바다가 보이고, 넓은 들판도 보였다.",
+        "ttsText": "정상에 올라가니 멀리 바다도 보이고, 넓은 들판도 보였다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "올라가",
+            "displayIndex": 1,
+            "audioWord": "올라가니",
+            "options": [
+              "올라가니",
+              "올라가 보니",
+              "올라갔니"
+            ],
+            "explanation": "'올라가 보니'가 '올라가니'로 줄어들어서 들려!"
+          },
+          {
+            "displayWord": "바다가",
+            "displayIndex": 4,
+            "audioWord": "바다도",
+            "options": [
+              "바다도",
+              "바다가",
+              "바다는"
+            ],
+            "explanation": "'바다가'가 '바다도'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "어미와 조사가 달라진 곳이 2군데야! '올라가' 뒤와 '바다' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 올라가 보니→올라가니(어미축약), 바다가→바다도(조사변경)",
+      "rules": [
+        "다른부분(올라가 보니→올라가니)",
+        "다른부분(바다가→바다도)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_03",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 1개를 찾아봐!",
+        "displaySentence": "나는 개구리가 통통해서 잡으려고 했는데 너무 빨라 못 잡았다.",
+        "ttsText": "나는 개구리가 통통해서 잡으려고 했는데 너무 빨라서 못 잡았다.",
+        "ttsLang": "ko",
+        "diffCount": 1
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "빨라",
+            "displayIndex": 6,
+            "audioWord": "빨라서",
+            "options": [
+              "빨라서",
+              "빨라",
+              "빨랐어"
+            ],
+            "explanation": "'빨라' 뒤에 '서'가 붙어서 '빨라서'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "동사 뒤에 작은 조사가 하나 추가됐어! 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "어미감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 빨라→빨라서(원인결과어미 추가)",
+      "rules": [
+        "다른부분(빨라→빨라서)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_04",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "선생님께서는 서울에서 새로 전학 온 민지를 소개하였습니다.",
+        "ttsText": "선생님께서는 서울에서 새로 전학을 온 민지를 소개하셨습니다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "전학",
+            "displayIndex": 3,
+            "audioWord": "전학을",
+            "options": [
+              "전학을",
+              "전학이",
+              "전학은"
+            ],
+            "explanation": "'전학' 뒤에 '을'이 붙어서 '전학을'로 들려!"
+          },
+          {
+            "displayWord": "소개하였습니다.",
+            "displayIndex": 6,
+            "audioWord": "소개하셨습니다.",
+            "options": [
+              "소개하셨습니다.",
+              "소개하였습니다.",
+              "소개했습니다."
+            ],
+            "explanation": "'소개하였습니다'가 '소개하셨습니다'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사와 어미가 달라진 곳이 2군데야! '전학' 뒤와 '소개' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "존댓말"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 전학→전학을(목적격조사), 소개하였→소개하셨(존댓글어미)",
+      "rules": [
+        "다른부분(전학→전학을)",
+        "다른부분(소개하였→소개하셨)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_05",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "아이는 빨리 어른 되게 해 달라고 기도했습니다.",
+        "ttsText": "아이는 빨리 어른이 되게 해 달라고 기도하였습니다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "어른",
+            "displayIndex": 2,
+            "audioWord": "어른이",
+            "options": [
+              "어른이",
+              "어른을",
+              "어른은"
+            ],
+            "explanation": "'어른' 뒤에 '이'가 붙어서 '어른이'로 들려!"
+          },
+          {
+            "displayWord": "기도했습니다.",
+            "displayIndex": 6,
+            "audioWord": "기도하였습니다.",
+            "options": [
+              "기도하였습니다.",
+              "기도했습니다.",
+              "기도했어요."
+            ],
+            "explanation": "'기도했습니다'가 '기도하였습니다'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사와 어미가 달라진 곳이 2군데야! '어른' 뒤와 '기도' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 어른→어른이(서술격조사), 기도했→기도하였(과거시제어미)",
+      "rules": [
+        "다른부분(어른→어른이)",
+        "다른부분(기도했→기도하였)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_06",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "해변에서 하루 종일 놀아서 얼굴이 까맣게 탔어요.",
+        "ttsText": "해변가에서 하루 종일 놀아서 얼굴이 빨갛게 됐어요.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "해변에서",
+            "displayIndex": 0,
+            "audioWord": "해변가에서",
+            "options": [
+              "해변가에서",
+              "해변에서",
+              "해변으로"
+            ],
+            "explanation": "'해변에서'가 '해변가에서'로 바뀌어서 들려!"
+          },
+          {
+            "displayWord": "까맣게",
+            "displayIndex": 5,
+            "audioWord": "빨갛게",
+            "options": [
+              "빨갛게",
+              "까맣게",
+              "검게"
+            ],
+            "explanation": "'까맣게'가 '빨갛게'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "단어가 달라진 곳이 2군데야! '해변' 부분과 '까맣게' 부분을 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "유사어"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 해변에서→해변가에서(단어추가), 까맣게→빨갛게(형용사변경)",
+      "rules": [
+        "다른부분(해변에서→해변가에서)",
+        "다른부분(까맣게→빨갛게)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_07",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "중요한 일이니까 다시 한 번 빠진 게 없는지 확인해 주세요.",
+        "ttsText": "중요한 일이니 다시 한 번 빠진 것 없는지 확인하여 주세요.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "일이니까",
+            "displayIndex": 1,
+            "audioWord": "일이니",
+            "options": [
+              "일이니",
+              "일이니까",
+              "일이면"
+            ],
+            "explanation": "'일이니까'에서 '까'가 빠져서 '일이니'로 들려!"
+          },
+          {
+            "displayWord": "확인해",
+            "displayIndex": 8,
+            "audioWord": "확인하여",
+            "options": [
+              "확인하여",
+              "확인해",
+              "확인해서"
+            ],
+            "explanation": "'확인해'가 '확인하여'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "어미가 달라진 곳이 2군데야! '일이니까' 부분과 '확인해' 부분을 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "어미감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 일이니까→일이니(어미축약), 확인해→확인하여(어미변경)",
+      "rules": [
+        "다른부분(일이니까→일이니)",
+        "다른부분(확인해→확인하여)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_08",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "부모님께 거짓말 했는데 사실을 말할 용기가 나지 않았다.",
+        "ttsText": "부모님께 거짓말을 했는데 사실대로 말할 용기가 나지 않았다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "거짓말",
+            "displayIndex": 1,
+            "audioWord": "거짓말을",
+            "options": [
+              "거짓말을",
+              "거짓말은",
+              "거짓말이"
+            ],
+            "explanation": "'거짓말' 뒤에 '을'이 붙어서 '거짓말을'로 들려!"
+          },
+          {
+            "displayWord": "사실을",
+            "displayIndex": 3,
+            "audioWord": "사실대로",
+            "options": [
+              "사실대로",
+              "사실을",
+              "사실이"
+            ],
+            "explanation": "'사실을'이 '사실대로'로 바뀌어서 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "조사가 달라진 곳이 2군데야! '거짓말' 뒤와 '사실' 뒤를 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 거짓말→거짓말을(목적격조사), 사실을→사실대로(조사변경)",
+      "rules": [
+        "다른부분(거짓말→거짓말을)",
+        "다른부분(사실을→사실대로)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_09",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 1개를 찾아봐!",
+        "displaySentence": "지은이네 집에 창수가 놀러 와서 내일 미술 준비물 같이 사러 가자고 했다.",
+        "ttsText": "지은이네 집에 창수가 놀러 와서 내일 미술 준비물을 같이 사러 가자고 했다.",
+        "ttsLang": "ko",
+        "diffCount": 1
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "준비물",
+            "displayIndex": 7,
+            "audioWord": "준비물을",
+            "options": [
+              "준비물을",
+              "준비물이",
+              "준비물은"
+            ],
+            "explanation": "'준비물' 뒤에 '을'이 붙어서 '준비물을'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "준비물 뒤에 작은 글자가 붙었어! 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 준비물→준비물을(목적격조사)",
+      "rules": [
+        "다른부분(준비물→준비물을)"
+      ]
+    },
+    {
+      "cardId": "crd_2026W15_sd_8-6_10",
+      "sourceRef": "speech-therapy/260409/읽기자신감4권-p158",
+      "runId": "2026-W15",
+      "sourceId": "speech-therapy",
+      "sourceUnit": "읽기자신감4권-p158",
+      "type": "spot_diff",
+      "subject": "speech_therapy",
+      "difficulty": 2,
+      "question": {
+        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "displaySentence": "편지를 부치러 가기 전에 문구점에서 우표를 샀습니다.",
+        "ttsText": "편지를 부치려고 가기 전에 문구점에서 우표 샀습니다.",
+        "ttsLang": "ko",
+        "diffCount": 2
+      },
+      "answer": {
+        "type": "spot_diff",
+        "diffs": [
+          {
+            "displayWord": "부치러",
+            "displayIndex": 1,
+            "audioWord": "부치려고",
+            "options": [
+              "부치려고",
+              "부치러",
+              "부치러서"
+            ],
+            "explanation": "'부치러'가 '부치려고'로 바뀌어서 들려!"
+          },
+          {
+            "displayWord": "우표를",
+            "displayIndex": 5,
+            "audioWord": "우표",
+            "options": [
+              "우표",
+              "우표를",
+              "우표가"
+            ],
+            "explanation": "'우표를'에서 '를'이 빠져서 '우표'로 들려!"
+          }
+        ]
+      },
+      "hint": {
+        "text": "어미와 조사가 달라진 곳이 2군데야! '부치러' 부분과 '우표' 부분을 잘 들어봐."
+      },
+      "skillTags": [
+        "시각주의력",
+        "청각변별",
+        "조사감각"
+      ],
+      "questionType": "spot_diff",
+      "anchorType": "speech-therapy",
+      "anchorWeek": "2026-W15",
+      "confidence": 0.85,
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass",
+      "pedagogyNote": "시각주의력 8-6: 부치러→부치려고(어미변경), 우표를→우표(조사생략)",
+      "rules": [
+        "다른부분(부치러→부치려고)",
+        "다른부분(우표를→우표)"
+      ]
     }
   ],
   "listenRepeatCards": [

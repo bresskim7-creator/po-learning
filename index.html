@@ -142,6 +142,47 @@
     }
     .choice-btn:disabled { cursor: default; opacity: 0.7; }
 
+    /* spot_diff (다른 부분 찾기) */
+    .sd-instruction { text-align: center; font-size: 16px; font-weight: 600; color: #333; margin-bottom: 12px; }
+    .sd-sentence { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 16px 8px; background: #FAFAFA; border-radius: 12px; margin-bottom: 12px; min-height: 60px; align-items: center; }
+    .sd-word-btn {
+      background: white; border: 2px solid #e0e0e0; border-radius: 8px;
+      padding: 8px 12px; font-size: 16px; cursor: pointer; transition: all 0.15s;
+      line-height: 1.4; user-select: none; -webkit-user-select: none;
+    }
+    .sd-word-btn:active { background: #f0f4f8; }
+    .sd-word-btn.sd-selected { border-color: #4A90D9; background: #EBF5FF; font-weight: 600; }
+    .sd-word-btn.sd-correct-word { border-color: #27AE60; background: #E8F8E8; }
+    .sd-word-btn.sd-wrong-word { border-color: #E74C3C; background: #FDE8E8; }
+    .sd-word-btn:disabled { cursor: default; }
+    .sd-controls { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+    .sd-btn-listen {
+      background: #FFF3E0; border: 2px solid #FFB74D; border-radius: 10px;
+      padding: 10px 20px; font-size: 14px; cursor: pointer; font-weight: 600; color: #E65100;
+    }
+    .sd-btn-listen:active { background: #FFE0B2; }
+    .sd-btn-confirm {
+      background: #4A90D9; border: none; border-radius: 10px;
+      padding: 10px 24px; font-size: 15px; cursor: pointer; font-weight: 600; color: white;
+    }
+    .sd-btn-confirm:disabled { background: #ccc; cursor: default; }
+    .sd-phase-label { text-align: center; font-size: 14px; color: #4A90D9; font-weight: 600; margin: 8px 0; }
+    .sd-options { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .sd-option-btn {
+      background: white; border: 2px solid #e0e0e0; border-radius: 10px;
+      padding: 10px 18px; font-size: 15px; cursor: pointer; transition: all 0.15s;
+    }
+    .sd-option-btn:active { background: #f0f4f8; }
+    .sd-option-btn.sd-opt-correct { border-color: #27AE60; background: #E8F8E8; color: #27AE60; font-weight: 600; }
+    .sd-option-btn.sd-opt-wrong { border-color: #E74C3C; background: #FDE8E8; color: #E74C3C; }
+    .sd-option-btn:disabled { cursor: default; opacity: 0.7; }
+    .sd-explanation { background: #FFF8E1; border-radius: 10px; padding: 10px 14px; font-size: 14px; color: #F57F17; margin-top: 8px; text-align: center; }
+    .sd-status { display: flex; gap: 6px; justify-content: center; margin: 8px 0; }
+    .sd-status-dot { width: 12px; height: 12px; border-radius: 50%; background: #e0e0e0; }
+    .sd-status-dot.sd-dot-done { background: #27AE60; }
+    .sd-status-dot.sd-dot-current { background: #4A90D9; }
+    .sd-status-dot.sd-dot-wrong { background: #E74C3C; }
+
     /* 힌트 */
     .hint-area {
       background: #FFF8E1; border-radius: 12px; padding: 12px 16px;
@@ -197,7 +238,7 @@
     .btn-stair:active { transform: scale(0.96); }
     .btn-stair.used {
       opacity: 0.45; pointer-events: none;
-      border-color: #aaa; background: #f0f0f0; color: #999;
+      border-color: #aaa; background: #f0f0f0; color: #666;
     }
     .btn-stair.btn-slow {
       border-color: #F5A623; background: #FFF8E8; color: #C47F00;
@@ -765,10 +806,10 @@
   <div id="child-result">
     <div class="emoji">&#127881;</div>
     <h2 id="complete-message">오늘 학습 끝!</h2>
-    <p id="child-role-summary" style="font-size:16px; color:#555; margin:8px 16px; line-height:1.6;"></p>
+    <p id="child-role-summary" style="font-size:16px; color:rgba(255,255,255,0.9); margin:8px 16px; line-height:1.6;"></p>
     <div id="child-subject-checks" style="display:flex; gap:12px; justify-content:center; margin:16px 0; flex-wrap:wrap;"></div>
     <!-- [v5.28 C2] 수행 중심 피드백 -->
-    <div id="child-performance" style="display:flex; flex-direction:column; gap:8px; align-items:center; margin:12px 0; font-size:16px; color:#333;"></div>
+    <div id="child-performance" style="display:flex; flex-direction:column; gap:8px; align-items:center; margin:12px 0; font-size:16px; color:rgba(255,255,255,0.95);"></div>
     <div class="stat-row" style="justify-content:center;">
       <span class="stat-label">연속 학습</span>
       <span class="stat-value" id="stat-streak">0일</span>
@@ -794,7 +835,7 @@
       <div id="subject-breakdown"></div>
     </div>
     <div class="observation-summary" id="observation-summary" style="display:none;"></div>
-    <button class="btn-start" style="background:#888; font-size:14px; padding:10px 24px;" onclick="document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
   </div>
 
   <!-- [v4.10 T4] PIN 모달 -->
@@ -812,7 +853,7 @@
 
   <div style="display:flex; gap:8px; justify-content:center; margin-top:16px;">
     <button class="btn-start" onclick="showPage('page-home')">홈으로</button>
-    <button class="btn-start" style="background:#888; font-size:14px; padding:12px 20px;" onclick="openParentMode()">부모 모드</button>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:12px 20px; border:1px solid rgba(255,255,255,0.4);" onclick="openParentMode()">부모 모드</button>
   </div>
 </div>
 
@@ -1060,7 +1101,7 @@ async function playTTS(cardId) {
   if (!card) return;
 
   const text = card.question.ttsText || card.question.text;
-  const lang = (card.subject === 'english' && card.question.displayWord) ? 'en' : 'ko';
+  const lang = card.question.ttsLang || (/[가-힣]/.test(text) ? 'ko' : (card.subject === 'english' ? 'en' : 'ko'));
 
   APP.ttsPlaying = true;
   const ttsBtn = document.querySelector('.btn-tts');
@@ -3009,6 +3050,12 @@ function renderCard() {
     return;
   }
 
+  // v5.32: spot_diff (다른 부분 찾기) 카드 감지 → 별도 렌더러로 전환
+  if (card.type === 'spot_diff') {
+    renderSpotDiffCard(card);
+    return;
+  }
+
   // T5: vocab_flip 카드 감지 → 별도 렌더러로 전환
   if (card.type === 'vocab_flip') {
     renderVocabFlipCard(card);
@@ -3272,6 +3319,468 @@ function renderCard() {
 
   // TTS 정책 적용
   applyTTSPolicy(card);
+}
+
+// ===================================================================
+// v5.32: spot_diff (다른 부분 찾기) 카드 렌더러 + 판정 로직
+// ===================================================================
+
+// spot_diff 전용 상태 (카드 단위)
+var sdState = {
+  card: null,
+  words: [],        // displaySentence를 공백으로 split한 배열
+  selectedIndices: [],  // 아이가 선택한 단어 인덱스 배열
+  phase: 'select',     // 'select' | 'correct_0' | 'correct_1' | 'done'
+  diffIdx: 0,          // 현재 교정 중인 diff 인덱스
+  attempts: 0,         // 전체 시도 횟수 (3회 실패 시 정답 공개)
+  correctDiffs: 0,     // 맞춘 diff 수
+  listenCount: 0,      // "다시 듣기" 횟수
+  selectionAttempts: 0  // 단어 선택 시도 횟수
+};
+
+function renderSpotDiffCard(card) {
+  var s = APP.session;
+  var idx = s.currentIndex;
+  var total = s.cards.length;
+
+  // 진행률
+  document.getElementById('progress-fill').style.width = ((idx / total) * 100) + '%';
+
+  // 과목 뱃지
+  var subjectLabels = {
+    english: '영어', comprehension: '독해', social_studies: '사회', science: '과학', speech_therapy: '말하기 연습', listen_repeat: '듣고 말하기'
+  };
+  document.getElementById('subject-badge-area').innerHTML =
+    '<span class="subject-badge ' + card.subject + '">' + (subjectLabels[card.subject] || card.subject) + '</span>';
+
+  // 상태 초기화
+  var diffCount = card.question.diffCount || card.answer.diffs.length;
+  sdState.card = card;
+  sdState.words = card.question.displaySentence.split(/\s+/);
+  sdState.selectedIndices = [];
+  sdState.phase = 'select';
+  sdState.diffIdx = 0;
+  sdState.attempts = 0;
+  sdState.correctDiffs = 0;
+  sdState.listenCount = 0;
+  sdState.selectionAttempts = 0;
+
+  // 카드 내용 조립
+  var container = document.getElementById('card-container');
+  var html = '';
+
+  // 지시문
+  html += '<div class="sd-instruction">' + escapeHtml(card.question.text) + '</div>';
+
+  // 문장 (단어별 버튼)
+  html += '<div class="sd-sentence" id="sd-sentence">';
+  sdState.words.forEach(function(word, i) {
+    html += '<button class="sd-word-btn" id="sd-word-' + i + '" data-idx="' + i + '" onclick="toggleSpotDiffWord(' + i + ')">'
+      + escapeHtml(word) + '</button>';
+  });
+  html += '</div>';
+
+  // 선택 카운터
+  html += '<div class="sd-phase-label" id="sd-phase-label">다른 부분 ' + diffCount + '개를 찾아서 터치해봐!</div>';
+
+  // 컨트롤 (다시 듣기 + 확인)
+  html += '<div class="sd-controls" id="sd-controls">';
+  html += '<button class="sd-btn-listen" id="sd-btn-listen" onclick="sdListenAgain()">🔊 다시 듣기</button>';
+  html += '<button class="sd-btn-confirm" id="sd-btn-confirm" onclick="confirmSpotDiffSelection()" disabled>확인 (0/' + diffCount + ')</button>';
+  html += '</div>';
+
+  // 교정 보기 영역 (처음엔 비어있음)
+  html += '<div id="sd-correction-area"></div>';
+
+  // 피드백 영역
+  html += '<div id="sd-feedback" style="text-align:center; margin-top:8px;"></div>';
+
+  // 힌트
+  if (card.hint) {
+    html += '<button class="btn-hint" id="btn-hint" onclick="sdShowHint()" style="margin-top:8px;">힌트 보기</button>';
+    html += '<div class="hint-area" id="hint-area">' + escapeHtml(card.hint.text) + '</div>';
+  }
+
+  // 오답 후 다음 버튼
+  html += '<button class="btn-next-after-wrong" id="btn-next-after-wrong" onclick="goNextAfterWrong()" style="display:none;">다음</button>';
+
+  container.innerHTML = html;
+
+  // 피드백 영역 초기화
+  var fb = document.getElementById('feedback');
+  fb.className = 'feedback';
+  fb.style.display = 'none';
+
+  // 레슨 진도 숨김
+  var lessonProg = document.getElementById('lesson-progress');
+  if (lessonProg) lessonProg.style.display = 'none';
+
+  // TTS 자동 재생 (음성 버전)
+  sdPlayTTS(0.9);
+}
+
+// --- TTS ---
+function sdPlayTTS(rate) {
+  var card = sdState.card;
+  if (!card) return;
+  var text = card.question.ttsText;
+  var lang = card.question.ttsLang || (/[가-힣]/.test(text) ? 'ko' : 'en');
+  textToSpeech(text, lang, { rate: rate || null });
+  logEvent('tts_play', { cardId: card.id, engine: getSettings().serverUrl ? 'chirp3' : 'web_speech', context: 'spot_diff' });
+}
+
+function sdListenAgain() {
+  sdState.listenCount++;
+  // 재생 횟수에 따라 점점 느리게: 1회 0.9, 2회 0.8, 3회+ 0.75
+  var rate = sdState.listenCount <= 1 ? 0.9 : (sdState.listenCount <= 2 ? 0.8 : 0.75);
+  sdPlayTTS(rate);
+}
+
+// --- Phase 1: 단어 선택 ---
+function toggleSpotDiffWord(idx) {
+  if (sdState.phase !== 'select') return;
+  var diffCount = sdState.card.question.diffCount || sdState.card.answer.diffs.length;
+
+  var pos = sdState.selectedIndices.indexOf(idx);
+  var btn = document.getElementById('sd-word-' + idx);
+  if (!btn) return;
+
+  if (pos >= 0) {
+    // 이미 선택 → 해제
+    sdState.selectedIndices.splice(pos, 1);
+    btn.classList.remove('sd-selected');
+  } else {
+    // 선택 추가 (최대 diffCount개)
+    if (sdState.selectedIndices.length >= diffCount) {
+      // 초과 시 가장 오래된 선택 해제
+      var oldest = sdState.selectedIndices.shift();
+      var oldBtn = document.getElementById('sd-word-' + oldest);
+      if (oldBtn) oldBtn.classList.remove('sd-selected');
+    }
+    sdState.selectedIndices.push(idx);
+    btn.classList.add('sd-selected');
+  }
+
+  // 확인 버튼 상태 업데이트
+  var confirmBtn = document.getElementById('sd-btn-confirm');
+  if (confirmBtn) {
+    var count = sdState.selectedIndices.length;
+    confirmBtn.textContent = '확인 (' + count + '/' + diffCount + ')';
+    confirmBtn.disabled = (count < diffCount);
+  }
+}
+
+// --- Phase 2: 선택 확인 → 교정 ---
+function confirmSpotDiffSelection() {
+  var card = sdState.card;
+  var diffs = card.answer.diffs;
+  var diffCount = card.question.diffCount || diffs.length;
+  sdState.selectionAttempts++;
+
+  // 정답 인덱스 배열
+  var correctIndices = diffs.map(function(d) { return d.displayIndex; });
+
+  // 선택된 인덱스와 정답 비교
+  var matchCount = 0;
+  sdState.selectedIndices.forEach(function(selIdx) {
+    if (correctIndices.indexOf(selIdx) >= 0) matchCount++;
+  });
+
+  if (matchCount === diffCount) {
+    // 모든 위치 정확히 찾음 → 교정 단계로 진입
+    sdState.phase = 'correct_0';
+    sdState.diffIdx = 0;
+
+    // 선택된 단어를 정답 색상으로 변경
+    sdState.selectedIndices.forEach(function(selIdx) {
+      var btn = document.getElementById('sd-word-' + selIdx);
+      if (btn) { btn.classList.remove('sd-selected'); btn.classList.add('sd-correct-word'); }
+    });
+
+    // 단어 버튼 전체 비활성화
+    sdState.words.forEach(function(w, i) {
+      var btn = document.getElementById('sd-word-' + i);
+      if (btn) btn.disabled = true;
+    });
+
+    // 확인 버튼 숨기고, 듣기 버튼은 유지 (교정 단계에서도 재청취 필요)
+    var confirmBtn2 = document.getElementById('sd-btn-confirm');
+    if (confirmBtn2) confirmBtn2.style.display = 'none';
+
+    // 교정 보기 제시
+    showSpotDiffCorrection(0);
+
+  } else if (sdState.selectionAttempts >= 3) {
+    // 3회 실패 → 정답 위치 공개
+    sdState.phase = 'done';
+    sdState.selectedIndices.forEach(function(selIdx) {
+      var btn = document.getElementById('sd-word-' + selIdx);
+      if (btn) { btn.classList.remove('sd-selected'); btn.classList.add('sd-wrong-word'); }
+    });
+    correctIndices.forEach(function(cidx) {
+      var btn = document.getElementById('sd-word-' + cidx);
+      if (btn) { btn.classList.remove('sd-selected', 'sd-wrong-word'); btn.classList.add('sd-correct-word'); }
+    });
+
+    // 전체 비활성화
+    sdState.words.forEach(function(w, i) {
+      var btn = document.getElementById('sd-word-' + i);
+      if (btn) btn.disabled = true;
+    });
+
+    var controls = document.getElementById('sd-controls');
+    if (controls) controls.style.display = 'none';
+
+    // 정답 + 설명 표시
+    var expHtml = '<div class="sd-explanation">';
+    diffs.forEach(function(d) {
+      expHtml += '<div style="margin:4px 0;">"<b>' + escapeHtml(d.displayWord) + '</b>" → "<b>' + escapeHtml(d.audioWord) + '</b>"';
+      if (d.explanation) expHtml += ' — ' + escapeHtml(d.explanation);
+      expHtml += '</div>';
+    });
+    expHtml += '</div>';
+    var corrArea = document.getElementById('sd-correction-area');
+    if (corrArea) corrArea.innerHTML = expHtml;
+
+    finishSpotDiffCard(false, 0);
+
+  } else {
+    // 부분 맞춤 or 전체 틀림 → 재시도 안내
+    var fb = document.getElementById('sd-feedback');
+    if (matchCount > 0) {
+      fb.innerHTML = '<span style="color:#E65100;">' + matchCount + '개는 맞았어! 나머지도 찾아봐. (시도 ' + sdState.selectionAttempts + '/3)</span>';
+    } else {
+      fb.innerHTML = '<span style="color:#E74C3C;">다시 잘 들어봐! (시도 ' + sdState.selectionAttempts + '/3)</span>';
+    }
+    // 틀린 선택 해제
+    sdState.selectedIndices.forEach(function(selIdx) {
+      var btn = document.getElementById('sd-word-' + selIdx);
+      if (btn) btn.classList.remove('sd-selected');
+    });
+    sdState.selectedIndices = [];
+    var confirmBtn = document.getElementById('sd-btn-confirm');
+    if (confirmBtn) {
+      confirmBtn.textContent = '확인 (0/' + diffCount + ')';
+      confirmBtn.disabled = true;
+    }
+    // 힌트 자동 노출 (2회 이상 실패 시)
+    if (sdState.selectionAttempts >= 2 && card.hint) {
+      var hintArea = document.getElementById('hint-area');
+      if (hintArea) hintArea.classList.add('visible');
+      var hintBtn = document.getElementById('btn-hint');
+      if (hintBtn) hintBtn.style.display = 'none';
+    }
+  }
+
+  logEvent('spot_diff_selection', {
+    cardId: card.id,
+    selected: sdState.selectedIndices.slice(),
+    correctIndices: correctIndices,
+    matchCount: matchCount,
+    attempt: sdState.selectionAttempts
+  });
+}
+
+// --- Phase 3: 교정 보기 제시 ---
+function showSpotDiffCorrection(diffIdx) {
+  var card = sdState.card;
+  var diff = card.answer.diffs[diffIdx];
+  if (!diff) return;
+
+  sdState.diffIdx = diffIdx;
+  var totalDiffs = card.answer.diffs.length;
+
+  // 진행 상태 표시
+  var label = document.getElementById('sd-phase-label');
+  if (label) label.innerHTML = '"<b>' + escapeHtml(diff.displayWord) + '</b>"를 들은 대로 고치면? (' + (diffIdx + 1) + '/' + totalDiffs + ')';
+
+  // 보기 셔플
+  var options = diff.options.slice();
+  for (var i = options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = options[i]; options[i] = options[j]; options[j] = tmp;
+  }
+
+  var corrArea = document.getElementById('sd-correction-area');
+  var html = '<div class="sd-options" id="sd-options-' + diffIdx + '">';
+  options.forEach(function(opt, oi) {
+    html += '<button class="sd-option-btn" id="sd-opt-' + diffIdx + '-' + oi + '" '
+      + 'onclick="selectSpotDiffOption(' + diffIdx + ',' + oi + ',\'' + escapeHtml(opt).replace(/'/g, "\\'") + '\')">'
+      + escapeHtml(opt) + '</button>';
+  });
+  html += '</div>';
+  // 설명 영역 (정답 후 표시)
+  html += '<div id="sd-exp-' + diffIdx + '"></div>';
+  corrArea.innerHTML = html;
+
+  // 해당 단어 하이라이트 강조
+  var wordBtn = document.getElementById('sd-word-' + diff.displayIndex);
+  if (wordBtn) {
+    wordBtn.style.boxShadow = '0 0 0 3px #4A90D9';
+    wordBtn.style.transform = 'scale(1.05)';
+  }
+}
+
+// --- Phase 3: 보기 선택 판정 ---
+function selectSpotDiffOption(diffIdx, optIdx, selectedText) {
+  var card = sdState.card;
+  var diff = card.answer.diffs[diffIdx];
+  if (!diff) return;
+
+  sdState.attempts++;
+  var isCorrect = (selectedText === diff.audioWord);
+
+  // 선택된 버튼과 모든 버튼
+  var optContainer = document.getElementById('sd-options-' + diffIdx);
+  if (!optContainer) return;
+  var allBtns = optContainer.querySelectorAll('.sd-option-btn');
+
+  if (isCorrect) {
+    // 정답
+    sdState.correctDiffs++;
+    allBtns.forEach(function(btn, i) {
+      btn.disabled = true;
+      if (i === optIdx) btn.classList.add('sd-opt-correct');
+    });
+
+    // 단어 버튼 업데이트: displayWord → audioWord 로 변경 표시
+    var wordBtn = document.getElementById('sd-word-' + diff.displayIndex);
+    if (wordBtn) {
+      wordBtn.textContent = diff.audioWord;
+      wordBtn.style.boxShadow = '';
+      wordBtn.style.transform = '';
+    }
+
+    // 설명 표시
+    if (diff.explanation) {
+      var expEl = document.getElementById('sd-exp-' + diffIdx);
+      if (expEl) expEl.innerHTML = '<div class="sd-explanation">' + escapeHtml(diff.explanation) + '</div>';
+    }
+
+    // 피드백
+    var fb = document.getElementById('sd-feedback');
+    if (fb) fb.innerHTML = '<span style="color:#27AE60;">' + getRandomPhrase('praise_correct') + '</span>';
+
+    logEvent('spot_diff_correct', { cardId: card.id, diffIdx: diffIdx, audioWord: diff.audioWord });
+
+    // 다음 diff로 이동 or 완료
+    var nextDiffIdx = diffIdx + 1;
+    if (nextDiffIdx < card.answer.diffs.length) {
+      setTimeout(function() {
+        showSpotDiffCorrection(nextDiffIdx);
+      }, 1200);
+    } else {
+      // 전부 교정 완료
+      setTimeout(function() {
+        finishSpotDiffCard(true, sdState.correctDiffs);
+      }, 1200);
+    }
+
+  } else {
+    // 오답
+    var clickedBtn = document.getElementById('sd-opt-' + diffIdx + '-' + optIdx);
+    if (clickedBtn) {
+      clickedBtn.classList.add('sd-opt-wrong');
+      clickedBtn.disabled = true;
+    }
+
+    var fb = document.getElementById('sd-feedback');
+    if (fb) fb.innerHTML = '<span style="color:#E74C3C;">다시 골라봐!</span>';
+
+    logEvent('spot_diff_wrong', { cardId: card.id, diffIdx: diffIdx, selected: selectedText, correct: diff.audioWord });
+
+    // 남은 활성 버튼이 1개면 → 자동으로 정답 노출
+    var activeBtns = optContainer.querySelectorAll('.sd-option-btn:not(:disabled)');
+    if (activeBtns.length <= 1) {
+      // 마지막 버튼이 정답 → 자동 하이라이트
+      allBtns.forEach(function(btn) {
+        btn.disabled = true;
+        if (btn.textContent.trim() === diff.audioWord) btn.classList.add('sd-opt-correct');
+      });
+
+      var wordBtn = document.getElementById('sd-word-' + diff.displayIndex);
+      if (wordBtn) {
+        wordBtn.textContent = diff.audioWord;
+        wordBtn.style.boxShadow = '';
+        wordBtn.style.transform = '';
+      }
+
+      if (diff.explanation) {
+        var expEl = document.getElementById('sd-exp-' + diffIdx);
+        if (expEl) expEl.innerHTML = '<div class="sd-explanation">' + escapeHtml(diff.explanation) + '</div>';
+      }
+
+      // 다음 diff or 완료
+      var nextDiffIdx2 = diffIdx + 1;
+      if (nextDiffIdx2 < card.answer.diffs.length) {
+        setTimeout(function() { showSpotDiffCorrection(nextDiffIdx2); }, 1500);
+      } else {
+        setTimeout(function() {
+          finishSpotDiffCard(sdState.correctDiffs === card.answer.diffs.length, sdState.correctDiffs);
+        }, 1500);
+      }
+    }
+  }
+}
+
+// --- 힌트 ---
+function sdShowHint() {
+  var hintArea = document.getElementById('hint-area');
+  if (hintArea) hintArea.classList.add('visible');
+  var hintBtn = document.getElementById('btn-hint');
+  if (hintBtn) hintBtn.style.display = 'none';
+}
+
+// --- 카드 완료 ---
+function finishSpotDiffCard(allCorrect, correctDiffs) {
+  var card = sdState.card;
+  var totalDiffs = card.answer.diffs.length;
+
+  card._answered = true;
+  card._correct = allCorrect;
+
+  // 통계 업데이트
+  if (card._isBonus) {
+    if (allCorrect) APP.session.bonusCorrectCount = (APP.session.bonusCorrectCount || 0) + 1;
+  } else {
+    APP.session.totalAttempts++;
+    if (!APP.session.subjectStats[card.subject]) {
+      APP.session.subjectStats[card.subject] = { correct: 0, total: 0 };
+    }
+    APP.session.subjectStats[card.subject].total++;
+    if (allCorrect) {
+      APP.session.correctCount++;
+      APP.session.subjectStats[card.subject].correct++;
+    }
+  }
+
+  updateCardState(card.id, allCorrect);
+
+  logEvent('spot_diff_complete', {
+    cardId: card.id,
+    allCorrect: allCorrect,
+    correctDiffs: correctDiffs,
+    totalDiffs: totalDiffs,
+    selectionAttempts: sdState.selectionAttempts,
+    listenCount: sdState.listenCount
+  });
+
+  // 피드백 표시
+  var label = document.getElementById('sd-phase-label');
+  if (allCorrect) {
+    if (label) label.innerHTML = '<span style="color:#27AE60;">🎉 모두 맞았어! 대단해!</span>';
+    // 자동 다음 카드
+    setTimeout(function() {
+      savePendingSession();
+      APP.session.currentIndex++;
+      renderCard();
+    }, 1500);
+  } else {
+    if (label) label.innerHTML = '<span style="color:#E65100;">' + correctDiffs + '/' + totalDiffs + '개 맞았어. 다음에 더 잘할 수 있어!</span>';
+    // "다음" 버튼 표시
+    var btnNext = document.getElementById('btn-next-after-wrong');
+    if (btnNext) btnNext.style.display = 'block';
+  }
 }
 
 // ===================================================================
@@ -5806,7 +6315,7 @@ async function helpStair(step) {
 
     // TTS 재생
     var text = card.question.ttsText || card.question.displayWord || card.question.text;
-    var lang = 'ko';
+    var lang = card.question.ttsLang || (/[가-힣]/.test(text) ? 'ko' : (card.subject === 'english' ? 'en' : 'ko'));
     APP.ttsPlaying = true;
     try {
       await textToSpeech(text, lang);
@@ -6205,8 +6714,10 @@ function buildChildSummary(roleStats) {
   var anchors = anchorData.anchors || {};
   var lines = [];
   if (roleStats['curriculum-recall'] && roleStats['curriculum-recall'].total > 0) {
-    var engAnchor = anchors['school-english'] || '';
-    var socAnchor = anchors['school-social'] || '';
+    var engRaw = anchors['school-english'] || '';
+    var socRaw = anchors['school-social'] || '';
+    var engAnchor = (typeof engRaw === 'object') ? (engRaw.text || engRaw.unit || engRaw.chapter || '') : engRaw;
+    var socAnchor = (typeof socRaw === 'object') ? (socRaw.text || socRaw.unit || socRaw.chapter || '') : socRaw;
     if (engAnchor) {
       lines.push(engAnchor + ' 수업 내용을 다시 봤어');
     } else if (socAnchor) {
@@ -6255,7 +6766,8 @@ async function endSession() {
   }
 
   // ★ v4.4: speech_therapy 카드 통계를 먼저 계산 (UI 표시 전에)
-  var stRecordingCards = s.cards.filter(function(c) { return c.subject === 'speech_therapy'; });
+  // v5.32: spot_diff 카드는 자체 통계 처리하므로 recording 통계에서 제외
+  var stRecordingCards = s.cards.filter(function(c) { return c.subject === 'speech_therapy' && c.type !== 'spot_diff'; });
   if (stRecordingCards.length > 0) {
     var stRecorded = stRecordingCards.filter(function(c) {
       return c._observation && c._observation.attemptNumber > 0;
@@ -6305,23 +6817,23 @@ async function endSession() {
   s.cards.forEach(function(c) { if (c.subject) subjectsUsed[c.subject] = true; });
   var checksHtml = '';
   for (var subj in subjectsUsed) {
-    checksHtml += '<span style="background:#E8F5E9; padding:6px 12px; border-radius:16px; font-size:14px;">' + (subjectIcons[subj] || subj) + ' ✓</span>';
+    checksHtml += '<span style="background:rgba(255,255,255,0.25); color:white; padding:6px 12px; border-radius:16px; font-size:14px;">' + (subjectIcons[subj] || subj) + ' ✓</span>';
   }
   document.getElementById('child-subject-checks').innerHTML = checksHtml;
 
   // [v5.28 C2] 수행 중심 피드백 (아이 화면)
   var perfHtml = '';
   var totalCards = s.cards.length;
-  perfHtml += '<span style="background:#E3F2FD; padding:8px 16px; border-radius:16px; font-weight:600;">오늘 ' + totalCards + '장 완료!</span>';
+  perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px; font-weight:600;">오늘 ' + totalCards + '장 완료!</span>';
   // 자력 정답 수 (도움 없이 맞춘 카드)
   var selfCorrect = s.cards.filter(function(c) { return c._correct && !c._assistedCorrect; }).length;
   if (selfCorrect > 0) {
-    perfHtml += '<span style="background:#FFF3E0; padding:8px 16px; border-radius:16px;">혼자 힘으로 ' + selfCorrect + '장 맞혔어!</span>';
+    perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px;">혼자 힘으로 ' + selfCorrect + '장 맞혔어!</span>';
   }
   // 도움 받아 맞춘 카드
   var assistedCorrect = s.cards.filter(function(c) { return c._assistedCorrect; }).length;
   if (assistedCorrect > 0) {
-    perfHtml += '<span style="background:#F3E5F5; padding:8px 16px; border-radius:16px;">도움 받아 ' + assistedCorrect + '장 더 맞혔어!</span>';
+    perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px;">도움 받아 ' + assistedCorrect + '장 더 맞혔어!</span>';
   }
   document.getElementById('child-performance').innerHTML = perfHtml;
 
