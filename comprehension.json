@@ -45,7 +45,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'투(投)'는 '던지다', '타(打)'는 '치다'라는 뜻이야. 이름에 역할이 숨어있지거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 0
     },
     {
       "id": "comp_002",
@@ -87,7 +88,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "원인→결과로 읽어봐. '춥다'가 원인이고, '두꺼운 옷을 입는다'가 결과야",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 1
     },
     {
       "id": "comp_003",
@@ -129,7 +131,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "게임 종류마다 특징이 달라. 액션=움직이며 싸우기, 퍼즐=머리 쓰기. 뭐가 다른지 비교해봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 2
     },
     {
       "id": "comp_004",
@@ -171,7 +174,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'시작'과 '끝'을 구분하는 게 핵심이야. 지문에 두 숫자가 나오면 어느 쪽을 물어보는지 잘 봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 3
     },
     {
       "id": "comp_005",
@@ -213,7 +217,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "식물의 각 부분이 하는 일이 달라. 뿌리=땅속에서 물, 잎=햇빛으로 양분. 역할 분담이야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 4
     },
     {
       "id": "comp_006",
@@ -255,7 +260,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'좋은 점'과 '안 좋은 점'을 나눠서 읽어봐. '때문에'나 '하지만' 뒤에 다른 내용이 와거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 5
     },
     {
       "id": "comp_007",
@@ -297,7 +303,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "삼진아웃은 스트라이크 '3개'. 볼넷은 볼 '4개'. 숫자가 비슷해서 헷갈려! 이름에 힌트: 볼'넷'거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 6
     },
     {
       "id": "comp_008",
@@ -340,7 +347,8 @@
       "reviewedDate": "2026-03-17",
       "reviewNote": "힌트 사고유도형으로 변경",
       "wrongExplanation": "'너무 ~하면 ~된다' 패턴이야. 세면→타고, 약하면→안 익고. 반대 상황을 같이 기억해거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 7
     },
     {
       "id": "comp_009",
@@ -382,7 +390,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'없으면 어떻게 될까?'는 지문에서 '없으면'이나 '못' 뒤에 나오는 결과를 찾아봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 8
     },
     {
       "id": "comp_010",
@@ -424,7 +433,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'옛날에는 ~했다. 지금은 ~한다.' 비교 패턴이야. '옛날' 뒤에 나오는 방법을 찾아거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 9
     },
     {
       "id": "comp_011",
@@ -466,7 +476,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~란 ~이다' 패턴이 정의를 알려줘. '제구력이란' 뒤에 바로 답이 나와거든.",
-      "skillTag": "main-idea"
+      "skillTag": "main-idea",
+      "displayIndex": 10
     },
     {
       "id": "comp_012",
@@ -508,7 +519,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "세 가지 상태를 짝지어 외워: 액체=물, 고체=얼음, 기체=수증기. '고체'가 뭔지가 핵심거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 11
     },
     {
       "id": "comp_013",
@@ -550,7 +562,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "속담은 겉뜻이 아니라 속뜻을 찾아야 해. '가벼운 것도 같이 들면 쉽다' → 교훈이 뭘까?거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 12
     },
     {
       "id": "comp_014",
@@ -592,7 +605,8 @@
       "reviewedBy": "ai",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "행동(다가옴)의 '이유'를 물어보는 거야. '~때문이다', '~해서' 같은 표현을 찾아봐거든.",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 13
     },
     {
       "id": "comp_015",
@@ -635,7 +649,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "계절마다 자연이 달라져. 봄=새잎+꽃, 여름=무성, 가을=단풍, 겨울=앙상. 시기를 잘 봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 14
     },
     {
       "id": "comp_016",
@@ -678,7 +693,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "상식으로도 풀 수 있어! 물놀이를 할 수 있는 곳이 어디일까 생각해봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 15
     },
     {
       "id": "comp_017",
@@ -721,7 +737,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'이것을 ~라고 한다'가 나오면 이름을 정의하는 거야. 새싹은 봄에 나오는 거고, 낙엽은 떨어진 잎이야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 16
     },
     {
       "id": "comp_018",
@@ -764,7 +781,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~해야 ~않는다' 패턴이야. 원인(추위)과 결과(감기)를 연결해봐거든.",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 17
     },
     {
       "id": "comp_019",
@@ -807,7 +825,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "숫자가 여러 개 나오면 '뭘 물어보는지'가 중요해. 날짜? 나이? 인원수? 정확히 봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 18
     },
     {
       "id": "comp_020",
@@ -850,7 +869,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~하려고 노력한다' 앞에 구체적인 행동이 나와. 목적(환경 보호)과 행동을 구분해봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 19
     },
     {
       "id": "comp_021",
@@ -893,7 +913,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~하면 ~할 수 있다' 패턴을 찾아봐. 방법을 물어보는 거니까 '하면' 앞의 내용이 답이야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 20
     },
     {
       "id": "comp_022",
@@ -936,7 +957,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "원인→결과 순서로 읽어봐. '~해서 ~했다'에서 앞부분이 이유야",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 21
     },
     {
       "id": "comp_023",
@@ -979,7 +1001,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "규칙은 '~해야 한다', '~하면 안 된다'로 나와. 그 부분을 찾아봐거든.",
-      "skillTag": "main-idea"
+      "skillTag": "main-idea",
+      "displayIndex": 22
     },
     {
       "id": "comp_024",
@@ -1022,7 +1045,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "길 안내 지문은 순서대로 따라가야 해. 직진→돌기→'옆에 있다'까지 차근차근거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 23
     },
     {
       "id": "comp_025",
@@ -1064,7 +1088,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~라고 부르기도 한다' 패턴이 별명을 알려줘. '그래서' 뒤에 나오는 별명을 찾아봐거든.",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 24
     },
     {
       "id": "comp_026",
@@ -1106,7 +1131,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'승리의 비결'이나 '가장 중요한 것' 같은 표현 뒤에 핵심 답이 나와. 그 문장을 찾아봐거든.",
-      "skillTag": "main-idea"
+      "skillTag": "main-idea",
+      "displayIndex": 25
     },
     {
       "id": "comp_027",
@@ -1150,7 +1176,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~때문에'가 이유를 알려줘. 자전→낮/밤, 공전→계절. 뭐 때문에 뭐가 생기는지 짝지어봐거든.",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 26
     },
     {
       "id": "comp_028",
@@ -1193,7 +1220,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'처음에'와 '지금'을 구분해야 해. 시간 표현(1982년, 지금)을 잘 봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 27
     },
     {
       "id": "comp_029",
@@ -1237,7 +1265,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'대신'이라는 말이 핵심이야. 소리 지르는 '대신' 다른 방법을 쓰라는 거지거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 28
     },
     {
       "id": "comp_030",
@@ -1281,7 +1310,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "위치 문제는 지도 그리듯 따라가 봐. 학교→문구점→도서관→우체국→공원→병원. 순서대로거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 29
     },
     {
       "id": "comp_031",
@@ -1323,7 +1353,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~이/가 모여서 ~이/가 된다' 패턴이야. 재료가 뭔지 찾는 거지거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 30
     },
     {
       "id": "comp_032",
@@ -1365,7 +1396,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "물건(컴퓨터, 인터넷)이 아니라 마음가짐을 물어보는 거야. '필요하다' 앞에 뭐가 나오는지 봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 31
     },
     {
       "id": "comp_033",
@@ -1407,7 +1439,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "구체적인 숫자를 물어볼 때는 지문에서 숫자가 나오는 문장을 찾아봐. '좋다' 앞에 기준이 있어",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 32
     },
     {
       "id": "comp_034",
@@ -1449,7 +1482,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "숫자 크기에 주의! '100년'과 '6,600만 년'은 엄청나게 다르지. 지문의 숫자를 정확히 읽어",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 33
     },
     {
       "id": "comp_035",
@@ -1492,7 +1526,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "연대(1950년대, 70년대, 80년대)마다 다른 게임이 나와. 시기와 이름을 짝지어 읽어봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 34
     },
     {
       "id": "comp_036",
@@ -1534,7 +1569,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "직접적 효과(점수, 시간)가 아니라 심리적 효과(힘, 용기)를 물어보는 거야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 35
     },
     {
       "id": "comp_037",
@@ -1578,7 +1614,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~하면 ~할 수 있다'에서 방법을 찾아봐. 구체적인 도구나 행동이 답이야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 36
     },
     {
       "id": "comp_038",
@@ -1620,7 +1657,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "여러 좋은 점 중 '어떤' 좋은 점인지를 정확히 봐. 잠, 키가 아니라 공부/뇌 관련이야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 37
     },
     {
       "id": "comp_039",
@@ -1663,7 +1701,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "자전과 공전을 구분하는 게 핵심! 자전=하루 한 바퀴=낮밤, 공전=일 년 한 바퀴=계절거든.",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 38
     },
     {
       "id": "comp_040",
@@ -1705,7 +1744,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "이유를 물어볼 때는 '~때문에', '~해서', '~게 되어' 같은 표현을 찾아봐거든.",
-      "skillTag": "cause-effect"
+      "skillTag": "cause-effect",
+      "displayIndex": 39
     },
     {
       "id": "comp_041",
@@ -1747,7 +1787,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "'~하면 ~에 도움이 된다'가 결론이야. 개인(집) 차원이 아니라 큰(환경) 차원의 효과를 봐거든.",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 40
     },
     {
       "id": "comp_042",
@@ -1790,7 +1831,8 @@
       "reviewedBy": "parent",
       "reviewedDate": "2026-03-17",
       "wrongExplanation": "타율→타자, 방어율→투수. 어떤 선수에 대한 숫자인지 구분하는 게 핵심이야",
-      "skillTag": "fact"
+      "skillTag": "fact",
+      "displayIndex": 41
     },
     {
       "cardId": "crd_2026W13_a3f1d2",
@@ -1836,7 +1878,8 @@
         "ttsText": "로빈슨 크루소는 무인도에서 살아남기 위해 여러 가지 일을 해야 했습니다. 집을 짓고, 음식을 구하고, 옷을 만들었지요. 그는 혼자서 목수, 농부, 재봉사가 되어야 했습니다. 배를 수리하기.",
         "topic": "탐험과 직업",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 42
     },
     {
       "cardId": "crd_2026W13_b7e2c4",
@@ -1882,7 +1925,8 @@
         "ttsText": "영어 시간에 배운 직업 중에는 파일럿, 요리사, 과학자가 있었습니다. 로빈슨 크루소도 무인도에서 여러 직업을 경험했지요. 그는 특히 농부 역할이 가장 중요했다고 합니다.",
         "topic": "탐험과 직업",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 43
     },
     {
       "cardId": "crd_2026W13_c9d3e5",
@@ -1928,7 +1972,8 @@
         "ttsText": "로빈슨 크루소가 도착한 무인도는 열대 기후였습니다. 비가 자주 내리고 날씨가 따뜻했지요. 그래서 농사를 짓기에 좋은 환경이었습니다. 하지만 태풍이 올 때는 매우 위험했습니다. 비가 자주 오고 따뜻해서.",
         "topic": "탐험과 자연환경",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 44
     },
     {
       "cardId": "crd_2026W13_d1f4a6",
@@ -1974,7 +2019,8 @@
         "ttsText": "세계에는 다양한 기후가 있습니다. 사막 기후는 비가 거의 오지 않고, 열대 기후는 비가 많이 옵니다. 만약 로빈슨 크루소가 사막에 떨어졌다면 어떻게 되었을까요?. 물 구하기.",
         "topic": "탐험과 자연환경",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 45
     },
     {
       "cardId": "crd_2026W13_e2a5b7",
@@ -2020,7 +2066,8 @@
         "ttsText": "요즘에는 탐험가라는 직업이 많지 않습니다. 하지만 우주 탐험가나 심해 탐험가처럼 새로운 곳을 연구하는 직업은 있습니다. 여러분은 어떤 탐험을 해보고 싶나요?",
         "topic": "탐험과 직업",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 46
     },
     {
       "cardId": "crd_2026W12_rcl_001",
@@ -2068,7 +2115,8 @@
         "ttsText": "서영이가 자신의 가방에서 누군가 몰래 넣은 머리핀을 발견했다. 그동안 학교 카페에서 악플이 늘어나면서 서영이는 친구들 중에서 의심스러운 사람을 찾기 시작했다. 최근에 태도가 달라진 민주가 범인일 것 같다는 의심이 들었다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 47
     },
     {
       "cardId": "crd_2026W12_rcl_002",
@@ -2116,7 +2164,8 @@
         "ttsText": "서영이가 자신의 마음을 담아 학교 카페에 글을 올렸다. 악플로 고통받았던 경험을 나누고, 미라와 민주의 어려운 사정을 알게 되면서 서영이의 마음이 변했다. 나쁜 기억들이 부드러워지고, 그들에 대한 가엾슨 생각이 들기 시작했다. 미라와 민주에 대한 나쁜 기억이 없어지고 가엾슨 생각이 들었다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 48
     },
     {
       "cardId": "crd_2026W12_rcl_003",
@@ -2164,7 +2213,8 @@
         "ttsText": "\"무안하다\"는 말은 마음에 부끄러움이 생기는 상태를 뜻해요. 부끄럽고 머쓱한 느낌이 들 때 우리는 무안하다고 표현한답니다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 49
     },
     {
       "cardId": "crd_2026W12_rcl_004",
@@ -2212,7 +2262,8 @@
         "ttsText": "\"가엾슨 생각\"은 상대방을 불쌍히 여기는 마음을 나타냅니다. 누군가 힘들어하는 모습을 보면 그 사람을 동정하고 도와주고 싶은 마음이 생겨요. 상대방을 불쌍히 여기고 동정하는 마음.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 50
     },
     {
       "cardId": "crd_2026W12_rcl_005",
@@ -2260,7 +2311,8 @@
         "ttsText": "미라는 아버지에게 버림받은 아픈 과거를 가지고 있었다. 이 때문에 미라는 다른 친구들에게도 버림받을까 봐 두려워했다. 그래서 항상 인기를 얻으려고 애썼고, 인정받으려고 필사적으로 노력했다. 아버지에게 버림받은 경험 때문에 다른 아이들에게 버림받을까봐 두려웠기 때문.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 51
     },
     {
       "cardId": "crd_2026W12_rcl_006",
@@ -2308,7 +2360,8 @@
         "ttsText": "\"허전하다\"는 무언가가 부족하다고 느끼는 감정이에요. 물건이 없거나 친구가 없을 때처럼 마음에 빈 자리가 있을 때 허전하다고 말하는 거죠. 무언가 부족하거나 빈 것 같은 느낌.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 52
     },
     {
       "cardId": "crd_2026W12_rcl_007",
@@ -2356,7 +2409,8 @@
         "ttsText": "이 책은 인터넷 악플이 얼마나 많은 상처를 줄 수 있는지 보여준다. 동시에 서영이, 민주, 미라 세 친구가 갈등을 겪으면서도 결국 서로를 용서하고 이해하는 과정을 담고 있다. 악플의 피해와 용서를 통한 치유가 책의 핵심 메시지다. 인터넷 악플로 인한 피해와 용서를 통한 치유.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 53
     },
     {
       "cardId": "crd_2026W12_rcl_008",
@@ -2404,7 +2458,8 @@
         "ttsText": "책을 읽는 방법은 정말 중요합니다. 글자 하나하나를 천천히 읽으면서 작가의 마음으로 내용을 마음으로 받아들이는 것이 가장 중요해요. 글자 하나하나를 천천히 읽으며 내용을 마음으로 받아들이는 것.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 54
     },
     {
       "cardId": "crd_2026W13_rcl_001",
@@ -2452,7 +2507,8 @@
         "ttsText": "누구나 다른 사람의 믿음을 받고 싶어 한다. 하지만 그 앞에 중요한 것이 있다. 먼저 자신을 믿을 수 있는 사람이 되어야 한다. 자신을 믿는 사람이 될 때 비로소 다른 사람들도 우리를 믿게 될 것이다. 먼저 자신을 믿을 수 있는 사람이 되어야 다른 사람도 나를 믿게 된다.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 55
     },
     {
       "cardId": "crd_2026W13_rcl_002",
@@ -2500,7 +2556,8 @@
         "ttsText": "믿음은 한 사람을 살릴 수 있다. 우리가 서로를 얼마나 믿는지에 따라 앞으로 나아갈 수 있는 정도가 결정된다. 그리고 그 믿음을 쌓으려면 우리가 먼저 좋은 친구가 되어야 한다. 믿음은 한 사람을 살릴 수 있고, 우리 앞으로의 나아감을 결정한다.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 56
     },
     {
       "cardId": "crd_2026W13_rcl_003",
@@ -2548,7 +2605,8 @@
         "ttsText": "친구 관계에서 우리는 물건뿐만 아니라 마음도 나눈다. 깊게 신뢰할 수 있는 친구에게 우리의 소중한 것, 즉 우리의 진심과 고민, 두려움까지도 나눌 수 있다. 그것이 바로 참된 우정의 모습이다. 믿는 친구에게 자신의 진심과 고민까지도 나눌 수 있는 신뢰의 마음.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 57
     },
     {
       "cardId": "crd_2026W13_rcl_004",
@@ -2596,7 +2654,8 @@
         "ttsText": "좋은 친구가 오기를 바라지 말고, 내가 먼저 좋은 친구가 되는 것이 중요하다. 누군가의 믿음을 바라기 전에 먼저 나부터 다른 사람을 믿어주는 사람이 되어야 한다. 하루를 시작할 때 늘 스스로 어떤 사람이 되고 싶은지 생각하며 살아가기. 좋은 친구를 기다리지 말고 내가 먼저 좋은 친구가 되는 것.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 58
     },
     {
       "cardId": "crd_2026W13_rcl_005",
@@ -2644,7 +2703,8 @@
         "ttsText": "장미라는 이름을 가진 여학생이 있었다. 그런데 보경이라는 친구가 장미의 이름을 놀리면서 다르게 부르기 시작했다. 엄마 아빠가 예쁘게 지어준 이름을 친구가 놀리며 부르는 것이 얼마나 상처가 되는지 보여준다. 발장미.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 59
     },
     {
       "cardId": "crd_2026W13_rcl_006",
@@ -2692,7 +2752,8 @@
         "ttsText": "보경이는 장미와 친구들을 데리고 놀이터로 갔다. 높은 담 위에서 뛰어내리자고 제안했다. 무서워하는 장미를 겁쟁이라고 놀리며 강압적으로 손을 잡고 함께 뛰어내리도록 한다. 장미는 상처를 입게 되고, 친구들과 남겨지면서 정서적으로 상처받는다. 높은 곳에서 뛰어내리도록 강압하여 상처를 입게 한 행동.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 60
     },
     {
       "cardId": "crd_2026W13_rcl_007",
@@ -2740,7 +2801,8 @@
         "ttsText": "장미가 보경이의 손을 잡고 함께 담에서 뛰어내렸다. 하지만 보경이와 혜미는 손을 놓고 그 자리에 서 있었다. 장미만 뛰어내린 것이었다. 친구들은 웃으며 올라가 버렸고, 장미는 혼자 떨어지고 배반당한 느낌으로 분하고 답답하고 화가 났다. 배반당하고 놀림당한 데에 대한 분함과 화.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 61
     },
     {
       "cardId": "crd_2026W13_rcl_008",
@@ -2788,7 +2850,8 @@
         "ttsText": "학교 폭력을 당하고 어딘가에 숨어 울고 있을 아이들을 생각해야 한다. 누군가에게는 장난도 다른 누군가에겐 깊은 상처가 될 수 있다. 아무리 자신보다 약한 친구라도 함부로 대할 권리는 없다. 모든 사람은 존중받으며 살아야 한다. 장난이라도 누군가에겐 깊은 상처가 될 수 있으므로 모두를 존중해야 한다.",
         "topic": "믿음+분홍원피스-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 62
     },
     {
       "cardId": "crd_2026W13_a3f1d2",
@@ -2844,7 +2907,8 @@
         "ttsText": "로빈슨 크루소는 무인도에서 살아남기 위해 여러 가지 일을 해야 했습니다. 집을 짓고, 음식을 구하고, 옷을 만들었지요. 그는 혼자서 목수, 농부, 재봉사가 되어야 했습니다. 배를 수리하기.",
         "topic": "탐험과 직업",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 63
     },
     {
       "cardId": "crd_2026W13_b7e2c4",
@@ -2900,7 +2964,8 @@
         "ttsText": "영어 시간에 배운 직업 중에는 파일럿, 요리사, 과학자가 있었습니다. 로빈슨 크루소도 무인도에서 여러 직업을 경험했지요. 그는 특히 농부 역할이 가장 중요했다고 합니다.",
         "topic": "탐험과 직업",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 64
     },
     {
       "cardId": "crd_2026W13_c9d3e5",
@@ -2956,7 +3021,8 @@
         "ttsText": "로빈슨 크루소가 도착한 무인도는 열대 기후였습니다. 비가 자주 내리고 날씨가 따뜻했지요. 그래서 농사를 짓기에 좋은 환경이었습니다. 하지만 태풍이 올 때는 매우 위험했습니다. 비가 자주 오고 따뜻해서.",
         "topic": "탐험과 자연환경",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 65
     },
     {
       "cardId": "crd_2026W13_d1f4a6",
@@ -3012,7 +3078,8 @@
         "ttsText": "세계에는 다양한 기후가 있습니다. 사막 기후는 비가 거의 오지 않고, 열대 기후는 비가 많이 옵니다. 만약 로빈슨 크루소가 사막에 떨어졌다면 어떻게 되었을까요?. 물 구하기.",
         "topic": "탐험과 자연환경",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 66
     },
     {
       "cardId": "crd_2026W13_e2a5b7",
@@ -3068,7 +3135,8 @@
         "ttsText": "요즘에는 탐험가라는 직업이 많지 않습니다. 하지만 우주 탐험가나 심해 탐험가처럼 새로운 곳을 연구하는 직업은 있습니다. 여러분은 어떤 탐험을 해보고 싶나요?",
         "topic": "탐험과 직업",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 67
     },
     {
       "cardId": "crd_2026W14_rcl_001",
@@ -3116,7 +3184,8 @@
         "ttsText": "미루다란 오늘 해야 할 일을 내일로 넘기는 것을 말해요. 하기 싫은 일을 자꾸만 뒤로 미루고 즐거운 일만 하고 싶은 마음이 생기지요. 오늘 해야 할 일을 나중에 넘기는 것.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 68
     },
     {
       "cardId": "crd_2026W14_rcl_002",
@@ -3165,7 +3234,8 @@
         "ttsText": "당장 하기 싫다고 계속 미루다가 일이 많아지면 결국 대충하게 되죠. 그래서 미루지 않아야 무엇이든 제대로 할 수 있습니다. 지금 하지 않으면 나중에는 더 힘들어집니다. 일이 많아져서 결국 대충하게 되고 더 힘들어진다.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 69
     },
     {
       "cardId": "crd_2026W14_rcl_003",
@@ -3213,7 +3283,8 @@
         "ttsText": "안 좋은 결과를 알면서도 계속 미루는 이유는 지금 놀고 싶어서예요. 지금 당장 놀고 싶고, 지금 당장 편하고 싶고, 지금 당장 재밌고 싶어서 그렇지.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 70
     },
     {
       "cardId": "crd_2026W14_rcl_004",
@@ -3261,7 +3332,8 @@
         "ttsText": "엄마는 서영이에게 분홍 원피스를 입어 주기를 간절히 바랐다. 엄마는 서영이가 그 옷을 입으면 예뻐 보일 거라고 생각했고, 그렇게 되기를 바랐던 거였다. 서영이가 예뻐 보이기를 바라는 마음에서.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 71
     },
     {
       "cardId": "crd_2026W14_rcl_005",
@@ -3309,7 +3381,8 @@
         "ttsText": "보경이가 서영이의 옷을 촌스럽다고 놀렸고, 사진까지 찍었다. 그 이후로 서영이는 그 분홍 원피스를 다시는 입지 않았다. 한 순간의 놀림이 서영이의 마음을 얼마나 크게 상하게 했는지를 보여 준다. 마음이 상해서 그 옷을 다시 입지 않았다.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 72
     },
     {
       "cardId": "crd_2026W14_rcl_006",
@@ -3358,7 +3431,8 @@
         "ttsText": "서영이는 먼저 손을 내밀며 친하게 다가간 친구 민주에게 배신을 당했다. 그 생각이 머리에서 사라지지 않았고, 밤마다 악몽을 꾸곤 했다. 자신이 먼저 다가간 친구에게 배신당해서.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 73
     },
     {
       "cardId": "crd_2026W14_rcl_007",
@@ -3407,7 +3481,8 @@
         "ttsText": "처음에 서영이는 탄자니아로 간 것이 비겁하게 도망친 것 같았다. 하지만 다시 새별초로 돌아간다면, 자신의 상처와 마주치고 부딪혀 보려는 것이 정말 용감한 것이라고 생각했다. 처음엔 도망이라 생각했지만, 다시 돌아가는 게 용감한 거라고 깨달았다.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 74
     },
     {
       "cardId": "crd_2026W14_rcl_008",
@@ -3456,7 +3531,8 @@
         "ttsText": "해야 할 일을 내일로 미루지 않는 것, 고통스러운 문제에서 도망치지 말고 마주하는 용기, 그리고 자신의 상처를 치유하고 성장하려는 마음. 이 모든 게 우리를 더 나은 사람으로 만들어 준다. 마주해야 할 것을 피하지 말고 용감하게 대면해서 성장하는 것.",
         "topic": "미루기와용기-수업37",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 75
     },
     {
       "cardId": "crd_2026W14_rcl_009",
@@ -3504,7 +3580,8 @@
         "ttsText": "끝까지 마무리를 짓기. 시작만 하면 끝을 알 수 없어. 우리 이번에는 끝까지 해 보자. 일을 마무리하면 기분이 좋아져. 시작한 일을 끝까지 하는 것.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 76
     },
     {
       "cardId": "crd_2026W14_rcl_010",
@@ -3553,7 +3630,8 @@
         "ttsText": "처음 시작할 때는 흥미로운 일도 시간이 지나면 점점 지루해집니다. 다른 곳에 눈이 가서 그걸 하고 싶어지죠. 호기심이 다른 곳으로 옮겨가기 때문에.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 77
     },
     {
       "cardId": "crd_2026W14_rcl_011",
@@ -3602,7 +3680,8 @@
         "ttsText": "호기심만으로 어떤 일이든 완성되지 않습니다. 시작한 일을 끝까지 마무리해야 우리는 비로소 책임감이라는 것을 알게 됩니다. 호기심은 일을 시작하게 하지만 끝까지 하게 하지는 못하기 때문에.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 78
     },
     {
       "cardId": "crd_2026W14_rcl_012",
@@ -3651,7 +3730,8 @@
         "ttsText": "시작한 일을 끝까지 마무리해야 우리는 비로소 책임감을 가질 수 있게 됩니다. 책임감을 느끼는 것은 멋진 일이죠. 내가 할 수 있는 일이 많아졌다는 증거이니까요. 책임감과 함께 내가 할 수 있다는 자신감이 생긴다.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 79
     },
     {
       "cardId": "crd_2026W14_rcl_013",
@@ -3699,7 +3779,8 @@
         "ttsText": "바보 왕자라는 닉네임으로 서영이를 두둔해 주던 아이였다. 편을 들어 도와주고 지켜 주다.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 80
     },
     {
       "cardId": "crd_2026W14_rcl_014",
@@ -3748,7 +3829,8 @@
         "ttsText": "아이들이 서영이를 보며 쉬지 않고 귓속말을 주고받았다. 서영이는 얼른 빈자리를 찾아 앉았다. 가슴이 두근거리고 바비코가 입으로 들어가는지 모를 정도로 긴장되었다. 매우 긴장되고 불안했다.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 81
     },
     {
       "cardId": "crd_2026W14_rcl_015",
@@ -3797,7 +3879,8 @@
         "ttsText": "예전에 악플 전쟁을 겪었던 서영이는 비슷한 상황이 다시 벌어질까 봐 두려웠다. 아이들의 귓속말을 보자 그때의 기억이 떠올라 몸이 떨렸다. 예전에 겪었던 나쁜 경험이 반복될까 봐 불안해서.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 82
     },
     {
       "cardId": "crd_2026W14_rcl_016",
@@ -3846,7 +3929,8 @@
         "ttsText": "서영이는 아이들이 귓속말하는 모습을 보며 생각했다. '보나마나 나를 비웃는 거겠지?'. 최악의 상황을 먼저 떠올리며 자신을 부정적으로 생각한다.",
         "topic": "마무리-수업38",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 83
     },
     {
       "cardId": "crd_2026W14_rcl_s35_001",
@@ -3893,7 +3977,8 @@
         "ttsText": "독서란 글을 빨리 많이 읽는 것이 아니라, 천천히 읽으면서 마음과 생각을 키워가는 것이에요. 읽은 내용이 기억에 남지 않으면 진정한 독서가 아닙니다. 천천히 읽으면서 마음과 생각을 키우는 것.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 84
     },
     {
       "cardId": "crd_2026W14_rcl_s35_002",
@@ -3940,7 +4025,8 @@
         "ttsText": "서영이는 자기 가방에서 미라의 머리띠를 발견했습니다. 누가 가방에 넣었는지 모르지만, 서영이는 민주를 의심하기 시작했습니다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 85
     },
     {
       "cardId": "crd_2026W14_rcl_s35_003",
@@ -3987,7 +4073,8 @@
         "ttsText": "서영이는 민주가 자신을 피하고 태도가 변했다고 느꼈습니다. 가방에서 미라의 머리띠가 나온 뒤, 서영이는 민주가 일부러 넣었을 거라고 의심하게 됩니다. 민주의 태도가 변하고 자신을 피했기 때문.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 86
     },
     {
       "cardId": "crd_2026W14_rcl_s35_004",
@@ -4034,7 +4121,8 @@
         "ttsText": "서영이가 길을 걸어가고 있을 때, 갑자기 오토바이가 다가와 서영이의 옆구리를 들이받았습니다. 서영이는 교통사고를 당해 크게 다치게 됩니다. 오토바이에 부딪혀 교통사고를 당했다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 87
     },
     {
       "cardId": "crd_2026W14_rcl_s35_005",
@@ -4081,7 +4169,8 @@
         "ttsText": "책을 잘 읽으려면 처음부터 많이 읽으려 하지 말고, 하루에 한 줄씩이라도 읽는 것부터 시작하면 좋습니다. 좋아하는 음악을 들으면서 읽으면 더 즐겁게 읽을 수 있어요. 하루에 한 줄이라도 읽는 것부터 시작하라고 알려준다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 88
     },
     {
       "cardId": "crd_2026W14_rcl_s35_006",
@@ -4128,7 +4217,8 @@
         "ttsText": "'허전하다'는 무언가가 빠진 것 같은 느낌이에요. 좋은 친구가 이사를 간 뒤에 마음에 빈자리가 생긴 것처럼요. 배가 '허전하다'고도 하죠. 무언가 부족하거나 빈 것 같은 느낌.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 89
     },
     {
       "cardId": "crd_2026W14_rcl_s35_007",
@@ -4175,7 +4265,8 @@
         "ttsText": "서영이, 민주, 미라 세 친구는 한때 아주 친했지만, 오해와 갈등 때문에 사이가 멀어졌습니다. 하지만 책의 핵심 메시지는 악플의 피해를 알리고, 용서를 통해 치유할 수 있다는 것입니다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 90
     },
     {
       "cardId": "crd_2026W14_rcl_s35_008",
@@ -4222,7 +4313,8 @@
         "ttsText": "서영이는 민주를 의심했지만, 직접적인 증거는 없었습니다. 가방에 머리띠가 있었고, 민주의 태도가 변한 것만으로 판단한 것이죠. 확실한 증거 없이 사람을 의심하면 안 된다.",
         "topic": "악플전쟁-수업35",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 91
     },
     {
       "cardId": "crd_2026W14_rcl_s36_001",
@@ -4269,7 +4361,8 @@
         "ttsText": "자신을 믿는 것은 매우 중요합니다. 스스로 '나는 할 수 있어'라고 믿어야 다른 사람도 나를 믿어줍니다. 자신을 믿지 못하는 사람은 다른 사람의 믿음도 얻기 어렵습니다. 자기 자신을 먼저 믿는 것.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 92
     },
     {
       "cardId": "crd_2026W14_rcl_s36_002",
@@ -4316,7 +4409,8 @@
         "ttsText": "장미네 엄마는 분식점을 운영하고 있습니다. 엄마가 만든 김밥이 맛있다며 누군가가 SNS(인스타그램, 유튜브)에 올렸고, 그 뒤로 손님이 크게 늘었습니다. SNS에 김밥이 맛있다고 소개되어서.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 93
     },
     {
       "cardId": "crd_2026W14_rcl_s36_003",
@@ -4363,7 +4457,8 @@
         "ttsText": "언니는 항상 예쁘게 꾸미고 나가는 타입이에요. 반면 장미는 꾸미는 것보다 먹는 것을 좋아하는 소탈한 성격입니다. 언니는 꾸미기를 좋아하고 장미는 소탈하다.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 94
     },
     {
       "cardId": "crd_2026W14_rcl_s36_004",
@@ -4410,7 +4505,8 @@
         "ttsText": "언니에게 백혈병이라는 병이 생겼습니다. 백혈병은 암세포가 피에 퍼지는 무서운 질병입니다. 항암 치료를 받으면서 언니의 머리카락이 모두 빠졌고, 팔에는 주사 자국이 가득했습니다.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 95
     },
     {
       "cardId": "crd_2026W14_rcl_s36_005",
@@ -4457,7 +4553,8 @@
         "ttsText": "항암 치료를 받으면 몸속의 암세포를 없앨 수 있지만, 부작용도 있습니다. 머리카락이 빠지거나 구토를 하기도 합니다. 언니는 머리카락이 다 빠져서 토끼 모자를 쓰고 다녔습니다. 머리카락이 모두 빠졌다.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 96
     },
     {
       "cardId": "crd_2026W14_rcl_s36_006",
@@ -4504,7 +4601,8 @@
         "ttsText": "믿음은 한 사람을 살릴 수도 있는 큰 힘입니다. 아플 때도, 힘들 때도 '넌 할 수 있어'라는 한마디가 큰 용기가 됩니다. 믿음만큼 앞으로 나아갈 수 있습니다. 누군가를 믿어주는 것이 큰 힘과 용기를 준다.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 97
     },
     {
       "cardId": "crd_2026W14_rcl_s36_007",
@@ -4551,7 +4649,8 @@
         "ttsText": "장미는 꾸미는 것에 관심이 없고 소탈했지만, 언니가 아프고 나서 언니를 위해 정성껏 준비하는 모습을 보여줍니다. 사람은 소중한 사람이 힘들 때 자신의 평소 모습과 다르게 행동할 수 있습니다. 소중한 언니가 아파서 돕고 싶었기 때문.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 98
     },
     {
       "cardId": "crd_2026W14_rcl_s36_008",
@@ -4598,7 +4697,8 @@
         "ttsText": "우리 주변에는 SNS 때문에 갑자기 유명해지는 가게들이 있습니다. 장미네 분식점처럼 누군가가 소개해주면 많은 사람이 찾아옵니다. 하지만 유명세가 꼭 좋기만 한 것은 아닙니다. 갑자기 손님이 몰려서 감당하기 어려울 수 있다.",
         "topic": "믿음과가족-수업36",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 99
     },
     {
       "cardId": "crd_2026W14_rcl_s39_001",
@@ -4645,7 +4745,8 @@
         "ttsText": "깊이 있게 생각하려면 오랫동안 자세히 봐야 해. 눈에 보이는 것만 봐서는 안 돼. 눈에 보이지 않는 더 깊은 부분까지도 알아야 진짜 이해하는 거야. 이해란 눈에 보이지 않는 부분까지도 알게 되는 거예요.",
         "topic": "깊이이해하기-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 100
     },
     {
       "cardId": "crd_2026W14_rcl_s39_002",
@@ -4692,7 +4793,8 @@
         "ttsText": "사진 속 아이는 책을 집중해서 보거나 앞의 식물을 뚫어지게 보고 있었다. 단순히 그냥 식물을 보고 지나칠 수도 있는데, 그 아이는 오랫동안 생각하고 있었다. 뭔가를 발견하고 싶어서 꽃의 장점과 단점을 생각하며 오래 보고 있었던 거야. 오랫동안 생각하면서 꽃의 장점과 단점을 발견하려고.",
         "topic": "깊이이해하기-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 101
     },
     {
       "cardId": "crd_2026W14_rcl_s39_003",
@@ -4739,7 +4841,8 @@
         "ttsText": "보통 사람들은 사다리를 올라갈 때만 필요하다고 생각해. 하지만 깊이 이해하는 사람은 다르게 생각해. 사다리는 올라갈 때도 필요하지만 내려올 때도 꼭 필요한 거야. 사물을 깊이 있게 이해하면 이전에는 보이지 않았던 것이 보이는 거지. 올라갈 때와 내려올 때 모두.",
         "topic": "깊이이해하기-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 102
     },
     {
       "cardId": "crd_2026W14_rcl_s39_004",
@@ -4786,7 +4889,8 @@
         "ttsText": "로봇처럼 생명이 있다고 생각할 수도 있고 없다고 생각할 수도 있어. 이런 것들까지 이해하려면 어떻게 해야 될까? 매일매일 관찰을 해야 해. 관찰을 하면서 그것과 얽혀 있는 게 뭐가 있는지 잘 살펴보는 게 중요해. 매일매일 관찰하면서 그것과 얽혀 있는 것들을 살펴보기.",
         "topic": "깊이이해하기-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 103
     },
     {
       "cardId": "crd_2026W14_rcl_s39_005",
@@ -4833,7 +4937,8 @@
         "ttsText": "보경이와 친구들은 손장미를 여러 방법으로 괴롭혔어. 첫 번째는 김치 폭탄이라고 해서 김치를 줬어. 두 번째는 뾰족한 샤프로 팔꿈치를 찌르거나 밀치는 거야. 세 번째는 더 심각한데, 보경이가 손장미의 어깨에 세게 밀쳐서 바닥에 넘어뜨린 거야. 김치 주기, 샤프로 찌르기, 밀어서 넘어뜨리기.",
         "topic": "손장미가괴롭힐때-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 104
     },
     {
       "cardId": "crd_2026W14_rcl_s39_006",
@@ -4880,7 +4985,8 @@
         "ttsText": "서영이는 이미 충분히 어렵고 복잡한 초등학교를 벗어나 아무 일 없이 중학교에 올라가고 싶었어. 다른 아이들의 일에 끼어들었다가 또 어떤 일을 당할지 몰라서 두렵고 무서웠어. 다른 아이들 일에 휘말리지 않는 게 가장 안전하다고 생각했어. 다른 아이들 일에 휘말리고 싶지 않아서.",
         "topic": "손장미가괴롭힐때-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 105
     },
     {
       "cardId": "crd_2026W14_rcl_s39_007",
@@ -4927,7 +5033,8 @@
         "ttsText": "보경이가 손장미를 세게 밀쳐서 바닥에 넘어뜨렸어. 손장미가 아파하며 울음이 나올 듯한 얼굴로 있자, 보경이는 당당하게 '슬쩍 쳤는데 그렇게 픽 쓰러지니?'라고 말했어. 보경이는 그걸 장난이라고만 생각했어. 큰 일도 아니라고 생각한 거지. 장난이라고 말했어.",
         "topic": "손장미가괴롭힐때-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 106
     },
     {
       "cardId": "crd_2026W14_rcl_s39_008",
@@ -4974,7 +5081,808 @@
         "ttsText": "보경이가 손장미를 밀쳐서 넘어뜨린 후, '슬쩍 쳤는데 그렇게 픽 쓰러지니?'라고 당당하게 말했어. 손장미가 울려고 할 때 보경이는 아무렇지도 않게 가버렸어. 서영이는 이 장면을 보고 화가 났지만, 혹시 자신한테도 피해가 올까봐 참기로 결심했어. 화가 났지만 관심을 갖지 말자고 생각하고 참았어.",
         "topic": "손장미가괴롭힐때-수업39",
         "source": "recovered"
-      }
+      },
+      "displayIndex": 107
+    },
+    {
+      "id": "crd_2026W15_comp_s40_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "은진이는 오늘 체육시간에 셔틀런을 해서 몹시 피곤했어요. 104개를 뛰어서 1등급을 받았어요.",
+        "ttsText": "은진이는 오늘 체육시간에 셔틀런을 해서 몹시 피곤했어요. 104개를 뛰어서 1등급을 받았어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "은진이가 오늘 피곤한 이유는 뭐예요?",
+        "ttsText": "은진이가 오늘 피곤한 이유는 뭐예요?",
+        "passage": "은진이는 체육시간에 셔틀런을 해서 아주 피곤했어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "체육시간에 셔틀런을 해서",
+        "options": [
+          "체육시간에 셔틀런을 해서",
+          "학원을 다녀와서",
+          "태권도를 배워서",
+          "늦게까지 숙제해서"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "첫 번째 문장을 다시 읽어봐."
+      },
+      "wrongExplanation": "오늘 뭘 했길래 피곤했는지 첫 문장에 나와 있어. 체육시간에 한 운동이 뭐였는지 다시 봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "은진이가 오늘 피곤한 이유는 뭐예요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_001",
+      "displayIndex": 108
+    },
+    {
+      "id": "crd_2026W15_comp_s40_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "장미는 친구 보경이에게 자전거를 빌려줬어요. 그런데 보경이가 자전거를 공중화장실 앞에 두고 와서 잃어버릴 뻔했어요.",
+        "ttsText": "장미는 친구 보경이에게 자전거를 빌려줬어요. 그런데 보경이가 자전거를 공중화장실 앞에 두고 와서 잃어버릴 뻔했어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "장미의 자전거가 어디에 세워져 있었어요?",
+        "ttsText": "장미의 자전거가 어디에 세워져 있었어요?",
+        "passage": "보경이가 자전거를 공중화장실 앞에 세워두고 갔어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "공중화장실 앞",
+        "options": [
+          "공중화장실 앞",
+          "수리천 옆",
+          "학교 운동장",
+          "친구 집 앞"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "보경이가 자전거를 어디에 두고 왔는지 다시 찾아봐."
+      },
+      "wrongExplanation": "보경이가 자전거를 세워둔 정확한 장소가 나와 있어. 공중화장실이 중요한 단서야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "장미의 자전거가 어디에 세워져 있었어요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_002",
+      "displayIndex": 109
+    },
+    {
+      "id": "crd_2026W15_comp_s40_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "장미에게 자전거를 빌려준 친구가 있었어요. 그 친구는 장미가 운동하면 건강해질 거라고 생각해서 자전거를 빌려줬어요.",
+        "ttsText": "장미에게 자전거를 빌려준 친구가 있었어요. 그 친구는 장미가 운동하면 건강해질 거라고 생각해서 자전거를 빌려줬어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "장미에게 자전거를 빌려준 친구는 누구예요?",
+        "ttsText": "장미에게 자전거를 빌려준 친구는 누구예요?",
+        "passage": "보경이가 장미에게 자전거를 빌려줬어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보경이",
+        "options": [
+          "보경이",
+          "경미",
+          "서영이",
+          "민주"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "장미의 친구 이름을 다시 찾아봐."
+      },
+      "wrongExplanation": "자전거를 빌려준 친절한 친구의 이름이 나와 있어. 다시 읽어보면 바로 알 수 있어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "장미에게 자전거를 빌려준 친구는 누구예요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_003",
+      "displayIndex": 110
+    },
+    {
+      "id": "crd_2026W15_comp_s40_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "자전거가 없어졌다는 걸 알면 엄마 아빠가 걱정할 테니까, 장미는 어떻게든 자전거를 찾아와야만 했어요.",
+        "ttsText": "자전거가 없어졌다는 걸 알면 엄마 아빠가 걱정할 테니까, 장미는 어떻게든 자전거를 찾아와야만 했어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "장미가 자전거를 꼭 찾아야 한다고 생각한 이유는 뭐예요?",
+        "ttsText": "장미가 자전거를 꼭 찾아야 한다고 생각한 이유는 뭐예요?",
+        "passage": "부모님이 걱정할까봐 장미는 자전거를 꼭 찾아야 했어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "부모님이 걱정할까봐",
+        "options": [
+          "부모님이 걱정할까봐",
+          "친구가 혼날까봐",
+          "자전거를 다시 사야 해서",
+          "선생님이 화낼까봐"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "누구를 걱정했는지 다시 읽어봐."
+      },
+      "wrongExplanation": "자전거가 없어지면 누가 제일 걱정할까? 엄마 아빠한테 들킬까봐 꼭 찾아야 했던 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "장미가 자전거를 꼭 찾아야 한다고 생각한 이유는 뭐예요?",
+      "confidence": 0.85,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_004",
+      "displayIndex": 111
+    },
+    {
+      "id": "crd_2026W15_comp_s40_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "장미는 자전거를 겨우 찾아왔어요. 그런데 그 과정이 너무 힘들어서 보경이에게 화를 냈어요.",
+        "ttsText": "장미는 자전거를 겨우 찾아왔어요. 그런데 그 과정이 너무 힘들어서 보경이에게 화를 냈어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "장미가 보경이에게 화를 낸 이유는 뭐였어요?",
+        "ttsText": "장미가 보경이에게 화를 낸 이유는 뭐였어요?",
+        "passage": "자전거를 찾는 과정이 너무 힘들었기 때문에 화가 났어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자전거를 찾느라 너무 힘들었으니까",
+        "options": [
+          "자전거를 찾느라 너무 힘들었으니까",
+          "보경이가 자전거를 망가뜨려서",
+          "부모님이 혼내서",
+          "보경이가 사과하지 않아서"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "자전거를 찾을 때 얼마나 힘들었는지 생각해봐."
+      },
+      "wrongExplanation": "자전거가 망가진 게 아니야. 찾아오는 과정 자체가 너무 힘들었던 거지. 그래서 화가 났어.",
+      "skillTag": "cause-effect",
+      "skillTags": [
+        "cause-effect"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "장미가 보경이에게 화를 낸 이유는 뭐였어요?",
+      "confidence": 0.85,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_005",
+      "displayIndex": 112
+    },
+    {
+      "id": "crd_2026W15_comp_s40_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "보경이는 장미에게 '내 자전거를 빌려줄게'라고 했어요. 장미가 운동하면 건강해질 거라고 생각했기 때문이에요.",
+        "ttsText": "보경이는 장미에게 '내 자전거를 빌려줄게'라고 했어요. 장미가 운동하면 건강해질 거라고 생각했기 때문이에요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "보경이가 장미에게 자전거를 빌려준 진짜 이유는 뭐예요?",
+        "ttsText": "보경이가 장미에게 자전거를 빌려준 진짜 이유는 뭐예요?",
+        "passage": "보경이는 장미가 건강해지길 원해서 자전거를 빌려줬어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미가 건강해지기를 바라서",
+        "options": [
+          "장미가 건강해지기를 바라서",
+          "자전거를 쓰고 싶지 않아서",
+          "장미에게 자랑하려고",
+          "선생님이 시켜서"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "보경이의 마음씨를 생각해봐. 친구를 위해 한 거야."
+      },
+      "wrongExplanation": "보경이는 자기가 안 쓰려고 빌려준 게 아니야. 장미가 운동하면 건강해질 거라는 좋은 마음에서 빌려준 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "보경이가 장미에게 자전거를 빌려준 진짜 이유는 뭐예요?",
+      "confidence": 0.85,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_006",
+      "displayIndex": 113
+    },
+    {
+      "id": "crd_2026W15_comp_s40_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "'다시는 내 자전거를 빌려주지 않을 거야.' 장미가 이렇게 말했어요. 하지만 선생님은 '친구의 좋은 마음을 모르고 화내면 안 되지'라고 했어요.",
+        "ttsText": "'다시는 내 자전거를 빌려주지 않을 거야.' 장미가 이렇게 말했어요. 하지만 선생님은 '친구의 좋은 마음을 모르고 화내면 안 되지'라고 했어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "선생님이 장미에게 친구의 마음을 생각해야 한다고 말한 이유는 뭘까요?",
+        "ttsText": "선생님이 장미에게 친구의 마음을 생각해야 한다고 말한 이유는 뭘까요?",
+        "passage": "선생님은 보경이가 좋은 마음에서 자전거를 빌려준 건데, 장미가 그 마음을 모르고 화낸 것을 지적했어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보경이가 좋은 마음으로 자전거를 빌려줬으니까",
+        "options": [
+          "보경이가 좋은 마음으로 자전거를 빌려줬으니까",
+          "자전거가 비싸니까",
+          "친구들이 지켜보고 있었으니까",
+          "선생님이 보경이 편이라서"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "보경이가 왜 자전거를 빌려줬는지, 그리고 장미가 뭘 놓쳤는지 생각해봐."
+      },
+      "wrongExplanation": "보경이는 장미를 위해서 빌려준 거야. 그 좋은 마음을 모르고 화를 내면 친구가 상처받잖아. 선생님은 그걸 알려준 거야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "선생님이 장미에게 친구의 마음을 생각해야 한다고 말한 이유는 뭘까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_007",
+      "displayIndex": 114
+    },
+    {
+      "id": "crd_2026W15_comp_s40_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "체력측정과인내-수업40",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "장미는 체육 후 피곤할 때, 자전거를 잃어버렸을 때, 친구에게 화낼 때 여러 번 힘들었어요. 하지만 선생님은 '친구의 좋은 마음을 먼저 생각해야 해'라고 알려줬어요.",
+        "ttsText": "장미는 체육 후 피곤할 때, 자전거를 잃어버렸을 때, 친구에게 화낼 때 여러 번 힘들었어요. 하지만 선생님은 '친구의 좋은 마음을 먼저 생각해야 해'라고 알려줬어요.",
+        "topic": "체력측정과인내-수업40",
+        "source": "40회 독서수업 260407"
+      },
+      "question": {
+        "text": "이 이야기에서 장미가 배운 가장 중요한 것은 뭘까요?",
+        "ttsText": "이 이야기에서 장미가 배운 가장 중요한 것은 뭘까요?",
+        "passage": "장미는 힘든 상황에서 화를 냈지만, 친구의 좋은 마음을 먼저 생각해야 한다는 걸 배웠어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "남의 좋은 마음을 먼저 생각해야 한다",
+        "options": [
+          "남의 좋은 마음을 먼저 생각해야 한다",
+          "자전거를 빌려주면 안 된다",
+          "화를 내면 무조건 나쁘다",
+          "친구가 없는 게 편하다"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "선생님 말씀과 보경이의 마음을 함께 생각해봐."
+      },
+      "wrongExplanation": "화를 내는 게 나쁜 게 아니라, 친구가 좋은 마음으로 한 일인데 그걸 몰라주면 안 된다는 뜻이야. 그게 이 이야기의 핵심이야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "이 이야기에서 장미가 배운 가장 중요한 것은 뭘까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s40_008",
+      "displayIndex": 115
+    },
+    {
+      "id": "crd_2026W15_comp_s41_009",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "나쁜 평가를 받으면 마음이 상해요. 그럴 때 가장 좋은 방법은 자신이 하는 일을 더 열심히 하는 거예요.",
+        "ttsText": "나쁜 평가를 받으면 마음이 상해요. 그럴 때 가장 좋은 방법은 자신이 하는 일을 더 열심히 하는 거예요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "나쁜 평가에서 벗어나려면 어떻게 해야 한다고 했나요?",
+        "ttsText": "나쁜 평가에서 벗어나려면 어떻게 해야 한다고 했나요?",
+        "passage": "나쁜 평가에서 벗어나는 가장 좋은 방법은 자신이 하는 일을 더 열심히 하는 거예요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "하는 일을 더 열심히 하기",
+        "options": [
+          "무시하고 지나가기",
+          "하는 일을 더 열심히 하기",
+          "모든 활동을 그만두기",
+          "그 사람한테 따지기"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "나쁜 소리를 들었을 때 뭘 더 열심히 하면 된다고 했어?"
+      },
+      "wrongExplanation": "무시하는 것만으로는 부족해. 자신이 하는 일에 집중하면 나쁜 평가가 자연스럽게 덜 신경 쓰이게 돼.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "나쁜 평가에서 벗어나려면 어떻게 해야 한다고 했나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_009",
+      "displayIndex": 116
+    },
+    {
+      "id": "crd_2026W15_comp_s41_010",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "그림 시간에 누군가 손장미의 그림에 물감을 뿌렸어요. 보경이가 한 짓이었어요. 보경이는 제목 가리기, 샤프로 찌르기, 물감 뿌리기 등 여러 방법으로 괴롭혔어요.",
+        "ttsText": "그림 시간에 누군가 손장미의 그림에 물감을 뿌렸어요. 보경이가 한 짓이었어요. 보경이는 제목 가리기, 샤프로 찌르기, 물감 뿌리기 등 여러 방법으로 괴롭혔어요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "그림 시간에 손장미에게 물감을 뿌린 사람은 누구예요?",
+        "ttsText": "그림 시간에 손장미에게 물감을 뿌린 사람은 누구예요?",
+        "passage": "물감을 뿌린 건 보경이였어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보경이",
+        "options": [
+          "민주",
+          "보경이",
+          "서영이",
+          "선생님"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "손장미를 괴롭힌 친구 이름을 다시 생각해봐."
+      },
+      "wrongExplanation": "민주와 서영이는 나중에 손장미를 도와준 친구들이야. 괴롭힌 건 보경이야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "그림 시간에 손장미에게 물감을 뿌린 사람은 누구예요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_010",
+      "displayIndex": 117
+    },
+    {
+      "id": "crd_2026W15_comp_s41_011",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "손장미는 체육복이 없어졌어요. 민주가 다가와서 '힘든 일 있으면 나한테 말해. 내가 도움이 될 수 있을지도 몰라'라고 말해줬어요.",
+        "ttsText": "손장미는 체육복이 없어졌어요. 민주가 다가와서 '힘든 일 있으면 나한테 말해. 내가 도움이 될 수 있을지도 몰라'라고 말해줬어요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "손장미가 힘들 때 '내가 도와줄게'라고 말해준 친구는 누구예요?",
+        "ttsText": "손장미가 힘들 때 '내가 도와줄게'라고 말해준 친구는 누구예요?",
+        "passage": "민주가 '내가 도움이 될 수 있을지도 몰라'라고 말해줬어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "민주",
+        "options": [
+          "서영이",
+          "민주",
+          "보경이",
+          "선생님"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "'내가 도움이 될 수 있을지 몰라'라고 말해준 친구가 누구였어?"
+      },
+      "wrongExplanation": "서영이는 처음엔 관심을 갖지 않으려 했어. 먼저 다가와서 도와주겠다고 한 건 민주야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "손장미가 힘들 때 '내가 도와줄게'라고 말해준 친구는 누구예요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_011",
+      "displayIndex": 118
+    },
+    {
+      "id": "crd_2026W15_comp_s41_012",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "나쁜 평가가 마음에 콕콕 박힐 수 있어요. 그럴 때는 무시하려고만 하지 말고, 자신이 하는 일에 집중하는 게 좋아요.",
+        "ttsText": "나쁜 평가가 마음에 콕콕 박힐 수 있어요. 그럴 때는 무시하려고만 하지 말고, 자신이 하는 일에 집중하는 게 좋아요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "나쁜 평가가 마음에 계속 남을 때는 어떻게 하면 좋다고 했나요?",
+        "ttsText": "나쁜 평가가 마음에 계속 남을 때는 어떻게 하면 좋다고 했나요?",
+        "passage": "무시하려고만 하지 말고 자신이 하는 일에 집중하면 돼요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "지금 하고 있는 일에 집중하기",
+        "options": [
+          "그 친구를 피하기",
+          "지금 하고 있는 일에 집중하기",
+          "다른 친구들한테 말하기",
+          "울면서 참기"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "무시만으로 부족할 때 뭐에 집중하면 된다고 했어?"
+      },
+      "wrongExplanation": "피하거나 남한테 말하는 것보다, 자기가 하는 일에 집중하는 게 더 좋은 방법이라고 했어.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "나쁜 평가가 마음에 계속 남을 때는 어떻게 하면 좋다고 했나요?",
+      "confidence": 0.85,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_012",
+      "displayIndex": 119
+    },
+    {
+      "id": "crd_2026W15_comp_s41_013",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "서영이는 처음에 손장미 일에 관심을 갖지 말자고 생각했어요. 다른 아이들 일에 끼어들었다가 자기한테 불똥이 튈까봐 두렵고 무서웠거든요.",
+        "ttsText": "서영이는 처음에 손장미 일에 관심을 갖지 말자고 생각했어요. 다른 아이들 일에 끼어들었다가 자기한테 불똥이 튈까봐 두렵고 무서웠거든요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "서영이가 처음에 손장미를 도와주지 않으려 한 이유는 뭐예요?",
+        "ttsText": "서영이가 처음에 손장미를 도와주지 않으려 한 이유는 뭐예요?",
+        "passage": "자기한테 피해가 올까봐 두려웠어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자기도 피해를 입을까봐 두려워서",
+        "options": [
+          "손장미가 싫어서",
+          "자기도 피해를 입을까봐 두려워서",
+          "바쁜 일이 많아서",
+          "선생님이 말렸으니까"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "서영이는 뭐가 무서웠어?"
+      },
+      "wrongExplanation": "서영이는 손장미가 싫은 게 아니야. 자기한테도 피해가 올까봐 두려웠던 거야.",
+      "skillTag": "cause-effect",
+      "skillTags": [
+        "cause-effect"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "서영이가 처음에 손장미를 도와주지 않으려 한 이유는 뭐예요?",
+      "confidence": 0.85,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_013",
+      "displayIndex": 120
+    },
+    {
+      "id": "crd_2026W15_comp_s41_014",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "아무도 자기 편을 들어주지 않았는데, 민주가 자신감 있게 나서서 도와줬어요. 손장미는 깜짝 놀랐어요.",
+        "ttsText": "아무도 자기 편을 들어주지 않았는데, 민주가 자신감 있게 나서서 도와줬어요. 손장미는 깜짝 놀랐어요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "손장미가 깜짝 놀란 이유는 뭐예요?",
+        "ttsText": "손장미가 깜짝 놀란 이유는 뭐예요?",
+        "passage": "아무도 안 도와줬는데 민주가 나서서 도와줬으니까요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "아무도 안 도와줬는데 민주가 나서줘서",
+        "options": [
+          "민주가 선생님을 데려와서",
+          "아무도 안 도와줬는데 민주가 나서줘서",
+          "손장미가 민주를 원래 알아서",
+          "보경이가 사과해서"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "혼자라고 생각했는데 누군가 나타났어. 그게 얼마나 고마웠을까?"
+      },
+      "wrongExplanation": "아무도 편을 안 들어줬는데 민주가 용기 있게 나서줘서 놀란 거야. 혼자가 아니라는 걸 알게 된 거지.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "손장미가 깜짝 놀란 이유는 뭐예요?",
+      "confidence": 0.85,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_014",
+      "displayIndex": 121
+    },
+    {
+      "id": "crd_2026W15_comp_s41_015",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "보경이는 손장미를 밀쳐서 넘어뜨린 뒤 '슬쩍 쳤는데 그렇게 픽 쓰러지니?'라고 말했어요. 보경이는 장난이라고 생각했지만, 손장미는 아프고 창피했어요.",
+        "ttsText": "보경이는 손장미를 밀쳐서 넘어뜨린 뒤 '슬쩍 쳤는데 그렇게 픽 쓰러지니?'라고 말했어요. 보경이는 장난이라고 생각했지만, 손장미는 아프고 창피했어요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "보경이의 행동에서 우리가 배울 수 있는 것은 뭘까요?",
+        "ttsText": "보경이의 행동에서 우리가 배울 수 있는 것은 뭘까요?",
+        "passage": "보경이는 장난이라고 생각했지만 손장미는 아팠어요. 같은 행동도 사람마다 다르게 느낄 수 있어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "내가 장난이라고 생각해도 상대방은 아플 수 있다",
+        "options": [
+          "장난은 무조건 나쁜 것이다",
+          "내가 장난이라고 생각해도 상대방은 아플 수 있다",
+          "다른 사람을 피하는 게 최고다",
+          "맞은 사람이 참으면 된다"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "보경이는 장난이라고 생각했는데 손장미는 어떻게 느꼈어?"
+      },
+      "wrongExplanation": "장난 자체가 나쁜 건 아니야. 하지만 상대방이 어떻게 느끼는지를 먼저 생각하는 게 중요해.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "보경이의 행동에서 우리가 배울 수 있는 것은 뭘까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_015",
+      "displayIndex": 122
+    },
+    {
+      "id": "crd_2026W15_comp_s41_016",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "나쁜평가와용기-수업41",
+      "sourceId": "reading-class",
+      "runId": "2026-W15",
+      "passage": {
+        "text": "서영이는 처음에 안 도와주려 했지만, 보경이가 손장미를 밀쳐서 넘어뜨리는 걸 보고 결국 용기를 냈어요. 두려워도 옳은 일을 해야 할 때가 있어요.",
+        "ttsText": "서영이는 처음에 안 도와주려 했지만, 보경이가 손장미를 밀쳐서 넘어뜨리는 걸 보고 결국 용기를 냈어요. 두려워도 옳은 일을 해야 할 때가 있어요.",
+        "topic": "나쁜평가와용기-수업41",
+        "source": "41회 독서수업 260409"
+      },
+      "question": {
+        "text": "서영이의 선택이 우리에게 주는 가장 큰 의미는 뭘까요?",
+        "ttsText": "서영이의 선택이 우리에게 주는 가장 큰 의미는 뭘까요?",
+        "passage": "서영이는 두렵고 무서웠지만 옳은 일을 위해 용기를 냈어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "두려워도 옳은 일을 위해 용기를 내야 한다",
+        "options": [
+          "다른 사람 일에 관심 두지 않는 게 최고다",
+          "두려워도 옳은 일을 위해 용기를 내야 한다",
+          "친구를 돕는 건 언제나 쉬운 일이다",
+          "무서우면 참는 게 맞다"
+        ],
+        "type": "select_one"
+      },
+      "hint": {
+        "text": "서영이가 처음엔 두려워했는데 결국 뭘 했어? 그 선택이 뭘 의미할까?"
+      },
+      "wrongExplanation": "서영이는 처음엔 안전만 생각했지만, 나중에 용기를 냈어. 두려움을 극복하고 옳은 일을 하는 게 더 중요할 때가 있어.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W15",
+      "ttsText": "서영이의 선택이 우리에게 주는 가장 큰 의미는 뭘까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "cardId": "crd_2026W15_comp_s41_016",
+      "displayIndex": 123
     }
   ]
 }
