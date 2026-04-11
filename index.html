@@ -4593,8 +4593,9 @@ function stopSTT() {
 // [v5.29] Whisper 우선 STT — 정확한 판정이 빠른 반응보다 중요
 // Web Speech API는 인식률이 낮아 아이가 잘 말해도 mismatch 반복 유발 (lessons-learned 3-1)
 // Whisper 1~2초 대기가 잘못된 판정보다 나은 경험
+// [v5.33] expectedText 파라미터 추가: Whisper prompt 힌트로 전달
 // 반환: { text: string, confidence: number, engine: 'whisper'|'web_speech'|'none' }
-async function getSTTResult(audioBlob) {
+async function getSTTResult(audioBlob, expectedText) {
   // Web Speech 결과를 먼저 캡처 (Whisper 대기 중 글로벌 변수 리셋 방지)
   var webSpeechText = sttResult || '';
   var webSpeechConf = sttConfidence || 0;
@@ -4602,7 +4603,7 @@ async function getSTTResult(audioBlob) {
   // 1) Whisper 시도 (serverUrl 설정 + audioBlob 존재 + 온라인 시)
   if (audioBlob && getSettings().serverUrl && navigator.onLine) {
     try {
-      var whisperText = await transcribeWithWhisper(audioBlob);
+      var whisperText = await transcribeWithWhisper(audioBlob, expectedText);
       if (whisperText !== null && whisperText.trim() !== '') {
         console.log('[STT] Whisper 성공:', whisperText);
         // 비교 로그 (Web Speech vs Whisper 정확도 비교용)
@@ -4729,10 +4730,11 @@ function assessMatchV5(expected, transcribed) {
   var distance = levenshteinDistance(a, b);
   var maxLen = Math.max(a.length, b.length);
   var similarity = 1 - (distance / maxLen);
-  var level = similarity >= 0.7 ? 'match' : (similarity >= 0.4 ? 'ambiguous' : 'mismatch');
+  // [v5.33] 임계값 0.7→0.6 하향 (아이 발음+Whisper 인식 오차 감안, 69%→AMBIGUOUS 문제 해결)
+  var level = similarity >= 0.6 ? 'match' : (similarity >= 0.4 ? 'ambiguous' : 'mismatch');
   return {
     score: similarity,
-    match: similarity >= 0.7,
+    match: similarity >= 0.6,
     level: level,
     distance: distance,
     details: { expected: a, transcribed: b }
@@ -4804,7 +4806,8 @@ function assessMatchLR(target, spoken, sttConf) {
 
 // [v5.0 T13] Whisper API 전사 (Cloudflare Worker 배포 후 활성화)
 // [v5.0.2] Whisper STT — 기존 workerFetch(/api/stt) 활용
-async function transcribeWithWhisper(audioBlob) {
+// [v5.33] expectedText 파라미터 추가: Whisper prompt 힌트로 전달 → 인식률 향상
+async function transcribeWithWhisper(audioBlob, expectedText) {
   var s = getSettings();
   if (!s.serverUrl) {
     console.warn('[Whisper] serverUrl 미설정. Web Speech API 폴백.');
@@ -4815,6 +4818,10 @@ async function transcribeWithWhisper(audioBlob) {
     formData.append('file', audioBlob, 'recording.webm');
     formData.append('model', 'gpt-4o-mini-transcribe');
     formData.append('language', 'ko');
+    // [v5.33] prompt 힌트: 기대 텍스트를 Whisper에 전달하여 맥락 인식 향상
+    if (expectedText && expectedText.trim()) {
+      formData.append('prompt', expectedText.trim());
+    }
     var headers = {};
     if (s.pin) headers['X-App-Pin'] = s.pin;
     var response = await fetch(s.serverUrl.replace(/\/+$/, '') + '/api/stt', {
@@ -4880,7 +4887,7 @@ async function processPendingRecordings() {
       for (var i = 0; i < records.length; i++) {
         var record = records[i];
         try {
-          var transcribed = await transcribeWithWhisper(record.audioBlob);
+          var transcribed = await transcribeWithWhisper(record.audioBlob, record.expectedText);  // [v5.33] prompt 힌트
           if (transcribed !== null) {
             var result = assessMatchV5(record.expectedText, transcribed);
             console.log('[Offline] 후채점:', record.cardId, result);
@@ -4946,12 +4953,12 @@ async function toggleRecording() {
       var audioBlob = (recordingChunks && recordingChunks.length > 0)
         ? new Blob(recordingChunks, { type: 'audio/webm' }) : null;
 
-      var sttRes = await getSTTResult(audioBlob);
+      var targetText = card.question.ttsText || card.question.displayWord || '';
+      var sttRes = await getSTTResult(audioBlob, targetText);  // [v5.33] prompt 힌트
       var spokenText = sttRes.text;
       var spokenConf = sttRes.confidence;
       var sttEngine = sttRes.engine;
 
-      var targetText = card.question.ttsText || card.question.displayWord || '';
       var match = assessMatchV5(targetText, spokenText);
       var attemptNum = card._observation ? card._observation.attemptNumber : 1;
       var consecutiveMismatch = card._consecutiveMismatch || 0;
@@ -5139,21 +5146,28 @@ async function toggleRecording() {
 
     mediaRecorder.start();
     btn.classList.add('recording');
-    status.textContent = '녹음 중... 다 읽으면 버튼을 다시 눌러';
+    // [v5.33] 프리워밍: 마이크 코덱 초기화 300ms 대기 후 "말해" 신호
+    btn.disabled = true;
+    status.textContent = '준비 중...';
     timerEl.classList.remove('hidden');
 
-    // v4.5: 녹음과 동시에 STT 시작
-    var card = APP.session.cards[APP.session.currentIndex];
-    var sttLang = (card && card.question && card.question.ttsText &&
-      /^[a-zA-Z\s.,!?'"]+$/.test(card.question.ttsText)) ? 'en-US' : 'ko-KR';
-    startSTT(sttLang);
+    setTimeout(function() {
+      btn.disabled = false;
+      status.textContent = '🎤 지금 말해봐! 다 읽으면 버튼을 눌러';
 
-    recordingTimer = setInterval(function() {
-      recordingSeconds++;
-      var min = Math.floor(recordingSeconds / 60);
-      var sec = recordingSeconds % 60;
-      timerEl.textContent = min + ':' + String(sec).padStart(2, '0');
-    }, 1000);
+      // v4.5: STT는 프리워밍 후 시작 (마이크 안정 상태에서)
+      var card2 = APP.session.cards[APP.session.currentIndex];
+      var sttLang = (card2 && card2.question && card2.question.ttsText &&
+        /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
+      startSTT(sttLang);
+
+      recordingTimer = setInterval(function() {
+        recordingSeconds++;
+        var min = Math.floor(recordingSeconds / 60);
+        var sec = recordingSeconds % 60;
+        timerEl.textContent = min + ':' + String(sec).padStart(2, '0');
+      }, 1000);
+    }, 300);
   } catch (e) {
     status.textContent = '마이크를 사용할 수 없어요';
     console.error('녹음 실패:', e);
@@ -5503,11 +5517,16 @@ async function lrToggleRecording() {
 
     lrState.mediaRecorder.start();
     lrState.isRecording = true;
-    if (btnSpeak) { btnSpeak.textContent = '🎤 듣는 중...'; btnSpeak.classList.add('lr-recording'); }
+    // [v5.33] 프리워밍: 300ms 대기 후 "말해" 신호
+    if (btnSpeak) { btnSpeak.textContent = '준비 중...'; btnSpeak.classList.add('lr-recording'); btnSpeak.disabled = true; }
 
-    // STT 동시 시작 — 자동 완료 콜백 전달
-    lrState.sttAutoCompleted = false;  // 리셋
-    startSTT('ko-KR', lrAutoComplete);
+    setTimeout(function() {
+      if (btnSpeak) { btnSpeak.textContent = '🎤 지금 말해봐!'; btnSpeak.disabled = false; }
+
+      // STT는 프리워밍 후 시작
+      lrState.sttAutoCompleted = false;
+      startSTT('ko-KR', lrAutoComplete);
+    }, 300);
 
     // 15초 타임아웃 (무한 대기 방지)
     lrState.sttTimeout = setTimeout(function() {
@@ -5533,7 +5552,8 @@ async function lrProcessAttempt() {
 
   var card = lrState.cards[lrState.currentIndex];
   var feedbackEl = document.getElementById('lr-feedback');
-  var threshold = (APP.config && APP.config.listenRepeat) ? APP.config.listenRepeat.matchThreshold : 0.7;
+  // [v5.33] 코드 폴백 기본값 0.7→0.6 (config.json 값 우선, 현재 config=0.45)
+  var threshold = (APP.config && APP.config.listenRepeat) ? APP.config.listenRepeat.matchThreshold : 0.6;
 
   // 3단계면 판정 없이 통과 (B-4)
   if (lrState.currentStage === 3) {
@@ -5549,12 +5569,13 @@ async function lrProcessAttempt() {
   // [v5.29] Whisper 우선 STT — lrState.recordingChunks에서 blob 생성
   var lrAudioBlob = (lrState.recordingChunks && lrState.recordingChunks.length > 0)
     ? new Blob(lrState.recordingChunks, { type: 'audio/webm' }) : null;
-  var sttRes = await getSTTResult(lrAudioBlob);
+  var lrExpectedText = card.ttsText || card.text;
+  var sttRes = await getSTTResult(lrAudioBlob, lrExpectedText);  // [v5.33] prompt 힌트
   var spokenText = sttRes.text;
   var spokenConf = sttRes.confidence;
   var sttEngine = sttRes.engine;
 
-  var result = assessMatchV5(card.ttsText || card.text, spokenText);
+  var result = assessMatchV5(lrExpectedText, spokenText);
 
   console.log('[LR판정]', {
     target: card.ttsText || card.text,
@@ -5989,12 +6010,12 @@ async function raToggleRecording() {
     setTimeout(async function() {
       var raAudioBlob = (raState.recordingChunks && raState.recordingChunks.length > 0)
         ? new Blob(raState.recordingChunks, { type: 'audio/webm' }) : null;
-      var sttRes = await getSTTResult(raAudioBlob);
+      var targetText = card.question.ttsText || card.question.displayWord || '';
+      var sttRes = await getSTTResult(raAudioBlob, targetText);  // [v5.33] prompt 힌트
       var spokenText = sttRes.text;
       var spokenConf = sttRes.confidence;
       var sttEngine = sttRes.engine;
 
-      var targetText = card.question.ttsText || card.question.displayWord || '';
       var match = assessMatchV5(targetText, spokenText);
       var consecutiveMismatch = card._consecutiveMismatch || 0;
 
@@ -6150,19 +6171,28 @@ async function raToggleRecording() {
 
     raState.mediaRecorder.start();
     raState.isRecording = true;
-    if (btnRecord) { btnRecord.textContent = '⏹ 멈추기'; btnRecord.classList.add('ra-recording'); }
+    // [v5.33] 프리워밍: 300ms 대기 후 "말해" 신호
+    if (btnRecord) { btnRecord.textContent = '준비 중...'; btnRecord.classList.add('ra-recording'); btnRecord.disabled = true; }
+    var feedbackElPrewarm = document.getElementById('ra-feedback');
+    if (feedbackElPrewarm) feedbackElPrewarm.textContent = '준비 중...';
 
-    // STT 동시 시작
-    var card = raState.cards[raState.currentIndex];
-    var sttLang = (card && card.question && card.question.ttsText &&
-      /^[a-zA-Z\s.,!?'"]+$/.test(card.question.ttsText)) ? 'en-US' : 'ko-KR';
-    startSTT(sttLang);
+    setTimeout(function() {
+      if (btnRecord) { btnRecord.textContent = '⏹ 멈추기'; btnRecord.disabled = false; }
+      var feedbackElReady = document.getElementById('ra-feedback');
+      if (feedbackElReady) feedbackElReady.textContent = '🎤 지금 읽어봐!';
 
-    raState.recordingTimer = setInterval(function() {
-      raState.recordingSeconds++;
-      var feedbackEl = document.getElementById('ra-feedback');
-      if (feedbackEl) feedbackEl.textContent = '🔴 녹음 중... ' + raState.recordingSeconds + '초';
-    }, 1000);
+      // STT는 프리워밍 후 시작
+      var card2 = raState.cards[raState.currentIndex];
+      var sttLang = (card2 && card2.question && card2.question.ttsText &&
+        /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
+      startSTT(sttLang);
+
+      raState.recordingTimer = setInterval(function() {
+        raState.recordingSeconds++;
+        var feedbackEl2 = document.getElementById('ra-feedback');
+        if (feedbackEl2) feedbackEl2.textContent = '🔴 녹음 중... ' + raState.recordingSeconds + '초';
+      }, 1000);
+    }, 300);
 
     // 현재 줄 빨간 테두리 강조
     var currentItem = document.getElementById('ra-item-' + raState.currentIndex);
