@@ -2458,6 +2458,7 @@ function buildSessionLegacy() {
   var engRatio = (mix.english && mix.english.enabled) ? (mix.english.ratio || 0.4) : 0.4;
   var compRatio = (mix.comprehension && mix.comprehension.enabled) ? (mix.comprehension.ratio || 0.3) : 0.3;
   var ssRatio = (mix.social_studies && mix.social_studies.enabled) ? (mix.social_studies.ratio || 0) : 0;
+  var sciRatio = (mix.science && mix.science.enabled) ? (mix.science.ratio || 0) : 0;
 
   // speech-therapy 퀴즈 카드 (파이프라인 생성, 따라읽기가 아닌 것)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
@@ -2466,23 +2467,26 @@ function buildSessionLegacy() {
   var stQuizSlots = stQuizCards.length > 0 ? Math.max(2, Math.round(contentSlots * 0.15)) : 0;
   var adjustedContentSlots = contentSlots - stQuizSlots;
 
-  var totalRatio = engRatio + compRatio + ssRatio;
+  var totalRatio = engRatio + compRatio + ssRatio + sciRatio;
   var engSlots2 = Math.round(adjustedContentSlots * (engRatio / totalRatio));
   var ssSlots2 = Math.round(adjustedContentSlots * (ssRatio / totalRatio));
-  var compSlots2 = adjustedContentSlots - engSlots2 - ssSlots2;
+  var sciSlots2 = Math.round(adjustedContentSlots * (sciRatio / totalRatio));
+  var compSlots2 = adjustedContentSlots - engSlots2 - ssSlots2 - sciSlots2;
 
   var engCards = selectCardsForSubject(APP.englishCards.filter(validFilter), engSlots2);
   var compCards = selectCardsForSubject(APP.comprehensionCards.filter(validFilter), compSlots2);
   var ssCards = selectCardsForSubject(APP.socialStudiesCards.filter(validFilter), ssSlots2);
+  var sciCards = selectCardsForSubject(APP.scienceCards.filter(validFilter), sciSlots2);
   var stqCards = selectCardsForSubject(stQuizCards.filter(validFilter), stQuizSlots);
 
-  // [v4.10] 블록 순서 v3: 영어→독해→말하기퀴즈→사회→LR→따라읽기
+  // [v5.37] 블록 순서 v4: 영어→독해→말하기퀴즈→사회→과학→LR→따라읽기
   // [v4.10 T15] 각 블록 내 난이도 정렬 (Lv1→Lv2→Lv3). LR/따라읽기는 자체 순서 유지.
   var result = [];
   result.push.apply(result, sortByDifficulty(engCards));
   result.push.apply(result, sortByDifficulty(diversifyBySkillTag(compCards)));  // [v4.10 T6] 독해 스킬 다양성
   result.push.apply(result, sortByDifficulty(stqCards));   // 말하기 퀴즈 (독해 뒤, 사회 앞)
   result.push.apply(result, sortByDifficulty(ssCards));     // 사회
+  result.push.apply(result, sortByDifficulty(sciCards));    // 과학
   result.push.apply(result, lrCards);  // v4.6: listen-repeat 블록 (순서 유지, 정렬 제외)
   result.push.apply(result, stCards); // lesson 순서대로 (정렬 제외)
 
@@ -2538,6 +2542,7 @@ function buildSessionAnchored() {
     APP.englishCards.filter(validFilter),
     APP.comprehensionCards.filter(validFilter),
     APP.socialStudiesCards.filter(validFilter),
+    APP.scienceCards.filter(validFilter),
     stQuizCards.filter(validFilter)
   );
 
