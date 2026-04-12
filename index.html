@@ -514,6 +514,16 @@
     .feedback.correct { display: block; background: #E8F8E8; color: #27AE60; }
     .feedback.incorrect { display: block; background: #FDE8E8; color: #E74C3C; }
 
+    /* [v5.36] 토스트 메시지 */
+    .toast-msg {
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.8); color: #fff; padding: 10px 20px;
+      border-radius: 20px; font-size: 14px; z-index: 9999;
+      opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .toast-msg.show { opacity: 1; }
+
     /* 오답 해설 */
     .wrong-explanation {
       display: none; margin-top: 12px; padding: 16px;
@@ -1034,6 +1044,22 @@ function textToSSML(text) {
   return `<speak>${ssml}</speak>`;
 }
 
+// [v5.36] BUG-4: 토스트 메시지 유틸
+function showToast(msg, duration) {
+  duration = duration || 2500;
+  var el = document.getElementById('toast-msg');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'toast-msg';
+    el.className = 'toast-msg';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._tid);
+  el._tid = setTimeout(function() { el.classList.remove('show'); }, duration);
+}
+
 async function textToSpeech(text, lang, options) {
   options = options || {};
   var rate = options.rate || null;  // null = 기본값 사용
@@ -1076,13 +1102,17 @@ async function textToSpeech(text, lang, options) {
   }
 
   // Web Speech API 폴백
+  if (!window.speechSynthesis) {
+    showToast('소리를 재생할 수 없어요');
+    return;
+  }
   return new Promise((resolve) => {
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = isEnglish ? 'en-US' : 'ko-KR';
     utterance.rate = rate || 0.9;
     if (onBoundary) utterance.onboundary = onBoundary;
     utterance.onend = resolve;
-    utterance.onerror = resolve;
+    utterance.onerror = function() { showToast('소리를 재생할 수 없어요'); resolve(); }; // [v5.36] BUG-4
     speechSynthesis.speak(utterance);
   });
 }
@@ -1394,7 +1424,7 @@ async function loadContentFiles() {
     APP.scienceCards = Array.isArray(sciRes) ? sciRes : (sciRes.cards || []);
     APP.scienceCards.forEach(function(c) { c.subject = c.subject || 'science'; c.id = c.id || c.cardId; });
     APP.phrasePool = phraseRes;
-    APP.config = cfgRes;
+    APP.config = cfgRes || {}; // [v5.36] BUG-3: 로딩 실패 시 빈 객체 (TypeError 방지)
     if (stRes) {
       APP.speechTherapyCards = generateSpeechTherapyCards(stRes);
       // v4.6: listenRepeatCards 로드
@@ -4200,6 +4230,7 @@ function selectAnswer(selectedIdx) {
     // 다음으로 버튼 표시 (포기 옵션)
     var btnNext = document.getElementById('btn-next-after-wrong');
     if (btnNext) btnNext.classList.add('visible');
+    savePendingSession(); // [v5.36] BUG-2: 재시도 진입 시점에도 세션 저장
 
   } else {
     // binary/보너스 등: 기존 동작 — 정답 즉시 표시 + 해설
@@ -4214,6 +4245,7 @@ function selectAnswer(selectedIdx) {
     fb.style.display = 'block';
     var selectedText = displayOptions[selectedIdx] || '';
     showWrongExplanation(card, selectedText);
+    savePendingSession(); // [v5.36] BUG-2: 오답 후에도 세션 저장 (새로고침 손실 방지)
   }
 }
 
@@ -4314,7 +4346,10 @@ function selectMultiAnswer(selectedIdx) {
     }, 1000);
   } else {
     showWrongExplanation(card, selectedTexts.join(', '));
-    // multi_choice는 B안 대상 외 — 도움 계단 미표시
+    // [v5.36] BUG-5: multi_choice에도 도움 계단 표시 (TTS 다시듣기 등)
+    var helpBtnArea = document.getElementById('help-stair-btn-area');
+    if (helpBtnArea) helpBtnArea.style.display = 'block';
+    savePendingSession(); // [v5.36] BUG-2: multi_choice 오답 후에도 세션 저장
   }
 }
 
