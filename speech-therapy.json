@@ -3070,7 +3070,7 @@
       "question": {
         "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
         "displaySentence": "아이들과 함께 동물원에 가서 코끼리랑 호랑이 구경했어요.",
-        "ttsText": "아이들과 함께 동물원에서 코끼리랑 호랑이를 구경했어요.",
+        "ttsText": "아이들과 함께 동물원에 가서 코끼리와 호랑이를 구경했어요.",
         "ttsLang": "ko",
         "diffCount": 2
       },
@@ -3078,15 +3078,15 @@
         "type": "spot_diff",
         "diffs": [
           {
-            "displayWord": "동물원에",
-            "displayIndex": 2,
-            "audioWord": "동물원에서",
+            "displayWord": "코끼리랑",
+            "displayIndex": 4,
+            "audioWord": "코끼리와",
             "options": [
-              "동물원에서",
-              "동물원에는",
-              "동물원에도"
+              "코끼리와",
+              "코끼리랑",
+              "코끼리한테"
             ],
-            "explanation": "'동물원에' 뒤에 '서'가 붙어서 '동물원에서'로 들려!"
+            "explanation": "'코끼리랑'이 '코끼리와'로 바뀌어서 들려!"
           },
           {
             "displayWord": "호랑이",
@@ -3102,7 +3102,7 @@
         ]
       },
       "hint": {
-        "text": "조사가 달라진 곳이 2군데야! '동물원에' 뒤와 '호랑이' 뒤를 잘 들어봐."
+        "text": "조사가 달라진 곳이 2군데야! '코끼리랑' 부분과 '호랑이' 뒤를 잘 들어봐."
       },
       "skillTags": [
         "시각주의력",
@@ -3385,7 +3385,7 @@
       "question": {
         "text": "문장을 듣고, 다른 부분 1개를 찾아봐!",
         "displaySentence": "숨도 차고 땀도 났지만 끝까지 올라갔습니다.",
-        "ttsText": "숨도 차고 땀도 났지만 나는 끝까지 올라갔습니다.",
+        "ttsText": "숨도 차고 땀도 났지만 꼭대기까지 올라갔습니다.",
         "ttsLang": "ko",
         "diffCount": 1
       },
@@ -3395,18 +3395,18 @@
           {
             "displayWord": "끝까지",
             "displayIndex": 4,
-            "audioWord": "나는 끝까지",
+            "audioWord": "꼭대기까지",
             "options": [
-              "나는 끝까지",
+              "꼭대기까지",
               "끝까지",
-              "끝내기"
+              "끝내"
             ],
-            "explanation": "'끝까지' 앞에 '나는'이 들어가서 '나는 끝까지'로 들려!"
+            "explanation": "'끝까지'가 '꼭대기까지'로 바뀌어서 들려!"
           }
         ]
       },
       "hint": {
-        "text": "'끝까지' 앞에 뭔가 추가된 게 있어! 잘 들어봐."
+        "text": "비슷한 뜻이지만 다른 단어로 바뀌었어! 잘 들어봐."
       },
       "skillTags": [
         "시각주의력",
@@ -3499,7 +3499,7 @@
       "question": {
         "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
         "displaySentence": "정상에 올라가 보니 멀리 바다가 보이고, 넓은 들판도 보였다.",
-        "ttsText": "정상에 올라가니 멀리 바다도 보이고, 넓은 들판도 보였다.",
+        "ttsText": "정상에 올라가 보니까 멀리 바다도 보이고, 넓은 들판도 보였다.",
         "ttsLang": "ko",
         "diffCount": 2
       },
@@ -3507,15 +3507,15 @@
         "type": "spot_diff",
         "diffs": [
           {
-            "displayWord": "올라가",
-            "displayIndex": 1,
-            "audioWord": "올라가니",
+            "displayWord": "보니",
+            "displayIndex": 2,
+            "audioWord": "보니까",
             "options": [
-              "올라가니",
-              "올라가 보니",
-              "올라갔니"
+              "보니까",
+              "보니",
+              "보면"
             ],
-            "explanation": "'올라가 보니'가 '올라가니'로 줄어들어서 들려!"
+            "explanation": "'보니'가 '보니까'로 바뀌어서 들려!"
           },
           {
             "displayWord": "바다가",
@@ -3531,7 +3531,7 @@
         ]
       },
       "hint": {
-        "text": "어미와 조사가 달라진 곳이 2군데야! '올라가' 뒤와 '바다' 뒤를 잘 들어봐."
+        "text": "어미와 조사가 달라진 곳이 2군데야! '보니' 부분과 '바다가' 부분을 잘 들어봐."
       },
       "skillTags": [
         "시각주의력",
@@ -3737,11 +3737,11 @@
       "subject": "speech_therapy",
       "difficulty": 2,
       "question": {
-        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "text": "문장을 듣고, 다른 부분 3개를 찾아봐!",
         "displaySentence": "해변에서 하루 종일 놀아서 얼굴이 까맣게 탔어요.",
         "ttsText": "해변가에서 하루 종일 놀아서 얼굴이 빨갛게 됐어요.",
         "ttsLang": "ko",
-        "diffCount": 2
+        "diffCount": 3
       },
       "answer": {
         "type": "spot_diff",
@@ -3767,11 +3767,22 @@
               "검게"
             ],
             "explanation": "'까맣게'가 '빨갛게'로 바뀌어서 들려!"
+          },
+          {
+            "displayWord": "탔어요.",
+            "displayIndex": 6,
+            "audioWord": "됐어요.",
+            "options": [
+              "됐어요.",
+              "탔어요.",
+              "났어요."
+            ],
+            "explanation": "'탔어요'가 '됐어요'로 바뀌어서 들려!"
           }
         ]
       },
       "hint": {
-        "text": "단어가 달라진 곳이 2군데야! '해변' 부분과 '까맣게' 부분을 잘 들어봐."
+        "text": "단어가 달라진 곳이 3군데야! '해변', '까맣게', '탔어요' 부분을 잘 들어봐."
       },
       "skillTags": [
         "시각주의력",
@@ -3800,11 +3811,11 @@
       "subject": "speech_therapy",
       "difficulty": 2,
       "question": {
-        "text": "문장을 듣고, 다른 부분 2개를 찾아봐!",
+        "text": "문장을 듣고, 다른 부분 3개를 찾아봐!",
         "displaySentence": "중요한 일이니까 다시 한 번 빠진 게 없는지 확인해 주세요.",
         "ttsText": "중요한 일이니 다시 한 번 빠진 것 없는지 확인하여 주세요.",
         "ttsLang": "ko",
-        "diffCount": 2
+        "diffCount": 3
       },
       "answer": {
         "type": "spot_diff",
@@ -3821,6 +3832,17 @@
             "explanation": "'일이니까'에서 '까'가 빠져서 '일이니'로 들려!"
           },
           {
+            "displayWord": "게",
+            "displayIndex": 6,
+            "audioWord": "것",
+            "options": [
+              "것",
+              "게",
+              "걸"
+            ],
+            "explanation": "'게'가 '것'으로 바뀌어서 들려!"
+          },
+          {
             "displayWord": "확인해",
             "displayIndex": 8,
             "audioWord": "확인하여",
@@ -3834,7 +3856,7 @@
         ]
       },
       "hint": {
-        "text": "어미가 달라진 곳이 2군데야! '일이니까' 부분과 '확인해' 부분을 잘 들어봐."
+        "text": "어미와 의존명사가 달라진 곳이 3군데야! '일이니까', '게', '확인해' 부분을 잘 들어봐."
       },
       "skillTags": [
         "시각주의력",

@@ -2122,13 +2122,16 @@ function startReadAloudSubjectSession() {
       _raCard: true,
       _lessonId: lesson.id,
       _lineIndex: i,
+      _lessonTitle: lesson.title,  // v5.49: renderReadAloudBlock에서 참조
+      _blockType: 'read-aloud',  // v5.49: renderCard() 라우팅에 필수
       type: 'read_aloud',
       subject: 'speech_therapy',
       text: line.text,
       pronunciation: line.pronunciation || '',
       rules: line.rules || [],
       ttsText: line.text,
-      difficulty: 1
+      difficulty: 1,
+      question: { ttsText: line.text, displayWord: line.text, text: '따라 읽어봐' }  // v5.49: renderReadAloudBlock + raToggleRecording 필수
     };
   });
 
@@ -2192,9 +2195,11 @@ function startSpeakingPracticeSession() {
       return {
         _raCard: true, _lessonId: lesson.id, _lineIndex: i,
         _blockType: 'read-aloud',
+        _lessonTitle: lesson.title,  // v5.49: renderReadAloudBlock에서 참조
         type: 'read_aloud', subject: 'speech_therapy',
         text: line.text, pronunciation: line.pronunciation || '',
-        rules: line.rules || [], ttsText: line.text, difficulty: 1
+        rules: line.rules || [], ttsText: line.text, difficulty: 1,
+        question: { ttsText: line.text, displayWord: line.text, text: '따라 읽어봐' }  // v5.49: renderReadAloudBlock + raToggleRecording 필수
       };
     });
     allCards = allCards.concat(raCards);
@@ -3564,6 +3569,10 @@ function confirmSpotDiffSelection() {
     var confirmBtn2 = document.getElementById('sd-btn-confirm');
     if (confirmBtn2) confirmBtn2.style.display = 'none';
 
+    // v5.49: 이전 선택 단계의 피드백 잔류 메시지 제거
+    var fb = document.getElementById('sd-feedback');
+    if (fb) fb.innerHTML = '';
+
     // 교정 보기 제시
     showSpotDiffCorrection(0);
 
@@ -3643,6 +3652,10 @@ function showSpotDiffCorrection(diffIdx) {
   var card = sdState.card;
   var diff = card.answer.diffs[diffIdx];
   if (!diff) return;
+
+  // v5.49: 이전 교정의 피드백 잔류 메시지 제거 ("다시 골라봐!" 등)
+  var fbClear = document.getElementById('sd-feedback');
+  if (fbClear) fbClear.innerHTML = '';
 
   sdState.diffIdx = diffIdx;
   var totalDiffs = card.answer.diffs.length;
@@ -3749,6 +3762,8 @@ function selectSpotDiffOption(diffIdx, optIdx, selectedText) {
     // 남은 활성 버튼이 1개면 → 자동으로 정답 노출
     var activeBtns = optContainer.querySelectorAll('.sd-option-btn:not(:disabled)');
     if (activeBtns.length <= 1) {
+      // v5.49: 자동 공개도 correctDiffs 카운트 (누락 시 카드 오답 처리됨)
+      sdState.correctDiffs++;
       // 마지막 버튼이 정답 → 자동 하이라이트
       allBtns.forEach(function(btn) {
         btn.disabled = true;
@@ -4886,11 +4901,16 @@ async function transcribeWithWhisper(audioBlob, expectedText) {
     }
     var headers = {};
     if (s.pin) headers['X-App-Pin'] = s.pin;
+    // v5.49: 15초 타임아웃 (네트워크 장애 시 무한 대기 방지)
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function() { controller.abort(); }, 15000);
     var response = await fetch(s.serverUrl.replace(/\/+$/, '') + '/api/stt', {
       method: 'POST',
       headers: headers,
-      body: formData
+      body: formData,
+      signal: controller.signal
     });
+    clearTimeout(timeoutId);
     if (!response.ok) throw new Error('Whisper API failed: ' + response.status);
     var data = await response.json();
     return data.text || '';
@@ -5427,7 +5447,7 @@ async function lrStartItem(index) {
   if (btnSkip) btnSkip.disabled = true;
 
   // TTS 재생 (1단계: 보통 속도)
-  await lrPlayTTSForStage(1);
+  try { await lrPlayTTSForStage(1); } catch(e) { console.warn('[LR] TTS stage1 실패:', e); }
 
   // 버튼 활성화
   if (btnSpeak) btnSpeak.disabled = false;
@@ -5714,7 +5734,7 @@ async function lrProcessAttempt() {
     if (btnSpeak) btnSpeak.disabled = true;
     if (btnSkip1) btnSkip1.disabled = true;
 
-    await lrPlayTTSForStage(2);
+    try { await lrPlayTTSForStage(2); } catch(e) { console.warn('[LR] TTS stage2 실패:', e); }
 
     if (btnSpeak) btnSpeak.disabled = false;
     if (btnSkip1) btnSkip1.disabled = false;
@@ -5746,7 +5766,7 @@ async function lrProcessAttempt() {
     if (btnSpeak2) btnSpeak2.disabled = true;
     if (btnSkip2) btnSkip2.disabled = true;
 
-    await lrPlayTTSForStage(3);
+    try { await lrPlayTTSForStage(3); } catch(e) { console.warn('[LR] TTS stage3 실패:', e); }
 
     if (btnSpeak2) btnSpeak2.disabled = false;
     if (btnSkip2) btnSkip2.disabled = false;
@@ -6249,7 +6269,7 @@ async function raToggleRecording() {
           document.getElementById('ra-btn-listen').classList.remove('hidden');
         }
       }
-    }, 500);
+    }, 300);  // v5.49: 500→300ms 통일 (ST/LR과 동일)
 
     return;
   }
