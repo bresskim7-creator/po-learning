@@ -1630,7 +1630,8 @@ function getSubjectCardPoolCount(subject) {
     case 'social_studies': return (APP.socialStudiesCards || []).filter(filterBlocked).length;
     case 'science': return (APP.scienceCards || []).filter(filterBlocked).length;
     case 'speaking_practice':
-      var stqCount = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && filterBlocked(c); }).length;
+      // v5.50: parentOnly/disabled 카드 집계 제외
+      var stqCount = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && !c.parentOnly && !c.disabled && filterBlocked(c); }).length;
       var lrCount = (APP.listenRepeatCards || []).filter(filterBlocked).length;
       var raCount = (APP.speechTherapyLessons || []).length;
       return stqCount + lrCount + raCount;
@@ -1862,9 +1863,10 @@ function getApprovedCards(subject) {
       break;
     default: pool = [];
   }
+  // v5.50: parentOnly/disabled 카드 제외
   return pool.filter(function(c) {
     var status = c.reviewStatus || c.status || '';
-    return status !== 'blocked';
+    return status !== 'blocked' && !c.parentOnly && !c.disabled;
   });
 }
 
@@ -2166,8 +2168,9 @@ function startSpeakingPracticeSession() {
   var allCards = [];
 
   // Block 1: 말하기 퀴즈 (4지선다, 최대 5장)
+  // v5.50: parentOnly/disabled 카드 제외 (부모전용·비활성 카드가 아이에게 노출되던 버그)
   var stqPool = (APP.speechTherapyCards || []).filter(function(c) {
-    return !c._lessonId && c.reviewStatus !== 'blocked' && c.status !== 'blocked';
+    return !c._lessonId && !c.parentOnly && !c.disabled && c.reviewStatus !== 'blocked' && c.status !== 'blocked';
   });
   if (stqPool.length > 0) {
     var stqCards = shuffleArray(stqPool.slice()).slice(0, 5);
