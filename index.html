@@ -47,7 +47,7 @@
     .btn-start:active { transform: scale(0.95); }
 
     /* ===== 카드 화면 ===== */
-    #page-card { background: #f0f4f8; gap: 16px; }
+    #page-card { background: #f0f4f8; gap: 16px; max-height: 100vh; }
 
     /* 카드 네비게이션 바 */
     .card-nav {
@@ -88,6 +88,7 @@
       background: white; border-radius: 20px; padding: 18px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       flex: 1; display: flex; flex-direction: column; gap: 14px;
+      min-height: 0;
     }
 
     /* 지문 (3문장 독해용) */
@@ -261,7 +262,7 @@
       background: white; border-radius: 20px; padding: 20px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       flex: 1; display: flex; flex-direction: column; gap: 16px;
-      max-height: calc(100vh - 160px); overflow: hidden;
+      overflow: hidden; min-height: 0;
     }
     .lr-header {
       font-size: 18px; font-weight: 700; color: #2C6DB5;
@@ -270,11 +271,13 @@
     .lr-list {
       display: flex; flex-direction: column; gap: 10px;
       flex: 1; overflow-y: auto; min-height: 0;
+      -webkit-overflow-scrolling: touch;
     }
     .lr-item {
       display: flex; align-items: center; justify-content: space-between;
       padding: 14px 16px; border-radius: 14px; border: 2px solid #e0e0e0;
       min-height: 52px; transition: all 0.3s;
+      flex-wrap: nowrap;
     }
     .lr-item.lr-current {
       border-color: #4A90D9; background: #EBF5FF;
@@ -288,6 +291,10 @@
     }
     .lr-text {
       font-size: 17px; line-height: 1.5; flex: 1;
+      min-width: 0;
+    }
+    .lr-text-chunks {
+      display: flex; flex-wrap: wrap; gap: 4px;
     }
     .lr-blurred {
       color: transparent;
@@ -295,10 +302,10 @@
       user-select: none;
     }
     .lr-check {
-      font-size: 20px; margin-left: 8px;
+      font-size: 20px; margin-left: 8px; min-width: 20px; flex-shrink: 0;
     }
     .lr-mic {
-      font-size: 20px; margin-left: 8px;
+      font-size: 20px; margin-left: 8px; min-width: 20px; flex-shrink: 0;
     }
     .lr-controls {
       display: flex; gap: 8px; justify-content: center; padding: 8px 0;
@@ -337,15 +344,15 @@
       flex-shrink: 0;
     }
     .lr-word-chunk {
-      display: inline-block;
+      display: inline-flex; align-items: center;
       background-color: #E8F5E9;
       color: #1B5E20;
-      font-size: 1.4rem;
+      max-width: 100%; word-break: break-word;
+      font-size: 1.05rem;
       font-weight: bold;
-      padding: 6px 14px;
-      border-radius: 12px;
-      border: 2px solid #A5D6A7;
-      margin: 3px;
+      padding: 4px 10px;
+      border-radius: 10px;
+      border: 1.5px solid #A5D6A7;
       cursor: pointer;
       transition: background 0.2s;
     }
@@ -5201,20 +5208,20 @@ async function toggleRecording() {
 
     mediaRecorder.start();
     btn.classList.add('recording');
-    // [v5.33] 프리워밍: 마이크 코덱 초기화 300ms 대기 후 "말해" 신호
+    // [v5.38] 프리워밍: 녹음+STT 동시 시작, 시각 프롬프트만 300ms 지연
     btn.disabled = true;
     status.textContent = '준비 중...';
     timerEl.classList.remove('hidden');
 
+    // STT 즉시 시작 (초기화 시간 확보)
+    var card2 = APP.session.cards[APP.session.currentIndex];
+    var sttLang = (card2 && card2.question && card2.question.ttsText &&
+      /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
+    startSTT(sttLang);
+
     setTimeout(function() {
       btn.disabled = false;
       status.textContent = '🎤 지금 말해봐! 다 읽으면 버튼을 눌러';
-
-      // v4.5: STT는 프리워밍 후 시작 (마이크 안정 상태에서)
-      var card2 = APP.session.cards[APP.session.currentIndex];
-      var sttLang = (card2 && card2.question && card2.question.ttsText &&
-        /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
-      startSTT(sttLang);
 
       recordingTimer = setInterval(function() {
         recordingSeconds++;
@@ -5390,7 +5397,7 @@ function renderListenRepeatBlock() {
   html += '<div class="lr-controls">';
   html += '<button class="lr-btn lr-btn-listen" id="lr-btn-listen" onclick="lrPlayCurrentTTS()">🔊 다시 듣기</button>';
   html += '<button class="lr-btn lr-btn-speak" id="lr-btn-speak" onclick="lrToggleRecording()">🎤 말하기</button>';
-  html += '<button class="lr-btn lr-btn-skip" id="lr-btn-skip" onclick="lrSkipItem()">건너뛰기 ▶</button>';
+  html += '<button class="lr-btn lr-btn-skip" id="lr-btn-skip" onclick="lrSkipItem()">다음 →</button>';
   html += '</div>';
   html += '</div>';
 
@@ -5481,7 +5488,8 @@ function revealLrItemWithChunks(index) {
 
   textEl.innerHTML = chunkHtml;
   textEl.classList.remove('lr-blurred');
-  if (itemEl) { itemEl.classList.remove('lr-pending'); itemEl.classList.add('lr-current'); }
+  textEl.classList.add('lr-text-chunks');
+  if (itemEl) { itemEl.classList.remove('lr-current', 'lr-pending'); itemEl.classList.add('lr-done'); }
 }
 
 // 단계별 TTS 재생
@@ -5579,18 +5587,18 @@ async function lrToggleRecording() {
 
     lrState.mediaRecorder.start();
     lrState.isRecording = true;
-    // [v5.33] 프리워밍: 300ms 대기 후 "말해" 신호
+    // [v5.38] 프리워밍: 녹음+STT 동시 시작, 시각 프롬프트만 300ms 지연
+    // STT 초기화 시간 확보를 위해 STT는 즉시 시작 (이전 v5.33에서 STT도 지연→인식 실패 회귀)
     var btnSkipPW = document.getElementById('lr-btn-skip');
     if (btnSpeak) { btnSpeak.textContent = '준비 중...'; btnSpeak.classList.add('lr-recording'); btnSpeak.disabled = true; }
     if (btnSkipPW) btnSkipPW.disabled = true;
 
+    lrState.sttAutoCompleted = false;
+    startSTT('ko-KR', lrAutoComplete);
+
     setTimeout(function() {
       if (btnSpeak) { btnSpeak.textContent = '🎤 지금 말해봐!'; btnSpeak.disabled = false; }
       if (btnSkipPW) btnSkipPW.disabled = false;
-
-      // STT는 프리워밍 후 시작
-      lrState.sttAutoCompleted = false;
-      startSTT('ko-KR', lrAutoComplete);
     }, 300);
 
     // 15초 타임아웃 (무한 대기 방지)
@@ -6291,21 +6299,21 @@ async function raToggleRecording() {
 
     raState.mediaRecorder.start();
     raState.isRecording = true;
-    // [v5.33] 프리워밍: 300ms 대기 후 "말해" 신호
+    // [v5.38] 프리워밍: 녹음+STT 동시 시작, 시각 프롬프트만 300ms 지연
     if (btnRecord) { btnRecord.textContent = '준비 중...'; btnRecord.classList.add('ra-recording'); btnRecord.disabled = true; }
     var feedbackElPrewarm = document.getElementById('ra-feedback');
     if (feedbackElPrewarm) feedbackElPrewarm.textContent = '준비 중...';
+
+    // STT 즉시 시작 (초기화 시간 확보)
+    var card2 = raState.cards[raState.currentIndex];
+    var sttLang = (card2 && card2.question && card2.question.ttsText &&
+      /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
+    startSTT(sttLang);
 
     setTimeout(function() {
       if (btnRecord) { btnRecord.textContent = '⏹ 멈추기'; btnRecord.disabled = false; }
       var feedbackElReady = document.getElementById('ra-feedback');
       if (feedbackElReady) feedbackElReady.textContent = '🎤 지금 읽어봐!';
-
-      // STT는 프리워밍 후 시작
-      var card2 = raState.cards[raState.currentIndex];
-      var sttLang = (card2 && card2.question && card2.question.ttsText &&
-        /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
-      startSTT(sttLang);
 
       raState.recordingTimer = setInterval(function() {
         raState.recordingSeconds++;
