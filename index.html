@@ -261,6 +261,7 @@
       background: white; border-radius: 20px; padding: 20px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       flex: 1; display: flex; flex-direction: column; gap: 16px;
+      max-height: calc(100vh - 160px); overflow: hidden;
     }
     .lr-header {
       font-size: 18px; font-weight: 700; color: #2C6DB5;
@@ -268,6 +269,7 @@
     }
     .lr-list {
       display: flex; flex-direction: column; gap: 10px;
+      flex: 1; overflow-y: auto; min-height: 0;
     }
     .lr-item {
       display: flex; align-items: center; justify-content: space-between;
@@ -299,11 +301,12 @@
       font-size: 20px; margin-left: 8px;
     }
     .lr-controls {
-      display: flex; gap: 12px; justify-content: center; padding: 8px 0;
+      display: flex; gap: 8px; justify-content: center; padding: 8px 0;
+      flex-shrink: 0; flex-wrap: wrap;
     }
     .lr-btn {
-      padding: 14px 28px; border-radius: 24px; border: none;
-      font-size: 16px; font-weight: 600; cursor: pointer;
+      padding: 12px 16px; border-radius: 24px; border: none;
+      font-size: 15px; font-weight: 600; cursor: pointer;
       transition: transform 0.1s;
     }
     .lr-btn:active { transform: scale(0.95); }
@@ -319,9 +322,19 @@
     .lr-btn-speak:disabled {
       background: #ccc; cursor: default;
     }
+    .lr-btn-skip {
+      background: #F0F0F0; color: #555; border: 2px solid #CCC;
+    }
+    .lr-btn-skip:active {
+      background: #E0E0E0;
+    }
+    .lr-btn-skip:disabled {
+      background: #ccc; color: #999; border-color: #ccc; cursor: default;
+    }
     .lr-feedback {
       text-align: center; font-size: 18px; font-weight: 600;
       color: #27AE60; min-height: 28px; padding: 4px 0;
+      flex-shrink: 0;
     }
     .lr-word-chunk {
       display: inline-block;
@@ -2943,6 +2956,8 @@ function resetSessionState() {
   lrState.recordingChunks = [];
   lrState.isRecording = false;
   lrState.sttAutoCompleted = false;
+  lrState._processing = false;
+  lrState._skipInProgress = false;
 
   // RA 상태 정리
   if (raState.recordingTimer) { clearInterval(raState.recordingTimer); raState.recordingTimer = null; }
@@ -5375,6 +5390,7 @@ function renderListenRepeatBlock() {
   html += '<div class="lr-controls">';
   html += '<button class="lr-btn lr-btn-listen" id="lr-btn-listen" onclick="lrPlayCurrentTTS()">🔊 다시 듣기</button>';
   html += '<button class="lr-btn lr-btn-speak" id="lr-btn-speak" onclick="lrToggleRecording()">🎤 말하기</button>';
+  html += '<button class="lr-btn lr-btn-skip" id="lr-btn-skip" onclick="lrSkipItem()">건너뛰기 ▶</button>';
   html += '</div>';
   html += '</div>';
 
@@ -5397,15 +5413,18 @@ async function lrStartItem(index) {
 
   updateLrUI();
 
-  // 말하기 버튼 비활성화 (TTS 재생 중)
+  // 말하기/건너뛰기 버튼 비활성화 (TTS 재생 중)
   var btnSpeak = document.getElementById('lr-btn-speak');
+  var btnSkip = document.getElementById('lr-btn-skip');
   if (btnSpeak) btnSpeak.disabled = true;
+  if (btnSkip) btnSkip.disabled = true;
 
   // TTS 재생 (1단계: 보통 속도)
   await lrPlayTTSForStage(1);
 
-  // 녹음 버튼 활성화
+  // 버튼 활성화
   if (btnSpeak) btnSpeak.disabled = false;
+  if (btnSkip) btnSkip.disabled = false;
 }
 
 // UI 업데이트
@@ -5430,6 +5449,9 @@ function updateLrUI() {
       if (icon) icon.textContent = '';
     }
   }
+  // 현재 항목이 보이도록 스크롤
+  var currentItem = document.getElementById('lr-item-' + lrState.currentIndex);
+  if (currentItem) currentItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // 블러 해제 (완료 시)
@@ -5558,10 +5580,13 @@ async function lrToggleRecording() {
     lrState.mediaRecorder.start();
     lrState.isRecording = true;
     // [v5.33] 프리워밍: 300ms 대기 후 "말해" 신호
+    var btnSkipPW = document.getElementById('lr-btn-skip');
     if (btnSpeak) { btnSpeak.textContent = '준비 중...'; btnSpeak.classList.add('lr-recording'); btnSpeak.disabled = true; }
+    if (btnSkipPW) btnSkipPW.disabled = true;
 
     setTimeout(function() {
       if (btnSpeak) { btnSpeak.textContent = '🎤 지금 말해봐!'; btnSpeak.disabled = false; }
+      if (btnSkipPW) btnSkipPW.disabled = false;
 
       // STT는 프리워밍 후 시작
       lrState.sttAutoCompleted = false;
@@ -5589,6 +5614,9 @@ async function lrProcessAttempt() {
 
   // 세션 리셋 후 콜백이 도착한 경우 안전하게 탈출
   if (!lrState.cards || lrState.cards.length === 0) { lrState._processing = false; return; }
+
+  // 건너뛰기 진행 중이면 STT 콜백 무시
+  if (lrState._skipInProgress) { lrState._processing = false; lrState._skipInProgress = false; return; }
 
   var card = lrState.cards[lrState.currentIndex];
   var feedbackEl = document.getElementById('lr-feedback');
@@ -5660,8 +5688,11 @@ async function lrProcessAttempt() {
     }
 
     lrState._processing = false;  // [v5.25] 성공 처리 완료, 다음 시도 허용
+    var advanceFromIndex = lrState.currentIndex;
     setTimeout(function() {
       if (feedbackEl) feedbackEl.textContent = '';
+      // skip으로 이미 넘어갔으면 중복 advance 방지
+      if (lrState.currentIndex !== advanceFromIndex) return;
       lrAdvance();
     }, 1500);
 
@@ -5671,11 +5702,14 @@ async function lrProcessAttempt() {
     if (feedbackEl) feedbackEl.textContent = '한 번 더 들어볼래?';
 
     var btnSpeak = document.getElementById('lr-btn-speak');
+    var btnSkip1 = document.getElementById('lr-btn-skip');
     if (btnSpeak) btnSpeak.disabled = true;
+    if (btnSkip1) btnSkip1.disabled = true;
 
     await lrPlayTTSForStage(2);
 
     if (btnSpeak) btnSpeak.disabled = false;
+    if (btnSkip1) btnSkip1.disabled = false;
     lrState._processing = false;  // [v5.25] Stage 전환 완료, 다음 시도 허용
     setTimeout(function() { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
 
@@ -5700,11 +5734,14 @@ async function lrProcessAttempt() {
     if (feedbackEl) feedbackEl.textContent = '같이 읽어보자!';
 
     var btnSpeak2 = document.getElementById('lr-btn-speak');
+    var btnSkip2 = document.getElementById('lr-btn-skip');
     if (btnSpeak2) btnSpeak2.disabled = true;
+    if (btnSkip2) btnSkip2.disabled = true;
 
     await lrPlayTTSForStage(3);
 
     if (btnSpeak2) btnSpeak2.disabled = false;
+    if (btnSkip2) btnSkip2.disabled = false;
     lrState._processing = false;  // [v5.25] Stage 전환 완료, 다음 시도 허용
   }
 }
@@ -5714,10 +5751,51 @@ function lrOnStage3RecordingDone() {
   revealLrItem(lrState.currentIndex);
   var feedbackEl = document.getElementById('lr-feedback');
   if (feedbackEl) feedbackEl.textContent = '잘했어!';
+  var advanceFromIndex = lrState.currentIndex;
   setTimeout(function() {
     if (feedbackEl) feedbackEl.textContent = '';
+    if (lrState.currentIndex !== advanceFromIndex) return;
     lrAdvance();
   }, 1200);
+}
+
+// 건너뛰기 버튼 핸들러
+function lrSkipItem() {
+  // 더블클릭 방지
+  if (lrState._processing) return;
+  lrState._processing = true;
+
+  // TTS 재생 중이면 중지
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  APP.ttsPlaying = false;
+
+  // 녹음 중이면 중지 (STT 콜백 차단 플래그)
+  if (lrState.isRecording) {
+    lrState._skipInProgress = true;
+    try { lrToggleRecording(); } catch(e) { console.error('[LR] skip toggle error:', e); }
+  }
+
+  // 결과 기록 (skipped)
+  var card = lrState.cards[lrState.currentIndex];
+  if (!card) { console.warn('[LR] Skip called without valid card'); lrState._processing = false; return; }
+  lrState.results.push({
+    cardId: card.cardId || card.id,
+    lrIndex: lrState.currentIndex,
+    reachedStage: lrState.currentStage,
+    matchScore: 0,
+    sttTranscript: '',
+    sttEngine: 'skipped',
+    passed: false,
+    strictPassed: false
+  });
+  revealLrItem(lrState.currentIndex);
+  // 건너뛰기 로그 (기존 skipRecording 패턴)
+  logEvent('card_skip', { cardId: card.cardId || card.id, type: 'listen_repeat', lrIndex: lrState.currentIndex });
+  savePendingSession();
+  var feedbackEl = document.getElementById('lr-feedback');
+  if (feedbackEl) feedbackEl.textContent = '';
+  lrState._processing = false;
+  lrAdvance();
 }
 
 // 다음 항목으로 진행
@@ -5749,7 +5827,9 @@ function adjustLrLevel() {
   var cfg = APP.config && APP.config.listenRepeat;
   if (!cfg) return;
 
-  var results = lrState.results;
+  // 건너뛴 항목은 난이도 판정에서 제외
+  var results = lrState.results.filter(function(r) { return r.sttEngine !== 'skipped'; });
+  if (results.length === 0) return;  // 전부 건너뛴 경우 난이도 변경 없음
   var l1Successes = results.filter(function(r) { return r.reachedStage === 1; }).length;
   var l3Fallbacks = results.filter(function(r) { return r.reachedStage === 3; }).length;
 
