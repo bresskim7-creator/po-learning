@@ -2,7 +2,7 @@
   "version": "v4.10-phase2",
   "updated": "2026-03-22",
   "child": { "name": "PO", "grade": "초6", "interests": ["야구", "게임"] },
-  "cardsPerSession": 25,
+  "cardsPerSession": 20,
   "extendedCards": 30,
   "roles": {
     "curriculum-recall": { "label": "수업 복습", "subjects": ["english", "social_studies"] },
@@ -169,6 +169,10 @@
       "attempts": 2,
       "stairLevel": 2
     }
+  },
+  "speakingPractice": {
+    "lrCardsPerSession": 3,
+    "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립."
   },
   "subjectSession": {
     "enabled": true,
