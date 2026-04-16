@@ -294,7 +294,14 @@
       min-width: 0;
     }
     .lr-text-chunks {
-      display: flex; flex-wrap: wrap; gap: 4px;
+      display: flex; flex-wrap: wrap; gap: 4px; width: 100%;
+    }
+    /* 3단계 chunk-mode: 어절 블록이 보이는 현재 항목 전용 */
+    .lr-item.lr-chunk-mode {
+      align-items: flex-start; min-height: auto; flex-wrap: wrap;
+    }
+    .lr-item.lr-chunk-mode .lr-text {
+      width: 100%;
     }
     .lr-blurred {
       color: transparent;
@@ -5496,6 +5503,13 @@ function updateLrUI() {
     item.className = 'lr-item';
     if (i < lrState.currentIndex || lrState.results.find(function(r) { return r.lrIndex === i; })) {
       item.classList.add('lr-done');
+      // 안전장치: 완료 항목에 chunk UI가 잔존하면 plain text로 복원
+      var doneTextEl = document.getElementById('lr-text-' + i);
+      if (doneTextEl && doneTextEl.classList.contains('lr-text-chunks')) {
+        var doneCard = lrState.cards[i];
+        doneTextEl.textContent = doneCard ? (doneCard.text || doneCard.ttsText || '') : doneTextEl.textContent;
+        doneTextEl.classList.remove('lr-text-chunks');
+      }
     } else if (i === lrState.currentIndex) {
       item.classList.add('lr-current');
       if (icon) icon.textContent = '🎤';
@@ -5509,17 +5523,26 @@ function updateLrUI() {
   if (currentItem) currentItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// 블러 해제 (완료 시)
+// 블러 해제 (완료 시) — chunk UI가 남아있으면 plain text로 복원
 function revealLrItem(index) {
   var textEl = document.getElementById('lr-text-' + index);
   var iconEl = document.getElementById('lr-icon-' + index);
   var itemEl = document.getElementById('lr-item-' + index);
-  if (textEl) textEl.classList.remove('lr-blurred');
+  if (textEl) {
+    textEl.classList.remove('lr-blurred');
+    // chunk UI 복원: lr-text-chunks가 남아있으면 plain text로 되돌림
+    if (textEl.classList.contains('lr-text-chunks')) {
+      var card = lrState.cards[index];
+      var plainText = card ? (card.text || card.ttsText || '') : textEl.textContent;
+      textEl.textContent = plainText;
+      textEl.classList.remove('lr-text-chunks');
+    }
+  }
   if (iconEl) iconEl.textContent = '✅';
-  if (itemEl) { itemEl.classList.remove('lr-current', 'lr-pending'); itemEl.classList.add('lr-done'); }
+  if (itemEl) { itemEl.classList.remove('lr-current', 'lr-pending', 'lr-chunk-mode'); itemEl.classList.add('lr-done'); }
 }
 
-// 블러 해제 + 어절 블록 (3단계)
+// 블러 해제 + 어절 블록 (3단계 진행 중)
 function revealLrItemWithChunks(index) {
   var textEl = document.getElementById('lr-text-' + index);
   var iconEl = document.getElementById('lr-icon-' + index);
@@ -5537,7 +5560,8 @@ function revealLrItemWithChunks(index) {
   textEl.innerHTML = chunkHtml;
   textEl.classList.remove('lr-blurred');
   textEl.classList.add('lr-text-chunks');
-  if (itemEl) { itemEl.classList.remove('lr-current', 'lr-pending'); itemEl.classList.add('lr-done'); }
+  // lr-chunk-mode: 현재 3단계 진행 중인 항목에만 부여 (lr-done은 완료 시 revealLrItem에서)
+  if (itemEl) { itemEl.classList.add('lr-chunk-mode'); }
 }
 
 // 단계별 TTS 재생
