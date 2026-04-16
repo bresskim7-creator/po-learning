@@ -1623,16 +1623,15 @@ function renderSubjectTileHome() {
 }
 
 function getSubjectCardPoolCount(subject) {
-  var filterBlocked = function(c) { return c.reviewStatus !== 'blocked' && c.status !== 'blocked'; };
+  // [v5.51] isChildVisibleCard 공용 필터로 수렴 (science의 disabled:true 15장 등 반영)
   switch(subject) {
-    case 'english': return (APP.englishCards || []).filter(filterBlocked).length;
-    case 'comprehension': return (APP.comprehensionCards || []).filter(filterBlocked).length;
-    case 'social_studies': return (APP.socialStudiesCards || []).filter(filterBlocked).length;
-    case 'science': return (APP.scienceCards || []).filter(filterBlocked).length;
+    case 'english': return (APP.englishCards || []).filter(isChildVisibleCard).length;
+    case 'comprehension': return (APP.comprehensionCards || []).filter(isChildVisibleCard).length;
+    case 'social_studies': return (APP.socialStudiesCards || []).filter(isChildVisibleCard).length;
+    case 'science': return (APP.scienceCards || []).filter(isChildVisibleCard).length;
     case 'speaking_practice':
-      // v5.50: parentOnly/disabled 카드 집계 제외
-      var stqCount = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && !c.parentOnly && !c.disabled && filterBlocked(c); }).length;
-      var lrCount = (APP.listenRepeatCards || []).filter(filterBlocked).length;
+      var stqCount = (APP.speechTherapyCards || []).filter(function(c) { return !c._lessonId && isChildVisibleCard(c); }).length;
+      var lrCount = (APP.listenRepeatCards || []).filter(isChildVisibleCard).length;
       var raCount = (APP.speechTherapyLessons || []).length;
       return stqCount + lrCount + raCount;
     default: return 0;
@@ -1851,6 +1850,25 @@ function getCardId(card) {
   return card.id || card.cardId;
 }
 
+/**
+ * [v5.51] 카드가 아이 세션(말하기 전용/과목/전체복습/집계)에 노출되어도 되는지 판정.
+ * 경로마다 필터가 달라서 생긴 재발 버그를 단일 함수로 수렴.
+ * - parentOnly: 부모 전용 상담/해설 카드 제외
+ * - disabled: 비활성 카드 제외 (예: phon_06, science 15장)
+ * - status/reviewStatus === 'blocked': 검수에서 막은 카드 제외
+ * - validationStatus === 'blocked': 파이프라인 차원에서 막은 카드 제외 (현 데이터엔 없지만 호환용)
+ * 주의: duplicate 필터는 여기에 포함하지 않는다 (전체복습 경로에서만 별도 적용).
+ */
+function isChildVisibleCard(card) {
+  if (!card) return false;
+  if (card.parentOnly) return false;
+  if (card.disabled) return false;
+  var st = card.reviewStatus || card.status || '';
+  if (st === 'blocked') return false;
+  if (card.validationStatus === 'blocked') return false;
+  return true;
+}
+
 function getApprovedCards(subject) {
   var pool;
   switch(subject) {
@@ -1863,11 +1881,8 @@ function getApprovedCards(subject) {
       break;
     default: pool = [];
   }
-  // v5.50: parentOnly/disabled 카드 제외
-  return pool.filter(function(c) {
-    var status = c.reviewStatus || c.status || '';
-    return status !== 'blocked' && !c.parentOnly && !c.disabled;
-  });
+  // [v5.51] isChildVisibleCard 공용 필터로 수렴
+  return pool.filter(isChildVisibleCard);
 }
 
 // ===================================================================
@@ -2071,7 +2086,8 @@ function buildSocialPhaseSession(pool, conceptPool, oxPool, targetCount) {
 function startLRSubjectSession() {
   var lrLevel = APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 2;
   var lrCount = (APP.config.subjectSession && APP.config.subjectSession.lrCardsPerSession) || 6;
-  var lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+  // [v5.51] isChildVisibleCard 공용 필터 (LR 경로 통합 — Codex 검토 반영)
+  var lrCards = selectListenRepeatCards((APP.listenRepeatCards || []).filter(isChildVisibleCard), lrLevel, lrCount);
   if (!lrCards || lrCards.length === 0) {
     alert('듣고말하기 카드가 없습니다.');
     return;
@@ -2168,9 +2184,9 @@ function startSpeakingPracticeSession() {
   var allCards = [];
 
   // Block 1: 말하기 퀴즈 (4지선다, 최대 5장)
-  // v5.50: parentOnly/disabled 카드 제외 (부모전용·비활성 카드가 아이에게 노출되던 버그)
+  // [v5.51] isChildVisibleCard 공용 필터로 수렴
   var stqPool = (APP.speechTherapyCards || []).filter(function(c) {
-    return !c._lessonId && !c.parentOnly && !c.disabled && c.reviewStatus !== 'blocked' && c.status !== 'blocked';
+    return !c._lessonId && isChildVisibleCard(c);
   });
   if (stqPool.length > 0) {
     var stqCards = shuffleArray(stqPool.slice()).slice(0, 5);
@@ -2179,26 +2195,24 @@ function startSpeakingPracticeSession() {
   }
 
   // Block 2: 듣고말하기 (최대 4장)
+  // [v5.51] isChildVisibleCard 공용 필터 (LR 경로 통합 — Codex 검토 반영)
   var lrLevel = APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 2;
-  var lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, 4);
+  var lrCards = selectListenRepeatCards((APP.listenRepeatCards || []).filter(isChildVisibleCard), lrLevel, 4);
   if (lrCards && lrCards.length > 0) {
     allCards = allCards.concat(lrCards);
   }
 
-  // Block 3: 따라읽기 (다음 레슨 1편, 줄 카드로 변환)
-  var lessons = APP.speechTherapyLessons || [];
-  if (lessons.length > 0) {
-    var stats = loadSubjectStats();
-    var raStats = stats.read_aloud || {};
-    var completed = raStats.completedLessons || 0;
-    var lessonIdx = completed % lessons.length;
-    var lesson = lessons[lessonIdx];
-    APP.currentLessonInfo = { id: lesson.id, title: lesson.title, type: 'read_aloud_subject' };
-    var raCards = lesson.lines.map(function(line, i) {
+  // Block 3: 따라읽기 (다음 레슨 1편, 최대 10줄 캡 — 전체복습과 동일 규칙)
+  // [v5.51] selectSpeechTherapyLesson 공유 + 10장 캡. recordHistory:false로 전체복습과의 중복 기록 방지.
+  var raLesson = selectSpeechTherapyLesson({ recordHistory: false });
+  if (raLesson && raLesson.lines && raLesson.lines.length > 0) {
+    APP.currentLessonInfo = { id: raLesson.id, title: raLesson.title, type: 'read_aloud_subject' };
+    var raLines = raLesson.lines.slice(0, 10);
+    var raCards = raLines.map(function(line, i) {
       return {
-        _raCard: true, _lessonId: lesson.id, _lineIndex: i,
+        _raCard: true, _lessonId: raLesson.id, _lineIndex: i,
         _blockType: 'read-aloud',
-        _lessonTitle: lesson.title,  // v5.49: renderReadAloudBlock에서 참조
+        _lessonTitle: raLesson.title,  // v5.49: renderReadAloudBlock에서 참조
         type: 'read_aloud', subject: 'speech_therapy',
         text: line.text, pronunciation: line.pronunciation || '',
         rules: line.rules || [], ttsText: line.text, difficulty: 1,
@@ -2477,7 +2491,8 @@ function buildSessionLegacy() {
   if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
     lrCount = APP.config.listenRepeat.cardsPerSession || 4;
     var lrLevel = APP.config.listenRepeat.currentLevel || 2;
-    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+    // [v5.51] isChildVisibleCard 공용 필터 (LR 경로 통합 — Codex 검토 반영)
+    lrCards = selectListenRepeatCards((APP.listenRepeatCards || []).filter(isChildVisibleCard), lrLevel, lrCount);
   }
   var contentSlots = totalCards - stCards.length - lrCards.length;
 
@@ -2490,8 +2505,8 @@ function buildSessionLegacy() {
 
   // speech-therapy 퀴즈 카드 (파이프라인 생성, 따라읽기가 아닌 것)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
-  // [v4.10 D7] blocked/parentOnly/duplicate 카드 제외
-  var validFilter = function(c) { return c.validationStatus !== 'blocked' && !c.parentOnly && !c.duplicate; };
+  // [v5.51] isChildVisibleCard 공용 필터 + duplicate 별도 유지 (전체복습 전용)
+  var validFilter = function(c) { return isChildVisibleCard(c) && !c.duplicate; };
   var stQuizSlots = stQuizCards.length > 0 ? Math.max(2, Math.round(contentSlots * 0.15)) : 0;
   var adjustedContentSlots = contentSlots - stQuizSlots;
 
@@ -2547,7 +2562,8 @@ function buildSessionAnchored() {
   if (APP.config && APP.config.listenRepeat && APP.config.listenRepeat.enabled && APP.listenRepeatCards.length > 0) {
     var lrCount = APP.config.listenRepeat.cardsPerSession || 4;
     var lrLevel = APP.config.listenRepeat.currentLevel || 2;
-    lrCards = selectListenRepeatCards(APP.listenRepeatCards, lrLevel, lrCount);
+    // [v5.51] isChildVisibleCard 공용 필터 (LR 경로 통합 — Codex 검토 반영)
+    lrCards = selectListenRepeatCards((APP.listenRepeatCards || []).filter(isChildVisibleCard), lrLevel, lrCount);
   }
   var contentSlots = totalCards - stCards.length - lrCards.length;
 
@@ -2564,8 +2580,8 @@ function buildSessionAnchored() {
 
   // speech-therapy 퀴즈 카드도 콘텐츠 풀에 포함 (따라읽기 lesson 카드 제외)
   var stQuizCards = APP.speechTherapyCards.filter(function(c) { return !c._lessonId; });
-  // [v4.10 D7] blocked 카드 제외 + parentOnly/duplicate 카드 제외
-  var validFilter = function(c) { return c.validationStatus !== 'blocked' && !c.parentOnly && !c.duplicate; };
+  // [v5.51] isChildVisibleCard 공용 필터 + duplicate 별도 유지 (전체복습 전용)
+  var validFilter = function(c) { return isChildVisibleCard(c) && !c.duplicate; };
   var allContent = [].concat(
     APP.englishCards.filter(validFilter),
     APP.comprehensionCards.filter(validFilter),
@@ -2703,7 +2719,10 @@ function recordReadAloudLineResult(lessonId, lineIndex, success) {
 }
 
 // [v4.10 T7] 레슨 선정: 앵커 매칭 → 숙달도 낮은 것 → 최근성
-function selectSpeechTherapyLesson() {
+// [v5.51] options.recordHistory: 히스토리 저장 여부 (말하기 연습은 false로 전체 복습과의 중복 기록 방지)
+function selectSpeechTherapyLesson(options) {
+  var opts = options || {};
+  var recordHistory = opts.recordHistory !== false; // 기본값 true (기존 동작 유지)
   var lessons = APP.speechTherapyLessons;
   if (!lessons || lessons.length === 0) return null;
 
@@ -2715,9 +2734,11 @@ function selectSpeechTherapyLesson() {
     anchorLessons.sort(function(a, b) { return getLessonMastery(a.id) - getLessonMastery(b.id); });
     var chosen = anchorLessons[0];
     if (chosen.cards.length > 10) chosen = Object.assign({}, chosen, { cards: chosen.cards.slice(0, 10) });
-    var lh = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
-    lh[chosen.id] = todayStr();
-    localStorage.setItem('po_v4_lesson_history', JSON.stringify(lh));
+    if (recordHistory) {
+      var lh = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
+      lh[chosen.id] = todayStr();
+      localStorage.setItem('po_v4_lesson_history', JSON.stringify(lh));
+    }
     return chosen;
   }
 
@@ -2730,9 +2751,11 @@ function selectSpeechTherapyLesson() {
     needsReview.sort(function(a, b) { return a._mastery - b._mastery; });
     var chosen2 = needsReview[0];
     if (chosen2.cards.length > 10) chosen2 = Object.assign({}, chosen2, { cards: chosen2.cards.slice(0, 10) });
-    var lh2 = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
-    lh2[chosen2.id] = todayStr();
-    localStorage.setItem('po_v4_lesson_history', JSON.stringify(lh2));
+    if (recordHistory) {
+      var lh2 = JSON.parse(localStorage.getItem('po_v4_lesson_history') || '{}');
+      lh2[chosen2.id] = todayStr();
+      localStorage.setItem('po_v4_lesson_history', JSON.stringify(lh2));
+    }
     return chosen2;
   }
 
@@ -2746,8 +2769,10 @@ function selectSpeechTherapyLesson() {
 
   var chosen3 = lessons[0];
   if (chosen3.cards.length > 10) chosen3 = Object.assign({}, chosen3, { cards: chosen3.cards.slice(0, 10) });
-  lessonHistory[chosen3.id] = todayStr();
-  localStorage.setItem('po_v4_lesson_history', JSON.stringify(lessonHistory));
+  if (recordHistory) {
+    lessonHistory[chosen3.id] = todayStr();
+    localStorage.setItem('po_v4_lesson_history', JSON.stringify(lessonHistory));
+  }
   return chosen3;
 }
 
@@ -6948,7 +6973,11 @@ async function endSession() {
 
   // ★ v4.4: speech_therapy 카드 통계를 먼저 계산 (UI 표시 전에)
   // v5.32: spot_diff 카드는 자체 통계 처리하므로 recording 통계에서 제외
-  var stRecordingCards = s.cards.filter(function(c) { return c.subject === 'speech_therapy' && c.type !== 'spot_diff'; });
+  // [v5.51] 녹음형(RA)만 집계. 선택형 말하기 퀴즈(answer.type:'choice')는 MCQ 핸들러에서 이미 집계되므로 이중집계 방지.
+  //         주의: s.subjectStats.speech_therapy.total이 기존 ~50장(퀴즈+RA) → RA만(~10장 내외)로 급락. Apps Script 주간 브리프 지표 의미가 달라짐.
+  var stRecordingCards = s.cards.filter(function(c) {
+    return c.subject === 'speech_therapy' && (c._blockType === 'read-aloud' || c.type === 'read_aloud');
+  });
   if (stRecordingCards.length > 0) {
     var stRecorded = stRecordingCards.filter(function(c) {
       return c._observation && c._observation.attemptNumber > 0;
