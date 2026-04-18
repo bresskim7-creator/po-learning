@@ -89,6 +89,9 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       flex: 1; display: flex; flex-direction: column; gap: 14px;
       min-height: 0;
+      overflow-y: auto;                    /* [v5.55] 긴 지문 카드 내부 스크롤 방어 */
+      -webkit-overflow-scrolling: touch;   /* [v5.55] iOS 관성 스크롤 */
+      padding-bottom: 24px;                /* [v5.55] 하단 선택지/해설 여백 */
     }
 
     /* 지문 (3문장 독해용) */
@@ -1887,6 +1890,21 @@ function isChildVisibleCard(card) {
   return true;
 }
 
+/**
+ * [v5.55] questionType 정규화
+ * 배경: 활성 JSON의 단일정답 선택형 카드가 둘로 갈려 있다.
+ *  - missing (127장): `var qType = card.questionType || 'mcq';` 기본값으로 mcq 경로 진입 (정상)
+ *  - 'choice' 명시 (283장): 같은 구조인데 mcq 분기 미통과 → 재시도·도움계단 미작동 (비정상)
+ * alias 정규화로 'choice' → 'mcq'로 합류시켜 아이 경험 통일.
+ * 각 함수 최상단 1곳에서 호출하면 하위 분기(3/4단계 도움계단 등) 전체에 자동 적용된다.
+ * Apps Script 2개 파일(v5, v5-v536)은 questionType 참조 0건이라 집계 회귀 없음.
+ */
+function normalizeQuestionType(card) {
+  var qType = (card && card.questionType) || 'mcq';
+  if (qType === 'choice') return 'mcq';
+  return qType;
+}
+
 function getApprovedCards(subject) {
   var pool;
   switch(subject) {
@@ -3270,8 +3288,9 @@ function renderCard() {
   html += '<div class="question-area">' + escapeHtml(card.question.text) + '</div>';
 
   // 선택지 (choice 타입) — [v4.10 T12/T13] questionType 분기
+  // [v5.55] normalizeQuestionType: 'choice' alias를 'mcq'로 합류 — 하위 sequence/multi_choice/binary/mcq 분기 자동 적용
   if (card.answer.type === 'choice') {
-    var qType = card.questionType || 'mcq';
+    var qType = normalizeQuestionType(card);
 
     if (qType === 'sequence') {
       // [v4.10 T13] 순서배열
@@ -4213,7 +4232,8 @@ function selectAnswer(selectedIdx) {
   const correctIdx = displayOptions.indexOf(card.answer.correct);
   const isCorrect = selectedIdx === correctIdx;
   const responseTime = Date.now() - (APP.session.cardStartTime || Date.now());
-  var qType = card.questionType || 'mcq';
+  // [v5.55] 'choice' → 'mcq' alias. isMcqRetryable(아래) 조건이 자동 통과 → 재시도 모드 진입
+  var qType = normalizeQuestionType(card);
 
   // [v5.28 B안] mcq 재시도 모드: 이미 1회 틀린 후 다른 버튼 클릭
   if (card._retryMode) {
@@ -4453,7 +4473,8 @@ function advanceHelpStair() {
   if (!card) return;
   card._helpStep = (card._helpStep || 0) + 1;
   var step = card._helpStep;
-  var qType = card.questionType || 'mcq';
+  // [v5.55] 'choice' → 'mcq' alias. 3/4단계 하이라이트 분기(아래 mcq|binary)가 자동 적용
+  var qType = normalizeQuestionType(card);
 
   logEvent('help_stair_advance', { cardId: card.id, step: step, questionType: qType });
 
