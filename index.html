@@ -5125,8 +5125,12 @@ async function toggleRecording() {
     });
 
     // [v5.29] Whisper 우선 STT 판정 — audioBlob은 onstop에서 생성되므로 짧은 대기 후 blob 획득
+    // [v5.58.3 T3-a] STT 처리 Promise 를 session.sttPending 에 등록 → finishSession 이 대기
     status.textContent = '확인 중...';
+    APP.session.sttPending = APP.session.sttPending || [];
+    APP.session.sttPending.push(new Promise(function(resolveStt) {
     setTimeout(async function() {
+     try {
       // recordingChunks에서 blob 생성 (onstop에서 이미 처리했으나, 판정용으로 별도 생성)
       var audioBlob = (recordingChunks && recordingChunks.length > 0)
         ? new Blob(recordingChunks, { type: 'audio/webm' }) : null;
@@ -5262,7 +5266,13 @@ async function toggleRecording() {
           if (btnRetry) btnRetry.classList.remove('hidden');
         }
       }
+     } catch (e) {
+       console.warn('[ST] STT 처리 예외:', e);
+     } finally {
+       resolveStt();
+     }
     }, 300);  // [v5.29] onstop blob 생성 대기 300ms 후 Whisper 호출
+    }));
 
     return;
   }
@@ -5656,7 +5666,19 @@ function lrAutoComplete() {
   var btnSpeak = document.getElementById('lr-btn-speak');
   if (btnSpeak) { btnSpeak.textContent = '🎤 말하기'; btnSpeak.classList.remove('lr-recording'); }
 
-  setTimeout(function() { lrProcessAttempt(); }, 300);
+  // [v5.58.3 T3-c] lrProcessAttempt 가 async 라 완료 시점 추적 필요. STT 처리 Promise 를 session.sttPending 에 등록.
+  APP.session.sttPending = APP.session.sttPending || [];
+  APP.session.sttPending.push(new Promise(function(resolveStt) {
+    setTimeout(async function() {
+      try {
+        await lrProcessAttempt();
+      } catch (e) {
+        console.warn('[LR] lrProcessAttempt 예외:', e);
+      } finally {
+        resolveStt();
+      }
+    }, 300);
+  }));
 }
 
 // 녹음 토글
@@ -5804,6 +5826,18 @@ async function lrProcessAttempt() {
     matchLevel: result.level,
     matchScore: result.score
   });
+
+  // [v5.58.3 T1] recordings 배열 마지막 항목에 STT 결과 추가 (Apps Script 전달용)
+  // dictation L5167-5176, RA L6310-6319 와 동일 패턴. 괄호 주의: === (a || b)
+  if (APP.session.recordings && APP.session.recordings.length > 0) {
+    var lastRec = APP.session.recordings[APP.session.recordings.length - 1];
+    if (lastRec.cardId === (card.cardId || card.id)) {
+      lastRec.sttResult = spokenText;
+      lastRec.sttEngine = sttEngine;
+      lastRec.sttMatchLevel = result.level;
+      lastRec.sttMatchScore = result.score;
+    }
+  }
 
   if (result.level === 'match' || result.score >= threshold) {
     // 성공
@@ -6265,10 +6299,14 @@ async function raToggleRecording() {
     logEvent('recording_save', { cardId: card ? card.id : null, duration: raState.recordingSeconds });
 
     // [v5.29] "확인 중..." 표시 + Whisper 우선 STT 판정
+    // [v5.58.3 T3-b] STT 처리 Promise 를 session.sttPending 에 등록 → finishSession 이 대기
     var raFeedback = document.getElementById('ra-feedback');
     if (raFeedback && getSettings().serverUrl) raFeedback.textContent = '확인 중...';
 
+    APP.session.sttPending = APP.session.sttPending || [];
+    APP.session.sttPending.push(new Promise(function(resolveStt) {
     setTimeout(async function() {
+     try {
       var raAudioBlob = (raState.recordingChunks && raState.recordingChunks.length > 0)
         ? new Blob(raState.recordingChunks, { type: 'audio/webm' }) : null;
       var targetText = card.question.ttsText || card.question.displayWord || '';
@@ -6382,7 +6420,13 @@ async function raToggleRecording() {
           document.getElementById('ra-btn-listen').classList.remove('hidden');
         }
       }
+     } catch (e) {
+       console.warn('[RA] STT 처리 예외:', e);
+     } finally {
+       resolveStt();
+     }
     }, 300);  // v5.49: 500→300ms 통일 (ST/LR과 동일)
+    }));
 
     return;
   }
@@ -6404,14 +6448,16 @@ async function raToggleRecording() {
       if (e.data.size > 0) raState.recordingChunks.push(e.data);
     };
 
-    raState.mediaRecorder.onstop = function() {
+    // [v5.58.3 T2] onstop을 async 로 전환하고 blobToBase64 를 await. blobToBase64 완료 전 후속 STT 가 lastRec 참조하지 못하도록 내부 순서 보장. 단, 브라우저 이벤트 디스패처는 Promise 를 await 하지 않으므로 caller 쪽 대기는 T3-b(setTimeout Promise) + T3-d(finishSession) 가 책임.
+    raState.mediaRecorder.onstop = async function() {
       stream.getTracks().forEach(function(t) { t.stop(); });
       var blob = new Blob(raState.recordingChunks, { type: 'audio/webm' });
 
       // 녹음 저장 (기존 session.recordings에 추가)
       var card = raState.cards[raState.currentIndex];
       if (card && APP.session.recordings) {
-        blobToBase64(blob).then(function(base64Data) {
+        try {
+          var base64Data = await blobToBase64(blob);
           var dateStr = new Date().toISOString().split('T')[0];
           var seqNum = String(APP.session.recordings.length + 1).padStart(2, '0');
           var targetWord = (card.question.ttsText || card.question.displayWord || '').replace(/[^가-힣a-zA-Z0-9]/g, '').substring(0, 20);
@@ -6426,7 +6472,7 @@ async function raToggleRecording() {
             helpStairsUsed: card._helpStairsUsed || [],
             attemptNumber: card._attemptNumber || 1
           });
-        }).catch(function(e) { console.warn('[RA] Base64 변환 실패:', e); });
+        } catch (e) { console.warn('[RA] Base64 변환 실패:', e); }
       }
     };
 
@@ -7383,6 +7429,13 @@ async function endSession() {
   try {
     await syncToGoogleSheets(sessionPayload);
   } catch (e) { console.warn('[PO] Sheets 전송 에러:', e); }
+
+  // [v5.58.3 T3-d] STT pending 대기 후 업로드 (race 해소). allSettled 이므로 개별 실패가 전체 대기 차단하지 않음.
+  try {
+    if (APP.session && APP.session.sttPending && APP.session.sttPending.length > 0) {
+      await Promise.allSettled(APP.session.sttPending);
+    }
+  } catch (e) { console.warn('[PO] STT 대기 에러:', e); }
 
   try {
     await uploadRecordings();
