@@ -2860,6 +2860,29 @@ function buildSession() {
   return chosen.cards;
 }
 
+// v5.58.2 §T2 — 공유 유틸 (주차 기준 조회)
+// - getCardWeek: 카드 1장의 대표 주차 (anchorWeek → runId → week 순 폴백)
+// - getLatestWeek: 카드 묶음에서 사전식 최대 주차 (ISO 'YYYY-WNN' 포맷 정렬)
+// - filterByWeek: 주어진 주차와 일치하는 카드만 필터
+function getCardWeek(card) {
+  if (!card) return '';
+  return card.anchorWeek || card.runId || card.week || '';
+}
+
+function getLatestWeek(cards) {
+  var seen = {};
+  for (var i = 0; i < cards.length; i++) {
+    var w = getCardWeek(cards[i]);
+    if (w) seen[w] = true;
+  }
+  var sorted = Object.keys(seen).sort();
+  return sorted.length ? sorted[sorted.length - 1] : '';
+}
+
+function filterByWeek(cards, week) {
+  return cards.filter(function(c) { return getCardWeek(c) === week; });
+}
+
 function selectCardsForSubject(allCards, targetCount) {
   if (allCards.length === 0 || targetCount <= 0) return [];
 
@@ -6750,7 +6773,11 @@ async function uploadRecordings() {
         activityType: rec.activityType,
         ruleTag: rec.ruleTag,
         targetWord: rec.targetWord,
-        sttResult: '',
+        // v5.58.2 §T6 — Whisper 운영 로그 복원 (4필드: sttResult/sttEngine/sttMatchLevel/sttMatchScore)
+        sttResult: rec.sttResult || '',
+        sttEngine: rec.sttEngine || '',
+        sttMatchLevel: rec.sttMatchLevel || '',
+        sttMatchScore: (typeof rec.sttMatchScore === 'number') ? rec.sttMatchScore : null,
         proficiencyTag: deriveProficiency(rec),
         isHighlight: false,
         highlightType: '',
