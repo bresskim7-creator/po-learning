@@ -93,6 +93,10 @@
       -webkit-overflow-scrolling: touch;   /* [v5.55] iOS 관성 스크롤 */
       padding-bottom: 24px;                /* [v5.55] 하단 선택지/해설 여백 */
     }
+    /* [v5.59 T1] RA 카드: 어절 영역 아래 빈 공간 제거 (카드 높이를 자기 크기에 맞춤) */
+    .card.ra-mode {
+      flex: 0 0 auto;
+    }
 
     /* 지문 (3문장 독해용) */
     .passage {
@@ -1095,6 +1099,22 @@ async function textToSpeech(text, lang, options) {
   var rate = options.rate || null;  // null = 기본값 사용
   var onBoundary = options.onBoundary || null;  // 단어 경계 콜백
 
+  // [v5.59 T2] 진입 즉시 이전 재생 중단 (중첩 재생 차단)
+  if (APP._currentTtsAudio) {
+    try { APP._currentTtsAudio.pause(); } catch (e) {}
+    APP._currentTtsAudio = null;
+  }
+  if (APP._currentTtsResolve) {
+    try { APP._currentTtsResolve(); } catch (e) {}
+    APP._currentTtsResolve = null;
+  }
+  if (typeof speechSynthesis !== 'undefined') {
+    try { speechSynthesis.cancel(); } catch (e) {}
+  }
+
+  // [v5.59 T3] TTS 캐시 lazy init (같은 문장 재생 시 fetch 생략)
+  if (!APP._ttsCache) APP._ttsCache = new Map();
+
   const s = getSettings();
   const cleanText = cleanTextForTTS(text);
   const isEnglish = lang === 'en';
@@ -1106,6 +1126,34 @@ async function textToSpeech(text, lang, options) {
       const languageCode = isEnglish ? 'en-US' : 'ko-KR';
       const input = isEnglish ? { text: cleanText } : { ssml: textToSSML(cleanText) };
       const speakingRate = rate || (isEnglish ? 0.85 : 0.95);
+
+      // [v5.59 T3] 캐시 적중 체크 (voiceName 포함 — 설정 변경 시 구버전 재생 방지)
+      const cacheKey = languageCode + ':' + voiceName + ':' + speakingRate + ':' + cleanText;
+      const cachedAudio = APP._ttsCache.get(cacheKey);
+      if (cachedAudio) {
+        return new Promise((resolve) => {
+          APP._currentTtsAudio = cachedAudio;
+          APP._currentTtsResolve = resolve;
+          const finalize = function() {
+            if (APP._currentTtsResolve === resolve) {
+              APP._currentTtsResolve = null;
+              APP._currentTtsAudio = null;
+            }
+            resolve();
+          };
+          cachedAudio.onended = finalize;
+          cachedAudio.onerror = finalize;
+          try {
+            cachedAudio.currentTime = 0;
+            var playPromise = cachedAudio.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+              playPromise.catch(finalize);  // play() Promise rejection (NotAllowedError 등) 커버
+            }
+          } catch (e) {
+            finalize();
+          }
+        });
+      }
 
       const res = await workerFetch('/api/tts', {
         method: 'POST',
@@ -1122,9 +1170,26 @@ async function textToSpeech(text, lang, options) {
 
       return new Promise((resolve) => {
         const audio = new Audio('data:audio/mp3;base64,' + data.audioContent);
-        audio.onended = resolve;
-        audio.onerror = resolve;
-        audio.play();
+        APP._currentTtsAudio = audio;
+        APP._currentTtsResolve = resolve;
+        APP._ttsCache.set(cacheKey, audio);  // [v5.59 T3] 캐시 저장
+        const finalize = function() {
+          if (APP._currentTtsResolve === resolve) {
+            APP._currentTtsResolve = null;
+            APP._currentTtsAudio = null;
+          }
+          resolve();
+        };
+        audio.onended = finalize;
+        audio.onerror = finalize;
+        try {
+          var playPromise = audio.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(finalize);
+          }
+        } catch (e) {
+          finalize();
+        }
       });
     } catch (e) {
       console.warn('Chirp3 TTS 실패, Web Speech 폴백:', e);
@@ -1141,8 +1206,16 @@ async function textToSpeech(text, lang, options) {
     utterance.lang = isEnglish ? 'en-US' : 'ko-KR';
     utterance.rate = rate || 0.9;
     if (onBoundary) utterance.onboundary = onBoundary;
-    utterance.onend = resolve;
-    utterance.onerror = function() { showToast('소리를 재생할 수 없어요'); resolve(); }; // [v5.36] BUG-4
+    // [v5.59 T2] Web Speech resolve 추적 (재클릭 시 이전 utterance 중단)
+    APP._currentTtsResolve = resolve;
+    const finalize = function() {
+      if (APP._currentTtsResolve === resolve) {
+        APP._currentTtsResolve = null;
+      }
+      resolve();
+    };
+    utterance.onend = finalize;
+    utterance.onerror = function() { showToast('소리를 재생할 수 없어요'); finalize(); }; // [v5.36] BUG-4
     speechSynthesis.speak(utterance);
   });
 }
@@ -3082,6 +3155,11 @@ function resetSessionState() {
   raState._chunks = null;
   raState._currentChunkIdx = null;
   raState._lessonId = null;
+
+  // [v5.59 T2+T3] TTS 상태 초기화 (중첩 재생 차단 참조 + 캐시)
+  APP._currentTtsAudio = null;
+  APP._currentTtsResolve = null;
+  APP._ttsCache = null;
 }
 
 function startSession() {
@@ -3184,6 +3262,10 @@ function renderCard() {
   }
 
   const card = s.cards[idx];
+
+  // [v5.59 T1] RA 모드 클래스 정리 (renderReadAloudBlock에서 재부여)
+  var _raModeContainer = document.getElementById('card-container');
+  if (_raModeContainer) _raModeContainer.classList.remove('ra-mode');
 
   // [v5.0.2] 이미 답한 카드 → 리뷰 모드
   if (card._answered && s._reviewMode) {
@@ -6099,6 +6181,10 @@ function completeChunk(lessonId, chunkIndex, totalChunks) {
 function renderReadAloudBlock() {
   var s = APP.session;
   var idx = s.currentIndex;
+
+  // [v5.59 T1] RA 레이아웃: 카드 높이를 자기 크기에 맞춤 (어절 아래 빈 공간 제거)
+  var _raModeContainer = document.getElementById('card-container');
+  if (_raModeContainer) _raModeContainer.classList.add('ra-mode');
 
   // 1. 연속된 read-aloud 카드 수집
   var allRaCards = [];
