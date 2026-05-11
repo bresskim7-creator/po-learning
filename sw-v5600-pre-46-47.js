@@ -1,7 +1,7 @@
 // PO 학습 시스템 Service Worker
 // v5.60 (2026-05-11): fetch 핸들러 복구 + GET/same-origin 정적 자산만 캐시
 // 이전: 47줄에서 .cat로 끊겨 SyntaxError → 사용자 측 SW 등록 실패 상태였음
-const CACHE_NAME = 'po-learning-v5610';
+const CACHE_NAME = 'po-learning-v5600';
 const PRECACHE = [
   './',
   './index.html',
