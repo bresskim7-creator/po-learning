@@ -782,6 +782,53 @@
     }
     .pin-btn-confirm { background: #4A90D9; color: white; }
     .pin-btn-cancel { background: #f0f0f0; color: #666; }
+
+    /* ===== v5.60 성장 기록 ===== */
+    .tile-growth {
+      display: block; width: 100%; max-width: 400px; margin: 6px auto 16px;
+      padding: 12px; border: 2px solid #6B7280; background: #F5F5F7;
+      border-radius: 12px; font-size: 16px; font-weight: 600;
+      color: #374151; cursor: pointer; text-align: center;
+    }
+    .tile-growth:active { background: #E5E7EB; }
+    .tile-growth .growth-sub { display: block; font-size: 12px; font-weight: 400; color: #888; margin-top: 4px; }
+    #page-growth { background: #F5F7FA; gap: 0; padding-bottom: 24px; }
+    #page-growth .header { width: 100%; max-width: 480px; padding: 16px; display: flex; align-items: center; gap: 8px; }
+    #page-growth .header h2 { font-size: 20px; color: #333; margin: 0; flex: 1; text-align: center; }
+    #page-growth .header .btn-add { background: #4A90D9; color: white; border: none; border-radius: 10px; padding: 8px 14px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .growth-card { background: white; border-radius: 12px; padding: 14px 16px; margin: 8px 16px; width: calc(100% - 32px); max-width: 448px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #333; }
+    .growth-summary { display: flex; justify-content: space-around; text-align: center; }
+    .growth-summary .gs-item .gs-label { font-size: 12px; color: #888; }
+    .growth-summary .gs-item .gs-value { font-size: 22px; font-weight: 700; color: #2F5496; margin-top: 4px; }
+    .growth-summary .gs-item .gs-delta { font-size: 12px; color: #4CAF50; margin-top: 2px; }
+    .growth-summary .gs-item .gs-delta.neg { color: #C84B3A; }
+    .growth-summary .gs-empty { color: #888; font-size: 14px; padding: 8px 0; text-align: center; width: 100%; }
+    .growth-chart-title { font-size: 14px; color: #555; margin: 0 0 6px; font-weight: 600; }
+    .growth-chart-wrap { width: 100%; }
+    .growth-chart-svg { width: 100%; height: 140px; display: block; }
+    .growth-list-title { font-size: 14px; color: #555; margin: 12px 16px 4px; font-weight: 600; }
+    .growth-list { list-style: none; padding: 0; margin: 0; width: 100%; max-width: 480px; }
+    .growth-list-item { background: white; border-radius: 10px; padding: 10px 14px; margin: 6px 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); color: #333; font-size: 14px; }
+    .growth-list-item .gli-date { color: #666; min-width: 92px; font-size: 13px; }
+    .growth-list-item .gli-values { flex: 1; font-weight: 600; }
+    .growth-list-item .gli-edit, .growth-list-item .gli-del { background: none; border: 1px solid #D0D5DD; border-radius: 8px; padding: 4px 8px; font-size: 12px; color: #555; cursor: pointer; }
+    .growth-list-item .gli-del { color: #C84B3A; border-color: #F2C0BA; }
+    .growth-list-empty { color: #999; font-size: 13px; padding: 16px; text-align: center; }
+    .growth-sync-badge { font-size: 11px; color: #B8860B; margin-left: 6px; }
+    .growth-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1100; align-items: center; justify-content: center; }
+    .growth-modal-overlay.active { display: flex; }
+    .growth-modal { background: white; border-radius: 16px; padding: 20px; width: calc(100% - 32px); max-width: 320px; }
+    .growth-modal h3 { margin: 0 0 12px; font-size: 18px; color: #333; text-align: center; }
+    .growth-modal label { display: block; font-size: 13px; color: #555; margin: 10px 0 4px; }
+    .growth-modal input { width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 16px; border: 1px solid #D0D5DD; border-radius: 10px; background: #FAFBFC; color: #333; }
+    .growth-modal input:focus { outline: none; border-color: #4A90D9; background: white; }
+    .growth-modal .gm-msg { font-size: 13px; min-height: 18px; margin: 8px 0 0; color: #C84B3A; }
+    .growth-modal .gm-buttons { display: flex; gap: 8px; margin-top: 14px; }
+    .growth-modal .gm-btn { flex: 1; padding: 10px; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .growth-modal .gm-btn.gm-cancel { background: #F0F0F0; color: #555; }
+    .growth-modal .gm-btn.gm-confirm { background: #4A90D9; color: white; }
+    .growth-modal .gm-btn.gm-danger { background: #C84B3A; color: white; }
+    .growth-modal .gm-readonly { background: #F5F7FA; padding: 10px 12px; border-radius: 10px; font-size: 15px; color: #333; line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -815,6 +862,7 @@
   <div id="home-loading" style="text-align:center; padding:40px 0; color:#999; font-size:14px;">불러오는 중...</div>
   <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
   <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')" style="display:none;">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
+  <button type="button" class="tile-growth" id="tile-growth" onclick="openGrowthPage()" style="display:none;">📏 키·몸무게 기록<span class="growth-sub" id="tile-growth-sub">기록을 시작해보자</span></button>
   <div id="legacy-home" style="display:none;">
     <div class="greeting" id="greeting-text">로딩 중...</div>
     <div class="today-info">
@@ -991,6 +1039,53 @@
 
   <button type="button" class="btn-start" style="background:#4A90D9;color:white;width:100%;margin-top:8px;" onclick="saveSettings()">저장</button>
 </form>
+
+<!-- ===== v5.60 성장 기록 화면 ===== -->
+<div id="page-growth" class="page">
+  <div class="header">
+    <button type="button" class="btn-back" onclick="showPage('page-home')" style="background:none;border:none;font-size:24px;color:#333;cursor:pointer;width:40px;">&#8592;</button>
+    <h2>키·몸무게 기록</h2>
+    <button type="button" class="btn-add" onclick="openGrowthInputModal('add')">+ 새 기록</button>
+  </div>
+  <div class="growth-card">
+    <div class="growth-summary" id="growth-summary">
+      <div class="gs-empty">아직 기록이 없어요. 우상단 "+ 새 기록"으로 시작해보자.</div>
+    </div>
+  </div>
+  <div class="growth-card">
+    <div class="growth-chart-title">키 (cm)</div>
+    <div class="growth-chart-wrap"><svg id="growth-chart-height" class="growth-chart-svg" viewBox="0 0 400 140" preserveAspectRatio="none"></svg></div>
+    <div class="growth-chart-title" style="margin-top:10px;">몸무게 (kg)</div>
+    <div class="growth-chart-wrap"><svg id="growth-chart-weight" class="growth-chart-svg" viewBox="0 0 400 140" preserveAspectRatio="none"></svg></div>
+  </div>
+  <div class="growth-list-title">전체 기록</div>
+  <ul class="growth-list" id="growth-list">
+    <li class="growth-list-empty">기록이 없습니다.</li>
+  </ul>
+</div>
+
+<!-- ===== v5.60 성장 기록 입력/확인/수정 모달 ===== -->
+<div id="growth-modal-overlay" class="growth-modal-overlay">
+  <div class="growth-modal">
+    <h3 id="growth-modal-title">새 기록</h3>
+    <div id="growth-modal-body">
+      <label for="growth-input-date">날짜</label>
+      <input type="date" id="growth-input-date">
+      <label for="growth-input-height">키 (cm)</label>
+      <input type="number" id="growth-input-height" inputmode="decimal" step="0.1" min="50" max="220" placeholder="예: 142.3">
+      <label for="growth-input-weight">몸무게 (kg)</label>
+      <input type="number" id="growth-input-weight" inputmode="decimal" step="0.1" min="10" max="200" placeholder="예: 35.2">
+      <div class="gm-msg" id="growth-modal-msg"></div>
+    </div>
+    <div class="gm-buttons" id="growth-modal-buttons">
+      <button type="button" class="gm-btn gm-cancel" onclick="closeGrowthModal()">취소</button>
+      <button type="button" class="gm-btn gm-confirm" id="growth-modal-confirm" onclick="submitGrowthForm()">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- v5.60: 성장 기록 모듈 (외부 파일) -->
+<script src="growth.js"></script>
 
 <script>
 // ===================================================================
@@ -1299,6 +1394,7 @@ async function init() {
   updateHomeScreen();
   retryPendingSync();
   retryPendingRecordings();  // v4.3: 대기 중인 녹음 재전송
+  if (typeof retryPendingGrowth === 'function') retryPendingGrowth();  // [v5.60] 성장 기록 펜딩 재전송
 }
 
 // ===================================================================
@@ -1311,7 +1407,11 @@ function getSettingsPin() {
   return localStorage.getItem(SETTINGS_PIN_KEY) || SETTINGS_PIN_DEFAULT;
 }
 
-function openPinDialog() {
+// [v5.60] PIN 성공 시 실행할 콜백 (없으면 기본=설정 화면)
+var pendingPinCallback = null;
+
+function openPinDialog(callback) {
+  pendingPinCallback = (typeof callback === 'function') ? callback : null;
   var overlay = document.getElementById('pin-overlay');
   var input = document.getElementById('pin-input');
   var error = document.getElementById('pin-error');
@@ -1327,6 +1427,7 @@ function closePinDialog() {
   overlay.classList.remove('active');
   document.getElementById('pin-input').value = '';
   document.getElementById('pin-error').textContent = '';
+  pendingPinCallback = null;
 }
 
 function verifySettingsPin() {
@@ -1335,9 +1436,18 @@ function verifySettingsPin() {
   var entered = input.value.trim();
 
   if (entered === getSettingsPin()) {
-    closePinDialog();
-    loadSettingsUI();
-    showPage('page-settings');
+    var cb = pendingPinCallback;
+    pendingPinCallback = null;
+    var overlay = document.getElementById('pin-overlay');
+    overlay.classList.remove('active');
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-error').textContent = '';
+    if (cb) {
+      try { cb(); } catch (e) { console.error('[v5.60] PIN callback error:', e); }
+    } else {
+      loadSettingsUI();
+      showPage('page-settings');
+    }
   } else {
     error.textContent = 'PIN이 틀렸습니다';
     input.classList.add('shake');
@@ -1626,6 +1736,8 @@ function updateHomeScreen() {
 function renderLegacyHome() {
   document.getElementById('subject-tiles').style.display = 'none';
   document.querySelector('.btn-mixed-session').style.display = 'none';
+  var gt0 = document.getElementById('tile-growth');
+  if (gt0) gt0.style.display = 'none';
   document.getElementById('resume-banner').style.display = 'none';
   var legacyEl = document.getElementById('legacy-home');
   if (legacyEl) {
@@ -1651,6 +1763,12 @@ function renderSubjectTileHome() {
   document.getElementById('legacy-home').style.display = 'none';
   document.getElementById('subject-tiles').style.display = '';
   document.querySelector('.btn-mixed-session').style.display = '';
+  // [v5.60] 키·몸무게 기록 타일
+  var gt = document.getElementById('tile-growth');
+  if (gt) {
+    gt.style.display = '';
+    if (typeof updateGrowthTileSub === 'function') updateGrowthTileSub();
+  }
   // [v5.20] mixed 버튼 카드 수 동적 표시
   var mixedCountEl = document.getElementById('mixed-card-count');
   if (mixedCountEl) { mixedCountEl.textContent = getMixedSessionCardCount(); }
