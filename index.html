@@ -863,6 +863,9 @@
   <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
   <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')" style="display:none;">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
   <button type="button" class="tile-growth" id="tile-growth" onclick="openGrowthPage()" style="display:none;">📏 키·몸무게 기록<span class="growth-sub" id="tile-growth-sub">기록을 시작해보자</span></button>
+  <div id="app-version-footer" style="position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:11px; color:rgba(0,0,0,0.35); pointer-events:none;">
+    <span id="app-version-text"></span>
+  </div>
   <div id="legacy-home" style="display:none;">
     <div class="greeting" id="greeting-text">로딩 중...</div>
     <div class="today-info">
@@ -902,6 +905,7 @@
     <div id="child-subject-checks" style="display:flex; gap:12px; justify-content:center; margin:16px 0; flex-wrap:wrap;"></div>
     <!-- [v5.28 C2] 수행 중심 피드백 -->
     <div id="child-performance" style="display:flex; flex-direction:column; gap:8px; align-items:center; margin:12px 0; font-size:16px; color:rgba(255,255,255,0.95);"></div>
+    <div id="stt-pending-loading" style="display:none; font-size:13px; color:rgba(255,255,255,0.8); margin-top:8px;">음성 결과 정리 중...</div>
     <div class="stat-row" style="justify-content:center;">
       <span class="stat-label">연속 학습</span>
       <span class="stat-value" id="stat-streak">0일</span>
@@ -934,8 +938,8 @@
   <div id="pin-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; display:none; align-items:center; justify-content:center;">
     <div style="background:white; border-radius:16px; padding:24px; width:280px; text-align:center;">
       <h3 id="pin-title" style="margin:0 0 16px;">부모 PIN 입력</h3>
-      <input type="password" id="pin-input" maxlength="4" pattern="[0-9]*" inputmode="numeric" style="font-size:24px; text-align:center; width:120px; padding:8px; border:2px solid #ddd; border-radius:8px;">
-      <p id="pin-error" style="color:#E74C3C; font-size:13px; min-height:20px;"></p>
+      <input type="password" id="parent-pin-input" maxlength="4" pattern="[0-9]*" inputmode="numeric" style="font-size:24px; text-align:center; width:120px; padding:8px; border:2px solid #ddd; border-radius:8px;">
+      <p id="parent-pin-error" style="color:#E74C3C; font-size:13px; min-height:20px;"></p>
       <div style="display:flex; gap:8px; justify-content:center; margin-top:12px;">
         <button type="button" onclick="closePinModal()" style="padding:10px 20px; border:1px solid #ddd; border-radius:8px; background:white; cursor:pointer;">취소</button>
         <button type="button" onclick="submitPin()" style="padding:10px 20px; border:none; border-radius:8px; background:#4A90D9; color:white; cursor:pointer;">확인</button>
@@ -1037,6 +1041,11 @@
     <div id="pin-change-msg" style="font-size:13px;margin-top:8px;min-height:20px;text-align:center;"></div>
   </div>
 
+  <div class="settings-group">
+    <h3>콘텐츠 로딩 상태</h3>
+    <div id="load-diagnostics" style="font-size:13px; line-height:1.7;"></div>
+  </div>
+
   <button type="button" class="btn-start" style="background:#4A90D9;color:white;width:100%;margin-top:8px;" onclick="saveSettings()">저장</button>
 </form>
 
@@ -1106,6 +1115,7 @@ const APP = {
   phrasePool: null,
   reviewQueue: {},
   progress: null,
+  loadDiagnostics: null,
   ttsPlaying: false,
   session: {
     cards: [],
@@ -1119,6 +1129,14 @@ const APP = {
     prevSubject: null,
   },
 };
+
+var APP_VERSION = 'v5.62';
+var APP_SW_CACHE = 'sw5620';
+
+function renderAppVersionFooter() {
+  var el = document.getElementById('app-version-text');
+  if (el) el.textContent = APP_VERSION + ' · ' + APP_SW_CACHE;
+}
 
 // ===================================================================
 // Worker / API 통신
@@ -1380,6 +1398,7 @@ function showPage(pageId) {
 
 async function init() {
   loadSettingsUI();
+  renderAppVersionFooter();
   // [v5.29] 클라우드 설정과 콘텐츠 JSON을 병렬 로드 (초기 렌더링 지연 개선)
   await Promise.all([
     downloadSettingsFromCloud().then(function() {
@@ -1392,6 +1411,7 @@ async function init() {
   APP.progress = loadAppProgress();
   initAnchorUI();
   updateHomeScreen();
+  renderAppVersionFooter();
   retryPendingSync();
   retryPendingRecordings();  // v4.3: 대기 중인 녹음 재전송
   if (typeof retryPendingGrowth === 'function') retryPendingGrowth();  // [v5.60] 성장 기록 펜딩 재전송
@@ -1495,6 +1515,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.key === 'Enter') { e.preventDefault(); verifySettingsPin(); }
     });
   }
+  var parentPinInput = document.getElementById('parent-pin-input');
+  if (parentPinInput) {
+    parentPinInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); submitPin(); }
+    });
+  }
 });
 
 function loadSettingsUI() {
@@ -1510,6 +1536,7 @@ function loadSettingsUI() {
   document.getElementById('set-current-pin').value = '';
   document.getElementById('set-new-pin').value = '';
   document.getElementById('pin-change-msg').textContent = '';
+  renderLoadDiagnostics();
 }
 
 function saveSettings() {
@@ -1617,16 +1644,47 @@ function getLatestAnchorTime(anchorData) {
 // 콘텐츠 로딩
 // ===================================================================
 
+function initLoadDiagnostics() {
+  APP.loadDiagnostics = {
+    english:        { ok: false, count: 0, error: null, file: 'english.json' },
+    comprehension:  { ok: false, count: 0, error: null, file: 'comprehension.json' },
+    social_studies: { ok: false, count: 0, error: null, file: 'social-studies.json' },
+    science:        { ok: false, count: 0, error: null, file: 'science.json' },
+    phrase_pool:    { ok: false, count: 0, error: null, file: 'phrase-pool.json' },
+    speech_therapy: { ok: false, count: 0, error: null, file: 'speech-therapy.json' },
+    config:         { ok: false, count: 0, error: null, file: 'config.json' },
+    loadedAt: null
+  };
+}
+
+async function fetchJsonDiag(url, key) {
+  if (!APP.loadDiagnostics) initLoadDiagnostics();
+  try {
+    var resp = await fetch(url);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    var data = await resp.json();
+    APP.loadDiagnostics[key].ok = true;
+    APP.loadDiagnostics[key].error = null;
+    return data;
+  } catch(e) {
+    APP.loadDiagnostics[key].ok = false;
+    APP.loadDiagnostics[key].error = e && e.message ? e.message : String(e);
+    console.error('[LoadDiag]', url, '실패:', APP.loadDiagnostics[key].error);
+    return null;
+  }
+}
+
 async function loadContentFiles() {
   try {
+    initLoadDiagnostics();
     const [engRes, compRes, ssRes, sciRes, phraseRes, stRes, cfgRes] = await Promise.all([
-      fetch('english.json').then(r => r.json()).catch(() => ({ cards: [] })),
-      fetch('comprehension.json').then(r => r.json()).catch(() => ({ cards: [] })),
-      fetch('social-studies.json').then(r => r.json()).catch(() => []),
-      fetch('science.json').then(r => r.json()).catch(() => []),
-      fetch('phrase-pool.json').then(r => r.json()).catch(() => null),
-      fetch('speech-therapy.json').then(r => r.json()).catch(() => null),
-      fetch('config.json').then(r => r.json()).catch(() => null),
+      fetchJsonDiag('english.json', 'english').then(d => d || { cards: [] }),
+      fetchJsonDiag('comprehension.json', 'comprehension').then(d => d || { cards: [] }),
+      fetchJsonDiag('social-studies.json', 'social_studies').then(d => d || []),
+      fetchJsonDiag('science.json', 'science').then(d => d || []),
+      fetchJsonDiag('phrase-pool.json', 'phrase_pool').then(d => d || null),
+      fetchJsonDiag('speech-therapy.json', 'speech_therapy').then(d => d || null),
+      fetchJsonDiag('config.json', 'config').then(d => d || null),
     ]);
     APP.englishCards = engRes.cards || [];
     APP.comprehensionCards = compRes.cards || [];
@@ -1647,10 +1705,54 @@ async function loadContentFiles() {
         c._blockType = 'listen-repeat';
         return c;
       });
+    } else {
+      APP.speechTherapyCards = [];
+      APP.listenRepeatCards = [];
     }
+    APP.loadDiagnostics.english.count = (APP.englishCards || []).length;
+    APP.loadDiagnostics.comprehension.count = (APP.comprehensionCards || []).length;
+    APP.loadDiagnostics.social_studies.count = (APP.socialStudiesCards || []).length;
+    APP.loadDiagnostics.science.count = (APP.scienceCards || []).length;
+    APP.loadDiagnostics.speech_therapy.count = (APP.speechTherapyCards || []).length;
+    APP.loadDiagnostics.phrase_pool.count = APP.phrasePool ? 1 : 0;
+    APP.loadDiagnostics.config.count = (APP.config && Object.keys(APP.config).length > 0) ? 1 : 0;
+    APP.loadDiagnostics.loadedAt = new Date().toISOString();
+    renderLoadDiagnostics();
   } catch (e) {
     console.error('콘텐츠 로딩 실패:', e);
   }
+}
+
+function renderLoadDiagnostics() {
+  var el = document.getElementById('load-diagnostics');
+  if (!el) return;
+  var diag = APP.loadDiagnostics || {};
+  var labels = {
+    english: '영어',
+    comprehension: '독해',
+    social_studies: '사회',
+    science: '과학',
+    speech_therapy: '말하기연습',
+    phrase_pool: '어구 풀',
+    config: '설정'
+  };
+  var html = '';
+  if (diag.loadedAt) {
+    html += '<div style="color:#888; margin-bottom:6px;">마지막 로드: ' + escapeHtml(new Date(diag.loadedAt).toLocaleString()) + '</div>';
+  }
+  for (var key in labels) {
+    var d = diag[key];
+    if (!d) continue;
+    var icon, color;
+    if (d.ok && d.count > 0) { icon = '✅'; color = '#2E7D32'; }
+    else if (d.ok && d.count === 0) { icon = '⚠️'; color = '#F57C00'; }
+    else { icon = '⚠️'; color = '#C62828'; }
+    var detail = d.ok ? (d.count + '장') : ('로드 실패: ' + (d.error || 'unknown'));
+    html += '<div style="color:' + color + ';">' + icon + ' ' + escapeHtml(labels[key]) + ' — '
+      + escapeHtml(detail) + ' <span style="color:#888;">(' + escapeHtml(d.file) + ')</span></div>';
+  }
+  if (!html) html = '<div style="color:#888;">아직 로딩 전입니다.</div>';
+  el.innerHTML = html;
 }
 
 function generateSpeechTherapyCards(data) {
@@ -3037,11 +3139,11 @@ function buildSession() {
     // Google Sheets에도 전송
     var s = getSettings();
     if (s.sheetsUrl) {
-      fetch(s.sheetsUrl, {
-        method: 'POST',
-        body: JSON.stringify(shadowLog),
-        mode: 'no-cors',
-      }).catch(function() {});
+      postSheetsPayload(shadowLog).then(function(result) {
+        if (!result.ok) console.warn('[Shadow Mode] Sheets 응답 검증 실패:', result.error);
+      }).catch(function(err) {
+        console.warn('[Shadow Mode] Sheets 전송 실패:', err.message);
+      });
     }
   }
 
@@ -6976,6 +7078,29 @@ function deriveProficiency(rec) {
   return 'persistent_confusion';
 }
 
+async function postSheetsPayload(payload) {
+  var s = getSettings();
+  if (!s.sheetsUrl) return { ok: false, error: 'sheetsUrl missing' };
+  try {
+    var resp = await fetch(s.sheetsUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+    if (!resp.ok) return { ok: false, error: 'HTTP ' + resp.status };
+    var result;
+    try {
+      result = await resp.json();
+    } catch(jsonErr) {
+      return { ok: false, error: 'invalid JSON response: ' + jsonErr.message };
+    }
+    if (result && result.status === 'ok') return { ok: true, result: result };
+    return { ok: false, error: 'status not ok: ' + JSON.stringify(result || null) };
+  } catch(e) {
+    return { ok: false, error: e && e.message ? e.message : String(e) };
+  }
+}
+
 async function uploadRecordings() {
   console.log('[PO] uploadRecordings 호출');
   var debugInfo = { step: 'init', recCount: 0, base64Counts: [], payloadSize: 0, error: null };
@@ -7056,13 +7181,16 @@ async function uploadRecordings() {
       try {
         var bodyStr = JSON.stringify(payload);
         console.log('[PO] 녹음 ' + (i+1) + '/' + recordings.length + ' 전송, payload:', bodyStr.length, 'bytes');
-        await fetch(s.sheetsUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: bodyStr
-        });
-        console.log('[PO] 녹음 ' + (i+1) + ' 전송 완료');
+        var result = await postSheetsPayload(payload);
+        if (result.ok) {
+          console.log('[PO] 녹음 ' + (i+1) + ' 전송 OK (status:ok)');
+        } else {
+          console.warn('[PO] 녹음 ' + (i+1) + ' 응답 검증 실패:', result.error);
+          debugInfo.error = (debugInfo.error || '') + 'rec' + i + ': response not ok (' + result.error + '); ';
+          var pending = JSON.parse(localStorage.getItem('po_v4_pending_recordings') || '[]');
+          pending.push(payload);
+          localStorage.setItem('po_v4_pending_recordings', JSON.stringify(pending));
+        }
       } catch (err) {
         console.warn('[PO] 녹음 ' + (i+1) + ' 전송 실패:', err.message);
         debugInfo.error = (debugInfo.error || '') + 'rec' + i + ':' + err.message + '; ';
@@ -7091,18 +7219,16 @@ async function sendRecordingDebugLog(debugInfo) {
   try {
     var s = getSettings();
     if (!s.sheetsUrl) return;
-    await fetch(s.sheetsUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({
-        type: 'recording_debug',
-        date: new Date().toISOString().split('T')[0],
-        timestamp: new Date().toISOString(),
-        debug: debugInfo
-      })
+    var result = await postSheetsPayload({
+      type: 'recording_debug',
+      date: new Date().toISOString().split('T')[0],
+      timestamp: new Date().toISOString(),
+      debug: debugInfo
     });
-  } catch (_) {}
+    if (!result.ok) console.warn('[PO] 녹음 디버그 로그 응답 검증 실패:', result.error);
+  } catch (err) {
+    console.warn('[PO] 녹음 디버그 로그 전송 실패:', err.message);
+  }
 }
 
 async function retryPendingRecordings() {
@@ -7116,12 +7242,8 @@ async function retryPendingRecordings() {
     var stillPending = [];
     for (var i = 0; i < pending.length; i++) {
       try {
-        await fetch(s.sheetsUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify(pending[i])
-        });
+        var result = await postSheetsPayload(pending[i]);
+        if (!result.ok) stillPending.push(pending[i]);
       } catch (_) {
         stillPending.push(pending[i]);
       }
@@ -7210,15 +7332,15 @@ function openParentMode() {
   var pin = localStorage.getItem('po_v4_parent_pin');
   var modal = document.getElementById('pin-modal');
   var title = document.getElementById('pin-title');
-  document.getElementById('pin-input').value = '';
-  document.getElementById('pin-error').textContent = '';
+  document.getElementById('parent-pin-input').value = '';
+  document.getElementById('parent-pin-error').textContent = '';
   if (!pin) {
     title.textContent = 'PIN 설정 (4자리)';
   } else {
     title.textContent = '부모 PIN 입력';
   }
   modal.style.display = 'flex';
-  document.getElementById('pin-input').focus();
+  document.getElementById('parent-pin-input').focus();
 }
 
 function closePinModal() {
@@ -7226,9 +7348,9 @@ function closePinModal() {
 }
 
 function submitPin() {
-  var input = document.getElementById('pin-input').value;
+  var input = document.getElementById('parent-pin-input').value;
   if (input.length !== 4 || !/^\d{4}$/.test(input)) {
-    document.getElementById('pin-error').textContent = '4자리 숫자를 입력하세요';
+    document.getElementById('parent-pin-error').textContent = '4자리 숫자를 입력하세요';
     return;
   }
   var stored = localStorage.getItem('po_v4_parent_pin');
@@ -7244,7 +7366,7 @@ function submitPin() {
     closePinModal();
     showParentResult();
   } else {
-    document.getElementById('pin-error').textContent = 'PIN이 틀렸습니다';
+    document.getElementById('parent-pin-error').textContent = 'PIN이 틀렸습니다';
   }
 }
 
@@ -7409,6 +7531,19 @@ async function endSession() {
     perfHtml += '<span style="background:rgba(255,255,255,0.2); color:white; padding:8px 16px; border-radius:16px;">도움 받아 ' + assistedCorrect + '장 더 맞혔어!</span>';
   }
   document.getElementById('child-performance').innerHTML = perfHtml;
+
+  // 아이 완료 화면은 먼저 보여주고, 늦게 끝나는 STT 결과를 부모 요약/시트 전송 전에 정리한다.
+  showPage('page-complete');
+  var sttPending = (APP.session && APP.session.sttPending) || [];
+  var loadingEl = document.getElementById('stt-pending-loading');
+  if (loadingEl) loadingEl.style.display = 'none';
+  if (sttPending.length > 0 && loadingEl) loadingEl.style.display = 'block';
+  try {
+    if (sttPending.length > 0) await Promise.allSettled(sttPending);
+  } catch (e) {
+    console.warn('[PO] STT 대기 에러:', e);
+  }
+  if (loadingEl) loadingEl.style.display = 'none';
 
   // 과목별 정답률 (부모 화면용)
   const breakdownEl = document.getElementById('subject-breakdown');
@@ -7626,20 +7761,10 @@ async function endSession() {
     sessionPayload.listenRepeatLevel = APP.config && APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 0;
   }
 
-  // ★ v4.4: 완료 화면 먼저 전환 (사용자가 기다리지 않게)
-  showPage('page-complete');
-
-  // 그 뒤에 백그라운드로 전송 (화면은 이미 전환됨)
+  // 화면은 이미 전환되어 있으므로, 그 뒤에 백그라운드로 전송
   try {
     await syncToGoogleSheets(sessionPayload);
   } catch (e) { console.warn('[PO] Sheets 전송 에러:', e); }
-
-  // [v5.58.3 T3-d] STT pending 대기 후 업로드 (race 해소). allSettled 이므로 개별 실패가 전체 대기 차단하지 않음.
-  try {
-    if (APP.session && APP.session.sttPending && APP.session.sttPending.length > 0) {
-      await Promise.allSettled(APP.session.sttPending);
-    }
-  } catch (e) { console.warn('[PO] STT 대기 에러:', e); }
 
   try {
     await uploadRecordings();
@@ -7741,15 +7866,14 @@ async function syncToGoogleSheets(sessionData) {
   console.log('[PO] syncToGoogleSheets 호출, subjectStats:', JSON.stringify(sessionData.subjectStats));
 
   try {
-    await fetch(s.sheetsUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(sessionData),
-      mode: 'no-cors',
-    });
-    console.log('[PO] Google Sheets 전송 완료');
-    // no-cors 모드에서는 응답을 읽을 수 없으므로, 전송 성공으로 간주
-    markSessionSynced(sessionData.date);
+    var result = await postSheetsPayload(sessionData);
+    if (result.ok) {
+      markSessionSynced(sessionData.date);
+      console.log('[PO] Sheets 전송 OK (status:ok)');
+    } else {
+      console.warn('[PO] Sheets 응답 검증 실패, pending 보관:', result.error);
+      savePendingSync(sessionData);
+    }
   } catch (err) {
     console.warn('[PO] Google Sheets 전송 실패:', err);
     savePendingSync(sessionData);
@@ -7784,12 +7908,12 @@ async function retryPendingSync() {
     const stillPending = [];
     for (const data of pending) {
       try {
-        await fetch(s.sheetsUrl, {
-          method: 'POST',
-          body: JSON.stringify(data),
-          mode: 'no-cors',
-        });
-        markSessionSynced(data.date);
+        var result = await postSheetsPayload(data);
+        if (result.ok) {
+          markSessionSynced(data.date);
+        } else {
+          stillPending.push(data);
+        }
       } catch (_) {
         stillPending.push(data);
       }

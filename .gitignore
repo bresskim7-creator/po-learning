@@ -2,3 +2,14 @@
 speech-therapy-v43.json
 00_Context/
 BUGFIX*.md
+
+# v5.62 (2026-05-15): 배포 루트에 백업/중간 파일 추적 차단
+*.backup-before-*
+index-v*-backup.html
+index.html.backup-*
+*-v260406.json
+social-studies-v520.json
+comprehension_updated.json
+*.bak
+*.bak-*
+u3-2-new-cards.json
