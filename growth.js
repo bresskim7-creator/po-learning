@@ -18,6 +18,7 @@ var GROWTH_LIMITS = {
 };
 
 var growthModalCtx = { mode: 'add', recordId: null };
+var growthCloudSyncInFlight = false;
 
 // --- 저장소 ---
 function loadGrowthRecords() {
@@ -69,6 +70,7 @@ function findGrowthById(id) {
 function openGrowthPage() {
   renderGrowthPage();
   showPage('page-growth');
+  syncGrowthFromCloud({ render: true });
 }
 
 function updateGrowthTileSub() {
@@ -579,6 +581,120 @@ async function retryPendingGrowth() {
   if (pg && pg.classList.contains('active')) {
     renderGrowthList();
   }
+}
+
+async function syncGrowthFromCloud(options) {
+  options = options || {};
+  if (growthCloudSyncInFlight) return false;
+  if (typeof getSettings !== 'function') return false;
+  var s = getSettings();
+  if (!s || !s.sheetsUrl) return false;
+
+  growthCloudSyncInFlight = true;
+  try {
+    var sep = s.sheetsUrl.indexOf('?') >= 0 ? '&' : '?';
+    var resp = await fetch(s.sheetsUrl + sep + 'action=get_growth&ts=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    var result = await resp.json();
+    if (!result || result.status !== 'ok' || result.type !== 'growth_list') {
+      throw new Error('invalid growth response');
+    }
+
+    var changed = mergeGrowthCloudRecords(result.records || [], result.deletedIds || []);
+    if (changed || options.render) {
+      var pg = document.getElementById('page-growth');
+      if (pg && pg.classList.contains('active')) renderGrowthPage();
+      updateGrowthTileSub();
+    }
+    return changed;
+  } catch(e) {
+    console.warn('[Growth] cloud download failed:', e.message);
+    return false;
+  } finally {
+    growthCloudSyncInFlight = false;
+  }
+}
+
+function mergeGrowthCloudRecords(cloudRecords, deletedIds) {
+  var local = loadGrowthRecords();
+  var pending = loadGrowthPending();
+  var pendingIds = {};
+  pending.forEach(function(item) {
+    var id = item && item.record && item.record.id;
+    if (id) pendingIds[id] = true;
+  });
+
+  var map = {};
+  local.forEach(function(rec) {
+    if (rec && rec.id) map[rec.id] = rec;
+  });
+
+  var changed = false;
+  (deletedIds || []).forEach(function(id) {
+    if (!id || pendingIds[id]) return;
+    if (map[id]) {
+      delete map[id];
+      changed = true;
+    }
+  });
+
+  (cloudRecords || []).forEach(function(raw) {
+    var rec = normalizeGrowthCloudRecord(raw);
+    if (!rec || !rec.id) return;
+    if (pendingIds[rec.id]) return;
+
+    var existing = map[rec.id];
+    if (!existing) {
+      map[rec.id] = rec;
+      changed = true;
+      return;
+    }
+
+    var existingStamp = growthRecordStamp(existing);
+    var cloudStamp = growthRecordStamp(rec);
+    if (!existingStamp || !cloudStamp || cloudStamp >= existingStamp) {
+      if (JSON.stringify(existing) !== JSON.stringify(rec)) {
+        map[rec.id] = rec;
+        changed = true;
+      }
+    }
+  });
+
+  if (!changed) return false;
+
+  var merged = [];
+  for (var id in map) {
+    if (map.hasOwnProperty(id)) merged.push(map[id]);
+  }
+  merged.sort(function(a, b) {
+    var d = (a.date || '').localeCompare(b.date || '');
+    if (d !== 0) return d;
+    return (a.id || '').localeCompare(b.id || '');
+  });
+  saveGrowthRecords(merged);
+  return true;
+}
+
+function normalizeGrowthCloudRecord(raw) {
+  if (!raw || !raw.id || !raw.date) return null;
+  var h = Number(raw.heightCm);
+  var w = Number(raw.weightKg);
+  if (!isFinite(h) || !isFinite(w)) return null;
+  return {
+    id: String(raw.id),
+    date: String(raw.date),
+    heightCm: Math.round(h * 10) / 10,
+    weightKg: Math.round(w * 10) / 10,
+    createdAt: raw.createdAt || raw.syncedAt || '',
+    updatedAt: raw.updatedAt || '',
+    createdBy: raw.createdBy || 'child',
+    syncedAt: raw.syncedAt || new Date().toISOString()
+  };
+}
+
+function growthRecordStamp(rec) {
+  if (!rec) return '';
+  return rec.updatedAt || rec.createdAt || rec.syncedAt || '';
 }
 
 // --- 유틸 ---

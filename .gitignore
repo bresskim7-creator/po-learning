@@ -13,3 +13,8 @@ comprehension_updated.json
 *.bak
 *.bak-*
 u3-2-new-cards.json
+
+# v5.63 (2026-05-15): JS 백업 파일 패턴 추가
+growth-v*-backup.js
+sw-v*-backup.js
+*-v[0-9]*-backup.js

@@ -1130,8 +1130,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.62';
-var APP_SW_CACHE = 'sw5620';
+var APP_VERSION = 'v5.63';
+var APP_SW_CACHE = 'sw5630';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -1415,6 +1415,7 @@ async function init() {
   retryPendingSync();
   retryPendingRecordings();  // v4.3: 대기 중인 녹음 재전송
   if (typeof retryPendingGrowth === 'function') retryPendingGrowth();  // [v5.60] 성장 기록 펜딩 재전송
+  if (typeof syncGrowthFromCloud === 'function') syncGrowthFromCloud({ render: false });  // [v5.63] 다른 기기 성장 기록 내려받기
 }
 
 // ===================================================================

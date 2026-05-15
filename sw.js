@@ -1,7 +1,7 @@
 // PO 학습 시스템 Service Worker
-// v5.62 (2026-05-15): navigation fallback 과 자산 fallback 분리
-// 이전: JSON 요청도 index.html 로 fallback 되어 로딩 실패가 빈 콘텐츠로 숨겨질 수 있었음
-const CACHE_NAME = 'po-learning-v5620';
+// v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
+// 이전: 기기별 localStorage 기록만 보이고 다른 기기 입력값은 내려받지 않았음
+const CACHE_NAME = 'po-learning-v5630';
 const PRECACHE = [
   './',
   './index.html',
