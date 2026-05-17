@@ -792,6 +792,117 @@
     }
     .tile-growth:active { background: #E5E7EB; }
     .tile-growth .growth-sub { display: block; font-size: 12px; font-weight: 400; color: #888; margin-top: 4px; }
+
+    /* ===== v5.64 개념 정리 (인포그래픽 카드) ===== */
+    .tile-concept {
+      display: block; width: 100%; max-width: 400px; margin: 6px auto 8px;
+      padding: 12px; border: 2px solid #6B5B95; background: #F4F0FA;
+      border-radius: 12px; font-size: 16px; font-weight: 600;
+      color: #4A3A75; cursor: pointer; text-align: center;
+    }
+    .tile-concept:active { background: #E8DFF5; }
+    .tile-concept.tile-empty { opacity: 0.5; pointer-events: none; }
+    .tile-concept .concept-sub { display: block; font-size: 12px; font-weight: 400; color: #8878B0; margin-top: 4px; }
+
+    #page-concept-home, #page-concept-unit, #page-concept-card { background: #FAF8FC; gap: 0; padding: 0 0 24px; align-items: stretch; }
+    #page-concept-home .header, #page-concept-unit .header, #page-concept-card .header {
+      width: 100%; max-width: 480px; padding: 16px; margin: 0 auto;
+      display: flex; align-items: center; gap: 8px;
+    }
+    #page-concept-home .header h2, #page-concept-unit .header h2 { font-size: 20px; color: #4A3A75; margin: 0; flex: 1; text-align: center; }
+    #page-concept-home .btn-back, #page-concept-unit .btn-back, #page-concept-card .btn-back {
+      background: none; border: none; font-size: 24px; color: #333; cursor: pointer; width: 40px;
+    }
+    .concept-subject-list, .concept-unit-list {
+      width: 100%; max-width: 480px; margin: 0 auto; padding: 8px 16px 24px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .concept-subject-btn, .concept-unit-btn {
+      background: white; border: 1px solid #DFD5EE; border-radius: 12px;
+      padding: 16px; font-size: 16px; font-weight: 600; color: #4A3A75;
+      text-align: left; cursor: pointer; box-shadow: 0 2px 6px rgba(74, 58, 117, 0.06);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .concept-subject-btn:active, .concept-unit-btn:active { transform: scale(0.98); }
+    .concept-subject-btn.empty, .concept-unit-btn.empty { opacity: 0.45; pointer-events: none; }
+    .concept-subject-btn .emoji, .concept-unit-btn .emoji { font-size: 22px; }
+    .concept-subject-btn .sub, .concept-unit-btn .sub { display: block; font-size: 12px; color: #8878B0; font-weight: 400; margin-top: 2px; }
+    .concept-unit-btn .progress-mark { margin-left: auto; font-size: 13px; color: #6B5B95; }
+    .concept-unit-btn .progress-mark.done { color: #4CAF50; }
+
+    /* page-concept-card */
+    #page-concept-card .concept-nav {
+      width: 100%; max-width: 480px; margin: 0 auto; padding: 8px 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    #page-concept-card .concept-nav .progress-text { flex: 1; text-align: center; font-size: 13px; color: #6B5B95; font-weight: 600; }
+    #page-concept-card .concept-nav button {
+      background: #EFE7F8; border: 1px solid #DFD5EE; border-radius: 8px;
+      padding: 6px 12px; font-size: 13px; color: #4A3A75; cursor: pointer; font-weight: 600;
+    }
+    #page-concept-card .concept-nav button:disabled { opacity: 0.4; pointer-events: none; }
+    .concept-card-body {
+      width: 100%; max-width: 480px; margin: 0 auto; padding: 4px 16px 16px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .concept-card-body .concept-title {
+      font-size: 20px; font-weight: 700; color: #2F2657; line-height: 1.35;
+      text-align: center; padding: 8px 4px;
+    }
+    .concept-card-body .concept-topic {
+      font-size: 12px; color: #8878B0; text-align: center; margin: -8px 0 0;
+    }
+    .concept-image-wrap {
+      width: 100%; background: white; border-radius: 14px; padding: 8px;
+      box-shadow: 0 2px 10px rgba(74, 58, 117, 0.08); overflow: hidden;
+    }
+    .concept-image-wrap img, .concept-image-wrap svg {
+      width: 100%; height: auto; display: block; border-radius: 10px;
+    }
+    .concept-image-fallback {
+      background: #EEE; color: #888; text-align: center; padding: 32px 16px;
+      border-radius: 10px; font-size: 13px;
+    }
+    .concept-image-fallback .fb-alt { display: block; font-size: 12px; margin-top: 8px; color: #666; }
+    .concept-body-text {
+      background: white; border-radius: 12px; padding: 14px 16px;
+      box-shadow: 0 2px 6px rgba(74, 58, 117, 0.06); color: #333;
+      font-size: 15px; line-height: 1.7;
+    }
+    .concept-body-text p { margin: 0 0 8px; }
+    .concept-body-text p:last-child { margin-bottom: 0; }
+    .concept-body-text strong { color: #4A3A75; font-weight: 700; }
+    .concept-keypoints {
+      background: #F4F0FA; border-left: 4px solid #6B5B95; border-radius: 8px;
+      padding: 12px 14px; color: #4A3A75;
+    }
+    .concept-keypoints .kp-title { font-size: 13px; font-weight: 700; color: #6B5B95; margin-bottom: 6px; }
+    .concept-keypoints ul { margin: 0; padding-left: 18px; }
+    .concept-keypoints li { font-size: 14px; line-height: 1.6; margin-bottom: 2px; }
+    .concept-keypoints li strong { color: #2F2657; font-weight: 700; }
+    .concept-actions {
+      width: 100%; max-width: 480px; margin: 8px auto 0; padding: 0 16px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .btn-concept-next {
+      background: #6B5B95; color: white; border: none; border-radius: 12px;
+      padding: 14px; font-size: 16px; font-weight: 700; cursor: pointer;
+    }
+    .btn-concept-next:active { background: #5A4D82; }
+    .btn-related-cards {
+      background: white; color: #6B5B95; border: 1px solid #DFD5EE;
+      border-radius: 12px; padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
+    }
+    .btn-related-cards:disabled { opacity: 0.45; pointer-events: none; }
+    .concept-done-msg {
+      width: 100%; max-width: 480px; margin: 16px auto;
+      padding: 24px 16px; text-align: center;
+      background: white; border-radius: 14px; box-shadow: 0 2px 8px rgba(74, 58, 117, 0.08);
+      color: #4A3A75;
+    }
+    .concept-done-msg .done-emoji { font-size: 40px; display: block; margin-bottom: 8px; }
+    .concept-done-msg .done-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .concept-done-msg .done-sub { font-size: 13px; color: #8878B0; }
     #page-growth { background: #F5F7FA; gap: 0; padding-bottom: 24px; }
     #page-growth .header { width: 100%; max-width: 480px; padding: 16px; display: flex; align-items: center; gap: 8px; }
     #page-growth .header h2 { font-size: 20px; color: #333; margin: 0; flex: 1; text-align: center; }
@@ -862,6 +973,7 @@
   <div id="home-loading" style="text-align:center; padding:40px 0; color:#999; font-size:14px;">불러오는 중...</div>
   <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
   <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')" style="display:none;">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
+  <button type="button" class="tile-concept" id="tile-concept" onclick="openConceptHome()" style="display:none;">📚 개념 정리<span class="concept-sub" id="tile-concept-sub">단원 핵심 한눈에 보기</span></button>
   <button type="button" class="tile-growth" id="tile-growth" onclick="openGrowthPage()" style="display:none;">📏 키·몸무게 기록<span class="growth-sub" id="tile-growth-sub">기록을 시작해보자</span></button>
   <div id="app-version-footer" style="position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:11px; color:rgba(0,0,0,0.35); pointer-events:none;">
     <span id="app-version-text"></span>
@@ -1073,6 +1185,50 @@
   </ul>
 </div>
 
+<!-- ===== v5.64 개념 정리 — 과목 선택 ===== -->
+<div id="page-concept-home" class="page">
+  <div class="header">
+    <button type="button" class="btn-back" onclick="showPage('page-home')">&#8592;</button>
+    <h2>개념 정리</h2>
+    <div style="width:40px;"></div>
+  </div>
+  <div class="concept-subject-list" id="concept-subject-list">
+    <!-- 동적 -->
+  </div>
+</div>
+
+<!-- ===== v5.64 개념 정리 — 단원 선택 ===== -->
+<div id="page-concept-unit" class="page">
+  <div class="header">
+    <button type="button" class="btn-back" onclick="openConceptHome()">&#8592;</button>
+    <h2 id="concept-unit-title">단원 선택</h2>
+    <div style="width:40px;"></div>
+  </div>
+  <div class="concept-unit-list" id="concept-unit-list">
+    <!-- 동적 -->
+  </div>
+</div>
+
+<!-- ===== v5.64 개념 정리 — 카드 화면 ===== -->
+<div id="page-concept-card" class="page">
+  <div class="header">
+    <button type="button" class="btn-back" onclick="exitConceptCard()">&#8592;</button>
+    <h2 id="concept-card-unit-label" style="font-size:16px; color:#4A3A75; margin:0; flex:1; text-align:center;">단원</h2>
+    <button type="button" class="btn-back" onclick="exitConceptCard()" title="나가기">&#10005;</button>
+  </div>
+  <div class="concept-nav">
+    <button type="button" id="btn-concept-prev" onclick="showPrevConceptCard()">◀ 이전</button>
+    <span class="progress-text" id="concept-progress-text">0/0</span>
+    <button type="button" id="btn-concept-next-top" onclick="showNextConceptCard()">다음 ▶</button>
+  </div>
+  <div class="concept-card-body" id="concept-card-body">
+    <!-- 동적 -->
+  </div>
+  <div class="concept-actions" id="concept-card-actions">
+    <!-- 동적 ('이해했어! 다음 ▶' / '관련 문제 풀어보기') -->
+  </div>
+</div>
+
 <!-- ===== v5.60 성장 기록 입력/확인/수정 모달 ===== -->
 <div id="growth-modal-overlay" class="growth-modal-overlay">
   <div class="growth-modal">
@@ -1111,6 +1267,8 @@ const APP = {
   speechTherapyCards: [],
   speechTherapyLessons: [],
   listenRepeatCards: [],  // v4.6
+  conceptCards: [],       // v5.64 개념 정리 카드 (별도 풀, 일반 세션과 격리)
+  conceptSession: null,   // v5.64 진행 중인 개념 카드 슬라이드 상태 (cards[], currentIndex, subject, unit)
   currentLessonInfo: null,
   phrasePool: null,
   reviewQueue: {},
@@ -1130,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.63';
-var APP_SW_CACHE = 'sw5630';
+var APP_VERSION = 'v5.64';
+var APP_SW_CACHE = 'sw5640';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -1654,6 +1812,7 @@ function initLoadDiagnostics() {
     phrase_pool:    { ok: false, count: 0, error: null, file: 'phrase-pool.json' },
     speech_therapy: { ok: false, count: 0, error: null, file: 'speech-therapy.json' },
     config:         { ok: false, count: 0, error: null, file: 'config.json' },
+    concept:        { ok: false, count: 0, error: null, file: 'concept-cards.json' },
     loadedAt: null
   };
 }
@@ -1678,7 +1837,7 @@ async function fetchJsonDiag(url, key) {
 async function loadContentFiles() {
   try {
     initLoadDiagnostics();
-    const [engRes, compRes, ssRes, sciRes, phraseRes, stRes, cfgRes] = await Promise.all([
+    const [engRes, compRes, ssRes, sciRes, phraseRes, stRes, cfgRes, conceptRes] = await Promise.all([
       fetchJsonDiag('english.json', 'english').then(d => d || { cards: [] }),
       fetchJsonDiag('comprehension.json', 'comprehension').then(d => d || { cards: [] }),
       fetchJsonDiag('social-studies.json', 'social_studies').then(d => d || []),
@@ -1686,6 +1845,7 @@ async function loadContentFiles() {
       fetchJsonDiag('phrase-pool.json', 'phrase_pool').then(d => d || null),
       fetchJsonDiag('speech-therapy.json', 'speech_therapy').then(d => d || null),
       fetchJsonDiag('config.json', 'config').then(d => d || null),
+      fetchJsonDiag('concept-cards.json', 'concept').then(d => d || { cards: [] }),
     ]);
     APP.englishCards = engRes.cards || [];
     APP.comprehensionCards = compRes.cards || [];
@@ -1710,11 +1870,19 @@ async function loadContentFiles() {
       APP.speechTherapyCards = [];
       APP.listenRepeatCards = [];
     }
+    // [v5.64] 개념 카드 로드 (concept-cards.json, 일반 세션과 격리)
+    APP.conceptCards = (conceptRes && Array.isArray(conceptRes.cards)) ? conceptRes.cards : [];
+    APP.conceptCards.forEach(function(c) {
+      // 안전 보정: subject 누락 시 폴백 (validate 스크립트가 잡지만 런타임 방어)
+      c.subject = c.subject || 'science';
+      c.id = c.id || c.cardId;
+    });
     APP.loadDiagnostics.english.count = (APP.englishCards || []).length;
     APP.loadDiagnostics.comprehension.count = (APP.comprehensionCards || []).length;
     APP.loadDiagnostics.social_studies.count = (APP.socialStudiesCards || []).length;
     APP.loadDiagnostics.science.count = (APP.scienceCards || []).length;
     APP.loadDiagnostics.speech_therapy.count = (APP.speechTherapyCards || []).length;
+    if (APP.loadDiagnostics.concept) APP.loadDiagnostics.concept.count = (APP.conceptCards || []).length;
     APP.loadDiagnostics.phrase_pool.count = APP.phrasePool ? 1 : 0;
     APP.loadDiagnostics.config.count = (APP.config && Object.keys(APP.config).length > 0) ? 1 : 0;
     APP.loadDiagnostics.loadedAt = new Date().toISOString();
@@ -1735,7 +1903,8 @@ function renderLoadDiagnostics() {
     science: '과학',
     speech_therapy: '말하기연습',
     phrase_pool: '어구 풀',
-    config: '설정'
+    config: '설정',
+    concept: '개념 정리'
   };
   var html = '';
   if (diag.loadedAt) {
@@ -1841,6 +2010,8 @@ function renderLegacyHome() {
   document.querySelector('.btn-mixed-session').style.display = 'none';
   var gt0 = document.getElementById('tile-growth');
   if (gt0) gt0.style.display = 'none';
+  var tcl0 = document.getElementById('tile-concept');
+  if (tcl0) tcl0.style.display = 'none';
   document.getElementById('resume-banner').style.display = 'none';
   var legacyEl = document.getElementById('legacy-home');
   if (legacyEl) {
@@ -1866,6 +2037,19 @@ function renderSubjectTileHome() {
   document.getElementById('legacy-home').style.display = 'none';
   document.getElementById('subject-tiles').style.display = '';
   document.querySelector('.btn-mixed-session').style.display = '';
+  // [v5.64] 개념 정리 타일 (카드 1장 이상일 때만 표시)
+  var tcl = document.getElementById('tile-concept');
+  if (tcl) {
+    var conceptTotal = getConceptCardCount();
+    if (conceptTotal > 0) {
+      tcl.style.display = '';
+      tcl.classList.remove('tile-empty');
+      var sub = document.getElementById('tile-concept-sub');
+      if (sub) sub.textContent = '단원 핵심 한눈에 보기 · ' + conceptTotal + '장';
+    } else {
+      tcl.style.display = 'none';
+    }
+  }
   // [v5.60] 키·몸무게 기록 타일
   var gt = document.getElementById('tile-growth');
   if (gt) {
@@ -2213,6 +2397,455 @@ function getApprovedCards(subject) {
   }
   // [v5.51] isChildVisibleCard 공용 필터로 수렴
   return pool.filter(isChildVisibleCard);
+}
+
+// ===================================================================
+// [v5.64] 개념 정리 (concept cards) — 일반 세션과 완전 분리된 모듈
+// 스펙: 00_Context/concept-cards-v1-design.md
+// 격리 원칙: APP.session.cards / renderCard() / getApprovedCards 에 절대 진입하지 않음
+// ===================================================================
+
+// 과목 라벨 / 단원 표시명
+var CONCEPT_SUBJECT_META = {
+  science:        { emoji: '🔬', name: '과학' },
+  social_studies: { emoji: '🏛', name: '사회' }
+};
+var CONCEPT_UNIT_TITLE = {
+  // 과학 6-1 (아이스크림 출판사)
+  'science::U1': '용액의 성질 (산과 염기)'
+  // 다른 단원은 추후 추가
+};
+var CONCEPT_SEEN_KEY = 'po_v5_concept_seen';
+
+// SVG 새너타이즈 (§3.5). image-mode 카드만 있더라도 향후 SVG 카드 대비 필수 정의.
+function sanitizeSvg(svgString) {
+  if (!svgString || typeof svgString !== 'string') return null;
+  try {
+    var doc = new DOMParser().parseFromString(svgString, 'image/svg+xml');
+    if (doc.querySelector('parsererror')) return null;
+    var ALLOWED = {
+      svg:1,g:1,path:1,rect:1,circle:1,ellipse:1,line:1,polyline:1,polygon:1,
+      text:1,tspan:1,title:1,desc:1,defs:1,linearGradient:1,radialGradient:1,
+      stop:1,use:1,symbol:1
+    };
+    function walk(node) {
+      if (!node) return;
+      var children = Array.prototype.slice.call(node.childNodes || []);
+      for (var i = 0; i < children.length; i++) {
+        var c = children[i];
+        if (c.nodeType !== 1) continue; // 텍스트/주석은 그대로
+        var tag = (c.nodeName || '').toLowerCase();
+        if (!ALLOWED[tag]) { c.parentNode.removeChild(c); continue; }
+        // 이벤트 핸들러 / 외부 href 제거
+        var attrs = Array.prototype.slice.call(c.attributes || []);
+        for (var j = 0; j < attrs.length; j++) {
+          var an = attrs[j].name.toLowerCase();
+          var av = attrs[j].value || '';
+          if (an.indexOf('on') === 0) { c.removeAttribute(attrs[j].name); continue; }
+          if ((an === 'href' || an === 'xlink:href') && av.indexOf('#') !== 0) {
+            c.removeAttribute(attrs[j].name);
+          }
+        }
+        walk(c);
+      }
+    }
+    walk(doc.documentElement);
+    return new XMLSerializer().serializeToString(doc.documentElement);
+  } catch (e) {
+    console.warn('[concept] sanitizeSvg 실패:', e);
+    return null;
+  }
+}
+
+// 본문 마크다운 — **bold** 만 허용. 그 외는 escape.
+function renderConceptInlineMarkdown(str) {
+  if (!str) return '';
+  var safe = escapeHtml(str);
+  // **text** → <strong>text</strong>
+  return safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
+// 카드 풀 헬퍼
+function getConceptCardCount(subject) {
+  var cards = APP.conceptCards || [];
+  if (subject) cards = cards.filter(function(c) { return c.subject === subject; });
+  return cards.filter(isChildVisibleCard).length;
+}
+
+function getConceptCards(subject, unit) {
+  var cards = (APP.conceptCards || []).slice();
+  if (subject) cards = cards.filter(function(c) { return c.subject === subject; });
+  if (unit) cards = cards.filter(function(c) { return c.sourceUnit === unit; });
+  cards = cards.filter(isChildVisibleCard);
+  cards.sort(function(a, b) {
+    var ao = typeof a.order === 'number' ? a.order : 9999;
+    var bo = typeof b.order === 'number' ? b.order : 9999;
+    return ao - bo;
+  });
+  return cards;
+}
+
+function getConceptUnits(subject) {
+  var cards = getConceptCards(subject);
+  var seenStore = loadConceptSeen();
+  var map = {};
+  cards.forEach(function(c) {
+    var u = c.sourceUnit || 'unknown';
+    if (!map[u]) map[u] = { unit: u, cards: [], seenCount: 0 };
+    map[u].cards.push(c);
+  });
+  var list = [];
+  for (var u in map) {
+    var entry = map[u];
+    entry.cardCount = entry.cards.length;
+    entry.seenCount = entry.cards.filter(function(c) {
+      return seenStore[c.cardId];
+    }).length;
+    entry.titleKey = subject + '::' + u;
+    entry.title = CONCEPT_UNIT_TITLE[entry.titleKey] || u;
+    list.push(entry);
+  }
+  list.sort(function(a, b) { return a.unit < b.unit ? -1 : (a.unit > b.unit ? 1 : 0); });
+  return list;
+}
+
+function loadConceptSeen() {
+  try {
+    var raw = localStorage.getItem(CONCEPT_SEEN_KEY);
+    if (!raw) return {};
+    var obj = JSON.parse(raw);
+    return (obj && typeof obj === 'object') ? obj : {};
+  } catch (e) {
+    console.warn('[concept] seen 파싱 실패 → 빈 객체 폴백:', e);
+    return {};
+  }
+}
+
+function saveConceptSeen(seen) {
+  try {
+    localStorage.setItem(CONCEPT_SEEN_KEY, JSON.stringify(seen || {}));
+  } catch (e) {
+    console.warn('[concept] seen 저장 실패:', e);
+  }
+}
+
+function markConceptSeen(cardId) {
+  if (!cardId) return;
+  var seen = loadConceptSeen();
+  if (!seen[cardId]) {
+    seen[cardId] = new Date().toISOString();
+    saveConceptSeen(seen);
+  }
+}
+
+// ---- 페이지 진입 ----------------------------------------------------
+
+function openConceptHome() {
+  renderConceptSubjectList();
+  showPage('page-concept-home');
+}
+
+function renderConceptSubjectList() {
+  var listEl = document.getElementById('concept-subject-list');
+  if (!listEl) return;
+  listEl.innerHTML = '';
+  var subjects = Object.keys(CONCEPT_SUBJECT_META);
+  var anyShown = false;
+  subjects.forEach(function(subj) {
+    var meta = CONCEPT_SUBJECT_META[subj];
+    var n = getConceptCardCount(subj);
+    if (n === 0) return; // 카드 0장 과목은 숨김 (§6.5)
+    anyShown = true;
+    var units = getConceptUnits(subj);
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'concept-subject-btn';
+    btn.onclick = function() { openConceptUnit(subj); };
+    btn.innerHTML =
+      '<span class="emoji">' + meta.emoji + '</span>' +
+      '<span>' + escapeHtml(meta.name) +
+        '<span class="sub">' + units.length + '개 단원 · ' + n + '장</span>' +
+      '</span>';
+    listEl.appendChild(btn);
+  });
+  if (!anyShown) {
+    var empty = document.createElement('div');
+    empty.className = 'concept-image-fallback';
+    empty.textContent = '아직 준비된 개념 카드가 없어요.';
+    listEl.appendChild(empty);
+  }
+}
+
+function openConceptUnit(subject) {
+  var titleEl = document.getElementById('concept-unit-title');
+  if (titleEl) {
+    var meta = CONCEPT_SUBJECT_META[subject];
+    titleEl.textContent = (meta ? meta.name : subject) + ' — 단원 선택';
+  }
+  renderConceptUnitList(subject);
+  showPage('page-concept-unit');
+}
+
+function renderConceptUnitList(subject) {
+  var listEl = document.getElementById('concept-unit-list');
+  if (!listEl) return;
+  listEl.innerHTML = '';
+  // §6.5 진입 시 재필터 — 부모가 PIN으로 reviewStatus 바꾼 결과 즉시 반영
+  var units = getConceptUnits(subject);
+  if (units.length === 0) {
+    var empty = document.createElement('div');
+    empty.className = 'concept-image-fallback';
+    empty.textContent = '준비된 단원이 없어요.';
+    listEl.appendChild(empty);
+    return;
+  }
+  units.forEach(function(u) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'concept-unit-btn';
+    btn.onclick = function() { openConceptCard(subject, u.unit); };
+    var progress = u.seenCount + '/' + u.cardCount;
+    var done = u.seenCount === u.cardCount && u.cardCount > 0;
+    btn.innerHTML =
+      '<span class="emoji">📖</span>' +
+      '<span>' + escapeHtml(u.unit + ' ' + u.title) +
+        '<span class="sub">' + u.cardCount + '장</span>' +
+      '</span>' +
+      '<span class="progress-mark' + (done ? ' done' : '') + '">' +
+        (done ? '✓ ' : '') + progress +
+      '</span>';
+    listEl.appendChild(btn);
+  });
+}
+
+function openConceptCard(subject, unit) {
+  var cards = getConceptCards(subject, unit);
+  if (cards.length === 0) {
+    alert('이 단원에 표시할 개념 카드가 없어요.');
+    return;
+  }
+  // 이어보기: 마지막 본 카드 다음, 전부 본 상태면 1번부터
+  var seen = loadConceptSeen();
+  var allSeen = cards.every(function(c) { return seen[c.cardId]; });
+  var startIndex = 0;
+  if (!allSeen) {
+    for (var i = 0; i < cards.length; i++) {
+      if (!seen[cards[i].cardId]) { startIndex = i; break; }
+    }
+  }
+  APP.conceptSession = {
+    subject: subject,
+    unit: unit,
+    cards: cards,
+    currentIndex: startIndex,
+    completed: false
+  };
+  var labelEl = document.getElementById('concept-card-unit-label');
+  if (labelEl) {
+    var titleKey = subject + '::' + unit;
+    var unitTitle = CONCEPT_UNIT_TITLE[titleKey] || unit;
+    labelEl.textContent = unit + ' ' + unitTitle;
+  }
+  showConceptCardAt(startIndex);
+  showPage('page-concept-card');
+}
+
+function showConceptCardAt(index) {
+  var sess = APP.conceptSession;
+  if (!sess || !sess.cards || sess.cards.length === 0) return;
+  if (index < 0) index = 0;
+  if (index >= sess.cards.length) index = sess.cards.length - 1;
+  sess.currentIndex = index;
+  sess.completed = false;
+  renderConceptCard(sess.cards[index]);
+}
+
+function renderConceptCard(card) {
+  var sess = APP.conceptSession;
+  var bodyEl = document.getElementById('concept-card-body');
+  var actionsEl = document.getElementById('concept-card-actions');
+  var progressEl = document.getElementById('concept-progress-text');
+  var prevBtn = document.getElementById('btn-concept-prev');
+  var nextBtnTop = document.getElementById('btn-concept-next-top');
+  if (!bodyEl || !actionsEl || !progressEl) return;
+
+  // 진행 표시
+  progressEl.textContent = (sess.currentIndex + 1) + '/' + sess.cards.length;
+  if (prevBtn) prevBtn.disabled = sess.currentIndex === 0;
+  if (nextBtnTop) nextBtnTop.disabled = sess.currentIndex >= sess.cards.length - 1;
+
+  // 본문 영역
+  var html = '';
+  html += '<div class="concept-topic">' + escapeHtml(card.topic || '') + '</div>';
+  html += '<div class="concept-title">' + escapeHtml(card.title || '') + '</div>';
+
+  // 인포그래픽
+  html += '<div class="concept-image-wrap" id="concept-image-wrap">';
+  var info = card.infographic || {};
+  if (info.kind === 'image' && info.src) {
+    var altText = escapeHtml(info.alt || card.title || '');
+    html += '<img src="' + escapeHtml(info.src) + '" alt="' + altText + '" ' +
+            'onerror="onConceptImageError(this)" data-alt="' + altText + '">';
+  } else if (info.kind === 'svg' && info.svg) {
+    var cleaned = sanitizeSvg(info.svg);
+    if (cleaned) {
+      html += cleaned;
+    } else {
+      html += '<div class="concept-image-fallback">그림 불러오기 실패' +
+              '<span class="fb-alt">' + escapeHtml(info.alt || '') + '</span></div>';
+    }
+  } else {
+    html += '<div class="concept-image-fallback">(그림 없음)</div>';
+  }
+  html += '</div>';
+
+  // 본문 텍스트
+  if (Array.isArray(card.body) && card.body.length > 0) {
+    html += '<div class="concept-body-text">';
+    card.body.forEach(function(p) {
+      html += '<p>' + renderConceptInlineMarkdown(p) + '</p>';
+    });
+    html += '</div>';
+  }
+
+  // 핵심 정리
+  if (Array.isArray(card.keyPoints) && card.keyPoints.length > 0) {
+    html += '<div class="concept-keypoints">' +
+            '<div class="kp-title">🔑 핵심 정리</div>' +
+            '<ul>';
+    card.keyPoints.forEach(function(p) {
+      html += '<li>' + renderConceptInlineMarkdown(p) + '</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  bodyEl.innerHTML = html;
+
+  // 액션 영역 — 마지막 카드면 종료 패턴, 아니면 다음 진행
+  actionsEl.innerHTML = '';
+  var isLast = sess.currentIndex === sess.cards.length - 1;
+  var nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.className = 'btn-concept-next';
+  nextBtn.textContent = isLast ? '이해했어! 끝내기 ✓' : '이해했어! 다음 ▶';
+  nextBtn.onclick = function() { onConceptNext(); };
+  actionsEl.appendChild(nextBtn);
+
+  var hasRelated = Array.isArray(card.relatedCardIds) && card.relatedCardIds.length > 0;
+  if (hasRelated) {
+    var rel = document.createElement('button');
+    rel.type = 'button';
+    rel.className = 'btn-related-cards';
+    // v1: 단원 끝에서만 활성화 (스펙 §6.2)
+    rel.disabled = !isLast;
+    rel.textContent = isLast ? '관련 문제 풀어보기 →' : '관련 문제 풀어보기 (단원 끝에서)';
+    rel.onclick = function() { goToRelatedFromConcept(card); };
+    actionsEl.appendChild(rel);
+  }
+
+  // 스크롤 맨 위로
+  bodyEl.scrollIntoView ? bodyEl.scrollIntoView({ block: 'start', behavior: 'auto' }) : null;
+  try { window.scrollTo(0, 0); } catch (e) {}
+}
+
+function onConceptImageError(imgEl) {
+  if (!imgEl || !imgEl.parentNode) return;
+  var alt = imgEl.getAttribute('data-alt') || '';
+  var fb = document.createElement('div');
+  fb.className = 'concept-image-fallback';
+  fb.innerHTML = '그림 못 불러왔어<span class="fb-alt">' + escapeHtml(alt) + '</span>';
+  imgEl.parentNode.replaceChild(fb, imgEl);
+}
+
+function onConceptNext() {
+  var sess = APP.conceptSession;
+  if (!sess) return;
+  var card = sess.cards[sess.currentIndex];
+  if (card) markConceptSeen(card.cardId);
+  if (sess.currentIndex >= sess.cards.length - 1) {
+    showConceptDone();
+  } else {
+    showConceptCardAt(sess.currentIndex + 1);
+  }
+}
+
+function showNextConceptCard() {
+  var sess = APP.conceptSession;
+  if (!sess) return;
+  // 상단 ▶ 버튼은 마킹 없이 단순 이동 (스킵 가능)
+  if (sess.currentIndex < sess.cards.length - 1) {
+    showConceptCardAt(sess.currentIndex + 1);
+  }
+}
+
+function showPrevConceptCard() {
+  var sess = APP.conceptSession;
+  if (!sess) return;
+  if (sess.currentIndex > 0) {
+    showConceptCardAt(sess.currentIndex - 1);
+  }
+}
+
+function showConceptDone() {
+  var sess = APP.conceptSession;
+  if (!sess) return;
+  sess.completed = true;
+  var bodyEl = document.getElementById('concept-card-body');
+  var actionsEl = document.getElementById('concept-card-actions');
+  var progressEl = document.getElementById('concept-progress-text');
+  if (progressEl) progressEl.textContent = '완료';
+  if (bodyEl) {
+    var unitTitle = CONCEPT_UNIT_TITLE[sess.subject + '::' + sess.unit] || sess.unit;
+    bodyEl.innerHTML =
+      '<div class="concept-done-msg">' +
+        '<span class="done-emoji">🎉</span>' +
+        '<div class="done-title">' + escapeHtml(sess.unit + ' ' + unitTitle) + ' 개념 정리 끝!</div>' +
+        '<div class="done-sub">' + sess.cards.length + '장 모두 봤어요.</div>' +
+      '</div>';
+  }
+  if (actionsEl) {
+    actionsEl.innerHTML = '';
+    var backBtn = document.createElement('button');
+    backBtn.type = 'button';
+    backBtn.className = 'btn-concept-next';
+    backBtn.textContent = '단원 목록으로';
+    backBtn.onclick = function() { openConceptUnit(sess.subject); };
+    actionsEl.appendChild(backBtn);
+
+    // 단원 어느 카드든 relatedCardIds 가 있으면 "관련 문제" 활성화
+    var anyRelated = sess.cards.some(function(c) {
+      return Array.isArray(c.relatedCardIds) && c.relatedCardIds.length > 0;
+    });
+    if (anyRelated) {
+      var rel = document.createElement('button');
+      rel.type = 'button';
+      rel.className = 'btn-related-cards';
+      rel.textContent = '관련 문제 풀어보기 →';
+      rel.onclick = function() {
+        if (typeof startSubjectSession === 'function') {
+          startSubjectSession(sess.subject);
+        }
+      };
+      actionsEl.appendChild(rel);
+    }
+  }
+}
+
+function exitConceptCard() {
+  var sess = APP.conceptSession;
+  if (sess && sess.subject) {
+    openConceptUnit(sess.subject);
+  } else {
+    showPage('page-home');
+  }
+}
+
+function goToRelatedFromConcept(card) {
+  // v1: 단순히 해당 과목 일반 세션 시작 (해당 단원 우선화는 startSubjectSession 내부 단원 필터에 의존)
+  if (!card || !card.subject) return;
+  if (typeof startSubjectSession === 'function') {
+    startSubjectSession(card.subject);
+  }
 }
 
 // ===================================================================
@@ -7541,6 +8174,637 @@ async function endSession() {
   if (sttPending.length > 0 && loadingEl) loadingEl.style.display = 'block';
   try {
     if (sttPending.length > 0) await Promise.allSettled(sttPending);
+  } catch (e) {
+    console.warn('[PO] STT 대기 에러:', e);
+  }
+  if (loadingEl) loadingEl.style.display = 'none';
+
+  // 과목별 정답률 (부모 화면용)
+  const breakdownEl = document.getElementById('subject-breakdown');
+  const subjectLabels = { english: '영어', comprehension: '독해', social_studies: '사회', science: '과학', speech_therapy: '읽기 연습', listen_repeat: '듣고 말하기' };
+  let breakdownHtml = '';
+  for (const subj in s.subjectStats) {
+    const st = s.subjectStats[subj];
+    const acc = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+    breakdownHtml += '<div class="subject-stat">'
+      + '<span class="label">' + (subjectLabels[subj] || subj) + '</span>'
+      + '<span>' + st.correct + '/' + st.total + ' (' + acc + '%)</span>'
+      + '</div>';
+  }
+  // 말하기 연습 녹음 카드 수
+  const stCount = s.cards.filter(function(c) { return c.subject === 'speech_therapy'; }).length;
+  if (stCount > 0 && !s.subjectStats.speech_therapy) {
+    breakdownHtml += '<div class="subject-stat">'
+      + '<span class="label">읽기 연습</span>'
+      + '<span>' + stCount + '장 녹음</span>'
+      + '</div>';
+  }
+  breakdownEl.innerHTML = breakdownHtml;
+
+  // v4.3: 관찰 요약 표시
+  var obsSummary = buildObservationSummary();
+  var obsSummaryEl = document.getElementById('observation-summary');
+  if (obsSummaryEl && obsSummary) {
+    var obsHtml = '<h3>따라읽기 관찰</h3>';
+    obsHtml += '<div class="obs-row"><span>총 문장</span><span>' + obsSummary.total + '문장</span></div>';
+    obsHtml += '<div class="obs-row"><span>혼자 성공</span><span>' + obsSummary.solo + '문장</span></div>';
+    obsHtml += '<div class="obs-row"><span>도움 후 성공</span><span>' + obsSummary.helped + '문장</span></div>';
+    obsHtml += '<div class="obs-row"><span>건너뜀</span><span>' + obsSummary.skipped + '문장</span></div>';
+    if (obsSummary.struggles.length > 0) {
+      obsHtml += '<div class="obs-row highlight-row"><span>반복 어려움</span><span>'
+        + escapeHtml(obsSummary.struggles.join(', ')) + '</span></div>';
+    }
+    // v4.5: STT 불일치 잦음 (부모 화면용)
+    if (obsSummary.sttMismatchFrequent && obsSummary.sttMismatchFrequent.length > 0) {
+      obsHtml += '<div class="obs-row highlight-row" style="color:#E74C3C;"><span>STT 불일치 잦음</span><span>'
+        + escapeHtml(obsSummary.sttMismatchFrequent.join(', ')) + '</span></div>';
+    }
+    // v4.6: 듣고 말하기 섹션
+    if (obsSummary.listenRepeat) {
+      var lr = obsSummary.listenRepeat;
+      var levelLabels = {1: '~10음절', 2: '11~15음절', 3: '16~20음절', 4: '21음절+'};
+      var l1Pct = lr.total > 0 ? Math.round((lr.l1Success / lr.total) * 100) : 0;
+      obsHtml += '<h3 style="margin-top:12px;">🎧 듣고 말하기</h3>';
+      obsHtml += '<div class="obs-row"><span>1단계 성공</span><span>' + lr.l1Success + '문장 (' + l1Pct + '%)</span></div>';
+      obsHtml += '<div class="obs-row"><span>2단계 성공</span><span>' + lr.l2Success + '문장</span></div>';
+      obsHtml += '<div class="obs-row"><span>3단계 도달</span><span>' + lr.l3Fallback + '문장</span></div>';
+      obsHtml += '<div class="obs-row"><span>현재 레벨</span><span>' + lr.currentLevel + ' (' + (levelLabels[lr.currentLevel] || '') + ')</span></div>';
+    }
+
+    obsSummaryEl.innerHTML = obsHtml;
+    obsSummaryEl.style.display = 'block';
+  } else if (obsSummaryEl) {
+    obsSummaryEl.style.display = 'none';
+  }
+
+  // [v4.10 T3] 세션 히스토리 저장 (확장 모드 판정용)
+  var sessionHistory = JSON.parse(localStorage.getItem('po_v4_session_history') || '[]');
+  sessionHistory.push({
+    date: new Date().toISOString(),
+    completionRate: s.totalAttempts > 0 ? s.correctCount / s.totalAttempts : 0,
+    durationMinutes: duration / 60,
+    cardCount: s.cards.length
+  });
+  if (sessionHistory.length > 10) sessionHistory.shift();
+  localStorage.setItem('po_v4_session_history', JSON.stringify(sessionHistory));
+
+  // T7: subject_stats에 세션 기록 (과목 선택 모드)
+  if (s.sessionType === 'subject' && s.sessionSubject) {
+    appendSubjectSession(s.sessionSubject, {
+      date: todayStr(),
+      total: s.totalAttempts,
+      correct: s.correctCount,
+      accuracy: s.totalAttempts > 0 ? s.correctCount / s.totalAttempts : 0,
+      duration: duration,
+      type: 'subject'
+    });
+    // 최근 카드 ID 저장 (중복 방지용)
+    var sessionCardIds = s.cards.map(function(c) { return getCardId(c); });
+    saveRecentSessionCards(s.sessionSubject, sessionCardIds);
+  } else if (s.sessionType !== 'subject') {
+    // T6: mixed 세션이면 과목별로 분해
+    // [v5.53 T1] 카드 결과 기반 분해 (s.events.map 제거, SR-1)
+    decomposeToSubjectStats(s.cards);
+  }
+
+  // [v4.10 T3] 역할별 집계 (부모 화면용) — [v5.17] 보너스 카드 제외
+  var roleLabels = { 'curriculum-recall': '수업 복습', 'reading-transfer': '읽기 전이', 'review-stabilize': '복습 안정화' };
+  var roleStats = {};
+  s.cards.forEach(function(card) {
+    if (card._isBonus) return; // [v5.17] 보너스 카드는 역할별 집계에서 제외
+    var role = card._role || 'review-stabilize';
+    if (!roleStats[role]) roleStats[role] = { total: 0, correct: 0 };
+    roleStats[role].total++;
+    if (card._correct) roleStats[role].correct++;
+  });
+  var roleHtml = '';
+  for (var role in roleStats) {
+    var rs = roleStats[role];
+    roleHtml += '<div class="subject-stat"><span class="label">' + (roleLabels[role] || role) + '</span>'
+      + '<span>' + rs.correct + '/' + rs.total + '</span></div>';
+  }
+  if (roleHtml) {
+    breakdownHtml += '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>역할별</span><span></span></div>'
+      + roleHtml + '</div>';
+    breakdownEl.innerHTML = breakdownHtml;
+  }
+
+  // [v4.10 T5] 아이용 역할 요약 메시지
+  var childSummaryMsg = buildChildSummary(roleStats);
+  if (childSummaryMsg) {
+    document.getElementById('child-role-summary').textContent = childSummaryMsg;
+  }
+
+  // [v4.10 T6] 독해 스킬 요약 (부모 화면용)
+  var skillSummary = getSkillTagSummary(s.cards);
+  if (skillSummary.length > 0) {
+    var skillHtml = '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>오늘 연습한 읽기 기술</span><span></span></div>';
+    skillSummary.forEach(function(item) {
+      skillHtml += '<div class="subject-stat"><span class="label">' + item.label + '</span><span>' + item.count + '장</span></div>';
+    });
+    skillHtml += '</div>';
+    breakdownEl.innerHTML += skillHtml;
+  }
+
+  // [v4.10 T11] 부모 화면: LR 이중 기준 통계
+  // [v5.53 T3] 자력/도움/실패 3분류 추가
+  if (s.subjectStats.listen_repeat && s.subjectStats.listen_repeat.total > 0) {
+    var lrSt = s.subjectStats.listen_repeat;
+    var lrAssistedCount = lrSt.assisted || 0;
+    var lrFailedCount = lrSt.total - lrSt.correct - lrAssistedCount;
+    var lrDualHtml = '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>듣고말하기</span><span></span></div>'
+      + '<div class="subject-stat"><span class="label">자력 성공</span><span>' + lrSt.correct + '/' + lrSt.total + '</span></div>'
+      + '<div class="subject-stat"><span class="label">도움 후 성공</span><span>' + lrAssistedCount + '/' + lrSt.total + '</span></div>'
+      + (lrFailedCount > 0 ? '<div class="subject-stat"><span class="label">미완료</span><span>' + lrFailedCount + '/' + lrSt.total + '</span></div>' : '')
+      + '<div class="subject-stat" style="font-size:12px;color:#888;"><span>아이 기준</span><span>' + lrSt.passedRate + '%</span></div>'
+      + '<div class="subject-stat" style="font-size:12px;color:#888;"><span>치료 기준</span><span>' + lrSt.strictRate + '%</span></div>'
+      + '</div>';
+    breakdownEl.innerHTML += lrDualHtml;
+  }
+
+  // [v5.17] 부모 화면: 보너스 라운드 결과
+  if (s.bonusTotalAttempts && s.bonusTotalAttempts > 0) {
+    var bonusCorrect = s.bonusCorrectCount || 0;
+    var bonusHtml = '<div style="margin-top:8px;border-top:1px solid #eee;padding-top:8px;">'
+      + '<div class="subject-stat" style="font-weight:600;"><span>💪 보너스 라운드</span><span></span></div>';
+    if (bonusCorrect === s.bonusTotalAttempts) {
+      bonusHtml += '<div class="subject-stat"><span class="label">' + s.bonusTotalAttempts + '문제 중 ' + bonusCorrect + '문제 정답</span><span>✓</span></div>';
+    } else {
+      bonusHtml += '<div class="subject-stat"><span class="label">' + s.bonusTotalAttempts + '문제 중 ' + bonusCorrect + '문제 정답</span><span>' + (s.bonusTotalAttempts - bonusCorrect) + '문제 재오답</span></div>';
+    }
+    bonusHtml += '</div>';
+    breakdownEl.innerHTML += bonusHtml;
+  }
+
+  // 로그
+  logEvent('session_end', {
+    mode: 'A', duration: duration, correct: s.correctCount,
+    total: s.totalAttempts, accuracy: accuracy,
+    subjectStats: s.subjectStats,
+    roleStats: roleStats,
+    bonusRound: s.bonusTotalAttempts > 0 ? { total: s.bonusTotalAttempts, correct: s.bonusCorrectCount || 0 } : undefined,
+  });
+
+  // 앱 진도 업데이트
+  updateAppProgress(s, duration, accuracy);
+
+  // v4.4: 빈 세션 전송 방지 — 실제 활동이 없으면 로깅하지 않음
+  var hasActivity = s.totalAttempts > 0 || (s.recordings && s.recordings.length > 0) || duration >= 10;
+  if (!hasActivity) {
+    console.log('[PO] 빈 세션 — Google Sheets 전송 생략 (시도:' + s.totalAttempts + ', 녹음:' + (s.recordings ? s.recordings.length : 0) + ', 시간:' + duration + 's)');
+    showPage('page-complete');
+    return;
+  }
+
+  // Google Sheets 전송 (v4.3: 관찰 요약 포함)
+  var sessionPayload = {
+    date: todayStr(),
+    mode: 'A',
+    total: s.totalAttempts,
+    correct: s.correctCount,
+    percentage: accuracy,
+    duration_sec: duration,
+    cardCount: s.cards.length,
+    subjectStats: s.subjectStats,
+    events: s.events,
+    timestamp: new Date().toISOString(),
+    sessionType: s.sessionType || 'mixed',
+    sessionSubject: s.sessionSubject || 'mixed',
+  };
+  if (obsSummary) sessionPayload.observationSummary = obsSummary;
+
+  // [v5.17] 보너스 라운드 데이터
+  if (s.bonusTotalAttempts && s.bonusTotalAttempts > 0) {
+    sessionPayload.bonusRound = {
+      total: s.bonusTotalAttempts,
+      correct: s.bonusCorrectCount || 0
+    };
+  }
+
+  // v4.6: listen-repeat 로깅
+  // [v5.53 T2] listenRepeatAssisted 추가
+  var lrResultsPayload = lrState.results || [];
+  if (lrResultsPayload.length > 0) {
+    sessionPayload.listenRepeatTotal = lrResultsPayload.length;
+    sessionPayload.listenRepeatL1Success = lrResultsPayload.filter(function(r) { return r.reachedStage === 1; }).length;
+    sessionPayload.listenRepeatL3Fallback = lrResultsPayload.filter(function(r) { return r.reachedStage === 3; }).length;
+    sessionPayload.listenRepeatAssisted = lrResultsPayload.filter(function(r) { return r.reachedStage === 3; }).length;
+    sessionPayload.listenRepeatLevel = APP.config && APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 0;
+  }
+
+  // 화면은 이미 전환되어 있으므로, 그 뒤에 백그라운드로 전송
+  try {
+    await syncToGoogleSheets(sessionPayload);
+  } catch (e) { console.warn('[PO] Sheets 전송 에러:', e); }
+
+  try {
+    await uploadRecordings();
+  } catch (e) { console.warn('[PO] 녹음 업로드 에러:', e); }
+
+  // T8: pending 세션 정리
+  clearPendingSession();
+}
+
+// ===================================================================
+// 앱 진도 관리
+// ===================================================================
+
+function loadAppProgress() {
+  const saved = localStorage.getItem('po_v4_progress');
+  if (saved) return JSON.parse(saved);
+  return {
+    stats: { totalSessions: 0, totalCards: 0, totalCorrect: 0, totalTime: 0, streak: 0, lastSessionDate: null },
+    subjects: {
+      english: { totalCards: 0, mastered: 0, accuracy: 0 },
+      comprehension: { totalCards: 0, mastered: 0, accuracy: 0 },
+      speech_therapy: { totalRecordings: 0 },
+    },
+  };
+}
+
+function saveAppProgress() {
+  localStorage.setItem('po_v4_progress', JSON.stringify(APP.progress));
+}
+
+function updateStreak() {
+  const p = APP.progress;
+  const today = todayStr();
+  const last = p.stats.lastSessionDate;
+
+  if (!last) {
+    p.stats.streak = 1;
+  } else if (last === today) {
+    // 오늘 이미 학습함 → streak 유지
+  } else if (last === addDays(today, -1)) {
+    p.stats.streak++;
+  } else {
+    p.stats.streak = 1;
+  }
+  p.stats.lastSessionDate = today;
+  saveAppProgress();
+}
+
+function updateAppProgress(session, duration, accuracy) {
+  const p = APP.progress;
+  p.stats.totalSessions++;
+  p.stats.totalCards += session.totalAttempts;
+  p.stats.totalCorrect += session.correctCount;
+  p.stats.totalTime += duration;
+
+  // 과목별 갱신
+  for (const subj in session.subjectStats) {
+    const ss = session.subjectStats[subj];
+    if (!p.subjects[subj]) p.subjects[subj] = { totalCards: 0, mastered: 0, accuracy: 0 };
+    p.subjects[subj].totalCards += ss.total;
+    const prev = p.subjects[subj];
+    prev.accuracy = prev.totalCards > 0
+      ? Math.round(((prev.accuracy * (prev.totalCards - ss.total) / 100 + ss.correct) / prev.totalCards) * 100)
+      : 0;
+  }
+
+  // mastered 카드 수 갱신
+  for (const cardId in APP.reviewQueue) {
+    if (APP.reviewQueue[cardId].state === 'mastered') {
+      // 카드 ID로 과목 판별
+      if (cardId.startsWith('eng_')) {
+        // count later
+      }
+    }
+  }
+
+  // 간단한 mastered 집계
+  let engMastered = 0, compMastered = 0;
+  for (const cardId in APP.reviewQueue) {
+    if (APP.reviewQueue[cardId].state === 'mastered') {
+      if (cardId.startsWith('eng_')) engMastered++;
+      else if (cardId.startsWith('comp_')) compMastered++;
+    }
+  }
+  if (p.subjects.english) p.subjects.english.mastered = engMastered;
+  if (p.subjects.comprehension) p.subjects.comprehension.mastered = compMastered;
+
+  saveAppProgress();
+}
+
+// ===================================================================
+// Google Sheets 로그 전송
+// ===================================================================
+
+async function syncToGoogleSheets(sessionData) {
+  const s = getSettings();
+  if (!s.sheetsUrl) return;
+
+  console.log('[PO] syncToGoogleSheets 호출, subjectStats:', JSON.stringify(sessionData.subjectStats));
+
+  try {
+    var result = await postSheetsPayload(sessionData);
+    if (result.ok) {
+      markSessionSynced(sessionData.date);
+      console.log('[PO] Sheets 전송 OK (status:ok)');
+    } else {
+      console.warn('[PO] Sheets 응답 검증 실패, pending 보관:', result.error);
+      savePendingSync(sessionData);
+    }
+  } catch (err) {
+    console.warn('[PO] Google Sheets 전송 실패:', err);
+    savePendingSync(sessionData);
+  }
+}
+
+function markSessionSynced(date) {
+  try {
+    const synced = JSON.parse(localStorage.getItem('po_v4_synced') || '[]');
+    if (!synced.includes(date)) synced.push(date);
+    while (synced.length > 30) synced.shift();
+    localStorage.setItem('po_v4_synced', JSON.stringify(synced));
+  } catch (_) {}
+}
+
+function savePendingSync(sessionData) {
+  try {
+    const pending = JSON.parse(localStorage.getItem('po_v4_pending_sync') || '[]');
+    pending.push(sessionData);
+    localStorage.setItem('po_v4_pending_sync', JSON.stringify(pending));
+  } catch (_) {}
+}
+
+async function retryPendingSync() {
+  const s = getSettings();
+  if (!s.sheetsUrl) return;
+
+  try {
+    const pending = JSON.parse(localStorage.getItem('po_v4_pending_sync') || '[]');
+    if (pending.length === 0) return;
+
+    const stillPending = [];
+    for (const data of pending) {
+      try {
+        var result = await postSheetsPayload(data);
+        if (result.ok) {
+          markSessionSynced(data.date);
+        } else {
+          stillPending.push(data);
+        }
+      } catch (_) {
+        stillPending.push(data);
+      }
+    }
+    localStorage.setItem('po_v4_pending_sync', JSON.stringify(stillPending));
+  } catch (_) {}
+}
+
+// ===================================================================
+// 로그
+// ===================================================================
+
+function logEvent(event, data) {
+  APP.session.events.push({
+    timestamp: new Date().toISOString(),
+    event: event,
+    data: data,
+  });
+}
+
+// ===================================================================
+// 주간 앵커 관리
+// ===================================================================
+
+function getCurrentWeek() {
+  var d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + 3 - ((d.getDay() + 6) % 7));
+  var week1 = new Date(d.getFullYear(), 0, 4);
+  var weekNum = 1 + Math.round(((d - week1) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
+  return d.getFullYear() + '-W' + String(weekNum).padStart(2, '0');
+}
+
+function getAnchorData() {
+  return JSON.parse(localStorage.getItem('po-anchor-config') || 'null') || {
+    weekOf: null,
+    anchors: {},
+    previousWeek: null
+  };
+}
+
+function saveAnchorData(data) {
+  localStorage.setItem('po-anchor-config', JSON.stringify(data));
+}
+
+function getWeekGap(storedWeek) {
+  if (!storedWeek) return 99;
+  var currentWeek = getCurrentWeek();
+  if (storedWeek === currentWeek) return 0;
+  // ISO 주차 차이 계산
+  var cYear = parseInt(currentWeek.split('-W')[0]);
+  var cNum = parseInt(currentWeek.split('-W')[1]);
+  var sYear = parseInt(storedWeek.split('-W')[0]);
+  var sNum = parseInt(storedWeek.split('-W')[1]);
+  return (cYear - sYear) * 52 + (cNum - sNum);
+}
+
+function initAnchorUI() {
+  var cfg = APP.config && APP.config.anchorConfig;
+  var formArea = document.getElementById('anchor-form-area');
+  var warningArea = document.getElementById('anchor-warning-area');
+  if (!formArea) return;
+
+  // anchorTypes 목록 (config.json에서 또는 기본값)
+  var anchorTypes = (cfg && cfg.anchorTypes) || [
+    { id: 'speech-therapy', label: '차병원 숙제', inputType: 'text' },
+    { id: 'school-english', label: '학교 영어', inputType: 'dropdown', options: ['1단원','2단원','3단원','4단원','5단원','6단원','7단원','8단원','9단원','10단원','11단원','12단원'] },
+    { id: 'reading', label: '독서', inputType: 'dropdown_or_text', options: [] },
+    { id: 'school-social', label: '학교 사회', inputType: 'dropdown', options: ['세계 여러 나라의 자연환경','세계 여러 나라의 문화','지속 가능한 지구촌','우리나라의 경제 발전','우리나라의 정치 발전','우리나라와 가까운 나라들','세계 속의 우리나라'] }
+  ];
+
+  var data = getAnchorData();
+  var gap = getWeekGap(data.weekOf);
+
+  // 미입력 경고
+  warningArea.innerHTML = '';
+  if (gap >= 3) {
+    warningArea.innerHTML = '<div class="anchor-warning danger">3주 이상 앵커 미설정! 복습 모드로 전환됩니다. 아래에서 이번 주 앵커를 설정해 주세요.</div>';
+  } else if (gap >= 2) {
+    warningArea.innerHTML = '<div class="anchor-warning">2주째 앵커 미설정입니다. 이번 주 학습 내용을 입력해 주세요.</div>';
+  } else if (gap === 1 && data.weekOf) {
+    warningArea.innerHTML = '<div class="anchor-warning">지난주 설정 유지 중. 변경이 필요하면 아래에서 수정하세요.</div>';
+  }
+
+  // 현재 주 데이터 (carry forward 적용)
+  var currentAnchors = {};
+  if (data.weekOf === getCurrentWeek()) {
+    currentAnchors = data.anchors || {};
+  } else if (gap <= 1 && data.anchors) {
+    // 1주 이내 → 지난주 데이터를 기본값으로 표시
+    currentAnchors = data.anchors;
+  }
+
+  // 폼 렌더링
+  var html = '';
+  for (var i = 0; i < anchorTypes.length; i++) {
+    var at = anchorTypes[i];
+    var saved = currentAnchors[at.id] || {};
+    html += '<div class="anchor-row">';
+    html += '<div class="anchor-label">' + escapeHtml(at.label) + '</div>';
+
+    if (at.inputType === 'text') {
+      html += '<input type="text" class="anchor-input" id="anchor-' + at.id + '" '
+        + 'value="' + escapeHtml(saved.text || '') + '" '
+        + 'placeholder="이번 주 내용 입력">';
+    } else if (at.inputType === 'dropdown') {
+      html += '<select class="anchor-input" id="anchor-' + at.id + '">';
+      html += '<option value="">선택...</option>';
+      var opts = at.options || [];
+      for (var j = 0; j < opts.length; j++) {
+        var sel = (saved.unit === opts[j] || saved.text === opts[j]) ? ' selected' : '';
+        html += '<option value="' + escapeHtml(opts[j]) + '"' + sel + '>' + escapeHtml(opts[j]) + '</option>';
+      }
+      html += '</select>';
+    } else if (at.inputType === 'dropdown_or_text') {
+      // 옵션이 있으면 드롭다운, 없으면 텍스트
+      if (at.options && at.options.length > 0) {
+        html += '<select class="anchor-input" id="anchor-' + at.id + '">';
+        html += '<option value="">선택...</option>';
+        for (var k = 0; k < at.options.length; k++) {
+          var sel2 = (saved.chapter === at.options[k] || saved.text === at.options[k]) ? ' selected' : '';
+          html += '<option value="' + escapeHtml(at.options[k]) + '"' + sel2 + '>' + escapeHtml(at.options[k]) + '</option>';
+        }
+        html += '</select>';
+      } else {
+        html += '<input type="text" class="anchor-input" id="anchor-' + at.id + '" '
+          + 'value="' + escapeHtml(saved.chapter || saved.text || '') + '" '
+          + 'placeholder="챕터 또는 주제 입력">';
+      }
+    }
+
+    if (saved.updatedAt) {
+      html += '<div class="anchor-status">마지막 설정: ' + saved.updatedAt.split('T')[0] + '</div>';
+    }
+    html += '</div>';
+  }
+  formArea.innerHTML = html;
+}
+
+function saveAnchors() {
+  var cfg = APP.config && APP.config.anchorConfig;
+  var anchorTypes = (cfg && cfg.anchorTypes) || [
+    { id: 'speech-therapy', inputType: 'text' },
+    { id: 'school-english', inputType: 'dropdown' },
+    { id: 'reading', inputType: 'dropdown_or_text' },
+    { id: 'school-social', inputType: 'dropdown' }
+  ];
+
+  var data = getAnchorData();
+  var now = new Date().toISOString();
+  var currentWeek = getCurrentWeek();
+
+  // 기존 데이터를 previousWeek으로 이동
+  if (data.weekOf && data.weekOf !== currentWeek) {
+    data.previousWeek = { weekOf: data.weekOf, anchors: data.anchors };
+  }
+
+  data.weekOf = currentWeek;
+  data.anchors = {};
+
+  for (var i = 0; i < anchorTypes.length; i++) {
+    var at = anchorTypes[i];
+    var el = document.getElementById('anchor-' + at.id);
+    if (!el) continue;
+    var val = el.value.trim();
+    if (!val) continue;
+
+    var entry = { updatedAt: now };
+    if (at.inputType === 'text') {
+      entry.text = val;
+    } else if (at.inputType === 'dropdown') {
+      entry.unit = val;
+    } else {
+      entry.chapter = val;
+    }
+    data.anchors[at.id] = entry;
+  }
+
+  saveAnchorData(data);
+  initAnchorUI(); // 경고 갱신
+  // [v5.24] 앵커 저장 후 클라우드 동기화
+  uploadSettingsToCloud(getSettings());
+}
+
+function carryForwardAnchors() {
+  var data = getAnchorData();
+  var prev = data.previousWeek;
+
+  // previousWeek이 없으면 현재 anchors를 그대로 현재 주로 갱신
+  var sourceAnchors = (prev && prev.anchors) || data.anchors || {};
+  if (!sourceAnchors || Object.keys(sourceAnchors).length === 0) {
+    return; // 복사할 데이터 없음
+  }
+
+  var now = new Date().toISOString();
+  var currentWeek = getCurrentWeek();
+
+  // 기존을 previousWeek으로
+  if (data.weekOf && data.weekOf !== currentWeek) {
+    data.previousWeek = { weekOf: data.weekOf, anchors: data.anchors };
+  }
+
+  data.weekOf = currentWeek;
+  data.anchors = {};
+  for (var key in sourceAnchors) {
+    data.anchors[key] = Object.assign({}, sourceAnchors[key], { updatedAt: now });
+  }
+
+  saveAnchorData(data);
+  initAnchorUI();
+  // [v5.24] 앵커 이월 후 클라우드 동기화
+  uploadSettingsToCloud(getSettings());
+}
+
+// ===================================================================
+// 유틸
+// ===================================================================
+
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function addDays(dateStr, days) {
+  const d = new Date(dateStr + 'T00:00:00');
+  d.setDate(d.getDate() + days);
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+// ===================================================================
+// 앱 시작
+// ===================================================================
+
+document.addEventListener('DOMContentLoaded', init);
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function(e) { console.log('SW 등록 실패:', e); });
+}
+</script>
+</body>
+</html>
+
   } catch (e) {
     console.warn('[PO] STT 대기 에러:', e);
   }

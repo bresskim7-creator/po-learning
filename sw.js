@@ -1,7 +1,7 @@
 // PO 학습 시스템 Service Worker
-// v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-// 이전: 기기별 localStorage 기록만 보이고 다른 기기 입력값은 내려받지 않았음
-const CACHE_NAME = 'po-learning-v5630';
+// v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가 — 인포그래픽 PRECACHE
+// 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
+const CACHE_NAME = 'po-learning-v5640';
 const PRECACHE = [
   './',
   './index.html',
@@ -14,6 +14,12 @@ const PRECACHE = [
   './social-studies.json',
   './science.json',
   './weekly-anchor.json',
+  './concept-cards.json',
+  './concept-images/science/U1/cncpt_sci_u1_001.webp',
+  './concept-images/science/U1/cncpt_sci_u1_002.webp',
+  './concept-images/science/U1/cncpt_sci_u1_003.webp',
+  './concept-images/science/U1/cncpt_sci_u1_004.webp',
+  './concept-images/science/U1/cncpt_sci_u1_005.webp',
 ];
 
 self.addEventListener('install', event => {
