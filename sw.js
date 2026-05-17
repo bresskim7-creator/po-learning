@@ -1,8 +1,9 @@
 // PO 학습 시스템 Service Worker
-// v5.64.1 (2026-05-17): index.html 중복 tail 정정 — v5640 캐시 폐기 강제
+// v5.64.2 (2026-05-17): 개념정리 "관련 문제 풀어보기" 단원 내 미니 세션 (relatedCardIds 기반) 수정
+// 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5641';
+const CACHE_NAME = 'po-learning-v5642';
 const PRECACHE = [
   './',
   './index.html',

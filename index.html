@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.64.1';
-var APP_SW_CACHE = 'sw5641';
+var APP_VERSION = 'v5.64.2';
+var APP_SW_CACHE = 'sw5642';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2822,9 +2822,8 @@ function showConceptDone() {
       rel.className = 'btn-related-cards';
       rel.textContent = '관련 문제 풀어보기 →';
       rel.onclick = function() {
-        if (typeof startSubjectSession === 'function') {
-          startSubjectSession(sess.subject);
-        }
+        // [v5.64.2] 단원 relatedCardIds 합집합으로 미니 세션 (일반 세션 진입 X)
+        startConceptRelatedSession(sess);
       };
       actionsEl.appendChild(rel);
     }
@@ -2840,8 +2839,83 @@ function exitConceptCard() {
   }
 }
 
+// [v5.64.2] relatedCardIds 기반 미니 세션 — 같은 단원 일반 카드만 풀어보게 함
+function getConceptRelatedCards(sess) {
+  if (!sess || !Array.isArray(sess.cards)) return [];
+  var idSet = {};
+  var idList = [];
+  sess.cards.forEach(function(c) {
+    if (Array.isArray(c.relatedCardIds)) {
+      c.relatedCardIds.forEach(function(rid) {
+        if (rid && !idSet[rid]) { idSet[rid] = true; idList.push(rid); }
+      });
+    }
+  });
+  var poolMap = {
+    science: APP.scienceCards,
+    social_studies: APP.socialStudiesCards,
+    english: APP.englishCards,
+    comprehension: APP.comprehensionCards
+  };
+  var pool = poolMap[sess.subject] || [];
+  var found = [];
+  idList.forEach(function(rid) {
+    for (var i = 0; i < pool.length; i++) {
+      var c = pool[i];
+      if (c && (c.cardId === rid || c.id === rid)) {
+        if (isChildVisibleCard(c)) found.push(c);
+        break;
+      }
+    }
+  });
+  return found;
+}
+
+function startConceptRelatedSession(sess) {
+  if (!sess) return;
+  var cards = getConceptRelatedCards(sess);
+  if (cards.length === 0) {
+    alert('관련 문제를 찾지 못했어요. (relatedCardIds 누락 또는 차단)');
+    return;
+  }
+  if (typeof dismissAndSavePendingPartial === 'function') dismissAndSavePendingPartial();
+  if (typeof resetSessionState === 'function') resetSessionState();
+  APP.session = {
+    cards: cards,
+    currentIndex: 0,
+    startTime: Date.now(),
+    correctCount: 0,
+    totalAttempts: 0,
+    cardStartTime: Date.now(),
+    events: [],
+    subjectStats: {},
+    prevSubject: null,
+    recordings: [],
+    sessionType: 'subject',
+    sessionSubject: sess.subject,
+    conceptOrigin: { subject: sess.subject, unit: sess.unit, cardCount: cards.length },
+    reexposureQueue: [],
+    reexposureAdded: false,
+    bonusRoundDone: false,
+    bonusCorrectCount: 0,
+    bonusTotalAttempts: 0
+  };
+  if (typeof logEvent === 'function') {
+    try {
+      logEvent('session_start', { mode: 'concept_related', subject: sess.subject, unit: sess.unit, cardCount: cards.length });
+    } catch (e) { /* logEvent는 APP.session.events에 push — 안전 */ }
+  }
+  showPage('page-card');
+  if (typeof renderCard === 'function') renderCard();
+}
+
 function goToRelatedFromConcept(card) {
-  // v1: 단순히 해당 과목 일반 세션 시작 (해당 단원 우선화는 startSubjectSession 내부 단원 필터에 의존)
+  // [v5.64.2] 현재 단원의 모든 relatedCardIds 합집합으로 미니 세션 시작
+  var sess = APP.conceptSession;
+  if (!sess) return;
+  startConceptRelatedSession(sess);
+  return;
+  // (이하 dead code — 호환용 가드)
   if (!card || !card.subject) return;
   if (typeof startSubjectSession === 'function') {
     startSubjectSession(card.subject);
