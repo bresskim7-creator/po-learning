@@ -1,7 +1,8 @@
 {
   "schemaVersion": "concept-cards-v1",
-  "lastUpdated": "2026-05-17",
-  "source": "00_Context/concept-cards-v1-design.md (스펙) + 02_Working/concept-cards-preview/concept-cards-sci-u1-content-plan-v3.md (내용 v3)",
+  "lastUpdated": "2026-05-18",
+  "_unitCount": {"U1": 5, "U2": 4, "_note": "U2 카드 #5는 ChatGPT 재생성 후 별도 배포 예정 (v5645)"},
+  "source": "00_Context/concept-cards-v1-design.md (스펙) + 02_Working/concept-cards-preview/concept-cards-sci-u1-content-plan-v3.md (U1 내용 v3) + 02_Working/concept-cards-preview/concept-cards-sci-u2-content-plan-v3.md (U2 내용 v3, 카드 #5 보류)",
   "cards": [
     {
       "cardId": "cncpt_sci_u1_001",
@@ -142,6 +143,118 @@
         "crd_2026W14_sci_u1_007",
         "crd_2026W14_sci_u1_008",
         "crd_2026W14_sci_u1_012"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u2_001",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U2",
+      "topic": "운동의 정의",
+      "order": 1,
+      "title": "시간이 지나 위치가 바뀌면 운동이에요",
+      "body": [
+        "**시간이 지남에 따라 물체의 위치가 변할 때**, 우리는 그 물체가 **운동**한다고 말해요.",
+        "등대나 바위는 시간이 지나도 위치가 그대로라서 **운동하지 않는 물체**, 배나 갈매기처럼 위치가 변하는 것은 **운동하는 물체**예요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U2/cncpt_sci_u2_001.webp",
+        "alt": "물체의 운동 손글씨 노트: 1.운동의 뜻(위치 변화), 2.운동 ✗(등대·바위) 운동 ○(배·갈매기·자동차·사람), 3.핵심 정리 표"
+      },
+      "keyPoints": [
+        "운동 = **시간이 지남에 따라 위치가 변하는** 것",
+        "운동 ✗ 예: **등대 · 바위** (위치 고정)",
+        "운동 ○ 예: **배 · 갈매기 · 자동차 · 사람** (위치 변화)"
+      ],
+      "relatedCardIds": ["crd_2026W14_sci_u2_013"],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u2_002",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U2",
+      "topic": "운동의 표현",
+      "order": 2,
+      "title": "운동은 시간과 위치 변화로 표현해요",
+      "body": [
+        "물체의 운동은 **물체가 이동하는 데 걸린 시간**과 **물체의 위치 변화**로 표현해요. 위치 변화는 **처음 위치**와 **나중 위치**로 나타내요.",
+        "예) \"**승강기가 15초 동안 1층에서 5층으로 이동했어요**\"처럼 **시간**과 **처음→나중 위치**를 함께 말하면 운동이 정확히 전달돼요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U2/cncpt_sci_u2_002.webp",
+        "alt": "운동의 표현 손글씨 노트: 1.표현 방법(걸린 시간+위치 변화), 2.예시(승강기 15초 1층→5층, 기차 1시간 출발역→도착역), 3.핵심 공식 박스"
+      },
+      "keyPoints": [
+        "운동의 표현 = **걸린 시간 + 위치 변화**",
+        "위치 변화 = **처음 위치 → 나중 위치**",
+        "예: 승강기 15초·1층→5층 / 기차 1시간·출발역→도착역"
+      ],
+      "relatedCardIds": ["crd_2026W14_sci_u2_014"],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u2_003",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U2",
+      "topic": "빠르기 비교",
+      "order": 3,
+      "title": "같은 시간엔 더 멀리, 같은 거리엔 더 빨리",
+      "body": [
+        "**같은 시간** 동안 이동했을 때는 **긴 거리**를 이동한 물체가 더 빨라요. 예) 1초 동안 송골매는 108 m, 드론은 133 m를 이동 → **드론이 더 빠름**.",
+        "**같은 거리**를 이동했을 때는 **걸린 시간이 짧은** 물체가 더 빨라요. 예) 50 m를 9초 동안 달린 친구가 10초 동안 달린 친구보다 더 빠름."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U2/cncpt_sci_u2_003.webp",
+        "alt": "빠르기 비교 손글씨 노트: 1.두 가지 방법, 2.같은 시간(송골매 108m vs 드론 133m), 3.같은 거리(친구A 9초 vs 친구B 10초), 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "같은 시간 → **거리가 길수록** 빠름",
+        "같은 거리 → **시간이 짧을수록** 빠름",
+        "거리·시간이 모두 다르면? → **속력**으로 비교"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u2_015",
+        "crd_2026W14_sci_u2_016",
+        "crd_2026W14_sci_u2_019"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u2_004",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U2",
+      "topic": "속력",
+      "order": 4,
+      "title": "속력 = 거리 ÷ 시간",
+      "body": [
+        "**속력**은 1초(s), 1분(min), 1시간(h)과 같이 **일정한 시간 동안 물체가 이동한 거리**를 뜻해요. **속력 = 이동한 거리 ÷ 걸린 시간**으로 구해요.",
+        "예) 2시간 동안 120 km를 이동한 자동차 → 120 ÷ 2 = **60 km/h**. \"**육십 킬로미터 매 시**\"라고 읽고, **1시간에 60 km**를 가는 빠르기를 뜻해요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U2/cncpt_sci_u2_004.webp",
+        "alt": "속력 손글씨 노트: 1.속력의 뜻, 2.공식 박스 '속력 = 이동한 거리 ÷ 걸린 시간', 자동차 120km/2시간=60km/h 예시, 3.단위 km/h·m/s, 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "**속력 = 이동한 거리 ÷ 걸린 시간**",
+        "단위: **km/h**(킬로미터 매 시) · **m/s**(미터 매 초)",
+        "단위가 같을 때 **숫자가 클수록** 더 빠름"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u2_017",
+        "crd_2026W14_sci_u2_018",
+        "crd_2026W14_sci_u2_024"
       ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
