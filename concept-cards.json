@@ -1,11 +1,12 @@
 {
   "schemaVersion": "concept-cards-v1",
-  "lastUpdated": "2026-05-20",
+  "lastUpdated": "2026-05-22",
   "_unitCount": {
     "U1": 5,
     "U2": 4,
     "U3": 7,
-    "_note": "U2 카드 #5(속력과 안전)는 사용자 결정으로 제외 (2026-05-20)."
+    "_note": "U2 카드 #5(속력과 안전)는 사용자 결정으로 제외 (2026-05-20).",
+    "U4": 5
   },
   "source": "00_Context/concept-cards-v1-design.md (스펙) + 02_Working/concept-cards-preview/concept-cards-sci-u1-content-plan-v3.md (U1 내용 v3) + 02_Working/concept-cards-preview/concept-cards-sci-u2-content-plan-v3.md (U2 내용 v3, 카드 #5 제외) + 02_Working/concept-cards-preview/concept-cards-sci-u3-content-plan-v3.md (U3 내용 v3)",
   "cards": [
@@ -469,6 +470,153 @@
       "relatedCardIds": [
         "crd_2026W14_sci_u3_033",
         "crd_2026W14_sci_u3_034"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u4_001",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U4",
+      "topic": "하루 동안 태양과 별의 위치 변화",
+      "order": 1,
+      "title": "태양과 별은 하루 동안 동쪽에서 서쪽으로 움직여요",
+      "body": [
+        "하루 동안 **태양**의 위치를 관찰하면 **동쪽에서 서쪽**으로 자리가 달라져요. 별도 마찬가지로 **동쪽 하늘에서 서쪽 하늘**로 위치가 달라져요.",
+        "태양을 관찰할 때는 반드시 **태양 관측 안경**을 써야 하고, 별은 **천체 관측 프로그램**을 이용해 한 시간 간격으로 위치 변화를 관찰할 수 있어요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U4/cncpt_sci_u4_001.webp",
+        "alt": "하루 동안 태양·별 위치 변화 손글씨 노트: 시간 흐름 3컷(오전·정오·오후 태양 위치)에 동→서 화살표, 분홍 형광펜 '태양 관측 안경 필수' 주의, 별 관찰 방법(천체 관측 프로그램·야외) 안내"
+      },
+      "keyPoints": [
+        "태양·별 = 하루 동안 **동쪽 → 서쪽**으로 이동(보이는 위치)",
+        "태양 관찰 = **태양 관측 안경 필수** (맨눈 금지)",
+        "별 관찰 = 천체 관측 프로그램 또는 야외(남쪽 하늘)"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u4_041"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u4_002",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U4",
+      "topic": "지구의 자전",
+      "order": 2,
+      "title": "지구는 하루에 한 바퀴, 서쪽에서 동쪽으로 돌아요",
+      "body": [
+        "**천체가 스스로 고정된 축을 중심으로 회전**하는 것을 **자전**이라고 해요. 지구도 자전을 하는데, **자전축**을 중심으로 **하루에 한 바퀴씩** **서쪽에서 동쪽**(시계 반대 방향)으로 돌아요.",
+        "지구가 서쪽에서 동쪽으로 자전하기 때문에, 우리 눈에는 반대로 **태양과 별이 동쪽에서 서쪽으로** 움직이는 것처럼 보여요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U4/cncpt_sci_u4_002.webp",
+        "alt": "지구의 자전 손글씨 노트: 둥근 지구에 자전축 23.5° 기울임(점선) + 적도 타원 화살표가 같은 방향으로 기울어 시계 반대 방향(서→동) 회전 표시, 동·서가 보이는 원리 비교 표, 자전 정의·자전축·하루 주기 정리"
+      },
+      "keyPoints": [
+        "자전 = **자전축**을 중심으로 회전",
+        "지구 자전 = **하루에 한 바퀴**, **서쪽 → 동쪽** (시계 반대 방향)",
+        "태양·별이 동→서로 보이는 이유 = 지구 자전 방향의 **반대로 보이기 때문**"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u4_037",
+        "crd_2026W14_sci_u4_040",
+        "crd_2026W14_sci_u4_046",
+        "crd_2026W14_sci_u4_048"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u4_003",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U4",
+      "topic": "낮과 밤이 생기는 까닭",
+      "order": 3,
+      "title": "지구가 돌면서 낮과 밤이 번갈아 생겨요",
+      "body": [
+        "태양이 떠 있는 동안을 **낮**, 태양이 진 뒤부터 다음 날 다시 뜨기 전까지를 **밤**이라고 해요. 지구가 자전할 때 **태양 빛을 받는 쪽**은 낮이 되고, **빛을 받지 못한 쪽**은 밤이 돼요.",
+        "지구는 자전하면서 빛을 받는 면이 계속 바뀌기 때문에, **하루에 한 번씩** 낮과 밤이 번갈아 나타나요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U4/cncpt_sci_u4_003.webp",
+        "alt": "낮과 밤이 생기는 까닭 손글씨 노트: 태양·지구 옆 배치, 지구의 빛 받는 쪽=낮(노란 음영) / 빛 받지 못한 쪽=밤(진청 음영) + 지구 자전 화살표(서→동), 낮·밤 정의와 '하루에 한 번씩 번갈아 = 지구 자전' 정리"
+      },
+      "keyPoints": [
+        "낮 = 태양이 뜰 때부터 질 때까지",
+        "밤 = 태양이 진 뒤부터 다음 날 다시 뜨기 전까지",
+        "낮·밤이 번갈아 나타나는 까닭 = **지구의 자전**"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u4_038"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u4_004",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U4",
+      "topic": "지구의 공전",
+      "order": 4,
+      "title": "지구는 일 년에 한 바퀴, 태양 주위를 돌아요",
+      "body": [
+        "지구는 **태양을 중심**으로 **일 년에 한 바퀴씩** 일정한 길을 따라 **서쪽에서 동쪽**으로 도는데, 이것을 **지구의 공전**이라고 해요. 지구가 공전하면서 **지구의 위치가 달라져요**.",
+        "**인공위성**도 지구 주위를 공전해요. 어떤 인공위성은 지구가 자전하는 속도와 맞춰 함께 돌기 때문에 지구에서 보면 **항상 정지해 있는 것처럼** 보이는데, 이를 **정지 궤도 위성**이라고 해요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U4/cncpt_sci_u4_004.webp",
+        "alt": "지구의 공전 손글씨 노트(4단 구성): 1.태양 중심 4계절 궤도 다이어그램(봄 12시→여름 9시→가을 6시→겨울 3시 반시계, 큰 공전 화살표 4개, 각 지구에 자전축 점선), 2.공전 정의, 3.자전 vs 공전 비교 표, 4.인공위성 보조 컷(정지 궤도 위성 반시계 궤도 + '천리안 1호·2B호')"
+      },
+      "keyPoints": [
+        "공전 = **태양 중심**, **일 년에 한 바퀴**, 서쪽 → 동쪽",
+        "자전(하루·축 중심)과 다른 점 = 공전은 **태양 주위**, **일 년 주기**",
+        "정지 궤도 위성 = 지구 자전 속도와 맞춰 공전 → **같은 지역 지속 관측** (예: 천리안 1호·2B호)"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u4_039",
+        "crd_2026W14_sci_u4_043"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u4_005",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U4",
+      "topic": "계절별 대표적인 별자리",
+      "order": 5,
+      "title": "지구가 공전하기 때문에 계절마다 별자리가 달라져요",
+      "body": [
+        "지구는 공전하기 때문에 **일 년 동안 지구의 위치가 달라져요**. 지구의 위치가 달라지면 밤하늘에 보이는 **별자리도 계절마다 달라져요**.",
+        "계절별 대표적인 별자리가 그 계절에만 보이는 것은 아니에요. 예를 들어 **독수리자리**는 **여름철**에 가장 잘 보이지만 **봄철과 가을철**에도 볼 수 있어요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U4/cncpt_sci_u4_005.webp",
+        "alt": "계절별 별자리 손글씨 노트: 태양 중심 4계절 지구 위치(공전 화살표 4개·자전축 점선) + 각 위치 옆 계절별 대표 별자리(점·점선), 독수리자리 강조 박스 '여름철 가장 잘 보임 + 봄철·가을철에도 볼 수 있음', '공전 → 위치 변화 → 별자리 변화' 정리"
+      },
+      "keyPoints": [
+        "계절마다 별자리가 달라지는 까닭 = **지구의 공전**으로 위치가 달라지기 때문",
+        "계절별 별자리 = **그 계절에만 보이는 것은 아님** (가장 잘 보이는 계절일 뿐)",
+        "예: **독수리자리** — 여름철 가장 잘 보임 + 봄·가을철에도 관찰 가능"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u4_042",
+        "crd_2026W14_sci_u4_044",
+        "crd_2026W14_sci_u4_045",
+        "crd_2026W14_sci_u4_047"
       ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
