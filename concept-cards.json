@@ -1,8 +1,13 @@
 {
   "schemaVersion": "concept-cards-v1",
-  "lastUpdated": "2026-05-18",
-  "_unitCount": {"U1": 5, "U2": 4, "_note": "U2 카드 #5는 ChatGPT 재생성 후 별도 배포 예정 (v5645)"},
-  "source": "00_Context/concept-cards-v1-design.md (스펙) + 02_Working/concept-cards-preview/concept-cards-sci-u1-content-plan-v3.md (U1 내용 v3) + 02_Working/concept-cards-preview/concept-cards-sci-u2-content-plan-v3.md (U2 내용 v3, 카드 #5 보류)",
+  "lastUpdated": "2026-05-20",
+  "_unitCount": {
+    "U1": 5,
+    "U2": 4,
+    "U3": 7,
+    "_note": "U2 카드 #5(속력과 안전)는 사용자 결정으로 제외 (2026-05-20)."
+  },
+  "source": "00_Context/concept-cards-v1-design.md (스펙) + 02_Working/concept-cards-preview/concept-cards-sci-u1-content-plan-v3.md (U1 내용 v3) + 02_Working/concept-cards-preview/concept-cards-sci-u2-content-plan-v3.md (U2 내용 v3, 카드 #5 제외) + 02_Working/concept-cards-preview/concept-cards-sci-u3-content-plan-v3.md (U3 내용 v3)",
   "cards": [
     {
       "cardId": "cncpt_sci_u1_001",
@@ -26,7 +31,9 @@
         "색깔 · 냄새 · 투명도",
         "실험 도구가 없어도 OK"
       ],
-      "relatedCardIds": ["crd_2026W14_sci_u1_001"],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u1_001"
+      ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
     },
@@ -52,7 +59,9 @@
         "염기성: **미끈거림**, 흰자·닭살 녹임 (제빵소다·비누)",
         "실험 용액은 **절대 맛보거나 만지지 않기** ⚠"
       ],
-      "relatedCardIds": ["crd_2026W14_sci_u1_003"],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u1_003"
+      ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
     },
@@ -169,7 +178,9 @@
         "운동 ✗ 예: **등대 · 바위** (위치 고정)",
         "운동 ○ 예: **배 · 갈매기 · 자동차 · 사람** (위치 변화)"
       ],
-      "relatedCardIds": ["crd_2026W14_sci_u2_013"],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u2_013"
+      ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
     },
@@ -195,7 +206,9 @@
         "위치 변화 = **처음 위치 → 나중 위치**",
         "예: 승강기 15초·1층→5층 / 기차 1시간·출발역→도착역"
       ],
-      "relatedCardIds": ["crd_2026W14_sci_u2_014"],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u2_014"
+      ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
     },
@@ -255,6 +268,207 @@
         "crd_2026W14_sci_u2_017",
         "crd_2026W14_sci_u2_018",
         "crd_2026W14_sci_u2_024"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_001",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "세포",
+      "order": 1,
+      "title": "모든 생물은 세포로 이루어져 있어요",
+      "body": [
+        "**모든 생물은 세포**라는 **기본 단위**로 이루어져 있어요. 세포는 대부분 매우 작아서 **현미경**으로 관찰해요.",
+        "**식물 세포**는 **세포막**으로 둘러싸여 있고, 그 안에는 둥근 **핵**이 있어요. 세포막 바깥쪽은 **세포벽**이 한 번 더 둘러싸고 있어요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_001.webp",
+        "alt": "세포 손글씨 노트: 1.세포의 뜻(생물의 기본 단위·현미경 관찰), 2.식물 세포 단면도(세포막·핵·세포벽), 3.세포 크기·모양의 다양성, 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "세포 = **생물의 기본 단위**, 현미경으로 관찰",
+        "식물 세포 = **세포막 + 핵 + 세포벽**(바깥쪽)",
+        "종류에 따라 **크기·모양**이 다양함"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_025"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_002",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "뿌리의 생김새와 하는 일",
+      "order": 2,
+      "title": "뿌리는 물을 빨아들이고, 식물을 떠받쳐요",
+      "body": [
+        "식물의 뿌리는 주로 **땅속**으로 자라요. **뿌리를 자른 파**는 시들고, **뿌리를 남긴 파**는 잘 자라는 실험으로 **뿌리가 물을 흡수**한다는 것을 알 수 있어요.",
+        "뿌리는 또 식물이 **쓰러지지 않게 지지**해 주고, **일부 식물은 양분을 저장**하기도 해요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_002.webp",
+        "alt": "뿌리 손글씨 노트: 1.뿌리의 위치(땅속), 2.파 실험(뿌리 자름 vs 남김)으로 물 흡수 확인, 3.지지·양분 저장의 일, 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "뿌리의 첫 번째 일 = **물 흡수**",
+        "뿌리의 두 번째 일 = **식물 지지**(쓰러지지 않게)",
+        "일부 식물은 **양분 저장**도 함"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_026"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_003",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "줄기의 생김새와 하는 일",
+      "order": 3,
+      "title": "줄기는 물과 양분이 지나가는 통로예요",
+      "body": [
+        "식물의 줄기는 **뿌리와 잎·꽃을 연결**해요. **백합 줄기를 붉은 색소 물**에 담그면 줄기 단면에 붉은 점이 생겨서, 줄기 안에 **물이 지나가는 통로**가 있다는 것을 알 수 있어요.",
+        "줄기는 식물을 **지지**하고, **나팔꽃**처럼 다른 식물을 감거나 **딸기**처럼 땅 위로 뻗기도 해요. **감자**처럼 줄기에 **양분을 저장**하는 식물도 있어요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_003.webp",
+        "alt": "줄기 손글씨 노트: 1.줄기의 연결 역할, 2.백합 색소 실험(붉은 점·물 통로), 3.다양한 모양(곧게·감기·뻗기·저장), 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "줄기의 첫 번째 일 = **물과 양분의 이동 통로**",
+        "줄기의 두 번째 일 = **식물 지지**",
+        "모양 다양: 곧게(대부분) · 감기(나팔꽃) · 뻗기(딸기) · 저장(감자)"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_027",
+        "crd_2026W14_sci_u3_032"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_004",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "잎의 광합성",
+      "order": 4,
+      "title": "잎은 빛으로 양분을 만들어요 — 광합성",
+      "body": [
+        "식물이 **빛**을 이용해 **이산화 탄소**와 **물**로 양분을 만드는 것을 **광합성**이라고 해요. 광합성은 주로 **잎**에서 가장 활발하게 일어나요.",
+        "잎에서 만든 양분은 **녹말** 형태로 저장되었다가 다른 형태로 바뀌어 **줄기를 통해 식물 전체로** 이동해요. 잎은 **잎몸 · 잎자루**로 이루어져 있고, 잎몸에는 **잎맥**이 있어요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_004.webp",
+        "alt": "광합성 손글씨 노트: 1.광합성 정의(빛↓·CO₂→·물↑·양분→ 4방향 화살표), 2.주로 일어나는 곳(잎), 3.양분의 길(녹말 저장→줄기로 이동), 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "**광합성 = 빛 + 이산화 탄소 + 물 → 양분**",
+        "광합성은 주로 **잎**에서 일어남",
+        "만든 양분은 **녹말로 저장 → 줄기로 이동**"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_028"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_005",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "잎의 증산 작용",
+      "order": 5,
+      "title": "잎은 물을 수증기로 내보내요 — 증산 작용",
+      "body": [
+        "뿌리에서 흡수한 물은 줄기를 거쳐 **잎**에 도달해요. 잎에 도달한 물의 일부는 **수증기**가 되어 잎의 **기공**을 통해 식물 밖으로 빠져나가요. 이것을 **증산 작용**이라고 해요.",
+        "잎 뒷면에 **푸른색 염화 코발트 종이**를 붙이고 햇빛이 잘 드는 곳에 두면 종이 색이 **붉게 변해요**. 잎에서 빠져나온 **수증기**가 종이를 만났기 때문이에요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_005.webp",
+        "alt": "증산 작용 손글씨 노트: 1.증산 작용 정의(잎에서 물→수증기), 2.통로(기공 확대도), 3.염화 코발트 종이 실험(푸른→붉은), 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "증산 작용 = 잎에서 **물이 수증기로** 빠져나가는 것",
+        "통로 = 잎의 **기공**(작은 구멍)",
+        "확인 실험 = **푸른 염화 코발트 종이 → 붉게**"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_029",
+        "crd_2026W14_sci_u3_035"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_006",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "꽃의 생김새와 하는 일",
+      "order": 6,
+      "title": "꽃은 씨를 만들어요 — 꽃가루받이",
+      "body": [
+        "꽃은 **암술 · 수술 · 꽃잎 · 꽃받침**으로 이루어져 있어요(종류에 따라 일부가 없는 것도 있어요). 꽃의 가장 중요한 일은 **씨를 만드는** 것이에요.",
+        "수술의 **꽃가루**가 **곤충 · 새 · 바람 · 물**의 도움으로 암술에 옮겨 붙는 과정을 **꽃가루받이**라고 해요. 꽃가루받이가 일어나면 **씨가 만들어지고**, 씨를 둘러싼 부분이 자라서 **열매**가 돼요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_006.webp",
+        "alt": "꽃 손글씨 노트: 1.꽃의 4부분 분해도(암술·수술·꽃잎·꽃받침), 2.꽃가루받이 도식(곤충·새·바람·물 매개), 3.씨→열매 변화 흐름, 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "꽃의 4부분 = **암술 · 수술 · 꽃잎 · 꽃받침**",
+        "꽃의 일 = **씨 만들기**",
+        "**꽃가루받이** → 씨 → 자라면 **열매**"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_030",
+        "crd_2026W14_sci_u3_031",
+        "crd_2026W14_sci_u3_036"
+      ],
+      "reviewStatus": "parent_review",
+      "validationStatus": "pass"
+    },
+    {
+      "cardId": "cncpt_sci_u3_007",
+      "type": "concept",
+      "subject": "science",
+      "sourceUnit": "U3",
+      "topic": "식물의 각 기관 연결",
+      "order": 7,
+      "title": "식물의 각 기관은 서로 연결되어 있어요",
+      "body": [
+        "식물의 **뿌리 · 줄기 · 잎 · 꽃 · 열매**는 생김새와 하는 일이 서로 다르지만 **밀접한 영향을 주고받아요**. **뿌리가 흡수한 물**은 **줄기를 통해** 식물 전체로 이동하고, 일부는 잎의 기공으로 빠져나가요(증산).",
+        "**잎이 광합성으로 만든 양분**도 **줄기를 통해** 식물 전체로 이동해서 생명 활동에 사용되고, **남은 양분**은 **뿌리 · 줄기 · 열매**에 저장돼요. 그래서 한 기관에 문제가 생기면 **식물 전체가 영향**을 받아요."
+      ],
+      "infographic": {
+        "kind": "image",
+        "src": "concept-images/science/U3/cncpt_sci_u3_007.webp",
+        "alt": "식물 기관 연결성 손글씨 노트(4단 구성): 1.식물 전체 도식, 2-3.물의 길(민트 화살표 뿌리→줄기→잎)과 양분의 길(노랑 화살표 잎→줄기→전체) 한 그림 통합, 4.핵심 정리 표"
+      },
+      "keyPoints": [
+        "물의 길 = **뿌리 → 줄기 → 잎(기공)**",
+        "양분의 길 = **잎 → 줄기 → 전체** → 남으면 **뿌리·줄기·열매에 저장**",
+        "한 기관 문제 = **전체에 영향** (모두 연결)"
+      ],
+      "relatedCardIds": [
+        "crd_2026W14_sci_u3_033",
+        "crd_2026W14_sci_u3_034"
       ],
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
