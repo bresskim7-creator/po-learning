@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.64.6';
-var APP_SW_CACHE = 'sw5646';
+var APP_VERSION = 'v5.64.7';
+var APP_SW_CACHE = 'sw5647';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2350,13 +2350,16 @@ function getCardId(card) {
 }
 
 /**
- * [v5.51] 카드가 아이 세션(말하기 전용/과목/전체복습/집계)에 노출되어도 되는지 판정.
+ * [v5.51 / v5.64.7 갱신] 카드가 아이 세션(말하기 전용/과목/전체복습/집계)에 노출되어도 되는지 판정.
  * 경로마다 필터가 달라서 생긴 재발 버그를 단일 함수로 수렴.
- * - parentOnly: 부모 전용 상담/해설 카드 제외
+ * 의미 축 분리 (Codex 2026-05-22 자문 §11-7 권고 + 사용자 결정):
+ * - parentOnly: 부모 전용 상담/해설 카드 제외 (검토용 노출 통제 — 품질 실패 의미 아님)
  * - disabled: 비활성 카드 제외 (예: phon_06, science 15장)
- * - status/reviewStatus === 'blocked': 검수에서 막은 카드 제외
+ * - status/reviewStatus === 'blocked': 검수에서 막은 카드 제외 (품질 문제)
+ * - status/reviewStatus === 'error_found': 품질 실패 상태 카드 제외 [v5.64.7 추가, disabled 누락 안전망]
  * - validationStatus === 'blocked': 파이프라인 차원에서 막은 카드 제외 (현 데이터엔 없지만 호환용)
  * 주의: duplicate 필터는 여기에 포함하지 않는다 (전체복습 경로에서만 별도 적용).
+ * 후속 보강 (별도 트랙): validator/invariant에 reviewStatus==='error_found'인데 child-visible이면 fail.
  */
 function isChildVisibleCard(card) {
   if (!card) return false;
@@ -2364,6 +2367,10 @@ function isChildVisibleCard(card) {
   if (card.disabled) return false;
   var st = card.reviewStatus || card.status || '';
   if (st === 'blocked') return false;
+  // [v5.64.7] error_found도 아이 노출 차단 (Codex 2026-05-22 자문 §11-7 권고 + 사용자 결정).
+  // parentOnly(검토용 노출 통제)와 의미 분리 — error_found는 품질 실패 상태. disabled 누락 시 안전망.
+  // 농짱짱 카드 crd_2026W14_sth_phon_06(disabled:true)는 이미 위에서 차단됨. 이 라인은 정책 일반화 보강.
+  if (st === 'error_found') return false;
   if (card.validationStatus === 'blocked') return false;
   return true;
 }
