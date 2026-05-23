@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.65.2';
-var APP_SW_CACHE = 'sw5652';
+var APP_VERSION = 'v5.65.3';
+var APP_SW_CACHE = 'sw5653';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -8454,7 +8454,10 @@ function crRenderStep() {
       + '</div>';
   } else if (step === 5) {
     // [v5.65.2] '🔊 모범 다시 듣기' 추가 (비교 능력 보존, modelReplayCount 누적).
-    //          selfPlayFailed 시 '🎤 다시 녹음' 노출 (재녹음 경로 보장, 같게는 disabled 유지).
+    //          selfPlayFailed 시 '🎤 다시 녹음' 노출 (재녹음 경로 보장, 같았어는 disabled 유지).
+    // [v5.65.3] 질문 과거형('같았어?') ↔ 버튼 부사형('같게') 문법 불일치 정정: 버튼 라벨 '같게/다르게' → '같았어 ▶/달랐어 ▶'.
+    //           data 값 'same'/'different' 는 그대로 유지 (closure memo §2-1 attempt event selfCompareRating 계약).
+    //           selfPlayedOnce=true 메시지에 '아래 버튼을 누르면 다음 단어로 가' 안내 추가 (사용자 "왜 안 넘어가지?" 신호 부재 보강).
     var sameDisabled = !crState.selfPlayedOnce;
     var s5msg;
     if (crState.selfPlayFailed) {
@@ -8462,7 +8465,7 @@ function crRenderStep() {
     } else if (sameDisabled) {
       s5msg = '내 녹음을 한 번 들어봐야 "같게"를 누를 수 있어.';
     } else {
-      s5msg = '모범 소리랑 같았어?';
+      s5msg = '모범 소리랑 같았어? 아래 버튼을 누르면 다음 단어로 가';
     }
     ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">' + s5msg + '</div>'
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
@@ -8470,8 +8473,8 @@ function crRenderStep() {
       + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 모범 다시 듣기</button>'
       + '<button id="cr-btn-same" class="btn-stair" onclick="crRateSelf(\'same\')"'
         + (sameDisabled ? ' disabled style="opacity:0.4;"' : ' style="background:#16a34a;color:white;"')
-        + '>같게</button>'
-      + '<button id="cr-btn-different" class="btn-stair" onclick="crRateSelf(\'different\')" style="background:#f59e0b;color:white;">다르게</button>'
+        + '>같았어 ▶</button>'
+      + '<button id="cr-btn-different" class="btn-stair" onclick="crRateSelf(\'different\')" style="background:#f59e0b;color:white;">달랐어 ▶</button>'
       + (crState.selfPlayFailed
           ? '<button class="btn-stair" onclick="crRetryRecording()" style="background:#3b82f6;color:white;">🎤 다시 녹음</button>'
           : '')
