@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.65.1 (2026-05-23): cover_read 활성 시 초기 파일럿 — Block 1 legacy quiz·Block 2 LR 모두 0장 기본 숨김 (config.json speakingPractice.coverReadLegacyQuizCardsPerSession=0 + coverReadLRCardsPerSession=0 신규 키). Block 2 LR cap 분기는 zero-safe typeof===number + 0~2 clamp + fallback 1. cover_read 비활성 시 기존 LR 3장 유지.
+// v5.65.2 (2026-05-23): cover_read UI 클릭 4건으로 감소 — Step 3→4(모범 TTS 종료) + Step 4→5(자기 녹음 재생 종료) 자동 전환 (PAUSE_AFTER_TTS_MS=1500 / PAUSE_AFTER_SELF_PLAY_MS=1500). Step 5에 🔊 모범 다시 듣기 버튼 추가 (modelReplayCount 누적·비교 능력 보존). 자기 녹음 onerror/play-reject 시 selfPlayFailed=true → Step 5에서 같게 disabled 유지 + 🎤 다시 녹음 버튼 노출. self-playback guardrail (§3.4 의식적 자기 청취) 유지. 자동 자기 재생 추가 안 함. attempt event schema 불변.
+// 이전 v5.65.1 (2026-05-23): cover_read 활성 시 초기 파일럿 — Block 1 legacy quiz·Block 2 LR 모두 0장 기본 숨김 (config.json speakingPractice.coverReadLegacyQuizCardsPerSession=0 + coverReadLRCardsPerSession=0 신규 키). Block 2 LR cap 분기는 zero-safe typeof===number + 0~2 clamp + fallback 1. cover_read 비활성 시 기존 LR 3장 유지.
 // 이전 v5.65.0 (2026-05-22 v7): 말하기 개편 Phase 1 — cover_read 첫 production loop + self-playback guardrail + RA 슬롯 교대 + legacy quiz count cap + IndexedDB v2 local write-path. Phase 2/3 (probe·scheduler·calibration risk·Sheets summary·부모 audit) 제외. closure memo §4 완료 기준 8건 + task spec 추가 검증 4건 충족.
 // 이전 v5.64.7 (2026-05-22 v5): isChildVisibleCard()에 error_found 차단 line 추가 (Codex 2026-05-22 자문 §11-7 권고 + 사용자 결정). parentOnly와 의미 분리 주석 명시. 농짱짱 카드(crd_2026W14_sth_phon_06)는 disabled:true로 이미 차단되어 있었으나, error_found 자체가 노출 경로에 들어가는 정책 안전망 보강.
 // 이전 v5.64.6 (2026-05-22): 개념 정리 과학 U4 5장 추가 (하루 동안 태양·별 위치 변화·지구의 자전·낮과 밤·지구의 공전·계절별 별자리) + index.html CONCEPT_UNIT_TITLE 'science::U4': '지구의 운동' 추가
@@ -10,7 +11,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5651';
+const CACHE_NAME = 'po-learning-v5652';
 const PRECACHE = [
   './',
   './index.html',

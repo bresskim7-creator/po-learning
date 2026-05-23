@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.65.1';
-var APP_SW_CACHE = 'sw5651';
+var APP_VERSION = 'v5.65.2';
+var APP_SW_CACHE = 'sw5652';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -8215,7 +8215,12 @@ async function retryPendingRecordings() {
 
 // ===================================================================
 // [v5.65 T2] cover_read 블록 (Step 0~5 + self-playback guardrail)
+// [v5.65.2] UI 클릭 4건으로 감소 — Step 3→4 / Step 4→5 자동 전환. 학습 행위(녹음·자기 청취·판단)은 유지. self-playback guardrail (의식적 자기 청취) §3.4 핵심 유지.
 // ===================================================================
+
+// [v5.65.2] 자동 전환 사이 인지 따라가기 pause (ADHD 고려). 실기기 검증 후 한 곳에서 조정 가능.
+const PAUSE_AFTER_TTS_MS = 1500;
+const PAUSE_AFTER_SELF_PLAY_MS = 1500;
 
 var crState = {
   cards: [],
@@ -8238,7 +8243,13 @@ var crState = {
   selfPlayedOnce: false,
   selfCompareLatencyStart: 0,
   retryCount: 0,
-  failedRecordingAttempts: 0
+  failedRecordingAttempts: 0,
+  selfPlayFailed: false,        // [v5.65.2] self audio onerror/play-reject 시 true. Step 5 UI에서 같게 disabled 유지 + 🎤 다시 녹음 노출.
+  _autoAdvanceTimer: null,      // [v5.65.2] Step 3→4·Step 4→5 자동 전환 timer slot. 새 TTS/play 시 cancel → race 방지.
+  // [v5.65.2 race fix] seq 토큰 — stale callback 무효화. 새 crPlayModel/crPlaySelf 호출 시 ++ → 이전 promise/audio 이벤트는 mySeq 검사로 skip.
+  _modelPlaySeq: 0,
+  _selfPlaySeq: 0,
+  _currentSelfAudio: null       // 활성 self Audio 인스턴스 추적 — crPlayModel 진입 시 pause + currentTime=0 (소리 겹침 방지)
 };
 
 function renderCoverReadBlock() {
@@ -8347,6 +8358,52 @@ function crStartItem(itemIndex) {
   crState.selfCompareLatencyStart = 0;
   crState.retryCount = 0;
   crState.failedRecordingAttempts = 0;
+  // [v5.65.2] 항목 진입 시 selfPlayFailed reset + auto-advance timer clear (race 방지)
+  // [v5.65.2 race fix] seq invalidate (++) + self audio 정지 — 이전 항목의 stale TTS/audio 콜백 무효화
+  crState.selfPlayFailed = false;
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._currentSelfAudio = null;
+  }
+  crRenderStep();
+}
+
+// [v5.65.2] Step 3→4 / Step 4→5 자동 전환 헬퍼. 새 schedule 전 기존 timer cancel → 다시 듣기 race 방지.
+// fire 시점에 currentStep 재확인 → 사용자가 retry 등으로 단계 바꿨으면 advance 안 함.
+function crSchedAutoAdvance(advanceFn, delayMs, requiredStep) {
+  if (crState._autoAdvanceTimer) {
+    clearTimeout(crState._autoAdvanceTimer);
+    crState._autoAdvanceTimer = null;
+  }
+  crState._autoAdvanceTimer = setTimeout(function() {
+    crState._autoAdvanceTimer = null;
+    if (crState.currentStep === requiredStep) advanceFn();
+  }, delayMs);
+}
+
+// [v5.65.2] Step 5 selfPlayFailed 케이스에서 호출. 녹음 리셋 + Step 2 복귀.
+function crRetryRecording() {
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  // [v5.65.2 race fix] seq invalidate + self audio 정지
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._currentSelfAudio = null;
+  }
+  if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
+  crState.recordingRawId = null;
+  crState.recordingRef = null;
+  crState.selfReplayCount = 0;
+  crState.selfPlayedOnce = false;
+  crState.selfPlayFailed = false;
+  crState.selfCompareLatencyStart = 0;
+  crState.modelPlayedAfterAttempt = false;
+  crState.modelReplayCount = 0;
+  crState.currentStep = 2;
   crRenderStep();
 }
 
@@ -8381,29 +8438,43 @@ function crRenderStep() {
       + '<button class="btn-stair" onclick="crSkipItem()" style="opacity:0.7;">건너뛰기</button>'
       + '</div>';
   } else if (step === 3) {
+    // [v5.65.2] '내 녹음 듣기 →' 버튼 제거. crPlayModel(true)의 onended에서 PAUSE_AFTER_TTS_MS 후 자동 Step 4 진입.
     ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">모범 소리를 들어볼게.</div>'
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
       + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 다시 듣기</button>'
-      + '<button class="btn-stair" onclick="crGoToStep4()" style="background:#3b82f6;color:white;">내 녹음 듣기 →</button>'
       + '</div>';
   } else if (step === 4) {
-    var s4msg = crState.selfPlayedOnce ? '한 번 들었어! 비교해보자.' : '내 녹음을 한 번 들어봐.';
+    // [v5.65.2] '비교하기 →' 버튼 제거. crPlaySelf 의 audio.onended/onerror 에서 PAUSE_AFTER_SELF_PLAY_MS 후 자동 Step 5 진입.
+    //          '▶ 내 녹음 듣기' / '🔊 모범 다시 듣기' 는 유지 (의식적 청취 = §3.4 guardrail 핵심 + modelReplayCount telemetry 보존).
+    var s4msg = crState.selfPlayedOnce ? '한 번 들었어!' : '내 녹음을 한 번 들어봐.';
     ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">' + s4msg + '</div>'
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
       + '<button id="cr-btn-self-play" class="btn-stair" onclick="crPlaySelf()">▶ 내 녹음 듣기</button>'
       + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 모범 다시 듣기</button>'
-      + '<button class="btn-stair" onclick="crGoToStep5()" style="background:#3b82f6;color:white;">비교하기 →</button>'
       + '</div>';
   } else if (step === 5) {
+    // [v5.65.2] '🔊 모범 다시 듣기' 추가 (비교 능력 보존, modelReplayCount 누적).
+    //          selfPlayFailed 시 '🎤 다시 녹음' 노출 (재녹음 경로 보장, 같게는 disabled 유지).
     var sameDisabled = !crState.selfPlayedOnce;
-    var s5msg = sameDisabled ? '내 녹음을 한 번 들어봐야 "같게"를 누를 수 있어.' : '모범 소리랑 같았어?';
+    var s5msg;
+    if (crState.selfPlayFailed) {
+      s5msg = '내 녹음을 재생할 수 없어. "다르게"로 진행하거나 다시 녹음할 수 있어.';
+    } else if (sameDisabled) {
+      s5msg = '내 녹음을 한 번 들어봐야 "같게"를 누를 수 있어.';
+    } else {
+      s5msg = '모범 소리랑 같았어?';
+    }
     ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">' + s5msg + '</div>'
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
       + '<button id="cr-btn-self-play" class="btn-stair" onclick="crPlaySelf()">▶ 내 녹음 다시 듣기</button>'
+      + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 모범 다시 듣기</button>'
       + '<button id="cr-btn-same" class="btn-stair" onclick="crRateSelf(\'same\')"'
         + (sameDisabled ? ' disabled style="opacity:0.4;"' : ' style="background:#16a34a;color:white;"')
         + '>같게</button>'
       + '<button id="cr-btn-different" class="btn-stair" onclick="crRateSelf(\'different\')" style="background:#f59e0b;color:white;">다르게</button>'
+      + (crState.selfPlayFailed
+          ? '<button class="btn-stair" onclick="crRetryRecording()" style="background:#3b82f6;color:white;">🎤 다시 녹음</button>'
+          : '')
       + '</div>';
   }
 
@@ -8515,6 +8586,14 @@ async function crToggleRecording() {
 }
 
 function crSkipItem() {
+  // [v5.65.2 race fix] seq invalidate + timer/self audio 정리
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._currentSelfAudio = null;
+  }
   if (crState.isRecording) {
     try { crState.mediaRecorder && crState.mediaRecorder.stop(); } catch(_) {}
     crState.isRecording = false;
@@ -8536,94 +8615,213 @@ function crSkipItem() {
   crAdvanceItem();
 }
 
+// [v5.65.2] crPlayModel — Step 3 자동 전환 + Step 4 self play 후 비교 단계 진입 보강.
+// initial=true(Step 3 자동) 또는 사용자 '🔊 다시 듣기' 둘 다, TTS 종료(성공/실패 무관) 시 자동 전환 schedule.
+// stuck 방지: textToSpeech promise reject 또는 try/catch 진입 시에도 onTtsEnd 호출 → setTimeout 보장.
+// [v5.65.2 race fix] seq 토큰 (_modelPlaySeq) — 더 새로운 TTS가 시작되면 이전 onTtsEnd 콜백은 skip.
+//                    self audio 재생 중이면 pause+seek 0 → 소리 겹침 방지.
+//                    Step 4 fix: 자기 재생 후 pause 중 모범 다시 듣기 → 새 model TTS onTtsEnd 가 Step 5 schedule 다시 함 (이전 race: clear 만 하고 재예약 안 함 → Step 4 stuck).
+// [v5.65.2 race fix 2차] self audio pause 시 _selfPlaySeq++ → 진행 중이던 play().catch / onerror 가
+//                    selfPlayFailed=true 와 Step 5 schedule 을 만들지 않음 (Chrome play interrupted-by-pause race).
+//                    selfPlayedOnce / selfPlayFailed 값은 절대 변경 안 함 (§3.4 의식적 청취 신호 보존).
 function crPlayModel(initial) {
+  // [v5.65.2 race fix 2차] self audio 재생 중이면 textToSpeech 호출 전 pause (소리 겹침 방지) +
+  //                       _selfPlaySeq++ 로 stale callback 무효화 + blob URL revoke (메모리 누수 방지) + 인스턴스 슬롯 null.
+  //                       selfPlayedOnce / selfPlayFailed 는 변경 안 함:
+  //                         - selfPlayedOnce=true 였으면 이전 성공 상태 유지 (Step 5 진입 조건)
+  //                         - selfPlayedOnce=false 였으면 사용자가 모범만 들으려는 의도 → 첫 self play 흔적 제거 (selfPlayedOnce 그대로 false 유지)
+  //                         - selfPlayFailed 는 별도 사이클에서만 관리
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._selfPlaySeq++;  // play().catch / onerror callback 들이 stale → handleSelfPlayFailure skip
+    if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
+    crState._currentSelfAudio = null;
+  }
+
+  // [v5.65.2 race fix] seq 토큰 — 이 호출 식별
+  crState._modelPlaySeq++;
+  var mySeq = crState._modelPlaySeq;
+  var stepAtStart = crState.currentStep;
+
   var item = crState.cards[crState.currentIndex];
-  if (!item || !item.pronunciation) return;
+  // 항목/발음 정보 없음 — Step 3 stuck 방지로 즉시 다음 단계 schedule
+  if (!item || !item.pronunciation) {
+    if (stepAtStart === 3 && crState.currentStep === 3) {
+      crSchedAutoAdvance(crGoToStep4, PAUSE_AFTER_TTS_MS, 3);
+    } else if (stepAtStart === 4 && crState.currentStep === 4 && (crState.selfPlayedOnce || crState.selfPlayFailed)) {
+      crSchedAutoAdvance(crGoToStep5, PAUSE_AFTER_SELF_PLAY_MS, 4);
+    }
+    return;
+  }
   if (!initial) crState.modelReplayCount++;
   crState.modelPlayedAfterAttempt = true;
+
+  // 새 TTS 시작 → 기존 auto-advance timer 취소 (다시 듣기 race 방지)
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+
   // UX #4: TTS 지연 timeout
   var nudgeEl = document.getElementById('cr-recording-status');
   var ttsTimeout = setTimeout(function() {
     if (nudgeEl) nudgeEl.textContent = '소리 준비 중...';
   }, 1500);
+
+  var settled = false;
+  function onTtsEnd() {
+    if (settled) return;
+    settled = true;
+    clearTimeout(ttsTimeout);
+    // [v5.65.2 race fix] mySeq stale — 더 새로운 TTS가 시작됐다면 이번 콜백은 무시
+    if (mySeq !== crState._modelPlaySeq) return;
+
+    // Step 3 → 4: TTS 첫 안내 또는 다시 듣기 후 진행
+    if (stepAtStart === 3 && crState.currentStep === 3) {
+      crSchedAutoAdvance(crGoToStep4, PAUSE_AFTER_TTS_MS, 3);
+      return;
+    }
+    // Step 4 → 5: 자기 재생 후 pause 중 모범 다시 듣기 case race fix.
+    //             self play 가 한 번 끝났거나(selfPlayedOnce) 실패한(selfPlayFailed) 경우에만 Step 5 진행.
+    //             자기 재생 전(아직 비교 데이터 없음) 또는 자기 재생 중(_currentSelfAudio pause로 onended 안 옴)에는 schedule 안 함.
+    // 주의: 스펙 L"requiredStep=5"는 의미상 fire 안 됨 → typo 정정. helper 의미('fire if currentStep===requiredStep') 일관 위해 4 사용.
+    if (stepAtStart === 4 && crState.currentStep === 4 && (crState.selfPlayedOnce || crState.selfPlayFailed)) {
+      crSchedAutoAdvance(crGoToStep5, PAUSE_AFTER_SELF_PLAY_MS, 4);
+      return;
+    }
+    // 그 외 (Step 4 자기 재생 전 모범 다시 듣기, Step 5 모범 다시 듣기 등) → 자동 전환 예약 없음
+  }
+
   try {
     var p = textToSpeech(item.pronunciation, 'ko', { rate: 0.9 });
     if (p && p.then) {
-      p.then(function(){ clearTimeout(ttsTimeout); }, function(){ clearTimeout(ttsTimeout); });
+      // 성공/실패 모두 onTtsEnd 호출 (stuck 방지)
+      p.then(onTtsEnd, onTtsEnd);
     } else {
-      clearTimeout(ttsTimeout);
+      onTtsEnd();
     }
   } catch (e) {
-    clearTimeout(ttsTimeout);
     console.warn('[cover_read] TTS 실패:', e);
     if (nudgeEl) nudgeEl.textContent = '소리가 안 나오네. 화면 글자를 보고 진행하자.';
+    onTtsEnd();
   }
   // UX #5: replay loop nudge
   if (crState.modelReplayCount >= 3 && nudgeEl) {
     setTimeout(function() {
-      if (nudgeEl) nudgeEl.textContent = '이제 직접 읽어볼까?';
+      if (nudgeEl) nudgeEl.textContent = '곧 다음 단계로 넘어갈게.';
     }, 1200);
   }
 }
 
 function crGoToStep4() {
+  // [v5.65.2] step 전환 housekeeping — pending timer 정리
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
   crState.currentStep = 4;
   crRenderStep();
 }
 
 function crGoToStep5() {
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
   crState.currentStep = 5;
   crRenderStep();
 }
 
+// [v5.65.2] crPlaySelf — Step 4 자동 Step 5 전환 + onerror/play-reject fallback 보강.
+// 정상 onended: selfPlayedOnce=true → Step 4면 Step 5 자동 진입 / Step 5면 UI 재렌더 (같게 활성)
+// 실패 (load null / onerror / play reject / catch): selfPlayFailed=true → Step 4면 Step 5 자동 진입 (selfPlayedOnce는 false → 같게 disabled / 다르게+다시녹음 사용)
+// [v5.65.2 race fix] seq 토큰 (_selfPlaySeq) — 더 새로운 self-play 시도되면 이전 audio 이벤트는 skip.
+//                    _currentSelfAudio 추적 → crPlayModel 가 pause 가능.
 async function crPlaySelf() {
   if (!crState.recordingRawId) {
     var status = document.getElementById('cr-recording-status');
     if (status) status.textContent = '재생할 녹음이 없어. 다시 녹음해볼까?';
     return;
   }
+  // [v5.65.2 race fix] 이전 self audio 가 활성이면 pause + invalidate
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._currentSelfAudio = null;
+  }
+  // 새 self-play 시도 → 기존 auto-advance timer 취소 + seq 토큰 ++
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._selfPlaySeq++;
+  var mySeq = crState._selfPlaySeq;
+
+  function handleSelfPlayFailure(msg) {
+    if (mySeq !== crState._selfPlaySeq) return;  // stale callback
+    crState.selfPlayFailed = true;
+    var s = document.getElementById('cr-recording-status');
+    if (s) s.textContent = msg || '재생할 수 없어요.';
+    if (crState.currentStep === 4) {
+      // Step 4 stuck 방지 — Step 5 자동 진입 (selfPlayedOnce는 false 유지 → 같게 disabled)
+      crSchedAutoAdvance(crGoToStep5, PAUSE_AFTER_SELF_PLAY_MS, 4);
+    } else if (crState.currentStep === 5) {
+      // Step 5에서 재생 실패 시 UI 재렌더 (selfPlayFailed 반영 → 🎤 다시 녹음 노출)
+      crRenderStep();
+    }
+  }
+
   try {
-    // 매번 새 blob URL 생성 (이전 URL 은 onended 에서 revoke)
     var url = await loadCoverReadRecording(crState.recordingRawId);
+    // [v5.65.2 race fix] load resolve 사이에 새 호출이 있었으면 abort
+    if (mySeq !== crState._selfPlaySeq) {
+      if (url) revokeCoverReadRecordingUrl(url);
+      return;
+    }
     if (!url) {
-      // UX #3: 재생 실패
-      var s = document.getElementById('cr-recording-status');
-      if (s) s.textContent = '재생할 수 없어. "다르게"만 누를 수 있어.';
+      handleSelfPlayFailure('재생할 수 없어요.');
       return;
     }
     crState.selfBlobUrl = url;
     var audio = new Audio(url);
+    crState._currentSelfAudio = audio;  // crPlayModel 이 pause 할 수 있도록 추적
     audio.onended = function() {
+      // [v5.65.2 race fix] mySeq stale — 사용자가 새 자기 재생을 시작했거나 항목 바뀌었으면 skip
+      if (mySeq !== crState._selfPlaySeq) return;
       crState.selfReplayCount++;
       crState.selfPlayedOnce = true;
+      crState.selfPlayFailed = false;  // 재생 성공 → fail 플래그 해제 (이전 실패에서 복구 case)
       revokeCoverReadRecordingUrl(url);
       if (crState.selfBlobUrl === url) crState.selfBlobUrl = null;
-      crRenderStep();
+      if (crState._currentSelfAudio === audio) crState._currentSelfAudio = null;
+      if (crState.currentStep === 4) {
+        crSchedAutoAdvance(crGoToStep5, PAUSE_AFTER_SELF_PLAY_MS, 4);
+      } else if (crState.currentStep === 5) {
+        // Step 5에서 다시 듣기 후 UI 갱신 (selfPlayedOnce 반영 → 같게 활성)
+        crRenderStep();
+      }
     };
     audio.onerror = function() {
+      if (mySeq !== crState._selfPlaySeq) return;
       console.warn('[cover_read] self audio error');
-      var s = document.getElementById('cr-recording-status');
-      if (s) s.textContent = '재생 중 문제가 생겼어.';
       revokeCoverReadRecordingUrl(url);
       if (crState.selfBlobUrl === url) crState.selfBlobUrl = null;
+      if (crState._currentSelfAudio === audio) crState._currentSelfAudio = null;
+      handleSelfPlayFailure('재생할 수 없어요.');
     };
     audio.play().catch(function(err) {
+      if (mySeq !== crState._selfPlaySeq) return;
       console.warn('[cover_read] self play 실패:', err);
-      var s = document.getElementById('cr-recording-status');
-      if (s) s.textContent = '재생할 수 없어. 다시 시도해볼까?';
       revokeCoverReadRecordingUrl(url);
       if (crState.selfBlobUrl === url) crState.selfBlobUrl = null;
+      if (crState._currentSelfAudio === audio) crState._currentSelfAudio = null;
+      handleSelfPlayFailure('재생할 수 없어요. 다시 시도해볼까?');
     });
   } catch (e) {
     console.warn('[cover_read] loadRecording 실패:', e);
-    var s2 = document.getElementById('cr-recording-status');
-    if (s2) s2.textContent = '녹음을 불러올 수 없어.';
+    handleSelfPlayFailure('녹음을 불러올 수 없어요.');
   }
 }
 
 function crRateSelf(rating) {
   // UX #6: '같게' guardrail
   if (rating === 'same' && !crState.selfPlayedOnce) return;
+
+  // [v5.65.2 race fix] 판단 진입 — pending timer 정리 + seq invalidate + self audio 정지
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._currentSelfAudio = null;
+  }
 
   var latency = crState.selfCompareLatencyStart > 0 ? (Date.now() - crState.selfCompareLatencyStart) : 0;
   var item = crState.cards[crState.currentIndex];
@@ -8652,12 +8850,15 @@ function crRateSelf(rating) {
       crAdvanceItem();
     } else {
       // 1회 다르게 → Step 2 로 재녹음. retry counter 메모리 only.
+      // [v5.65.2] pending auto-advance timer 정리 (race 방지)
+      if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
       var status = document.getElementById('cr-recording-status');
       if (status) status.textContent = '다시 한 번 녹음해볼까?';
       crState.recordingRawId = null;
       crState.recordingRef = null;
       crState.selfReplayCount = 0;
       crState.selfPlayedOnce = false;
+      crState.selfPlayFailed = false;
       crState.selfCompareLatencyStart = 0;
       if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
       crState.currentStep = 2;
@@ -8676,6 +8877,15 @@ function crAdvanceItem() {
 
 function crFinishBlock() {
   // 블록 종료 — session summary write (await 안 함, endSession 진행 방해 방지)
+  // [v5.65.2] pending auto-advance timer 정리
+  // [v5.65.2 race fix] seq invalidate + self audio 정지
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  if (crState._currentSelfAudio) {
+    try { crState._currentSelfAudio.pause(); crState._currentSelfAudio.currentTime = 0; } catch(_) {}
+    crState._currentSelfAudio = null;
+  }
   writeCoverReadSessionSummary().catch(function(e){ console.warn('[cover_read] summary write 실패:', e); });
   if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
   if (crState.stream) { try { crState.stream.getTracks().forEach(function(t){t.stop();}); } catch(_) {} crState.stream = null; }
