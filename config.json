@@ -172,7 +172,8 @@
   },
   "speakingPractice": {
     "lrCardsPerSession": 3,
-    "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립."
+    "coverReadLegacyQuizCardsPerSession": 1,
+    "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립. v5.65 T4: coverReadLegacyQuizCardsPerSession은 cover_read 활성 시 Block 1 legacy quiz cap (0~2 clamp). 값 0은 유효 cap (legacy quiz 미출현). 미지정 시 기본 1. cover_read 비활성 시 기존 5장 유지."
   },
   "subjectSession": {
     "enabled": true,

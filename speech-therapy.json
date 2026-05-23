@@ -4651,5 +4651,45 @@
       "reviewStatus": "parent_review",
       "validationStatus": "pass"
     }
+  ],
+  "coverReadSets": [
+    {
+      "id": "bk5-1-1-p19-21-a",
+      "sourceBook": "읽기자신감5권",
+      "bookUnit": "1.1",
+      "ruleType": "연음",
+      "sourcePages": "19-20",
+      "activityKind": "apply-grid",
+      "practiceMode": "cover_read",
+      "homeworkDate": "2026-05-21",
+      "reviewStatus": "parent_review_pending",
+      "_note": "v1 파일럿 10개 확정 (p.19~20 grep 1:1 검증, 무릎 포함). 모음 조사 -이(p.19) + -에(p.20)만 사용 → 순수 연음. 자음 조사(과/부터)·용언 어미(-아/-어)·과거어미(-았/-었)는 v1 범위 외.",
+      "items": [
+        { "id": "bk5-1-1-p19-book-i", "orthography": "책이", "pronunciation": "채기", "sourceForm": "책 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-nun-i", "orthography": "눈이", "pronunciation": "누니", "sourceForm": "눈 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-byeol-i", "orthography": "별이", "pronunciation": "벼리", "sourceForm": "별 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-jip-i", "orthography": "집이", "pronunciation": "지비", "sourceForm": "집 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-ot-e", "orthography": "옷에", "pronunciation": "오세", "sourceForm": "옷 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-nat-e", "orthography": "낮에", "pronunciation": "나제", "sourceForm": "낮 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-kkot-e", "orthography": "꽃에", "pronunciation": "꼬체", "sourceForm": "꽃 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-bat-e", "orthography": "밭에", "pronunciation": "바테", "sourceForm": "밭 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-sup-e", "orthography": "숲에", "pronunciation": "수페", "sourceForm": "숲 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-mureup-e", "orthography": "무릎에", "pronunciation": "무르페", "sourceForm": "무릎 + 에", "ruleType": "연음" }
+      ]
+    }
+  ],
+  "coverReadProbes": [
+    {
+      "id": "probe-bk5-1-1-001",
+      "targetItemIds": ["bk5-1-1-p19-book-i"],
+      "type": "phonetic_text_choice",
+      "stem": "책이",
+      "_note": "Phase 1 데이터 계약만. probe 실행 로직은 Phase 2.",
+      "choices": [
+        { "text": "[채기]", "correct": true },
+        { "text": "[책이]", "correct": false },
+        { "text": "[채이]", "correct": false }
+      ]
+    }
   ]
 }

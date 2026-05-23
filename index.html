@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.64.7';
-var APP_SW_CACHE = 'sw5647';
+var APP_VERSION = 'v5.65.0';
+var APP_SW_CACHE = 'sw5650';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -1866,9 +1866,14 @@ async function loadContentFiles() {
         c._blockType = 'listen-repeat';
         return c;
       });
+      // [v5.65 T1] cover_read 정적 데이터 로드 (top-level coverReadSets/coverReadProbes)
+      APP.coverReadSets = Array.isArray(stRes.coverReadSets) ? stRes.coverReadSets : [];
+      APP.coverReadProbes = Array.isArray(stRes.coverReadProbes) ? stRes.coverReadProbes : [];
     } else {
       APP.speechTherapyCards = [];
       APP.listenRepeatCards = [];
+      APP.coverReadSets = [];
+      APP.coverReadProbes = [];
     }
     // [v5.64] 개념 카드 로드 (concept-cards.json, 일반 세션과 격리)
     APP.conceptCards = (conceptRes && Array.isArray(conceptRes.cards)) ? conceptRes.cards : [];
@@ -3227,18 +3232,51 @@ function startReadAloudSubjectSession() {
 }
 
 // [v5.0.8] 말하기 연습 통합 세션 (퀴즈 + 듣고말하기 + 따라읽기)
+// [v5.65 T3] cover_read 활성 시 Block 3 RA → cover_read 교대. Block 1 quizCount 도 config cap 적용 (T4).
 function startSpeakingPracticeSession() {
   var allCards = [];
 
-  // Block 1: 말하기 퀴즈 (4지선다, 최대 5장)
+  // [v5.65 T3] cover_read 활성 set 판정. Phase 1 은 first set 단순 가정 — coverReadSets[0]에 items 있으면 active.
+  var coverReadActive = !!(APP.coverReadSets && APP.coverReadSets.length > 0
+    && APP.coverReadSets[0].items && APP.coverReadSets[0].items.length > 0);
+
+  // [v5.65 T7] cover_read 세션 컨텍스트 초기화 (active 일 때만). attempt/summary writer 에서 참조.
+  if (coverReadActive) {
+    APP.coverReadSession = {
+      sessionId: makeCoverReadId('sess-'),
+      startedAt: Date.now(),
+      itemsAttempted: 0,
+      selfSameCount: 0,
+      selfDifferentCount: 0
+    };
+  } else {
+    APP.coverReadSession = null;
+  }
+
+  // [v5.65 T9] retention cleanup — fire-and-forget. 세션 시작 지연 방지 (await 안 함).
+  cleanupCoverReadStorage();
+
+  // Block 1: 말하기 퀴즈 (4지선다)
   // [v5.51] isChildVisibleCard 공용 필터로 수렴
+  // [v5.65 T4] cover_read 활성 시 config cap (0~2 clamp), 비활성 시 기존 5장.
   var stqPool = (APP.speechTherapyCards || []).filter(function(c) {
     return !c._lessonId && isChildVisibleCard(c);
   });
   if (stqPool.length > 0) {
-    var stqCards = shuffleArray(stqPool.slice()).slice(0, 5);
-    stqCards = sortByDifficulty(stqCards);
-    allCards = allCards.concat(stqCards);
+    var quizCount = 5;
+    if (coverReadActive) {
+      // zero-safe: config 0 은 유효 cap (legacy quiz 미출현). 미지정/non-number 시 기본 1.
+      var speakingCfg = APP.config && APP.config.speakingPractice;
+      var configuredCoverReadQuizCount = speakingCfg && speakingCfg.coverReadLegacyQuizCardsPerSession;
+      quizCount = (typeof configuredCoverReadQuizCount === 'number')
+        ? Math.max(0, Math.min(2, configuredCoverReadQuizCount))
+        : 1;
+    }
+    if (quizCount > 0) {
+      var stqCards = shuffleArray(stqPool.slice()).slice(0, quizCount);
+      stqCards = sortByDifficulty(stqCards);
+      allCards = allCards.concat(stqCards);
+    }
   }
 
   // Block 2: 듣고말하기
@@ -3251,24 +3289,48 @@ function startSpeakingPracticeSession() {
     allCards = allCards.concat(lrCards);
   }
 
-  // Block 3: 따라읽기 (다음 레슨 1편, 최대 10줄 캡 — 전체복습과 동일 규칙)
-  // [v5.51] selectSpeechTherapyLesson 공유 + 10장 캡. recordHistory:false로 전체복습과의 중복 기록 방지.
-  var raLesson = selectSpeechTherapyLesson({ recordHistory: false });
-  if (raLesson && raLesson.lines && raLesson.lines.length > 0) {
-    APP.currentLessonInfo = { id: raLesson.id, title: raLesson.title, type: 'read_aloud_subject' };
-    var raLines = raLesson.lines.slice(0, 10);
-    var raCards = raLines.map(function(line, i) {
+  // Block 3: cover_read (active set 있으면) 또는 기존 따라읽기 (RA fallback)
+  if (coverReadActive) {
+    // [v5.65 T3] cover_read items → allCards. _blockType:'cover-read'. renderCard dispatcher → renderCoverReadBlock.
+    var crSet = APP.coverReadSets[0];
+    APP.currentLessonInfo = { id: crSet.id, title: ('연음 따라읽기 — ' + (crSet.bookUnit || '1.1')), type: 'cover_read' };
+    var crCards = crSet.items.map(function(item, i) {
       return {
-        _raCard: true, _lessonId: raLesson.id, _lineIndex: i,
-        _blockType: 'read-aloud',
-        _lessonTitle: raLesson.title,  // v5.49: renderReadAloudBlock에서 참조
-        type: 'read_aloud', subject: 'speech_therapy',
-        text: line.text, pronunciation: line.pronunciation || '',
-        rules: line.rules || [], ttsText: line.text, difficulty: 1,
-        question: { ttsText: line.text, displayWord: line.text, text: '따라 읽어봐' }  // v5.49: renderReadAloudBlock + raToggleRecording 필수
+        _blockType: 'cover-read',
+        _crSetId: crSet.id,
+        _crItemId: item.id,
+        _crItemIndex: i,
+        _crSetMeta: { ruleType: crSet.ruleType || item.ruleType, bookUnit: crSet.bookUnit, sourcePages: crSet.sourcePages },
+        type: 'cover_read', subject: 'speech_therapy',
+        id: item.id,
+        orthography: item.orthography || '',
+        pronunciation: item.pronunciation || '',
+        sourceForm: item.sourceForm || '',
+        ruleType: item.ruleType || crSet.ruleType || '',
+        ttsText: item.orthography || ''
       };
     });
-    allCards = allCards.concat(raCards);
+    allCards = allCards.concat(crCards);
+  } else {
+    // 기존 따라읽기 (다음 레슨 1편, 최대 10줄 캡 — 전체복습과 동일 규칙)
+    // [v5.51] selectSpeechTherapyLesson 공유 + 10장 캡. recordHistory:false로 전체복습과의 중복 기록 방지.
+    var raLesson = selectSpeechTherapyLesson({ recordHistory: false });
+    if (raLesson && raLesson.lines && raLesson.lines.length > 0) {
+      APP.currentLessonInfo = { id: raLesson.id, title: raLesson.title, type: 'read_aloud_subject' };
+      var raLines = raLesson.lines.slice(0, 10);
+      var raCards = raLines.map(function(line, i) {
+        return {
+          _raCard: true, _lessonId: raLesson.id, _lineIndex: i,
+          _blockType: 'read-aloud',
+          _lessonTitle: raLesson.title,  // v5.49: renderReadAloudBlock에서 참조
+          type: 'read_aloud', subject: 'speech_therapy',
+          text: line.text, pronunciation: line.pronunciation || '',
+          rules: line.rules || [], ttsText: line.text, difficulty: 1,
+          question: { ttsText: line.text, displayWord: line.text, text: '따라 읽어봐' }  // v5.49: renderReadAloudBlock + raToggleRecording 필수
+        };
+      });
+      allCards = allCards.concat(raCards);
+    }
   }
 
   if (allCards.length === 0) {
@@ -4222,6 +4284,12 @@ function renderCard() {
   // v4.8: 읽기 연습(따라읽기) 블록 감지 → 별도 렌더러로 전환
   if (card._blockType === 'read-aloud') {
     renderReadAloudBlock();
+    return;
+  }
+
+  // [v5.65 T2] cover_read 블록 감지 → 별도 렌더러로 전환
+  if (card._blockType === 'cover-read') {
+    renderCoverReadBlock();
     return;
   }
 
@@ -6037,13 +6105,24 @@ async function transcribeWithWhisper(audioBlob, expectedText) {
 }
 
 // [v5.0 T14] 오프라인 녹음 저장 + 후채점
+// [v5.65 T5] DB version 1→2 bump. cover_read_recordings + cover_read_events store 신설. 기존 pending store 유지.
 function openRecordingsDB() {
   return new Promise(function(resolve, reject) {
-    var request = indexedDB.open('po_recordings', 1);
+    var request = indexedDB.open('po_recordings', 2);
     request.onupgradeneeded = function(event) {
       var db = event.target.result;
+      // v1 store (기존 사용자 데이터 보존)
       if (!db.objectStoreNames.contains('pending')) {
         db.createObjectStore('pending', { keyPath: 'id' });
+      }
+      // v2 신규 store (cover_read)
+      if (event.oldVersion < 2) {
+        if (!db.objectStoreNames.contains('cover_read_recordings')) {
+          db.createObjectStore('cover_read_recordings', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('cover_read_events')) {
+          db.createObjectStore('cover_read_events', { keyPath: 'id' });
+        }
       }
     };
     request.onsuccess = function(event) { resolve(event.target.result); };
@@ -6070,6 +6149,158 @@ async function savePendingRecording(audioBlob, cardId, expectedText) {
     });
   } catch(e) {
     console.warn('[Offline] 녹음 저장 실패:', e);
+  }
+}
+
+// ===================================================================
+// [v5.65] cover_read 로컬 저장 — recording / event / retention
+// ===================================================================
+
+// [v5.65 T7] tx commit 까지 대기. add 직후 resolve 시 immediate lookup race 방지 (Codex 보정).
+function waitForCoverReadTx(tx) {
+  return new Promise(function(resolve, reject) {
+    tx.oncomplete = function() { resolve(); };
+    tx.onerror = function() { reject(tx.error); };
+    tx.onabort = function() { reject(tx.error || new Error('cover_read transaction aborted')); };
+  });
+}
+
+// [v5.65 T8] cover_read 첫 녹음 저장. commit 후 { ref(URI 형태 event 기록용), rawId(store key, playback 조회용) } 반환.
+async function saveCoverReadRecording(itemId, audioBlob) {
+  var id = makeCoverReadId('crrec-');
+  var record = {
+    id: id,
+    blob: audioBlob,
+    itemId: itemId,
+    sessionId: (APP.coverReadSession && APP.coverReadSession.sessionId) || null,
+    productionDayKey: todayStr(),
+    timestamp: Date.now(),
+    auditedAt: null
+  };
+  var db = await openRecordingsDB();
+  var tx = db.transaction('cover_read_recordings', 'readwrite');
+  tx.objectStore('cover_read_recordings').add(record);
+  await waitForCoverReadTx(tx);
+  return { ref: 'idb://po_recordings/cover_read_recordings/' + id, rawId: id };
+}
+
+// [v5.65 T8] cover_read 녹음 재생용 blob URL 생성. recordingId 는 store key (crrec-*).
+async function loadCoverReadRecording(recordingId) {
+  var db = await openRecordingsDB();
+  var tx = db.transaction('cover_read_recordings', 'readonly');
+  var store = tx.objectStore('cover_read_recordings');
+  return new Promise(function(resolve, reject) {
+    var req = store.get(recordingId);
+    req.onsuccess = function() {
+      if (req.result && req.result.blob) {
+        resolve(URL.createObjectURL(req.result.blob));
+      } else {
+        resolve(null);
+      }
+    };
+    req.onerror = function() { reject(req.error); };
+  });
+}
+
+// [v5.65 T8] blob URL 메모리 해제 (재생 완료 콜백에서 호출).
+function revokeCoverReadRecordingUrl(url) {
+  if (url) {
+    try { URL.revokeObjectURL(url); } catch(e) {}
+  }
+}
+
+// [v5.65 T7] attempt event writer. Phase 1 null/false/[] 계약 (closure §2-1).
+async function writeCoverReadAttempt(itemId, payload) {
+  var event = {
+    id: makeCoverReadId('att-'),
+    type: 'cover_read_attempt',
+    sessionId: (APP.coverReadSession && APP.coverReadSession.sessionId) || null,
+    itemId: itemId,
+    timestamp: Date.now(),
+    productionDayKey: todayStr(),
+    firstAttemptRecordingRef: (payload && payload.recordingRef) || null,
+    modelPlayedAfterAttempt: !!(payload && payload.modelPlayed),
+    modelReplayCount: (payload && payload.modelReplayCount) || 0,
+    selfReplayCount: (payload && payload.selfReplayCount) || 0,
+    selfCompareRating: payload ? payload.selfCompareRating : null,
+    selfCompareLatencyMs: (payload && payload.selfCompareLatencyMs) || 0,
+    qualifyingAttempt: null,        // [Phase 2 — out of scope]
+    disqualifyReason: null,
+    helpLevel: (payload && payload.helpLevel) || 'model_only',
+    probe: { shown: false, type: null, correct: null, chosenIndex: null, timing: null },
+    schedulerStateBefore: null,     // [Phase 2 — out of scope]
+    schedulerStateAfter: null,      // [Phase 2 — out of scope]
+    calibrationRiskTags: []         // [Phase 2 — out of scope]
+  };
+  var db = await openRecordingsDB();
+  var tx = db.transaction('cover_read_events', 'readwrite');
+  tx.objectStore('cover_read_events').add(event);
+  await waitForCoverReadTx(tx);
+  return event;
+}
+
+// [v5.65 T7] session summary writer. top-level timestamp 필수 (T9 retention key, Codex 보정).
+async function writeCoverReadSessionSummary() {
+  var sess = APP.coverReadSession || { sessionId: null, startedAt: Date.now(), itemsAttempted: 0, selfSameCount: 0, selfDifferentCount: 0 };
+  var endedAt = Date.now();
+  var event = {
+    id: makeCoverReadId('sum-'),
+    type: 'cover_read_session_summary',
+    sessionId: sess.sessionId,
+    timestamp: endedAt,             // T9 retention 공통 key
+    itemsAttempted: sess.itemsAttempted || 0,
+    qualifyingAttempts: null,       // [Phase 2 — out of scope]
+    probesShown: 0,                 // [Phase 2 — out of scope]
+    probesCorrect: null,            // [Phase 2 — out of scope]
+    selfSameCount: sess.selfSameCount || 0,
+    selfDifferentCount: sess.selfDifferentCount || 0,
+    durationMs: endedAt - (sess.startedAt || endedAt),
+    startedAt: sess.startedAt || endedAt,
+    endedAt: endedAt
+  };
+  var db = await openRecordingsDB();
+  var tx = db.transaction('cover_read_events', 'readwrite');
+  tx.objectStore('cover_read_events').add(event);
+  await waitForCoverReadTx(tx);
+  return event;
+}
+
+// [v5.65 T9] retention cleanup. recordings 14일 (audited 시 audit+7일 중 늦은 시점), events 30일. fire-and-forget 호출.
+async function cleanupCoverReadStorage() {
+  try {
+    var now = Date.now();
+    var DAY = 86400000;
+    var db = await openRecordingsDB();
+
+    // cover_read_recordings cleanup
+    var tx1 = db.transaction('cover_read_recordings', 'readwrite');
+    var store1 = tx1.objectStore('cover_read_recordings');
+    store1.openCursor().onsuccess = function(e) {
+      var cursor = e.target.result;
+      if (!cursor) return;
+      var rec = cursor.value;
+      var deleteAfter;
+      if (!rec.auditedAt) {
+        deleteAfter = (rec.timestamp || 0) + 14 * DAY;
+      } else {
+        deleteAfter = Math.max((rec.timestamp || 0) + 14 * DAY, rec.auditedAt + 7 * DAY);
+      }
+      if (now >= deleteAfter) cursor.delete();
+      cursor.continue();
+    };
+
+    // cover_read_events cleanup (attempt + summary 공통 top-level timestamp 기준)
+    var tx2 = db.transaction('cover_read_events', 'readwrite');
+    var store2 = tx2.objectStore('cover_read_events');
+    store2.openCursor().onsuccess = function(e) {
+      var cursor = e.target.result;
+      if (!cursor) return;
+      var ts = cursor.value && cursor.value.timestamp;
+      if (typeof ts === 'number' && now >= ts + 30 * DAY) cursor.delete();
+      cursor.continue();
+    };
+  } catch(e) {
+    console.warn('[cover_read] cleanup 실패:', e);
   }
 }
 
@@ -7971,6 +8202,476 @@ async function retryPendingRecordings() {
 }
 
 // ===================================================================
+// [v5.65 T2] cover_read 블록 (Step 0~5 + self-playback guardrail)
+// ===================================================================
+
+var crState = {
+  cards: [],
+  sessionStartIndex: 0,
+  currentIndex: 0,
+  currentStep: 0,
+  isRecording: false,
+  mediaRecorder: null,
+  recordingChunks: [],
+  recordingSeconds: 0,
+  recordingTimer: null,
+  stream: null,
+  itemStartTime: 0,
+  recordingRawId: null,
+  recordingRef: null,
+  modelPlayedAfterAttempt: false,
+  modelReplayCount: 0,
+  selfBlobUrl: null,
+  selfReplayCount: 0,
+  selfPlayedOnce: false,
+  selfCompareLatencyStart: 0,
+  retryCount: 0,
+  failedRecordingAttempts: 0
+};
+
+function renderCoverReadBlock() {
+  var s = APP.session;
+  var idx = s.currentIndex;
+
+  // 연속된 cover-read 카드 수집
+  crState.cards = [];
+  crState.sessionStartIndex = idx;
+  for (var i = idx; i < s.cards.length; i++) {
+    if (s.cards[i]._blockType === 'cover-read') {
+      crState.cards.push(s.cards[i]);
+    } else {
+      break;
+    }
+  }
+
+  if (crState.cards.length === 0) {
+    // empty set fallback — UX 시나리오 #10
+    s.currentIndex++;
+    renderCard();
+    return;
+  }
+
+  // [v5.65 T2] 과목 전환 메시지 + prevSubject + subject badge.
+  // cover_read 진입 직전 블록(LR 등)에서 남은 badge가 그대로 유지되지 않도록 LR/RA 패턴 동일.
+  var transMsg = document.getElementById('transition-msg');
+  if (transMsg && s.prevSubject && s.prevSubject !== 'speech_therapy' && s.prevSubject !== 'cover_read') {
+    var setLabel = (crState.cards[0]._crSetMeta && crState.cards[0]._crSetMeta.ruleType)
+      ? ('이제 ' + crState.cards[0]._crSetMeta.ruleType + ' 따라 읽기 해보자!')
+      : '이제 소리 따라 읽기 해보자!';
+    transMsg.textContent = setLabel;
+    transMsg.style.display = 'block';
+    setTimeout(function() { transMsg.style.display = 'none'; }, 2500);
+  }
+  var lessonProg = document.getElementById('lesson-progress');
+  if (lessonProg) lessonProg.style.display = 'none';
+  s.prevSubject = 'speech_therapy';
+
+  // 과목 뱃지 (cover_read 전용 라벨)
+  var crBadgeArea = document.getElementById('subject-badge-area');
+  if (crBadgeArea) {
+    var crBadgeLabel = (crState.cards[0]._crSetMeta && crState.cards[0]._crSetMeta.ruleType)
+      ? (crState.cards[0]._crSetMeta.ruleType + ' 따라 읽기')
+      : '소리 따라 읽기';
+    crBadgeArea.innerHTML = '<span class="subject-badge speech_therapy">' + escapeHtml(crBadgeLabel) + '</span>';
+  }
+
+  // Step 0: 세트 onboarding (세션당 1회, 세트별)
+  var setKey = crState.cards[0]._crSetId || '_default';
+  var onboardKey = 'po_v5_cover_read_onboard_' + setKey;
+  var alreadyOnboarded = localStorage.getItem(onboardKey) === '1';
+  if (!alreadyOnboarded) {
+    crRenderOnboarding(setKey, onboardKey);
+  } else {
+    crStartItem(0);
+  }
+}
+
+function crRenderOnboarding(setKey, onboardKey) {
+  var container = document.getElementById('card-container');
+  if (!container) return;
+  var firstItem = crState.cards[0];
+  var demoOrtho = firstItem ? escapeHtml(firstItem.orthography || '') : '책이';
+  var demoPron = firstItem ? escapeHtml(firstItem.pronunciation || '') : '채기';
+  container.innerHTML = '<div class="ra-card cover-read-onboard" style="padding:24px;max-width:520px;margin:0 auto;text-align:center;">'
+    + '<h2 style="font-size:22px;margin-bottom:12px;">소리 따라 읽기</h2>'
+    + '<p style="font-size:16px;line-height:1.7;color:#374151;">글자를 보고 큰 소리로 읽어 본 다음,<br/>모범 소리를 듣고<br/>내 녹음과 비교해볼 거야.</p>'
+    + '<div style="margin-top:18px;font-size:16px;color:#1f2937;">예) <b style="font-size:20px;">' + demoOrtho + '</b> → 모범: <b style="color:#2563eb;font-size:20px;">[' + demoPron + ']</b></div>'
+    + '<div style="margin-top:24px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+    + '<button class="btn-stair" onclick="crCompleteOnboarding(true)" style="background:#3b82f6;color:white;">모범 한 번 들어보기</button>'
+    + '<button class="btn-stair" onclick="crCompleteOnboarding(false)">바로 시작</button>'
+    + '</div></div>';
+  crUpdateProgress(0);
+  // onboardKey 는 localStorage 에 closure 로 전달되도록 변수로 저장
+  crState._pendingOnboardKey = onboardKey;
+}
+
+function crCompleteOnboarding(withDemo) {
+  if (crState._pendingOnboardKey) {
+    try { localStorage.setItem(crState._pendingOnboardKey, '1'); } catch(_) {}
+    crState._pendingOnboardKey = null;
+  }
+  if (withDemo) {
+    var firstItem = crState.cards[0];
+    if (firstItem && firstItem.pronunciation) {
+      try { textToSpeech(firstItem.pronunciation, 'ko', { rate: 0.9 }); } catch(_) {}
+    }
+    setTimeout(function() { crStartItem(0); }, 1800);
+  } else {
+    crStartItem(0);
+  }
+}
+
+function crStartItem(itemIndex) {
+  crState.currentIndex = itemIndex;
+  crState.currentStep = 1;
+  crState.itemStartTime = Date.now();
+  crState.recordingRawId = null;
+  crState.recordingRef = null;
+  crState.modelPlayedAfterAttempt = false;
+  crState.modelReplayCount = 0;
+  if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
+  crState.selfReplayCount = 0;
+  crState.selfPlayedOnce = false;
+  crState.selfCompareLatencyStart = 0;
+  crState.retryCount = 0;
+  crState.failedRecordingAttempts = 0;
+  crRenderStep();
+}
+
+function crRenderStep() {
+  var item = crState.cards[crState.currentIndex];
+  if (!item) { crFinishBlock(); return; }
+  crUpdateProgress(crState.currentIndex);
+  var container = document.getElementById('card-container');
+  if (!container) return;
+  var step = crState.currentStep;
+
+  var meta = item._crSetMeta || {};
+  var positionHtml = '<div style="font-size:14px;color:#6b7280;margin-bottom:8px;">'
+    + (crState.currentIndex + 1) + ' / ' + crState.cards.length
+    + (meta.ruleType ? ' · ' + escapeHtml(meta.ruleType) : '')
+    + '</div>';
+  var orthoHtml = '<div style="font-size:48px;font-weight:700;letter-spacing:0.05em;color:#1f2937;">'
+    + escapeHtml(item.orthography || '')
+    + '</div>';
+  var pronHtml = (step >= 3)
+    ? '<div style="margin-top:8px;font-size:24px;color:#2563eb;">[' + escapeHtml(item.pronunciation || '') + ']</div>'
+    : '<div style="margin-top:8px;font-size:24px;color:#9ca3af;letter-spacing:0.3em;">[ ? ? ? ]</div>';
+
+  var ctrlHtml = '';
+  if (step === 1 || step === 2) {
+    var recBtnLabel = crState.isRecording ? '⏹ 녹음 중지' : (crState.failedRecordingAttempts > 0 ? '🎤 다시 녹음' : '🎤 녹음 시작');
+    var recBtnClass = crState.isRecording ? 'btn-stair recording' : 'btn-stair';
+    ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;min-height:22px;">먼저 글자를 큰 소리로 읽어 보고 녹음 버튼을 눌러봐.</div>'
+      + '<div id="cr-recording-timer" class="hidden" style="margin-top:4px;font-size:14px;color:#dc2626;">00:00</div>'
+      + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+      + '<button id="cr-btn-record" class="' + recBtnClass + '" onclick="crToggleRecording()">' + recBtnLabel + '</button>'
+      + '<button class="btn-stair" onclick="crSkipItem()" style="opacity:0.7;">건너뛰기</button>'
+      + '</div>';
+  } else if (step === 3) {
+    ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">모범 소리를 들어볼게.</div>'
+      + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+      + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 다시 듣기</button>'
+      + '<button class="btn-stair" onclick="crGoToStep4()" style="background:#3b82f6;color:white;">내 녹음 듣기 →</button>'
+      + '</div>';
+  } else if (step === 4) {
+    var s4msg = crState.selfPlayedOnce ? '한 번 들었어! 비교해보자.' : '내 녹음을 한 번 들어봐.';
+    ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">' + s4msg + '</div>'
+      + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+      + '<button id="cr-btn-self-play" class="btn-stair" onclick="crPlaySelf()">▶ 내 녹음 듣기</button>'
+      + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 모범 다시 듣기</button>'
+      + '<button class="btn-stair" onclick="crGoToStep5()" style="background:#3b82f6;color:white;">비교하기 →</button>'
+      + '</div>';
+  } else if (step === 5) {
+    var sameDisabled = !crState.selfPlayedOnce;
+    var s5msg = sameDisabled ? '내 녹음을 한 번 들어봐야 "같게"를 누를 수 있어.' : '모범 소리랑 같았어?';
+    ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">' + s5msg + '</div>'
+      + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+      + '<button id="cr-btn-self-play" class="btn-stair" onclick="crPlaySelf()">▶ 내 녹음 다시 듣기</button>'
+      + '<button id="cr-btn-same" class="btn-stair" onclick="crRateSelf(\'same\')"'
+        + (sameDisabled ? ' disabled style="opacity:0.4;"' : ' style="background:#16a34a;color:white;"')
+        + '>같게</button>'
+      + '<button id="cr-btn-different" class="btn-stair" onclick="crRateSelf(\'different\')" style="background:#f59e0b;color:white;">다르게</button>'
+      + '</div>';
+  }
+
+  container.innerHTML = '<div class="ra-card cover-read-item" style="padding:24px;max-width:520px;margin:0 auto;text-align:center;">'
+    + positionHtml + orthoHtml + pronHtml + ctrlHtml
+    + '</div>';
+
+  // Step 3 자동 TTS 1회. Step 5 진입 시 latency 시작.
+  if (step === 3 && !crState.modelPlayedAfterAttempt) {
+    crPlayModel(true);
+  }
+  if (step === 5 && crState.selfCompareLatencyStart === 0) {
+    crState.selfCompareLatencyStart = Date.now();
+  }
+}
+
+function crUpdateProgress(itemIdx) {
+  var totalCards = APP.session.cards.length;
+  var baseIndex = crState.sessionStartIndex;
+  var effectiveIndex = baseIndex + itemIdx;
+  var pf = document.getElementById('progress-fill');
+  var pt = document.getElementById('progress-text');
+  if (pf) pf.style.width = ((effectiveIndex / totalCards) * 100) + '%';
+  if (pt) pt.textContent = (effectiveIndex + 1) + '/' + totalCards;
+}
+
+async function crToggleRecording() {
+  var btn = document.getElementById('cr-btn-record');
+  var status = document.getElementById('cr-recording-status');
+  var timerEl = document.getElementById('cr-recording-timer');
+
+  if (crState.isRecording && crState.mediaRecorder) {
+    try { crState.mediaRecorder.stop(); } catch(_) {}
+    crState.isRecording = false;
+    if (btn) { btn.classList.remove('recording'); btn.textContent = '🎤 녹음 시작'; btn.disabled = true; }
+    if (crState.recordingTimer) { clearInterval(crState.recordingTimer); crState.recordingTimer = null; }
+    if (timerEl) timerEl.classList.add('hidden');
+    if (status) status.textContent = '확인 중...';
+    return;
+  }
+
+  try {
+    var stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, sampleRate: 16000, echoCancellation: true, noiseSuppression: true }
+    });
+    crState.stream = stream;
+    crState.recordingChunks = [];
+    crState.recordingSeconds = 0;
+    var mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus' : 'audio/webm';
+    crState.mediaRecorder = new MediaRecorder(stream, { mimeType: mimeType });
+    crState.mediaRecorder.ondataavailable = function(e) {
+      if (e.data && e.data.size > 0) crState.recordingChunks.push(e.data);
+    };
+    crState.mediaRecorder.onstop = async function() {
+      try { stream.getTracks().forEach(function(t) { t.stop(); }); } catch(_) {}
+      crState.stream = null;
+      var blob = new Blob(crState.recordingChunks, { type: 'audio/webm' });
+      var btnNow = document.getElementById('cr-btn-record');
+      var statusNow = document.getElementById('cr-recording-status');
+      if (!blob || blob.size === 0 || crState.recordingSeconds === 0) {
+        // UX #2: 0초 녹음 / 빈 blob
+        crState.failedRecordingAttempts++;
+        if (statusNow) {
+          statusNow.textContent = (crState.failedRecordingAttempts >= 3)
+            ? '녹음이 잘 안 됐어. 건너뛸까?'
+            : '녹음이 잘 안 됐어. 다시 해볼까?';
+        }
+        if (btnNow) { btnNow.disabled = false; btnNow.textContent = '🎤 다시 녹음'; btnNow.classList.remove('recording'); }
+        return;
+      }
+      try {
+        var item = crState.cards[crState.currentIndex];
+        var result = await saveCoverReadRecording(item._crItemId || item.id, blob);
+        crState.recordingRawId = result.rawId;
+        crState.recordingRef = result.ref;
+        if (statusNow) statusNow.textContent = '녹음 저장됐어!';
+        setTimeout(function() {
+          crState.currentStep = 3;
+          crRenderStep();
+        }, 350);
+      } catch (e) {
+        console.warn('[cover_read] saveRecording 실패:', e);
+        if (statusNow) statusNow.textContent = '저장 중 문제가 생겼어. 다시 해볼까?';
+        if (btnNow) { btnNow.disabled = false; btnNow.textContent = '🎤 다시 녹음'; btnNow.classList.remove('recording'); }
+      }
+    };
+    crState.mediaRecorder.start();
+    crState.isRecording = true;
+    crState.currentStep = 2;
+    if (btn) { btn.classList.add('recording'); btn.textContent = '⏹ 녹음 중지'; }
+    if (status) status.textContent = '듣고 있어… 천천히 또박또박 말해봐.';
+    if (timerEl) { timerEl.classList.remove('hidden'); timerEl.textContent = '00:00'; }
+    crState.recordingTimer = setInterval(function() {
+      crState.recordingSeconds++;
+      if (timerEl) {
+        var m = Math.floor(crState.recordingSeconds / 60);
+        var sec = crState.recordingSeconds % 60;
+        timerEl.textContent = (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      // 안전 한도 20초
+      if (crState.recordingSeconds >= 20) crToggleRecording();
+    }, 1000);
+  } catch(e) {
+    // UX #1: 마이크 권한 거부
+    console.warn('[cover_read] mic getUserMedia 실패:', e);
+    if (status) status.textContent = '마이크를 사용할 수 없어. 부모님께 권한 확인을 부탁해.';
+    if (btn) btn.disabled = true;
+  }
+}
+
+function crSkipItem() {
+  if (crState.isRecording) {
+    try { crState.mediaRecorder && crState.mediaRecorder.stop(); } catch(_) {}
+    crState.isRecording = false;
+    if (crState.recordingTimer) { clearInterval(crState.recordingTimer); crState.recordingTimer = null; }
+    if (crState.stream) { try { crState.stream.getTracks().forEach(function(t){t.stop();}); } catch(_) {} crState.stream = null; }
+  }
+  var item = crState.cards[crState.currentIndex];
+  writeCoverReadAttempt(item._crItemId || item.id, {
+    recordingRef: crState.recordingRef,
+    modelPlayed: crState.modelPlayedAfterAttempt,
+    modelReplayCount: crState.modelReplayCount,
+    selfReplayCount: crState.selfReplayCount,
+    selfCompareRating: null,
+    selfCompareLatencyMs: 0,
+    helpLevel: 'skip'
+  }).catch(function(e){ console.warn('[cover_read] skip attempt write 실패:', e); });
+  if (APP.coverReadSession) APP.coverReadSession.itemsAttempted++;
+  logEvent('cover_read_skip', { itemId: item._crItemId || item.id });
+  crAdvanceItem();
+}
+
+function crPlayModel(initial) {
+  var item = crState.cards[crState.currentIndex];
+  if (!item || !item.pronunciation) return;
+  if (!initial) crState.modelReplayCount++;
+  crState.modelPlayedAfterAttempt = true;
+  // UX #4: TTS 지연 timeout
+  var nudgeEl = document.getElementById('cr-recording-status');
+  var ttsTimeout = setTimeout(function() {
+    if (nudgeEl) nudgeEl.textContent = '소리 준비 중...';
+  }, 1500);
+  try {
+    var p = textToSpeech(item.pronunciation, 'ko', { rate: 0.9 });
+    if (p && p.then) {
+      p.then(function(){ clearTimeout(ttsTimeout); }, function(){ clearTimeout(ttsTimeout); });
+    } else {
+      clearTimeout(ttsTimeout);
+    }
+  } catch (e) {
+    clearTimeout(ttsTimeout);
+    console.warn('[cover_read] TTS 실패:', e);
+    if (nudgeEl) nudgeEl.textContent = '소리가 안 나오네. 화면 글자를 보고 진행하자.';
+  }
+  // UX #5: replay loop nudge
+  if (crState.modelReplayCount >= 3 && nudgeEl) {
+    setTimeout(function() {
+      if (nudgeEl) nudgeEl.textContent = '이제 직접 읽어볼까?';
+    }, 1200);
+  }
+}
+
+function crGoToStep4() {
+  crState.currentStep = 4;
+  crRenderStep();
+}
+
+function crGoToStep5() {
+  crState.currentStep = 5;
+  crRenderStep();
+}
+
+async function crPlaySelf() {
+  if (!crState.recordingRawId) {
+    var status = document.getElementById('cr-recording-status');
+    if (status) status.textContent = '재생할 녹음이 없어. 다시 녹음해볼까?';
+    return;
+  }
+  try {
+    // 매번 새 blob URL 생성 (이전 URL 은 onended 에서 revoke)
+    var url = await loadCoverReadRecording(crState.recordingRawId);
+    if (!url) {
+      // UX #3: 재생 실패
+      var s = document.getElementById('cr-recording-status');
+      if (s) s.textContent = '재생할 수 없어. "다르게"만 누를 수 있어.';
+      return;
+    }
+    crState.selfBlobUrl = url;
+    var audio = new Audio(url);
+    audio.onended = function() {
+      crState.selfReplayCount++;
+      crState.selfPlayedOnce = true;
+      revokeCoverReadRecordingUrl(url);
+      if (crState.selfBlobUrl === url) crState.selfBlobUrl = null;
+      crRenderStep();
+    };
+    audio.onerror = function() {
+      console.warn('[cover_read] self audio error');
+      var s = document.getElementById('cr-recording-status');
+      if (s) s.textContent = '재생 중 문제가 생겼어.';
+      revokeCoverReadRecordingUrl(url);
+      if (crState.selfBlobUrl === url) crState.selfBlobUrl = null;
+    };
+    audio.play().catch(function(err) {
+      console.warn('[cover_read] self play 실패:', err);
+      var s = document.getElementById('cr-recording-status');
+      if (s) s.textContent = '재생할 수 없어. 다시 시도해볼까?';
+      revokeCoverReadRecordingUrl(url);
+      if (crState.selfBlobUrl === url) crState.selfBlobUrl = null;
+    });
+  } catch (e) {
+    console.warn('[cover_read] loadRecording 실패:', e);
+    var s2 = document.getElementById('cr-recording-status');
+    if (s2) s2.textContent = '녹음을 불러올 수 없어.';
+  }
+}
+
+function crRateSelf(rating) {
+  // UX #6: '같게' guardrail
+  if (rating === 'same' && !crState.selfPlayedOnce) return;
+
+  var latency = crState.selfCompareLatencyStart > 0 ? (Date.now() - crState.selfCompareLatencyStart) : 0;
+  var item = crState.cards[crState.currentIndex];
+  writeCoverReadAttempt(item._crItemId || item.id, {
+    recordingRef: crState.recordingRef,
+    modelPlayed: crState.modelPlayedAfterAttempt,
+    modelReplayCount: crState.modelReplayCount,
+    selfReplayCount: crState.selfReplayCount,
+    selfCompareRating: rating,
+    selfCompareLatencyMs: latency,
+    helpLevel: 'model_only'
+  }).catch(function(e){ console.warn('[cover_read] attempt write 실패:', e); });
+
+  if (rating === 'same') {
+    if (APP.coverReadSession) {
+      APP.coverReadSession.selfSameCount++;
+      APP.coverReadSession.itemsAttempted++;
+    }
+    crAdvanceItem();
+  } else {
+    if (APP.coverReadSession) APP.coverReadSession.selfDifferentCount++;
+    crState.retryCount++;
+    if (crState.retryCount >= 2) {
+      // 2회 다르게 → 다음 항목 (itemsAttempted 1회로 카운트, Phase 1 scheduler 없음)
+      if (APP.coverReadSession) APP.coverReadSession.itemsAttempted++;
+      crAdvanceItem();
+    } else {
+      // 1회 다르게 → Step 2 로 재녹음. retry counter 메모리 only.
+      var status = document.getElementById('cr-recording-status');
+      if (status) status.textContent = '다시 한 번 녹음해볼까?';
+      crState.recordingRawId = null;
+      crState.recordingRef = null;
+      crState.selfReplayCount = 0;
+      crState.selfPlayedOnce = false;
+      crState.selfCompareLatencyStart = 0;
+      if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
+      crState.currentStep = 2;
+      crRenderStep();
+    }
+  }
+}
+
+function crAdvanceItem() {
+  if (crState.currentIndex < crState.cards.length - 1) {
+    crStartItem(crState.currentIndex + 1);
+  } else {
+    crFinishBlock();
+  }
+}
+
+function crFinishBlock() {
+  // 블록 종료 — session summary write (await 안 함, endSession 진행 방해 방지)
+  writeCoverReadSessionSummary().catch(function(e){ console.warn('[cover_read] summary write 실패:', e); });
+  if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
+  if (crState.stream) { try { crState.stream.getTracks().forEach(function(t){t.stop();}); } catch(_) {} crState.stream = null; }
+  APP.session.currentIndex = crState.sessionStartIndex + crState.cards.length;
+  renderCard();
+}
+
+// ===================================================================
 // 관찰 요약 (v4.3)
 // ===================================================================
 
@@ -8862,6 +9563,15 @@ function shuffleArray(arr) {
 function todayStr() {
   const d = new Date();
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+// [v5.65 T6] cover_read id helper. crypto.randomUUID 지원 시 UUID, 미지원 시 Date+random fallback.
+// closure memo §3-1 prefix 표: sess- / att- / sum- / crrec-
+function makeCoverReadId(prefix) {
+  var raw = (typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : (Date.now() + '_' + Math.random().toString(36).slice(2, 10));
+  return prefix + raw;
 }
 
 function addDays(dateStr, days) {
