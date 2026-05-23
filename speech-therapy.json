@@ -4663,18 +4663,25 @@
       "practiceMode": "cover_read",
       "homeworkDate": "2026-05-21",
       "reviewStatus": "parent_review_pending",
-      "_note": "v1 파일럿 10개 확정 (p.19~20 grep 1:1 검증, 무릎 포함). 모음 조사 -이(p.19) + -에(p.20)만 사용 → 순수 연음. 자음 조사(과/부터)·용언 어미(-아/-어)·과거어미(-았/-었)는 v1 범위 외.",
+      "_note": "v1 파일럿 풀 17개 (p.19 -이 8개 + p.20 -에 9개, 순수 연음 중심 선별). 일일 노출은 config.speakingPractice.coverReadItemsPerSession 기본 10개 sampling. spec v1.2 §1.2의 8~12개는 초기 일일 노출 규모로 운용하고, 데이터 풀과 일일 노출 수는 v1.3에서 분리 명시. 종이[종이] ㅇ받침 예외와 가마솥/뙤약볕 등 고난도 항목은 별도 트랙.",
       "items": [
         { "id": "bk5-1-1-p19-book-i", "orthography": "책이", "pronunciation": "채기", "sourceForm": "책 + 이", "ruleType": "연음" },
         { "id": "bk5-1-1-p19-nun-i", "orthography": "눈이", "pronunciation": "누니", "sourceForm": "눈 + 이", "ruleType": "연음" },
         { "id": "bk5-1-1-p19-byeol-i", "orthography": "별이", "pronunciation": "벼리", "sourceForm": "별 + 이", "ruleType": "연음" },
         { "id": "bk5-1-1-p19-jip-i", "orthography": "집이", "pronunciation": "지비", "sourceForm": "집 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-gam-i", "orthography": "감이", "pronunciation": "가미", "sourceForm": "감 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-sowon-i", "orthography": "소원이", "pronunciation": "소워니", "sourceForm": "소원 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-daegwol-i", "orthography": "대궐이", "pronunciation": "대궈리", "sourceForm": "대궐 + 이", "ruleType": "연음" },
+        { "id": "bk5-1-1-p19-batchim-i", "orthography": "받침이", "pronunciation": "받치미", "sourceForm": "받침 + 이", "ruleType": "연음" },
         { "id": "bk5-1-1-p20-ot-e", "orthography": "옷에", "pronunciation": "오세", "sourceForm": "옷 + 에", "ruleType": "연음" },
         { "id": "bk5-1-1-p20-nat-e", "orthography": "낮에", "pronunciation": "나제", "sourceForm": "낮 + 에", "ruleType": "연음" },
         { "id": "bk5-1-1-p20-kkot-e", "orthography": "꽃에", "pronunciation": "꼬체", "sourceForm": "꽃 + 에", "ruleType": "연음" },
         { "id": "bk5-1-1-p20-bat-e", "orthography": "밭에", "pronunciation": "바테", "sourceForm": "밭 + 에", "ruleType": "연음" },
         { "id": "bk5-1-1-p20-sup-e", "orthography": "숲에", "pronunciation": "수페", "sourceForm": "숲 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-mureup-e", "orthography": "무릎에", "pronunciation": "무르페", "sourceForm": "무릎 + 에", "ruleType": "연음" }
+        { "id": "bk5-1-1-p20-mureup-e", "orthography": "무릎에", "pronunciation": "무르페", "sourceForm": "무릎 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-got-e", "orthography": "곳에", "pronunciation": "고세", "sourceForm": "곳 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-bak-e", "orthography": "밖에", "pronunciation": "바께", "sourceForm": "밖 + 에", "ruleType": "연음" },
+        { "id": "bk5-1-1-p20-bueok-e", "orthography": "부엌에", "pronunciation": "부어케", "sourceForm": "부엌 + 에", "ruleType": "연음" }
       ]
     }
   ],

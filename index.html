@@ -3306,7 +3306,15 @@ function startSpeakingPracticeSession() {
     // [v5.65 T3] cover_read items → allCards. _blockType:'cover-read'. renderCard dispatcher → renderCoverReadBlock.
     var crSet = APP.coverReadSets[0];
     APP.currentLessonInfo = { id: crSet.id, title: ('연음 따라읽기 — ' + (crSet.bookUnit || '1.1')), type: 'cover_read' };
-    var crCards = crSet.items.map(function(item, i) {
+    // [v5.65.3] 풀 17개 중 sampling N개. 매 세션 다른 부분집합 노출 → 일일 다양성.
+    //          N = coverReadItemsPerSession (default 10, pool 크기 초과 시 pool 크기로 cap).
+    //          shuffleArray 는 내부에서 slice 하지만 명시적 .slice() 사본으로 원본 mutate 방지.
+    var allItems = crSet.items || [];
+    var perSessionCfg = APP.config.speakingPractice && APP.config.speakingPractice.coverReadItemsPerSession;
+    var perSession = (typeof perSessionCfg === 'number') ? Math.max(1, perSessionCfg) : 10;
+    perSession = Math.min(perSession, allItems.length);
+    var sampledItems = shuffleArray(allItems.slice()).slice(0, perSession);
+    var crCards = sampledItems.map(function(item, i) {
       return {
         _blockType: 'cover-read',
         _crSetId: crSet.id,
@@ -8309,12 +8317,36 @@ function renderCoverReadBlock() {
   }
 }
 
+// [v5.65.3] onboarding demo anchor 고정 — sampling 결과와 무관하게 항상 동일 단어 노출.
+//           pool 전체(APP.coverReadSets[0].items)에서 'bk5-1-1-p19-book-i' (책이/채기) 우선 검색.
+//           pool 부재 시 sampled cards 에서 동일 id 검색. anchor 부재 시 sampled cards[0] (현재 v1 anchor 미포함 set 대비).
+//           모든 후보 부재 시 caller 가 하드코드 fallback '책이'/'채기' 사용.
+function crGetOnboardAnchor() {
+  var poolItems = (APP.coverReadSets && APP.coverReadSets[0] && APP.coverReadSets[0].items) || [];
+  for (var i = 0; i < poolItems.length; i++) {
+    if (poolItems[i].id === 'bk5-1-1-p19-book-i') {
+      return { orthography: poolItems[i].orthography || '', pronunciation: poolItems[i].pronunciation || '' };
+    }
+  }
+  var sampled = crState.cards || [];
+  for (var j = 0; j < sampled.length; j++) {
+    if ((sampled[j]._crItemId || sampled[j].id) === 'bk5-1-1-p19-book-i') {
+      return { orthography: sampled[j].orthography || '', pronunciation: sampled[j].pronunciation || '' };
+    }
+  }
+  if (sampled.length > 0) {
+    return { orthography: sampled[0].orthography || '', pronunciation: sampled[0].pronunciation || '' };
+  }
+  return null;
+}
+
 function crRenderOnboarding(setKey, onboardKey) {
   var container = document.getElementById('card-container');
   if (!container) return;
-  var firstItem = crState.cards[0];
-  var demoOrtho = firstItem ? escapeHtml(firstItem.orthography || '') : '책이';
-  var demoPron = firstItem ? escapeHtml(firstItem.pronunciation || '') : '채기';
+  // [v5.65.3] sampling 결과와 무관한 anchor demo 단어 (책이/채기 기본).
+  var anchor = crGetOnboardAnchor();
+  var demoOrtho = anchor ? escapeHtml(anchor.orthography) : '책이';
+  var demoPron = anchor ? escapeHtml(anchor.pronunciation) : '채기';
   container.innerHTML = '<div class="ra-card cover-read-onboard" style="padding:24px;max-width:520px;margin:0 auto;text-align:center;">'
     + '<h2 style="font-size:22px;margin-bottom:12px;">소리 따라 읽기</h2>'
     + '<p style="font-size:16px;line-height:1.7;color:#374151;">글자를 보고 큰 소리로 읽어 본 다음,<br/>모범 소리를 듣고<br/>내 녹음과 비교해볼 거야.</p>'
@@ -8334,10 +8366,10 @@ function crCompleteOnboarding(withDemo) {
     crState._pendingOnboardKey = null;
   }
   if (withDemo) {
-    var firstItem = crState.cards[0];
-    if (firstItem && firstItem.pronunciation) {
-      try { textToSpeech(firstItem.pronunciation, 'ko', { rate: 0.9 }); } catch(_) {}
-    }
+    // [v5.65.3] anchor 단어 TTS — render와 동일 anchor 사용 (sampling 무관).
+    var anchor = crGetOnboardAnchor();
+    var demoPron = (anchor && anchor.pronunciation) ? anchor.pronunciation : '채기';
+    try { textToSpeech(demoPron, 'ko', { rate: 0.9 }); } catch(_) {}
     setTimeout(function() { crStartItem(0); }, 1800);
   } else {
     crStartItem(0);
