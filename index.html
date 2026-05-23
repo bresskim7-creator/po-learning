@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.65.0';
-var APP_SW_CACHE = 'sw5650';
+var APP_VERSION = 'v5.65.1';
+var APP_SW_CACHE = 'sw5651';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -3282,11 +3282,23 @@ function startSpeakingPracticeSession() {
   // Block 2: 듣고말하기
   // [v5.51] isChildVisibleCard 공용 필터 (LR 경로 통합 — Codex 검토 반영)
   // [v5.53 T5] 하드코딩 4 → config 참조 (SR-5). 전체복습(listenRepeat.cardsPerSession)과 독립 관리.
-  var lrLevel = APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 2;
-  var spLrCount = (APP.config.speakingPractice && APP.config.speakingPractice.lrCardsPerSession) || 3;
-  var lrCards = selectListenRepeatCards((APP.listenRepeatCards || []).filter(isChildVisibleCard), lrLevel, spLrCount);
-  if (lrCards && lrCards.length > 0) {
-    allCards = allCards.concat(lrCards);
+  // [v5.65.1] cover_read 활성 시 coverReadLRCardsPerSession 사용 (zero-safe, 0~2 clamp, fallback 1). 비활성 시 기존 lrCardsPerSession || 3.
+  var spCfg2 = APP.config && APP.config.speakingPractice;
+  var lrCount;
+  if (coverReadActive) {
+    var configuredCoverReadLR = spCfg2 && spCfg2.coverReadLRCardsPerSession;
+    lrCount = (typeof configuredCoverReadLR === 'number')
+      ? Math.max(0, Math.min(2, configuredCoverReadLR))
+      : 1;
+  } else {
+    lrCount = (spCfg2 && spCfg2.lrCardsPerSession) || 3;
+  }
+  if (lrCount > 0) {
+    var lrLevel = APP.config.listenRepeat ? APP.config.listenRepeat.currentLevel : 2;
+    var lrCards = selectListenRepeatCards((APP.listenRepeatCards || []).filter(isChildVisibleCard), lrLevel, lrCount);
+    if (lrCards && lrCards.length > 0) {
+      allCards = allCards.concat(lrCards);
+    }
   }
 
   // Block 3: cover_read (active set 있으면) 또는 기존 따라읽기 (RA fallback)

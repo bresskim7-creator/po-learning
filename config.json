@@ -172,8 +172,9 @@
   },
   "speakingPractice": {
     "lrCardsPerSession": 3,
-    "coverReadLegacyQuizCardsPerSession": 1,
-    "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립. v5.65 T4: coverReadLegacyQuizCardsPerSession은 cover_read 활성 시 Block 1 legacy quiz cap (0~2 clamp). 값 0은 유효 cap (legacy quiz 미출현). 미지정 시 기본 1. cover_read 비활성 시 기존 5장 유지."
+    "coverReadLegacyQuizCardsPerSession": 0,
+    "coverReadLRCardsPerSession": 0,
+    "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립. v5.65 T4: cover_read 활성 시 Block 1 legacy quiz cap = coverReadLegacyQuizCardsPerSession (0~2 clamp). v5.65.1: 초기 파일럿은 cover_read 집중 → Block 1·Block 2 둘 다 0 기본. cover_read 활성 시 Block 2 LR cap = coverReadLRCardsPerSession (0~2 clamp). 두 키 모두 0은 유효 cap (해당 블록 미출현), typeof===number 체크로 0 보존, 미지정 시 fallback 1. cover_read 비활성 시 Block 1 5장 + Block 2 lrCardsPerSession(3) 유지."
   },
   "subjectSession": {
     "enabled": true,
