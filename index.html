@@ -1288,8 +1288,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.65.3';
-var APP_SW_CACHE = 'sw5653';
+var APP_VERSION = 'v5.66.0';
+var APP_SW_CACHE = 'sw5660';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -3242,15 +3242,27 @@ function startSpeakingPracticeSession() {
 
   // [v5.65 T7] cover_read 세션 컨텍스트 초기화 (active 일 때만). attempt/summary writer 에서 참조.
   if (coverReadActive) {
+    // [v5.66 T1·C2] Phase 2a 카운터 신규: qualifyingAttempts (T3 호출부에서 ++) ·
+    //                probesShown · probesCorrect (T11 Step 6에서 ++) · recentRatings (M3 in-memory
+    //                sliding window 10, 세션 종료 시 폐기, cross-session 누적 안 함).
+    //                Phase 1 selfSameCount · selfDifferentCount 카운터 유지 (회귀 차단).
     APP.coverReadSession = {
       sessionId: makeCoverReadId('sess-'),
       startedAt: Date.now(),
       itemsAttempted: 0,
       selfSameCount: 0,
-      selfDifferentCount: 0
+      selfDifferentCount: 0,
+      qualifyingAttempts: 0,
+      probesShown: 0,
+      probesCorrect: 0,
+      recentRatings: []
     };
+    // [v5.66 T1] progress map 세션 시작 1회 일괄 read + drift detection fire-and-forget.
+    APP.coverReadProgressMap = crLoadCoverReadProgressMap();
+    crDetectProgressDrift(APP.coverReadProgressMap);
   } else {
     APP.coverReadSession = null;
+    APP.coverReadProgressMap = null;
   }
 
   // [v5.65 T9] retention cleanup — fire-and-forget. 세션 시작 지연 방지 (await 안 함).
@@ -3306,20 +3318,23 @@ function startSpeakingPracticeSession() {
     // [v5.65 T3] cover_read items → allCards. _blockType:'cover-read'. renderCard dispatcher → renderCoverReadBlock.
     var crSet = APP.coverReadSets[0];
     APP.currentLessonInfo = { id: crSet.id, title: ('연음 따라읽기 — ' + (crSet.bookUnit || '1.1')), type: 'cover_read' };
-    // [v5.65.3] 풀 17개 중 sampling N개. 매 세션 다른 부분집합 노출 → 일일 다양성.
-    //          N = coverReadItemsPerSession (default 10, pool 크기 초과 시 pool 크기로 cap).
-    //          shuffleArray 는 내부에서 slice 하지만 명시적 .slice() 사본으로 원본 mutate 방지.
+    // [v5.66 T12 + 자문 §5 문장 8·9] scheduler-aware queue builder 교체.
+    //          v5.65.3 pure random sampling (이전 line 3305~3317) → crBuildCoverReadQueue.
+    //          4분리: learning · maintenance due · auto_stable excluded · bonus practice.
+    //          bonus practice는 state transition evidence 미반영 (T3 disqualify "bonusPractice").
     var allItems = crSet.items || [];
-    var perSessionCfg = APP.config.speakingPractice && APP.config.speakingPractice.coverReadItemsPerSession;
-    var perSession = (typeof perSessionCfg === 'number') ? Math.max(1, perSessionCfg) : 10;
-    perSession = Math.min(perSession, allItems.length);
-    var sampledItems = shuffleArray(allItems.slice()).slice(0, perSession);
-    var crCards = sampledItems.map(function(item, i) {
+    var queueBuild = crBuildCoverReadQueue(allItems, APP.coverReadProgressMap || {}, APP.config && APP.config.speakingPractice);
+    if (typeof console !== 'undefined' && console.log) {
+      console.log('[cover_read T12] queue stats', queueBuild.stats);
+    }
+    var crCards = queueBuild.items.map(function(entry, i) {
+      var item = entry.item;
       return {
         _blockType: 'cover-read',
         _crSetId: crSet.id,
         _crItemId: item.id,
         _crItemIndex: i,
+        _crIsBonus: entry.isBonus === true,  // [v5.66 T12] bonus flag (T3 disqualify 트리거)
         _crSetMeta: { ruleType: crSet.ruleType || item.ruleType, bookUnit: crSet.bookUnit, sourcePages: crSet.sourcePages },
         type: 'cover_read', subject: 'speech_therapy',
         id: item.id,
@@ -6193,7 +6208,7 @@ async function saveCoverReadRecording(itemId, audioBlob) {
     blob: audioBlob,
     itemId: itemId,
     sessionId: (APP.coverReadSession && APP.coverReadSession.sessionId) || null,
-    productionDayKey: todayStr(),
+    productionDayKey: crGetProductionDayKey(Date.now()),  // [v5.66 M4] KST 00:00 계약 (자문 §5 문장 6)
     timestamp: Date.now(),
     auditedAt: null
   };
@@ -6229,28 +6244,34 @@ function revokeCoverReadRecordingUrl(url) {
   }
 }
 
-// [v5.65 T7] attempt event writer. Phase 1 null/false/[] 계약 (closure §2-1).
+// [v5.65 T7 + v5.66 T9 보정] attempt event writer.
+// Phase 1 default null/false/[] 계약 유지 (호출자가 payload에 안 넣으면 그대로 null/false/[]).
+// Phase 2a: 호출자 (crRateSelf · crSubmitProbe)가 payload에 qualifyingAttempt · disqualifyReason · probe · schedulerStateBefore · schedulerStateAfter 실값 주입.
+// Phase 2b T7: payload.calibrationRiskTags 실값 주입.
+// 자문 §5 문장 5: 사후 update path 금지. writer 호출 직전 payload 주입.
 async function writeCoverReadAttempt(itemId, payload) {
+  var p = payload || {};
   var event = {
     id: makeCoverReadId('att-'),
     type: 'cover_read_attempt',
     sessionId: (APP.coverReadSession && APP.coverReadSession.sessionId) || null,
     itemId: itemId,
     timestamp: Date.now(),
-    productionDayKey: todayStr(),
-    firstAttemptRecordingRef: (payload && payload.recordingRef) || null,
-    modelPlayedAfterAttempt: !!(payload && payload.modelPlayed),
-    modelReplayCount: (payload && payload.modelReplayCount) || 0,
-    selfReplayCount: (payload && payload.selfReplayCount) || 0,
-    selfCompareRating: payload ? payload.selfCompareRating : null,
-    selfCompareLatencyMs: (payload && payload.selfCompareLatencyMs) || 0,
-    qualifyingAttempt: null,        // [Phase 2 — out of scope]
-    disqualifyReason: null,
-    helpLevel: (payload && payload.helpLevel) || 'model_only',
-    probe: { shown: false, type: null, correct: null, chosenIndex: null, timing: null },
-    schedulerStateBefore: null,     // [Phase 2 — out of scope]
-    schedulerStateAfter: null,      // [Phase 2 — out of scope]
-    calibrationRiskTags: []         // [Phase 2 — out of scope]
+    productionDayKey: crGetProductionDayKey(Date.now()),  // [v5.66 M4] KST 00:00 계약 (자문 §5 문장 6)
+    firstAttemptRecordingRef: p.recordingRef || null,
+    modelPlayedAfterAttempt: !!p.modelPlayed,
+    modelReplayCount: p.modelReplayCount || 0,
+    selfReplayCount: p.selfReplayCount || 0,
+    selfCompareRating: p.selfCompareRating || null,
+    selfCompareLatencyMs: p.selfCompareLatencyMs || 0,
+    qualifyingAttempt: (typeof p.qualifyingAttempt === 'boolean') ? p.qualifyingAttempt : null,
+    disqualifyReason: (typeof p.disqualifyReason !== 'undefined') ? p.disqualifyReason : null,
+    helpLevel: p.helpLevel || 'model_only',
+    probe: p.probe || { shown: false, type: null, correct: null, chosenIndex: null, timing: null },
+    schedulerStateBefore: (typeof p.schedulerStateBefore !== 'undefined') ? p.schedulerStateBefore : null,
+    schedulerStateAfter: (typeof p.schedulerStateAfter !== 'undefined') ? p.schedulerStateAfter : null,
+    // [v5.66 E5 보정] Phase 2a 단독 deploy 시 빈 배열 유지. T7 (Phase 2b) deploy 시에만 실값 주입.
+    calibrationRiskTags: Array.isArray(p.calibrationRiskTags) ? p.calibrationRiskTags : []
   };
   var db = await openRecordingsDB();
   var tx = db.transaction('cover_read_events', 'readwrite');
@@ -6259,9 +6280,12 @@ async function writeCoverReadAttempt(itemId, payload) {
   return event;
 }
 
-// [v5.65 T7] session summary writer. top-level timestamp 필수 (T9 retention key, Codex 보정).
+// [v5.65 T7 + v5.66 T9·C2 보정] session summary writer.
+// Phase 1 null/0 hard-coded → Phase 2a: APP.coverReadSession 실값 (qualifyingAttempts·probesShown·probesCorrect).
+// C2 차단: 누적 책임자 분리 — qualifyingAttempts는 crRateSelf의 T3 호출 직후 ++, probesShown은 crStartProbe ++, probesCorrect는 crSubmitProbe correct 시 ++.
+// summary writer는 누적값을 읽어 적재만.
 async function writeCoverReadSessionSummary() {
-  var sess = APP.coverReadSession || { sessionId: null, startedAt: Date.now(), itemsAttempted: 0, selfSameCount: 0, selfDifferentCount: 0 };
+  var sess = APP.coverReadSession || { sessionId: null, startedAt: Date.now(), itemsAttempted: 0, selfSameCount: 0, selfDifferentCount: 0, qualifyingAttempts: 0, probesShown: 0, probesCorrect: 0 };
   var endedAt = Date.now();
   var event = {
     id: makeCoverReadId('sum-'),
@@ -6269,9 +6293,9 @@ async function writeCoverReadSessionSummary() {
     sessionId: sess.sessionId,
     timestamp: endedAt,             // T9 retention 공통 key
     itemsAttempted: sess.itemsAttempted || 0,
-    qualifyingAttempts: null,       // [Phase 2 — out of scope]
-    probesShown: 0,                 // [Phase 2 — out of scope]
-    probesCorrect: null,            // [Phase 2 — out of scope]
+    qualifyingAttempts: sess.qualifyingAttempts || 0,    // [v5.66 T9·C2] Phase 2a 실값 (T3 호출부에서 누적)
+    probesShown: sess.probesShown || 0,                  // [v5.66 T9·C2] Phase 2a 실값 (T11 crStartProbe에서 누적)
+    probesCorrect: sess.probesCorrect || 0,              // [v5.66 T9·C2] Phase 2a 실값 (T11 crSubmitProbe correct 시 누적)
     selfSameCount: sess.selfSameCount || 0,
     selfDifferentCount: sess.selfDifferentCount || 0,
     durationMs: endedAt - (sess.startedAt || endedAt),
@@ -6322,6 +6346,424 @@ async function cleanupCoverReadStorage() {
   } catch(e) {
     console.warn('[cover_read] cleanup 실패:', e);
   }
+}
+
+// ============================================================================
+// [v5.66 T1] cover_read progress schema localStorage helpers
+// spec v1.2 §2.2 line 104~132 — 3-state scheduler progress.
+// 키: 'po_v5_cover_read_progress' (단일 JSON map, itemId → state).
+// 사용처: T2 scheduler 전이 · T3 qualifying · T5 probe 출현 · T12 queue builder.
+// E1 mutation 방지: 모든 helper return shallow clone. 입력 progress 직접 변경 금지.
+// 기본 schema 10 필드 (auditStatus는 Phase 3에서 추가, calibrationRisk는 Phase 2b T8에서 채움).
+// ============================================================================
+var CR_PROGRESS_LS_KEY = 'po_v5_cover_read_progress';
+
+function crDefaultProgress() {
+  return {
+    schedulerState: 'learning',
+    distinctProductionDays: 0,
+    recentSameStreak: 0,
+    probeCorrectStreak: 0,
+    probeCorrectHistory: [],
+    lastProductionDate: null,
+    lastAttemptTimestamp: null,
+    maintenanceDueDate: null,
+    auditQueueSuppressedUntil: null,
+    calibrationRisk: []
+  };
+}
+
+// [v5.66 T1] 전체 map read (세션 시작 시 1회 일괄, queue 빌드 시 localStorage read 폭증 방지).
+// corrupt JSON fallback: 빈 map 반환 + console.warn (학습 차단 금지).
+function crLoadCoverReadProgressMap() {
+  try {
+    var raw = localStorage.getItem(CR_PROGRESS_LS_KEY);
+    if (!raw) return {};
+    var parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return {};
+    return parsed;
+  } catch(e) {
+    console.warn('[cover_read] progress map parse 실패 — 빈 map fallback:', e);
+    return {};
+  }
+}
+
+// [v5.66 T1] 전체 map write (세션 종료/주요 전이 시).
+function crSaveCoverReadProgressMap(map) {
+  try {
+    localStorage.setItem(CR_PROGRESS_LS_KEY, JSON.stringify(map || {}));
+  } catch(e) {
+    console.warn('[cover_read] progress map save 실패:', e);
+  }
+}
+
+// [v5.66 T1] item 단위 read (보조, attempt 처리 중). 미존재 시 default schema 반환.
+function crLoadProgress(itemId) {
+  var map = crLoadCoverReadProgressMap();
+  var existing = map[itemId];
+  if (!existing || typeof existing !== 'object') return crDefaultProgress();
+  // unknown field 보존: existing의 모든 키를 default 위에 merge (forward compat).
+  var d = crDefaultProgress();
+  for (var k in existing) {
+    if (Object.prototype.hasOwnProperty.call(existing, k)) d[k] = existing[k];
+  }
+  return d;
+}
+
+// [v5.66 T1] item 단위 write (보조, scheduler 전이 직후).
+function crSaveProgress(itemId, state) {
+  if (!itemId || !state) return;
+  var map = crLoadCoverReadProgressMap();
+  map[itemId] = state;
+  crSaveCoverReadProgressMap(map);
+}
+
+// [v5.66 T1 + H1 보정] progress drift detection — 세션 시작 시 최신 attempt event scan.
+// 자문 §3-3 함정 5: progress(localStorage)와 raw event(IndexedDB) 두 저장소 원자성 미보장.
+// event write 성공 후 progress write 실패 시 다음 세션에서 console.warn 1회 (full rebuild 없음).
+// Phase 2a 검증 #7 measurable definition.
+async function crDetectProgressDrift(progressMap) {
+  try {
+    var db = await openRecordingsDB();
+    var tx = db.transaction('cover_read_events', 'readonly');
+    var store = tx.objectStore('cover_read_events');
+    return new Promise(function(resolve) {
+      var driftCount = 0;
+      var checked = {};
+      var req = store.openCursor(null, 'prev');  // 최신 → 과거
+      req.onsuccess = function(e) {
+        var cursor = e.target.result;
+        if (!cursor || Object.keys(checked).length >= 20) { resolve(driftCount); return; }
+        var ev = cursor.value;
+        if (ev && ev.type === 'cover_read_attempt' && ev.itemId && !checked[ev.itemId]) {
+          checked[ev.itemId] = true;
+          var p = progressMap[ev.itemId];
+          if (p && ev.schedulerStateAfter && p.schedulerState !== ev.schedulerStateAfter) {
+            driftCount++;
+            console.warn('[cover_read] progress drift detected',
+              { itemId: ev.itemId, eventState: ev.schedulerStateAfter, progressState: p.schedulerState });
+          }
+        }
+        cursor.continue();
+      };
+      req.onerror = function() { resolve(0); };
+    });
+  } catch(e) {
+    console.warn('[cover_read] drift detect 실패:', e);
+    return 0;
+  }
+}
+
+// ============================================================================
+// [v5.66 T3 + M4 보정] cover_read qualifying attempt + KST 00:00 day-key helper.
+// spec v1.2 §3.3 line 265~274 — 캘린더 일자(00:00 KST) 1회 + scaffold 0 + pre-production TTS/reveal 0 + post-model TTS ≤ 2.
+// 자문 §5 문장 6·7: productionDayKey는 00:00 KST 기준 helper로 생성. device local todayStr() 그대로 안 씀.
+// disqualifyReason enum 5건 (sameDayDuplicate·scaffold·preReveal·modelReplayGt2·bonusPractice).
+// spec v1.2 §2.4 line 213 enum 4값 → Phase 2 자문 §3-2(bonusPractice) + §3.3 day-bucket(sameDayDuplicate)로 6값 확장.
+// ============================================================================
+
+// [v5.66 T3] 00:00 KST 기준 day-key (yyyy-mm-dd). device local todayStr()(line 9820)과 분리.
+// 한국 외 timezone / 여행 / DST edge에서도 spec §3.3 line 269 계약 유지.
+// 기존 cover_read 영역 외(growth.js·spaced repetition·lesson history 14건)는 동결.
+function crGetProductionDayKey(now) {
+  var d = (now instanceof Date) ? now : new Date(now || Date.now());
+  // UTC ms에 +9h shift → KST clock의 자정 기준 yyyy-mm-dd 계산.
+  var kstMs = d.getTime() + 9 * 60 * 60 * 1000;
+  var kst = new Date(kstMs);
+  var y = kst.getUTCFullYear();
+  var m = String(kst.getUTCMonth() + 1);
+  if (m.length < 2) m = '0' + m;
+  var day = String(kst.getUTCDate());
+  if (day.length < 2) day = '0' + day;
+  return y + '-' + m + '-' + day;
+}
+
+// [v5.66 T3] qualifying attempt pure helper.
+// 입력: attemptPayload (selfCompareRating·selfReplayCount·modelReplayCount·preProductionTtsCount·preProductionRevealCount·scaffoldShown·isBonus·productionDayKey) + priorProgress.
+// 반환: { qualifying: boolean, disqualifyReason: string|null }.
+// 자기 녹음 재생(selfReplayCount)은 도움 아님 (사용자 §11-2 결정). qualifying 판정 영향 없음.
+function crComputeQualifyingAttempt(attemptPayload, priorProgress) {
+  if (!attemptPayload) return { qualifying: false, disqualifyReason: 'preReveal' };
+  // (1) bonus practice (T12 isBonus flag) — state transition evidence 미반영.
+  if (attemptPayload.isBonus === true) {
+    return { qualifying: false, disqualifyReason: 'bonusPractice' };
+  }
+  // (2) 같은 KST 일자 두 번째 시도. priorProgress.lastProductionDate와 비교.
+  if (priorProgress && priorProgress.lastProductionDate &&
+      attemptPayload.productionDayKey === priorProgress.lastProductionDate) {
+    return { qualifying: false, disqualifyReason: 'sameDayDuplicate' };
+  }
+  // (3) scaffold(엘코닌 시각화) 노출 시 learning evidence 유지하되 qualifying 제외 (spec §3.2 line 261).
+  if (attemptPayload.scaffoldShown === true) {
+    return { qualifying: false, disqualifyReason: 'scaffold' };
+  }
+  // (4) pre-production 도움 (TTS/reveal 1회 이상 노출).
+  var preTts = attemptPayload.preProductionTtsCount || 0;
+  var preReveal = attemptPayload.preProductionRevealCount || 0;
+  if (preTts > 0 || preReveal > 0) {
+    return { qualifying: false, disqualifyReason: 'preReveal' };
+  }
+  // (5) post-model TTS > 2 (모범 청취 3회 이상).
+  var modelReplay = attemptPayload.modelReplayCount || 0;
+  if (modelReplay > 2) {
+    return { qualifying: false, disqualifyReason: 'modelReplayGt2' };
+  }
+  return { qualifying: true, disqualifyReason: null };
+}
+
+// ============================================================================
+// [v5.66 T2 + T4 reset 흡수] 3-state scheduler 전이 pure helper.
+// spec v1.2 §3.6 line 295~315 — auto_stable 임계치 + maintenance 7일 + 비대칭 reset.
+// 입력 progress를 절대 mutate 안 함 (E1 보정 — shallow clone 후 변경 + return clone).
+// scheduler가 calibrationRisk를 입력으로 받지 않음 (spec §2.3 line 150 강한 계약).
+// 자문 §5 문장 5: schedulerStateBefore/After는 T2 결과를 attempt writer payload에 전달.
+// 잠정값 그룹 A: distinctProductionDays≥3 / recentSameStreak≥3 / probeCorrectStreak≥2 / maintenance 7일 고정.
+// ============================================================================
+function crSchedulerAdvance(itemId, attemptPayload, progress) {
+  // shallow clone (E1 mutation 방지). probeCorrectHistory는 별 array clone.
+  var p = progress || crDefaultProgress();
+  var np = {
+    schedulerState: p.schedulerState || 'learning',
+    distinctProductionDays: p.distinctProductionDays || 0,
+    recentSameStreak: p.recentSameStreak || 0,
+    probeCorrectStreak: p.probeCorrectStreak || 0,
+    probeCorrectHistory: (p.probeCorrectHistory || []).slice(),
+    lastProductionDate: p.lastProductionDate || null,
+    lastAttemptTimestamp: p.lastAttemptTimestamp || null,
+    maintenanceDueDate: p.maintenanceDueDate || null,
+    auditQueueSuppressedUntil: p.auditQueueSuppressedUntil || null,
+    calibrationRisk: (p.calibrationRisk || []).slice()
+  };
+  np.lastAttemptTimestamp = Date.now();
+
+  var pay = attemptPayload || {};
+  var rating = pay.selfCompareRating;             // 'same' | 'different' | null
+  var probeShown = pay.probe && pay.probe.shown === true;
+  var probeCorrect = probeShown ? (pay.probe.correct === true) : null;
+  var qualifying = (pay.qualifyingAttempt === true);
+  var dayKey = pay.productionDayKey || crGetProductionDayKey(Date.now());
+
+  // [v5.66 T2] distinctProductionDays — qualifying attempt 중 캘린더 일자 첫 시도일 때만 +1.
+  // M1 명문화: streak는 qualifying attempt에 한정해서 증가. sameDayDuplicate / scaffold / bonusPractice는 streak 미반영.
+  if (qualifying) {
+    if (np.lastProductionDate !== dayKey) {
+      np.distinctProductionDays += 1;
+      np.lastProductionDate = dayKey;
+    }
+  }
+
+  // [v5.66 T4 reset 흡수] probe miss — probeCorrectStreak=0, history는 false push 보존.
+  if (probeShown && probeCorrect === false) {
+    np.probeCorrectStreak = 0;
+    np.probeCorrectHistory.push(false);
+    // M2: sliding window 10개로 cap.
+    if (np.probeCorrectHistory.length > 10) np.probeCorrectHistory.shift();
+  } else if (probeShown && probeCorrect === true) {
+    np.probeCorrectStreak += 1;
+    np.probeCorrectHistory.push(true);
+    if (np.probeCorrectHistory.length > 10) np.probeCorrectHistory.shift();
+  }
+
+  // [v5.66 T4 reset 흡수] self '다르게' — recentSameStreak=0, maintenance면 learning 복귀.
+  // probeCorrectHistory 보존 (정직한 자기감지를 과도하게 벌주지 않음).
+  if (rating === 'different' && qualifying) {
+    np.recentSameStreak = 0;
+    if (np.schedulerState === 'maintenance' || np.schedulerState === 'auto_stable') {
+      np.schedulerState = 'learning';
+      np.maintenanceDueDate = null;
+      return { newState: 'learning', transitionReason: 'self_different_revert', updatedProgress: np };
+    }
+    return { newState: 'learning', transitionReason: 'still_learning', updatedProgress: np };
+  }
+
+  // [v5.66 T2] self '같게' (qualifying 한정) — recentSameStreak +1.
+  if (rating === 'same' && qualifying) {
+    np.recentSameStreak += 1;
+  }
+
+  // [v5.66 T2] 전이 로직.
+  // learning → auto_stable: distinctProductionDays≥3 && recentSameStreak≥3 && probeCorrectStreak≥2 && qualifying.
+  if (np.schedulerState === 'learning' && qualifying &&
+      np.distinctProductionDays >= 3 &&
+      np.recentSameStreak >= 3 &&
+      np.probeCorrectStreak >= 2) {
+    np.schedulerState = 'auto_stable';
+    // maintenanceDueDate = lastProductionDate + 7일 (UTC ms 기준 KST yyyy-mm-dd).
+    np.maintenanceDueDate = crGetProductionDayKey(Date.now() + 7 * 86400000);
+    return { newState: 'auto_stable', transitionReason: 'auto_stable_threshold_met', updatedProgress: np };
+  }
+
+  // auto_stable: maintenanceDueDate 미도래면 그대로.
+  if (np.schedulerState === 'auto_stable') {
+    var today = crGetProductionDayKey(Date.now());
+    if (!np.maintenanceDueDate || np.maintenanceDueDate > today) {
+      return { newState: 'auto_stable', transitionReason: 'auto_stable_pending_due', updatedProgress: np };
+    }
+    // maintenanceDueDate 도래 + qualifying + probe 정답 + self '같게' → maintenance review 성공.
+    if (qualifying && probeShown && probeCorrect === true && rating === 'same') {
+      np.schedulerState = 'maintenance';
+      np.maintenanceDueDate = crGetProductionDayKey(Date.now() + 7 * 86400000);
+      return { newState: 'maintenance', transitionReason: 'maintenance_review_success', updatedProgress: np };
+    }
+    // due 도래했지만 조건 미충족 — 같은 state 유지 (다음 시도 대기).
+    return { newState: 'auto_stable', transitionReason: 'auto_stable_pending_due', updatedProgress: np };
+  }
+
+  // maintenance: probe 정답 + qualifying + self '같게'면 다음 review 일정 갱신.
+  if (np.schedulerState === 'maintenance') {
+    if (qualifying && probeShown && probeCorrect === true && rating === 'same') {
+      np.maintenanceDueDate = crGetProductionDayKey(Date.now() + 7 * 86400000);
+      return { newState: 'maintenance', transitionReason: 'maintenance_review_success', updatedProgress: np };
+    }
+    return { newState: 'maintenance', transitionReason: 'still_learning', updatedProgress: np };
+  }
+
+  // learning 기본 유지.
+  return { newState: 'learning', transitionReason: 'still_learning', updatedProgress: np };
+}
+
+// ============================================================================
+// [v5.66 T6] probe 채점 pure helper.
+// spec v1.2 §2.4 line 178~184 + §3.7 line 317~332.
+// 입력: probe (collection item, choices[] 포함) + chosenIndex (사용자 선택 인덱스) + latencyMs (T11에서 측정, probe stem 렌더 시점부터 chosen button click까지 ms).
+// 반환: { correct, chosenChoice (text), correctChoice (text) }.
+// L5 보정 명문화: latencyMs는 T11 호출부에서 측정. crGradeProbe 자체는 시간 추적 안 함.
+// ============================================================================
+function crGradeProbe(probe, chosenIndex, latencyMs) {
+  if (!probe || !probe.choices || !probe.choices[chosenIndex]) {
+    return { correct: false, chosenChoice: null, correctChoice: null, latencyMs: latencyMs || 0 };
+  }
+  var chosen = probe.choices[chosenIndex];
+  var correctChoice = null;
+  for (var i = 0; i < probe.choices.length; i++) {
+    if (probe.choices[i].correct === true) { correctChoice = probe.choices[i]; break; }
+  }
+  return {
+    correct: chosen.correct === true,
+    chosenChoice: chosen.text || null,
+    correctChoice: correctChoice ? (correctChoice.text || null) : null,
+    latencyMs: latencyMs || 0
+  };
+}
+
+// ============================================================================
+// [v5.66 T5] probe 출현 결정 helper.
+// spec v1.2 §3.7 line 317~332 + §4.2 line 381~382 + §11-3 line 677.
+// reason 3종: mastery_gate (learning + probeCorrectStreak<2) · risk_gate (Phase 2b 활성) · delayed_review (maintenance due).
+// 자문 §5 문장 3: Phase 2a에서는 risk tag source가 없으므로 risk_gate probe condition은 false다.
+// 자문 §5 문장 4: Phase 2b에서 active calibrationRisk 갱신이 들어온 뒤 risk_gate가 활성화된다.
+// H3 보정: 한 item 한 세션 1회 probe만 (sessionState.itemsWithProbe set으로 추적). carry-over 없음.
+// 우선순위: delayed_review > risk_gate > mastery_gate.
+// 세션당 cap 2 (sessionState.probesShownCount).
+// ============================================================================
+function crShouldShowProbe(itemId, sessionState, progress) {
+  // 방어: sessionState/progress 누락 시 false.
+  if (!sessionState || !progress || !itemId) return { show: false, reason: null };
+  // 세션당 cap 2.
+  var shownCount = sessionState.probesShownCount || 0;
+  if (shownCount >= 2) return { show: false, reason: null };
+  // 한 item 한 세션 1회 (H3).
+  var itemsWithProbe = sessionState.itemsWithProbe || {};
+  if (itemsWithProbe[itemId]) return { show: false, reason: null };
+
+  var today = crGetProductionDayKey(Date.now());
+
+  // [v5.66 T5] reason 우선순위 1: delayed_review (maintenance state + maintenanceDueDate 도래).
+  if (progress.schedulerState === 'maintenance' &&
+      progress.maintenanceDueDate && progress.maintenanceDueDate <= today) {
+    return { show: true, reason: 'delayed_review' };
+  }
+
+  // [v5.66 T5 + 자문 §5 문장 3] reason 우선순위 2: risk_gate.
+  // Phase 2a: risk tag source 없음 → progress.calibrationRisk 빈 배열 유지 → false 자연 반환.
+  // Phase 2b: T7 calibration risk tag 계산 + T8 active flag 갱신 후 자동 활성화.
+  // branch 자체는 존재시키되 조건이 Phase 2a에서 항상 false.
+  if (progress.calibrationRisk && progress.calibrationRisk.length > 0) {
+    return { show: true, reason: 'risk_gate' };
+  }
+
+  // [v5.66 T5] reason 우선순위 3: mastery_gate (learning + probeCorrectStreak<2).
+  // E6 보정 명문화: mastery_gate는 schedulerState==='learning'만으로 충분. distinctProductionDays/recentSameStreak
+  //                 individual 임계치는 mastery_gate trigger와 무관.
+  if (progress.schedulerState === 'learning' && (progress.probeCorrectStreak || 0) < 2) {
+    return { show: true, reason: 'mastery_gate' };
+  }
+
+  return { show: false, reason: null };
+}
+
+// ============================================================================
+// [v5.66 T12] scheduler-aware queue builder.
+// spec v1.2 §3.6 line 303~307: auto_stable + maintenanceDueDate 미래 → daily queue 제외, bonus practice 만 재노출.
+// 자문 §3-3 결론 보정: v5.65.3 line 3305~3317 pure random sampling 은 scheduler 도입 시 충돌. T12로 교체 필수.
+// 자문 §5 문장 8: queue builder는 learning, maintenance due, auto_stable excluded, bonus practice를 분리한다.
+// 자문 §5 문장 9: bonus practice는 state transition evidence에 반영하지 않는다.
+// E3 보정: Math.max(1, perSessionCfg) 보존 (v5.65.3 line 3314 패턴).
+// 반환: { items: [{item, isBonus}], stats: { learning, maintenanceDue, autoStableExcluded, bonus } }.
+// isBonus=true 항목은 T3 disqualify "bonusPractice" → state transition evidence 미반영.
+// ============================================================================
+function crBuildCoverReadQueue(setItems, progressMap, config) {
+  if (!setItems || setItems.length === 0) {
+    return { items: [], stats: { learning: 0, maintenanceDue: 0, autoStableExcluded: 0, bonus: 0 } };
+  }
+  var today = crGetProductionDayKey(Date.now());
+  var maintenanceDue = [];
+  var learning = [];
+  var autoStableExcluded = [];
+
+  for (var i = 0; i < setItems.length; i++) {
+    var item = setItems[i];
+    var p = (progressMap && progressMap[item.id]) || null;
+    if (!p || p.schedulerState === 'learning') {
+      learning.push(item);
+    } else if (p.schedulerState === 'maintenance' && p.maintenanceDueDate && p.maintenanceDueDate <= today) {
+      maintenanceDue.push(item);
+    } else if (p.schedulerState === 'auto_stable' && p.maintenanceDueDate && p.maintenanceDueDate > today) {
+      autoStableExcluded.push(item);
+    } else if (p.schedulerState === 'maintenance' && (!p.maintenanceDueDate || p.maintenanceDueDate > today)) {
+      // maintenance state 인데 due 미도래 — auto_stable과 동일 취급 (daily queue 제외).
+      autoStableExcluded.push(item);
+    } else {
+      learning.push(item);  // edge fallback
+    }
+  }
+
+  // perSession 결정 (E3: Math.max(1,...) 보존)
+  var perSessionCfg = config && config.coverReadItemsPerSession;
+  var perSession = (typeof perSessionCfg === 'number') ? Math.max(1, perSessionCfg) : 10;
+  perSession = Math.min(perSession, setItems.length);
+
+  var queue = [];
+  var bonus = [];
+
+  // 1) maintenance due 먼저 (delayed_review probe 우선)
+  var mdShuffled = shuffleArray(maintenanceDue.slice());
+  for (var j = 0; j < mdShuffled.length && queue.length < perSession; j++) {
+    queue.push({ item: mdShuffled[j], isBonus: false });
+  }
+  // 2) learning 채움
+  var lShuffled = shuffleArray(learning.slice());
+  for (var k = 0; k < lShuffled.length && queue.length < perSession; k++) {
+    queue.push({ item: lShuffled[k], isBonus: false });
+  }
+  // 3) bonus practice (pool 부족 시) — autoStableExcluded 에서 채움. state transition evidence 미반영.
+  if (queue.length < perSession && autoStableExcluded.length > 0) {
+    var bShuffled = shuffleArray(autoStableExcluded.slice());
+    for (var b = 0; b < bShuffled.length && queue.length < perSession; b++) {
+      bonus.push(bShuffled[b]);
+      queue.push({ item: bShuffled[b], isBonus: true });
+    }
+  }
+
+  return {
+    items: queue,
+    stats: {
+      learning: learning.length,
+      maintenanceDue: maintenanceDue.length,
+      autoStableExcluded: autoStableExcluded.length,
+      bonus: bonus.length
+    }
+  };
 }
 
 async function processPendingRecordings() {
@@ -8257,7 +8699,9 @@ var crState = {
   // [v5.65.2 race fix] seq 토큰 — stale callback 무효화. 새 crPlayModel/crPlaySelf 호출 시 ++ → 이전 promise/audio 이벤트는 mySeq 검사로 skip.
   _modelPlaySeq: 0,
   _selfPlaySeq: 0,
-  _currentSelfAudio: null       // 활성 self Audio 인스턴스 추적 — crPlayModel 진입 시 pause + currentTime=0 (소리 겹침 방지)
+  _currentSelfAudio: null,      // 활성 self Audio 인스턴스 추적 — crPlayModel 진입 시 pause + currentTime=0 (소리 겹침 방지)
+  // [v5.66 T11] Phase 2a probe state — Step 6 진입 시 채워짐. crSubmitProbe 호출 후 null 복귀.
+  currentProbe: null
 };
 
 function renderCoverReadBlock() {
@@ -8511,6 +8955,35 @@ function crRenderStep() {
           ? '<button class="btn-stair" onclick="crRetryRecording()" style="background:#3b82f6;color:white;">🎤 다시 녹음</button>'
           : '')
       + '</div>';
+  } else if (step === 6) {
+    // [v5.66 T11] probe Step 6 (Phase 2a 활성, Phase 1 비활성).
+    // 3지선다 phonetic_text_choice. choices 순서 shuffleArray (정답 위치 학습 방지).
+    // 사용자 클릭 → crSubmitProbe(chosenIndex) → T6 crGradeProbe + T9 attempt write + 1.5/2.5s pause → crAdvanceItem.
+    // L1 명문화: pause 중 화면 클릭으로 즉시 진행 허용 X (인지 시간 확보 목적, ADHD 약 감량 시기).
+    var prb = crState.currentProbe;
+    if (!prb) {
+      // 방어: probe state 없는데 step 6 진입 — 다음 item으로 우회 (E7 정신).
+      crAdvanceItem();
+      return;
+    }
+    var probeStem = prb.probeData && prb.probeData.stem ? prb.probeData.stem : (item.orthography || '');
+    var promptMsg = (prb.reason === 'delayed_review')
+      ? '복습! 어떻게 읽을까?'
+      : '어떻게 읽을까?';
+    var choicesHtml = '';
+    for (var ci = 0; ci < prb.shuffledChoices.length; ci++) {
+      var ch = prb.shuffledChoices[ci];
+      choicesHtml += '<button class="btn-stair cr-probe-choice-btn" onclick="crSubmitProbe(' + ci + ')" '
+        + 'style="margin:6px 4px;min-width:120px;font-size:20px;">'
+        + escapeHtml(ch.text || '')
+        + '</button>';
+    }
+    ctrlHtml = '<div style="margin-top:20px;font-size:18px;color:#1f2937;font-weight:600;">' + escapeHtml(promptMsg) + '</div>'
+      + '<div style="margin-top:8px;font-size:14px;color:#6b7280;">' + escapeHtml(probeStem) + ' 의 발음은?</div>'
+      + '<div style="margin-top:14px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">'
+      + choicesHtml
+      + '</div>'
+      + '<div id="cr-probe-feedback" style="margin-top:14px;min-height:30px;"></div>';
   }
 
   container.innerHTML = '<div class="ra-card cover-read-item" style="padding:24px;max-width:520px;margin:0 auto;text-align:center;">'
@@ -8845,8 +9318,14 @@ async function crPlaySelf() {
   }
 }
 
+// [v5.66 T9] crRateSelf — Phase 2a 자율학습 판정 루프 통합.
+// 흐름: rating 클릭 → T3 qualifying → T2 scheduler (probe 없이 priorProgress 기반 사전 평가) →
+//        rating=='same' && T5 probe show → Step 6 진입 (writer는 crSubmitProbe에서)
+//        그 외 → attempt write (T9 payload 주입) + progress save + 다음 item 또는 retry
+// E1 보정: T2 결과 updatedProgress는 이미 clone — 직접 mutate 안 함.
+// 자문 §5 문장 5: schedulerStateBefore/After는 T2 결과를 attempt writer payload에 전달.
 function crRateSelf(rating) {
-  // UX #6: '같게' guardrail
+  // UX #6 (Phase 1 guardrail 유지)
   if (rating === 'same' && !crState.selfPlayedOnce) return;
 
   // [v5.65.2 race fix] 판단 진입 — pending timer 정리 + seq invalidate + self audio 정지
@@ -8860,16 +9339,75 @@ function crRateSelf(rating) {
 
   var latency = crState.selfCompareLatencyStart > 0 ? (Date.now() - crState.selfCompareLatencyStart) : 0;
   var item = crState.cards[crState.currentIndex];
-  writeCoverReadAttempt(item._crItemId || item.id, {
+  var itemId = item._crItemId || item.id;
+  var isBonus = item._crIsBonus === true;  // T12 bonus practice flag (queue builder가 표시)
+
+  // [v5.66 T9] Phase 2a payload 기본 (T3·T2·T6 결과 채우기 전)
+  var attemptPayload = {
     recordingRef: crState.recordingRef,
     modelPlayed: crState.modelPlayedAfterAttempt,
     modelReplayCount: crState.modelReplayCount,
     selfReplayCount: crState.selfReplayCount,
     selfCompareRating: rating,
     selfCompareLatencyMs: latency,
-    helpLevel: 'model_only'
-  }).catch(function(e){ console.warn('[cover_read] attempt write 실패:', e); });
+    helpLevel: 'model_only',
+    productionDayKey: crGetProductionDayKey(Date.now()),
+    isBonus: isBonus,
+    scaffoldShown: false,             // Phase 2a: scaffold UI 없음 (spec §3.2 line 261 후속 트랙)
+    preProductionTtsCount: 0,         // Phase 1: pre-production TTS 0회 (renderer 정책)
+    preProductionRevealCount: 0       // Phase 1: pre-production reveal 0회
+  };
 
+  // [v5.66 T3] qualifying 판정 — priorProgress 기반
+  var priorProgress = crLoadProgress(itemId);
+  var qualifyingResult = crComputeQualifyingAttempt(attemptPayload, priorProgress);
+  attemptPayload.qualifyingAttempt = qualifyingResult.qualifying;
+  attemptPayload.disqualifyReason = qualifyingResult.disqualifyReason;
+
+  // [v5.66 M3] recentRatings sliding window 갱신 (T7 Phase 2b 활용)
+  if (APP.coverReadSession && (rating === 'same' || rating === 'different')) {
+    APP.coverReadSession.recentRatings.push(rating);
+    if (APP.coverReadSession.recentRatings.length > 10) APP.coverReadSession.recentRatings.shift();
+  }
+
+  // [v5.66 C2] qualifyingAttempts 누적 (T9 summary writer 적재용)
+  if (qualifyingResult.qualifying && APP.coverReadSession) {
+    APP.coverReadSession.qualifyingAttempts++;
+  }
+
+  var schedulerStateBefore = priorProgress.schedulerState;
+
+  // [v5.66 T5] probe 출현 결정 — rating === 'same' 일 때만 (spec §4.2 step 5: 같게만 step 6)
+  var probeDecision = { show: false, reason: null };
+  if (rating === 'same') {
+    var sessionState = {
+      probesShownCount: (APP.coverReadSession && APP.coverReadSession.probesShown) || 0,
+      itemsWithProbe: (APP.coverReadSession && APP.coverReadSession.itemsWithProbe) || {}
+    };
+    probeDecision = crShouldShowProbe(itemId, sessionState, priorProgress);
+  }
+
+  if (probeDecision.show && rating === 'same') {
+    // [v5.66 T11] Step 6 진입. attempt write / scheduler / advance 는 crSubmitProbe에서.
+    crStartProbe(itemId, probeDecision.reason, attemptPayload, schedulerStateBefore, priorProgress);
+    return;
+  }
+
+  // [v5.66 T9] probe 미진입 — T2 scheduler + attempt write 직접 처리.
+  attemptPayload.probe = { shown: false, type: null, correct: null, chosenIndex: null, timing: null };
+  var schedulerResult = crSchedulerAdvance(itemId, attemptPayload, priorProgress);
+  attemptPayload.schedulerStateBefore = schedulerStateBefore;
+  attemptPayload.schedulerStateAfter = schedulerResult.newState;
+  // attemptPayload.calibrationRiskTags 는 writer default []  (Phase 2a 빈 배열, Phase 2b T7 활성화)
+
+  writeCoverReadAttempt(itemId, attemptPayload)
+    .catch(function(e){ console.warn('[cover_read] attempt write 실패:', e); });
+
+  // [v5.66 T1] progress save (event write 후 — 자문 §3-3 함정 3 처리 순서 6→7)
+  crSaveProgress(itemId, schedulerResult.updatedProgress);
+  if (APP.coverReadProgressMap) APP.coverReadProgressMap[itemId] = schedulerResult.updatedProgress;
+
+  // 진행 (Phase 1 흐름 유지)
   if (rating === 'same') {
     if (APP.coverReadSession) {
       APP.coverReadSession.selfSameCount++;
@@ -8880,12 +9418,10 @@ function crRateSelf(rating) {
     if (APP.coverReadSession) APP.coverReadSession.selfDifferentCount++;
     crState.retryCount++;
     if (crState.retryCount >= 2) {
-      // 2회 다르게 → 다음 항목 (itemsAttempted 1회로 카운트, Phase 1 scheduler 없음)
       if (APP.coverReadSession) APP.coverReadSession.itemsAttempted++;
       crAdvanceItem();
     } else {
       // 1회 다르게 → Step 2 로 재녹음. retry counter 메모리 only.
-      // [v5.65.2] pending auto-advance timer 정리 (race 방지)
       if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
       var status = document.getElementById('cr-recording-status');
       if (status) status.textContent = '다시 한 번 녹음해볼까?';
@@ -8900,6 +9436,138 @@ function crRateSelf(rating) {
       crRenderStep();
     }
   }
+}
+
+// [v5.66 T11 + T9] Step 6 probe 진입. attempt write 는 crSubmitProbe에서.
+// H3 보정: itemsWithProbe[itemId] = true 로 동일 item 1회 차단.
+// E7 보정: probe collection lookup 실패 시 probe 건너뛰고 attempt 정상 처리.
+function crStartProbe(itemId, reason, attemptPayloadBase, schedulerStateBefore, priorProgress) {
+  // probe collection lookup (APP.coverReadProbes)
+  var probeCollection = APP.coverReadProbes || [];
+  var probeData = null;
+  for (var i = 0; i < probeCollection.length; i++) {
+    var pp = probeCollection[i];
+    if (pp && pp.targetItemIds && pp.targetItemIds.indexOf(itemId) >= 0) { probeData = pp; break; }
+  }
+  if (!probeData || !probeData.choices || probeData.choices.length === 0) {
+    // E7 방어: probe collection 미존재 → probe 건너뛰고 attempt 정상 처리 + 진행.
+    console.warn('[cover_read] probe collection miss for item:', itemId, '— skip probe, proceed without');
+    crCompleteAttemptWithoutProbe(itemId, attemptPayloadBase, schedulerStateBefore, priorProgress);
+    return;
+  }
+
+  // [v5.66 T11·C2] probesShown 누적 + itemsWithProbe 표시 (H3 동일 item 1회 차단)
+  if (APP.coverReadSession) {
+    APP.coverReadSession.probesShown = (APP.coverReadSession.probesShown || 0) + 1;
+    if (!APP.coverReadSession.itemsWithProbe) APP.coverReadSession.itemsWithProbe = {};
+    APP.coverReadSession.itemsWithProbe[itemId] = true;
+  }
+
+  // choices shuffle (정답 위치 학습 방지). probe.choicesSnapshot에 보존하여 L3·E4 추적.
+  var shuffledChoices = shuffleArray(probeData.choices.slice());
+
+  crState.currentProbe = {
+    itemId: itemId,
+    probeData: probeData,
+    shuffledChoices: shuffledChoices,
+    reason: reason,
+    attemptPayloadBase: attemptPayloadBase,
+    schedulerStateBefore: schedulerStateBefore,
+    priorProgress: priorProgress,
+    startTime: Date.now()
+  };
+  crState.currentStep = 6;
+  crRenderStep();
+}
+
+// [v5.66 T11 + T9 + T6] probe 선택지 클릭 핸들러. T6 채점 + T9 attempt write + T2 scheduler 결과 적용 + UI 피드백 + 진행.
+function crSubmitProbe(chosenIndex) {
+  var prb = crState.currentProbe;
+  if (!prb) return;
+  // 중복 클릭 방지 (currentProbe null 처리는 pause 후)
+  if (prb._submitted) return;
+  prb._submitted = true;
+
+  var latencyMs = Date.now() - prb.startTime;
+  // T6 채점 — shuffledChoices 기준 (chosenIndex 의미 보존)
+  var probeFakeForGrade = { choices: prb.shuffledChoices };
+  var graded = crGradeProbe(probeFakeForGrade, chosenIndex, latencyMs);
+
+  // [v5.66 T11·C2] probesCorrect 누적
+  if (graded.correct && APP.coverReadSession) {
+    APP.coverReadSession.probesCorrect = (APP.coverReadSession.probesCorrect || 0) + 1;
+  }
+
+  // [v5.66 T9] attempt payload 에 probe + scheduler state 주입
+  var attemptPayload = prb.attemptPayloadBase;
+  attemptPayload.probe = {
+    shown: true,
+    type: prb.probeData.type || 'phonetic_text_choice',
+    correct: graded.correct,
+    chosenIndex: chosenIndex,
+    timing: prb.reason  // 'mastery_gate' | 'risk_gate' | 'delayed_review'
+  };
+
+  // T2 scheduler (probe 결과 포함)
+  var schedulerResult = crSchedulerAdvance(prb.itemId, attemptPayload, prb.priorProgress);
+  attemptPayload.schedulerStateBefore = prb.schedulerStateBefore;
+  attemptPayload.schedulerStateAfter = schedulerResult.newState;
+  // attemptPayload.calibrationRiskTags writer default [] (Phase 2a)
+
+  // [v5.66 T9] writer (event write → progress save 순서, 자문 §3-3 함정 3)
+  writeCoverReadAttempt(prb.itemId, attemptPayload)
+    .catch(function(e){ console.warn('[cover_read] attempt write 실패:', e); });
+  crSaveProgress(prb.itemId, schedulerResult.updatedProgress);
+  if (APP.coverReadProgressMap) APP.coverReadProgressMap[prb.itemId] = schedulerResult.updatedProgress;
+
+  // selfSameCount (same일 때만 probe 진입 — spec §4.2 step 5) + itemsAttempted
+  if (APP.coverReadSession) {
+    APP.coverReadSession.selfSameCount++;
+    APP.coverReadSession.itemsAttempted++;
+  }
+
+  // UI 피드백 (정답 1.5s · 오답 2.5s, L1 명문화: pause 중 즉시 진행 허용 X)
+  var feedbackEl = document.getElementById('cr-probe-feedback');
+  if (feedbackEl) {
+    if (graded.correct) {
+      feedbackEl.innerHTML = '<span style="color:#10b981;font-size:22px;font-weight:600;">✓ 잘 했어!</span>';
+    } else {
+      var correctTxt = graded.correctChoice || '';
+      feedbackEl.innerHTML = '<span style="color:#f59e0b;font-size:18px;">정답: <strong>' + escapeHtml(correctTxt) + '</strong></span>';
+    }
+  }
+  // 모든 choices 버튼 비활성
+  var btns = document.querySelectorAll('.cr-probe-choice-btn');
+  for (var bi = 0; bi < btns.length; bi++) {
+    btns[bi].disabled = true;
+    btns[bi].style.opacity = '0.6';
+    btns[bi].style.cursor = 'default';
+  }
+
+  var pauseMs = graded.correct ? 1500 : 2500;
+  crState._autoAdvanceTimer = setTimeout(function() {
+    crState.currentProbe = null;
+    crAdvanceItem();
+  }, pauseMs);
+}
+
+// [v5.66 T11·E7 방어] probe collection miss 또는 미준비 시 attempt 정상 처리 + 진행.
+function crCompleteAttemptWithoutProbe(itemId, attemptPayload, schedulerStateBefore, priorProgress) {
+  attemptPayload.probe = { shown: false, type: null, correct: null, chosenIndex: null, timing: null };
+  var schedulerResult = crSchedulerAdvance(itemId, attemptPayload, priorProgress);
+  attemptPayload.schedulerStateBefore = schedulerStateBefore;
+  attemptPayload.schedulerStateAfter = schedulerResult.newState;
+
+  writeCoverReadAttempt(itemId, attemptPayload)
+    .catch(function(e){ console.warn('[cover_read] attempt write 실패:', e); });
+  crSaveProgress(itemId, schedulerResult.updatedProgress);
+  if (APP.coverReadProgressMap) APP.coverReadProgressMap[itemId] = schedulerResult.updatedProgress;
+
+  if (APP.coverReadSession) {
+    APP.coverReadSession.selfSameCount++;
+    APP.coverReadSession.itemsAttempted++;
+  }
+  crAdvanceItem();
 }
 
 function crAdvanceItem() {
