@@ -1496,8 +1496,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.67.0';
-var APP_SW_CACHE = 'sw5670';
+var APP_VERSION = 'v5.67.1';
+var APP_SW_CACHE = 'sw5671';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2414,26 +2414,24 @@ function markDailyAsRead(dateStr) {
   updateDailyUnreadBadges();
 }
 function pickNextQueueDate() {
-  // FIFO: 날짜 오름차순 첫 미열람 카드. 미래 날짜 제외.
-  var today = getTodayDateStr();
+  // FIFO: 날짜 오름차순 첫 미열람 카드. 순수 FIFO(날짜 게이트 없음).
   var readIds = loadDailyReadIds();
   var list = (DAILY_INDEX_DATA || []).slice();
   list.sort(function(a, b) { return (a.date || '').localeCompare(b.date || ''); });
   for (var i = 0; i < list.length; i++) {
     var d = list[i].date;
-    if (!d || d > today || readIds.indexOf(d) !== -1) continue;
+    if (!d || readIds.indexOf(d) !== -1) continue;
     return d;
   }
   return null;
 }
 function getDailyUnreadCount() {
-  var today = getTodayDateStr();
   var readIds = loadDailyReadIds();
   var list = (DAILY_INDEX_DATA || []);
   var n = 0;
   for (var i = 0; i < list.length; i++) {
     var d = list[i].date;
-    if (!d || d > today || readIds.indexOf(d) !== -1) continue;
+    if (!d || readIds.indexOf(d) !== -1) continue;
     n++;
   }
   return n;
