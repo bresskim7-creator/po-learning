@@ -940,6 +940,179 @@
     .growth-modal .gm-btn.gm-confirm { background: #4A90D9; color: white; }
     .growth-modal .gm-btn.gm-danger { background: #C84B3A; color: white; }
     .growth-modal .gm-readonly { background: #F5F7FA; padding: 10px 12px; border-radius: 10px; font-size: 15px; color: #333; line-height: 1.6; }
+    /* ===== 오늘의 한 장 (daily) — PO 이식 v5.67.0 ===== */
+    /* 홈 강조 배너 (subject-tiles 위) */
+    .daily-banner {
+      display: flex; align-items: center; gap: 12px;
+      background: linear-gradient(135deg,#FFF8E1,#FFECB3);
+      border: 2px solid #FFB300; border-radius: 14px;
+      padding: 14px 16px; margin: 4px 0 12px; cursor: pointer;
+      position: relative; box-shadow: 0 2px 8px rgba(255,179,0,0.18);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .daily-banner:active { transform: scale(0.99); }
+    .daily-banner-icon { font-size: 30px; line-height: 1; }
+    .daily-banner-text { flex: 1; text-align: left; }
+    .daily-banner-title { font-size: 17px; font-weight: 800; color: #6D4C00; }
+    .daily-banner-sub { font-size: 12px; color: #8a6d00; margin-top: 2px; }
+    .daily-banner-arrow { font-size: 20px; color: #B07A00; }
+    .daily-unread-badge {
+      position: absolute; top: -7px; right: -5px; min-width: 20px; height: 20px;
+      padding: 0 6px; border-radius: 10px; background: #E53935; color: #fff;
+      font-size: 12px; font-weight: 700; line-height: 20px; text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    /* 홈 상단 2버튼 그리드 (골고루 학습 · 말하기 연습) */
+    .home-top-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 14px; }
+    .home-top-actions > button { margin: 0 !important; width: 100%; }
+    .btn-speaking-top {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; padding: 16px 10px; border: none; border-radius: 14px;
+      background: linear-gradient(135deg,#E1F5FE,#B3E5FC); color: #01579B;
+      font-size: 16px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(1,87,155,0.12);
+    }
+    .btn-speaking-top .speaking-sub { font-size: 11px; font-weight: 500; color: #0277BD; }
+    /* 홈 하단 보조 아이콘 행 (개념 정리 · 키·몸무게) */
+    .home-bottom-icons { display: flex; gap: 10px; justify-content: center; margin: 16px 0 8px; }
+    .home-bottom-icons > button { flex: 1; margin: 0 !important; }
+
+    /* ===== 오늘의 한 장 (daily-page) — PA 렌더러 이식 ===== */
+    .daily-page-wrap { padding: 0 4px 24px; }
+    .daily-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 8px 14px; border-bottom: 1px solid #eee; margin-bottom: 16px;
+    }
+    .daily-back-btn {
+      border: none; background: transparent; font-size: 22px; color: #555;
+      padding: 4px 8px; cursor: pointer;
+    }
+    .daily-header-title { flex: 1; font-size: 17px; font-weight: 700; color: #222; }
+    .daily-header-date { font-size: 12px; color: #888; }
+    .daily-tabs { display: flex; gap: 0; border-bottom: 1px solid #eee; margin-bottom: 14px; }
+    .daily-tab {
+      flex: 1; padding: 10px 4px; text-align: center; font-size: 14px;
+      color: #888; cursor: pointer; border-bottom: 2px solid transparent;
+    }
+    .daily-tab.active { color: #D4760A; border-bottom-color: #D4760A; font-weight: 700; }
+    .daily-tab-badge {
+      display: inline-block; min-width: 18px; height: 18px; padding: 0 5px;
+      border-radius: 9px; background: #E53935; color: #fff; font-size: 11px;
+      font-weight: 700; line-height: 18px; margin-left: 4px;
+    }
+    .daily-header-image {
+      width: 100%; height: 180px; background: #F0F0F0; border-radius: 8px;
+      margin-bottom: 12px; overflow: hidden; position: relative;
+    }
+    .daily-header-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .daily-header-credit {
+      position: absolute; bottom: 6px; right: 8px; font-size: 10px; color: #FFF;
+      background: rgba(0,0,0,0.55); padding: 2px 6px; border-radius: 3px; text-decoration: none;
+    }
+    .daily-header-credit:hover { background: rgba(0,0,0,0.8); }
+    /* SVG fallback 카테고리별 배경 — PO 3카테고리 (시사/생활상식/계절기념일) */
+    .daily-fallback-category_svg_news { background: linear-gradient(135deg,#FFEBEE,#FFCDD2); }
+    .daily-fallback-category_svg_life { background: linear-gradient(135deg,#E8F5E9,#C8E6C9); }
+    .daily-fallback-category_svg_season { background: linear-gradient(135deg,#FFF3E0,#FFE0B2); }
+    .daily-fallback-category_svg_general { background: linear-gradient(135deg,#F3E5F5,#E1BEE7); }
+    .daily-card {
+      background: #fff; border: 1px solid #eee; border-radius: 12px;
+      padding: 18px 16px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .daily-chapter-label {
+      font-size: 12px; color: #888; font-weight: 600;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+    }
+    .daily-category-pill {
+      font-size: 11px; padding: 2px 8px; border-radius: 10px;
+      background: #FFF3E0; color: #D4760A; font-weight: 600;
+    }
+    .daily-title { font-size: 19px; font-weight: 800; color: #222; line-height: 1.35; margin: 4px 0 6px; }
+    .daily-subtitle { font-size: 14px; color: #666; margin-bottom: 12px; }
+    .daily-tts-btn {
+      display: inline-flex; align-items: center; gap: 5px; margin-bottom: 12px;
+      padding: 7px 14px; border: 1px solid #FFB300; border-radius: 18px;
+      background: #FFF8E1; color: #8a6d00; font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .daily-tts-btn:active { background: #FFECB3; }
+    .daily-leadq {
+      background: #f3f6fb; border-left: 3px solid #2F5496;
+      padding: 10px 12px; border-radius: 0 6px 6px 0;
+      font-size: 13px; color: #2F5496; margin-bottom: 10px;
+    }
+    .daily-leadq strong { display: block; font-size: 11px; margin-bottom: 4px; color: #555; }
+    .daily-whytoday {
+      background: #fffaf0; border-left: 3px solid #D4760A;
+      padding: 8px 12px; border-radius: 0 6px 6px 0;
+      font-size: 12px; color: #8a5800; margin-bottom: 16px;
+    }
+    .daily-whytoday strong { color: #555; margin-right: 6px; }
+    .daily-section { margin-bottom: 14px; }
+    .daily-section-heading {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 15px; font-weight: 700; color: #222;
+      border-bottom: 1px solid #eee; padding-bottom: 4px; margin-bottom: 6px;
+    }
+    .daily-section-icon { font-size: 16px; }
+    .daily-section-body { font-size: 16px; line-height: 1.75; color: #333; }
+    .daily-vocab-box {
+      background: #fff7ed; border: 1px solid #fcd9b5; border-radius: 8px;
+      padding: 12px; margin-bottom: 12px;
+    }
+    .daily-vocab-title { font-size: 13px; color: #8a5800; font-weight: 700; margin-bottom: 8px; }
+    .daily-vocab-item { padding: 6px 0; border-bottom: 1px dashed #f0d8b5; }
+    .daily-vocab-item:last-child { border-bottom: none; }
+    .daily-vocab-ko { font-weight: 700; color: #D4760A; font-size: 16px; }
+    .daily-vocab-en { font-size: 13px; color: #888; margin-left: 6px; }
+    .daily-vocab-desc { font-size: 14px; color: #444; margin-top: 2px; line-height: 1.6; }
+    .daily-ox-box {
+      background: #f3f6fb; border: 1px solid #d0d9e8; border-radius: 8px;
+      padding: 12px; margin-bottom: 12px;
+    }
+    .daily-ox-title { font-size: 13px; color: #2F5496; font-weight: 700; margin-bottom: 8px; }
+    .daily-ox-item {
+      display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;
+      border-bottom: 1px dashed #d8e0ed; cursor: pointer;
+    }
+    .daily-ox-item:last-child { border-bottom: none; }
+    .daily-ox-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 24px; height: 24px; border: 1.5px solid #aaa; border-radius: 50%;
+      font-size: 12px; font-weight: 700; color: #aaa; flex-shrink: 0;
+    }
+    .daily-ox-item.revealed.correct .daily-ox-mark { border-color: #2E7D32; color: #2E7D32; background: #e8f5e9; }
+    .daily-ox-item.revealed.wrong .daily-ox-mark { border-color: #C62828; color: #C62828; background: #ffebee; }
+    .daily-ox-text { flex: 1; font-size: 14px; line-height: 1.6; color: #333; }
+    .daily-ox-explain { font-size: 13px; color: #1b5e20; margin-top: 4px; display: none; line-height: 1.6; }
+    .daily-ox-item.revealed .daily-ox-explain { display: block; }
+    .daily-summary {
+      background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 8px;
+      padding: 12px; margin-bottom: 12px;
+    }
+    .daily-summary-title { font-size: 13px; color: #2E7D32; font-weight: 700; margin-bottom: 6px; }
+    .daily-summary-body { font-size: 16px; color: #1b5e20; line-height: 1.7; }
+    .daily-summary-keywords { font-size: 11px; color: #555; margin-top: 6px; }
+    .daily-sources {
+      font-size: 11px; color: #888; margin-top: 12px;
+      padding-top: 10px; border-top: 1px dashed #ddd;
+    }
+    .daily-sources-title { font-weight: 700; margin-bottom: 4px; }
+    .daily-sources a { color: #2F5496; text-decoration: none; word-break: break-all; }
+    .daily-sources a:hover { text-decoration: underline; }
+    .daily-archive-list { padding: 8px 0; }
+    .daily-archive-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 10px; border-bottom: 1px solid #eee; cursor: pointer;
+    }
+    .daily-archive-item:hover { background: #fafafa; }
+    .daily-archive-date { font-size: 12px; color: #888; min-width: 70px; }
+    .daily-archive-cat {
+      font-size: 10px; padding: 2px 6px; border-radius: 8px;
+      background: #FFF3E0; color: #D4760A; font-weight: 600; min-width: 56px; text-align: center;
+    }
+    .daily-archive-title { flex: 1; font-size: 13px; color: #333; line-height: 1.4; }
+    .daily-empty { padding: 40px 20px; text-align: center; color: #888; font-size: 13px; line-height: 1.6; }
+    .daily-empty-icon { font-size: 36px; margin-bottom: 10px; }
   </style>
 </head>
 <body>
@@ -971,10 +1144,28 @@
     <button class="resume-close" onclick="dismissPendingSession()">✕</button>
   </div>
   <div id="home-loading" style="text-align:center; padding:40px 0; color:#999; font-size:14px;">불러오는 중...</div>
+  <!-- [v5.67.0] 오늘의 한 장 — 최상단 강조 배너 (daily 코너 진입점) -->
+  <div class="daily-banner" id="daily-banner" onclick="openDailyPage()">
+    <span class="daily-banner-icon">📰</span>
+    <div class="daily-banner-text">
+      <div class="daily-banner-title">오늘의 한 장</div>
+      <div class="daily-banner-sub">하루 한 편, 짧게 읽기</div>
+    </div>
+    <span class="daily-banner-arrow">›</span>
+    <span class="daily-unread-badge" id="home-daily-unread-badge" style="display:none;">0</span>
+  </div>
+  <!-- [v5.67.0] 상단 주 학습 2버튼 (골고루 학습 · 말하기 연습) -->
+  <div class="home-top-actions" id="home-top-actions" style="display:none;">
+    <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')">🔄 골고루 학습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
+    <button type="button" class="btn-speaking-top" id="btn-speaking-top" onclick="startSpeakingPracticeSession()">🎤 말하기 연습<span class="speaking-sub">소리 내어 읽기</span></button>
+  </div>
+  <!-- [v5.67.0] 과목 그리드 2×2 (영어/독해/사회/과학) -->
   <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
-  <button class="btn-mixed-session" id="btn-mixed-session" onclick="startSubjectSession('mixed')" style="display:none;">🔄 전체 복습 · <span id="mixed-card-count">30</span>장<span class="mixed-sub">여러 과목 섞어서</span></button>
-  <button type="button" class="tile-concept" id="tile-concept" onclick="openConceptHome()" style="display:none;">📚 개념 정리<span class="concept-sub" id="tile-concept-sub">단원 핵심 한눈에 보기</span></button>
-  <button type="button" class="tile-growth" id="tile-growth" onclick="openGrowthPage()" style="display:none;">📏 키·몸무게 기록<span class="growth-sub" id="tile-growth-sub">기록을 시작해보자</span></button>
+  <!-- [v5.67.0] 하단 보조 아이콘 행 (개념 정리 · 키·몸무게) -->
+  <div class="home-bottom-icons" id="home-bottom-icons" style="display:none;">
+    <button type="button" class="tile-concept" id="tile-concept" onclick="openConceptHome()" style="display:none;">📚 개념 정리<span class="concept-sub" id="tile-concept-sub">단원 핵심 한눈에 보기</span></button>
+    <button type="button" class="tile-growth" id="tile-growth" onclick="openGrowthPage()" style="display:none;">📏 키·몸무게 기록<span class="growth-sub" id="tile-growth-sub">기록을 시작해보자</span></button>
+  </div>
   <div id="app-version-footer" style="position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:11px; color:rgba(0,0,0,0.35); pointer-events:none;">
     <span id="app-version-text"></span>
   </div>
@@ -985,6 +1176,23 @@
       <div class="card-label">오늘의 카드</div>
     </div>
     <button class="btn-start" onclick="startSession()">시작하기</button>
+  </div>
+</div>
+
+<!-- ===== 오늘의 한 장 (page-daily) — v5.67.0 ===== -->
+<div id="page-daily" class="page">
+  <div class="daily-page-wrap">
+    <div class="daily-header">
+      <button class="daily-back-btn" onclick="showPage('page-home'); updateHomeScreen();">←</button>
+      <div class="daily-header-title">오늘의 한 장</div>
+      <div class="daily-header-date" id="daily-header-date">—</div>
+    </div>
+    <div class="daily-tabs">
+      <div class="daily-tab active" id="daily-tab-today" onclick="showDailyTab('today')">한 장 <span class="daily-tab-badge" id="page-daily-unread-badge" style="display:none;">0</span></div>
+      <div class="daily-tab" id="daily-tab-archive" onclick="showDailyTab('archive'); loadDailyArchive();">지난 글</div>
+    </div>
+    <div id="daily-today-view"></div>
+    <div id="daily-archive-view" style="display:none;"></div>
   </div>
 </div>
 
@@ -1288,8 +1496,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.66.0';
-var APP_SW_CACHE = 'sw5660';
+var APP_VERSION = 'v5.67.0';
+var APP_SW_CACHE = 'sw5670';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2017,6 +2225,10 @@ function renderLegacyHome() {
   if (gt0) gt0.style.display = 'none';
   var tcl0 = document.getElementById('tile-concept');
   if (tcl0) tcl0.style.display = 'none';
+  // [v5.67.0] 레거시 홈에서는 신규 컨테이너·배너도 숨김 (비대칭 방지)
+  var hta0 = document.getElementById('home-top-actions'); if (hta0) hta0.style.display = 'none';
+  var hbi0 = document.getElementById('home-bottom-icons'); if (hbi0) hbi0.style.display = 'none';
+  var db0 = document.getElementById('daily-banner'); if (db0) db0.style.display = 'none';
   document.getElementById('resume-banner').style.display = 'none';
   var legacyEl = document.getElementById('legacy-home');
   if (legacyEl) {
@@ -2041,7 +2253,17 @@ function renderSubjectTileHome() {
   if (loadingEl) loadingEl.style.display = 'none';
   document.getElementById('legacy-home').style.display = 'none';
   document.getElementById('subject-tiles').style.display = '';
-  document.querySelector('.btn-mixed-session').style.display = '';
+  // [v5.67.0] 홈 재배치: 오늘의 한 장 배너 + 상단 2버튼 행 + 하단 아이콘 행 표시
+  var dbEl = document.getElementById('daily-banner');
+  if (dbEl) dbEl.style.display = '';
+  var htaEl = document.getElementById('home-top-actions');
+  if (htaEl) htaEl.style.display = '';
+  var hbiEl = document.getElementById('home-bottom-icons');
+  if (hbiEl) hbiEl.style.display = '';
+  // [v5.67.0] 오늘의 한 장 — 인덱스 로드 후 미열람 배지 갱신
+  if (typeof loadDailyIndexJsonp === 'function') {
+    loadDailyIndexJsonp().then(function() { updateDailyUnreadBadges(); });
+  }
   // [v5.64] 개념 정리 타일 (카드 1장 이상일 때만 표시)
   var tcl = document.getElementById('tile-concept');
   if (tcl) {
@@ -2077,9 +2299,10 @@ function renderSubjectTileHome() {
   var hasOldTiles = rawOrder.indexOf('speech_therapy_quiz') >= 0 || rawOrder.indexOf('listen_repeat') >= 0 || rawOrder.indexOf('read_aloud') >= 0;
   var tileOrder;
   if (hasOldTiles || rawOrder.length === 0) {
-    tileOrder = ['english','comprehension','social_studies','science','speaking_practice'];
+    // [v5.67.0] speaking_practice는 과목 그리드에서 분리(상단 버튼). 마이그레이션 기본값에서도 제외.
+    tileOrder = ['english','comprehension','social_studies','science'];
   } else {
-    tileOrder = rawOrder;
+    tileOrder = rawOrder.filter(function(s) { return s !== 'speaking_practice'; });
   }
   var tileMeta = {
     english: { emoji: '\uD83D\uDD24', name: '영어' },
@@ -2113,6 +2336,435 @@ function renderSubjectTileHome() {
     tilesEl.appendChild(tile);
   });
   renderResumeBanner();
+}
+
+// ===================================================================
+// [v5.67.0] 오늘의 한 장 (daily) — PA 렌더러 이식 + PO TTS(제목+리드, Web Speech 로컬)
+// JSONP 월묶음 + FIFO 미열람 큐 + 지난 글 archive + 읽음 처리 + 미열람 배지
+// ===================================================================
+var DAILY_TODAY_DATA = null;
+var DAILY_INDEX_DATA = null;
+var DAILY_INDEX_META = null;
+var DAILY_MONTH_CACHE = {};
+var DAILY_INDEX_LOADED = false;
+var DAILY_LAST_SUCCESS_KEY = 'po_daily_last_success';
+var PO_DAILY_READ_IDS_KEY = 'po_daily_read_ids';
+
+function getTodayDateStr() {
+  var d = new Date();
+  var y = d.getFullYear();
+  var m = String(d.getMonth() + 1).padStart(2, '0');
+  var day = String(d.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + day;
+}
+function getWeekdayKo(dateStr) {
+  var d = new Date(dateStr + 'T00:00:00');
+  return ['일','월','화','수','목','금','토'][d.getDay()];
+}
+function dailyEscapeHtml(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// [v5.67.0] 제목+리드만 읽어주기 — Web Speech 로컬 전용 (chirp3 API 미호출, 본문 TTS 없음)
+function speakDailyLocal(text) {
+  if (!text || typeof speechSynthesis === 'undefined' || !window.speechSynthesis) return;
+  if (typeof isMuted !== 'undefined' && isMuted) return;
+  try { speechSynthesis.cancel(); } catch (e) {}
+  try {
+    var u = new SpeechSynthesisUtterance(String(text));
+    u.lang = 'ko-KR';
+    u.rate = 0.95;
+    var voices = speechSynthesis.getVoices() || [];
+    for (var i = 0; i < voices.length; i++) {
+      if (/ko/i.test(voices[i].lang)) { u.voice = voices[i]; break; }
+    }
+    speechSynthesis.speak(u);
+  } catch (e) { /* TTS 불가 환경 — silent */ }
+}
+function speakDailyTitleLead(d) {
+  if (!d) return;
+  var parts = [d.title, d.lead_question, d.why_today].filter(Boolean);
+  speakDailyLocal(parts.join('. '));
+}
+
+function saveDailyLastSuccess(dateStr, data) {
+  try {
+    localStorage.setItem(DAILY_LAST_SUCCESS_KEY, JSON.stringify({
+      date: dateStr, saved_at: new Date().toISOString(), data: data
+    }));
+  } catch (e) {}
+}
+function loadDailyReadIds() {
+  try {
+    var raw = localStorage.getItem(PO_DAILY_READ_IDS_KEY);
+    if (!raw) return [];
+    var arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) { return []; }
+}
+function markDailyAsRead(dateStr) {
+  if (!dateStr) return;
+  var ids = loadDailyReadIds();
+  if (ids.indexOf(dateStr) !== -1) return;
+  ids.push(dateStr);
+  try { localStorage.setItem(PO_DAILY_READ_IDS_KEY, JSON.stringify(ids)); } catch (e) {}
+  updateDailyUnreadBadges();
+}
+function pickNextQueueDate() {
+  // FIFO: 날짜 오름차순 첫 미열람 카드. 미래 날짜 제외.
+  var today = getTodayDateStr();
+  var readIds = loadDailyReadIds();
+  var list = (DAILY_INDEX_DATA || []).slice();
+  list.sort(function(a, b) { return (a.date || '').localeCompare(b.date || ''); });
+  for (var i = 0; i < list.length; i++) {
+    var d = list[i].date;
+    if (!d || d > today || readIds.indexOf(d) !== -1) continue;
+    return d;
+  }
+  return null;
+}
+function getDailyUnreadCount() {
+  var today = getTodayDateStr();
+  var readIds = loadDailyReadIds();
+  var list = (DAILY_INDEX_DATA || []);
+  var n = 0;
+  for (var i = 0; i < list.length; i++) {
+    var d = list[i].date;
+    if (!d || d > today || readIds.indexOf(d) !== -1) continue;
+    n++;
+  }
+  return n;
+}
+function updateDailyUnreadBadges() {
+  var n = getDailyUnreadCount();
+  var homeBadge = document.getElementById('home-daily-unread-badge');
+  var pageBadge = document.getElementById('page-daily-unread-badge');
+  if (homeBadge) {
+    if (n > 0) { homeBadge.textContent = String(n); homeBadge.style.display = ''; }
+    else { homeBadge.style.display = 'none'; }
+  }
+  if (pageBadge) {
+    if (n > 0) { pageBadge.textContent = String(n); pageBadge.style.display = ''; }
+    else { pageBadge.style.display = 'none'; }
+  }
+}
+function loadDailyIndexJsonp() {
+  return new Promise(function(resolve) {
+    if (DAILY_INDEX_LOADED) { resolve(); return; }
+    window.__loadDailyIndex = function(list, meta) {
+      delete window.__loadDailyIndex;
+      DAILY_INDEX_DATA = list || [];
+      DAILY_INDEX_META = meta || null;
+      DAILY_INDEX_LOADED = true;
+      resolve();
+    };
+    var s = document.createElement('script');
+    s.src = './daily_index.js';
+    s.onerror = function() {
+      delete window.__loadDailyIndex;
+      DAILY_INDEX_DATA = []; DAILY_INDEX_META = null; DAILY_INDEX_LOADED = true;
+      resolve();
+    };
+    document.head.appendChild(s);
+    setTimeout(function() {
+      if (window.__loadDailyIndex) {
+        delete window.__loadDailyIndex;
+        DAILY_INDEX_DATA = []; DAILY_INDEX_META = null; DAILY_INDEX_LOADED = true;
+        resolve();
+      }
+    }, 5000);
+  });
+}
+function loadDailyMonth(month) {
+  return new Promise(function(resolve) {
+    if (DAILY_MONTH_CACHE[month]) { resolve(DAILY_MONTH_CACHE[month]); return; }
+    var v = (DAILY_INDEX_META && DAILY_INDEX_META.version_key) || 'v1';
+    window.__loadDailyMonth = function(m, payload) {
+      delete window.__loadDailyMonth;
+      if (m && payload) DAILY_MONTH_CACHE[m] = payload;
+      resolve(DAILY_MONTH_CACHE[month] || null);
+    };
+    var s = document.createElement('script');
+    s.src = './daily_' + month + '.js?v=' + encodeURIComponent(v);
+    s.onerror = function() { delete window.__loadDailyMonth; resolve(null); };
+    document.head.appendChild(s);
+    setTimeout(function() {
+      if (window.__loadDailyMonth) { delete window.__loadDailyMonth; resolve(DAILY_MONTH_CACHE[month] || null); }
+    }, 5000);
+  });
+}
+function tryLoadDailyDate(dateStr) {
+  if (!dateStr || dateStr.length < 7) return Promise.resolve(null);
+  var month = dateStr.slice(0, 7);
+  return loadDailyMonth(month).then(function(monthPayload) {
+    if (!monthPayload || !monthPayload.days) return null;
+    return monthPayload.days[dateStr] || null;
+  });
+}
+function loadDailyToday() {
+  var today = getTodayDateStr();
+  var dateEl = document.getElementById('daily-header-date');
+  if (dateEl) dateEl.textContent = today + ' (' + getWeekdayKo(today) + ')';
+  return loadDailyIndexJsonp().then(function() {
+    updateDailyUnreadBadges();
+    var nextDate = pickNextQueueDate();
+    if (nextDate) {
+      return tryLoadDailyDate(nextDate).then(function(data) {
+        if (data) {
+          DAILY_TODAY_DATA = data;
+          saveDailyLastSuccess(nextDate, data);
+          renderDailyToday(data, { date: nextDate, isToday: nextDate === today, fromQueue: true });
+          updateDailyUnreadBadges();
+          return;
+        }
+        DAILY_TODAY_DATA = null;
+        renderDailyQueueEmpty();
+        updateDailyUnreadBadges();
+      });
+    }
+    DAILY_TODAY_DATA = null;
+    renderDailyQueueEmpty();
+    updateDailyUnreadBadges();
+  });
+}
+function loadDailyByDate(dateStr) {
+  var dateEl = document.getElementById('daily-header-date');
+  if (dateEl) dateEl.textContent = dateStr + ' (' + getWeekdayKo(dateStr) + ')';
+  return loadDailyIndexJsonp().then(function() {
+    return tryLoadDailyDate(dateStr).then(function(data) {
+      if (data) {
+        DAILY_TODAY_DATA = data;
+        renderDailyToday(data, { date: dateStr, isToday: dateStr === getTodayDateStr(), fromQueue: false });
+      } else {
+        DAILY_TODAY_DATA = null;
+        renderDailyArchiveItemEmpty(dateStr);
+      }
+    });
+  });
+}
+function loadDailyArchive() {
+  return loadDailyIndexJsonp().then(function() { renderDailyArchive(); });
+}
+function showDailyTab(name) {
+  var t = document.getElementById('daily-tab-today');
+  var a = document.getElementById('daily-tab-archive');
+  if (t) t.classList.toggle('active', name === 'today');
+  if (a) a.classList.toggle('active', name === 'archive');
+  var tv = document.getElementById('daily-today-view');
+  var av = document.getElementById('daily-archive-view');
+  if (tv) tv.style.display = (name === 'today') ? '' : 'none';
+  if (av) av.style.display = (name === 'archive') ? '' : 'none';
+}
+function renderDailyQueueEmpty() {
+  var view = document.getElementById('daily-today-view');
+  if (!view) return;
+  view.innerHTML = '<div class="daily-empty">'
+    + '<div class="daily-empty-icon">🎉</div>'
+    + '<div>다 봤어요!</div>'
+    + '<div style="margin-top:6px;font-size:13px;color:#666;">새 글은 주말에 준비돼요.</div>'
+    + '<div style="margin-top:6px;font-size:12px;color:#999;">"지난 글" 탭에서 읽었던 글을 다시 볼 수 있어요.</div>'
+    + '</div>';
+}
+function renderDailyArchiveItemEmpty(dateStr) {
+  var view = document.getElementById('daily-today-view');
+  if (!view) return;
+  view.innerHTML = '<div class="daily-empty">'
+    + '<div class="daily-empty-icon">📭</div>'
+    + '<div><b>' + dailyEscapeHtml(dateStr) + '</b> 글을 불러올 수 없어요.</div>'
+    + '</div>';
+}
+var _dailyReadObserver = null;
+var _dailyReadScrollHandler = null;
+function attachReadObserver(dateStr) {
+  if (_dailyReadObserver) { try { _dailyReadObserver.disconnect(); } catch (e) {} _dailyReadObserver = null; }
+  if (_dailyReadScrollHandler) { window.removeEventListener('scroll', _dailyReadScrollHandler); _dailyReadScrollHandler = null; }
+  if (!dateStr) return;
+  var sentinel = document.getElementById('daily-read-sentinel');
+  if (!sentinel) return;
+  if (typeof IntersectionObserver === 'undefined') { attachScrollFallback(dateStr); return; }
+  _dailyReadObserver = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) {
+        markDailyAsRead(dateStr);
+        if (_dailyReadObserver) { _dailyReadObserver.disconnect(); _dailyReadObserver = null; }
+        showReadConfirmedToast();
+        break;
+      }
+    }
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+  _dailyReadObserver.observe(sentinel);
+}
+function attachScrollFallback(dateStr) {
+  _dailyReadScrollHandler = function() {
+    var sentinel = document.getElementById('daily-read-sentinel');
+    if (!sentinel) return;
+    var rect = sentinel.getBoundingClientRect();
+    if (rect.top <= window.innerHeight) {
+      markDailyAsRead(dateStr);
+      window.removeEventListener('scroll', _dailyReadScrollHandler);
+      _dailyReadScrollHandler = null;
+      showReadConfirmedToast();
+    }
+  };
+  window.addEventListener('scroll', _dailyReadScrollHandler, { passive: true });
+}
+function showReadConfirmedToast() {
+  var t = document.getElementById('daily-read-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'daily-read-toast';
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#D4760A;color:#fff;padding:8px 16px;border-radius:18px;font-size:13px;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none;';
+    document.body.appendChild(t);
+  }
+  t.textContent = '읽음 처리됐어요';
+  t.style.opacity = '1';
+  setTimeout(function() { t.style.opacity = '0'; }, 2400);
+}
+function renderDailyToday(d, ctx) {
+  ctx = ctx || {};
+  if (!d) {
+    if (ctx.fromQueue) renderDailyQueueEmpty();
+    else renderDailyArchiveItemEmpty(ctx.date || getTodayDateStr());
+    return;
+  }
+  var view = document.getElementById('daily-today-view');
+  if (!view) return;
+  var html = '<div class="daily-card">';
+  // 헤더 이미지: image_url 있으면 표시 + credit, 없으면 image_fallback 카테고리 그라데이션
+  if (d.image_url) {
+    html += '<div class="daily-header-image">';
+    html += '<img src="' + dailyEscapeHtml(d.image_url) + '" alt="' + dailyEscapeHtml(d.title || '') + '" '
+      + 'onerror="this.parentNode.classList.add(\'daily-header-fallback\');this.parentNode.classList.add(\'daily-fallback-' + dailyEscapeHtml(d.image_fallback || 'category_svg_general') + '\');this.style.display=\'none\';">';
+    if (d.image_credit && d.image_credit.source) {
+      html += '<a class="daily-header-credit" href="' + dailyEscapeHtml(d.image_credit.url || '#')
+        + '" target="_blank" rel="noopener">© ' + dailyEscapeHtml(d.image_credit.source) + '</a>';
+    }
+    html += '</div>';
+  } else if (d.image_fallback) {
+    html += '<div class="daily-header-image daily-fallback-' + dailyEscapeHtml(d.image_fallback) + '"></div>';
+  }
+  html += '<div class="daily-chapter-label">'
+    + '<span>' + dailyEscapeHtml(d.chapter_label || '') + '</span>'
+    + '<span class="daily-category-pill">' + dailyEscapeHtml(d.category || '') + '</span>'
+    + '</div>';
+  html += '<div class="daily-title">' + dailyEscapeHtml(d.title || '') + '</div>';
+  if (d.subtitle) html += '<div class="daily-subtitle">' + dailyEscapeHtml(d.subtitle) + '</div>';
+  // [v5.67.0] 제목·리드 다시 듣기 (Web Speech 로컬). 본문 읽어주기 버튼은 없음(읽기 습관 보존).
+  html += '<button class="daily-tts-btn" onclick="speakDailyTitleLead(DAILY_TODAY_DATA)">🔊 제목·리드 다시 듣기</button>';
+  if (d.lead_question) {
+    html += '<div class="daily-leadq"><strong>읽기 전 질문</strong>' + dailyEscapeHtml(d.lead_question) + '</div>';
+  }
+  if (d.why_today) {
+    html += '<div class="daily-whytoday"><strong>왜 오늘?</strong>' + dailyEscapeHtml(d.why_today) + '</div>';
+  }
+  (d.sections || []).forEach(function(sec) {
+    html += '<div class="daily-section">'
+      + '<div class="daily-section-heading">'
+      + '<span class="daily-section-icon">' + dailyEscapeHtml(sec.icon || '📝') + '</span>'
+      + dailyEscapeHtml(sec.heading || '')
+      + '</div>'
+      + '<div class="daily-section-body">' + dailyEscapeHtml(sec.body || '') + '</div>'
+      + '</div>';
+  });
+  if (d.vocabulary && d.vocabulary.length) {
+    html += '<div class="daily-vocab-box"><div class="daily-vocab-title">📒 오늘의 핵심 어휘</div>';
+    d.vocabulary.forEach(function(v) {
+      html += '<div class="daily-vocab-item">'
+        + '<span class="daily-vocab-ko">' + dailyEscapeHtml(v.ko || '') + '</span>'
+        + '<span class="daily-vocab-en">' + dailyEscapeHtml(v.en || '') + '</span>'
+        + '<div class="daily-vocab-desc">' + dailyEscapeHtml(v.desc || '') + '</div>'
+        + '</div>';
+    });
+    html += '</div>';
+  }
+  if (d.ox_check && d.ox_check.length) {
+    html += '<div class="daily-ox-box"><div class="daily-ox-title">✅ 3초 상식 체크 (탭하면 정답)</div>';
+    d.ox_check.forEach(function(ox) {
+      html += '<div class="daily-ox-item" data-answer="' + dailyEscapeHtml(ox.answer || '') + '" onclick="revealOx(this)">'
+        + '<span class="daily-ox-mark">?</span>'
+        + '<div class="daily-ox-text">' + dailyEscapeHtml(ox.statement || '')
+        + (ox.explanation ? '<div class="daily-ox-explain">▸ ' + dailyEscapeHtml(ox.explanation) + '</div>' : '')
+        + '</div></div>';
+    });
+    html += '</div>';
+  }
+  if (d.one_line_summary) {
+    html += '<div class="daily-summary"><div class="daily-summary-title">📝 한 줄 요약</div>'
+      + '<div class="daily-summary-body">' + dailyEscapeHtml(d.one_line_summary) + '</div>';
+    if (d.summary_keywords) html += '<div class="daily-summary-keywords">' + dailyEscapeHtml(d.summary_keywords) + '</div>';
+    html += '</div>';
+  }
+  if (d.sources && d.sources.length) {
+    html += '<div class="daily-sources"><div class="daily-sources-title">출처</div>';
+    d.sources.forEach(function(src) {
+      var url = src.url || '';
+      var title = src.title || url;
+      html += '<div>· <a href="' + dailyEscapeHtml(url) + '" target="_blank" rel="noopener">' + dailyEscapeHtml(title) + '</a></div>';
+    });
+    html += '</div>';
+  }
+  html += '</div>';
+  html += '<div id="daily-read-sentinel" style="height:1px;"></div>';
+  view.innerHTML = html;
+  if (d.schema_version && d.schema_version > 1.1) {
+    console.warn('[daily] schema_version', d.schema_version, '> renderer 1.1. 일부 필드가 표시되지 않을 수 있음.');
+  }
+  // [v5.67.0] 카드 진입 시 제목+리드 자동 읽어주기 (Web Speech 로컬, 본문 제외)
+  speakDailyTitleLead(d);
+  if (ctx.fromQueue) {
+    attachReadObserver(ctx.date);
+  } else {
+    if (_dailyReadObserver) { try { _dailyReadObserver.disconnect(); } catch (e) {} _dailyReadObserver = null; }
+    if (_dailyReadScrollHandler) { window.removeEventListener('scroll', _dailyReadScrollHandler); _dailyReadScrollHandler = null; }
+  }
+}
+function revealOx(el) {
+  var answer = el.getAttribute('data-answer');
+  var mark = el.querySelector('.daily-ox-mark');
+  if (mark) mark.textContent = answer || '?';
+  el.classList.add('revealed');
+  if (answer === 'O') el.classList.add('correct');
+  else if (answer === 'X') el.classList.add('wrong');
+}
+function renderDailyArchive() {
+  var view = document.getElementById('daily-archive-view');
+  if (!view) return;
+  var readIds = loadDailyReadIds();
+  var list = (DAILY_INDEX_DATA || []).filter(function(item) {
+    return item && item.date && readIds.indexOf(item.date) !== -1;
+  });
+  if (!list.length) {
+    view.innerHTML = '<div class="daily-empty">'
+      + '<div class="daily-empty-icon">🗂️</div>'
+      + '<div>아직 읽은 글이 없어요.</div>'
+      + '<div style="margin-top:6px;font-size:12px;">"한 장" 탭에서 글을 끝까지 읽으면 여기에 모여요.</div>'
+      + '</div>';
+    return;
+  }
+  list.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
+  var html = '<div class="daily-archive-list">';
+  list.forEach(function(item) {
+    html += '<div class="daily-archive-item" onclick="openArchiveItem(\'' + dailyEscapeHtml(item.date || '') + '\')">'
+      + '<div class="daily-archive-date">' + dailyEscapeHtml(item.date || '') + '</div>'
+      + '<div class="daily-archive-cat">' + dailyEscapeHtml(item.category || '') + '</div>'
+      + '<div class="daily-archive-title">' + dailyEscapeHtml(item.title || '') + '</div>'
+      + '</div>';
+  });
+  html += '</div>';
+  view.innerHTML = html;
+}
+function openArchiveItem(dateStr) {
+  showDailyTab('today');
+  loadDailyByDate(dateStr).then(function() { window.scrollTo(0, 0); });
+}
+// 홈 배너 → daily 코너 진입
+function openDailyPage() {
+  showPage('page-daily');
+  showDailyTab('today');
+  loadDailyToday();
 }
 
 function getSubjectCardPoolCount(subject) {
@@ -2255,7 +2907,7 @@ function renderResumeBanner() {
       banner.style.display = 'none';
       return;
     }
-    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', science:'과학', speaking_practice:'말하기 연습', speech_therapy_quiz:'말하기', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'전체 복습' };
+    var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', science:'과학', speaking_practice:'말하기 연습', speech_therapy_quiz:'말하기', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'골고루 학습' };
     var name = subjectNames[pending.subject] || '학습';
     document.getElementById('resume-banner-text').textContent = name + ' ' + pending.currentIndex + '/' + pending.cards.length + '장 진행 중';
     banner.style.display = 'flex';

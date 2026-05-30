@@ -1,13 +1,37 @@
 {
   "version": "v4.10-phase2",
   "updated": "2026-03-22",
-  "child": { "name": "PO", "grade": "초6", "interests": ["야구", "게임"] },
+  "child": {
+    "name": "PO",
+    "grade": "초6",
+    "interests": [
+      "야구",
+      "게임"
+    ]
+  },
   "cardsPerSession": 20,
   "extendedCards": 30,
   "roles": {
-    "curriculum-recall": { "label": "수업 복습", "subjects": ["english", "social_studies"] },
-    "reading-transfer": { "label": "읽기 전이", "subjects": ["comprehension"] },
-    "review-stabilize": { "label": "복습 안정화", "subjects": ["speech_therapy", "listen_repeat"] }
+    "curriculum-recall": {
+      "label": "수업 복습",
+      "subjects": [
+        "english",
+        "social_studies"
+      ]
+    },
+    "reading-transfer": {
+      "label": "읽기 전이",
+      "subjects": [
+        "comprehension"
+      ]
+    },
+    "review-stabilize": {
+      "label": "복습 안정화",
+      "subjects": [
+        "speech_therapy",
+        "listen_repeat"
+      ]
+    }
   },
   "extendCondition": {
     "minSessions": 3,
@@ -27,17 +51,47 @@
     "todayOverride": null
   },
   "modeA": {
-    "cardCount": { "min": 15, "max": 40, "default": 30 },
-    "timeLimit": { "soft": 18, "hard": 25, "unit": "minutes", "target": 20 },
-    "subjectMix": {
-      "english": { "ratio": 0.35, "enabled": true },
-      "comprehension": { "ratio": 0.25, "enabled": true },
-      "social_studies": { "ratio": 0.15, "enabled": true },
-      "science": { "ratio": 0.10, "enabled": true },
-      "speech_therapy": { "slots": "full_lesson", "position": "last_block" },
-      "listen_repeat": { "ratio": 0.15, "enabled": true }
+    "cardCount": {
+      "min": 15,
+      "max": 40,
+      "default": 30
     },
-    "newToReviewRatio": { "new": 0.4, "review": 0.6 }
+    "timeLimit": {
+      "soft": 18,
+      "hard": 25,
+      "unit": "minutes",
+      "target": 20
+    },
+    "subjectMix": {
+      "english": {
+        "ratio": 0.35,
+        "enabled": true
+      },
+      "comprehension": {
+        "ratio": 0.25,
+        "enabled": true
+      },
+      "social_studies": {
+        "ratio": 0.15,
+        "enabled": true
+      },
+      "science": {
+        "ratio": 0.1,
+        "enabled": true
+      },
+      "speech_therapy": {
+        "slots": "full_lesson",
+        "position": "last_block"
+      },
+      "listen_repeat": {
+        "ratio": 0.15,
+        "enabled": true
+      }
+    },
+    "newToReviewRatio": {
+      "new": 0.4,
+      "review": 0.6
+    }
   },
   "ttsPolicy": {
     "engine": "google_chirp3",
@@ -88,7 +142,20 @@
         "id": "school-english",
         "label": "학교 영어",
         "inputType": "dropdown",
-        "options": ["1단원", "2단원", "3단원", "4단원", "5단원", "6단원", "7단원", "8단원", "9단원", "10단원", "11단원", "12단원"]
+        "options": [
+          "1단원",
+          "2단원",
+          "3단원",
+          "4단원",
+          "5단원",
+          "6단원",
+          "7단원",
+          "8단원",
+          "9단원",
+          "10단원",
+          "11단원",
+          "12단원"
+        ]
       },
       {
         "id": "reading-class",
@@ -100,13 +167,27 @@
         "id": "school-social",
         "label": "학교 사회",
         "inputType": "dropdown",
-        "options": ["1-1 평화 통일을 위한 노력", "1-2 민주화와 산업화", "2-1 민주주의와 선거", "2-2 국가기관과 권력 분립", "2-3 민주주의와 미디어", "3-1 세계를 표현하는 다양한 자료", "3-2 세계 여러 국가의 위치와 영토"]
+        "options": [
+          "1-1 평화 통일을 위한 노력",
+          "1-2 민주화와 산업화",
+          "2-1 민주주의와 선거",
+          "2-2 국가기관과 권력 분립",
+          "2-3 민주주의와 미디어",
+          "3-1 세계를 표현하는 다양한 자료",
+          "3-2 세계 여러 국가의 위치와 영토"
+        ]
       },
       {
         "id": "school-science",
         "label": "학교 과학",
         "inputType": "dropdown",
-        "options": ["U1 산과 염기", "U2 물체의 운동", "U3 식물의 구조와 기능", "U4 지구의 운동", "U5 개정 보완자료"]
+        "options": [
+          "U1 산과 염기",
+          "U2 물체의 운동",
+          "U3 식물의 구조와 기능",
+          "U4 지구의 운동",
+          "U5 개정 보완자료"
+        ]
       },
       {
         "id": "short-reading",
@@ -133,7 +214,13 @@
     "enabled": true,
     "steps": 5,
     "autoAdvance": false,
-    "labels": ["혼자 시도", "다시 듣기", "느린/청크 듣기", "하이라이트", "정답 모델"],
+    "labels": [
+      "혼자 시도",
+      "다시 듣기",
+      "느린/청크 듣기",
+      "하이라이트",
+      "정답 모델"
+    ],
     "step3_ttsRate": 0.85,
     "step5_autoComplete": true,
     "slowTTSRate": 0.7,
@@ -191,8 +278,16 @@
     "lrCardsPerSession": 6,
     "difficultySort": true,
     "lv3Cap": 0.1,
-    "newReviewRatio": { "new": 0.4, "review": 0.6 },
-    "tileOrder": ["english", "comprehension", "social_studies", "science", "speaking_practice"],
+    "newReviewRatio": {
+      "new": 0.4,
+      "review": 0.6
+    },
+    "tileOrder": [
+      "english",
+      "comprehension",
+      "social_studies",
+      "science"
+    ],
     "note": "v5.14: 과학 추가. 과목 선택 중심. null은 cardsPerSession(20) 사용."
   }
 }
