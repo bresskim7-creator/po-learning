@@ -1496,8 +1496,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.69.0';
-var APP_SW_CACHE = 'sw5690';
+var APP_VERSION = 'v5.70.0';
+var APP_SW_CACHE = 'sw5700';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2161,7 +2161,7 @@ function generateSpeechTherapyCards(data) {
         sourceUnit: lesson.sourceUnit || '차병원',
         topic: lesson.topic || (lesson.type === 'poem' ? '따라읽기' : '받아쓰기'),
         question: {
-          text: lesson.type === 'poem' ? '따라 읽어봐' : '듣고 따라 써봐',
+          text: lesson.type === 'poem' ? '따라 읽어봐' : '듣고 따라 읽어봐',
           ttsText: line.text,
           displayWord: line.text,
         },
@@ -6552,12 +6552,7 @@ async function getSTTResult(audioBlob, expectedText) {
       var whisperText = await transcribeWithWhisper(audioBlob, expectedText);
       if (whisperText !== null && whisperText.trim() !== '') {
         console.log('[STT] Whisper 성공:', whisperText);
-        // 비교 로그 (Web Speech vs Whisper 정확도 비교용)
-        logEvent('stt_engine_compare', {
-          webSpeech: webSpeechText,
-          whisper: whisperText.trim(),
-          agreed: webSpeechText.trim() === whisperText.trim()
-        });
+        // [v5.70 T-DEL-1] stt_engine_compare 로깅 제거 — 엔진 비교는 목적에서 폐기(STT 자동채점 제거).
         return { text: whisperText.trim(), confidence: 0.95, engine: 'whisper' };
       }
       console.log('[STT] Whisper 빈 결과 → Web Speech 폴백');
@@ -6791,11 +6786,14 @@ async function transcribeWithWhisper(audioBlob, expectedText) {
 
 // [v5.0 T14] 오프라인 녹음 저장 + 후채점
 // [v5.65 T5] DB version 1→2 bump. cover_read_recordings + cover_read_events store 신설. 기존 pending store 유지.
+// [v5.70 M2] v2→3 bump. cover_read_recordings에 itemId·auditedAt 인덱스 추가(부모 then-vs-now 단어별 날짜순 조회용).
+//            기존 데이터 보존(store 재생성 안 함, 인덱스만 추가). 업그레이드 실패 시 reject→호출자 catch 폴백(UX #10).
 function openRecordingsDB() {
   return new Promise(function(resolve, reject) {
-    var request = indexedDB.open('po_recordings', 2);
+    var request = indexedDB.open('po_recordings', 3);
     request.onupgradeneeded = function(event) {
       var db = event.target.result;
+      var upgradeTx = event.target.transaction;  // versionchange 트랜잭션 — 기존 store 접근 가능
       // v1 store (기존 사용자 데이터 보존)
       if (!db.objectStoreNames.contains('pending')) {
         db.createObjectStore('pending', { keyPath: 'id' });
@@ -6809,9 +6807,24 @@ function openRecordingsDB() {
           db.createObjectStore('cover_read_events', { keyPath: 'id' });
         }
       }
+      // v3: cover_read_recordings 인덱스 추가 (앵커 단어별 날짜순 이력 조회)
+      if (event.oldVersion < 3) {
+        try {
+          var crStore = upgradeTx.objectStore('cover_read_recordings');
+          if (!crStore.indexNames.contains('itemId')) {
+            crStore.createIndex('itemId', 'itemId', { unique: false });
+          }
+          if (!crStore.indexNames.contains('auditedAt')) {
+            crStore.createIndex('auditedAt', 'auditedAt', { unique: false });
+          }
+        } catch (e) {
+          console.warn('[IDB v3] 인덱스 생성 실패(폴백: 인덱스 없이 동작):', e);
+        }
+      }
     };
     request.onsuccess = function(event) { resolve(event.target.result); };
     request.onerror = function(event) { reject(event.target.error); };
+    request.onblocked = function() { console.warn('[IDB] 업그레이드 blocked — 다른 탭이 이전 버전 DB를 점유 중'); };
   });
 }
 
@@ -6906,6 +6919,10 @@ async function writeCoverReadAttempt(itemId, payload) {
     type: 'cover_read_attempt',
     sessionId: (APP.coverReadSession && APP.coverReadSession.sessionId) || null,
     itemId: itemId,
+    // [v5.70 T-UNI-4] 말하기 전 블록 데이터 계약 단일화 — blockType으로 출처 구분.
+    // cover_read 기존 호출자(crRateSelf·crSkipItem)는 미전달 → 'cover-read' 기본(데이터 보존).
+    // LR='listen-repeat' · RA/ST='read-aloud' · generic recording='recording'.
+    blockType: p.blockType || 'cover-read',
     timestamp: Date.now(),
     productionDayKey: crGetProductionDayKey(Date.now()),  // [v5.66 M4] KST 00:00 계약 (자문 §5 문장 6)
     firstAttemptRecordingRef: p.recordingRef || null,
@@ -7417,33 +7434,11 @@ function crBuildCoverReadQueue(setItems, progressMap, config) {
 }
 
 async function processPendingRecordings() {
-  if (!navigator.onLine || !getSettings().serverUrl) return;
-  try {
-    var db = await openRecordingsDB();
-    var tx = db.transaction('pending', 'readonly');
-    var store = tx.objectStore('pending');
-    var getAll = store.getAll();
-    getAll.onsuccess = async function() {
-      var records = getAll.result || [];
-      for (var i = 0; i < records.length; i++) {
-        var record = records[i];
-        try {
-          var transcribed = await transcribeWithWhisper(record.audioBlob, record.expectedText);  // [v5.33] prompt 힌트
-          if (transcribed !== null) {
-            var result = assessMatchV5(record.expectedText, transcribed);
-            console.log('[Offline] 후채점:', record.cardId, result);
-            // 결과를 subject_stats에 반영 가능 (향후)
-            var delTx = db.transaction('pending', 'readwrite');
-            delTx.objectStore('pending').delete(record.id);
-          }
-        } catch(e) {
-          console.warn('[Offline] 후채점 실패:', record.cardId, e);
-        }
-      }
-    };
-  } catch(e) {
-    console.warn('[Offline] processPending 실패:', e);
-  }
+  // [v5.70 T-DEL-7] STT 후채점 제거 — transcribeWithWhisper/assessMatchV5 호출 안 함.
+  // IDB 'pending' store는 STT 후채점 전용이었고 savePendingRecording 호출처가 0이라 적재되지 않음.
+  // Drive 업로드 재전송 큐는 별도(localStorage 'po_v4_pending_recordings' + uploadRecordings) — 미영향, 유지.
+  // online 이벤트 리스너는 남기되 후채점 동작 없음(no-op).
+  return;
 }
 
 // 온라인 복귀 시 자동 처리
@@ -7459,6 +7454,8 @@ let mediaRecorder = null;
 let recordingChunks = [];
 let recordingTimer = null;
 let recordingSeconds = 0;
+// [v5.70 T-DEL-6/T-UNI-1] generic recording 카드 자기비교 상태
+var genLastBlob = null, genRetryCount = 0, genRecordingRawId = null, genRecordingRef = null;
 
 async function toggleRecording() {
   const btn = document.getElementById('btn-record');
@@ -7487,156 +7484,8 @@ async function toggleRecording() {
       duration: recordingSeconds,
     });
 
-    // [v5.29] Whisper 우선 STT 판정 — audioBlob은 onstop에서 생성되므로 짧은 대기 후 blob 획득
-    // [v5.58.3 T3-a] STT 처리 Promise 를 session.sttPending 에 등록 → finishSession 이 대기
-    status.textContent = '확인 중...';
-    APP.session.sttPending = APP.session.sttPending || [];
-    APP.session.sttPending.push(new Promise(function(resolveStt) {
-    setTimeout(async function() {
-     try {
-      // recordingChunks에서 blob 생성 (onstop에서 이미 처리했으나, 판정용으로 별도 생성)
-      var audioBlob = (recordingChunks && recordingChunks.length > 0)
-        ? new Blob(recordingChunks, { type: 'audio/webm' }) : null;
-
-      var targetText = card.question.ttsText || card.question.displayWord || '';
-      var sttRes = await getSTTResult(audioBlob, targetText);  // [v5.33] prompt 힌트
-      var spokenText = sttRes.text;
-      var spokenConf = sttRes.confidence;
-      var sttEngine = sttRes.engine;
-
-      var match = assessMatchV5(targetText, spokenText);
-      var attemptNum = card._observation ? card._observation.attemptNumber : 1;
-      var consecutiveMismatch = card._consecutiveMismatch || 0;
-
-      // v4.5: STT 관찰 데이터 기록
-      if (card._observation) {
-        if (!card._observation.sttResults) card._observation.sttResults = [];
-        card._observation.sttResults.push({
-          spoken: spokenText,
-          confidence: spokenConf,
-          matchLevel: match.level,
-          matchScore: match.score,
-          engine: sttEngine
-        });
-      }
-
-      logEvent('stt_match', {
-        cardId: card.id,
-        target: targetText,
-        spoken: spokenText,
-        sttConfidence: spokenConf,
-        sttEngine: sttEngine,
-        matchLevel: match.level,
-        matchScore: match.score,
-        attempt: attemptNum
-      });
-
-      // [v5.29] recordings 배열 마지막 항목에 STT 결과 추가 (Apps Script 전달용)
-      if (APP.session.recordings && APP.session.recordings.length > 0) {
-        var lastRec = APP.session.recordings[APP.session.recordings.length - 1];
-        if (lastRec.cardId === card.id) {
-          lastRec.sttResult = spokenText;
-          lastRec.sttEngine = sttEngine;
-          lastRec.sttMatchLevel = match.level;
-          lastRec.sttMatchScore = match.score;
-        }
-      }
-
-      var feedbackEl = document.getElementById('recording-feedback');
-      var btnListen = document.getElementById('btn-listen');
-      var btnRetry = document.getElementById('btn-retry');
-
-      if (match.level === 'match') {
-        // ✅ 거의 일치 → 칭찬
-        card._consecutiveMismatch = 0;
-        if (feedbackEl) {
-          var praiseTexts = ['잘했어!', '잘 읽었어!', '멋지다!', '대단해!', '좋아!'];
-          var praise = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
-          feedbackEl.textContent = praise;
-          feedbackEl.classList.remove('hidden');
-        }
-        status.textContent = '녹음 저장됐어!';
-        if (btnListen) btnListen.classList.remove('hidden');
-        // 다음으로 버튼
-        if (!document.getElementById('btn-next-card')) {
-          var nextArea = document.createElement('div');
-          nextArea.innerHTML = '<button id="btn-next-card" class="btn-stair" onclick="finishRecordingCard()" style="margin-top:8px;">다음으로 →</button>';
-          status.parentNode.appendChild(nextArea);
-        }
-
-      } else if (match.level === 'ambiguous') {
-        // ⚠️ 애매함 → 재시도 유도 (정오 판정 금지)
-        consecutiveMismatch++;
-        card._consecutiveMismatch = consecutiveMismatch;
-
-        if (feedbackEl) {
-          feedbackEl.textContent = '한 번 더 들어보고 천천히 읽어볼까?';
-          feedbackEl.classList.remove('hidden');
-        }
-        status.textContent = '';
-        if (btnListen) btnListen.classList.remove('hidden');
-        if (btnRetry) btnRetry.classList.remove('hidden');
-        // 다음으로 버튼도 표시 (강제 안 함)
-        if (!document.getElementById('btn-next-card')) {
-          var nextArea2 = document.createElement('div');
-          nextArea2.innerHTML = '<button id="btn-next-card" class="btn-stair" onclick="finishRecordingCard()" style="margin-top:8px;opacity:0.6;">다음으로 →</button>';
-          status.parentNode.appendChild(nextArea2);
-        }
-
-      } else {
-        // ❌ 불일치
-        consecutiveMismatch++;
-        card._consecutiveMismatch = consecutiveMismatch;
-
-        if (consecutiveMismatch >= 3) {
-          // 3회 연속 불일치 → 카드 종료 (보류, 실패 아님)
-          if (feedbackEl) {
-            feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
-            feedbackEl.classList.remove('hidden');
-          }
-          status.textContent = '';
-          card._sttPending = true;  // 부모 화면용 마킹
-
-          logEvent('stt_card_pending', {
-            cardId: card.id,
-            attempts: attemptNum,
-            consecutiveMismatch: consecutiveMismatch
-          });
-
-          // 2초 후 자동으로 다음 카드
-          setTimeout(function() {
-            finishRecordingCard();
-          }, 2000);
-
-        } else if (consecutiveMismatch === 2) {
-          // 2회 연속 불일치 → "한 번 더 해볼까?" + 녹음 저장
-          if (feedbackEl) {
-            feedbackEl.textContent = '한 번 더 해볼까?';
-            feedbackEl.classList.remove('hidden');
-          }
-          status.textContent = '녹음은 저장됐어!';
-          if (btnListen) btnListen.classList.remove('hidden');
-          if (btnRetry) btnRetry.classList.remove('hidden');
-
-        } else {
-          // 1회 불일치 → 정오 판정 금지, 다시 듣기 유도
-          if (feedbackEl) {
-            feedbackEl.textContent = '다시 한번 들어볼까?';
-            feedbackEl.classList.remove('hidden');
-          }
-          status.textContent = '';
-          if (btnListen) btnListen.classList.remove('hidden');
-          if (btnRetry) btnRetry.classList.remove('hidden');
-        }
-      }
-     } catch (e) {
-       console.warn('[ST] STT 처리 예외:', e);
-     } finally {
-       resolveStt();
-     }
-    }, 300);  // [v5.29] onstop blob 생성 대기 300ms 후 Whisper 호출
-    }));
-
+    // [v5.70 T-DEL-6/T-UNI-1] STT 채점·강등·"한 번 더/애매" 제거. onstop 이 blob stash 후 자기비교(genStartSelfCompare) 시작.
+    if (status) status.textContent = '';
     return;
   }
 
@@ -7660,6 +7509,9 @@ async function toggleRecording() {
       stream.getTracks().forEach(function(t) { t.stop(); });
       var blob = new Blob(recordingChunks, { type: 'audio/webm' });
       console.log('[PO] 녹음 완료:', blob.size, 'bytes');
+      genLastBlob = blob;  // [v5.70] 자기비교용
+      // [v5.70 T-UNI-1] STT 후채점 대신 자기비교 시작
+      genStartSelfCompare();
 
       // ★ 즉시 Base64 변환 (Blob 메모리 해제 방지)
       var base64Data = null;
@@ -7702,11 +7554,7 @@ async function toggleRecording() {
     status.textContent = '준비 중...';
     timerEl.classList.remove('hidden');
 
-    // STT 즉시 시작 (초기화 시간 확보)
-    var card2 = APP.session.cards[APP.session.currentIndex];
-    var sttLang = (card2 && card2.question && card2.question.ttsText &&
-      /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
-    startSTT(sttLang);
+    // [v5.70 T-DEL-5호출처] STT 제거 — startSTT 미호출(인프라 유지·보고만).
 
     setTimeout(function() {
       btn.disabled = false;
@@ -7725,8 +7573,67 @@ async function toggleRecording() {
   }
 }
 
+// [v5.70 T-DEL-6/T-UNI-1] generic recording 카드 자기비교. 모범음원 = card TTS(T-MDL).
+async function genStartSelfCompare() {
+  var card = APP.session.cards[APP.session.currentIndex];
+  if (!card) return;
+  var itemId = card.id;
+  var blob = genLastBlob;
+  var status = document.getElementById('recording-status');
+  var btn = document.getElementById('btn-record');
+  var feedbackEl = document.getElementById('recording-feedback');
+
+  if (!blob || blob.size === 0) {
+    if (status) status.textContent = '녹음이 잘 안 됐어. 다시 해볼까?';
+    if (btn) { btn.style.display = ''; btn.disabled = false; btn.classList.remove('recording'); }
+    return;
+  }
+
+  try {
+    var saved = await saveCoverReadRecording(itemId, blob);
+    genRecordingRawId = saved.rawId;
+    genRecordingRef = saved.ref;
+  } catch (e) {
+    console.warn('[recording] 녹음 IDB 저장 실패:', e);
+    genRecordingRawId = null;
+    genRecordingRef = null;
+  }
+
+  if (btn) btn.style.display = 'none';
+  if (status) status.textContent = '';
+
+  var targetText = card.question.ttsText || card.question.displayWord || '';
+  var modelLang = /^[a-zA-Z\s.,!?'"]+$/.test(targetText) ? 'en' : 'ko';
+
+  scBegin({
+    itemId: itemId,
+    blockType: 'recording',
+    recordingRawId: genRecordingRawId,
+    recordingRef: genRecordingRef,
+    mountElId: 'recording-feedback',
+    retryCount: genRetryCount,
+    playModel: function() { return textToSpeech(targetText, modelLang, { rate: 0.9 }); },
+    onRated: function(rating, retry) {
+      if (retry) {
+        genRetryCount = scState.retryCount;
+        genLastBlob = null;
+        genRecordingRawId = null;
+        genRecordingRef = null;
+        if (feedbackEl) { feedbackEl.innerHTML = ''; feedbackEl.style.display = 'none'; }
+        if (btn) { btn.style.display = ''; btn.disabled = false; btn.classList.remove('recording'); }
+        if (status) status.textContent = '다시 한 번 해볼까?';
+      } else {
+        genRetryCount = 0;
+        finishRecordingCard();
+      }
+    }
+  });
+}
+
 // 녹음 완료 후 다음 카드로 이동
 function finishRecordingCard() {
+  // [v5.70] 자기비교 상태 리셋 (카드 전환 시)
+  genLastBlob = null; genRetryCount = 0; genRecordingRawId = null; genRecordingRef = null;
   var card = APP.session.cards[APP.session.currentIndex];
   // v4.3: 관찰 완료 로그
   if (card && card._observation) {
@@ -7818,6 +7725,153 @@ function lrPlayWord(word) {
   textToSpeech(word, 'ko', { rate: speed });
 }
 
+// ============================================================================
+// [v5.70 T-UNI-1] 공유 자기비교 서브플로 (LR · RA/ST · generic recording 공용)
+// cover_read(crState)는 자체 5-step 머신 유지(미변경). 본 모듈은 버튼 기반 —
+// auto-advance 타이머 없음 → crState 대비 race 단순. 정오 판정·점수 없음(§3 통일).
+// 흐름(녹음완료 후): 모범 다시듣기 / 내 녹음 듣기 → '같았어'(selfPlayedOnce 가드) / '달랐어'(cap2).
+// 데이터: writeCoverReadAttempt(itemId, {blockType, selfCompareRating, ...}) — T-UNI-4 단일 계약.
+// ============================================================================
+var scState = {
+  itemId: null, blockType: null, recordingRawId: null, recordingRef: null,
+  mountElId: null, playModel: null, onRated: null,
+  selfPlayedOnce: false, selfReplayCount: 0, modelReplayCount: 0,
+  modelPlayedAfterAttempt: false, retryCount: 0,
+  latencyStart: 0, blobUrl: null, currentAudio: null, _seq: 0
+};
+
+function scStopAudio() {
+  scState._seq++;
+  if (scState.currentAudio) {
+    try { scState.currentAudio.pause(); scState.currentAudio.currentTime = 0; } catch(_) {}
+    scState.currentAudio = null;
+  }
+  if (scState.blobUrl) { revokeCoverReadRecordingUrl(scState.blobUrl); scState.blobUrl = null; }
+}
+
+// 녹음 완료 직후 호출. opts: {itemId, blockType, recordingRawId, recordingRef, mountElId, playModel, onRated, retryCount}
+function scBegin(opts) {
+  scStopAudio();
+  scState.itemId = opts.itemId;
+  scState.blockType = opts.blockType;
+  scState.recordingRawId = opts.recordingRawId;
+  scState.recordingRef = opts.recordingRef;
+  scState.mountElId = opts.mountElId;
+  scState.playModel = opts.playModel || null;
+  scState.onRated = opts.onRated || null;
+  scState.selfPlayedOnce = false;
+  scState.selfReplayCount = 0;
+  scState.modelReplayCount = 0;
+  scState.modelPlayedAfterAttempt = false;
+  scState.retryCount = (typeof opts.retryCount === 'number') ? opts.retryCount : 0;
+  scState.latencyStart = Date.now();
+  scState.blobUrl = null;
+  scState.currentAudio = null;
+  scRenderControls();
+}
+
+function scRenderControls() {
+  var mount = document.getElementById(scState.mountElId);
+  if (!mount) return;
+  var sameDisabled = !scState.selfPlayedOnce;
+  var msg = sameDisabled
+    ? '내 녹음을 한 번 들어보고, 모범이랑 같았는지 골라줘.'
+    : '모범 소리랑 같았어? 아래 버튼을 눌러줘.';
+  var html = '<div class="sc-compare" style="margin-top:10px;text-align:center;">'
+    + '<div id="sc-status" style="margin-bottom:10px;color:#374151;min-height:20px;">' + escapeHtml(msg) + '</div>'
+    + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+    + '<button class="btn-stair" onclick="scPlaySelf()">▶ 내 녹음 듣기</button>'
+    + '<button class="btn-stair" onclick="scPlayModel()">🔊 모범 다시 듣기</button>'
+    + '<button id="sc-btn-same" class="btn-stair" onclick="scRate(\'same\')"'
+      + (sameDisabled ? ' disabled style="opacity:0.4;"' : ' style="background:#16a34a;color:white;"')
+      + '>같았어 ▶</button>'
+    + '<button class="btn-stair" onclick="scRate(\'different\')" style="background:#f59e0b;color:white;">달랐어 ▶</button>'
+    + '</div></div>';
+  mount.innerHTML = html;
+  mount.style.display = 'block';
+}
+
+function scPlayModel() {
+  if (typeof scState.playModel !== 'function') return;
+  scState.modelReplayCount++;
+  scState.modelPlayedAfterAttempt = true;
+  try { scState.playModel(); }
+  catch(e) { console.warn('[selfCompare] 모범 재생 실패:', e); }
+}
+
+async function scPlaySelf() {
+  var stEl = document.getElementById('sc-status');
+  if (!scState.recordingRawId) {
+    if (stEl) stEl.textContent = '재생할 녹음이 없어. 다시 녹음해볼까?';
+    return;
+  }
+  if (scState.currentAudio) {
+    try { scState.currentAudio.pause(); scState.currentAudio.currentTime = 0; } catch(_) {}
+    scState.currentAudio = null;
+  }
+  if (scState.blobUrl) { revokeCoverReadRecordingUrl(scState.blobUrl); scState.blobUrl = null; }
+  scState._seq++;
+  var mySeq = scState._seq;
+  try {
+    var url = await loadCoverReadRecording(scState.recordingRawId);
+    if (mySeq !== scState._seq) { if (url) revokeCoverReadRecordingUrl(url); return; }
+    if (!url) { if (stEl) stEl.textContent = '재생할 수 없어. 다시 녹음해볼까?'; return; }
+    scState.blobUrl = url;
+    var audio = new Audio(url);
+    scState.currentAudio = audio;
+    audio.onended = function() {
+      if (mySeq !== scState._seq) return;
+      scState.selfReplayCount++;
+      scState.selfPlayedOnce = true;
+      revokeCoverReadRecordingUrl(url);
+      if (scState.blobUrl === url) scState.blobUrl = null;
+      if (scState.currentAudio === audio) scState.currentAudio = null;
+      scRenderControls();  // '같았어' 활성화
+    };
+    audio.onerror = function() {
+      if (mySeq !== scState._seq) return;
+      revokeCoverReadRecordingUrl(url);
+      if (scState.blobUrl === url) scState.blobUrl = null;
+      if (scState.currentAudio === audio) scState.currentAudio = null;
+      var s = document.getElementById('sc-status');
+      if (s) s.textContent = '재생할 수 없어. 다시 녹음해볼까?';
+    };
+    audio.play().catch(function() {
+      if (mySeq !== scState._seq) return;
+      var s = document.getElementById('sc-status');
+      if (s) s.textContent = '재생할 수 없어. 다시 시도해볼까?';
+    });
+  } catch(e) {
+    console.warn('[selfCompare] self play 실패:', e);
+    if (stEl) stEl.textContent = '녹음을 불러올 수 없어.';
+  }
+}
+
+function scRate(rating) {
+  // 가드: 자기 녹음 1회 재생 전 '같았어' 차단 (§3 T-UNI-3)
+  if (rating === 'same' && !scState.selfPlayedOnce) return;
+  scStopAudio();
+  var latency = scState.latencyStart > 0 ? (Date.now() - scState.latencyStart) : 0;
+  var payload = {
+    blockType: scState.blockType,
+    recordingRef: scState.recordingRef,
+    modelPlayed: scState.modelPlayedAfterAttempt,
+    modelReplayCount: scState.modelReplayCount,
+    selfReplayCount: scState.selfReplayCount,
+    selfCompareRating: rating,
+    selfCompareLatencyMs: latency,
+    helpLevel: 'model_only'
+  };
+  writeCoverReadAttempt(scState.itemId, payload).catch(function(e){ console.warn('[selfCompare] attempt write 실패:', e); });
+  var cb = scState.onRated;
+  if (rating === 'same') {
+    if (typeof cb === 'function') cb('same', false);
+  } else {
+    scState.retryCount++;
+    if (typeof cb === 'function') cb('different', scState.retryCount < 2);
+  }
+}
+
 // 블록 전체 렌더러
 function renderListenRepeatBlock() {
   var s = APP.session;
@@ -7907,12 +7961,22 @@ async function lrStartItem(index) {
   lrState.currentStage = 1;
   lrState._processing = false;  // [v5.25] 이중호출 방지 리셋
 
+  // [v5.70 T-UNI-1] 항목 진입 시 자기비교 상태 리셋 + 컨트롤/피드백 복원 (이전 항목에서 숨겼을 수 있음)
+  lrState._lastBlob = null;
+  lrState._retryCount = 0;
+  lrState.recordingRawId = null;
+  lrState.recordingRef = null;
+  var ctrlsEl = document.querySelector('.lr-controls');
+  if (ctrlsEl) ctrlsEl.style.display = '';
+  var fbReset = document.getElementById('lr-feedback');
+  if (fbReset) { fbReset.innerHTML = ''; fbReset.style.display = 'none'; }
+
   updateLrUI();
 
   // 말하기/건너뛰기 버튼 비활성화 (TTS 재생 중)
   var btnSpeak = document.getElementById('lr-btn-speak');
   var btnSkip = document.getElementById('lr-btn-skip');
-  if (btnSpeak) btnSpeak.disabled = true;
+  if (btnSpeak) { btnSpeak.disabled = true; btnSpeak.textContent = '🎤 말하기'; btnSpeak.classList.remove('lr-recording'); }
   if (btnSkip) btnSkip.disabled = true;
 
   // TTS 재생 (1단계: 보통 속도)
@@ -8029,19 +8093,9 @@ function lrAutoComplete() {
   var btnSpeak = document.getElementById('lr-btn-speak');
   if (btnSpeak) { btnSpeak.textContent = '🎤 말하기'; btnSpeak.classList.remove('lr-recording'); }
 
-  // [v5.58.3 T3-c] lrProcessAttempt 가 async 라 완료 시점 추적 필요. STT 처리 Promise 를 session.sttPending 에 등록.
-  APP.session.sttPending = APP.session.sttPending || [];
-  APP.session.sttPending.push(new Promise(function(resolveStt) {
-    setTimeout(async function() {
-      try {
-        await lrProcessAttempt();
-      } catch (e) {
-        console.warn('[LR] lrProcessAttempt 예외:', e);
-      } finally {
-        resolveStt();
-      }
-    }, 300);
-  }));
+  // [v5.70] STT 후채점 제거. mediaRecorder.stop() → onstop 이 blob stash 후 lrProcessAttempt(자기비교) 호출.
+  //         자기비교는 인터랙티브(아이 버튼 대기)이므로 sttPending에 넣지 않는다(finishSession 블로킹 방지).
+  //         녹음 자체는 onstop에서 IDB·base64 양쪽에 저장되므로 세션 종료와 무관하게 보존.
 }
 
 // 녹음 토글
@@ -8058,10 +8112,7 @@ async function lrToggleRecording() {
     stopSTT();
     if (btnSpeak) { btnSpeak.textContent = '🎤 말하기'; btnSpeak.classList.remove('lr-recording'); }
 
-    // [v5.29] Whisper 우선 STT — blob 생성 대기 후 판정
-    setTimeout(function() {
-      lrProcessAttempt();
-    }, 300);
+    // [v5.70] STT 판정 제거. onstop 이 blob stash 후 lrProcessAttempt(자기비교) 호출.
     return;
   }
 
@@ -8083,8 +8134,9 @@ async function lrToggleRecording() {
     lrState.mediaRecorder.onstop = function() {
       stream.getTracks().forEach(function(t) { t.stop(); });
       var blob = new Blob(lrState.recordingChunks, { type: 'audio/webm' });
+      lrState._lastBlob = blob;  // [v5.70] 자기비교(자기재생)·IDB 저장용
 
-      // 녹음 저장 (기존 session.recordings에 추가)
+      // 녹음 저장 (기존 session.recordings에 추가 — 기존 업로드 경로 유지)
       var card = lrState.cards[lrState.currentIndex];
       if (card && APP.session.recordings) {
         blobToBase64(blob).then(function(base64Data) {
@@ -8101,6 +8153,9 @@ async function lrToggleRecording() {
           });
         }).catch(function() {});
       }
+
+      // [v5.70 T-UNI-1] STT 후채점 대신 자기비교 시작 (chunks flush 완료 후 onstop 시점).
+      lrProcessAttempt();
     };
 
     lrState.mediaRecorder.start();
@@ -8112,16 +8167,16 @@ async function lrToggleRecording() {
     if (btnSkipPW) btnSkipPW.disabled = true;
 
     lrState.sttAutoCompleted = false;
-    startSTT('ko-KR', lrAutoComplete);
+    // [v5.70 T-DEL-5호출처] STT 제거 — startSTT 미호출(인프라는 유지·보고만). 아이가 '말하기'를 다시 눌러 중지.
 
     setTimeout(function() {
-      if (btnSpeak) { btnSpeak.textContent = '🎤 지금 말해봐!'; btnSpeak.disabled = false; }
+      if (btnSpeak) { btnSpeak.textContent = '🎤 지금 말해봐! (다 하면 다시 눌러)'; btnSpeak.disabled = false; }
       if (btnSkipPW) btnSkipPW.disabled = false;
     }, 300);
 
-    // 15초 타임아웃 (무한 대기 방지)
+    // 최대 녹음 시간 안전장치(무한 녹음 방지) — STT 자동완료 대체
     lrState.sttTimeout = setTimeout(function() {
-      console.log('[LR] STT 15초 타임아웃');
+      console.log('[LR] 녹음 최대시간(15초) 자동 종료');
       lrAutoComplete();
     }, 15000);
 
@@ -8145,143 +8200,80 @@ async function lrProcessAttempt() {
   if (lrState._skipInProgress) { lrState._processing = false; lrState._skipInProgress = false; return; }
 
   var card = lrState.cards[lrState.currentIndex];
+  var itemId = card.cardId || card.id;
   var feedbackEl = document.getElementById('lr-feedback');
-  // [v5.33] 코드 폴백 기본값 0.7→0.6 (config.json 값 우선, 현재 config=0.45)
-  var threshold = (APP.config && APP.config.listenRepeat) ? APP.config.listenRepeat.matchThreshold : 0.6;
 
-  // 3단계면 판정 없이 통과 (B-4)
-  if (lrState.currentStage === 3) {
+  // [v5.70 T-DEL-2/T-UNI-1] STT 채점·3단계 사다리 제거. 모범 먼저 들은 뒤 녹음 → 자기비교(정오 판정 없음).
+  var blob = lrState._lastBlob || null;
+  if (!blob || blob.size === 0) {
+    // 빈/0초 녹음 — 강요 없이 재녹음 허용 (버튼 그대로)
+    if (feedbackEl) { feedbackEl.style.display = 'block'; feedbackEl.textContent = '녹음이 잘 안 됐어. 다시 말해볼까?'; }
+    var btnSpeakE = document.getElementById('lr-btn-speak');
+    var btnSkipE = document.getElementById('lr-btn-skip');
+    if (btnSpeakE) { btnSpeakE.disabled = false; btnSpeakE.textContent = '🎤 말하기'; btnSpeakE.classList.remove('lr-recording'); }
+    if (btnSkipE) btnSkipE.disabled = false;
     lrState._processing = false;
-    lrOnStage3RecordingDone();
     return;
   }
 
-  // [v5.29] "확인 중..." 표시 (Whisper 대기 시 아이에게 피드백)
-  var feedbackEl = document.getElementById('lr-feedback');
-  if (feedbackEl && getSettings().serverUrl) feedbackEl.textContent = '확인 중...';
+  // 모범을 먼저 들었으니 글자 공개 (blur 해제)
+  revealLrItem(lrState.currentIndex);
 
-  // [v5.29] Whisper 우선 STT — lrState.recordingChunks에서 blob 생성
-  var lrAudioBlob = (lrState.recordingChunks && lrState.recordingChunks.length > 0)
-    ? new Blob(lrState.recordingChunks, { type: 'audio/webm' }) : null;
-  var lrExpectedText = card.ttsText || card.text;
-  var sttRes = await getSTTResult(lrAudioBlob, lrExpectedText);  // [v5.33] prompt 힌트
-  var spokenText = sttRes.text;
-  var spokenConf = sttRes.confidence;
-  var sttEngine = sttRes.engine;
-
-  var result = assessMatchV5(lrExpectedText, spokenText);
-
-  console.log('[LR판정]', {
-    target: card.ttsText || card.text,
-    spoken: spokenText,
-    sttConf: spokenConf,
-    sttEngine: sttEngine,
-    score: result.score,
-    level: result.level,
-    stage: lrState.currentStage
-  });
-
-  logEvent('lr_attempt', {
-    cardId: card.cardId || card.id,
-    stage: lrState.currentStage,
-    spoken: spokenText,
-    sttEngine: sttEngine,
-    matchLevel: result.level,
-    matchScore: result.score
-  });
-
-  // [v5.58.3 T1] recordings 배열 마지막 항목에 STT 결과 추가 (Apps Script 전달용)
-  // dictation L5167-5176, RA L6310-6319 와 동일 패턴. 괄호 주의: === (a || b)
-  if (APP.session.recordings && APP.session.recordings.length > 0) {
-    var lastRec = APP.session.recordings[APP.session.recordings.length - 1];
-    if (lastRec.cardId === (card.cardId || card.id)) {
-      lastRec.sttResult = spokenText;
-      lastRec.sttEngine = sttEngine;
-      lastRec.sttMatchLevel = result.level;
-      lastRec.sttMatchScore = result.score;
-    }
+  // 녹음을 IDB에 저장 (자기재생·앵커 적재용). 기존 base64 업로드 경로는 onstop에서 유지.
+  try {
+    var saved = await saveCoverReadRecording(itemId, blob);
+    lrState.recordingRawId = saved.rawId;
+    lrState.recordingRef = saved.ref;
+  } catch (e) {
+    console.warn('[LR] 녹음 IDB 저장 실패:', e);
+    lrState.recordingRawId = null;
+    lrState.recordingRef = null;
   }
 
-  if (result.level === 'match' || result.score >= threshold) {
-    // 성공
-    // [v4.10 T11] 이중 기준: passed(아이 0.45) + strictPassed(치료 0.7)
-    var strictThreshold = 0.7;
-    lrState.results.push({
-      cardId: card.cardId || card.id,
-      lrIndex: lrState.currentIndex,
-      reachedStage: lrState.currentStage,
-      matchScore: result.score,
-      sttTranscript: spokenText,
-      sttEngine: sttEngine,
-      passed: true,
-      strictPassed: result.score >= strictThreshold
-    });
+  // 말하기/건너뛰기 컨트롤 숨기고 자기비교 UI로 전환
+  var ctrls = document.querySelector('.lr-controls');
+  if (ctrls) ctrls.style.display = 'none';
+  if (feedbackEl) feedbackEl.style.display = 'block';
 
-    revealLrItem(lrState.currentIndex);
+  lrState._processing = false;
 
-    if (lrState.currentStage === 1) {
-      if (feedbackEl) feedbackEl.textContent = '잘했어! 👏';
-    } else {
-      if (feedbackEl) feedbackEl.textContent = '두 번째에 해냈어! 💪';
+  scBegin({
+    itemId: itemId,
+    blockType: 'listen-repeat',
+    recordingRawId: lrState.recordingRawId,
+    recordingRef: lrState.recordingRef,
+    mountElId: 'lr-feedback',
+    retryCount: lrState._retryCount || 0,
+    playModel: function() { return lrPlayTTSForStage(1); },  // §1: LR 모범 먼저(현행 stage1 속도 유지)
+    onRated: function(rating, retry) {
+      if (retry) {
+        // '달랐어' 1회 → 같은 항목 재녹음 (cap2는 scState가 관리). 강요 문구 없음.
+        lrState._retryCount = scState.retryCount;
+        lrState._lastBlob = null;
+        lrState.recordingRawId = null;
+        lrState.recordingRef = null;
+        var fb = document.getElementById('lr-feedback');
+        if (fb) { fb.innerHTML = ''; fb.style.display = 'none'; }
+        var c = document.querySelector('.lr-controls');
+        if (c) c.style.display = '';
+        var bSpeak = document.getElementById('lr-btn-speak');
+        var bSkip = document.getElementById('lr-btn-skip');
+        if (bSpeak) { bSpeak.disabled = false; bSpeak.textContent = '🎤 말하기'; bSpeak.classList.remove('lr-recording'); }
+        if (bSkip) bSkip.disabled = false;
+      } else {
+        lrState._retryCount = 0;
+        lrState.results.push({
+          cardId: itemId,
+          lrIndex: lrState.currentIndex,
+          selfCompareRating: rating,
+          passed: true
+        });
+        var fb2 = document.getElementById('lr-feedback');
+        if (fb2) { fb2.innerHTML = ''; fb2.style.display = 'none'; }
+        lrAdvance();
+      }
     }
-
-    lrState._processing = false;  // [v5.25] 성공 처리 완료, 다음 시도 허용
-    var advanceFromIndex = lrState.currentIndex;
-    setTimeout(function() {
-      if (feedbackEl) feedbackEl.textContent = '';
-      // skip으로 이미 넘어갔으면 중복 advance 방지
-      if (lrState.currentIndex !== advanceFromIndex) return;
-      lrAdvance();
-    }, 1500);
-
-  } else if (lrState.currentStage === 1) {
-    // 1단계 실패 → 2단계
-    lrState.currentStage = 2;
-    if (feedbackEl) feedbackEl.textContent = '한 번 더 들어볼래?';
-
-    var btnSpeak = document.getElementById('lr-btn-speak');
-    var btnSkip1 = document.getElementById('lr-btn-skip');
-    if (btnSpeak) btnSpeak.disabled = true;
-    if (btnSkip1) btnSkip1.disabled = true;
-
-    try { await lrPlayTTSForStage(2); } catch(e) { console.warn('[LR] TTS stage2 실패:', e); }
-
-    if (btnSpeak) btnSpeak.disabled = false;
-    if (btnSkip1) btnSkip1.disabled = false;
-    lrState._processing = false;  // [v5.25] Stage 전환 완료, 다음 시도 허용
-    setTimeout(function() { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
-
-  } else if (lrState.currentStage === 2) {
-    // 2단계 실패 → 3단계
-    lrState.currentStage = 3;
-    // [v4.10 T11] 이중 기준
-    lrState.results.push({
-      cardId: card.cardId || card.id,
-      lrIndex: lrState.currentIndex,
-      reachedStage: 3,
-      matchScore: result.score,
-      sttTranscript: spokenText,
-      sttEngine: sttEngine,
-      passed: result.score >= threshold,
-      strictPassed: result.score >= 0.7
-    });
-
-    // 블러 해제 + 어절 블록
-    revealLrItemWithChunks(lrState.currentIndex);
-
-    if (feedbackEl) feedbackEl.textContent = '같이 읽어보자!';
-
-    var btnSpeak2 = document.getElementById('lr-btn-speak');
-    var btnSkip2 = document.getElementById('lr-btn-skip');
-    if (btnSpeak2) btnSpeak2.disabled = true;
-    if (btnSkip2) btnSkip2.disabled = true;
-
-    try { await lrPlayTTSForStage(3); } catch(e) { console.warn('[LR] TTS stage3 실패:', e); }
-
-    if (btnSpeak2) btnSpeak2.disabled = false;
-    if (btnSkip2) btnSkip2.disabled = false;
-    lrState._processing = false;  // [v5.25] Stage 전환 완료, 다음 시도 허용
-  }
+  });
 }
 
 // 3단계 녹음 완료 콜백 (B-4: assessMatch 호출 금지)
@@ -8362,6 +8354,12 @@ function lrAdvance() {
 
 // 난이도 자동 조절
 function adjustLrLevel() {
+  // [v5.70 JH결정] 중립화 — reachedStage(STT 점수 기반 1/2/3) 신호가 1패스 붕괴로 사라짐.
+  // 정오 자동판정 폐기와 일관: LR 레벨 자동 승강등 중단(현 레벨 고정). 난이도는 수동/후속 조정.
+  return;
+
+  // [v5.70 dead — 아래는 STT 시절 로직. 미실행. 참고 보존(rule 8: 삭제 안 함).]
+  /* eslint-disable */
   var cfg = APP.config && APP.config.listenRepeat;
   if (!cfg) return;
 
@@ -8588,13 +8586,19 @@ function raStartLine(index) {
   card._attemptNumber = 0;
   card._consecutiveMismatch = 0;
 
+  // [v5.70 T-UNI-1] 자기비교 상태 리셋 (이전 줄에서 숨겼을 수 있는 녹음 버튼/피드백 복원)
+  raState._lastBlob = null;
+  raState._retryCount = 0;
+  raState.recordingRawId = null;
+  raState.recordingRef = null;
+
   // 녹음 버튼 리셋
   var btnRecord = document.getElementById('ra-btn-record');
-  if (btnRecord) { btnRecord.textContent = '🎤 읽어보기'; btnRecord.classList.remove('ra-recording'); }
+  if (btnRecord) { btnRecord.style.display = ''; btnRecord.disabled = false; btnRecord.textContent = '🎤 읽어보기'; btnRecord.classList.remove('ra-recording'); }
 
   // 피드백 초기화
   var feedbackEl = document.getElementById('ra-feedback');
-  if (feedbackEl) feedbackEl.textContent = '';
+  if (feedbackEl) { feedbackEl.innerHTML = ''; feedbackEl.textContent = ''; }
 
   // 힌트 설정
   var hintLink = document.getElementById('ra-hint-link');
@@ -8665,136 +8669,7 @@ async function raToggleRecording() {
 
     logEvent('recording_save', { cardId: card ? card.id : null, duration: raState.recordingSeconds });
 
-    // [v5.29] "확인 중..." 표시 + Whisper 우선 STT 판정
-    // [v5.58.3 T3-b] STT 처리 Promise 를 session.sttPending 에 등록 → finishSession 이 대기
-    var raFeedback = document.getElementById('ra-feedback');
-    if (raFeedback && getSettings().serverUrl) raFeedback.textContent = '확인 중...';
-
-    APP.session.sttPending = APP.session.sttPending || [];
-    APP.session.sttPending.push(new Promise(function(resolveStt) {
-    setTimeout(async function() {
-     try {
-      var raAudioBlob = (raState.recordingChunks && raState.recordingChunks.length > 0)
-        ? new Blob(raState.recordingChunks, { type: 'audio/webm' }) : null;
-      var targetText = card.question.ttsText || card.question.displayWord || '';
-      var sttRes = await getSTTResult(raAudioBlob, targetText);  // [v5.33] prompt 힌트
-      var spokenText = sttRes.text;
-      var spokenConf = sttRes.confidence;
-      var sttEngine = sttRes.engine;
-
-      var match = assessMatchV5(targetText, spokenText);
-      var consecutiveMismatch = card._consecutiveMismatch || 0;
-
-      console.log('[RA판정]', {
-        target: targetText,
-        spoken: spokenText,
-        sttConf: spokenConf,
-        sttEngine: sttEngine,
-        score: match.score,
-        level: match.level,
-        attempt: card._observation ? card._observation.attemptNumber : 1
-      });
-
-      // STT 관찰 데이터 기록
-      if (card._observation) {
-        card._observation.sttResults.push({
-          spoken: spokenText,
-          confidence: spokenConf,
-          matchLevel: match.level,
-          matchScore: match.score,
-          engine: sttEngine
-        });
-      }
-
-      logEvent('stt_match', {
-        cardId: card.id, target: targetText, spoken: spokenText,
-        sttConfidence: spokenConf, sttEngine: sttEngine, matchLevel: match.level,
-        matchScore: match.score, attempt: card._observation ? card._observation.attemptNumber : 1
-      });
-
-      // [v5.29] recordings 배열 마지막 항목에 STT 결과 추가 (Apps Script 전달용)
-      if (APP.session.recordings && APP.session.recordings.length > 0) {
-        var lastRec = APP.session.recordings[APP.session.recordings.length - 1];
-        if (lastRec.cardId === card.id) {
-          lastRec.sttResult = spokenText;
-          lastRec.sttEngine = sttEngine;
-          lastRec.sttMatchLevel = match.level;
-          lastRec.sttMatchScore = match.score;
-        }
-      }
-
-      var feedbackEl = document.getElementById('ra-feedback');
-
-      if (match.level === 'match') {
-        // 일치 → 칭찬 + 다음 줄
-        card._consecutiveMismatch = 0;
-        var praiseTexts = ['잘했어!', '잘 읽었어!', '멋지다!', '대단해!', '좋아!'];
-        if (feedbackEl) feedbackEl.textContent = praiseTexts[Math.floor(Math.random() * praiseTexts.length)];
-
-        raState.results.push({ index: raState.currentIndex, matchScore: match.score });
-        // [v4.10 T7] 줄별 결과 저장 (성공)
-        if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, true);
-        setTimeout(function() {
-          if (feedbackEl) feedbackEl.textContent = '';
-          raAdvance();
-        }, 1500);
-
-      } else if (match.level === 'ambiguous') {
-        // 애매함 → 재시도 유도
-        consecutiveMismatch++;
-        card._consecutiveMismatch = consecutiveMismatch;
-        if (feedbackEl) feedbackEl.textContent = '한 번 더 들어보고 천천히 읽어볼까?';
-        document.getElementById('ra-btn-listen').classList.remove('hidden');
-
-        if (consecutiveMismatch >= 3) {
-          // 3회 도달 → 자동 진행
-          card._sttPending = true;
-          if (feedbackEl) feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
-          raState.results.push({ index: raState.currentIndex, matchScore: match.score, pending: true });
-          // [v4.10 T7] 줄별 결과 저장 (ambiguous 3회 실패)
-          if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, false);
-          setTimeout(function() {
-            if (feedbackEl) feedbackEl.textContent = '';
-            raAdvance();
-          }, 2000);
-        }
-
-      } else {
-        // 불일치
-        consecutiveMismatch++;
-        card._consecutiveMismatch = consecutiveMismatch;
-
-        if (consecutiveMismatch >= 3) {
-          card._sttPending = true;
-          if (feedbackEl) feedbackEl.textContent = '괜찮아! 다음에 또 해보자.';
-          raState.results.push({ index: raState.currentIndex, matchScore: match.score, pending: true });
-          // [v4.10 T7] 줄별 결과 저장 (mismatch 3회 실패)
-          if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, false);
-          logEvent('stt_card_pending', {
-            cardId: card.id, attempts: card._observation ? card._observation.attemptNumber : 0,
-            consecutiveMismatch: consecutiveMismatch
-          });
-          setTimeout(function() {
-            if (feedbackEl) feedbackEl.textContent = '';
-            raAdvance();
-          }, 2000);
-        } else if (consecutiveMismatch === 2) {
-          if (feedbackEl) feedbackEl.textContent = '한 번 더 해볼까?';
-          document.getElementById('ra-btn-listen').classList.remove('hidden');
-          document.getElementById('ra-btn-slow').classList.remove('hidden');
-        } else {
-          if (feedbackEl) feedbackEl.textContent = '다시 한번 들어볼까?';
-          document.getElementById('ra-btn-listen').classList.remove('hidden');
-        }
-      }
-     } catch (e) {
-       console.warn('[RA] STT 처리 예외:', e);
-     } finally {
-       resolveStt();
-     }
-    }, 300);  // v5.49: 500→300ms 통일 (ST/LR과 동일)
-    }));
-
+    // [v5.70 T-DEL-3/T-UNI-1] STT 판정·재시도 유도 제거. onstop 이 blob stash 후 자기비교(raStartSelfCompare) 시작.
     return;
   }
 
@@ -8819,8 +8694,12 @@ async function raToggleRecording() {
     raState.mediaRecorder.onstop = async function() {
       stream.getTracks().forEach(function(t) { t.stop(); });
       var blob = new Blob(raState.recordingChunks, { type: 'audio/webm' });
+      raState._lastBlob = blob;  // [v5.70] 자기비교(자기재생)·IDB 저장용
 
-      // 녹음 저장 (기존 session.recordings에 추가)
+      // [v5.70 T-UNI-1] STT 후채점 대신 자기비교 시작 (건너뛰기 중이면 raStartSelfCompare가 자체 bail)
+      raStartSelfCompare();
+
+      // 녹음 저장 (기존 session.recordings에 추가 — 기존 업로드 경로 유지, 백그라운드)
       var card = raState.cards[raState.currentIndex];
       if (card && APP.session.recordings) {
         try {
@@ -8850,16 +8729,12 @@ async function raToggleRecording() {
     var feedbackElPrewarm = document.getElementById('ra-feedback');
     if (feedbackElPrewarm) feedbackElPrewarm.textContent = '준비 중...';
 
-    // STT 즉시 시작 (초기화 시간 확보)
-    var card2 = raState.cards[raState.currentIndex];
-    var sttLang = (card2 && card2.question && card2.question.ttsText &&
-      /^[a-zA-Z\s.,!?'"]+$/.test(card2.question.ttsText)) ? 'en-US' : 'ko-KR';
-    startSTT(sttLang);
+    // [v5.70 T-DEL-5호출처] STT 제거 — startSTT 미호출(인프라 유지·보고만). 아이가 '멈추기'로 종료.
 
     setTimeout(function() {
       if (btnRecord) { btnRecord.textContent = '⏹ 멈추기'; btnRecord.disabled = false; }
       var feedbackElReady = document.getElementById('ra-feedback');
-      if (feedbackElReady) feedbackElReady.textContent = '🎤 지금 읽어봐!';
+      if (feedbackElReady) feedbackElReady.textContent = '🎤 지금 읽어봐! (다 하면 멈추기)';
 
       raState.recordingTimer = setInterval(function() {
         raState.recordingSeconds++;
@@ -8877,6 +8752,70 @@ async function raToggleRecording() {
     var feedbackEl = document.getElementById('ra-feedback');
     if (feedbackEl) feedbackEl.textContent = '마이크를 사용할 수 없어요';
   }
+}
+
+// [v5.70 T-UNI-1/T-MDL] RA/ST 자기비교 시작. 읽고 녹음한 뒤 모범(문장 TTS) 듣고 자기 녹음과 비교.
+// §1: RA/ST = 읽고 나서 모범. 모범음원 없음 → Web Speech 로컬 TTS로 생성(T-MDL-2).
+async function raStartSelfCompare() {
+  // 건너뛰기 중이면 자기비교 시작 안 함 (raSkipLine이 mediaRecorder.stop()→onstop 트리거)
+  if (raState._skipInProgress) { raState._skipInProgress = false; return; }
+  var card = raState.cards[raState.currentIndex];
+  if (!card) return;
+  var itemId = card.id;
+  var blob = raState._lastBlob || null;
+  var feedbackEl = document.getElementById('ra-feedback');
+  var recBtn = document.getElementById('ra-btn-record');
+
+  if (!blob || blob.size === 0) {
+    if (feedbackEl) feedbackEl.textContent = '녹음이 잘 안 됐어. 다시 읽어볼까?';
+    if (recBtn) { recBtn.style.display = ''; recBtn.disabled = false; recBtn.textContent = '🎤 읽어보기'; recBtn.classList.remove('ra-recording'); }
+    return;
+  }
+
+  try {
+    var saved = await saveCoverReadRecording(itemId, blob);
+    raState.recordingRawId = saved.rawId;
+    raState.recordingRef = saved.ref;
+  } catch (e) {
+    console.warn('[RA] 녹음 IDB 저장 실패:', e);
+    raState.recordingRawId = null;
+    raState.recordingRef = null;
+  }
+
+  // 녹음 버튼 숨기고 자기비교 UI를 ra-feedback에 마운트
+  if (recBtn) recBtn.style.display = 'none';
+
+  var targetText = card.question.ttsText || card.question.displayWord || '';
+  var modelLang = /^[a-zA-Z\s.,!?'"]+$/.test(targetText) ? 'en' : 'ko';
+
+  scBegin({
+    itemId: itemId,
+    blockType: 'read-aloud',
+    recordingRawId: raState.recordingRawId,
+    recordingRef: raState.recordingRef,
+    mountElId: 'ra-feedback',
+    retryCount: raState._retryCount || 0,
+    playModel: function() { return textToSpeech(targetText, modelLang, { rate: 0.9 }); },
+    onRated: function(rating, retry) {
+      if (retry) {
+        raState._retryCount = scState.retryCount;
+        raState._lastBlob = null;
+        raState.recordingRawId = null;
+        raState.recordingRef = null;
+        var fb = document.getElementById('ra-feedback');
+        if (fb) { fb.innerHTML = ''; fb.textContent = '다시 한 번 읽어볼까?'; }
+        if (recBtn) { recBtn.style.display = ''; recBtn.disabled = false; recBtn.textContent = '🎤 읽어보기'; recBtn.classList.remove('ra-recording'); }
+      } else {
+        raState._retryCount = 0;
+        raState.results.push({ index: raState.currentIndex, selfCompareRating: rating });
+        if (card._lessonId) recordReadAloudLineResult(card._lessonId, raState.currentIndex, true);
+        var fb2 = document.getElementById('ra-feedback');
+        if (fb2) fb2.innerHTML = '';
+        if (recBtn) recBtn.style.display = '';  // raAdvance→raStartLine에서 리셋
+        raAdvance();
+      }
+    }
+  });
 }
 
 // 도움 계단
@@ -8927,8 +8866,9 @@ function raPlayLine(index) {
 
 // 건너뛰기
 function raSkipLine() {
-  // 녹음 중이면 중지
+  // 녹음 중이면 중지 ([v5.70] onstop→raStartSelfCompare 트리거 방지 가드)
   if (raState.isRecording) {
+    raState._skipInProgress = true;
     raState.isRecording = false;
     if (raState.mediaRecorder && raState.mediaRecorder.state === 'recording') {
       raState.mediaRecorder.stop();

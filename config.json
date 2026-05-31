@@ -264,6 +264,24 @@
     "coverReadItemsPerSession": 10,
     "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립. v5.65 T4: cover_read 활성 시 Block 1 legacy quiz cap = coverReadLegacyQuizCardsPerSession (0~2 clamp). v5.65.1: 초기 파일럿은 cover_read 집중 → Block 1·Block 2 둘 다 0 기본. cover_read 활성 시 Block 2 LR cap = coverReadLRCardsPerSession (0~2 clamp). 두 키 모두 0은 유효 cap (해당 블록 미출현), typeof===number 체크로 0 보존, 미지정 시 fallback 1. cover_read 비활성 시 Block 1 5장 + Block 2 lrCardsPerSession(3) 유지. v5.65.3 sampling: cover_read 활성 시 항목 풀에서 N개 sampling (shuffleArray + slice). N은 coverReadItemsPerSession (default 10, pool 크기 초과 시 pool 크기로 cap). v1.2 §1.2 '8~12개'는 일일 노출 규모로 해석."
   },
+  "coverReadAnchorSet": {
+    "enabled": true,
+    "note": "v5.70 T-ADD-3: 부모 then-vs-now 청취용 고정 앵커. 받침 유형별 대표 12개(받침 ㄱㄴㄹㅂㅁ -이 5개 + ㅅㅈㅊㅌㅍㄲㅋ -에 7개). JH 임시확정 2026-05-31, 선생님 확정은 후속(§12-1). 이 itemId만 Drive 적재. perWordHistoryCap은 §12-2 결정 후 추가.",
+    "itemIds": [
+      "bk5-1-1-p19-book-i",
+      "bk5-1-1-p19-nun-i",
+      "bk5-1-1-p19-byeol-i",
+      "bk5-1-1-p19-jip-i",
+      "bk5-1-1-p19-gam-i",
+      "bk5-1-1-p20-ot-e",
+      "bk5-1-1-p20-nat-e",
+      "bk5-1-1-p20-kkot-e",
+      "bk5-1-1-p20-bat-e",
+      "bk5-1-1-p20-sup-e",
+      "bk5-1-1-p20-bak-e",
+      "bk5-1-1-p20-bueok-e"
+    ]
+  },
   "subjectSession": {
     "enabled": true,
     "cardsPerSession": 20,
