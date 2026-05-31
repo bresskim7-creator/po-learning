@@ -1251,7 +1251,13 @@
       <div id="subject-breakdown"></div>
     </div>
     <div class="observation-summary" id="observation-summary" style="display:none;"></div>
-    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
+    <!-- [v5.71 §6 T-ADD-6] 부모 then-vs-now 발음 청취 (on-demand 로드) -->
+    <div class="stat-divider"></div>
+    <div id="pron-audit" style="margin-top:8px;">
+      <button class="btn-start" style="background:rgba(255,255,255,0.18); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.35);" onclick="parentTogglePronAudit()">🔊 발음 들어보기 (예전 vs 오늘)</button>
+      <div id="pron-audit-body" style="display:none; margin-top:12px; text-align:left;"></div>
+    </div>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="parentStopAudio(); document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
   </div>
 
   <!-- [v4.10 T4] PIN 모달 -->
@@ -1496,8 +1502,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.70.0';
-var APP_SW_CACHE = 'sw5700';
+var APP_VERSION = 'v5.71.0';
+var APP_SW_CACHE = 'sw5710';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -9232,6 +9238,176 @@ async function sendRecordingDebugLog(debugInfo) {
   }
 }
 
+// ============================================================================
+// [v5.71 §4·§5 — 2차 청크] 앵커 녹음 Drive 적재 브리지(H3) + 말하기추세 시트 적재
+// cover_read/통일 녹음은 APP.session.recordings에 없고 cover_read_recordings IDB store에만 있다
+// → uploadRecordings가 못 본다. 앵커 itemId만 골라 주당 1개 대표로 Drive 업로드(handleRecordingBatch 재사용).
+// 기존 기기에 쌓인 녹음도 소급 스캔(로컬 14일 보관 내). 전부 백그라운드(§8 G2).
+// ============================================================================
+function idbGetAllStore(db, storeName) {
+  return new Promise(function(resolve, reject) {
+    try {
+      var tx = db.transaction(storeName, 'readonly');
+      var req = tx.objectStore(storeName).getAll();
+      req.onsuccess = function() { resolve(req.result || []); };
+      req.onerror = function() { reject(req.error); };
+    } catch (e) { reject(e); }
+  });
+}
+
+// ISO week key 'YYYY-Www' (KST 기준). productionDayKey 계약과 일관되게 UTC+9 보정.
+function isoWeekKey(ts) {
+  var kst = new Date((ts || Date.now()) + 9 * 3600000);
+  var day = (kst.getUTCDay() + 6) % 7;  // 월=0..일=6
+  var thurs = new Date(kst.getTime());
+  thurs.setUTCDate(kst.getUTCDate() - day + 3);  // 해당 주 목요일
+  var year = thurs.getUTCFullYear();
+  var jan1 = new Date(Date.UTC(year, 0, 1));
+  var week = Math.floor((thurs - jan1) / 86400000 / 7) + 1;
+  return year + '-W' + (week < 10 ? '0' : '') + week;
+}
+
+function crLookupAnchorWord(itemId) {
+  var sets = APP.coverReadSets || [];
+  for (var i = 0; i < sets.length; i++) {
+    var items = (sets[i] && sets[i].items) || [];
+    for (var j = 0; j < items.length; j++) {
+      if (items[j].id === itemId) return items[j];
+    }
+  }
+  return null;
+}
+
+// [T-ADD-4/5] 앵커 녹음만 주당 1개 대표로 Drive 업로드. 이미 올린 (itemId|week)는 건너뜀.
+async function uploadAnchorRecordings() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  var cfg = APP.config && APP.config.coverReadAnchorSet;
+  if (!cfg || cfg.enabled === false || !Array.isArray(cfg.itemIds) || cfg.itemIds.length === 0) return;
+  var anchorSet = {};
+  cfg.itemIds.forEach(function(id){ anchorSet[id] = true; });
+  var weeklyCap = (typeof cfg.perWordWeeklyCap === 'number') ? cfg.perWordWeeklyCap : 12;
+
+  try {
+    var db = await openRecordingsDB();
+    var recs = await idbGetAllStore(db, 'cover_read_recordings');
+    var anchorRecs = recs.filter(function(r){ return r && anchorSet[r.itemId] && r.blob; });
+    if (anchorRecs.length === 0) return;
+
+    var uploadedKeys = {};
+    try { uploadedKeys = JSON.parse(localStorage.getItem('po_v4_anchor_uploaded_weeks') || '{}'); } catch(_) {}
+
+    // (itemId, ISO주) 그룹핑 → 주당 최신 1개 대표
+    var rep = {};
+    anchorRecs.forEach(function(r){
+      var key = r.itemId + '|' + isoWeekKey(r.timestamp || 0);
+      if (!rep[key] || (r.timestamp || 0) > (rep[key].timestamp || 0)) rep[key] = r;
+    });
+
+    // itemId별 최근 weeklyCap 주만 업로드 대상
+    var byItem = {};
+    Object.keys(rep).forEach(function(key){
+      var itemId = key.split('|')[0];
+      (byItem[itemId] = byItem[itemId] || []).push({ key: key, rec: rep[key] });
+    });
+    var toUpload = [];
+    Object.keys(byItem).forEach(function(itemId){
+      byItem[itemId]
+        .sort(function(a,b){ return (b.rec.timestamp||0) - (a.rec.timestamp||0); })
+        .slice(0, weeklyCap)
+        .forEach(function(o){ if (!uploadedKeys[o.key]) toUpload.push(o); });
+    });
+    if (toUpload.length === 0) return;
+
+    for (var i = 0; i < toUpload.length; i++) {
+      var r = toUpload[i].rec;
+      try {
+        var b64 = await blobToBase64(r.blob);
+        if (!b64) continue;
+        var word = crLookupAnchorWord(r.itemId);
+        var recDate = new Date(r.timestamp || Date.now()).toISOString().split('T')[0];
+        var fname = recDate + '_PO_CR_' + r.itemId + '_' + String(r.id || '').slice(-6) + '.webm';
+        var payload = {
+          type: 'recording_batch',
+          date: recDate,
+          sessionId: r.sessionId || '',
+          recordings: [{
+            filename: fname,
+            audioBase64: b64,
+            timestamp: new Date(r.timestamp || Date.now()).toISOString(),
+            activityType: 'CR',
+            ruleTag: (word && word.ruleType) || '',
+            targetWord: word ? (word.orthography || '') : '',
+            // STT 제거(1차 청크) — 녹음목록 STT 4칼럼은 빈값 유지(T-ADD-5b, JH: 스키마 수술 금지)
+            sttResult: '', sttEngine: '', sttMatchLevel: '', sttMatchScore: null,
+            proficiencyTag: '',
+            isHighlight: false, highlightType: '',
+            durationSec: 0
+          }]
+        };
+        var result = await postSheetsPayload(payload);
+        if (result.ok) {
+          uploadedKeys[toUpload[i].key] = { itemId: r.itemId, recId: r.id, uploadedAt: Date.now() };
+          localStorage.setItem('po_v4_anchor_uploaded_weeks', JSON.stringify(uploadedKeys));
+          console.log('[anchor] Drive 업로드 OK:', fname);
+        } else {
+          console.warn('[anchor] 업로드 응답 실패:', toUpload[i].key, result.error);
+        }
+      } catch (e) {
+        console.warn('[anchor] 업로드 실패:', toUpload[i].key, e);
+      }
+    }
+  } catch (e) {
+    console.warn('[anchor] uploadAnchorRecordings 실패:', e);
+  }
+}
+
+// [T-ADD-1/2] 오늘의 말하기 attempt(cover_read_events)를 집계해 '말하기추세' 시트로 적재.
+// 행동·추세 신호만(자기평가비율·모범재생 평균·재시도 평균). 정오 점수 절대 미적재(T-ADD-2).
+async function syncSpeakingTrend() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  try {
+    var todayKey = crGetProductionDayKey(Date.now());
+    var db = await openRecordingsDB();
+    var events = await idbGetAllStore(db, 'cover_read_events');
+    var attempts = events.filter(function(e){
+      return e && e.type === 'cover_read_attempt' && e.productionDayKey === todayKey;
+    });
+    if (attempts.length === 0) return;  // 오늘 말하기 없음
+
+    var same = 0, diff = 0, modelSum = 0, selfSum = 0;
+    var items = {}, byBlock = {};
+    attempts.forEach(function(a){
+      if (a.selfCompareRating === 'same') same++;
+      else if (a.selfCompareRating === 'different') diff++;
+      modelSum += (a.modelReplayCount || 0);
+      selfSum += (a.selfReplayCount || 0);
+      if (a.itemId) items[a.itemId] = true;
+      var bt = a.blockType || 'unknown';
+      byBlock[bt] = (byBlock[bt] || 0) + 1;
+    });
+    var rated = same + diff;
+    var distinctItems = Object.keys(items).length || 1;
+    var payload = {
+      type: 'speaking_trend',
+      date: todayKey,
+      timestamp: new Date().toISOString(),
+      attempts: attempts.length,
+      selfSameCount: same,
+      selfDifferentCount: diff,
+      selfSameRatio: rated > 0 ? Math.round(same / rated * 100) : '',
+      avgModelReplay: Math.round(modelSum / attempts.length * 100) / 100,
+      avgRetry: Math.round(diff / distinctItems * 100) / 100,
+      blockBreakdown: JSON.stringify(byBlock)
+    };
+    var result = await postSheetsPayload(payload);
+    if (!result.ok) console.warn('[trend] 말하기추세 응답 실패:', result.error);
+  } catch (e) {
+    console.warn('[trend] syncSpeakingTrend 실패:', e);
+  }
+}
+
 async function retryPendingRecordings() {
   var s = getSettings();
   if (!s.sheetsUrl) return;
@@ -10309,6 +10485,137 @@ function showParentResult() {
   document.getElementById('parent-result').style.display = 'block';
 }
 
+// ============================================================================
+// [v5.71 §6 T-ADD-6/7/8] 부모 then-vs-now 청취 + 발음 평가 (M1: 다기기 Drive fetch)
+// 아이 화면 비노출(T-ADD-8 — 이 함수들은 부모게이트 뒤 parent-result에서만 호출).
+// on-demand 1건씩(§8 G1): 단어 선택→메타만, ▶ 탭→그 1건 base64 fetch. 평가는 선택(의무 아님).
+// ============================================================================
+var _pronAuditLoaded = false;
+var _pronAudioEl = null;
+
+function parentTogglePronAudit() {
+  var body = document.getElementById('pron-audit-body');
+  if (!body) return;
+  if (body.style.display === 'none') {
+    body.style.display = 'block';
+    if (!_pronAuditLoaded) { _pronAuditLoaded = true; parentRenderAnchorWordList(); }
+  } else {
+    body.style.display = 'none';
+    parentStopAudio();
+  }
+}
+
+function parentStopAudio() {
+  if (_pronAudioEl) { try { _pronAudioEl.pause(); } catch(_) {} _pronAudioEl = null; }
+}
+
+function parentRenderAnchorWordList() {
+  var body = document.getElementById('pron-audit-body');
+  if (!body) return;
+  var s = getSettings();
+  if (!s.sheetsUrl) {
+    body.innerHTML = '<div style="color:#fff;font-size:13px;">설정에 시트 주소가 있어야 녹음을 불러올 수 있어요.</div>';
+    return;
+  }
+  var cfg = APP.config && APP.config.coverReadAnchorSet;
+  var ids = (cfg && Array.isArray(cfg.itemIds)) ? cfg.itemIds : [];
+  if (ids.length === 0) {
+    body.innerHTML = '<div style="color:#fff;font-size:13px;">앵커 단어가 설정되어 있지 않아요.</div>';
+    return;
+  }
+  var html = '<div style="color:#fff;font-size:13px;margin-bottom:8px;">단어를 골라 예전·오늘 발음을 들어보세요. (자기평가 추세가 아니라, 실제 발음 변화를 직접 듣고 판단하는 곳)</div>';
+  html += '<div style="display:flex;flex-wrap:wrap;gap:6px;">';
+  for (var i = 0; i < ids.length; i++) {
+    var w = crLookupAnchorWord(ids[i]);
+    var label = w ? (w.orthography || ids[i]) : ids[i];
+    html += '<button class="btn-stair" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\')">' + escapeHtml(label) + '</button>';
+  }
+  html += '</div><div id="pron-audit-detail" style="margin-top:12px;"></div>';
+  body.innerHTML = html;
+}
+
+async function parentLoadWordRecordings(itemId) {
+  parentStopAudio();
+  var detail = document.getElementById('pron-audit-detail');
+  if (!detail) return;
+  var w = crLookupAnchorWord(itemId);
+  var label = w ? (w.orthography || itemId) : itemId;
+  detail.innerHTML = '<div style="color:#fff;font-size:13px;">"' + escapeHtml(label) + '" 녹음 목록 불러오는 중…</div>';
+  var s = getSettings();
+  try {
+    var resp = await fetch(s.sheetsUrl + '?action=get_anchor_recordings&itemId=' + encodeURIComponent(itemId));
+    var result = await resp.json();
+    if (result.status !== 'ok') { detail.innerHTML = '<div style="color:#fff;font-size:13px;">지금은 못 불러와요. 잠시 후 다시 시도해 주세요.</div>'; return; }
+    var recs = result.recordings || [];
+    if (recs.length === 0) {
+      detail.innerHTML = '<div style="color:#fff;font-size:13px;">"' + escapeHtml(label) + '" 아직 적재된 녹음이 없어요. (아이가 이 단어를 연습하고 세션을 마치면 쌓여요)</div>';
+      return;
+    }
+    var oldest = recs[0], newest = recs[recs.length - 1];  // 서버가 날짜 오름차순 정렬
+    var pron = (w && w.pronunciation) ? ('[' + w.pronunciation + ']') : '';
+    var html = '<div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:8px;">' + escapeHtml(label) + ' ' + escapeHtml(pron) + '</div>';
+    html += '<div style="display:flex;gap:10px;margin-bottom:10px;">';
+    html += '<button class="btn-stair" style="flex:1;background:#6b7280;color:#fff;" onclick="parentPlayRecording(\'' + oldest.fileId + '\')">예전 ▶<br><span style="font-size:11px;">' + escapeHtml(oldest.date) + '</span></button>';
+    if (newest.fileId !== oldest.fileId) {
+      html += '<button class="btn-stair" style="flex:1;background:#2563eb;color:#fff;" onclick="parentPlayRecording(\'' + newest.fileId + '\')">오늘 ▶<br><span style="font-size:11px;">' + escapeHtml(newest.date) + '</span></button>';
+    }
+    html += '</div>';
+    if (recs.length > 2) {
+      html += '<div style="color:#fff;font-size:12px;margin-bottom:4px;">전체 기록</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';
+      for (var r = 0; r < recs.length; r++) {
+        var aud = recs[r].audit ? (' ·' + recs[r].audit.rating) : '';
+        html += '<button class="btn-stair" style="font-size:12px;padding:4px 8px;" onclick="parentPlayRecording(\'' + recs[r].fileId + '\')">' + escapeHtml(recs[r].date + aud) + ' ▶</button>';
+      }
+      html += '</div>';
+    }
+    // 평가 (선택 — 의무 아님). 가장 최신(오늘) 녹음 대상.
+    html += '<div style="margin-top:12px;">';
+    html += '<div style="color:#fff;font-size:12px;margin-bottom:4px;">오늘 녹음 평가 (선택 — 안 해도 됩니다)</div>';
+    html += '<div style="display:flex;gap:6px;">';
+    var ratings = ['정확', '애매', '틀림'];
+    for (var k = 0; k < ratings.length; k++) {
+      html += '<button class="btn-stair" style="font-size:13px;padding:6px 10px;" onclick="parentSubmitAudit(\'' + itemId + '\',\'' + newest.fileId + '\',\'' + newest.date + '\',\'' + label + '\',\'' + ratings[k] + '\')">' + ratings[k] + '</button>';
+    }
+    html += '</div><div id="pron-audit-rate-msg" style="color:#9ae6b4;font-size:12px;margin-top:6px;"></div></div>';
+    detail.innerHTML = html;
+  } catch (e) {
+    console.warn('[parent] 녹음 목록 실패:', e);
+    detail.innerHTML = '<div style="color:#fff;font-size:13px;">지금은 못 불러와요. 네트워크를 확인해 주세요.</div>';
+  }
+}
+
+async function parentPlayRecording(fileId) {
+  parentStopAudio();
+  var s = getSettings();
+  if (!s.sheetsUrl || !fileId) return;
+  try {
+    var resp = await fetch(s.sheetsUrl + '?action=get_recording_audio&fileId=' + encodeURIComponent(fileId));
+    var result = await resp.json();
+    if (result.status !== 'ok' || !result.base64) { console.warn('[parent] 오디오 응답 실패'); return; }
+    var dataUrl = 'data:' + (result.mimeType || 'audio/webm') + ';base64,' + result.base64;
+    _pronAudioEl = new Audio(dataUrl);
+    _pronAudioEl.play().catch(function(err){ console.warn('[parent] 재생 실패:', err); });
+  } catch (e) {
+    console.warn('[parent] 오디오 fetch 실패:', e);
+  }
+}
+
+async function parentSubmitAudit(itemId, fileId, recDate, targetWord, rating) {
+  var msg = document.getElementById('pron-audit-rate-msg');
+  var s = getSettings();
+  if (!s.sheetsUrl) { if (msg) msg.textContent = '시트 주소가 없어 저장 못 해요.'; return; }
+  try {
+    var result = await postSheetsPayload({
+      type: 'audit_recording',
+      fileId: fileId, itemId: itemId, recDate: recDate, targetWord: targetWord,
+      rating: rating, ratedAt: new Date().toISOString()
+    });
+    if (msg) msg.textContent = result.ok ? ('"' + rating + '" 저장됐어요. (선택 평가)') : '저장 실패 — 잠시 후 다시.';
+  } catch (e) {
+    if (msg) msg.textContent = '저장 실패 — 네트워크를 확인해 주세요.';
+  }
+}
+
 // [v4.10 T5] 역할별 아이 메시지 생성
 function buildChildSummary(roleStats) {
   var anchorData = getAnchorData();
@@ -10703,6 +11010,16 @@ async function endSession() {
   try {
     await uploadRecordings();
   } catch (e) { console.warn('[PO] 녹음 업로드 에러:', e); }
+
+  // [v5.71 §5] 앵커 녹음 Drive 적재 (백그라운드, 앵커·sheetsUrl 있을 때만 동작)
+  try {
+    await uploadAnchorRecordings();
+  } catch (e) { console.warn('[PO] 앵커 Drive 업로드 에러:', e); }
+
+  // [v5.71 §4] 말하기추세 시트 적재 (오늘 말하기 attempt 있을 때만)
+  try {
+    await syncSpeakingTrend();
+  } catch (e) { console.warn('[PO] 말하기추세 적재 에러:', e); }
 
   // T8: pending 세션 정리
   clearPendingSession();

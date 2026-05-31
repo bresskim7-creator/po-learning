@@ -266,7 +266,9 @@
   },
   "coverReadAnchorSet": {
     "enabled": true,
-    "note": "v5.70 T-ADD-3: 부모 then-vs-now 청취용 고정 앵커. 받침 유형별 대표 12개(받침 ㄱㄴㄹㅂㅁ -이 5개 + ㅅㅈㅊㅌㅍㄲㅋ -에 7개). JH 임시확정 2026-05-31, 선생님 확정은 후속(§12-1). 이 itemId만 Drive 적재. perWordHistoryCap은 §12-2 결정 후 추가.",
+    "note": "v5.70 T-ADD-3: 부모 then-vs-now 청취용 고정 앵커. 받침 유형별 대표 12개(받침 ㄱㄴㄹㅂㅁ -이 5개 + ㅅㅈㅊㅌㅍㄲㅋ -에 7개). JH 임시확정 2026-05-31, 선생님 확정은 후속(§12-1). 이 itemId만 Drive 적재.",
+    "perWordWeeklyCap": 12,
+    "perWordWeeklyCapNote": "v5.71 §12-2(JH 확정): 앵커 단어당 ISO주당 최신 1개만 Drive 적재, 최근 N주(=이 값)까지 보존·표시. 12주≈3개월. 하드코딩 금지 — 이 값으로 조정. 8 등으로 낮춰도 됨.",
     "itemIds": [
       "bk5-1-1-p19-book-i",
       "bk5-1-1-p19-nun-i",
