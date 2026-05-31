@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-06", {
   "schema_version": 1.1,
   "month": "2026-06",
-  "updated_at": "2026-05-30T22:59:44+09:00",
+  "updated_at": "2026-05-31T10:37:25+09:00",
   "days": {
     "2026-06-01": {
       "schema_version": 1.1,
@@ -628,6 +628,636 @@ window.__loadDailyMonth("2026-06", {
         }
       ],
       "generated_at": "2026-05-30T22:59:44+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-06-08": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-08-ocean.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Matthew T Rader",
+        "url": "https://commons.wikimedia.org/wiki/File:Sergeant_Major_fish_or_p%C3%ADntano_(Abudefduf_saxatilis)_a_species_of_damselfish_in_Curacao.jpg",
+        "license": "CC BY-SA 4.0"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-06-08",
+      "date": "2026-06-08",
+      "weekday": "월",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 세계 해양의 날",
+      "title": "바다의 날, 푸른 바다를 지켜요",
+      "subtitle": "지구의 70%는 바다예요",
+      "lead_question": "지구에서 가장 넓은 곳은 어디일까요? 바로 우리 곁의 바다예요.",
+      "why_today": "6월 8일은 유엔이 정한 세계 해양의 날이에요.",
+      "sections": [
+        {
+          "icon": "🌊",
+          "heading": "지구의 70%는 바다",
+          "body": "지구를 우주에서 보면 푸른 별이에요. 표면의 70%가 바다이기 때문이에요. 바다는 아주 넓고 깊어요. 그 안에는 수많은 생물이 살아요. 작은 플랑크톤부터 큰 고래까지 있어요. 알록달록한 물고기도 헤엄쳐요. 바다는 지구에서 가장 큰 보금자리예요. 그래서 바다를 지구의 심장이라고도 해요."
+        },
+        {
+          "icon": "🐟",
+          "heading": "바다가 주는 선물",
+          "body": "바다는 우리에게 많은 것을 줘요. 먼저 우리가 숨 쉬는 산소를 만들어요. 우리가 마시는 산소의 절반이 바다에서 와요. 작은 식물성 플랑크톤이 산소를 내뿜어요. 또 바다는 먹을거리를 줘요. 생선과 미역도 바다에서 얻어요. 바다는 날씨도 조절해 줘요. 바다가 건강해야 우리도 건강해요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "바다를 지키는 법",
+          "body": "요즘 바다는 점점 힘들어해요. 버려진 쓰레기와 플라스틱 때문이에요. 바닷물이 더러워지면 생물이 아파요. 우리도 바다를 도울 수 있어요. 쓰레기를 함부로 버리지 않아요. 일회용품을 줄이는 것도 큰 도움이에요. 바닷가에서는 흔적을 남기지 않아요. 작은 실천이 바다를 지켜요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "바다",
+          "en": "ocean",
+          "desc": "지구 표면의 70%를 덮은 짠 물이에요. 수많은 생물의 집이에요."
+        },
+        {
+          "ko": "플랑크톤",
+          "en": "plankton",
+          "desc": "바다에 떠다니는 아주 작은 생물이에요. 산소를 만들고 먹이가 돼요."
+        },
+        {
+          "ko": "산소",
+          "en": "oxygen",
+          "desc": "우리가 숨 쉴 때 마시는 기체예요. 절반을 바다가 만들어요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "지구 표면의 약 70%는 바다로 덮여 있다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 지구의 70%가 바다예요."
+        },
+        {
+          "statement": "우리가 마시는 산소는 모두 땅 위 나무만 만든다.",
+          "answer": "X",
+          "explanation": "본문 §2처럼 바다가 산소의 절반을 만들어요."
+        },
+        {
+          "statement": "바다를 지키려면 쓰레기를 함부로 버리지 않아야 한다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 작은 실천이 바다를 지켜요."
+        }
+      ],
+      "one_line_summary": "바다는 지구의 [   ]%를 덮고, 우리에게 [   ]를 주는 소중한 곳이다.",
+      "summary_keywords": "키워드: 바다, 70%, 산소",
+      "sources": [
+        {
+          "title": "유엔 세계 해양의 날",
+          "url": "https://www.un.org/en/observances/oceans-day"
+        },
+        {
+          "title": "유엔 세계 해양의 날 배경",
+          "url": "https://www.un.org/en/observances/oceans-day/background"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-06-09": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-09-rain.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / W.carter",
+        "url": "https://commons.wikimedia.org/wiki/File:Les_Parapluies_de_Viborg.jpg",
+        "license": "Public Domain"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-06-09",
+      "date": "2026-06-09",
+      "weekday": "화",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 장마와 비",
+      "title": "곧 장마, 비는 왜 며칠씩 올까",
+      "subtitle": "정체전선이 머무는 까닭",
+      "lead_question": "여름이 되면 며칠씩 비가 내려요. 왜 그렇게 오래 올까요?",
+      "why_today": "6월 중하순이면 우리나라가 장마철에 들어요.",
+      "sections": [
+        {
+          "icon": "🌧️",
+          "heading": "장마가 뭘까",
+          "body": "여름이 되면 비가 자주 내려요. 이렇게 비가 오래 오는 시기를 장마라고 해요. 보통 6월 말부터 7월까지 이어져요. 며칠 동안 흐리고 비가 와요. 가끔 잠깐 햇빛이 나기도 해요. 비가 많이 와서 공기가 눅눅해요. 장마는 여름이 왔다는 신호예요. 우리나라는 해마다 장마를 겪어요."
+        },
+        {
+          "icon": "☁️",
+          "heading": "비가 오래 오는 까닭",
+          "body": "비구름은 보통 바람을 타고 지나가요. 그런데 장마 때는 다르게 움직여요. 차가운 공기와 더운 공기가 만나요. 둘은 서로 밀리지 않고 버텨요. 그 경계에 비구름이 길게 생겨요. 이것을 정체전선이라고 해요. 정체전선은 한곳에 오래 머물러요. 그래서 비가 며칠씩 계속 내려요."
+        },
+        {
+          "icon": "☔",
+          "heading": "장마철 안전하게",
+          "body": "비가 많이 오면 길이 미끄러워요. 우산과 장화를 챙기면 좋아요. 물이 불어난 개울에는 가까이 가지 않아요. 천둥과 번개가 칠 땐 실내로 들어가요. 빗물에 젖으면 몸이 쉽게 추워져요. 집에 오면 따뜻하게 몸을 말려요. 미리 일기예보를 확인해요. 준비하면 장마도 안전하게 보내요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "장마",
+          "en": "rainy season",
+          "desc": "여름에 비가 여러 날 이어지는 시기예요. 보통 6~7월에 와요."
+        },
+        {
+          "ko": "정체전선",
+          "en": "stationary front",
+          "desc": "찬 공기와 더운 공기가 만나 머무는 경계예요. 비구름이 길게 생겨요."
+        },
+        {
+          "ko": "비구름",
+          "en": "rain cloud",
+          "desc": "비를 내리는 두꺼운 구름이에요. 정체전선을 따라 모여요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "장마는 보통 6월 말부터 7월까지 이어진다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 6월 말~7월에 와요."
+        },
+        {
+          "statement": "장마 때 비가 오래 오는 건 비구름이 빠르게 지나가기 때문이다.",
+          "answer": "X",
+          "explanation": "정체전선이 한곳에 머물러 오래 내려요."
+        },
+        {
+          "statement": "천둥과 번개가 칠 때는 실내로 들어가는 것이 안전하다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 번개 칠 땐 실내로 가요."
+        }
+      ],
+      "one_line_summary": "장마 때는 [   ]이 한곳에 오래 머물러 비가 [   ] 내린다.",
+      "summary_keywords": "키워드: 장마, 정체전선, 안전",
+      "sources": [
+        {
+          "title": "기상청 날씨누리",
+          "url": "https://www.weather.go.kr/w/index.do"
+        },
+        {
+          "title": "한국민족문화대백과사전 - 장마",
+          "url": "https://encykorea.aks.ac.kr/Article/E0046835"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": false
+      }
+    },
+    "2026-06-10": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-10-nuri.jpg",
+      "image_credit": {
+        "source": "한국항공우주연구원(KARI) via Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/wiki/File:KSLV-II_Nuri_and_the_launchpad_02.jpg",
+        "license": "KOGL Type 1"
+      },
+      "image_fallback": "category_svg_news",
+      "id": "2026-06-10",
+      "date": "2026-06-10",
+      "weekday": "수",
+      "category": "시사",
+      "chapter_label": "[시사] 우리 로켓 누리호",
+      "title": "누리호, 다시 우주로 날아올라요",
+      "subtitle": "한국이 만든 우주 로켓",
+      "lead_question": "우리나라가 만든 로켓이 곧 또 우주로 가요. 무엇을 싣고 갈까요?",
+      "why_today": "누리호 5차 발사가 올해 안에 예정돼 있어요.",
+      "sections": [
+        {
+          "icon": "🚀",
+          "heading": "누리호는 무엇일까",
+          "body": "누리호는 우리나라가 만든 우주 로켓이에요. 인공위성을 우주로 실어 나르는 일을 해요. 순우리말 '누리'는 온 세상을 뜻해요. 그동안 여러 번 발사하며 기술을 쌓았어요. 이제는 우리 힘으로 위성을 올려요. 우주로 가는 길을 스스로 연 거예요. 많은 과학자가 오래 힘써서 이뤘어요."
+        },
+        {
+          "icon": "🛰️",
+          "heading": "이번엔 무엇을 싣고 갈까",
+          "body": "올해 5차 발사가 준비되고 있어요. 이번에는 작은 위성 여러 개를 실어요. 무리를 지어 도는 초소형군집위성이에요. 위성들은 우주에서 지구를 살펴요. 날씨와 땅의 모습을 알려 줘요. 여러 위성을 한 번에 내보내는 연습도 해요. 작은 위성은 만들기 쉽고 빨라요. 그래서 더 자주 우주로 갈 수 있어요."
+        },
+        {
+          "icon": "🌏",
+          "heading": "앞으로의 꿈",
+          "body": "우주 기술은 점점 발전하고 있어요. 한 번 쓰고 버리던 로켓도 바뀌어요. 다시 쓰는 로켓을 연구하고 있어요. 그러면 비용을 크게 줄일 수 있어요. 우주를 더 가깝게 만들 수 있어요. 앞으로 해마다 누리호를 쏠 계획이에요. 우리도 우주를 향한 꿈을 키워요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "누리호",
+          "en": "Nuri (KSLV-II)",
+          "desc": "우리나라가 만든 우주 로켓이에요. 인공위성을 우주로 실어 날라요."
+        },
+        {
+          "ko": "인공위성",
+          "en": "satellite",
+          "desc": "지구 둘레를 도는 기계예요. 날씨와 통신을 도와요."
+        },
+        {
+          "ko": "초소형군집위성",
+          "en": "nanosatellite cluster",
+          "desc": "작은 위성 여럿이 무리 지어 도는 거예요. 함께 지구를 살펴요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "누리호는 우리나라가 만든 우주 로켓이다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 우리나라가 만든 로켓이에요."
+        },
+        {
+          "statement": "누리호 5차 발사에는 아무 위성도 싣지 않는다.",
+          "answer": "X",
+          "explanation": "초소형군집위성 등 위성을 싣고 가요."
+        },
+        {
+          "statement": "다시 쓰는 로켓을 만들면 비용을 줄일 수 있다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 재사용은 비용을 줄여요."
+        }
+      ],
+      "one_line_summary": "누리호는 우리나라가 만든 [   ]으로, [   ]을 우주로 실어 나른다.",
+      "summary_keywords": "키워드: 누리호, 인공위성, 우주",
+      "sources": [
+        {
+          "title": "우주항공청(KASA)",
+          "url": "https://www.kasa.go.kr/"
+        },
+        {
+          "title": "한국항공우주연구원 - 누리호",
+          "url": "https://www.kari.re.kr/kor/contents/51"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-06-11": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-11-worldcup.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Peter Glaser (Unsplash)",
+        "url": "https://commons.wikimedia.org/wiki/File:Adidas_soccer_ball_on_a_grass_pitch_(Unsplash).jpg",
+        "license": "CC0 1.0"
+      },
+      "image_fallback": "category_svg_news",
+      "id": "2026-06-11",
+      "date": "2026-06-11",
+      "weekday": "목",
+      "category": "시사",
+      "chapter_label": "[시사] 2026 월드컵 개막",
+      "title": "2026 월드컵, 드디어 개막해요",
+      "subtitle": "세 나라가 함께 여는 축제",
+      "lead_question": "4년에 한 번 열리는 축구 잔치가 시작돼요. 어디에서 열릴까요?",
+      "why_today": "6월 11일 2026 월드컵이 막을 올려요.",
+      "sections": [
+        {
+          "icon": "⚽",
+          "heading": "월드컵이 열려요",
+          "body": "월드컵은 세계 축구 대회예요. 4년에 한 번씩 열려요. 여러 나라 대표팀이 모여 겨뤄요. 나라를 대표하는 큰 경기예요. 올해는 6월 11일에 시작해요. 첫 경기는 멕시코에서 열려요. 멕시코와 남아프리카공화국이 맞붙어요. 전 세계가 함께 손에 땀을 쥐고 봐요."
+        },
+        {
+          "icon": "🌎",
+          "heading": "세 나라가 함께 열어요",
+          "body": "이번 월드컵은 특별한 점이 있어요. 한 나라가 아니라 세 나라가 열어요. 미국과 멕시코와 캐나다예요. 세 나라는 북아메리카에 이웃해 있어요. 경기는 여러 도시에서 펼쳐져요. 경기장이 넓게 흩어져 있어요. 그래서 더 많은 사람이 즐길 수 있어요. 세 나라가 함께 여는 건 처음이에요."
+        },
+        {
+          "icon": "🏟️",
+          "heading": "어떻게 진행될까",
+          "body": "먼저 조별 리그로 경기를 시작해요. 비슷한 팀끼리 조로 묶어요. 서로 겨뤄 순위를 가려요. 6월 11일부터 27일까지 이어져요. 잘한 팀들이 다음 단계로 올라가요. 그다음엔 토너먼트로 우승을 가려요. 한 번 지면 떨어지는 방식이에요. 여름 내내 축구 열기가 뜨거워요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "월드컵",
+          "en": "World Cup",
+          "desc": "4년마다 열리는 세계 축구 대회예요. 여러 나라가 겨뤄요."
+        },
+        {
+          "ko": "대표팀",
+          "en": "national team",
+          "desc": "한 나라를 대표하는 선수들이에요. 나라 이름을 걸고 뛰어요."
+        },
+        {
+          "ko": "조별 리그",
+          "en": "group stage",
+          "desc": "팀을 여러 조로 나눠 겨루는 첫 단계예요. 순위를 가려요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "2026 월드컵은 미국·멕시코·캐나다 세 나라가 함께 연다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 세 나라가 함께 열어요."
+        },
+        {
+          "statement": "월드컵은 해마다 한 번씩 열린다.",
+          "answer": "X",
+          "explanation": "월드컵은 4년에 한 번씩 열리는 대회예요."
+        },
+        {
+          "statement": "월드컵은 조별 리그로 먼저 경기를 시작한다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 조별 리그로 시작해요."
+        }
+      ],
+      "one_line_summary": "2026 월드컵은 [   ]년에 한 번 열리는 축구 대회로, 세 나라가 함께 [   ].",
+      "summary_keywords": "키워드: 월드컵, 세 나라, 조별 리그",
+      "sources": [
+        {
+          "title": "FIFA 2026 월드컵",
+          "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"
+        },
+        {
+          "title": "2026 FIFA 월드컵(위키백과)",
+          "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-06-12": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-12-mosquito.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Balaram Mahalder",
+        "url": "https://commons.wikimedia.org/wiki/File:Mosquito-Macro.jpg",
+        "license": "CC BY-SA 3.0"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-06-12",
+      "date": "2026-06-12",
+      "weekday": "금",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 모기가 무는 까닭",
+      "title": "모기는 왜 나만 더 물까",
+      "subtitle": "모기가 좋아하는 신호",
+      "lead_question": "같이 있어도 누구만 더 많이 물려요. 모기는 어떻게 고를까요?",
+      "why_today": "날이 더워지면 모기가 활발해져요.",
+      "sections": [
+        {
+          "icon": "🦟",
+          "heading": "모기는 무엇에 끌릴까",
+          "body": "모기는 아무나 무는 게 아니에요. 좋아하는 신호를 따라 다가와요. 가장 먼저 이산화탄소를 느껴요. 이산화탄소는 숨을 내쉴 때 나와요. 숨을 많이 쉬는 사람에게 잘 가요. 그래서 뛰어논 뒤에 더 잘 물려요. 활발하게 움직이면 더 끌려와요. 그래서 아이가 더 물리기도 해요."
+        },
+        {
+          "icon": "🌡️",
+          "heading": "체온과 냄새도 신호",
+          "body": "모기는 따뜻한 몸도 좋아해요. 체온이 높으면 더 쉽게 찾아와요. 땀에서 나는 냄새에도 끌려요. 운동을 하면 땀이 많이 나요. 그러면 모기가 더 모여들어요. 사람마다 냄새가 조금씩 달라요. 그래서 더 물리는 사람이 따로 있어요. 향이 진한 것도 모기를 부를 수 있어요."
+        },
+        {
+          "icon": "🧴",
+          "heading": "모기를 피하는 법",
+          "body": "모기를 피하는 방법도 있어요. 땀을 흘리면 자주 씻어요. 몸을 깨끗이 하면 냄새가 줄어요. 밝은색 긴 옷을 입어도 좋아요. 모기는 어두운색을 더 좋아해요. 창문에 방충망을 닫아 둬요. 고인 물은 모기가 알을 낳는 곳이에요. 주변의 고인 물을 없애면 좋아요. 그러면 모기가 크게 줄어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "이산화탄소",
+          "en": "carbon dioxide",
+          "desc": "숨을 내쉴 때 나오는 기체예요. 모기가 이 냄새를 잘 느껴요."
+        },
+        {
+          "ko": "체온",
+          "en": "body temperature",
+          "desc": "우리 몸의 따뜻한 정도예요. 모기는 따뜻한 몸을 좋아해요."
+        },
+        {
+          "ko": "방충망",
+          "en": "insect screen",
+          "desc": "벌레가 못 들어오게 막는 그물이에요. 창문에 달아요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "모기는 우리가 내쉬는 이산화탄소를 느끼고 다가온다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 모기는 이산화탄소에 끌려요."
+        },
+        {
+          "statement": "모기는 사람의 체온이나 냄새와 상관없이 문다.",
+          "answer": "X",
+          "explanation": "모기는 체온과 땀 냄새에도 잘 끌려요."
+        },
+        {
+          "statement": "몸을 깨끗이 씻으면 모기를 덜 부른다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 씻으면 냄새가 줄어요."
+        }
+      ],
+      "one_line_summary": "모기는 [   ]와 체온, 냄새를 따라가며, 깨끗이 [   ]면 덜 물린다.",
+      "summary_keywords": "키워드: 모기, 이산화탄소, 체온",
+      "sources": [
+        {
+          "title": "질병관리청",
+          "url": "https://www.kdca.go.kr/"
+        },
+        {
+          "title": "국가건강정보포털 - 모기 매개 감염병",
+          "url": "https://health.kdca.go.kr/"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": false
+      }
+    },
+    "2026-06-13": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-13-fan.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Ryomaandres",
+        "url": "https://commons.wikimedia.org/wiki/File:Onelectricfan.JPG",
+        "license": "Public Domain"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-06-13",
+      "date": "2026-06-13",
+      "weekday": "토",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 선풍기와 시원함",
+      "title": "선풍기 바람은 왜 시원할까",
+      "subtitle": "땀이 마르며 생기는 시원함",
+      "lead_question": "선풍기 앞에 서면 시원해요. 방 공기는 그대로인데 왜 그럴까요?",
+      "why_today": "더워지는 날씨에 선풍기를 자주 켜요.",
+      "sections": [
+        {
+          "icon": "🌬️",
+          "heading": "공기는 차가워지지 않아요",
+          "body": "선풍기는 바람을 만드는 기계예요. 그런데 신기한 점이 있어요. 선풍기는 공기를 식히지 못해요. 방 안 온도는 거의 그대로예요. 바람이 분다고 더 차가워지지 않아요. 온도계로 재도 거의 똑같아요. 그런데도 우리는 시원하다고 느껴요. 그 까닭은 우리 몸에 있어요."
+        },
+        {
+          "icon": "💧",
+          "heading": "땀이 마르면 시원해요",
+          "body": "우리 몸은 더우면 땀을 내요. 땀이 피부에서 마를 때 열을 가져가요. 이것을 증발이라고 해요. 증발이 일어나면 몸이 식어요. 바람이 불면 땀이 더 빨리 말라요. 그래서 선풍기 앞이 시원하게 느껴져요. 그늘에서 바람을 쐬면 더 시원해요. 바람이 증발을 도와주는 거예요. 땀이 없으면 효과가 줄어요."
+        },
+        {
+          "icon": "🪭",
+          "heading": "더 똑똑하게 쓰는 법",
+          "body": "선풍기는 사람을 시원하게 해 줘요. 하지만 빈방에 틀면 소용이 없어요. 공기를 식히지 못하기 때문이에요. 더울 땐 창문을 열고 함께 써요. 바깥 공기가 돌면 더 시원해요. 너무 오래 가까이 쐬지는 않아요. 잘 때는 끄거나 약하게 해요. 알맞게 쓰면 여름을 시원하게 나요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "증발",
+          "en": "evaporation",
+          "desc": "물이 마르며 기체로 바뀌는 거예요. 이때 열을 가져가 시원해져요."
+        },
+        {
+          "ko": "땀",
+          "en": "sweat",
+          "desc": "더울 때 피부에서 나오는 물이에요. 마르면서 몸을 식혀요."
+        },
+        {
+          "ko": "온도",
+          "en": "temperature",
+          "desc": "공기나 물이 얼마나 따뜻한지예요. 선풍기는 온도를 못 낮춰요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "선풍기는 방 안 공기의 온도를 낮춰 준다.",
+          "answer": "X",
+          "explanation": "공기 온도는 그대로, 땀 증발로 시원해요."
+        },
+        {
+          "statement": "바람이 불면 땀이 더 빨리 마른다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 바람이 증발을 도와요."
+        },
+        {
+          "statement": "아무도 없는 빈방에 선풍기를 틀면 방이 시원해지지 않는다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 선풍기는 공기를 못 식혀요."
+        }
+      ],
+      "one_line_summary": "선풍기는 공기 [   ]를 낮추지 못하고, 땀의 [   ]을 도와 시원하게 느끼게 한다.",
+      "summary_keywords": "키워드: 선풍기, 증발, 땀",
+      "sources": [
+        {
+          "title": "한국에너지공단",
+          "url": "https://www.energy.or.kr/"
+        },
+        {
+          "title": "국립중앙과학관",
+          "url": "https://www.science.go.kr/"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": false
+      }
+    },
+    "2026-06-14": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-14-blooddonor.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Travis Rigel Lukas Hornung",
+        "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_Bloodmobile.jpg",
+        "license": "CC BY 2.0"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-06-14",
+      "date": "2026-06-14",
+      "weekday": "일",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 세계 헌혈자의 날",
+      "title": "헌혈자의 날, 나눔으로 잇는 생명",
+      "subtitle": "고마운 마음을 전하는 날",
+      "lead_question": "누군가의 작은 나눔이 다른 사람을 살려요. 무엇을 나누는 걸까요?",
+      "why_today": "6월 14일은 세계 헌혈자의 날이에요.",
+      "sections": [
+        {
+          "icon": "❤️",
+          "heading": "헌혈은 나눔이에요",
+          "body": "헌혈은 자신의 것을 나누는 일이에요. 아픈 사람에게 큰 도움이 돼요. 수술을 받거나 다친 사람이 있어요. 그들에게는 다른 사람의 도움이 필요해요. 건강한 어른이 마음을 나눠 줘요. 그 나눔이 한 생명을 살려요. 돈으로 살 수 없는 선물이에요. 참 따뜻한 약속이에요."
+        },
+        {
+          "icon": "🗓️",
+          "heading": "왜 6월 14일일까",
+          "body": "이 날은 한 과학자의 생일이에요. 이름은 카를 란트슈타이너예요. 그는 사람마다 다른 혈액형을 알아냈어요. 덕분에 안전하게 도울 수 있게 됐어요. 이 공으로 노벨상도 받았어요. 그 뜻을 기려 6월 14일로 정했어요. 세계 여러 나라가 함께 기념해요. 우리나라도 이 날을 챙겨요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "고마움을 전해요",
+          "body": "이 날은 나눠 준 사람에게 고마움을 전해요. 그들의 마음 덕분에 많은 생명을 구해요. 우리는 아직 나이가 어려요. 그래서 지금 바로 나눌 수는 없어요. 하지만 마음은 미리 배울 수 있어요. 남을 돕는 따뜻한 마음이에요. 작은 나눔의 소중함을 기억해요. 고맙다는 인사도 큰 힘이 돼요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "헌혈",
+          "en": "blood donation",
+          "desc": "건강한 사람이 아픈 사람을 위해 나누는 일이에요. 생명을 도와요."
+        },
+        {
+          "ko": "혈액형",
+          "en": "blood type",
+          "desc": "사람마다 다른 피의 종류예요. 맞는 것끼리 도울 수 있어요."
+        },
+        {
+          "ko": "나눔",
+          "en": "sharing",
+          "desc": "내가 가진 것을 남과 함께 나누는 거예요. 따뜻한 마음이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "세계 헌혈자의 날은 6월 14일이다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 6월 14일로 정해졌어요."
+        },
+        {
+          "statement": "6월 14일은 축구 선수의 생일에서 정해졌다.",
+          "answer": "X",
+          "explanation": "혈액형을 알아낸 과학자의 생일이에요."
+        },
+        {
+          "statement": "헌혈은 아픈 사람을 돕는 따뜻한 나눔이다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 나눔으로 생명을 도와요."
+        }
+      ],
+      "one_line_summary": "세계 헌혈자의 날은 6월 [   ]일로, 생명을 살리는 [   ]에 고마움을 전한다.",
+      "summary_keywords": "키워드: 헌혈, 나눔, 6월 14일",
+      "sources": [
+        {
+          "title": "세계보건기구(WHO) 세계 헌혈자의 날",
+          "url": "https://www.who.int/campaigns/world-blood-donor-day"
+        },
+        {
+          "title": "대한적십자사 혈액관리본부",
+          "url": "https://www.bloodinfo.net/"
+        }
+      ],
+      "generated_at": "2026-05-31T18:30:00+09:00",
       "model_meta": {
         "model": "claude-opus-4-8",
         "web_search_used": true

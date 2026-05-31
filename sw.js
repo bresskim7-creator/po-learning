@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.68.0 (2026-05-31): '오늘의 한 장' 시드 7장(6/1~6/7) 실제 이미지 추가 — daily-images/ 신설(Wikimedia Commons CC/PD/CC0, 출처·라이선스 기록). image_url/image_credit 채움(image_fallback 유지). PRECACHE에 7장 추가(오프라인 표시). 무지개·친근한 휴머노이드·수박단면·페트병수거함·블루마블(아폴로17 PD)·국립서울현충원(차분한 추모)·여름 파란하늘+해. 각 이미지 내용 눈 확인.
+// v5.69.0 (2026-05-31): '오늘의 한 장' 6/8~6/14 7장 추가(14일 윈도우 완성, review_status auto). 세계 해양의 날·장마·누리호5차·2026월드컵개막·모기·선풍기·세계 헌혈자의 날. 각 카드 실제 이미지(Wikimedia Commons CC/PD/CC0/공공누리 KOGL, 출처·라이선스 기록, 눈확인) + PRECACHE 7장 추가. 헌혈 카드는 피·바늘 묘사 없이 적십자 헌혈버스(나눔 각도). daily_index version_key 갱신·rotation/calendar 재계산. 시사 2건 WebSearch 사실확인.
+// 이전 v5.68.0 (2026-05-31): '오늘의 한 장' 시드 7장(6/1~6/7) 실제 이미지 추가 — daily-images/ 신설(Wikimedia Commons CC/PD/CC0, 출처·라이선스 기록). image_url/image_credit 채움(image_fallback 유지). PRECACHE에 7장 추가(오프라인 표시). 무지개·친근한 휴머노이드·수박단면·페트병수거함·블루마블(아폴로17 PD)·국립서울현충원(차분한 추모)·여름 파란하늘+해. 각 이미지 내용 눈 확인.
 // 이전 v5.67.1 (2026-05-31): '오늘의 한 장' 순수 FIFO — pickNextQueueDate()·getDailyUnreadCount()에서 미래 날짜 게이트(d > today) 제거. 안 읽은 카드는 날짜 무관 가장 이른 미열람 순으로 노출(orphan 없음). 날짜 라벨/isToday 표시는 유지.
 // 이전 v5.67.0 (2026-05-30): '오늘의 한 장' PO 이식 — daily 코너 신규. JSONP 월묶음(daily_YYYY-MM.js) + daily_index.js(version_key 캐시 분기) + 홈 재배치(배너+골고루학습+말하기 상단 2버튼+과목2×2+개념·기록 하단). 제목+리드 TTS는 Web Speech 로컬 전용(chirp3 미호출). FIFO 미열람 큐+지난글 archive+읽음 처리. daily_index.js·daily_2026-06.js PRECACHE 추가 + daily_*.js 오프라인 매칭 ignoreSearch(?v= 무시). 기존 말하기개편 Phase 2a(v5.66.0) 불변.
 // 이전 v5.66.0 (2026-05-25): 말하기 개편 Phase 2a — 자율학습 판정 루프 (T1·T3·T2·T6·T5·T11·T9·T12·T13a). 3-state scheduler 전이 (learning↔auto_stable↔maintenance) + qualifying attempt (KST 00:00 day-key, sameDayDuplicate·scaffold·preReveal·modelReplayGt2·bonusPractice disqualify) + 비대칭 reset (probe miss vs self 다르게) + probe 출현 (mastery_gate + delayed_review, risk_gate Phase 2b 활성화) + phonetic_text_choice 3지선다 UI Step 6 (1.5s/2.5s pause) + scheduler-aware queue builder (learning · maintenance due · auto_stable excluded · bonus practice 4분리, bonus는 transition evidence 미반영) + writer payload 흐름 (schedulerStateBefore/After 실값, summary qualifyingAttempts·probesShown·probesCorrect 실값) + progress drift detection (cover_read_events 최신 20개 scan, console.warn 1회). spec v1.2 §2.2·§2.3·§2.4·§3.3·§3.5·§3.6·§3.7·§4.2·§11-3 정합. Phase 2b (calibration risk telemetry) · Phase 2c (Sheets upload) · Phase 3 (부모 audit UI) 제외.
@@ -16,7 +17,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5680';
+const CACHE_NAME = 'po-learning-v5690';
 const PRECACHE = [
   './',
   './index.html',
@@ -60,6 +61,13 @@ const PRECACHE = [
   './daily-images/2026-06-05-earth.jpg',
   './daily-images/2026-06-06-memorial.jpg',
   './daily-images/2026-06-07-sun.jpg',
+  './daily-images/2026-06-08-ocean.jpg',
+  './daily-images/2026-06-09-rain.jpg',
+  './daily-images/2026-06-10-nuri.jpg',
+  './daily-images/2026-06-11-worldcup.jpg',
+  './daily-images/2026-06-12-mosquito.jpg',
+  './daily-images/2026-06-13-fan.jpg',
+  './daily-images/2026-06-14-blooddonor.jpg',
 ];
 
 self.addEventListener('install', event => {
