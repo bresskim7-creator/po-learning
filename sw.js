@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.67.1 (2026-05-31): '오늘의 한 장' 순수 FIFO — pickNextQueueDate()·getDailyUnreadCount()에서 미래 날짜 게이트(d > today) 제거. 안 읽은 카드는 날짜 무관 가장 이른 미열람 순으로 노출(orphan 없음). 날짜 라벨/isToday 표시는 유지.
+// v5.68.0 (2026-05-31): '오늘의 한 장' 시드 7장(6/1~6/7) 실제 이미지 추가 — daily-images/ 신설(Wikimedia Commons CC/PD/CC0, 출처·라이선스 기록). image_url/image_credit 채움(image_fallback 유지). PRECACHE에 7장 추가(오프라인 표시). 무지개·친근한 휴머노이드·수박단면·페트병수거함·블루마블(아폴로17 PD)·국립서울현충원(차분한 추모)·여름 파란하늘+해. 각 이미지 내용 눈 확인.
+// 이전 v5.67.1 (2026-05-31): '오늘의 한 장' 순수 FIFO — pickNextQueueDate()·getDailyUnreadCount()에서 미래 날짜 게이트(d > today) 제거. 안 읽은 카드는 날짜 무관 가장 이른 미열람 순으로 노출(orphan 없음). 날짜 라벨/isToday 표시는 유지.
 // 이전 v5.67.0 (2026-05-30): '오늘의 한 장' PO 이식 — daily 코너 신규. JSONP 월묶음(daily_YYYY-MM.js) + daily_index.js(version_key 캐시 분기) + 홈 재배치(배너+골고루학습+말하기 상단 2버튼+과목2×2+개념·기록 하단). 제목+리드 TTS는 Web Speech 로컬 전용(chirp3 미호출). FIFO 미열람 큐+지난글 archive+읽음 처리. daily_index.js·daily_2026-06.js PRECACHE 추가 + daily_*.js 오프라인 매칭 ignoreSearch(?v= 무시). 기존 말하기개편 Phase 2a(v5.66.0) 불변.
 // 이전 v5.66.0 (2026-05-25): 말하기 개편 Phase 2a — 자율학습 판정 루프 (T1·T3·T2·T6·T5·T11·T9·T12·T13a). 3-state scheduler 전이 (learning↔auto_stable↔maintenance) + qualifying attempt (KST 00:00 day-key, sameDayDuplicate·scaffold·preReveal·modelReplayGt2·bonusPractice disqualify) + 비대칭 reset (probe miss vs self 다르게) + probe 출현 (mastery_gate + delayed_review, risk_gate Phase 2b 활성화) + phonetic_text_choice 3지선다 UI Step 6 (1.5s/2.5s pause) + scheduler-aware queue builder (learning · maintenance due · auto_stable excluded · bonus practice 4분리, bonus는 transition evidence 미반영) + writer payload 흐름 (schedulerStateBefore/After 실값, summary qualifyingAttempts·probesShown·probesCorrect 실값) + progress drift detection (cover_read_events 최신 20개 scan, console.warn 1회). spec v1.2 §2.2·§2.3·§2.4·§3.3·§3.5·§3.6·§3.7·§4.2·§11-3 정합. Phase 2b (calibration risk telemetry) · Phase 2c (Sheets upload) · Phase 3 (부모 audit UI) 제외.
 // 이전 v5.65.3 (2026-05-23): Step 5 사용자 행동 안내 보강 + 버튼 문구 문법 정합화. selfPlayedOnce=true 메시지에 "아래 버튼을 누르면 다음 단어로 가" 추가 (사용자 "왜 안 넘어가지?" 신호 부재 보강). 버튼 라벨 "같게/다르게" → "같았어 ▶/달랐어 ▶" (질문 과거형 "같았어?" ↔ 응답 부사형 불일치 정정 + 화살표로 진행 신호). data 값 'same'/'different' 와 attempt event selfCompareRating 계약 불변 (closure memo §2-1). UI 라벨 ↔ 데이터 계약 분리.
@@ -15,7 +16,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5671';
+const CACHE_NAME = 'po-learning-v5680';
 const PRECACHE = [
   './',
   './index.html',
@@ -52,6 +53,13 @@ const PRECACHE = [
   './concept-images/science/U4/cncpt_sci_u4_003.webp',
   './concept-images/science/U4/cncpt_sci_u4_004.webp',
   './concept-images/science/U4/cncpt_sci_u4_005.webp',
+  './daily-images/2026-06-01-rainbow.jpg',
+  './daily-images/2026-06-02-robot.jpg',
+  './daily-images/2026-06-03-watermelon.jpg',
+  './daily-images/2026-06-04-recycling.jpg',
+  './daily-images/2026-06-05-earth.jpg',
+  './daily-images/2026-06-06-memorial.jpg',
+  './daily-images/2026-06-07-sun.jpg',
 ];
 
 self.addEventListener('install', event => {

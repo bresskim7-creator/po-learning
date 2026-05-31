@@ -8,8 +8,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "normal",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-01-rainbow.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Paul-shy",
+        "url": "https://commons.wikimedia.org/wiki/File:A_rainbow_appears_in_the_sky_after_the_rain_shower.jpg",
+        "license": "CC BY 4.0"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-06-01",
       "date": "2026-06-01",
@@ -94,8 +98,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "normal",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-02-robot.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Nicholas-halodi (Halodi Robotics)",
+        "url": "https://commons.wikimedia.org/wiki/File:Halodi_Robotics%27_Perception_Engineer_With_a_Humanoid_Collaborative_Robot.jpg",
+        "license": "CC BY-SA 4.0"
+      },
       "image_fallback": "category_svg_news",
       "id": "2026-06-02",
       "date": "2026-06-02",
@@ -180,8 +188,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "normal",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-03-watermelon.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Harsha K R",
+        "url": "https://commons.wikimedia.org/wiki/File:Sliced_Watermelon.jpg",
+        "license": "CC BY-SA 2.0"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-06-03",
       "date": "2026-06-03",
@@ -266,8 +278,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "normal",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-04-recycling.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Samgreet1",
+        "url": "https://commons.wikimedia.org/wiki/File:Plastic_Bottle_Recycling_Bin.jpg",
+        "license": "CC BY-SA 4.0"
+      },
       "image_fallback": "category_svg_news",
       "id": "2026-06-04",
       "date": "2026-06-04",
@@ -352,8 +368,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "normal",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-05-earth.jpg",
+      "image_credit": {
+        "source": "NASA / Apollo 17 (Harrison Schmitt) via Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Blue_Marble,_AS17-148-22727.jpg",
+        "license": "Public Domain"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-06-05",
       "date": "2026-06-05",
@@ -438,8 +458,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "sensitive",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-06-memorial.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Jordi Sanchez Teruel",
+        "url": "https://commons.wikimedia.org/wiki/File:Seoul_National_Cemetery_5.jpg",
+        "license": "CC BY-SA 2.0"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-06-06",
       "date": "2026-06-06",
@@ -524,8 +548,12 @@ window.__loadDailyMonth("2026-06", {
       "sensitivity": "normal",
       "review_status": "seed",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-06-07-sun.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons (CC0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sky_Forest_Clouds.jpg",
+        "license": "CC0 1.0"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-06-07",
       "date": "2026-06-07",
