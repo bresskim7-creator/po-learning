@@ -4663,25 +4663,789 @@
       "practiceMode": "cover_read",
       "homeworkDate": "2026-05-21",
       "reviewStatus": "parent_review_pending",
-      "_note": "v1 파일럿 풀 17개 (p.19 -이 8개 + p.20 -에 9개, 순수 연음 중심 선별). 일일 노출은 config.speakingPractice.coverReadItemsPerSession 기본 10개 sampling. spec v1.2 §1.2의 8~12개는 초기 일일 노출 규모로 운용하고, 데이터 풀과 일일 노출 수는 v1.3에서 분리 명시. 종이[종이] ㅇ받침 예외와 가마솥/뙤약볕 등 고난도 항목은 별도 트랙.",
+      "_note": "v5.72.0(2026-06-03): 적용(1) 대조쌍 개편 — items 20개(p.19 체언 9 + p.20 체언 11, 조사 4칸 allForms[자음2+모음2]). 평탄 스키마 유지 + 칼럼 증설(contrastOrtho/contrastPron/allForms/particleVowel/particleConsonant/difficulty/anchor/liaisonException), 중첩 금지. 앵커 12개(anchor:true) id = config.coverReadAnchorSet.itemIds 1:1. 출처 00_Context/2026-06-03-연음-적용1-data.json (JH 검수완료). 녹음·자기비교는 모음형(이/에) 앵커 itemId만, 자음칸(도/까지·과/부터)은 차이듣기 읽기·듣기. 종(liaisonException) 포함=연음 안 되는 대비. 일일 sampling coverReadItemsPerSession 기본 10. ㅇ받침 예외·고난도(대궐/가마솥/뙤약볕 difficulty 3)는 sampling 후순위.",
       "items": [
-        { "id": "bk5-1-1-p19-book-i", "orthography": "책이", "pronunciation": "채기", "sourceForm": "책 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-nun-i", "orthography": "눈이", "pronunciation": "누니", "sourceForm": "눈 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-byeol-i", "orthography": "별이", "pronunciation": "벼리", "sourceForm": "별 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-jip-i", "orthography": "집이", "pronunciation": "지비", "sourceForm": "집 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-gam-i", "orthography": "감이", "pronunciation": "가미", "sourceForm": "감 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-sowon-i", "orthography": "소원이", "pronunciation": "소워니", "sourceForm": "소원 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-daegwol-i", "orthography": "대궐이", "pronunciation": "대궈리", "sourceForm": "대궐 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p19-batchim-i", "orthography": "받침이", "pronunciation": "받치미", "sourceForm": "받침 + 이", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-ot-e", "orthography": "옷에", "pronunciation": "오세", "sourceForm": "옷 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-nat-e", "orthography": "낮에", "pronunciation": "나제", "sourceForm": "낮 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-kkot-e", "orthography": "꽃에", "pronunciation": "꼬체", "sourceForm": "꽃 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-bat-e", "orthography": "밭에", "pronunciation": "바테", "sourceForm": "밭 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-sup-e", "orthography": "숲에", "pronunciation": "수페", "sourceForm": "숲 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-mureup-e", "orthography": "무릎에", "pronunciation": "무르페", "sourceForm": "무릎 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-got-e", "orthography": "곳에", "pronunciation": "고세", "sourceForm": "곳 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-bak-e", "orthography": "밖에", "pronunciation": "바께", "sourceForm": "밖 + 에", "ruleType": "연음" },
-        { "id": "bk5-1-1-p20-bueok-e", "orthography": "부엌에", "pronunciation": "부어케", "sourceForm": "부엌 + 에", "ruleType": "연음" }
+        {
+          "id": "bk5-1-1-p19-jong-i",
+          "orthography": "종이",
+          "pronunciation": "종이",
+          "sourceForm": "종",
+          "ruleType": "연음",
+          "contrastOrtho": "종도",
+          "contrastPron": "종도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "종도",
+              "pron": "종도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "종까지",
+              "pron": "종까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "종이",
+              "pron": "종이",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "종은",
+              "pron": "종은",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "liaisonException": true
+        },
+        {
+          "id": "bk5-1-1-p19-book-i",
+          "orthography": "책이",
+          "pronunciation": "채기",
+          "sourceForm": "책",
+          "ruleType": "연음",
+          "contrastOrtho": "책도",
+          "contrastPron": "책또",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "책도",
+              "pron": "책또",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "책까지",
+              "pron": "책까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "책이",
+              "pron": "채기",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "책은",
+              "pron": "채근",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p19-nun-i",
+          "orthography": "눈이",
+          "pronunciation": "누니",
+          "sourceForm": "눈",
+          "ruleType": "연음",
+          "contrastOrtho": "눈도",
+          "contrastPron": "눈도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "눈도",
+              "pron": "눈도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "눈까지",
+              "pron": "눈까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "눈이",
+              "pron": "누니",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "눈은",
+              "pron": "누는",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p19-byeol-i",
+          "orthography": "별이",
+          "pronunciation": "벼리",
+          "sourceForm": "별",
+          "ruleType": "연음",
+          "contrastOrtho": "별도",
+          "contrastPron": "별도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "별도",
+              "pron": "별도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "별까지",
+              "pron": "별까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "별이",
+              "pron": "벼리",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "별은",
+              "pron": "벼른",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p19-gam-i",
+          "orthography": "감이",
+          "pronunciation": "가미",
+          "sourceForm": "감",
+          "ruleType": "연음",
+          "contrastOrtho": "감도",
+          "contrastPron": "감도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "감도",
+              "pron": "감도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "감까지",
+              "pron": "감까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "감이",
+              "pron": "가미",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "감은",
+              "pron": "가믄",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p19-jip-i",
+          "orthography": "집이",
+          "pronunciation": "지비",
+          "sourceForm": "집",
+          "ruleType": "연음",
+          "contrastOrtho": "집도",
+          "contrastPron": "집또",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "집도",
+              "pron": "집또",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "집까지",
+              "pron": "집까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "집이",
+              "pron": "지비",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "집은",
+              "pron": "지븐",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p19-sowon-i",
+          "orthography": "소원이",
+          "pronunciation": "소워니",
+          "sourceForm": "소원",
+          "ruleType": "연음",
+          "contrastOrtho": "소원도",
+          "contrastPron": "소원도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "소원도",
+              "pron": "소원도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "소원까지",
+              "pron": "소원까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "소원이",
+              "pron": "소워니",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "소원은",
+              "pron": "소워는",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false
+        },
+        {
+          "id": "bk5-1-1-p19-daegwol-i",
+          "orthography": "대궐이",
+          "pronunciation": "대궈리",
+          "sourceForm": "대궐",
+          "ruleType": "연음",
+          "contrastOrtho": "대궐도",
+          "contrastPron": "대궐도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "대궐도",
+              "pron": "대궐도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "대궐까지",
+              "pron": "대궐까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "대궐이",
+              "pron": "대궈리",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "대궐은",
+              "pron": "대궈른",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 3,
+          "anchor": false
+        },
+        {
+          "id": "bk5-1-1-p19-batchim-i",
+          "orthography": "받침이",
+          "pronunciation": "받치미",
+          "sourceForm": "받침",
+          "ruleType": "연음",
+          "contrastOrtho": "받침도",
+          "contrastPron": "받침도",
+          "particleVowel": "이",
+          "particleConsonant": "도",
+          "allForms": [
+            {
+              "ortho": "받침도",
+              "pron": "받침도",
+              "particle": "도",
+              "type": "consonant"
+            },
+            {
+              "ortho": "받침까지",
+              "pron": "받침까지",
+              "particle": "까지",
+              "type": "consonant"
+            },
+            {
+              "ortho": "받침이",
+              "pron": "받치미",
+              "particle": "이",
+              "type": "vowel"
+            },
+            {
+              "ortho": "받침은",
+              "pron": "받치믄",
+              "particle": "은",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false
+        },
+        {
+          "id": "bk5-1-1-p20-ot-e",
+          "orthography": "옷에",
+          "pronunciation": "오세",
+          "sourceForm": "옷",
+          "ruleType": "연음",
+          "contrastOrtho": "옷과",
+          "contrastPron": "옫꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "옷과",
+              "pron": "옫꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "옷부터",
+              "pron": "옫뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "옷에",
+              "pron": "오세",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "옷을",
+              "pron": "오슬",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-got-e",
+          "orthography": "곳에",
+          "pronunciation": "고세",
+          "sourceForm": "곳",
+          "ruleType": "연음",
+          "contrastOrtho": "곳과",
+          "contrastPron": "곧꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "곳과",
+              "pron": "곧꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "곳부터",
+              "pron": "곧뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "곳에",
+              "pron": "고세",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "곳을",
+              "pron": "고슬",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false
+        },
+        {
+          "id": "bk5-1-1-p20-nat-e",
+          "orthography": "낮에",
+          "pronunciation": "나제",
+          "sourceForm": "낮",
+          "ruleType": "연음",
+          "contrastOrtho": "낮과",
+          "contrastPron": "낟꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "낮과",
+              "pron": "낟꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "낮부터",
+              "pron": "낟뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "낮에",
+              "pron": "나제",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "낮을",
+              "pron": "나즐",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-kkot-e",
+          "orthography": "꽃에",
+          "pronunciation": "꼬체",
+          "sourceForm": "꽃",
+          "ruleType": "연음",
+          "contrastOrtho": "꽃과",
+          "contrastPron": "꼳꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "꽃과",
+              "pron": "꼳꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "꽃부터",
+              "pron": "꼳뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "꽃에",
+              "pron": "꼬체",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "꽃을",
+              "pron": "꼬츨",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-bat-e",
+          "orthography": "밭에",
+          "pronunciation": "바테",
+          "sourceForm": "밭",
+          "ruleType": "연음",
+          "contrastOrtho": "밭과",
+          "contrastPron": "받꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "밭과",
+              "pron": "받꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "밭부터",
+              "pron": "받뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "밭에",
+              "pron": "바테",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "밭을",
+              "pron": "바틀",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-sup-e",
+          "orthography": "숲에",
+          "pronunciation": "수페",
+          "sourceForm": "숲",
+          "ruleType": "연음",
+          "contrastOrtho": "숲과",
+          "contrastPron": "숩꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "숲과",
+              "pron": "숩꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "숲부터",
+              "pron": "숩뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "숲에",
+              "pron": "수페",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "숲을",
+              "pron": "수플",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-bak-e",
+          "orthography": "밖에",
+          "pronunciation": "바께",
+          "sourceForm": "밖",
+          "ruleType": "연음",
+          "contrastOrtho": "밖과",
+          "contrastPron": "박꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "밖과",
+              "pron": "박꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "밖부터",
+              "pron": "박뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "밖에",
+              "pron": "바께",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "밖을",
+              "pron": "바끌",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-bueok-e",
+          "orthography": "부엌에",
+          "pronunciation": "부어케",
+          "sourceForm": "부엌",
+          "ruleType": "연음",
+          "contrastOrtho": "부엌과",
+          "contrastPron": "부억꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "부엌과",
+              "pron": "부억꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "부엌부터",
+              "pron": "부억뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "부엌에",
+              "pron": "부어케",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "부엌을",
+              "pron": "부어클",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p20-mureup-e",
+          "orthography": "무릎에",
+          "pronunciation": "무르페",
+          "sourceForm": "무릎",
+          "ruleType": "연음",
+          "contrastOrtho": "무릎과",
+          "contrastPron": "무릅꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "무릎과",
+              "pron": "무릅꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "무릎부터",
+              "pron": "무릅뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "무릎에",
+              "pron": "무르페",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "무릎을",
+              "pron": "무르플",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false
+        },
+        {
+          "id": "bk5-1-1-p20-gamasot-e",
+          "orthography": "가마솥에",
+          "pronunciation": "가마소테",
+          "sourceForm": "가마솥",
+          "ruleType": "연음",
+          "contrastOrtho": "가마솥과",
+          "contrastPron": "가마솓꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "가마솥과",
+              "pron": "가마솓꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "가마솥부터",
+              "pron": "가마솓뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "가마솥에",
+              "pron": "가마소테",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "가마솥을",
+              "pron": "가마소틀",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 3,
+          "anchor": false
+        },
+        {
+          "id": "bk5-1-1-p20-ttoeyakbyeot-e",
+          "orthography": "뙤약볕에",
+          "pronunciation": "뙤약뼈테",
+          "sourceForm": "뙤약볕",
+          "ruleType": "연음",
+          "contrastOrtho": "뙤약볕과",
+          "contrastPron": "뙤약뼏꽈",
+          "particleVowel": "에",
+          "particleConsonant": "과",
+          "allForms": [
+            {
+              "ortho": "뙤약볕과",
+              "pron": "뙤약뼏꽈",
+              "particle": "과",
+              "type": "consonant"
+            },
+            {
+              "ortho": "뙤약볕부터",
+              "pron": "뙤약뼏뿌터",
+              "particle": "부터",
+              "type": "consonant"
+            },
+            {
+              "ortho": "뙤약볕에",
+              "pron": "뙤약뼈테",
+              "particle": "에",
+              "type": "vowel"
+            },
+            {
+              "ortho": "뙤약볕을",
+              "pron": "뙤약뼈틀",
+              "particle": "을",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 3,
+          "anchor": false
+        }
       ]
     }
   ],

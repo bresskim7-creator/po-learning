@@ -262,6 +262,8 @@
     "coverReadLegacyQuizCardsPerSession": 0,
     "coverReadLRCardsPerSession": 0,
     "coverReadItemsPerSession": 10,
+    "showSoundSpelling": false,
+    "showSoundSpellingNote": "v5.72.0(D3·M3): cover_read routine(Step 2 비교화면)에 소리 글자([채기]) 텍스트 노출 여부. 기본 false=오디오로만(선생님 원칙: 진짜 글자만 보여주고 grapheme→phoneme 변환 연습). 선생님이 시각 지원 필요 판단 시 true로 바꾸면 코드 수정 없이 step>=3에서 발음표기 노출. 원리 카드(🔎)의 소리 글자는 이 토글과 무관하게 항상 노출(의도된 교육 노출).",
     "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립. v5.65 T4: cover_read 활성 시 Block 1 legacy quiz cap = coverReadLegacyQuizCardsPerSession (0~2 clamp). v5.65.1: 초기 파일럿은 cover_read 집중 → Block 1·Block 2 둘 다 0 기본. cover_read 활성 시 Block 2 LR cap = coverReadLRCardsPerSession (0~2 clamp). 두 키 모두 0은 유효 cap (해당 블록 미출현), typeof===number 체크로 0 보존, 미지정 시 fallback 1. cover_read 비활성 시 Block 1 5장 + Block 2 lrCardsPerSession(3) 유지. v5.65.3 sampling: cover_read 활성 시 항목 풀에서 N개 sampling (shuffleArray + slice). N은 coverReadItemsPerSession (default 10, pool 크기 초과 시 pool 크기로 cap). v1.2 §1.2 '8~12개'는 일일 노출 규모로 해석."
   },
   "coverReadAnchorSet": {

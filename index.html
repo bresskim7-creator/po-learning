@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.71.1';
-var APP_SW_CACHE = 'sw5711';
+var APP_VERSION = 'v5.72.0';
+var APP_SW_CACHE = 'sw5720';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -4006,7 +4006,16 @@ function startSpeakingPracticeSession() {
         pronunciation: item.pronunciation || '',
         sourceForm: item.sourceForm || '',
         ruleType: item.ruleType || crSet.ruleType || '',
-        ttsText: item.orthography || ''
+        ttsText: item.orthography || '',
+        // [v5.72.0] 대조쌍 개편 칼럼 — 차이듣기(allForms)·원리카드·난이도 후순위용. 평탄 유지(중첩 X).
+        contrastOrtho: item.contrastOrtho || '',
+        contrastPron: item.contrastPron || '',
+        allForms: Array.isArray(item.allForms) ? item.allForms : [],
+        particleVowel: item.particleVowel || '',
+        particleConsonant: item.particleConsonant || '',
+        difficulty: (typeof item.difficulty === 'number') ? item.difficulty : 1,
+        anchor: item.anchor === true,
+        liaisonException: item.liaisonException === true
       };
     });
     allCards = allCards.concat(crCards);
@@ -7422,8 +7431,15 @@ function crBuildCoverReadQueue(setItems, progressMap, config) {
   for (var j = 0; j < mdShuffled.length && queue.length < perSession; j++) {
     queue.push({ item: mdShuffled[j], isBonus: false });
   }
-  // 2) learning 채움
-  var lShuffled = shuffleArray(learning.slice());
+  // 2) learning 채움 — [v5.72.0 D4/M2] difficulty 후순위. 저난도(<=2) 먼저, 고난도(3: 대궐/가마솥/뙤약볕) 뒤로.
+  //    각 티어 내부는 shuffle(다양성). maintenanceDue(복습 due) 우선순위는 위 1)에서 이미 확보 — 불변.
+  //    difficulty 미정의 item(기존 set 회귀)은 1로 취급(NaN 정렬 붕괴 방지).
+  var lowTier = [], highTier = [];
+  for (var li = 0; li < learning.length; li++) {
+    var d = (typeof learning[li].difficulty === 'number') ? learning[li].difficulty : 1;
+    if (d >= 3) highTier.push(learning[li]); else lowTier.push(learning[li]);
+  }
+  var lShuffled = shuffleArray(lowTier.slice()).concat(shuffleArray(highTier.slice()));
   for (var k = 0; k < lShuffled.length && queue.length < perSession; k++) {
     queue.push({ item: lShuffled[k], isBonus: false });
   }
@@ -9445,6 +9461,8 @@ async function retryPendingRecordings() {
 // [v5.65.2] 자동 전환 사이 인지 따라가기 pause (ADHD 고려). 실기기 검증 후 한 곳에서 조정 가능.
 const PAUSE_AFTER_TTS_MS = 1500;
 const PAUSE_AFTER_SELF_PLAY_MS = 1500;
+// [v5.72.0] 차이듣기 단계 — 숫자 step(1~6)과 분리된 문자열 상태. crRenderStep 최상단에서 조기 분기, 기존 step 로직 미접촉.
+const CR_STEP_DIFF = 'diff';
 
 var crState = {
   cards: [],
@@ -9596,7 +9614,10 @@ function crCompleteOnboarding(withDemo) {
 
 function crStartItem(itemIndex) {
   crState.currentIndex = itemIndex;
-  crState.currentStep = 1;
+  // [v5.72.0 HIGH-1] currentStep 결정만 분기 — 아래 리셋 블록(녹음/seq/audio 정리)은 diff·일반 공통.
+  //   allForms 2개 이상(대조쌍 데이터)이면 차이듣기부터, 아니면 기존 step 1(녹음) 폴백.
+  var _crItemObj = crState.cards[itemIndex];
+  crState.currentStep = (_crItemObj && Array.isArray(_crItemObj.allForms) && _crItemObj.allForms.length >= 2) ? CR_STEP_DIFF : 1;
   crState.itemStartTime = Date.now();
   crState.recordingRawId = null;
   crState.recordingRef = null;
@@ -9665,6 +9686,9 @@ function crRenderStep() {
   if (!container) return;
   var step = crState.currentStep;
 
+  // [v5.72.0] 차이 듣기 단계 — 숫자 step 로직(positionHtml/orthoHtml/pronHtml/ctrlHtml) 거치지 않고 조기 분기.
+  if (step === CR_STEP_DIFF) { crRenderDiffListen(item, container); return; }
+
   var meta = item._crSetMeta || {};
   var positionHtml = '<div style="font-size:14px;color:#6b7280;margin-bottom:8px;">'
     + (crState.currentIndex + 1) + ' / ' + crState.cards.length
@@ -9673,7 +9697,11 @@ function crRenderStep() {
   var orthoHtml = '<div style="font-size:48px;font-weight:700;letter-spacing:0.05em;color:#1f2937;">'
     + escapeHtml(item.orthography || '')
     + '</div>';
-  var pronHtml = (step >= 3)
+  // [v5.72.0 M3] 소리 글자([채기]) 텍스트는 기본 OFF (선생님 원칙 — 진짜 글자만, 모범은 오디오로).
+  //   config.speakingPractice.showSoundSpelling===true 일 때만 step>=3 에서 발음표기 노출(런타임 토글, 코드 수정 없이 켬).
+  //   기본(false)에서는 step 무관 마스킹 [ ? ? ? ] 유지 → 아이는 귀로만 [채기]를 듣는다. 원리 카드(별도)에서만 의도적 노출.
+  var showSound = !!(APP.config && APP.config.speakingPractice && APP.config.speakingPractice.showSoundSpelling === true);
+  var pronHtml = (showSound && step >= 3)
     ? '<div style="margin-top:8px;font-size:24px;color:#2563eb;">[' + escapeHtml(item.pronunciation || '') + ']</div>'
     : '<div style="margin-top:8px;font-size:24px;color:#9ca3af;letter-spacing:0.3em;">[ ? ? ? ]</div>';
 
@@ -9728,7 +9756,9 @@ function crRenderStep() {
       + (crState.selfPlayFailed
           ? '<button class="btn-stair" onclick="crRetryRecording()" style="background:#3b82f6;color:white;">🎤 다시 녹음</button>'
           : '')
-      + '</div>';
+      + '</div>'
+      // [v5.72.0] 원리 카드 on-demand — step 5(비교 후)는 자동전환 pending 없는 안전 지점. step 6(probe)에는 절대 추가 금지(MEDIUM-4).
+      + '<div style="margin-top:10px;"><button class="btn-stair" onclick="crShowPrinciple()" style="font-size:13px;opacity:0.85;">🔎 왜 이렇게 소리 날까?</button></div>';
   } else if (step === 6) {
     // [v5.66 T11] probe Step 6 (Phase 2a 활성, Phase 1 비활성).
     // 3지선다 phonetic_text_choice. choices 순서 shuffleArray (정답 위치 학습 방지).
@@ -9771,6 +9801,150 @@ function crRenderStep() {
   if (step === 5 && crState.selfCompareLatencyStart === 0) {
     crState.selfCompareLatencyStart = Date.now();
   }
+}
+
+// ===== [v5.72.0] 차이 듣기 + 원리 카드 (대조쌍 개편) =====
+
+// 진행 중인 TTS/오디오 중단 전용 헬퍼 (새 재생 시작 없이 멈춤만). textToSpeech 진입부와 동일 정리.
+function crStopAnySpeech() {
+  if (APP._currentTtsAudio) { try { APP._currentTtsAudio.pause(); } catch(_) {} APP._currentTtsAudio = null; }
+  if (APP._currentTtsResolve) { try { APP._currentTtsResolve(); } catch(_) {} APP._currentTtsResolve = null; }
+  if (typeof speechSynthesis !== 'undefined') { try { speechSynthesis.cancel(); } catch(_) {} }
+}
+
+// 차이 듣기 화면 — 4칸(allForms)을 진짜 글자만 보여주고 각 모범 소리 청취. 녹음·정오 없음. (교재 "어떤 점이 다른가요"를 듣기·읽기로.)
+function crRenderDiffListen(item, container) {
+  var forms = (item && item.allForms) || [];
+  // [MEDIUM-2] 직접 진입 방어 — allForms 부족(기존/이상 데이터) 시 기존 녹음 흐름으로 폴백.
+  if (forms.length < 2) { crState.currentStep = 1; crRenderStep(); return; }
+  var meta = item._crSetMeta || {};
+  var positionHtml = '<div style="font-size:14px;color:#6b7280;margin-bottom:8px;">'
+    + (crState.currentIndex + 1) + ' / ' + crState.cards.length
+    + (meta.ruleType ? ' · ' + escapeHtml(meta.ruleType) : '') + ' · 차이 듣기'
+    + '</div>';
+  var sourceWord = item.sourceForm || (item.orthography || '');
+  var headHtml = '<div style="font-size:18px;color:#1f2937;font-weight:600;">받침 소리가 어디로 갔을까?</div>'
+    + '<div style="margin-top:6px;font-size:14px;color:#6b7280;line-height:1.6;">「' + escapeHtml(sourceWord) + '」에 말을 붙여 읽어 보자.<br/>어떤 건 그대로고, 어떤 건 받침이 넘어가는지 들어 봐.</div>';
+  var formsHtml = '<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">';
+  for (var i = 0; i < forms.length; i++) {
+    formsHtml += '<button id="cr-diff-form-' + i + '" class="btn-stair" onclick="crPlayDiffForm(' + i + ')" '
+      + 'style="font-size:22px;font-weight:700;padding:12px 18px;min-width:96px;">'
+      + escapeHtml(forms[i].ortho || '') + ' 🔊</button>';
+  }
+  formsHtml += '</div>';
+  var ctrlHtml = '<div style="margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+    + '<button class="btn-stair" onclick="crPlayDiffSequence()" style="background:#3b82f6;color:white;">🔊 차례로 듣기</button>'
+    + '<button class="btn-stair" onclick="crDiffProceed()" style="background:#16a34a;color:white;">읽어볼게 →</button>'
+    + '</div>'
+    + '<div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+    + '<button class="btn-stair" onclick="crShowPrinciple()" style="font-size:13px;opacity:0.85;">🔎 왜 이렇게 소리 날까?</button>'
+    + '<button class="btn-stair" onclick="crSkipItem()" style="font-size:13px;opacity:0.7;">건너뛰기</button>'
+    + '</div>';
+  container.innerHTML = '<div class="ra-card cover-read-diff" style="padding:24px;max-width:560px;margin:0 auto;text-align:center;">'
+    + positionHtml + headHtml + formsHtml + ctrlHtml + '</div>';
+}
+
+// 차이듣기 현재 재생 칸 강조 (idx<0 = 전체 해제)
+function crHighlightDiffForm(idx) {
+  var forms = (crState.cards[crState.currentIndex] && crState.cards[crState.currentIndex].allForms) || [];
+  for (var i = 0; i < forms.length; i++) {
+    var b = document.getElementById('cr-diff-form-' + i);
+    if (b) b.style.background = (i === idx) ? '#fde68a' : '';
+  }
+}
+
+// 단일 칸 모범 소리 (pron TTS — H2/H3: 소리는 발음표기로 생성, 화면엔 진짜 글자만). 녹음/selfBlob 미접촉.
+function crPlayDiffForm(idx) {
+  if (crState.currentStep !== CR_STEP_DIFF) return;
+  var item = crState.cards[crState.currentIndex];
+  var forms = (item && item.allForms) || [];
+  if (idx < 0 || idx >= forms.length) return;
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;   // 진행 중 sequence/model TTS 무효화 (chain 중단)
+  crHighlightDiffForm(idx);
+  try { textToSpeech(forms[idx].pron || forms[idx].ortho || '', 'ko', { rate: 0.9 }); } catch(_) {}
+}
+
+// 4칸 순차 재생 (자음형→모음형 연속). _modelPlaySeq 가드로 새 재생/이탈 시 chain 중단.
+function crPlayDiffSequence() {
+  if (crState.currentStep !== CR_STEP_DIFF) return;
+  var item = crState.cards[crState.currentIndex];
+  var forms = (item && item.allForms) || [];
+  if (forms.length === 0) return;
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  var mySeq = crState._modelPlaySeq;
+  var i = 0;
+  function playNext() {
+    if (mySeq !== crState._modelPlaySeq) return;        // 새 재생/이탈 → 중단 (stale)
+    if (crState.currentStep !== CR_STEP_DIFF) return;   // diff 떠남 → 중단
+    if (i >= forms.length) { crHighlightDiffForm(-1); return; }
+    var f = forms[i]; crHighlightDiffForm(i); i++;
+    var p = null;
+    try { p = textToSpeech(f.pron || f.ortho || '', 'ko', { rate: 0.9 }); } catch(_) { p = null; }
+    if (p && p.then) { p.then(function(){ setTimeout(playNext, 350); }, function(){ setTimeout(playNext, 350); }); }
+    else { setTimeout(playNext, 700); }
+  }
+  playNext();
+}
+
+// 차이듣기 → 녹음(Step 1). race 3종(timer clear + seq++ + audio 정지). 같은 item 유지 → 녹음 상태 미접촉.
+function crDiffProceed() {
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  crStopAnySpeech();
+  crState.currentStep = 1;
+  crRenderStep();
+}
+
+// 원리 카드 (on-demand 오버레이) — 책이→[채기] 받침 이동 시각화. 여기서만 소리 글자 텍스트 노출(의도된 교육 노출).
+// currentStep 변경 안 함(밑 화면 보존). [MEDIUM-1] selfBlobUrl/recordingRawId 절대 미접촉 → step5 복귀 후 내 녹음 재생 보존.
+function crShowPrinciple() {
+  var item = crState.cards[crState.currentIndex];
+  if (!item) return;
+  if (crState._autoAdvanceTimer) { clearTimeout(crState._autoAdvanceTimer); crState._autoAdvanceTimer = null; }
+  crState._modelPlaySeq++;
+  crState._selfPlaySeq++;
+  crStopAnySpeech();
+  if (crState._currentSelfAudio) { try { crState._currentSelfAudio.pause(); } catch(_) {} crState._currentSelfAudio = null; }
+  var prev = document.getElementById('cr-principle-overlay');
+  if (prev && prev.parentNode) prev.parentNode.removeChild(prev);
+
+  var ortho = item.orthography || '';
+  var pron = item.pronunciation || '';
+  var src = item.sourceForm || '';
+  var particle = item.particleVowel || '';
+  var isException = item.liaisonException === true;
+  var explainHtml;
+  if (isException) {
+    explainHtml = '<div style="font-size:16px;line-height:1.9;color:#374151;">'
+      + '<b style="font-size:22px;">' + escapeHtml(ortho) + '</b> 는 받침이 <b>그대로</b> 남아서<br/>'
+      + '<b style="color:#2563eb;font-size:22px;">[' + escapeHtml(pron) + ']</b> 라고 소리 나요.<br/>'
+      + '<span style="font-size:14px;color:#6b7280;">받침 <b>ㅇ</b>은 뒤로 넘어가지 않아요.</span></div>';
+  } else {
+    explainHtml = '<div style="font-size:16px;line-height:1.9;color:#374151;">'
+      + '<b>' + escapeHtml(src) + '</b> + <b>' + escapeHtml(particle) + '</b> → <b style="font-size:22px;">' + escapeHtml(ortho) + '</b><br/>'
+      + '받침이 뒤 글자로 <b>넘어가서</b><br/>'
+      + '<b style="color:#2563eb;font-size:22px;">[' + escapeHtml(pron) + ']</b> 라고 소리 나요.</div>';
+  }
+  var overlay = document.createElement('div');
+  overlay.id = 'cr-principle-overlay';
+  overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;';
+  overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:24px;max-width:420px;width:100%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.3);">'
+    + '<div style="font-size:20px;font-weight:700;color:#1f2937;margin-bottom:16px;">🔎 왜 이렇게 소리 날까?</div>'
+    + explainHtml
+    + '<div style="margin-top:18px;font-size:13px;color:#9ca3af;">글자는 그대로 쓰고, 소리만 바뀌어요.</div>'
+    + '<button class="btn-stair" onclick="crHidePrinciple()" style="margin-top:18px;background:#4A3A75;color:white;">닫기</button>'
+    + '</div>';
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) crHidePrinciple(); });
+  document.body.appendChild(overlay);
+}
+
+function crHidePrinciple() {
+  var ov = document.getElementById('cr-principle-overlay');
+  if (ov && ov.parentNode) ov.parentNode.removeChild(ov);
+  // 밑 card-container 보존됨(currentStep 불변) → 재렌더 불필요. crPlaySelf는 recordingRawId로 재로드하므로 재생 정상.
 }
 
 function crUpdateProgress(itemIdx) {
