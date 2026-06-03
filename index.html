@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.73.0';
-var APP_SW_CACHE = 'sw5730';
+var APP_VERSION = 'v5.74.0';
+var APP_SW_CACHE = 'sw5740';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2276,7 +2276,7 @@ function renderSubjectTileHome() {
   if (hbiEl) hbiEl.style.display = '';
   // [v5.67.0] 오늘의 한 장 — 인덱스 로드 후 미열람 배지 갱신
   if (typeof loadDailyIndexJsonp === 'function') {
-    loadDailyIndexJsonp().then(function() { updateDailyUnreadBadges(); });
+    loadDailyIndexJsonp().then(function() { updateDailyUnreadBadges(); syncDailyReadFromCloud(); });  // [v5.74.0] 배지 로컬 즉시 → 백그라운드 동기화 보정
   }
   // [v5.64] 개념 정리 타일 (카드 1장 이상일 때만 표시)
   var tcl = document.getElementById('tile-concept');
@@ -2426,6 +2426,7 @@ function markDailyAsRead(dateStr) {
   ids.push(dateStr);
   try { localStorage.setItem(PO_DAILY_READ_IDS_KEY, JSON.stringify(ids)); } catch (e) {}
   updateDailyUnreadBadges();
+  pushDailyReadToCloud();  // [v5.74.0] 읽는 즉시 서버로 전송(fire-and-forget). 화면 안 막음.
 }
 function pickNextQueueDate() {
   // FIFO: 날짜 오름차순 첫 미열람 카드. 순수 FIFO(날짜 게이트 없음).
@@ -2463,6 +2464,52 @@ function updateDailyUnreadBadges() {
     else { pageBadge.style.display = 'none'; }
   }
 }
+
+// [v5.74.0] 오늘의 한 장 읽음 상태 기기 간 동기화 (단일 셀 날짜배열, 서버 union, 화면 비차단)
+//   설계: 화면은 localStorage로 즉시 그리고, 시트 동기화는 백그라운드에서 배지만 보정. 음성·이미지 없는 날짜 메타만.
+//   실패/오프라인/시트주소 없음 → 로컬만(폴백). 절대 안 깨짐.
+
+// 시트 전송 (POST, fire-and-forget). uploadSettingsToCloud 와 동일 패턴. 응답 안 읽음.
+function pushDailyReadToCloud() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  var dates = loadDailyReadIds();   // 로컬 전체 목록을 보냄 → 서버가 union (덮어쓰기 아님)
+  if (!dates.length) return;
+  try {
+    fetch(s.sheetsUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ type: 'daily_read_sync', dates: dates })
+    }).catch(function(){});
+  } catch (e) {}
+}
+
+// 시트 수신·병합 (GET, 비차단). downloadSettingsFromCloud 패턴. 실패 → 로컬 유지(아무것도 안 함).
+//   ⚠ 호출처는 await 없이(fire-and-forget) — 결과는 배지 보정뿐, 렌더를 막지 않는다.
+async function syncDailyReadFromCloud() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  try {
+    var resp = await fetch(s.sheetsUrl + '?action=get_daily_read');
+    var res = await resp.json();
+    if (res && res.status === 'ok' && Array.isArray(res.dates)) {
+      var local = loadDailyReadIds();
+      var merged = local.slice();
+      var changed = false;
+      for (var i = 0; i < res.dates.length; i++) {
+        var d = res.dates[i];
+        if (d && merged.indexOf(d) === -1) { merged.push(d); changed = true; }
+      }
+      if (changed) {
+        try { localStorage.setItem(PO_DAILY_READ_IDS_KEY, JSON.stringify(merged)); } catch (e) {}
+      }
+      updateDailyUnreadBadges();  // 서버 기준 배지 보정
+      // 로컬에만 있던(오프라인 읽음) 날짜를 서버로 올려 수렴
+      if (merged.length > res.dates.length) pushDailyReadToCloud();
+    }
+  } catch (_) {}
+}
+
 function loadDailyIndexJsonp() {
   return new Promise(function(resolve) {
     if (DAILY_INDEX_LOADED) { resolve(); return; }
@@ -2522,6 +2569,7 @@ function loadDailyToday() {
   if (dateEl) dateEl.textContent = today + ' (' + getWeekdayKo(today) + ')';
   return loadDailyIndexJsonp().then(function() {
     updateDailyUnreadBadges();
+    syncDailyReadFromCloud();  // [v5.74.0] 비차단 동기화 — await/return 없이 호출(큐 선택은 기다리지 않음, 배지만 후보정). §4-4 staleness 수용.
     var nextDate = pickNextQueueDate();
     if (nextDate) {
       return tryLoadDailyDate(nextDate).then(function(data) {
