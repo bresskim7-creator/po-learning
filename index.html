@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.72.0';
-var APP_SW_CACHE = 'sw5720';
+var APP_VERSION = 'v5.72.1';
+var APP_SW_CACHE = 'sw5721';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -10727,7 +10727,7 @@ function parentRenderAnchorWordList() {
   for (var i = 0; i < ids.length; i++) {
     var w = crLookupAnchorWord(ids[i]);
     var label = w ? (w.orthography || ids[i]) : ids[i];
-    html += '<button class="btn-stair" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\',\'' + _pronAuditBodyId + '\')">' + escapeHtml(label) + '</button>';
+    html += '<button type="button" class="btn-stair" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\',\'' + _pronAuditBodyId + '\')">' + escapeHtml(label) + '</button>';
   }
   html += '</div><div id="pron-audit-detail" style="margin-top:12px;"></div>';
   body.innerHTML = html;
@@ -10756,16 +10756,16 @@ async function parentLoadWordRecordings(itemId, bodyId) {
     var pron = (w && w.pronunciation) ? ('[' + w.pronunciation + ']') : '';
     var html = '<div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:8px;">' + escapeHtml(label) + ' ' + escapeHtml(pron) + '</div>';
     html += '<div style="display:flex;gap:10px;margin-bottom:10px;">';
-    html += '<button class="btn-stair" style="flex:1;background:#6b7280;color:#fff;" onclick="parentPlayRecording(\'' + oldest.fileId + '\')">예전 ▶<br><span style="font-size:11px;">' + escapeHtml(oldest.date) + '</span></button>';
+    html += '<button type="button" class="btn-stair" style="flex:1;background:#6b7280;color:#fff;" onclick="parentPlayRecording(\'' + oldest.fileId + '\')">예전 ▶<br><span style="font-size:11px;">' + escapeHtml(oldest.date) + '</span></button>';
     if (newest.fileId !== oldest.fileId) {
-      html += '<button class="btn-stair" style="flex:1;background:#2563eb;color:#fff;" onclick="parentPlayRecording(\'' + newest.fileId + '\')">오늘 ▶<br><span style="font-size:11px;">' + escapeHtml(newest.date) + '</span></button>';
+      html += '<button type="button" class="btn-stair" style="flex:1;background:#2563eb;color:#fff;" onclick="parentPlayRecording(\'' + newest.fileId + '\')">오늘 ▶<br><span style="font-size:11px;">' + escapeHtml(newest.date) + '</span></button>';
     }
     html += '</div>';
     if (recs.length > 2) {
       html += '<div style="color:#fff;font-size:12px;margin-bottom:4px;">전체 기록</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';
       for (var r = 0; r < recs.length; r++) {
         var aud = recs[r].audit ? (' ·' + recs[r].audit.rating) : '';
-        html += '<button class="btn-stair" style="font-size:12px;padding:4px 8px;" onclick="parentPlayRecording(\'' + recs[r].fileId + '\')">' + escapeHtml(recs[r].date + aud) + ' ▶</button>';
+        html += '<button type="button" class="btn-stair" style="font-size:12px;padding:4px 8px;" onclick="parentPlayRecording(\'' + recs[r].fileId + '\')">' + escapeHtml(recs[r].date + aud) + ' ▶</button>';
       }
       html += '</div>';
     }
@@ -10775,7 +10775,7 @@ async function parentLoadWordRecordings(itemId, bodyId) {
     html += '<div style="display:flex;gap:6px;">';
     var ratings = ['정확', '애매', '틀림'];
     for (var k = 0; k < ratings.length; k++) {
-      html += '<button class="btn-stair" style="font-size:13px;padding:6px 10px;" onclick="parentSubmitAudit(\'' + itemId + '\',\'' + newest.fileId + '\',\'' + newest.date + '\',\'' + label + '\',\'' + ratings[k] + '\')">' + ratings[k] + '</button>';
+      html += '<button type="button" class="btn-stair" style="font-size:13px;padding:6px 10px;" onclick="parentSubmitAudit(\'' + itemId + '\',\'' + newest.fileId + '\',\'' + newest.date + '\',\'' + label + '\',\'' + ratings[k] + '\')">' + ratings[k] + '</button>';
     }
     html += '</div><div id="pron-audit-rate-msg" style="color:#9ae6b4;font-size:12px;margin-top:6px;"></div></div>';
     detail.innerHTML = html;
