@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.72.1';
-var APP_SW_CACHE = 'sw5721';
+var APP_VERSION = 'v5.73.0';
+var APP_SW_CACHE = 'sw5730';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -10672,9 +10672,33 @@ function showParentResult() {
 // 아이 화면 비노출(T-ADD-8 — 이 함수들은 부모게이트 뒤 parent-result에서만 호출).
 // on-demand 1건씩(§8 G1): 단어 선택→메타만, ▶ 탭→그 1건 base64 fetch. 평가는 선택(의무 아님).
 // ============================================================================
-var _pronAuditLoaded = false;
 var _pronAudioEl = null;
 var _pronAuditBodyId = 'pron-audit-body';  // [v5.71.1] 현재 렌더 대상 ('pron-audit-body'=부모결과 / 'pron-audit-body-settings'=설정 독립 진입)
+var _pronAuditSummary = null;  // [v5.73.0] { itemId: {count, latestDate} } — 진입 시 가벼운 요약 1콜(음성 제외) 캐시. 색 구분용.
+
+// [v5.73.0] 앵커 단어별 녹음 유무·개수 요약 (음성 제외, get_anchor_summary 메타만). 실패/네트워크 끊김 → null → 전부 파랑 폴백.
+//   음성(base64)은 절대 미리 부르지 않음(§8 유지). 색 구분은 메타데이터만 사용.
+async function parentLoadAnchorSummary() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return null;
+  var cfg = APP.config && APP.config.coverReadAnchorSet;
+  var ids = (cfg && Array.isArray(cfg.itemIds)) ? cfg.itemIds : [];
+  if (ids.length === 0) return null;
+  try {
+    // parentLoadWordRecordings 와 동일한 raw fetch 패턴 (객체-인자 헬퍼 없음)
+    var url = s.sheetsUrl + '?action=get_anchor_summary&itemIds=' + encodeURIComponent(ids.join(','));
+    var resp = await fetch(url);
+    var res = await resp.json();
+    if (res && res.status === 'ok' && res.summary) { _pronAuditSummary = res.summary; return res.summary; }
+  } catch (_) {}
+  return null;
+}
+
+// yyyy-MM-dd → M/D (단어 옆 최근 녹음일 표기용)
+function _pronShortDate(d) {
+  var m = /^\d{4}-(\d{2})-(\d{2})$/.exec(d || '');
+  return m ? (parseInt(m[1], 10) + '/' + parseInt(m[2], 10)) : (d || '');
+}
 
 function parentTogglePronAudit() {
   _pronAuditBodyId = 'pron-audit-body';
@@ -10682,7 +10706,7 @@ function parentTogglePronAudit() {
   if (!body) return;
   if (body.style.display === 'none') {
     body.style.display = 'block';
-    if (!_pronAuditLoaded) { _pronAuditLoaded = true; parentRenderAnchorWordList(); }
+    parentRenderAnchorWordList().catch(function(){});  // [v5.73.0] open마다 재조회 — 새 녹음 후 색 갱신 (설정 진입과 동작 통일, _pronAuditLoaded 가드 제거)
   } else {
     body.style.display = 'none';
     parentStopAudio();
@@ -10697,7 +10721,7 @@ function parentOpenPronAuditStandalone() {
   if (!body) return;
   if (body.style.display === 'none') {
     body.style.display = 'block';
-    parentRenderAnchorWordList();  // 단어 버튼 목록만 렌더 — 녹음 조회는 단어 클릭 시 on-demand
+    parentRenderAnchorWordList().catch(function(){});  // [v5.73.0] 단어 목록 렌더 + 색 구분(요약 1콜). 음성은 단어 클릭 시 on-demand
   } else {
     body.style.display = 'none';
     parentStopAudio();
@@ -10708,7 +10732,7 @@ function parentStopAudio() {
   if (_pronAudioEl) { try { _pronAudioEl.pause(); } catch(_) {} _pronAudioEl = null; }
 }
 
-function parentRenderAnchorWordList() {
+async function parentRenderAnchorWordList() {
   var body = document.getElementById(_pronAuditBodyId);
   if (!body) return;
   var s = getSettings();
@@ -10722,15 +10746,39 @@ function parentRenderAnchorWordList() {
     body.innerHTML = '<div style="color:#fff;font-size:13px;">앵커 단어가 설정되어 있지 않아요.</div>';
     return;
   }
+  // [v5.73.0] 버튼은 먼저 중립(파랑)으로 즉시 렌더 → 요약 도착 후 recolor (진입 체감속도 우선). 요약 실패 시 전부 파랑 유지.
   var html = '<div style="color:#fff;font-size:13px;margin-bottom:8px;">단어를 골라 예전·오늘 발음을 들어보세요. (자기평가 추세가 아니라, 실제 발음 변화를 직접 듣고 판단하는 곳)</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px;">';
   for (var i = 0; i < ids.length; i++) {
     var w = crLookupAnchorWord(ids[i]);
     var label = w ? (w.orthography || ids[i]) : ids[i];
-    html += '<button type="button" class="btn-stair" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\',\'' + _pronAuditBodyId + '\')">' + escapeHtml(label) + '</button>';
+    // type="button" 유지(v5.72.1 form-submit 회귀 금지). data-itemid 로 recolor 시 스코프 조회.
+    html += '<button type="button" class="btn-stair" data-itemid="' + ids[i] + '" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\',\'' + _pronAuditBodyId + '\')">' + escapeHtml(label) + '</button>';
   }
   html += '</div><div id="pron-audit-detail" style="margin-top:12px;"></div>';
   body.innerHTML = html;
+
+  // [v5.73.0] 색 구분 — 녹음 있음=파랑(현재), 없음=회색. 요약(메타만) 1콜. 실패 시 폴백(전부 파랑 유지).
+  var summary = await parentLoadAnchorSummary();
+  if (!summary) return;
+  var btns = body.querySelectorAll('button[data-itemid]');
+  for (var b = 0; b < btns.length; b++) {
+    var btn = btns[b];
+    var id = btn.getAttribute('data-itemid');
+    var info = summary[id];
+    var has = !!(info && info.count > 0);
+    if (!has) {
+      // 녹음 없음 → 회색 (정보용일 뿐, 클릭은 가능 — 누르면 "아직 녹음 없어요" 안내). 비활성 아님.
+      btn.style.background = '#9ca3af';
+      btn.style.color = '#e5e7eb';
+    } else {
+      // 녹음 있음 → 파랑 유지 + 최근 녹음일 작게 표기(선택). onclick/type 속성은 건드리지 않음(innerHTML만 갱신).
+      var w2 = crLookupAnchorWord(id);
+      var lbl = w2 ? (w2.orthography || id) : id;
+      var meta = info.latestDate ? (' <span style="font-size:11px;opacity:0.85;">' + escapeHtml(_pronShortDate(info.latestDate)) + '</span>') : '';
+      btn.innerHTML = escapeHtml(lbl) + meta;
+    }
+  }
 }
 
 async function parentLoadWordRecordings(itemId, bodyId) {
