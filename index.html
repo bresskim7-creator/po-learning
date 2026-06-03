@@ -1341,6 +1341,14 @@
     </div>
   </div>
 
+  <!-- [v5.71.1] 발음 들어보기 독립 진입 — 세션 완료와 무관하게 청취 (설정 PIN 게이트 뒤) -->
+  <div class="settings-group">
+    <h3>🔊 발음 들어보기</h3>
+    <div style="font-size:13px;color:#888;margin-bottom:8px;line-height:1.5;">앵커 단어의 예전·오늘 발음을 들어보고 직접 판단하세요. (세션과 무관하게 시트에서 조회)</div>
+    <button type="button" class="btn-start" style="background:#4A3A75;color:white;width:100%;" onclick="parentOpenPronAuditStandalone()">🔊 발음 들어보기 (예전 vs 오늘)</button>
+    <div id="pron-audit-body-settings" style="display:none; margin-top:12px; background:#4A3A75; border-radius:12px; padding:14px; text-align:left;"></div>
+  </div>
+
   <div class="settings-group" id="anchor-section">
     <h3>이번 주 앵커 설정</h3>
     <div id="anchor-warning-area"></div>
@@ -1502,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.71.0';
-var APP_SW_CACHE = 'sw5710';
+var APP_VERSION = 'v5.71.1';
+var APP_SW_CACHE = 'sw5711';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -10492,8 +10500,10 @@ function showParentResult() {
 // ============================================================================
 var _pronAuditLoaded = false;
 var _pronAudioEl = null;
+var _pronAuditBodyId = 'pron-audit-body';  // [v5.71.1] 현재 렌더 대상 ('pron-audit-body'=부모결과 / 'pron-audit-body-settings'=설정 독립 진입)
 
 function parentTogglePronAudit() {
+  _pronAuditBodyId = 'pron-audit-body';
   var body = document.getElementById('pron-audit-body');
   if (!body) return;
   if (body.style.display === 'none') {
@@ -10505,12 +10515,27 @@ function parentTogglePronAudit() {
   }
 }
 
+// [v5.71.1] 설정 페이지 독립 진입 — 세션 완료·기기와 무관하게 발음 청취 (설정 PIN 게이트 뒤)
+// #parent-result 진입과 동일한 렌더 함수 공유(_pronAuditBodyId로 대상만 분기). 로직 복제 없음.
+function parentOpenPronAuditStandalone() {
+  _pronAuditBodyId = 'pron-audit-body-settings';
+  var body = document.getElementById('pron-audit-body-settings');
+  if (!body) return;
+  if (body.style.display === 'none') {
+    body.style.display = 'block';
+    parentRenderAnchorWordList();  // 단어 버튼 목록만 렌더 — 녹음 조회는 단어 클릭 시 on-demand
+  } else {
+    body.style.display = 'none';
+    parentStopAudio();
+  }
+}
+
 function parentStopAudio() {
   if (_pronAudioEl) { try { _pronAudioEl.pause(); } catch(_) {} _pronAudioEl = null; }
 }
 
 function parentRenderAnchorWordList() {
-  var body = document.getElementById('pron-audit-body');
+  var body = document.getElementById(_pronAuditBodyId);
   if (!body) return;
   var s = getSettings();
   if (!s.sheetsUrl) {
@@ -10528,15 +10553,17 @@ function parentRenderAnchorWordList() {
   for (var i = 0; i < ids.length; i++) {
     var w = crLookupAnchorWord(ids[i]);
     var label = w ? (w.orthography || ids[i]) : ids[i];
-    html += '<button class="btn-stair" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\')">' + escapeHtml(label) + '</button>';
+    html += '<button class="btn-stair" style="font-size:15px;padding:8px 12px;" onclick="parentLoadWordRecordings(\'' + ids[i] + '\',\'' + _pronAuditBodyId + '\')">' + escapeHtml(label) + '</button>';
   }
   html += '</div><div id="pron-audit-detail" style="margin-top:12px;"></div>';
   body.innerHTML = html;
 }
 
-async function parentLoadWordRecordings(itemId) {
+async function parentLoadWordRecordings(itemId, bodyId) {
+  if (bodyId) _pronAuditBodyId = bodyId;  // [v5.71.1] 클릭된 진입점의 컨테이너로 고정 (부모결과/설정 동시 사용 시 교차 방지)
   parentStopAudio();
-  var detail = document.getElementById('pron-audit-detail');
+  var bodyEl = document.getElementById(_pronAuditBodyId);
+  var detail = bodyEl ? bodyEl.querySelector('#pron-audit-detail') : null;
   if (!detail) return;
   var w = crLookupAnchorWord(itemId);
   var label = w ? (w.orthography || itemId) : itemId;
@@ -10601,7 +10628,8 @@ async function parentPlayRecording(fileId) {
 }
 
 async function parentSubmitAudit(itemId, fileId, recDate, targetWord, rating) {
-  var msg = document.getElementById('pron-audit-rate-msg');
+  var bodyEl = document.getElementById(_pronAuditBodyId);  // [v5.71.1] 현재 진입점 컨테이너 내부에서 메시지 노드 조회
+  var msg = bodyEl ? bodyEl.querySelector('#pron-audit-rate-msg') : null;
   var s = getSettings();
   if (!s.sheetsUrl) { if (msg) msg.textContent = '시트 주소가 없어 저장 못 해요.'; return; }
   try {

@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.71.0 (2026-05-31): 말하기 개편 2차 청크 — 부모 then-vs-now 청취 + 추세 시트. (1) IDB→업로드 브리지(H3): 앵커 12개 itemId 녹음만 ISO주당 1개 대표(config perWordWeeklyCap=12)로 Drive 업로드, 소급 스캔, 이미 올린 주 스킵. (2) 말하기추세 시트(신설): 자기평가비율·모범재생 평균·재시도 평균 — 행동·추세만, 정오 점수 없음. (3) 부모 발음 들어보기(설정→PIN→부모결과): 앵커 단어별 예전▶/오늘▶ Drive 재생(GAS base64 중계, on-demand 1건), 정확/애매/틀림 선택 평가→발음검수 시트. 아이 화면 비노출. apps-script-v5.js: speaking_trend·audit_recording POST + get_anchor_recordings·get_recording_audio GET 추가(JH GAS 재배포 필요). IDB v3 인덱스 재사용. config perWordWeeklyCap.
+// v5.71.1 (2026-06-03): 발음 들어보기 독립 진입 추가 — 설정 페이지(설정 PIN 게이트 뒤)에 "🔊 발음 들어보기 (예전 vs 오늘)" 버튼 추가, 세션 완료·기기와 무관하게 앵커 단어 예전▶/오늘▶ 청취. 기존 #parent-result 진입은 유지(중복 허용, 제거 안 함). 백엔드·GAS·Drive·시트 변경 없음 — 순수 진입 UI. 렌더는 parentRenderAnchorWordList/parentLoadWordRecordings/parentSubmitAudit 단일 함수 공유, _pronAuditBodyId로 대상만 분기(로직 복제 없음). 녹음 조회는 단어 클릭 시 on-demand 1건(설정 진입 시 자동 프리로드 없음).
+// 이전 v5.71.0 (2026-05-31): 말하기 개편 2차 청크 — 부모 then-vs-now 청취 + 추세 시트. (1) IDB→업로드 브리지(H3): 앵커 12개 itemId 녹음만 ISO주당 1개 대표(config perWordWeeklyCap=12)로 Drive 업로드, 소급 스캔, 이미 올린 주 스킵. (2) 말하기추세 시트(신설): 자기평가비율·모범재생 평균·재시도 평균 — 행동·추세만, 정오 점수 없음. (3) 부모 발음 들어보기(설정→PIN→부모결과): 앵커 단어별 예전▶/오늘▶ Drive 재생(GAS base64 중계, on-demand 1건), 정확/애매/틀림 선택 평가→발음검수 시트. 아이 화면 비노출. apps-script-v5.js: speaking_trend·audit_recording POST + get_anchor_recordings·get_recording_audio GET 추가(JH GAS 재배포 필요). IDB v3 인덱스 재사용. config perWordWeeklyCap.
 // 이전 v5.70.0 (2026-05-31): 말하기 STT 자동채점 제거·자기비교 통일 1차 청크. 전 5경로(LR·RA/ST·toggleRecording·processPendingRecordings·stt_engine_compare) STT 채점·강등·점수 제거. 공유 자기비교 모듈(scState: 모범재생→자기재생→같았어/달랐어, '같았어'는 자기녹음 1회 청취 가드, '달랐어' cap2 후 자동진행). LR 3단계 사다리→1패스 붕괴+adjustLrLevel 중립화. RA/ST·generic 모범음원=Web Speech TTS. writeCoverReadAttempt에 blockType 필드(데이터계약 단일화). STT 인프라는 죽은코드로 정의만 보존. IndexedDB v2→3(cover_read_recordings itemId·auditedAt 인덱스). ST문구 '듣고 따라 읽어봐'. config coverReadAnchorSet 12개. 부모 then-vs-now 청취·시트적재·앵커 Drive는 2차 청크.
 // 이전 v5.69.0 (2026-05-31): '오늘의 한 장' 6/8~6/14 7장 추가(14일 윈도우 완성, review_status auto). 세계 해양의 날·장마·누리호5차·2026월드컵개막·모기·선풍기·세계 헌혈자의 날. 각 카드 실제 이미지(Wikimedia Commons CC/PD/CC0/공공누리 KOGL, 출처·라이선스 기록, 눈확인) + PRECACHE 7장 추가. 헌혈 카드는 피·바늘 묘사 없이 적십자 헌혈버스(나눔 각도). daily_index version_key 갱신·rotation/calendar 재계산. 시사 2건 WebSearch 사실확인.
 // 이전 v5.68.0 (2026-05-31): '오늘의 한 장' 시드 7장(6/1~6/7) 실제 이미지 추가 — daily-images/ 신설(Wikimedia Commons CC/PD/CC0, 출처·라이선스 기록). image_url/image_credit 채움(image_fallback 유지). PRECACHE에 7장 추가(오프라인 표시). 무지개·친근한 휴머노이드·수박단면·페트병수거함·블루마블(아폴로17 PD)·국립서울현충원(차분한 추모)·여름 파란하늘+해. 각 이미지 내용 눈 확인.
@@ -19,7 +20,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5710';
+const CACHE_NAME = 'po-learning-v5711';
 const PRECACHE = [
   './',
   './index.html',
