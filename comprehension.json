@@ -1,9 +1,9 @@
 {
-  "version": "2026-04-23 (v5.5.91 + v5.61: 46·47회 16장)",
+  "version": "2026-06-04 (v5.78.0: 48·49·50·51·53·54회 48장)",
   "generated": "2026-04-19",
   "weekOf": "2026-03-17",
   "reviewedBy": null,
-  "note": "v5.14 기준. 총 108장. W14: 수업39(깊이이해하기+손장미) 8장 추가. (2026-04-06: 전수 정합성 검수 - 66개 카드 복구/정규화) | 2026-04-19: 43회 8장 추가 (악플전쟁2 p.68~71, displayIndex 132~139) / [2026-05-11] v5.61: 46회 8장(악플전쟁2 p.81~87, 단톡방 초대→달토끼→특공대 결성) + 47회 8장(p.88~95, 사진삭제→미라회상→서영 결심) append. displayIndex 156~171. 47회는 4x→47 메타 동기화 완료.",
+  "note": "v5.14 기준. 총 108장. W14: 수업39(깊이이해하기+손장미) 8장 추가. (2026-04-06: 전수 정합성 검수 - 66개 카드 복구/정규화) | 2026-04-19: 43회 8장 추가 (악플전쟁2 p.68~71, displayIndex 132~139) / [2026-05-11] v5.61: 46회 8장(악플전쟁2 p.81~87, 단톡방 초대→달토끼→특공대 결성) + 47회 8장(p.88~95, 사진삭제→미라회상→서영 결심) append. displayIndex 156~171. 47회는 4x→47 메타 동기화 완료. | [2026-06-04] v5.78.0: 48~51·53·54회 각 8장(총 48장) append. displayIndex 172~219. 자동 스케줄러 초안 머지. 52회 없음(정상 갭).",
   "cards": [
     {
       "id": "comp_001",
@@ -8283,6 +8283,2369 @@
       "reviewStatus": "parent_review",
       "status": "parent_review",
       "displayIndex": 171
+    },
+    {
+      "id": "crd_2026W20_comp_s48_001",
+      "cardId": "crd_2026W20_comp_s48_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 어느 날 깨달았다. '이건 내가 서영이를 괴롭힌 거에 비하면 아무것도 아닐 거야. 아이들의 따가운 눈초리쯤 견뎌야 해.' 그러던 어느 날, 미라는 '언니의 스무 살'이라는 청소년 영화의 주인공의 어린 시절 역으로 오디션을 보았는데 운 좋게도 합격하였다.",
+        "ttsText": "미라는 어느 날 깨달았다. 이건 내가 서영이를 괴롭힌 거에 비하면 아무것도 아닐 거야. 아이들의 따가운 눈초리쯤 견뎌야 해. 그러던 어느 날, 미라는 언니의 스무 살이라는 청소년 영화의 주인공의 어린 시절 역으로 오디션을 보았는데 운 좋게도 합격하였다.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라가 오디션을 봐서 합격한 청소년 영화의 제목은 무엇인가요?",
+        "ttsText": "미라가 오디션을 봐서 합격한 청소년 영화의 제목은 무엇인가요?",
+        "passage": "미라가 합격한 영화의 제목."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "언니의 스무 살",
+        "options": ["언니의 스무 살", "다시 태어난 기분", "짱오의 비밀", "공주의 자리"],
+        "type": "choice"
+      },
+      "hint": {"text": "미라가 주인공의 '어린 시절 역'을 맡은 영화 제목이야. 본문에서 그대로 나와."},
+      "wrongExplanation": "본문에 영화 제목이 한 번 분명히 나와. 미라가 어린 시절 역으로 합격한 청소년 영화의 이름을 다시 찾아봐.",
+      "skillTag": "fact",
+      "skillTags": ["fact"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 오디션을 봐서 합격한 청소년 영화의 제목은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 172
+    },
+    {
+      "id": "crd_2026W20_comp_s48_002",
+      "cardId": "crd_2026W20_comp_s48_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "영화는 다행히 큰 성공을 거두었고 덩달아 아역 배우인 미라의 연기를 칭찬하는 사람이 많아졌다. '미라야, 예전보다 연기가 아주 자연스럽고 편안해졌구나. 그대로만 가면 멋진 배우가 될 조짐이 보이는걸?'",
+        "ttsText": "영화는 다행히 큰 성공을 거두었고 덩달아 아역 배우인 미라의 연기를 칭찬하는 사람이 많아졌다. 미라야, 예전보다 연기가 아주 자연스럽고 편안해졌구나. 그대로만 가면 멋진 배우가 될 조짐이 보이는걸?",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라가 합격한 영화는 어떤 결과를 얻었나요?",
+        "ttsText": "미라가 합격한 영화는 어떤 결과를 얻었나요?",
+        "passage": "영화가 거둔 결과."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "큰 성공을 거두었고, 미라의 연기를 칭찬하는 사람이 많아졌다",
+        "options": [
+          "큰 성공을 거두었고, 미라의 연기를 칭찬하는 사람이 많아졌다",
+          "흥행에 실패해 사람들이 곧 영화를 잊어버렸다",
+          "잠깐 인기를 끌었지만 미라의 연기는 비판을 받았다",
+          "감독이 도중에 영화를 중단해서 개봉하지 못했다"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "영화의 흥행 결과 + 미라에 대한 사람들의 반응, 두 가지를 모두 잡아 보자."},
+      "wrongExplanation": "영화가 어떻게 됐는지(흥행 성공/실패)와, 미라의 연기에 대한 사람들의 반응이 어떻게 바뀌었는지를 같이 본문에서 찾아봐.",
+      "skillTag": "fact",
+      "skillTags": ["fact"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 합격한 영화는 어떤 결과를 얻었나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 173
+    },
+    {
+      "id": "crd_2026W20_comp_s48_003",
+      "cardId": "crd_2026W20_comp_s48_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 생각했다. '내 연기가 좋아진 건 내가 달라졌기 때문이야. 지나친 욕심이 얼마나 큰 불행을 가져오는지 알았거든.' 미라는 다시 태어난 기분이었다.",
+        "ttsText": "미라는 생각했다. 내 연기가 좋아진 건 내가 달라졌기 때문이야. 지나친 욕심이 얼마나 큰 불행을 가져오는지 알았거든. 미라는 다시 태어난 기분이었다.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라는 자신의 연기가 좋아진 까닭을 무엇 때문이라고 생각했나요?",
+        "ttsText": "미라는 자신의 연기가 좋아진 까닭을 무엇 때문이라고 생각했나요?",
+        "passage": "미라가 스스로 짚은 까닭."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "내가 달라졌기 때문",
+        "options": [
+          "내가 달라졌기 때문",
+          "좋은 감독을 만났기 때문",
+          "친구들이 곁에서 응원해 주었기 때문",
+          "엄마가 함께 연습해 주었기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "본문 안에 미라가 스스로 한 짧은 한 줄 답이 그대로 있어. '~ 때문이야'로 끝나."},
+      "wrongExplanation": "다른 사람의 도움이 아니라, 미라 자신에게서 일어난 변화에 답이 있어. 본문의 미라 혼잣말을 다시 찾아봐.",
+      "skillTag": "fact",
+      "skillTags": ["fact"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라는 자신의 연기가 좋아진 까닭을 무엇 때문이라고 생각했나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 174
+    },
+    {
+      "id": "crd_2026W20_comp_s48_004",
+      "cardId": "crd_2026W20_comp_s48_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 당장이라도 학교를 그만두고 싶었지만 그럴 수가 없었다. 엄마는 가혹할 만큼 냉정하게 미라에게 말했다. '바보처럼 전학을 가거나 학교를 그만두면 넌 평생 가해자 꼬리표를 달고 살 거다. 그러니까 징징 울지 말고 학교에 가서 달라진 내 모습을 보여 줘.'",
+        "ttsText": "미라는 당장이라도 학교를 그만두고 싶었지만 그럴 수가 없었다. 엄마는 가혹할 만큼 냉정하게 미라에게 말했다. 바보처럼 전학을 가거나 학교를 그만두면 넌 평생 가해자 꼬리표를 달고 살 거다. 그러니까 징징 울지 말고 학교에 가서 달라진 내 모습을 보여 줘.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라는 당장이라도 학교를 그만두고 싶었지만 그럴 수 없었던 까닭은 무엇인가요?",
+        "ttsText": "미라는 당장이라도 학교를 그만두고 싶었지만 그럴 수 없었던 까닭은 무엇인가요?",
+        "passage": "학교를 그만두지 못한 까닭."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "그만두면 평생 학교폭력 가해자 꼬리표를 달고 살게 되니까",
+        "options": [
+          "그만두면 평생 학교폭력 가해자 꼬리표를 달고 살게 되니까",
+          "전학 갈 학교를 부모님이 찾지 못해서",
+          "연기 학원을 더 이상 다닐 수 없게 되어서",
+          "친구들이 모두 미라를 다정하게 대해 줘서"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "엄마가 미라에게 한 말 안에 답이 있어. 학교를 떠나면 어떻게 된다고 했지?"},
+      "wrongExplanation": "엄마가 미라를 학교로 끌고 가면서 한 말, 특히 '꼬리표' 이야기에 답이 있어. 그 문장을 다시 찾아봐.",
+      "skillTag": "inference",
+      "skillTags": ["inference"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라는 당장이라도 학교를 그만두고 싶었지만 그럴 수 없었던 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 175
+    },
+    {
+      "id": "crd_2026W20_comp_s48_005",
+      "cardId": "crd_2026W20_comp_s48_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "그렇게 마지못해 학교에 다니던 미라는 어느 날 깨달았다. '그래, 이건 내가 서영이를 괴롭힌 거에 비하면 아무것도 아닐 거야. 아이들의 따가운 눈초리쯤 견뎌야 해.' 미라는 이를 악물고 학교와 연기 학원만을 다녔다.",
+        "ttsText": "그렇게 마지못해 학교에 다니던 미라는 어느 날 깨달았다. 그래, 이건 내가 서영이를 괴롭힌 거에 비하면 아무것도 아닐 거야. 아이들의 따가운 눈초리쯤 견뎌야 해. 미라는 이를 악물고 학교와 연기 학원만을 다녔다.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "학교에 다니던 미라는 무엇을 깨달았나요?",
+        "ttsText": "학교에 다니던 미라는 무엇을 깨달았나요?",
+        "passage": "미라가 깨달은 내용."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "서영이를 괴롭힌 일에 비하면 아이들의 따가운 눈초리쯤은 견뎌야 한다는 것",
+        "options": [
+          "서영이를 괴롭힌 일에 비하면 아이들의 따가운 눈초리쯤은 견뎌야 한다는 것",
+          "친구들에게 사과를 받아야 마음이 풀린다는 것",
+          "연기를 잘하면 사람들이 다시 자신을 좋아해 준다는 것",
+          "엄마의 말만 잘 들으면 모든 일이 해결된다는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "미라가 스스로 한 혼잣말이 본문에 그대로 있어. '~에 비하면 아무것도 아닐 거야'로 시작해."},
+      "wrongExplanation": "미라가 학교에서 받은 따가운 시선과, 자기가 예전에 한 일을 견주는 미라의 혼잣말을 다시 찾아봐.",
+      "skillTag": "inference",
+      "skillTags": ["inference"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "학교에 다니던 미라는 무엇을 깨달았나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 176
+    },
+    {
+      "id": "crd_2026W20_comp_s48_006",
+      "cardId": "crd_2026W20_comp_s48_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 곰곰이 생각했다. '그래, 패거리를 없애려면 멤버들을 하나씩 떼어 놓아야 해. 그럼 저절로 힘을 잃고 수그러들게 되거든. 우리 짱오처럼 말이야.' 다음 날 미라는 수업이 끝나자마자 3반 앞으로 가서 혜미를 기다렸다.",
+        "ttsText": "미라는 곰곰이 생각했다. 그래, 패거리를 없애려면 멤버들을 하나씩 떼어 놓아야 해. 그럼 저절로 힘을 잃고 수그러들게 되거든. 우리 짱오처럼 말이야. 다음 날 미라는 수업이 끝나자마자 3반 앞으로 가서 혜미를 기다렸다.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라는 이보경 패거리를 없애려면 어떻게 해야 한다고 생각했나요?",
+        "ttsText": "미라는 이보경 패거리를 없애려면 어떻게 해야 한다고 생각했나요?",
+        "passage": "패거리를 없애는 방법에 대한 미라의 생각."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "멤버들을 하나씩 떼어 놓는다",
+        "options": [
+          "멤버들을 하나씩 떼어 놓는다",
+          "선생님께 패거리 일을 한꺼번에 알린다",
+          "더 큰 패거리를 새로 만들어 맞선다",
+          "이보경에게 직접 가서 사과를 받는다"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "미라가 자기 옛 패거리(짱오)가 어떻게 사라졌는지 떠올리며 정한 방법이야."},
+      "wrongExplanation": "미라가 자기네 짱오가 어떻게 흩어졌는지를 떠올리며 결심한 방법이 핵심이야. 본문 속 미라의 혼잣말을 다시 봐.",
+      "skillTag": "inference",
+      "skillTags": ["inference"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라는 이보경 패거리를 없애려면 어떻게 해야 한다고 생각했나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 177
+    },
+    {
+      "id": "crd_2026W20_comp_s48_007",
+      "cardId": "crd_2026W20_comp_s48_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 생각했다. '내 연기가 좋아진 건 내가 달라졌기 때문이야. 지나친 욕심이 얼마나 큰 불행을 가져오는지 알았거든.' 미라는 다시 태어난 기분이었다.",
+        "ttsText": "미라는 생각했다. 내 연기가 좋아진 건 내가 달라졌기 때문이야. 지나친 욕심이 얼마나 큰 불행을 가져오는지 알았거든. 미라는 다시 태어난 기분이었다.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라가 '다시 태어난 기분'이라고 한 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "미라가 다시 태어난 기분이라고 한 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "미라가 그렇게 느낀 까닭."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "지나친 욕심이 큰 불행을 가져온다는 걸 깨닫고 자신이 달라졌다고 느꼈기 때문",
+        "options": [
+          "지나친 욕심이 큰 불행을 가져온다는 걸 깨닫고 자신이 달라졌다고 느꼈기 때문",
+          "유명한 배우가 되어 사람들의 관심을 다시 받게 되었기 때문",
+          "엄마가 옛날처럼 다정하게 대해 주게 되었기 때문",
+          "짱오 멤버들이 다시 자기 곁으로 돌아왔기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "미라가 한 혼잣말의 두 부분(연기가 좋아진 까닭 + 욕심에 대한 깨달음)을 하나로 이어서 생각해 봐."},
+      "wrongExplanation": "주변 사람이 어떻게 변했는지가 아니라, 미라 자신이 어떤 깨달음을 얻었는지에 답이 있어. 미라의 두 줄 혼잣말을 다시 묶어 봐.",
+      "skillTag": "critical",
+      "skillTags": ["critical"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 다시 태어난 기분이라고 한 까닭으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 178
+    },
+    {
+      "id": "crd_2026W20_comp_s48_008",
+      "cardId": "crd_2026W20_comp_s48_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "잘못을마주한미라의변화-수업48",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 학교를 그만두고 싶었지만 엄마의 말에 끌려 학교로 갔다. 따가운 시선을 견디며 학교와 연기 학원만을 다니던 미라는, 어느 날 자신이 한 일이 잘못이었음을 받아들이고 영화 오디션에 합격해 칭찬을 받게 된다. 미라는 '내가 달라졌기 때문이야'라고 스스로 말한다.",
+        "ttsText": "미라는 학교를 그만두고 싶었지만 엄마의 말에 끌려 학교로 갔다. 따가운 시선을 견디며 학교와 연기 학원만을 다니던 미라는, 어느 날 자신이 한 일이 잘못이었음을 받아들이고 영화 오디션에 합격해 칭찬을 받게 된다. 미라는 내가 달라졌기 때문이야라고 스스로 말한다.",
+        "topic": "잘못을마주한미라의변화-수업48",
+        "source": "48회 독서수업 260512"
+      },
+      "question": {
+        "text": "미라가 학교를 그만두지 않고 따가운 시선을 견디며 달라진 모습을 보여 주는 이 이야기에서 우리가 배울 수 있는 점은 무엇일까요?",
+        "ttsText": "미라가 학교를 그만두지 않고 따가운 시선을 견디며 달라진 모습을 보여 주는 이 이야기에서 우리가 배울 수 있는 점은 무엇일까요?",
+        "passage": "이야기에서 배울 점."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자신이 한 잘못의 결과를 피하지 않고 마주해야 진짜로 달라질 수 있다",
+        "options": [
+          "자신이 한 잘못의 결과를 피하지 않고 마주해야 진짜로 달라질 수 있다",
+          "어떤 일이 있어도 부모님의 말씀은 무조건 따라야 한다",
+          "잘못한 일은 빨리 잊고 새 친구를 사귀는 것이 가장 좋다",
+          "다른 사람들의 평가가 나의 가치를 결정한다"
+        ],
+        "type": "choice"
+      },
+      "hint": {"text": "미라는 도망치지 않았어. 무엇을 마주했기에 달라질 수 있었는지 생각해 봐."},
+      "wrongExplanation": "미라가 잘못을 어떻게 다뤘는지에서 답을 찾아보자. 도망친 게 아니라 마주했다는 점이 핵심이야.",
+      "skillTag": "critical",
+      "skillTags": ["critical"],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 학교를 그만두지 않고 따가운 시선을 견디며 달라진 모습을 보여 주는 이 이야기에서 우리가 배울 수 있는 점은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 179
+    },
+    {
+      "id": "crd_2026W20_comp_s49_001",
+      "cardId": "crd_2026W20_comp_s49_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 혜미에게, 학교 운동장의 등나무 밑에서 따로 보자고 말하고 거기서 기다리겠다고 했다. 그러고는 지지 않게 세게 등나무 쪽으로 나아갔다.",
+        "ttsText": "미라는 혜미에게, 학교 운동장의 등나무 밑에서 따로 보자고 말하고 거기서 기다리겠다고 했다. 그러고는 지지 않게 세게 등나무 쪽으로 나아갔다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "미라가 혜미와 따로 만나서 이야기하려고 한 장소는 어디인가요?",
+        "ttsText": "미라가 혜미와 따로 만나서 이야기하려고 한 장소는 어디인가요?",
+        "passage": "미라가 혜미를 부른 장소."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "학교 운동장의 등나무 밑",
+        "options": [
+          "학교 운동장의 등나무 밑",
+          "미라네 집 거실",
+          "연기 학원 앞",
+          "학교 정문 앞"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라가 '~ 밑에서 보자. 기다릴게.'라고 말했어. 운동장 어디에 있는 나무 아래로 갔는지 떠올려 봐."
+      },
+      "wrongExplanation": "혜미와 따로 만나러 간 곳은 학원이나 정문이 아니라 학교 안의 한 나무 아래야. 본문에서 미라가 직접 말한 위치를 다시 찾아봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 혜미와 따로 만나서 이야기하려고 한 장소는 어디인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 180
+    },
+    {
+      "id": "crd_2026W20_comp_s49_002",
+      "cardId": "crd_2026W20_comp_s49_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라가 혜미에게 따져 물었다. 이보경과 어울려 다니면서 장미를 괴롭히고, 물건을 빼앗고, 텃밭 청소를 보내고, 우스운 사진을 단톡방에 올리는 일을 하고 있다는 사실을 알고 있다고 했다.",
+        "ttsText": "미라가 혜미에게 따져 물었다. 이보경과 어울려 다니면서 장미를 괴롭히고, 물건을 빼앗고, 텃밭 청소를 보내고, 우스운 사진을 단톡방에 올리는 일을 하고 있다는 사실을 알고 있다고 했다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "미라가 혜미한테 '이보경과 어울려 누구를 괴롭히느냐'고 따져 물은 사람은 누구인가요?",
+        "ttsText": "미라가 혜미한테 이보경과 어울려 누구를 괴롭히느냐고 따져 물은 사람은 누구인가요?",
+        "passage": "혜미와 이보경에게 괴롭힘을 당하고 있는 친구."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미",
+        "options": [
+          "장미",
+          "서영",
+          "민주",
+          "양혜미"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "지금 학교에서 보경 패거리에게 괴롭힘을 당하고 있는 6학년 친구야. 서영이는 이미 학교를 그만뒀어."
+      },
+      "wrongExplanation": "서영이는 미라가 5학년 때 괴롭혔던 친구이고, 지금 보경 패거리에게 당하는 친구는 따로 있어. 미라가 혜미에게 따져 물은 이름은 그 친구야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 혜미한테 이보경과 어울려 누구를 괴롭히느냐고 따져 물은 사람은 누구인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 181
+    },
+    {
+      "id": "crd_2026W20_comp_s49_003",
+      "cardId": "crd_2026W20_comp_s49_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "오늘 단어로 배운 '뉘우치다'는 '자신의 행동이나 말에서 잘못된 점을 스스로 깨닫고 마음속 깊이 후회하는 것'이다. '반성하다'와 비슷한 뜻이다.",
+        "ttsText": "오늘 단어로 배운 뉘우치다는 자신의 행동이나 말에서 잘못된 점을 스스로 깨닫고 마음속 깊이 후회하는 것이다. 반성하다와 비슷한 뜻이다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "'뉘우치다'라는 말의 뜻으로 알맞은 것은 무엇일까요?",
+        "ttsText": "뉘우치다라는 말의 뜻으로 알맞은 것은 무엇일까요?",
+        "passage": "수업에서 배운 '뉘우치다'의 정확한 뜻."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자기 잘못을 스스로 깨닫고 마음속 깊이 후회하는 것",
+        "options": [
+          "자기 잘못을 스스로 깨닫고 마음속 깊이 후회하는 것",
+          "다른 사람의 잘못을 큰 소리로 따져 묻는 것",
+          "자기보다 약한 친구를 비웃거나 놀리는 것",
+          "친구의 비밀을 다른 사람에게 옮기는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'반성하다'와 비슷한 말이라고 선생님이 말씀해 주셨어. 누구의 잘못이고, 누가 깨닫는 건지 떠올려 봐."
+      },
+      "wrongExplanation": "'뉘우치다'는 다른 사람을 비난하거나 놀리는 말이 아니야. 잘못의 주체가 '자기 자신'이라는 점이 핵심이야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "뉘우치다라는 말의 뜻으로 알맞은 것은 무엇일까요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 182
+    },
+    {
+      "id": "crd_2026W20_comp_s49_004",
+      "cardId": "crd_2026W20_comp_s49_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라는 곰곰이 생각했다. 패거리를 없애려면 멤버들을 하나씩 떼어 놓아야 한다는 것을. 그래서 미라는 짱오 멤버였던 양혜미를 가장 먼저 찾아갔다. 혜미를 보경의 옆에서 떼어 놓아야 장미를 도울 수 있기 때문이다.",
+        "ttsText": "미라는 곰곰이 생각했다. 패거리를 없애려면 멤버들을 하나씩 떼어 놓아야 한다는 것을. 그래서 미라는 짱오 멤버였던 양혜미를 가장 먼저 찾아갔다. 혜미를 보경의 옆에서 떼어 놓아야 장미를 도울 수 있기 때문이다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "미라가 굳이 혜미를 따로 불러 만나러 간 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "미라가 굳이 혜미를 따로 불러 만나러 간 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "미라가 혜미를 만나려고 한 진짜 이유."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보경 패거리에서 혜미를 떼어 놓아 장미 괴롭힘을 막으려고",
+        "options": [
+          "보경 패거리에서 혜미를 떼어 놓아 장미 괴롭힘을 막으려고",
+          "옛 짱오 친구가 보고 싶어서 같이 놀자고 부르려고",
+          "자신이 영화에서 칭찬받았다는 걸 자랑하고 싶어서",
+          "혜미에게 학원 숙제를 같이 하자고 부탁하려고"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "48회 끝에서 미라가 '패거리를 없애려면 멤버를 하나씩 떼어 놓아야 해'라고 결심한 걸 떠올려 봐. 그 결심이 49회에서 실제 행동으로 이어진 거야."
+      },
+      "wrongExplanation": "미라는 옛 친구가 그리워서가 아니라 분명한 목적이 있어서 혜미를 찾아갔어. 그 목적은 49회 직전 회차에 미라가 직접 마음먹은 그 일이야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 굳이 혜미를 따로 불러 만나러 간 까닭으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 183
+    },
+    {
+      "id": "crd_2026W20_comp_s49_005",
+      "cardId": "crd_2026W20_comp_s49_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "혜미는 어이없다는 듯 큰 소리로 비웃었다. 미라가 예전에 자기에게도 못된 짓을 했으면서 이제 와서 자기를 가르치려는 게 어울리지 않다고 비꼬며 '안 어울려, 안 어울려.'라고 말하고는 미라의 말을 무시했다. 또 자기들은 서영이를 괴롭혔던 미라와는 달리 그저 장난을 치는 것뿐이라고 우겼다.",
+        "ttsText": "혜미는 어이없다는 듯 큰 소리로 비웃었다. 미라가 예전에 자기에게도 못된 짓을 했으면서 이제 와서 자기를 가르치려는 게 어울리지 않다고 비꼬며 안 어울려, 안 어울려라고 말하고는 미라의 말을 무시했다. 또 자기들은 서영이를 괴롭혔던 미라와는 달리 그저 장난을 치는 것뿐이라고 우겼다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "혜미가 미라의 충고를 받아들이지 않고 '너랑은 달라'라며 무시한 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "혜미가 미라의 충고를 받아들이지 않고 너랑은 달라라며 무시한 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "혜미가 미라의 충고를 받아들이지 않은 이유."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "미라도 예전에 서영이를 괴롭혔으니 자기한테 충고할 자격이 없다고 생각해서",
+        "options": [
+          "미라도 예전에 서영이를 괴롭혔으니 자기한테 충고할 자격이 없다고 생각해서",
+          "미라가 유명한 영화 배우가 되어 자기를 무시한다고 느껴서",
+          "보경이 무서워서 미라의 말을 따를 수 없어서",
+          "장미와 자기가 사이가 좋아서 괴롭힌 적이 없다고 믿어서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "혜미가 '내가 너한테 한 짓은 벌써 다 잊은 거야?'라고 미라에게 되받아쳤어. 혜미가 미라의 과거 어떤 행동을 떠올리고 있는지 생각해 봐."
+      },
+      "wrongExplanation": "혜미가 보경을 무서워한다는 말은 본문에 직접 나오지 않아. 혜미가 미라에게 화살을 돌린 이유는 미라가 과거에 한 일과 관련 있어.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "혜미가 미라의 충고를 받아들이지 않고 너랑은 달라라며 무시한 까닭으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 184
+    },
+    {
+      "id": "crd_2026W20_comp_s49_006",
+      "cardId": "crd_2026W20_comp_s49_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라가 진지한 말로 이야기했다. 자기도 얼마나 서영이에게 못된 짓을 했는지 잘 알고 있다고 했다. 그러면서 자기가 그런 나쁜 짓을 직접 해 봤기 때문에 혜미한테 충고를 할 수 있는 것이라고 말했다.",
+        "ttsText": "미라가 진지한 말로 이야기했다. 자기도 얼마나 서영이에게 못된 짓을 했는지 잘 알고 있다고 했다. 그러면서 자기가 그런 나쁜 짓을 직접 해 봤기 때문에 혜미한테 충고를 할 수 있는 것이라고 말했다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "미라가 '내가 나쁜 짓을 해 봤기 때문에 너한테 충고할 수 있는 거야'라고 말한 뜻으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "미라가 내가 나쁜 짓을 해 봤기 때문에 너한테 충고할 수 있는 거야라고 말한 뜻으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "미라가 혜미에게 진지하게 한 말의 속뜻."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "같은 잘못을 해 보고 뉘우쳤기 때문에 그 잘못이 친구에게 얼마나 큰 상처가 되는지 안다는 뜻",
+        "options": [
+          "같은 잘못을 해 보고 뉘우쳤기 때문에 그 잘못이 친구에게 얼마나 큰 상처가 되는지 안다는 뜻",
+          "자기가 더 큰 잘못을 했으니 혜미의 잘못은 가볍게 봐도 된다는 뜻",
+          "자기가 영화에서 비슷한 역할을 해 봤으니 누구보다 잘 안다는 뜻",
+          "자기는 이미 벌을 받았으니 이제는 어른처럼 가르칠 수 있다는 뜻"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라는 자기 잘못을 가볍게 만들려고 한 말이 아니야. 오늘 단어로 배운 '뉘우치다'와 이어서 생각해 봐 — 잘못을 직접 깨달은 사람이 무엇을 알 수 있을지."
+      },
+      "wrongExplanation": "미라는 자기가 더 큰 잘못을 했으니 혜미의 잘못은 가벼워도 된다는 식으로 말한 게 아니야. 잘못의 무게를 직접 겪어 봤기 때문에 친구의 아픔도 안다는 뜻에 가까워.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 내가 나쁜 짓을 해 봤기 때문에 너한테 충고할 수 있는 거야라고 말한 뜻으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 185
+    },
+    {
+      "id": "crd_2026W20_comp_s49_007",
+      "cardId": "crd_2026W20_comp_s49_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "미라가 진지하게 말했다. 혜미는 혼자서는 그런 일을 할 아이가 아니라고, 이보경이 앞에 서서 하니까 그 뒤에서 들러리를 서고 있는 것뿐이라고 짚어 주었다. 미라에게 그랬던 것처럼, 강한 친구 옆에 붙어서 덩달아 으스대기를 좋아한다는 것이다.",
+        "ttsText": "미라가 진지하게 말했다. 혜미는 혼자서는 그런 일을 할 아이가 아니라고, 이보경이 앞에 서서 하니까 그 뒤에서 들러리를 서고 있는 것뿐이라고 짚어 주었다. 미라에게 그랬던 것처럼, 강한 친구 옆에 붙어서 덩달아 으스대기를 좋아한다는 것이다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "미라가 혜미한테 '이보경 뒤에서 들러리를 선다'고 말한 뜻으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "미라가 혜미한테 이보경 뒤에서 들러리를 선다고 말한 뜻으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "미라가 본 혜미의 진짜 모습."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "혜미는 혼자서는 못 하면서 힘센 친구 옆에 붙어 덩달아 으스대고 있다는 비판",
+        "options": [
+          "혜미는 혼자서는 못 하면서 힘센 친구 옆에 붙어 덩달아 으스대고 있다는 비판",
+          "혜미가 이보경보다 사실 더 못된 사람이라는 폭로",
+          "혜미가 이보경을 너무 좋아해서 무리하고 있다는 걱정",
+          "혜미가 이보경에게서 빨리 도망쳐야 한다는 부탁"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'들러리'는 결혼식에서 신랑·신부 옆에 서서 빛을 보태는 사람을 말해. 미라가 이 말을 어떤 뜻으로 빗대어 썼을지 생각해 봐."
+      },
+      "wrongExplanation": "미라는 혜미가 도망쳐야 한다고 한 게 아니야. 혜미 스스로 혼자서는 못 하면서 강한 친구 옆에 붙어 덩달아 행세한다는 점을 짚어준 거야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "미라가 혜미한테 이보경 뒤에서 들러리를 선다고 말한 뜻으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 186
+    },
+    {
+      "id": "crd_2026W20_comp_s49_008",
+      "cardId": "crd_2026W20_comp_s49_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "혜미를설득하려는미라의진심-수업49",
+      "sourceId": "reading-class",
+      "runId": "2026-W20",
+      "passage": {
+        "text": "한때 누구보다 심하게 친구를 괴롭혔던 미라는, 자기 잘못을 뉘우친 뒤에야 같은 잘못을 하고 있는 혜미를 진심으로 말리려고 나섰다. 혜미는 비웃었지만, 미라의 말 한 마디 한 마디는 자기가 직접 겪어 본 후회에서 나온 것이었다.",
+        "ttsText": "한때 누구보다 심하게 친구를 괴롭혔던 미라는, 자기 잘못을 뉘우친 뒤에야 같은 잘못을 하고 있는 혜미를 진심으로 말리려고 나섰다. 혜미는 비웃었지만, 미라의 말 한 마디 한 마디는 자기가 직접 겪어 본 후회에서 나온 것이었다.",
+        "topic": "혜미를설득하려는미라의진심-수업49",
+        "source": "49회 독서수업 260514"
+      },
+      "question": {
+        "text": "이번 이야기에서 우리가 배울 점으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "이번 이야기에서 우리가 배울 점으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "49회 이야기 전체에서 배울 수 있는 점."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자기 잘못을 뉘우친 사람은, 같은 잘못을 하고 있는 친구도 진심으로 도울 수 있다",
+        "options": [
+          "자기 잘못을 뉘우친 사람은, 같은 잘못을 하고 있는 친구도 진심으로 도울 수 있다",
+          "친구에게 미움받지 않으려면 친구가 시키는 대로 그냥 따라가는 게 낫다",
+          "한 번 잘못한 사람은 평생 친구의 충고를 할 자격이 없다",
+          "잘못이 들켰을 때는 빠르게 사과하기보다 모른 척 넘기는 게 좋다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라가 왜 비웃음을 들으면서도 혜미를 찾아갔는지 떠올려 봐. 미라가 가진 '직접 겪어 본 후회'가 무엇을 가능하게 했을지 생각해 봐."
+      },
+      "wrongExplanation": "이번 이야기의 핵심은 친구를 무조건 따르는 것도, 한 번 잘못한 사람을 영원히 막아 세우는 것도 아니야. 미라의 행동이 '뉘우침'에서 어떻게 출발했는지 다시 묶어 봐.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W20",
+      "ttsText": "이번 이야기에서 우리가 배울 점으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 187
+    },
+    {
+      "id": "crd_2026W21_comp_s50_001",
+      "cardId": "crd_2026W21_comp_s50_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "미라가 등나무 밑에서 혜미에게 말했다. '혜미야, 부탁할게. 더 이상 장미를 괴롭히지 말았으면 좋겠어. 너 혹시 이보경이 무서워서 그러니? 그게 아니라면 제발 그만 멈춰 줘. 넌 원래 이렇게 나쁜 아이가 아니었어. 난 널 믿어. 그 말 하려고 부른 거야.'",
+        "ttsText": "미라가 등나무 밑에서 혜미에게 말했다. 혜미야, 부탁할게. 더 이상 장미를 괴롭히지 말았으면 좋겠어. 너 혹시 이보경이 무서워서 그러니? 그게 아니라면 제발 그만 멈춰 줘. 넌 원래 이렇게 나쁜 아이가 아니었어. 난 널 믿어. 그 말 하려고 부른 거야.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "미라가 혜미에게 부탁한 내용은 무엇인가요?",
+        "ttsText": "미라가 혜미에게 부탁한 내용은 무엇인가요?",
+        "passage": "미라가 혜미를 등나무 밑으로 부른 까닭."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "더 이상 장미를 괴롭히지 말아 달라는 부탁",
+        "options": [
+          "더 이상 장미를 괴롭히지 말아 달라는 부탁",
+          "이보경에게 같이 맞서 달라는 부탁",
+          "옛날처럼 짱오 무리를 다시 만들자는 부탁",
+          "장미와 친하게 지내지 말아 달라는 부탁"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라는 '제발 그만 멈춰 줘'라고 말했어. 누구를 더 이상 괴롭히지 말라는 뜻이었는지 떠올려 봐."
+      },
+      "wrongExplanation": "미라가 한 부탁은 짱오 무리를 다시 만들자는 것도, 누구와 친하게 지내지 말라는 것도 아니야. 본문에서 미라가 직접 말한 '~을 괴롭히지 말았으면 좋겠어'라는 문장을 다시 찾아봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "미라가 혜미에게 부탁한 내용은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 188
+    },
+    {
+      "id": "crd_2026W21_comp_s50_002",
+      "cardId": "crd_2026W21_comp_s50_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "점심시간 미라가 급식을 먹고 교실에 돌아왔을 때였다. 2단계 작전을 펼치기도 전에 이보경이 먼저 미라를 큰 소리로 불렀다. '진미라, 나 좀 보자.' 그 소리에 있던 아이들 시선이 둘에게 모였다.",
+        "ttsText": "점심시간 미라가 급식을 먹고 교실에 돌아왔을 때였다. 2단계 작전을 펼치기도 전에 이보경이 먼저 미라를 큰 소리로 불렀다. 진미라, 나 좀 보자. 그 소리에 있던 아이들 시선이 둘에게 모였다.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "점심시간이 끝난 뒤 미라를 큰 소리로 부른 사람은 누구인가요?",
+        "ttsText": "점심시간이 끝난 뒤 미라를 큰 소리로 부른 사람은 누구인가요?",
+        "passage": "급식을 먹고 교실에 돌아온 미라에게 일어난 일."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "이보경",
+        "options": [
+          "이보경",
+          "혜미",
+          "장미",
+          "민주"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "이 사람은 '진미라, 나 좀 보자.'라고 큰 소리로 미라를 불러냈어. 이번 회차에서 미라를 위협하러 등장한 사람이 누구였는지 떠올려 봐."
+      },
+      "wrongExplanation": "혜미는 미라가 오전에 등나무 밑으로 따로 부른 친구야. 점심시간 뒤에 교실에서 미라를 큰 소리로 불러낸 사람은 따로 있어. 본문에서 그 이름을 다시 확인해 봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "점심시간이 끝난 뒤 미라를 큰 소리로 부른 사람은 누구인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 189
+    },
+    {
+      "id": "crd_2026W21_comp_s50_003",
+      "cardId": "crd_2026W21_comp_s50_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "수업 중 새로 배운 낱말 '충고하다'는, 남의 잘못이나 모자란 점을 진심으로 타일러 말해 주는 것을 뜻한다. 본문에서 이보경은 미라에게 '네가 뭔데 혜미한테 충고를 하느냐?'고 따져 물었다.",
+        "ttsText": "수업 중 새로 배운 낱말 충고하다는, 남의 잘못이나 모자란 점을 진심으로 타일러 말해 주는 것을 뜻한다. 본문에서 이보경은 미라에게 네가 뭔데 혜미한테 충고를 하느냐고 따져 물었다.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "낱말 '충고하다'의 뜻으로 가장 알맞은 것은 무엇인가요?",
+        "ttsText": "낱말 충고하다의 뜻으로 가장 알맞은 것은 무엇인가요?",
+        "passage": "선생님이 풀어 설명해 준 낱말의 뜻."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "남의 잘못이나 모자란 점을 진심으로 타일러 말해 주는 것",
+        "options": [
+          "남의 잘못이나 모자란 점을 진심으로 타일러 말해 주는 것",
+          "남의 잘못을 큰 소리로 화내며 혼내는 것",
+          "친구의 작은 자랑을 크게 부풀려 칭찬해 주는 것",
+          "친구에게 모르는 일을 슬쩍 물어보는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "수업에서는 '혼내는 것'과 '충고'는 느낌이 다르다고 했어. 충고는 화내는 게 아니라 진심을 담아 부드럽게 말해 주는 거야."
+      },
+      "wrongExplanation": "충고는 화내며 혼내는 것도, 자랑을 부풀리는 것도 아니야. 잘못된 점이 고쳐졌으면 좋겠어서 진심을 담아 부드럽게 말해 주는 것을 가리켜.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "낱말 충고하다의 뜻으로 가장 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 190
+    },
+    {
+      "id": "crd_2026W21_comp_s50_004",
+      "cardId": "crd_2026W21_comp_s50_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "이보경은 미라에게 따발총처럼 쏘아붙였다. '네가 뭔데 혜미한테 나를 만나라 마라 충고를 하느냐? 지금도 혜미가 내 말이라면 꼼짝 못하는 아이처럼 보이니? 그리고 우리가 누구를 괴롭히고 있다고? 말이 안 돼. 너도 한 번 더 그런 말 함부로 했다가는 가만두지 않을 거야.'",
+        "ttsText": "이보경은 미라에게 따발총처럼 쏘아붙였다. 네가 뭔데 혜미한테 나를 만나라 마라 충고를 하느냐? 지금도 혜미가 내 말이라면 꼼짝 못하는 아이처럼 보이니? 그리고 우리가 누구를 괴롭히고 있다고? 말이 안 돼. 너도 한 번 더 그런 말 함부로 했다가는 가만두지 않을 거야.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "이보경이 미라를 따져 부른 까닭으로 가장 알맞은 것은 무엇인가요?",
+        "ttsText": "이보경이 미라를 따져 부른 까닭으로 가장 알맞은 것은 무엇인가요?",
+        "passage": "이보경이 미라에게 쏘아붙인 말 속에서 찾을 수 있어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "미라가 혜미에게 자신을 떠나라고 충고했다는 점이 못마땅해서",
+        "options": [
+          "미라가 혜미에게 자신을 떠나라고 충고했다는 점이 못마땅해서",
+          "미라가 학원에서 자신의 자리를 빼앗았다고 생각해서",
+          "미라가 자기 핸드폰에서 사진을 몰래 가져갔다고 의심해서",
+          "미라가 옛날에 자신에게 빌린 돈을 갚지 않아서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "이보경이 처음 꺼낸 말은 '네가 뭔데 혜미한테 ~를 하느냐?'였어. 미라가 혜미에게 무엇을 했길래 화가 났는지 본문에서 다시 찾아봐."
+      },
+      "wrongExplanation": "이보경은 학원 자리나 사진, 돈 이야기를 꺼낸 게 아니야. 미라가 혜미에게 '자신을 떠나라'고 충고한 사실 자체에 화가 나서 미라를 불러낸 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "이보경이 미라를 따져 부른 까닭으로 가장 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 191
+    },
+    {
+      "id": "crd_2026W21_comp_s50_005",
+      "cardId": "crd_2026W21_comp_s50_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "미라가 눈 한 번 깜짝하지 않고 이보경을 노려보며 말했다. '그래, 좋아. 네 말대로 해 줄게. 그 대신 더 이상 장미를 괴롭히지 않겠다고 지금 약속해. 내가 바라는 건 그것 딱 한 가지야. 만약 내 말을 듣지 않으면 나도 다 생각이 있어.'",
+        "ttsText": "미라가 눈 한 번 깜짝하지 않고 이보경을 노려보며 말했다. 그래, 좋아. 네 말대로 해 줄게. 그 대신 더 이상 장미를 괴롭히지 않겠다고 지금 약속해. 내가 바라는 건 그것 딱 한 가지야. 만약 내 말을 듣지 않으면 나도 다 생각이 있어.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "미라가 이보경에게 그 자리에서 약속하라고 요구한 한 가지는 무엇인가요?",
+        "ttsText": "미라가 이보경에게 그 자리에서 약속하라고 요구한 한 가지는 무엇인가요?",
+        "passage": "미라가 '그 대신' 하고 조건을 걸며 한 말."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "더 이상 장미를 괴롭히지 않겠다는 약속",
+        "options": [
+          "더 이상 장미를 괴롭히지 않겠다는 약속",
+          "혜미와 다시 친하게 지내겠다는 약속",
+          "미라에게 잘못을 사과하겠다는 약속",
+          "단톡방에서 영원히 나가겠다는 약속"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라는 '내가 바라는 건 그것 딱 한 가지야.'라고 했어. 미라가 시리즈 내내 지키고 싶어 한 친구가 누구였는지 떠올려 봐."
+      },
+      "wrongExplanation": "미라가 받아내려 한 약속은 사과나 단톡방 탈퇴가 아니야. 시리즈 내내 미라가 지키고 싶어 한 친구는 한 사람이지. 그 친구를 더 이상 괴롭히지 않겠다는 약속이 미라가 원한 단 한 가지야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "미라가 이보경에게 그 자리에서 약속하라고 요구한 한 가지는 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 192
+    },
+    {
+      "id": "crd_2026W21_comp_s50_006",
+      "cardId": "crd_2026W21_comp_s50_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "이보경은 주먹을 높이 쥔 채 차마 때리지는 못하고 부르르 떨었다. 그때 4교시 종이 울리자 6학년 교실에 있던 선생님들이 복도로 나오는 게 보였다. 이보경은 슬금슬금 자기 교실로 돌아갔다.",
+        "ttsText": "이보경은 주먹을 높이 쥔 채 차마 때리지는 못하고 부르르 떨었다. 그때 4교시 종이 울리자 6학년 교실에 있던 선생님들이 복도로 나오는 게 보였다. 이보경은 슬금슬금 자기 교실로 돌아갔다.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "이보경이 주먹을 쥐고도 미라를 끝내 때리지 못하고 교실로 돌아간 까닭은 무엇인가요?",
+        "ttsText": "이보경이 주먹을 쥐고도 미라를 끝내 때리지 못하고 교실로 돌아간 까닭은 무엇인가요?",
+        "passage": "본문에서 이보경이 떨다가 자기 교실로 돌아간 바로 그 장면."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "4교시 종이 울리고 선생님들이 복도로 나오는 게 보였기 때문에",
+        "options": [
+          "4교시 종이 울리고 선생님들이 복도로 나오는 게 보였기 때문에",
+          "미라가 사과하며 잘못을 빌었기 때문에",
+          "혜미가 달려와서 이보경을 말렸기 때문에",
+          "이보경이 갑자기 손목을 다쳤기 때문에"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "본문에서 이보경이 떨고 있을 때 마침 어떤 일이 일어났는지 떠올려 봐. 종소리와 어른들이 등장하는 장면이었어."
+      },
+      "wrongExplanation": "미라가 사과한 것도, 혜미가 달려온 것도, 다친 일도 본문에 없어. 마침 4교시 종이 울리고 선생님들이 복도로 나오는 게 보여서 이보경은 손을 내리고 자기 교실로 돌아간 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "이보경이 주먹을 쥐고도 미라를 끝내 때리지 못하고 교실로 돌아간 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 193
+    },
+    {
+      "id": "crd_2026W21_comp_s50_007",
+      "cardId": "crd_2026W21_comp_s50_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "이보경과 부딪힌 뒤 미라는 마음속으로 생각했다. '이보경, 만만치 않네. 어떻게 하면 그 아이 마음을 달라지게 할 수 있을까?' 미라는 공부 시간 내내 머릿속으로 고민했다. 단 한 가지 분명한 건 어떻게든 장미를 구해야 한다는 생각뿐이었다.",
+        "ttsText": "이보경과 부딪힌 뒤 미라는 마음속으로 생각했다. 이보경, 만만치 않네. 어떻게 하면 그 아이 마음을 달라지게 할 수 있을까? 미라는 공부 시간 내내 머릿속으로 고민했다. 단 한 가지 분명한 건 어떻게든 장미를 구해야 한다는 생각뿐이었다.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "이보경에게 위협을 당하고도 미라가 '어떻게든 장미를 구해야 한다'고 다짐한 모습에서 알 수 있는 미라의 마음으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "이보경에게 위협을 당하고도 미라가 어떻게든 장미를 구해야 한다고 다짐한 모습에서 알 수 있는 미라의 마음으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "미라가 처음 약속한 일이 무엇이었는지, 그리고 그 약속을 위협 앞에서도 어떻게 지키려 하는지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "무서운 상대 앞에서도 친구를 끝까지 지키겠다는 결심이 더 단단해졌다",
+        "options": [
+          "무서운 상대 앞에서도 친구를 끝까지 지키겠다는 결심이 더 단단해졌다",
+          "이보경에게 진 게 분해서 그만큼 갚아 주려고 마음먹었다",
+          "자기보다 강한 친구가 있을 때는 일단 따라야 한다고 느꼈다",
+          "혜미와 이보경 중에 누구 편을 들지 고민하기 시작했다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라가 고민한 끝에 떠올린 단 한 가지 생각은 누구를 위한 것이었는지 떠올려 봐. 자기 자신을 위한 결심이 아니었어."
+      },
+      "wrongExplanation": "미라가 다짐한 건 복수도, 강한 편에 붙는 일도, 누구 편을 들지 고르는 일도 아니야. 위협 앞에서도 흔들리지 않고 친구를 끝까지 지키겠다는 마음이 도리어 더 단단해진 거야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "이보경에게 위협을 당하고도 미라가 어떻게든 장미를 구해야 한다고 다짐한 모습에서 알 수 있는 미라의 마음으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 194
+    },
+    {
+      "id": "crd_2026W21_comp_s50_008",
+      "cardId": "crd_2026W21_comp_s50_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "미라의부탁과이보경의위협-수업50",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "벌써 일주일째 학교가 끝나면 친구들은 민주와 함께 장미를 집까지 데려다 주었다. 장미는 밝은 표정으로 말했다. '아이들아, 고마워. 너희들이 있으니까 훨씬 든든해. 보경이 패거리들도 더 이상 나를 부르지 않고….' 친구가 '그렇다면 정말 다행이야.' 하고 대답했다.",
+        "ttsText": "벌써 일주일째 학교가 끝나면 친구들은 민주와 함께 장미를 집까지 데려다 주었다. 장미는 밝은 표정으로 말했다. 아이들아, 고마워. 너희들이 있으니까 훨씬 든든해. 보경이 패거리들도 더 이상 나를 부르지 않고…. 친구가 그렇다면 정말 다행이야 하고 대답했다.",
+        "topic": "미라의부탁과이보경의위협-수업50",
+        "source": "50회 독서수업 260519"
+      },
+      "question": {
+        "text": "친구들이 일주일째 장미를 집까지 데려다 준 일이 장미에게 만든 가장 큰 변화는 무엇인가요?",
+        "ttsText": "친구들이 일주일째 장미를 집까지 데려다 준 일이 장미에게 만든 가장 큰 변화는 무엇인가요?",
+        "passage": "장미의 표정과, 장미가 친구들에게 한 말 속에서 찾을 수 있어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "혼자가 아니라는 든든함을 느끼고 다시 밝은 표정을 되찾았다",
+        "options": [
+          "혼자가 아니라는 든든함을 느끼고 다시 밝은 표정을 되찾았다",
+          "보경이 패거리에게 직접 맞서 싸우는 아이로 바뀌었다",
+          "친구들에게 미안해서 도움을 다 거절하기 시작했다",
+          "학교에 더는 가지 않고 집에서만 지내게 되었다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미는 '훨씬 든든해'라고 말했어. 친구들이 옆에 있어 줄 때 마음이 어떻게 달라지는지 떠올려 봐."
+      },
+      "wrongExplanation": "장미가 직접 맞서 싸우거나 도움을 거절하거나 학교를 그만둔 게 아니야. 친구들 덕분에 혼자가 아니라는 든든함이 생겨서 다시 밝은 표정을 되찾은 거지.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "친구들이 일주일째 장미를 집까지 데려다 준 일이 장미에게 만든 가장 큰 변화는 무엇인가요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 195
+    },
+    {
+      "id": "crd_2026W21_comp_s51_001",
+      "cardId": "crd_2026W21_comp_s51_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "그날 집에 일찍 돌아온 엄마를 본 서영이가 그동안의 일을 솔직하게 털어놓았다. '엄마, 우리 반에 장미라는 아이가 있는데 이보경이 자꾸만 괴롭히고 있어. 점심시간에 먹기 싫은 반찬을 던져 주고, 놀리고, 물건을 빼앗고, 단톡방에 이상한 사진을 올리고. 그래서 나랑 몇 명이 장미를 도우려고 여러 가지 작전을 세웠어.'",
+        "ttsText": "그날 집에 일찍 돌아온 엄마를 본 서영이가 그동안의 일을 솔직하게 털어놓았다. 엄마, 우리 반에 장미라는 아이가 있는데 이보경이 자꾸만 괴롭히고 있어. 점심시간에 먹기 싫은 반찬을 던져 주고, 놀리고, 물건을 빼앗고, 단톡방에 이상한 사진을 올리고. 그래서 나랑 몇 명이 장미를 도우려고 여러 가지 작전을 세웠어.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "서영이가 엄마에게 솔직하게 털어놓은 내용은 무엇인가요?",
+        "ttsText": "서영이가 엄마에게 솔직하게 털어놓은 내용은 무엇인가요?",
+        "passage": "서영이가 엄마를 보자마자 처음 꺼낸 이야기."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미가 이보경에게 괴롭힘을 당하고 있고, 친구들이 장미를 도우려고 여러 가지 작전을 세웠다는 일",
+        "options": [
+          "장미가 이보경에게 괴롭힘을 당하고 있고, 친구들이 장미를 도우려고 여러 가지 작전을 세웠다는 일",
+          "친구들 사이에서 새로 유행하는 게임에 자기도 끼고 싶다는 부탁",
+          "엄마가 너무 늦게 들어와서 서운했다는 그동안의 속마음",
+          "이번 시험 점수가 떨어진 일을 미리 사과하려는 고백"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이가 엄마에게 꺼낸 이야기에는 '장미'와 '이보경', 그리고 친구들이 세운 '작전'이 함께 등장했어."
+      },
+      "wrongExplanation": "서영이가 엄마에게 말한 건 게임이나 시험 이야기가 아니야. 반에서 일어나고 있는 괴롭힘과, 그 친구를 돕기 위해 친구들이 세운 작전 이야기였어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "서영이가 엄마에게 솔직하게 털어놓은 내용은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 196
+    },
+    {
+      "id": "crd_2026W21_comp_s51_002",
+      "cardId": "crd_2026W21_comp_s51_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "다음 날 학교에 간 서영이는 1교시 수업 시간이 다 되도록 장미가 보이지 않아 눈이 휘둥그레졌다. 담임 선생님이 조회 시간에 알려 주었다. '여러분, 오늘 장미가 몸이 아파서 결석한다고 연락이 왔어요.'",
+        "ttsText": "다음 날 학교에 간 서영이는 1교시 수업 시간이 다 되도록 장미가 보이지 않아 눈이 휘둥그레졌다. 담임 선생님이 조회 시간에 알려 주었다. 여러분, 오늘 장미가 몸이 아파서 결석한다고 연락이 왔어요.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "담임 선생님이 조회 시간에 장미가 결석한 까닭으로 알려 준 것은 무엇인가요?",
+        "ttsText": "담임 선생님이 조회 시간에 장미가 결석한 까닭으로 알려 준 것은 무엇인가요?",
+        "passage": "담임 선생님이 아침에 알려 준 결석 이유."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "몸이 아파서 결석한다는 연락이 왔다",
+        "options": [
+          "몸이 아파서 결석한다는 연락이 왔다",
+          "가족 여행을 떠나서 며칠 학교를 빠진다고 연락이 왔다",
+          "이사를 가게 되어 학교를 옮긴다고 연락이 왔다",
+          "현장 체험학습으로 미술관에 갔다고 연락이 왔다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님은 '몸이 ~서 결석한다고 연락이 왔어요.'라고 말씀하셨어. 빈칸에 들어갈 말을 떠올려 봐."
+      },
+      "wrongExplanation": "여행이나 이사, 체험학습 이야기는 본문에 없어. 선생님은 장미가 '몸이 아파서' 결석한다는 연락만 알려 주셨어. 서영이는 그 말을 어쩐지 곧이곧대로 믿기 어려워했지.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "담임 선생님이 조회 시간에 장미가 결석한 까닭으로 알려 준 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 197
+    },
+    {
+      "id": "crd_2026W21_comp_s51_003",
+      "cardId": "crd_2026W21_comp_s51_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "수업 중 새로 배운 낱말 '비겁하다'는, 당당하지 못하고 옳지 못한 방법으로 자신만 이로우려 하는 태도를 가리킨다. 서영이도 마음속에서 '내가 비겁한 걸까?' 하고 걱정했다.",
+        "ttsText": "수업 중 새로 배운 낱말 비겁하다는, 당당하지 못하고 옳지 못한 방법으로 자신만 이로우려 하는 태도를 가리킨다. 서영이도 마음속에서 내가 비겁한 걸까 하고 걱정했다.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "낱말 '비겁하다'의 뜻으로 가장 알맞은 것은 무엇인가요?",
+        "ttsText": "낱말 비겁하다의 뜻으로 가장 알맞은 것은 무엇인가요?",
+        "passage": "선생님이 가위바위보 예시를 들며 풀어 준 낱말의 뜻."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "당당하지 못하고 옳지 못한 방법으로 자기만 이로우려 하는 태도",
+        "options": [
+          "당당하지 못하고 옳지 못한 방법으로 자기만 이로우려 하는 태도",
+          "잘못한 일을 진심으로 뉘우치며 사과하는 태도",
+          "약속한 일을 끝까지 지키려고 노력하는 태도",
+          "어려운 일을 만나면 곧바로 도움을 청하는 태도"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님은 가위바위보에서 상대가 낸 걸 보고 뒤늦게 바꾸는 행동을 예로 들었어. 그런 태도를 한 낱말로 뭐라고 부를까?"
+      },
+      "wrongExplanation": "비겁은 사과나 약속 지키기, 도움 청하기와는 달라. 당당하지 못한 방법을 써서 자기만 이로우려는 태도를 가리키는 낱말이야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "낱말 비겁하다의 뜻으로 가장 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 198
+    },
+    {
+      "id": "crd_2026W21_comp_s51_004",
+      "cardId": "crd_2026W21_comp_s51_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "서영이의 이야기를 들은 엄마는 안타까운 얼굴로 말했다. '서영아, 너의 마음은 충분히 이해해. 엄마도 걱정이 되는구나. 네가 그 친구를 돕다가 저번처럼 너도 악플에 시달려 왕따를 당할까 봐. 그러니 너의 힘으로 해결하기보다는 선생님의 도움을 받는 게 어떨까?'",
+        "ttsText": "서영이의 이야기를 들은 엄마는 안타까운 얼굴로 말했다. 서영아, 너의 마음은 충분히 이해해. 엄마도 걱정이 되는구나. 네가 그 친구를 돕다가 저번처럼 너도 악플에 시달려 왕따를 당할까 봐. 그러니 너의 힘으로 해결하기보다는 선생님의 도움을 받는 게 어떨까?",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "서영이의 이야기를 들은 엄마가 권한 방법은 무엇인가요?",
+        "ttsText": "서영이의 이야기를 들은 엄마가 권한 방법은 무엇인가요?",
+        "passage": "엄마가 안타까운 얼굴로 마지막에 한 제안."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "아이들끼리 해결하지 말고 선생님의 도움을 받는 방법",
+        "options": [
+          "아이들끼리 해결하지 말고 선생님의 도움을 받는 방법",
+          "이보경의 부모님께 직접 전화를 거는 방법",
+          "장미네 가족과 함께 이사를 가는 방법",
+          "단톡방을 만들어 같이 맞대응하는 방법"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "엄마는 '너의 힘으로 해결하기보다는 ~의 도움을 받는 게 어떨까?'라고 물었어. 학교에서 아이들이 어른의 도움을 가장 가까이 청할 수 있는 분이 누구인지 떠올려 봐."
+      },
+      "wrongExplanation": "엄마는 직접 전화를 걸자거나 이사를 가자거나 맞대응 단톡방을 만들자고 한 게 아니야. 아이들끼리 무리하게 해결하지 말고 선생님께 도움을 청하자고 권한 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "서영이의 이야기를 들은 엄마가 권한 방법은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 199
+    },
+    {
+      "id": "crd_2026W21_comp_s51_005",
+      "cardId": "crd_2026W21_comp_s51_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "그날 밤 책상 앞에 앉아 숙제를 하던 서영이는 혼자 곰곰이 생각했다. '엄마는 내 걱정을 하느라 저렇게 말하는 거야. 하지만 민서영, 너도 알고 있지? 어려움에 빠진 친구를 모른 척하고 숨는 건 비겁한 일이라는 걸. 그건 내가 아니야. 늘 당당하고 옳지 못한 일에 맞서던 민서영이 아니라고. 이 일을 통해 원래 나를 되찾고 싶어.' 서영이는 두 주먹을 꼭 쥐었다.",
+        "ttsText": "그날 밤 책상 앞에 앉아 숙제를 하던 서영이는 혼자 곰곰이 생각했다. 엄마는 내 걱정을 하느라 저렇게 말하는 거야. 하지만 민서영, 너도 알고 있지? 어려움에 빠진 친구를 모른 척하고 숨는 건 비겁한 일이라는 걸. 그건 내가 아니야. 늘 당당하고 옳지 못한 일에 맞서던 민서영이 아니라고. 이 일을 통해 원래 나를 되찾고 싶어. 서영이는 두 주먹을 꼭 쥐었다.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "그날 밤 서영이가 혼자 다짐한 내용으로 가장 알맞은 것은 무엇인가요?",
+        "ttsText": "그날 밤 서영이가 혼자 다짐한 내용으로 가장 알맞은 것은 무엇인가요?",
+        "passage": "서영이가 두 주먹을 꼭 쥐며 마음속으로 한 말."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "어려운 친구를 모른 척 숨는 건 비겁한 일이니, 원래 당당하던 자기 자신으로 돌아가겠다는 다짐",
+        "options": [
+          "어려운 친구를 모른 척 숨는 건 비겁한 일이니, 원래 당당하던 자기 자신으로 돌아가겠다는 다짐",
+          "엄마의 말이 옳으니 더 이상 이 일에 끼어들지 않겠다는 다짐",
+          "공부에 더 집중해서 시험 점수를 끌어올리겠다는 다짐",
+          "장미보다 자기 자신을 먼저 지키며 살아가겠다는 다짐"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이는 자기 자신을 '민서영'이라고 부르며 '원래 ~를 되찾고 싶어'라고 했어. 그 '원래 나'는 어떤 사람이었는지 본문에서 찾아봐."
+      },
+      "wrongExplanation": "서영이는 엄마 말에 따라 빠지거나, 자기만 챙기거나, 공부에만 매달리겠다고 한 게 아니야. 친구를 모른 척하는 건 비겁한 일이라며 원래 당당하던 민서영으로 돌아가겠다고 다짐한 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "그날 밤 서영이가 혼자 다짐한 내용으로 가장 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 200
+    },
+    {
+      "id": "crd_2026W21_comp_s51_006",
+      "cardId": "crd_2026W21_comp_s51_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "서영이와 민주가 장미네 집을 찾던 중, 같은 빌라에 사는 아주머니가 위층을 가리키며 '저기 401호란다'라고 알려 주었다. 아주머니가 그 집 큰딸의 이름을 부르자 서영이가 '아줌마, 그건 장미가 아닌데요'라며 다시 묻자, 아주머니는 '그 집이 맞아. 큰딸 이름이었거든. 지금은 하늘나라에 갔겠지만'이라고 일러 주었다.",
+        "ttsText": "서영이와 민주가 장미네 집을 찾던 중, 같은 빌라에 사는 아주머니가 위층을 가리키며 저기 401호란다라고 알려 주었다. 아주머니가 그 집 큰딸의 이름을 부르자 서영이가 아줌마, 그건 장미가 아닌데요라며 다시 묻자, 아주머니는 그 집이 맞아. 큰딸 이름이었거든. 지금은 하늘나라에 갔겠지만이라고 일러 주었다.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "장미의 집을 찾는 동안 서영이와 민주가 새로 알게 된 사실은 무엇인가요?",
+        "ttsText": "장미의 집을 찾는 동안 서영이와 민주가 새로 알게 된 사실은 무엇인가요?",
+        "passage": "같은 빌라에 사는 아주머니가 알려 준 이야기 속에서 드러난 사실."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미에게는 지금은 세상에 없는 큰언니가 있었다는 사실",
+        "options": [
+          "장미에게는 지금은 세상에 없는 큰언니가 있었다는 사실",
+          "장미의 가족이 며칠 전 다른 동네로 이사를 갔다는 사실",
+          "장미의 가족이 같은 빌라에서 두 집을 함께 쓰고 있다는 사실",
+          "장미의 부모님이 모두 학교 선생님이라는 사실"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "아주머니가 '큰딸 이름이었거든. 지금은 하늘나라에 갔겠지만'이라고 말한 부분을 다시 떠올려 봐. 어떤 사실이 새로 드러난 거지?"
+      },
+      "wrongExplanation": "이사나 두 집 살림, 부모님 직업 이야기는 본문에 없어. 아주머니의 말 속에서 새로 드러난 건 장미에게 '지금은 하늘나라에 갔'다는 큰언니가 있었다는 사실이야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "장미의 집을 찾는 동안 서영이와 민주가 새로 알게 된 사실은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 201
+    },
+    {
+      "id": "crd_2026W21_comp_s51_007",
+      "cardId": "crd_2026W21_comp_s51_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "서영이와 민주는 장미가 살고 있는 낡은 달빛 빌라 앞에서 잠깐 멍하게 마주 보고 서 있었다. '아, 장미네 집이 몇 층 몇 호인지 모르잖아.' 이제 친하다고 생각했는데 친구네 집이 어디인지조차 모른다는 게 부끄러울 지경이었다.",
+        "ttsText": "서영이와 민주는 장미가 살고 있는 낡은 달빛 빌라 앞에서 잠깐 멍하게 마주 보고 서 있었다. 아, 장미네 집이 몇 층 몇 호인지 모르잖아. 이제 친하다고 생각했는데 친구네 집이 어디인지조차 모른다는 게 부끄러울 지경이었다.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "서영이와 민주가 빌라 앞에서 부끄러움을 느낀 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "서영이와 민주가 빌라 앞에서 부끄러움을 느낀 까닭으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "두 사람이 빌라 앞에서 멍하게 마주 본 까닭을 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "친하다고 생각해 온 친구의 집이 몇 층 몇 호인지조차 모르고 있었다는 걸 깨달았기 때문",
+        "options": [
+          "친하다고 생각해 온 친구의 집이 몇 층 몇 호인지조차 모르고 있었다는 걸 깨달았기 때문",
+          "빌라가 너무 낡아서 친구가 그곳에 사는 게 안타까웠기 때문",
+          "지나가는 어른들이 자기들을 보고 비웃었기 때문",
+          "엄마 말을 듣지 않고 몰래 나온 일이 갑자기 미안해졌기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "본문은 '이제 친하다고 생각했는데 ~는 게 부끄러울 지경이었다'라고 했어. 친구에 대해 무엇을 몰랐다는 깨달음이 부끄러움을 만든 거지."
+      },
+      "wrongExplanation": "빌라가 낡아서나, 어른들의 시선이나, 엄마 때문이 아니야. 친하다고 생각했지만 친구의 집이 어디인지조차 모른다는 사실이 두 사람을 부끄럽게 만든 거야. 친구를 안다는 게 무엇인지 다시 돌아보게 되는 장면이지.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "서영이와 민주가 빌라 앞에서 부끄러움을 느낀 까닭으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 202
+    },
+    {
+      "id": "crd_2026W21_comp_s51_008",
+      "cardId": "crd_2026W21_comp_s51_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "장미를찾아간서영과민주-수업51",
+      "sourceId": "reading-class",
+      "runId": "2026-W21",
+      "passage": {
+        "text": "수업이 끝나자마자 서영이와 민주는 장미에게 전화를 걸었지만 장미의 핸드폰은 꺼져 있었다. 몇 번을 걸어 봐도 마찬가지였다. 둘은 달리다시피 장미네 집으로 갔다. 한참 뒤 현관문이 살그머니 열리며 잠옷 차림에 마치 유령처럼 얼굴이 헬쑥한 장미가 그 안에 서 있었다.",
+        "ttsText": "수업이 끝나자마자 서영이와 민주는 장미에게 전화를 걸었지만 장미의 핸드폰은 꺼져 있었다. 몇 번을 걸어 봐도 마찬가지였다. 둘은 달리다시피 장미네 집으로 갔다. 한참 뒤 현관문이 살그머니 열리며 잠옷 차림에 마치 유령처럼 얼굴이 헬쑥한 장미가 그 안에 서 있었다.",
+        "topic": "장미를찾아간서영과민주-수업51",
+        "source": "51회 독서수업 260521"
+      },
+      "question": {
+        "text": "장미의 핸드폰이 꺼져 있고, 장미가 잠옷 차림에 유령처럼 헬쑥한 얼굴로 문을 연 장면이 우리에게 짐작하게 하는 것은 무엇일까요?",
+        "ttsText": "장미의 핸드폰이 꺼져 있고, 장미가 잠옷 차림에 유령처럼 헬쑥한 얼굴로 문을 연 장면이 우리에게 짐작하게 하는 것은 무엇일까요?",
+        "passage": "선생님이 알려 준 결석 사유는 단순한 몸살이었어요. 그런데 실제 장미의 모습은 어떻게 보였는지 떠올려 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미의 결석이 단순한 몸살이 아니라 더 무거운 사정이 있을 수 있다는 신호",
+        "options": [
+          "장미의 결석이 단순한 몸살이 아니라 더 무거운 사정이 있을 수 있다는 신호",
+          "장미가 친구들에게 깜짝 파티를 준비하고 있다는 신호",
+          "장미가 이미 다 나아서 곧 학교에 돌아올 거라는 신호",
+          "장미가 친구들을 더는 만나고 싶지 않다는 분명한 거절"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미는 친구들과 연락이 닿지 않게 핸드폰을 끄고, 일어나지 못한 모습으로 문을 열어 줬어. 보통 몸살로 결석한 친구 모습과 같은지 생각해 봐."
+      },
+      "wrongExplanation": "깜짝 파티나 회복이나 거절이 아니야. 핸드폰을 꺼 두고, 잠옷 차림에 유령처럼 헬쑥해진 모습은 단순한 몸살로 보기에는 무거운 신호야. 다음 이야기에서 더 자세한 이유가 밝혀질 것 같지.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W21",
+      "ttsText": "장미의 핸드폰이 꺼져 있고, 장미가 잠옷 차림에 유령처럼 헬쑥한 얼굴로 문을 연 장면이 우리에게 짐작하게 하는 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 203
+    },
+    {
+      "id": "crd_2026W22_comp_s53_001",
+      "cardId": "crd_2026W22_comp_s53_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "사실 보경이에게 메시지를 보낸 후 서영이는 마음이 조마조마하였다. 보경이는 메시지를 읽고도 답장을 보내지 않았다.",
+        "ttsText": "사실 보경이에게 메시지를 보낸 후 서영이는 마음이 조마조마하였다. 보경이는 메시지를 읽고도 답장을 보내지 않았다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "서영이가 보경이에게 메시지를 보냈을 때, 보경이는 처음에 어떻게 했나요?",
+        "ttsText": "서영이가 보경이에게 메시지를 보냈을 때, 보경이는 처음에 어떻게 했나요?",
+        "passage": "보경이는 서영이의 메시지에 한동안 답이 없었어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "답장을 보내지 않았다",
+        "options": [
+          "답장을 보내지 않았다",
+          "바로 사과했다",
+          "선생님께 알렸다",
+          "장미에게 전화했다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 서영이의 문자에 바로 대답했는지 떠올려 봐."
+      },
+      "wrongExplanation": "보경이가 메시지를 읽고 어떻게 했는지 그 장면을 다시 보면, 한동안 아무 소식이 없었던 걸 알 수 있어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "서영이가 보경이에게 메시지를 보냈을 때, 보경이는 처음에 어떻게 했나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 204
+    },
+    {
+      "id": "crd_2026W22_comp_s53_002",
+      "cardId": "crd_2026W22_comp_s53_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "다음 날 아침, 보경이에게서 답장이 왔다. 가져간 물건들을 장미에게 돌려주겠다는 내용이었다.",
+        "ttsText": "다음 날 아침, 보경이에게서 답장이 왔다. 가져간 물건들을 장미에게 돌려주겠다는 내용이었다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "다음 날 아침, 보경이가 서영이에게 보낸 답장의 내용은 무엇인가요?",
+        "ttsText": "다음 날 아침, 보경이가 서영이에게 보낸 답장의 내용은 무엇인가요?",
+        "passage": "보경이가 장미에게서 가져갔던 것을 어떻게 하겠다고 했어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "가져간 물건들을 장미에게 돌려주겠다",
+        "options": [
+          "가져간 물건들을 장미에게 돌려주겠다",
+          "다시는 학교에 오지 않겠다",
+          "서영이와 친구가 되고 싶다",
+          "선생님께 모두 말하겠다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 장미에게서 가져갔던 물건을 어떻게 하겠다고 했는지 떠올려 봐."
+      },
+      "wrongExplanation": "보경이가 답장에서 '가져간 물건'을 어떻게 하겠다고 했는지 그 한 줄을 다시 읽어 보면 찾을 수 있어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "다음 날 아침, 보경이가 서영이에게 보낸 답장의 내용은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 205
+    },
+    {
+      "id": "crd_2026W22_comp_s53_003",
+      "cardId": "crd_2026W22_comp_s53_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "큰 회사의 전무인 아빠와 액세서리 쇼핑몰을 운영하는 엄마는 보경이에게 용돈을 넉넉하게 주었다.",
+        "ttsText": "큰 회사의 전무인 아빠와 액세서리 쇼핑몰을 운영하는 엄마는 보경이에게 용돈을 넉넉하게 주었다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "글에 나온 보경이네 집안 형편으로 알맞은 것은 무엇인가요?",
+        "ttsText": "글에 나온 보경이네 집안 형편으로 알맞은 것은 무엇인가요?",
+        "passage": "보경이 아빠와 엄마가 무슨 일을 하는지 글에 나와 있어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "아빠는 큰 회사의 전무이고 엄마는 쇼핑몰을 운영한다",
+        "options": [
+          "아빠는 큰 회사의 전무이고 엄마는 쇼핑몰을 운영한다",
+          "부모님이 모두 학교 선생님이다",
+          "집안 형편이 어려워 용돈을 받지 못한다",
+          "할머니와 단둘이 산다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이 부모님이 각각 무슨 일을 하는지 글에서 찾아봐."
+      },
+      "wrongExplanation": "보경이 아빠와 엄마의 직업이 글에 또렷하게 나와 있으니, 그 부분을 다시 살펴봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "글에 나온 보경이네 집안 형편으로 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 206
+    },
+    {
+      "id": "crd_2026W22_comp_s53_004",
+      "cardId": "crd_2026W22_comp_s53_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "엄마는 예감이 좋다고 했다. 장미가 드디어 자신의 목소리를 내기 시작했고, 보경이가 장미의 물건을 돌려주겠다고 했기 때문이다.",
+        "ttsText": "엄마는 예감이 좋다고 했다. 장미가 드디어 자신의 목소리를 내기 시작했고, 보경이가 장미의 물건을 돌려주겠다고 했기 때문이다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "서영이의 엄마가 '예감이 좋다'고 말한 까닭으로 알맞은 것은 무엇인가요?",
+        "ttsText": "서영이의 엄마가 '예감이 좋다'고 말한 까닭으로 알맞은 것은 무엇인가요?",
+        "passage": "엄마는 장미와 보경이에게 생긴 변화를 좋게 보았어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미가 목소리를 내기 시작하고 보경이가 물건을 돌려주겠다고 해서",
+        "options": [
+          "장미가 목소리를 내기 시작하고 보경이가 물건을 돌려주겠다고 해서",
+          "서영이의 시험 성적이 올라서",
+          "보경이가 전학을 가게 되어서",
+          "장미가 새 친구를 사귀어서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "엄마가 좋게 본 변화가 장미와 보경이에게 각각 무엇이었는지 생각해 봐."
+      },
+      "wrongExplanation": "엄마가 기뻐한 까닭은 장미와 보경이 두 사람 모두에게 생긴 변화 때문이야. 그 두 가지를 다시 떠올려 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "서영이의 엄마가 '예감이 좋다'고 말한 까닭으로 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 207
+    },
+    {
+      "id": "crd_2026W22_comp_s53_005",
+      "cardId": "crd_2026W22_comp_s53_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "보경이는 시간이 날 때마다 PC방에 가서 게임 머니로 게임을 하다 보니 용돈을 다 쓰기 일쑤였다. 그래서 아줌마에게 돈을 달라고 했다.",
+        "ttsText": "보경이는 시간이 날 때마다 PC방에 가서 게임 머니로 게임을 하다 보니 용돈을 다 쓰기 일쑤였다. 그래서 아줌마에게 돈을 달라고 했다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "보경이가 집안일을 돌봐주는 아줌마에게 돈을 달라고 한 까닭은 무엇인가요?",
+        "ttsText": "보경이가 집안일을 돌봐주는 아줌마에게 돈을 달라고 한 까닭은 무엇인가요?",
+        "passage": "보경이가 받은 용돈을 주로 어디에 썼는지 떠올려 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "용돈을 PC방 게임에 다 써서 돈이 없었기 때문에",
+        "options": [
+          "용돈을 PC방 게임에 다 써서 돈이 없었기 때문에",
+          "장미에게 줄 선물을 사려고",
+          "학원비를 내야 해서",
+          "엄마 심부름을 하려고"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 받은 용돈을 주로 무엇에 썼는지 떠올려 봐."
+      },
+      "wrongExplanation": "보경이가 PC방에서 무엇에 돈을 썼는지 생각해 보면, 왜 돈이 모자랐는지 알 수 있어.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "보경이가 집안일을 돌봐주는 아줌마에게 돈을 달라고 한 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 208
+    },
+    {
+      "id": "crd_2026W22_comp_s53_006",
+      "cardId": "crd_2026W22_comp_s53_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "'이보경, 너 오늘 영어 학원에 안 갔다며?'라며 엄마가 따져 물었다. 보경이는 PC방에 가느라 영어 학원에 가지 않았던 것이다.",
+        "ttsText": "'이보경, 너 오늘 영어 학원에 안 갔다며?'라며 엄마가 따져 물었다. 보경이는 PC방에 가느라 영어 학원에 가지 않았던 것이다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "보경이가 집에 늦게 들어와 엄마에게 혼난 까닭은 무엇인가요?",
+        "ttsText": "보경이가 집에 늦게 들어와 엄마에게 혼난 까닭은 무엇인가요?",
+        "passage": "보경이가 그날 가야 할 학원에 갔는지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "영어 학원에 가지 않고 PC방에 갔기 때문에",
+        "options": [
+          "영어 학원에 가지 않고 PC방에 갔기 때문에",
+          "숙제를 하지 않아서",
+          "친구와 싸워서",
+          "늦잠을 자서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 그날 가야 할 학원에 갔는지 생각해 봐."
+      },
+      "wrongExplanation": "엄마가 보경이에게 가장 먼저 따져 물은 것이 무엇이었는지 떠올리면 까닭을 알 수 있어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "보경이가 집에 늦게 들어와 엄마에게 혼난 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 209
+    },
+    {
+      "id": "crd_2026W22_comp_s53_007",
+      "cardId": "crd_2026W22_comp_s53_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "'나는 지금 너를 협박하는 게 아니야. 너에게 잘못을 뉘우칠 기회를 주는 거야.'",
+        "ttsText": "'나는 지금 너를 협박하는 게 아니야. 너에게 잘못을 뉘우칠 기회를 주는 거야.'",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "서영이가 보경이에게 '협박하는 게 아니라 잘못을 뉘우칠 기회를 주는 것'이라고 말한 까닭은 무엇일까요?",
+        "ttsText": "서영이가 보경이에게 '협박하는 게 아니라 잘못을 뉘우칠 기회를 주는 것'이라고 말한 까닭은 무엇일까요?",
+        "passage": "서영이가 보경이를 벌주려 한 것인지, 달라질 기회를 주려 한 것인지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보경이가 스스로 잘못을 깨닫고 바로잡기를 바랐기 때문에",
+        "options": [
+          "보경이가 스스로 잘못을 깨닫고 바로잡기를 바랐기 때문에",
+          "보경이를 골탕 먹이고 싶었기 때문에",
+          "보경이와 똑같이 나쁜 행동을 하고 싶어서",
+          "선생님께 칭찬받고 싶어서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이가 보경이를 벌주려 한 것인지, 달라질 기회를 주려 한 것인지 생각해 봐."
+      },
+      "wrongExplanation": "'뉘우칠 기회를 준다'는 말 속에 서영이의 진짜 바람이 담겨 있어. 보경이가 어떻게 되기를 바란 걸까?",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "서영이가 보경이에게 '협박하는 게 아니라 잘못을 뉘우칠 기회를 주는 것'이라고 말한 까닭은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 210
+    },
+    {
+      "id": "crd_2026W22_comp_s53_008",
+      "cardId": "crd_2026W22_comp_s53_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "서영의설득과보경의답장-수업53",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "서영이는 두려워도 보경이에게 메시지를 보내 장미를 도왔고, 결국 보경이가 물건을 돌려주겠다는 답을 받아 냈다.",
+        "ttsText": "서영이는 두려워도 보경이에게 메시지를 보내 장미를 도왔고, 결국 보경이가 물건을 돌려주겠다는 답을 받아 냈다.",
+        "topic": "서영의설득과보경의답장-수업53",
+        "source": "53회 독서수업 260526"
+      },
+      "question": {
+        "text": "이 이야기에서 서영이가 보여 준 모습으로 알맞은 것은 무엇일까요?",
+        "ttsText": "이 이야기에서 서영이가 보여 준 모습으로 알맞은 것은 무엇일까요?",
+        "passage": "서영이가 장미를 위해 무엇을 무릅쓰고 행동했는지 떠올려 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "어려움에 빠진 친구를 위해 용기를 낸 모습",
+        "options": [
+          "어려움에 빠진 친구를 위해 용기를 낸 모습",
+          "친구를 따돌리는 데 앞장선 모습",
+          "어려운 일을 모른 척 피하는 모습",
+          "상을 받으려고 행동하는 모습"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "서영이가 장미를 위해 무엇을 무릅쓰고 행동했는지 떠올려 봐."
+      },
+      "wrongExplanation": "서영이가 무섭고 떨리는데도 왜 보경이에게 메시지를 보냈는지 생각해 보면, 어떤 모습인지 알 수 있어.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "이 이야기에서 서영이가 보여 준 모습으로 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 211
+    },
+    {
+      "id": "crd_2026W22_comp_s54_001",
+      "cardId": "crd_2026W22_comp_s54_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "보경이는 쿵쾅쿵쾅 소리를 내며 제 방으로 들어가 방문을 탁 닫았다.",
+        "ttsText": "보경이는 쿵쾅쿵쾅 소리를 내며 제 방으로 들어가 방문을 탁 닫았다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "엄마에게 꾸중을 들은 보경이는 어떻게 했나요?",
+        "ttsText": "엄마에게 꾸중을 들은 보경이는 어떻게 했나요?",
+        "passage": "보경이가 화가 나서 한 행동을 떠올려 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "쿵쾅거리며 방으로 들어가 방문을 닫았다",
+        "options": [
+          "쿵쾅거리며 방으로 들어가 방문을 닫았다",
+          "엄마에게 잘못했다고 사과했다",
+          "조용히 숙제를 시작했다",
+          "장미에게 전화를 걸었다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 화가 나서 한 행동을 떠올려 봐."
+      },
+      "wrongExplanation": "엄마에게 혼난 보경이가 조용히 받아들였는지, 화를 내며 방으로 들어갔는지 그 장면을 다시 봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "엄마에게 꾸중을 들은 보경이는 어떻게 했나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 212
+    },
+    {
+      "id": "crd_2026W22_comp_s54_002",
+      "cardId": "crd_2026W22_comp_s54_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "장미는 '안 돼, 그건 우리 언니 거란 말이야. 내가 제일 좋아하는 물건이라고.'라고 했지만, 보경이는 그 물건을 가지고 집을 빠져나왔다.",
+        "ttsText": "장미는 '안 돼, 그건 우리 언니 거란 말이야. 내가 제일 좋아하는 물건이라고.'라고 했지만, 보경이는 그 물건을 가지고 집을 빠져나왔다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "보경이가 장미에게서 가져간 것은 무엇인가요?",
+        "ttsText": "보경이가 장미에게서 가져간 것은 무엇인가요?",
+        "passage": "장미가 '우리 언니 거'라며 못 가져가게 한 것이 무엇이었는지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미가 가장 아끼는 언니의 물건",
+        "options": [
+          "장미가 가장 아끼는 언니의 물건",
+          "장미의 교과서",
+          "장미의 휴대폰",
+          "장미의 신발"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미가 '우리 언니 거'라며 못 가져가게 한 것이 무엇이었는지 생각해 봐."
+      },
+      "wrongExplanation": "장미가 무엇을 그렇게 아끼며 빨리 돌려 달라고 했는지 그 장면을 다시 떠올려 봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "보경이가 장미에게서 가져간 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 213
+    },
+    {
+      "id": "crd_2026W22_comp_s54_003",
+      "cardId": "crd_2026W22_comp_s54_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "다음 날 학교에 간 보경이는 깜짝 놀랐다. 장미가 학교에 오지 않은 것이다.",
+        "ttsText": "다음 날 학교에 간 보경이는 깜짝 놀랐다. 장미가 학교에 오지 않은 것이다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "다음 날 학교에 간 보경이가 깜짝 놀란 까닭은 무엇인가요?",
+        "ttsText": "다음 날 학교에 간 보경이가 깜짝 놀란 까닭은 무엇인가요?",
+        "passage": "그날 교실에 장미가 있었는지 떠올려 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미가 학교에 결석했기 때문에",
+        "options": [
+          "장미가 학교에 결석했기 때문에",
+          "선생님이 화를 내서",
+          "친구들이 모두 자기를 피해서",
+          "시험이 갑자기 생겨서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "그날 교실에 장미가 있었는지 떠올려 봐."
+      },
+      "wrongExplanation": "보경이가 학교에서 무엇을 보고(혹은 못 보고) 놀랐는지 생각해 보면 알 수 있어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "다음 날 학교에 간 보경이가 깜짝 놀란 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 214
+    },
+    {
+      "id": "crd_2026W22_comp_s54_004",
+      "cardId": "crd_2026W22_comp_s54_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "보경이가 머리카락을 잡아당기거나 음식을 빼앗아도, 장미는 크게 화를 내거나 소리를 지르지 않고 가만히 있었다.",
+        "ttsText": "보경이가 머리카락을 잡아당기거나 음식을 빼앗아도, 장미는 크게 화를 내거나 소리를 지르지 않고 가만히 있었다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "보경이가 괴롭힐 때 장미는 보통 어떻게 반응했나요?",
+        "ttsText": "보경이가 괴롭힐 때 장미는 보통 어떻게 반응했나요?",
+        "passage": "장미가 괴롭힘을 당할 때 어떤 태도를 보였는지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "크게 화내거나 소리지르지 않고 가만히 있었다",
+        "options": [
+          "크게 화내거나 소리지르지 않고 가만히 있었다",
+          "곧바로 선생님께 일렀다",
+          "똑같이 보경이를 괴롭혔다",
+          "큰 소리로 울며 대들었다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미가 괴롭힘을 당할 때 어떤 태도를 보였는지 생각해 봐."
+      },
+      "wrongExplanation": "장미가 괴롭힘에 맞서 소리쳤는지, 아니면 조용히 참았는지 그 모습을 다시 떠올려 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "보경이가 괴롭힐 때 장미는 보통 어떻게 반응했나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 215
+    },
+    {
+      "id": "crd_2026W22_comp_s54_005",
+      "cardId": "crd_2026W22_comp_s54_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "잘사는 줄 알았던 장미는 사실 낡은 빌라에 살고 있었다.",
+        "ttsText": "잘사는 줄 알았던 장미는 사실 낡은 빌라에 살고 있었다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "장미의 실제 형편에 대한 설명으로 알맞은 것은 무엇인가요?",
+        "ttsText": "장미의 실제 형편에 대한 설명으로 알맞은 것은 무엇인가요?",
+        "passage": "겉보기와 실제 장미의 사는 모습이 어떻게 달랐는지 찾아봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "잘사는 줄 알았지만 낡은 빌라에 살고 있었다",
+        "options": [
+          "잘사는 줄 알았지만 낡은 빌라에 살고 있었다",
+          "아주 큰 집에서 부유하게 살았다",
+          "부모님 없이 혼자 살았다",
+          "시골에서 할머니와 살았다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "겉보기와 실제 장미가 사는 모습이 어떻게 달랐는지 찾아봐."
+      },
+      "wrongExplanation": "사람들이 짐작한 장미의 형편과 진짜 형편이 어떻게 달랐는지 그 부분을 다시 읽어 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "장미의 실제 형편에 대한 설명으로 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 216
+    },
+    {
+      "id": "crd_2026W22_comp_s54_006",
+      "cardId": "crd_2026W22_comp_s54_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "엄마 아빠의 잔소리가 잦아지면서, 보경이는 자꾸만 삐딱해지고 나쁜 아이가 되고 싶어졌다.",
+        "ttsText": "엄마 아빠의 잔소리가 잦아지면서, 보경이는 자꾸만 삐딱해지고 나쁜 아이가 되고 싶어졌다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "6학년이 되면서 보경이의 마음은 어떻게 바뀌었나요?",
+        "ttsText": "6학년이 되면서 보경이의 마음은 어떻게 바뀌었나요?",
+        "passage": "부모님과 부딪치면서 보경이의 마음이 어느 쪽으로 기울었는지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "점점 삐딱해지고 나쁜 아이가 되고 싶어졌다",
+        "options": [
+          "점점 삐딱해지고 나쁜 아이가 되고 싶어졌다",
+          "공부를 더 열심히 하고 싶어졌다",
+          "부모님께 더 다정해졌다",
+          "친구들에게 친절해졌다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "부모님과 부딪치면서 보경이의 마음이 어느 쪽으로 기울었는지 생각해 봐."
+      },
+      "wrongExplanation": "잔소리가 잦아질수록 보경이의 마음이 좋아졌는지 비뚤어졌는지 생각해 보면 답이 보여.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "6학년이 되면서 보경이의 마음은 어떻게 바뀌었나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 217
+    },
+    {
+      "id": "crd_2026W22_comp_s54_007",
+      "cardId": "crd_2026W22_comp_s54_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "장미는 늘 가만히 있었는데, 이번에는 울며 매달렸고 다음 날 학교에도 결석했다. 평소와 다른 모습에 보경이는 하루 종일 장미 생각이 떠나지 않았다.",
+        "ttsText": "장미는 늘 가만히 있었는데, 이번에는 울며 매달렸고 다음 날 학교에도 결석했다. 평소와 다른 모습에 보경이는 하루 종일 장미 생각이 떠나지 않았다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "그동안 장미를 괴롭히던 보경이가 처음으로 장미를 걱정하게 된 까닭은 무엇일까요?",
+        "ttsText": "그동안 장미를 괴롭히던 보경이가 처음으로 장미를 걱정하게 된 까닭은 무엇일까요?",
+        "passage": "늘 가만히 있던 장미의 모습과 이번 모습이 어떻게 달랐는지 떠올려 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "장미가 평소와 달리 울며 매달리고 결석까지 했기 때문에",
+        "options": [
+          "장미가 평소와 달리 울며 매달리고 결석까지 했기 때문에",
+          "선생님이 걱정하라고 시켜서",
+          "장미가 보경이에게 선물을 줘서",
+          "친구들이 장미를 칭찬해서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "늘 가만히 있던 장미의 모습과 이번 모습이 어떻게 달랐는지 떠올려 봐."
+      },
+      "wrongExplanation": "장미가 평소에 보이던 반응과 이번 반응의 차이가 보경이의 마음을 흔든 거야. 그 차이를 생각해 봐.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "그동안 장미를 괴롭히던 보경이가 처음으로 장미를 걱정하게 된 까닭은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 218
+    },
+    {
+      "id": "crd_2026W22_comp_s54_008",
+      "cardId": "crd_2026W22_comp_s54_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "보경의괴롭힘과처음느낀걱정-수업54",
+      "sourceId": "reading-class",
+      "runId": "2026-W22",
+      "passage": {
+        "text": "엄마는 '실력을 쌓아야 한다'며 늘 보경이를 다그쳤고, 그럴수록 보경이는 삐딱해져 약한 친구인 장미를 괴롭혔다.",
+        "ttsText": "엄마는 '실력을 쌓아야 한다'며 늘 보경이를 다그쳤고, 그럴수록 보경이는 삐딱해져 약한 친구인 장미를 괴롭혔다.",
+        "topic": "보경의괴롭힘과처음느낀걱정-수업54",
+        "source": "54회 독서수업 260528"
+      },
+      "question": {
+        "text": "보경이의 행동을 보며 짐작할 수 있는 것으로 가장 알맞은 것은 무엇일까요?",
+        "ttsText": "보경이의 행동을 보며 짐작할 수 있는 것으로 가장 알맞은 것은 무엇일까요?",
+        "passage": "보경이가 부모님께 다그침을 받을 때 그 마음을 누구에게 풀었는지 생각해 봐요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "마음이 힘들 때 약한 친구에게 화풀이를 하기도 한다는 것",
+        "options": [
+          "마음이 힘들 때 약한 친구에게 화풀이를 하기도 한다는 것",
+          "공부를 잘하면 친구를 괴롭혀도 된다는 것",
+          "부모님 말씀은 들을 필요가 없다는 것",
+          "친구를 괴롭히면 행복해진다는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 부모님께 다그침을 받을 때 그 마음을 누구에게 풀었는지 생각해 봐."
+      },
+      "wrongExplanation": "보경이가 마음이 힘들 때 그 화를 누구에게 풀었는지 떠올려 보면, 이 이야기가 알려 주는 것을 찾을 수 있어.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W22",
+      "ttsText": "보경이의 행동을 보며 짐작할 수 있는 것으로 가장 알맞은 것은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 219
     }
   ]
 }
