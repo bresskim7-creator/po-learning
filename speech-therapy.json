@@ -4663,7 +4663,7 @@
       "practiceMode": "cover_read",
       "homeworkDate": "2026-05-21",
       "reviewStatus": "parent_review_pending",
-      "_note": "v5.72.0(2026-06-03): 적용(1) 대조쌍 개편 — items 20개(p.19 체언 9 + p.20 체언 11, 조사 4칸 allForms[자음2+모음2]). 평탄 스키마 유지 + 칼럼 증설(contrastOrtho/contrastPron/allForms/particleVowel/particleConsonant/difficulty/anchor/liaisonException), 중첩 금지. 앵커 12개(anchor:true) id = config.coverReadAnchorSet.itemIds 1:1. 출처 00_Context/2026-06-03-연음-적용1-data.json (JH 검수완료). 녹음·자기비교는 모음형(이/에) 앵커 itemId만, 자음칸(도/까지·과/부터)은 차이듣기 읽기·듣기. 종(liaisonException) 포함=연음 안 되는 대비. 일일 sampling coverReadItemsPerSession 기본 10. ㅇ받침 예외·고난도(대궐/가마솥/뙤약볕 difficulty 3)는 sampling 후순위.",
+      "_note": "v5.72.0(2026-06-03): 적용(1) 대조쌍 개편 — items 20개(p.19 체언 9 + p.20 체언 11, 조사 4칸 allForms[자음2+모음2]). 평탄 스키마 유지 + 칼럼 증설(contrastOrtho/contrastPron/allForms/particleVowel/particleConsonant/difficulty/anchor/liaisonException), 중첩 금지. 앵커 12개(anchor:true) id = config.coverReadAnchorSet.itemIds 1:1. 출처 00_Context/2026-06-03-연음-적용1-data.json (JH 검수완료). 녹음·자기비교는 모음형(이/에) 앵커 itemId만, 자음칸(도/까지·과/부터)은 차이듣기 읽기·듣기. 종(liaisonException) 포함=연음 안 되는 대비. 일일 sampling coverReadItemsPerSession 기본 10. ㅇ받침 예외·고난도(대궐/가마솥/뙤약볕 difficulty 3)는 sampling 후순위. v5.77.0(2026-06-03): 적용2(용언+어미 p.21~22) 21항목 추가(stage:2·anchor:false, 출처 00_Context/2026-06-03-연음-적용2-data.json), 기존 적용1 20개 stage:1. items 20→41, stage 게이팅(crBuildCoverReadQueue)으로 적용1 거의 마스터 후 적용2 등장. 앵커 12개 불변.",
       "items": [
         {
           "id": "bk5-1-1-p19-jong-i",
@@ -4703,7 +4703,8 @@
           ],
           "difficulty": 1,
           "anchor": false,
-          "liaisonException": true
+          "liaisonException": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-book-i",
@@ -4742,7 +4743,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-nun-i",
@@ -4781,7 +4783,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-byeol-i",
@@ -4820,7 +4823,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-gam-i",
@@ -4859,7 +4863,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-jip-i",
@@ -4898,7 +4903,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-sowon-i",
@@ -4937,7 +4943,8 @@
             }
           ],
           "difficulty": 2,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-daegwol-i",
@@ -4976,7 +4983,8 @@
             }
           ],
           "difficulty": 3,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p19-batchim-i",
@@ -5015,7 +5023,8 @@
             }
           ],
           "difficulty": 2,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-ot-e",
@@ -5054,7 +5063,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-got-e",
@@ -5093,7 +5103,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-nat-e",
@@ -5132,7 +5143,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-kkot-e",
@@ -5171,7 +5183,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-bat-e",
@@ -5210,7 +5223,8 @@
             }
           ],
           "difficulty": 2,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-sup-e",
@@ -5249,7 +5263,8 @@
             }
           ],
           "difficulty": 2,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-bak-e",
@@ -5288,7 +5303,8 @@
             }
           ],
           "difficulty": 1,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-bueok-e",
@@ -5327,7 +5343,8 @@
             }
           ],
           "difficulty": 2,
-          "anchor": true
+          "anchor": true,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-mureup-e",
@@ -5366,7 +5383,8 @@
             }
           ],
           "difficulty": 2,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-gamasot-e",
@@ -5405,7 +5423,8 @@
             }
           ],
           "difficulty": 3,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
         },
         {
           "id": "bk5-1-1-p20-ttoeyakbyeot-e",
@@ -5444,7 +5463,849 @@
             }
           ],
           "difficulty": 3,
-          "anchor": false
+          "anchor": false,
+          "stage": 1
+        },
+        {
+          "id": "bk5-1-1-p21-meok-eo",
+          "orthography": "먹어",
+          "pronunciation": "머거",
+          "sourceForm": "먹다",
+          "ruleType": "연음",
+          "contrastOrtho": "먹고",
+          "contrastPron": "먹꼬",
+          "particleVowel": "어",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "먹고",
+              "pron": "먹꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "먹지만",
+              "pron": "먹찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "먹어",
+              "pron": "머거",
+              "particle": "어",
+              "type": "vowel"
+            },
+            {
+              "ortho": "먹어서",
+              "pron": "머거서",
+              "particle": "어서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-nok-a",
+          "orthography": "녹아",
+          "pronunciation": "노가",
+          "sourceForm": "녹다",
+          "ruleType": "연음",
+          "contrastOrtho": "녹고",
+          "contrastPron": "녹꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "녹고",
+              "pron": "녹꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "녹지만",
+              "pron": "녹찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "녹아",
+              "pron": "노가",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "녹아서",
+              "pron": "노가서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-an-a",
+          "orthography": "안아",
+          "pronunciation": "아나",
+          "sourceForm": "안다",
+          "ruleType": "연음",
+          "contrastOrtho": "안고",
+          "contrastPron": "안꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "안고",
+              "pron": "안꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "안지만",
+              "pron": "안찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "안아",
+              "pron": "아나",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "안아서",
+              "pron": "아나서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-dat-a",
+          "orthography": "닫아",
+          "pronunciation": "다다",
+          "sourceForm": "닫다",
+          "ruleType": "연음",
+          "contrastOrtho": "닫고",
+          "contrastPron": "닫꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "닫고",
+              "pron": "닫꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "닫지만",
+              "pron": "닫찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "닫아",
+              "pron": "다다",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "닫아서",
+              "pron": "다다서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-ssot-a",
+          "orthography": "쏟아",
+          "pronunciation": "쏘다",
+          "sourceForm": "쏟다",
+          "ruleType": "연음",
+          "contrastOrtho": "쏟고",
+          "contrastPron": "쏟꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "쏟고",
+              "pron": "쏟꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "쏟지만",
+              "pron": "쏟찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "쏟아",
+              "pron": "쏘다",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "쏟아서",
+              "pron": "쏘다서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-ul-eo",
+          "orthography": "울어",
+          "pronunciation": "우러",
+          "sourceForm": "울다",
+          "ruleType": "연음",
+          "contrastOrtho": "울고",
+          "contrastPron": "울고",
+          "particleVowel": "어",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "울고",
+              "pron": "울고",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "울지만",
+              "pron": "울지만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "울어",
+              "pron": "우러",
+              "particle": "어",
+              "type": "vowel"
+            },
+            {
+              "ortho": "울어서",
+              "pron": "우러서",
+              "particle": "어서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2,
+          "liaisonNote": "ㄹ받침: 자음어미에서 된소리 안 됨(울고/울지만). 모음어미는 연음(우러)."
+        },
+        {
+          "id": "bk5-1-1-p21-gam-a",
+          "orthography": "감아",
+          "pronunciation": "가마",
+          "sourceForm": "감다",
+          "ruleType": "연음",
+          "contrastOrtho": "감고",
+          "contrastPron": "감꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "감고",
+              "pron": "감꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "감지만",
+              "pron": "감찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "감아",
+              "pron": "가마",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "감아서",
+              "pron": "가마서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-jap-a",
+          "orthography": "잡아",
+          "pronunciation": "자바",
+          "sourceForm": "잡다",
+          "ruleType": "연음",
+          "contrastOrtho": "잡고",
+          "contrastPron": "잡꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "잡고",
+              "pron": "잡꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "잡지만",
+              "pron": "잡찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "잡아",
+              "pron": "자바",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "잡아서",
+              "pron": "자바서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p21-ppop-a",
+          "orthography": "뽑아",
+          "pronunciation": "뽀바",
+          "sourceForm": "뽑다",
+          "ruleType": "연음",
+          "contrastOrtho": "뽑고",
+          "contrastPron": "뽑꼬",
+          "particleVowel": "아",
+          "particleConsonant": "고",
+          "allForms": [
+            {
+              "ortho": "뽑고",
+              "pron": "뽑꼬",
+              "particle": "고",
+              "type": "consonant"
+            },
+            {
+              "ortho": "뽑지만",
+              "pron": "뽑찌만",
+              "particle": "지만",
+              "type": "consonant"
+            },
+            {
+              "ortho": "뽑아",
+              "pron": "뽀바",
+              "particle": "아",
+              "type": "vowel"
+            },
+            {
+              "ortho": "뽑아서",
+              "pron": "뽀바서",
+              "particle": "아서",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-it-eoyo",
+          "orthography": "있어요",
+          "pronunciation": "이써요",
+          "sourceForm": "있다",
+          "ruleType": "연음",
+          "contrastOrtho": "있다가",
+          "contrastPron": "읻따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "있다가",
+              "pron": "읻따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "있습니다",
+              "pron": "읻씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "있어요",
+              "pron": "이써요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "있었다",
+              "pron": "이썯따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-beot-eoyo",
+          "orthography": "벗어요",
+          "pronunciation": "버서요",
+          "sourceForm": "벗다",
+          "ruleType": "연음",
+          "contrastOrtho": "벗다가",
+          "contrastPron": "벋따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "벗다가",
+              "pron": "벋따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "벗습니다",
+              "pron": "벋씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "벗어요",
+              "pron": "버서요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "벗었다",
+              "pron": "버섣따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-nat-ayo",
+          "orthography": "낮아요",
+          "pronunciation": "나자요",
+          "sourceForm": "낮다",
+          "ruleType": "연음",
+          "contrastOrtho": "낮다가",
+          "contrastPron": "낟따가",
+          "particleVowel": "아요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "낮다가",
+              "pron": "낟따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "낮습니다",
+              "pron": "낟씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "낮아요",
+              "pron": "나자요",
+              "particle": "아요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "낮았다",
+              "pron": "나잗따",
+              "particle": "았다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-jeot-eoyo",
+          "orthography": "젖어요",
+          "pronunciation": "저저요",
+          "sourceForm": "젖다",
+          "ruleType": "연음",
+          "contrastOrtho": "젖다가",
+          "contrastPron": "젇따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "젖다가",
+              "pron": "젇따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "젖습니다",
+              "pron": "젇씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "젖어요",
+              "pron": "저저요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "젖었다",
+              "pron": "저젇따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-jit-eoyo",
+          "orthography": "짖어요",
+          "pronunciation": "지저요",
+          "sourceForm": "짖다",
+          "ruleType": "연음",
+          "contrastOrtho": "짖다가",
+          "contrastPron": "짇따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "짖다가",
+              "pron": "짇따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "짖습니다",
+              "pron": "짇씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "짖어요",
+              "pron": "지저요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "짖었다",
+              "pron": "지젇따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-jjot-ayo",
+          "orthography": "쫓아요",
+          "pronunciation": "쪼차요",
+          "sourceForm": "쫓다",
+          "ruleType": "연음",
+          "contrastOrtho": "쫓다가",
+          "contrastPron": "쫃따가",
+          "particleVowel": "아요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "쫓다가",
+              "pron": "쫃따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "쫓습니다",
+              "pron": "쫃씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "쫓아요",
+              "pron": "쪼차요",
+              "particle": "아요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "쫓았다",
+              "pron": "쪼찯따",
+              "particle": "았다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-but-eoyo",
+          "orthography": "붙어요",
+          "pronunciation": "부터요",
+          "sourceForm": "붙다",
+          "ruleType": "연음",
+          "contrastOrtho": "붙다가",
+          "contrastPron": "붇따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "붙다가",
+              "pron": "붇따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "붙습니다",
+              "pron": "붇씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "붙어요",
+              "pron": "부터요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "붙었다",
+              "pron": "부턷따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-baet-eoyo",
+          "orthography": "뱉어요",
+          "pronunciation": "배터요",
+          "sourceForm": "뱉다",
+          "ruleType": "연음",
+          "contrastOrtho": "뱉다가",
+          "contrastPron": "밷따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "뱉다가",
+              "pron": "밷따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "뱉습니다",
+              "pron": "밷씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "뱉어요",
+              "pron": "배터요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "뱉었다",
+              "pron": "배턷따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-gip-eoyo",
+          "orthography": "깊어요",
+          "pronunciation": "기퍼요",
+          "sourceForm": "깊다",
+          "ruleType": "연음",
+          "contrastOrtho": "깊다가",
+          "contrastPron": "깁따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "깊다가",
+              "pron": "깁따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "깊습니다",
+              "pron": "깁씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "깊어요",
+              "pron": "기퍼요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "깊었다",
+              "pron": "기펃따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-nop-ayo",
+          "orthography": "높아요",
+          "pronunciation": "노파요",
+          "sourceForm": "높다",
+          "ruleType": "연음",
+          "contrastOrtho": "높다가",
+          "contrastPron": "놉따가",
+          "particleVowel": "아요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "높다가",
+              "pron": "놉따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "높습니다",
+              "pron": "놉씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "높아요",
+              "pron": "노파요",
+              "particle": "아요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "높았다",
+              "pron": "노팓따",
+              "particle": "았다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 1,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-deop-eoyo",
+          "orthography": "덮어요",
+          "pronunciation": "더퍼요",
+          "sourceForm": "덮다",
+          "ruleType": "연음",
+          "contrastOrtho": "덮다가",
+          "contrastPron": "덥따가",
+          "particleVowel": "어요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "덮다가",
+              "pron": "덥따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "덮습니다",
+              "pron": "덥씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "덮어요",
+              "pron": "더퍼요",
+              "particle": "어요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "덮었다",
+              "pron": "더펃따",
+              "particle": "었다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 2,
+          "anchor": false,
+          "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p22-bokk-ayo",
+          "orthography": "볶아요",
+          "pronunciation": "보까요",
+          "sourceForm": "볶다",
+          "ruleType": "연음",
+          "contrastOrtho": "볶다가",
+          "contrastPron": "복따가",
+          "particleVowel": "아요",
+          "particleConsonant": "다가",
+          "allForms": [
+            {
+              "ortho": "볶다가",
+              "pron": "복따가",
+              "particle": "다가",
+              "type": "consonant"
+            },
+            {
+              "ortho": "볶습니다",
+              "pron": "복씀니다",
+              "particle": "습니다",
+              "type": "consonant"
+            },
+            {
+              "ortho": "볶아요",
+              "pron": "보까요",
+              "particle": "아요",
+              "type": "vowel"
+            },
+            {
+              "ortho": "볶았다",
+              "pron": "보깓따",
+              "particle": "았다",
+              "type": "vowel"
+            }
+          ],
+          "difficulty": 3,
+          "anchor": false,
+          "stage": 2
         }
       ]
     }

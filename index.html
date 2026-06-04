@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.76.0';
-var APP_SW_CACHE = 'sw5760';
+var APP_VERSION = 'v5.77.0';
+var APP_SW_CACHE = 'sw5770';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -7548,17 +7548,41 @@ function crBuildCoverReadQueue(setItems, progressMap, config) {
   for (var j = 0; j < mdShuffled.length && queue.length < perSession; j++) {
     queue.push({ item: mdShuffled[j], isBonus: false });
   }
-  // 2) learning 채움 — [v5.72.0 D4/M2] difficulty 후순위. 저난도(<=2) 먼저, 고난도(3: 대궐/가마솥/뙤약볕) 뒤로.
-  //    각 티어 내부는 shuffle(다양성). maintenanceDue(복습 due) 우선순위는 위 1)에서 이미 확보 — 불변.
-  //    difficulty 미정의 item(기존 set 회귀)은 1로 취급(NaN 정렬 붕괴 방지).
-  var lowTier = [], highTier = [];
+  // 2) learning 채움 — [v5.77.0] stage 순차 게이팅. 낮은 stage learning이 임계치 이하로 줄면 다음 stage 개방.
+  //    - 낮은 stage(적용1)는 항상 개방 → stubborn 낱말 계속 노출.
+  //    - 높은 stage(적용2)는 "모든 하위 stage의 learning 수 <= unlockThreshold"일 때만 개방.
+  //    - 정렬: stage asc → 난이도(저<3 먼저, 고>=3 뒤) → 각 버킷 내부 shuffle.
+  //    maintenanceDue(복습 due) 우선순위는 위 1)에서 이미 확보 — stage 무관 불변.
+  //    stage 미정의 item → 1로 취급, difficulty 미정의 → 1로 취급(NaN 정렬 붕괴 방지).
+  var unlockThreshold = (config && typeof config.coverReadStageUnlockMaxRemaining === 'number')
+    ? Math.max(0, config.coverReadStageUnlockMaxRemaining) : 2;
+
+  // learning을 stage별로 그룹 (stage 누락 → 1)
+  var learnByStage = {};
   for (var li = 0; li < learning.length; li++) {
-    var d = (typeof learning[li].difficulty === 'number') ? learning[li].difficulty : 1;
-    if (d >= 3) highTier.push(learning[li]); else lowTier.push(learning[li]);
+    var st = (typeof learning[li].stage === 'number') ? learning[li].stage : 1;
+    (learnByStage[st] = learnByStage[st] || []).push(learning[li]);
   }
-  var lShuffled = shuffleArray(lowTier.slice()).concat(shuffleArray(highTier.slice()));
-  for (var k = 0; k < lShuffled.length && queue.length < perSession; k++) {
-    queue.push({ item: lShuffled[k], isBonus: false });
+  var stageKeys = Object.keys(learnByStage).map(Number).sort(function(a,b){return a-b;});
+
+  // 각 stage 개방 여부: 자기보다 낮은 모든 stage의 learning 수 합 <= unlockThreshold
+  var ordered = [];
+  for (var si = 0; si < stageKeys.length; si++) {
+    var S = stageKeys[si];
+    var lowerCount = 0;
+    for (var sj = 0; sj < si; sj++) lowerCount += learnByStage[stageKeys[sj]].length;
+    var open = (si === 0) || (lowerCount <= unlockThreshold);
+    if (!open) continue;  // 아직 안 열린 상위 stage 건너뜀
+    var low = [], high = [];
+    var arr = learnByStage[S];
+    for (var ai = 0; ai < arr.length; ai++) {
+      var d = (typeof arr[ai].difficulty === 'number') ? arr[ai].difficulty : 1;
+      if (d >= 3) high.push(arr[ai]); else low.push(arr[ai]);
+    }
+    ordered = ordered.concat(shuffleArray(low), shuffleArray(high));
+  }
+  for (var k = 0; k < ordered.length && queue.length < perSession; k++) {
+    queue.push({ item: ordered[k], isBonus: false });
   }
   // 3) bonus practice (pool 부족 시) — autoStableExcluded 에서 채움. state transition evidence 미반영.
   if (queue.length < perSession && autoStableExcluded.length > 0) {
