@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.78.0';
-var APP_SW_CACHE = 'sw5780';
+var APP_VERSION = 'v5.79.1';
+var APP_SW_CACHE = 'sw5791';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -4104,7 +4104,46 @@ function startSpeakingPracticeSession() {
     //          4분리: learning · maintenance due · auto_stable excluded · bonus practice.
     //          bonus practice는 state transition evidence 미반영 (T3 disqualify "bonusPractice").
     var allItems = crSet.items || [];
-    var queueBuild = crBuildCoverReadQueue(allItems, APP.coverReadProgressMap || {}, APP.config && APP.config.speakingPractice);
+    // [v5.79.0] stage unlock one-way latch — 로드 + 정규화 + 마이그레이션 + (올랐으면) 저장.
+    var unlockAll = crLoadCoverReadStageUnlock();
+    var setKey = crSet.id || 'coverReadSet0';   // ★LOW3: id 누락 future-proof fallback
+    // ★MEDIUM1: 저장값 정규화 — number·유한·정수만 인정, 아니면 0. 같은 값을 unlockState·저장비교 양쪽에 사용("2"·99·음수·NaN 방어).
+    var prevRaw = unlockAll[setKey];
+    var prevMax = (typeof prevRaw === 'number' && isFinite(prevRaw)) ? Math.floor(prevRaw) : 0;
+    if (prevMax < 0) prevMax = 0;
+    var unlockState = { maxUnlockedStage: prevMax };
+    if (!prevMax) {
+      // 마이그레이션(Codex 3-4): progressMap에 stage N item의 "실제 연습 흔적"이 있으면 그 stage까지 열린 것으로 추론.
+      // ★MEDIUM2: schedulerState는 기본 'learning'이라 항상 truthy → 단독 신호로 부적합.
+      //   실제 시도 신호: lastAttemptTimestamp / distinctProductionDays>0 / 상태가 learning 너머.
+      var inferred = 1;
+      var pmap = APP.coverReadProgressMap || {};
+      for (var mi = 0; mi < allItems.length; mi++) {
+        var it = allItems[mi];
+        var ist = (typeof it.stage === 'number') ? it.stage : 1;
+        var mp = pmap[it.id];
+        var practiced = mp && typeof mp === 'object' && (
+          mp.lastAttemptTimestamp ||
+          (typeof mp.distinctProductionDays === 'number' && mp.distinctProductionDays > 0) ||
+          (mp.schedulerState && mp.schedulerState !== 'learning')
+        );
+        if (practiced && ist > inferred) inferred = ist;
+      }
+      unlockState.maxUnlockedStage = inferred;
+    }
+    var queueBuild = crBuildCoverReadQueue(allItems, APP.coverReadProgressMap || {}, APP.config && APP.config.speakingPractice, unlockState);
+    // [v5.79.0] 올랐으면 저장(세션당 1회). 정규화된 prevMax와 비교(문자열 coercion 회피). 상한 clamp는 큐 빌더가 처리.
+    //   one-way latch: 정상 범위(<=maxStage) 값은 상승 시에만 저장 — 절대 안 내림.
+    if (typeof queueBuild.maxUnlockedStage === 'number' && queueBuild.maxUnlockedStage > prevMax) {
+      unlockAll[setKey] = queueBuild.maxUnlockedStage;
+      crSaveCoverReadStageUnlock(unlockAll);
+    }
+    // [v5.79.1] 손상값 하향 정정: 저장된 값이 데이터 유효 상한(maxStage)을 초과하면 clamp된 정상값으로 덮어 손상값 제거.
+    //   정상 범위 값은 위 분기(상승만)만 타고 절대 안 내림 — one-way 유지. prevMax>maxStage 손상 케이스에만 적용(else if=세션당 1회).
+    else if (typeof queueBuild.maxStage === 'number' && typeof queueBuild.maxUnlockedStage === 'number' && prevMax > queueBuild.maxStage) {
+      unlockAll[setKey] = queueBuild.maxUnlockedStage;   // = maxStage로 clamp된 정상값
+      crSaveCoverReadStageUnlock(unlockAll);
+    }
     if (typeof console !== 'undefined' && console.log) {
       console.log('[cover_read T12] queue stats', queueBuild.stats);
     }
@@ -7204,6 +7243,28 @@ function crSaveCoverReadProgressMap(map) {
   }
 }
 
+// [v5.79.0] stage unlock one-way latch. set 단위 maxUnlockedStage.
+//   동기화 대비: 향후 cover_read progress cloud sync 시 이 키도 sync 대상에 포함.
+var CR_STAGE_UNLOCK_LS_KEY = 'po_v5_cover_read_stage_unlocks';
+
+function crLoadCoverReadStageUnlock() {
+  try {
+    var raw = localStorage.getItem(CR_STAGE_UNLOCK_LS_KEY);
+    if (!raw) return {};
+    var parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return {};
+    return parsed;   // { "<setId>": maxUnlockedStage }
+  } catch(e) {
+    console.warn('[cover_read] stage unlock parse 실패 — 빈 객체 fallback:', e);
+    return {};   // corrupt → stage 1만 열린 셈(아래 게이트에서 minStage fallback)
+  }
+}
+
+function crSaveCoverReadStageUnlock(map) {
+  try { localStorage.setItem(CR_STAGE_UNLOCK_LS_KEY, JSON.stringify(map || {})); }
+  catch(e) { console.warn('[cover_read] stage unlock save 실패:', e); }
+}
+
 // [v5.66 T1] item 단위 read (보조, attempt 처리 중). 미존재 시 default schema 반환.
 function crLoadProgress(itemId) {
   var map = crLoadCoverReadProgressMap();
@@ -7509,9 +7570,10 @@ function crShouldShowProbe(itemId, sessionState, progress) {
 // 반환: { items: [{item, isBonus}], stats: { learning, maintenanceDue, autoStableExcluded, bonus } }.
 // isBonus=true 항목은 T3 disqualify "bonusPractice" → state transition evidence 미반영.
 // ============================================================================
-function crBuildCoverReadQueue(setItems, progressMap, config) {
+function crBuildCoverReadQueue(setItems, progressMap, config, unlockState) {
   if (!setItems || setItems.length === 0) {
-    return { items: [], stats: { learning: 0, maintenanceDue: 0, autoStableExcluded: 0, bonus: 0 } };
+    return { items: [], stats: { learning: 0, maintenanceDue: 0, autoStableExcluded: 0, bonus: 0 },
+      maxUnlockedStage: (unlockState && typeof unlockState.maxUnlockedStage === 'number') ? unlockState.maxUnlockedStage : 1 };
   }
   var today = crGetProductionDayKey(Date.now());
   var maintenanceDue = [];
@@ -7548,14 +7610,17 @@ function crBuildCoverReadQueue(setItems, progressMap, config) {
   for (var j = 0; j < mdShuffled.length && queue.length < perSession; j++) {
     queue.push({ item: mdShuffled[j], isBonus: false });
   }
-  // 2) learning 채움 — [v5.77.0] stage 순차 게이팅. 낮은 stage learning이 임계치 이하로 줄면 다음 stage 개방.
-  //    - 낮은 stage(적용1)는 항상 개방 → stubborn 낱말 계속 노출.
-  //    - 높은 stage(적용2)는 "모든 하위 stage의 learning 수 <= unlockThreshold"일 때만 개방.
+  // 2) learning 채움 — [v5.79.0] stage 순차 게이팅 + one-way latch. 한 번 열린 stage는 다시 닫지 않는다.
+  //    - 낮은 stage(적용1)는 항상 개방 → stubborn 낱말 계속 노출(stage-first 정렬로 우선).
+  //    - 높은 stage(적용2)는 "모든 하위 stage의 learning 수 <= unlockThreshold"일 때 개방(올리기만).
+  //    - latch(maxUnlockedStage)는 호출부가 저장값으로 입력, 여기선 올리기만 하고 반환(저장은 호출부).
+  //    - eligible = stage S <= maxUnlockedStage. 적용1 revert는 재폐쇄가 아니라 stage-first 우선 노출로 해결.
+  //    - "eligible 유지" 의미: gate에서 다시 닫지 않음(큐 용량·우선순위로 그 세션 0개일 수는 있음 — 정상).
   //    - 정렬: stage asc → 난이도(저<3 먼저, 고>=3 뒤) → 각 버킷 내부 shuffle.
   //    maintenanceDue(복습 due) 우선순위는 위 1)에서 이미 확보 — stage 무관 불변.
   //    stage 미정의 item → 1로 취급, difficulty 미정의 → 1로 취급(NaN 정렬 붕괴 방지).
   var unlockThreshold = (config && typeof config.coverReadStageUnlockMaxRemaining === 'number')
-    ? Math.max(0, config.coverReadStageUnlockMaxRemaining) : 2;
+    ? Math.max(0, config.coverReadStageUnlockMaxRemaining) : 3;   // ★[v5.79.0] 기본 2→3
 
   // learning을 stage별로 그룹 (stage 누락 → 1)
   var learnByStage = {};
@@ -7563,30 +7628,59 @@ function crBuildCoverReadQueue(setItems, progressMap, config) {
     var st = (typeof learning[li].stage === 'number') ? learning[li].stage : 1;
     (learnByStage[st] = learnByStage[st] || []).push(learning[li]);
   }
-  var stageKeys = Object.keys(learnByStage).map(Number).sort(function(a,b){return a-b;});
+  // 전체 stage 후보 = setItems stage ∪ (누락→1). 열려야 할 상위 stage가 learning에 0개여도 인지.
+  var allStages = {};
+  for (var ii = 0; ii < setItems.length; ii++) {
+    var s2 = (typeof setItems[ii].stage === 'number') ? setItems[ii].stage : 1;
+    allStages[s2] = true;
+  }
+  var stageKeys = Object.keys(allStages).map(Number).sort(function(a,b){return a-b;});
+  var minStage = stageKeys.length ? stageKeys[0] : 1;
+  var maxStage = stageKeys.length ? stageKeys[stageKeys.length - 1] : minStage;
 
-  // 각 stage 개방 여부: 자기보다 낮은 모든 stage의 learning 수 합 <= unlockThreshold
-  var ordered = [];
+  // latch 입력 (defensive: number·유한만, 아니면 minStage)
+  var latchMax = (unlockState && typeof unlockState.maxUnlockedStage === 'number' && isFinite(unlockState.maxUnlockedStage))
+    ? Math.floor(unlockState.maxUnlockedStage) : minStage;
+  var maxUnlockedStage = Math.max(latchMax, minStage);
+  // ★MEDIUM1 상한 clamp: 데이터 stage 범위 밖(예: 동기화로 들어온 99)은 maxStage로 제한.
+  if (maxUnlockedStage > maxStage) maxUnlockedStage = maxStage;
+
+  // dynamic open → latch 올리기만 (one-way). 하위 stage learning 합 <= unlockThreshold면 그 stage까지 개방.
   for (var si = 0; si < stageKeys.length; si++) {
     var S = stageKeys[si];
     var lowerCount = 0;
-    for (var sj = 0; sj < si; sj++) lowerCount += learnByStage[stageKeys[sj]].length;
-    var open = (si === 0) || (lowerCount <= unlockThreshold);
-    if (!open) continue;  // 아직 안 열린 상위 stage 건너뜀
+    for (var sj = 0; sj < si; sj++) {
+      var ls = learnByStage[stageKeys[sj]];
+      lowerCount += ls ? ls.length : 0;
+    }
+    if (si === 0 || lowerCount <= unlockThreshold) {
+      if (S > maxUnlockedStage) maxUnlockedStage = S;   // 올리기만
+    }
+  }
+
+  // 큐 채움: 열린 stage(S <= maxUnlockedStage)만, stage asc → 난이도 → shuffle
+  var ordered = [];
+  for (var ki = 0; ki < stageKeys.length; ki++) {
+    var SK = stageKeys[ki];
+    if (SK > maxUnlockedStage) continue;  // 아직 안 열린 상위 stage 건너뜀
+    var bucket = learnByStage[SK] || [];
     var low = [], high = [];
-    var arr = learnByStage[S];
-    for (var ai = 0; ai < arr.length; ai++) {
-      var d = (typeof arr[ai].difficulty === 'number') ? arr[ai].difficulty : 1;
-      if (d >= 3) high.push(arr[ai]); else low.push(arr[ai]);
+    for (var ai = 0; ai < bucket.length; ai++) {
+      var d = (typeof bucket[ai].difficulty === 'number') ? bucket[ai].difficulty : 1;
+      if (d >= 3) high.push(bucket[ai]); else low.push(bucket[ai]);
     }
     ordered = ordered.concat(shuffleArray(low), shuffleArray(high));
   }
   for (var k = 0; k < ordered.length && queue.length < perSession; k++) {
     queue.push({ item: ordered[k], isBonus: false });
   }
-  // 3) bonus practice (pool 부족 시) — autoStableExcluded 에서 채움. state transition evidence 미반영.
+  // 3) bonus practice (pool 부족 시) — autoStableExcluded 에서 채움(열린 stage만 filter). state transition evidence 미반영.
   if (queue.length < perSession && autoStableExcluded.length > 0) {
-    var bShuffled = shuffleArray(autoStableExcluded.slice());
+    var bonusCand = autoStableExcluded.filter(function(it) {
+      var bs = (typeof it.stage === 'number') ? it.stage : 1;
+      return bs <= maxUnlockedStage;
+    });
+    var bShuffled = shuffleArray(bonusCand);
     for (var b = 0; b < bShuffled.length && queue.length < perSession; b++) {
       bonus.push(bShuffled[b]);
       queue.push({ item: bShuffled[b], isBonus: true });
@@ -7600,7 +7694,9 @@ function crBuildCoverReadQueue(setItems, progressMap, config) {
       maintenanceDue: maintenanceDue.length,
       autoStableExcluded: autoStableExcluded.length,
       bonus: bonus.length
-    }
+    },
+    maxUnlockedStage: maxUnlockedStage,
+    maxStage: maxStage   // [v5.79.1] 데이터 유효 상한 — 호출부의 손상값 하향 정정에 사용.
   };
 }
 
