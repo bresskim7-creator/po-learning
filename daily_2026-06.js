@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-06", {
   "schema_version": 1.1,
   "month": "2026-06",
-  "updated_at": "2026-05-31T10:37:25+09:00",
+  "updated_at": "2026-06-10T11:00:00+09:00",
   "days": {
     "2026-06-01": {
       "schema_version": 1.1,
@@ -1262,6 +1262,636 @@ window.__loadDailyMonth("2026-06", {
         "model": "claude-opus-4-8",
         "web_search_used": true
       }
+    },
+    "2026-06-15": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-15-thunder.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Andrew Parlette",
+        "url": "https://commons.wikimedia.org/wiki/File:Lightning_over_the_Atlantic_-_Flickr_-_aparlette.jpg",
+        "license": "CC BY 4.0"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-06-15",
+      "date": "2026-06-15",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 번개와 천둥의 시간차",
+      "title": "번개가 번쩍, 천둥은 왜 늦게 들릴까",
+      "subtitle": "빛과 소리의 달리기",
+      "lead_question": "번쩍하고 한참 뒤에 우르릉 소리가 나요. 둘은 왜 따로 올까요?",
+      "why_today": "장마철에는 천둥과 번개가 자주 쳐요.",
+      "sections": [
+        {
+          "icon": "📌",
+          "heading": "번쩍 먼저, 우르릉 나중",
+          "body": "번개가 치면 먼저 빛이 번쩍해요. 한참 뒤에 우르릉 소리가 들려요. 사실 번개와 천둥은 같은 순간에 생겨요. 그런데 왜 따로 올까요? 빛은 워낙 빨라 거의 곧바로 눈에 닿아요. 소리는 빛보다 훨씬 느리게 와요. 그래서 번쩍한 뒤에 소리가 늦게 들리는 거예요."
+        },
+        {
+          "icon": "🔎",
+          "heading": "빛과 소리의 빠르기",
+          "body": "빛은 1초에 약 30만 킬로미터를 가요. 지구를 일곱 바퀴 반이나 도는 거리예요. 소리는 1초에 약 340미터만 가요. 빛과 소리의 속도는 엄청나게 차이 나요. 그래서 번개가 멀수록 소리가 더 늦게 와요. 번쩍과 소리 사이가 길면 멀리서 친 거예요. 사이가 짧으면 가까이서 친 거예요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "안전하게 지내요",
+          "body": "천둥과 번개가 칠 땐 실내로 들어가요. 건물이나 자동차 안이 가장 안전해요. 높은 나무 아래는 위험하니 피해요. 넓은 들판에서는 몸을 낮춰요. 쇠로 된 물건은 잠시 멀리 둬요. 물가나 젖은 곳도 피하는 게 좋아요. 번개가 멈추고 한참 뒤에 나가요. 규칙을 알면 천둥도 무섭지 않아요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "번개",
+          "en": "lightning",
+          "desc": "구름과 땅 사이에 강한 전기가 흐르며 번쩍이는 거예요."
+        },
+        {
+          "ko": "천둥",
+          "en": "thunder",
+          "desc": "번개가 칠 때 생기는 큰 소리예요. 빛보다 늦게 들려요."
+        },
+        {
+          "ko": "속도",
+          "en": "speed",
+          "desc": "어떤 것이 얼마나 빨리 가는지예요. 빛이 소리보다 빨라요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "번개의 빛과 천둥소리는 같은 순간에 생긴다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 둘은 같은 순간에 생겨요."
+        },
+        {
+          "statement": "소리가 빛보다 빨라서 천둥이 번개보다 먼저 온다.",
+          "answer": "X",
+          "explanation": "빛이 소리보다 빨라 번개가 먼저 보여요(§1)."
+        },
+        {
+          "statement": "천둥·번개가 칠 때는 건물 안으로 들어가는 것이 안전하다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 실내가 더 안전해요."
+        }
+      ],
+      "one_line_summary": "번개의 [   ]은 빠르고 천둥의 [   ]는 느려서, 번쩍 뒤에 소리가 들린다.",
+      "summary_keywords": "키워드: 번개, 천둥, 빛과 소리",
+      "sources": [
+        {
+          "title": "기상청 날씨누리",
+          "url": "https://www.weather.go.kr/w/index.do"
+        },
+        {
+          "title": "국립중앙과학관",
+          "url": "https://www.science.go.kr/"
+        }
+      ]
+    },
+    "2026-06-16": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-16-worldcup-kr.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Arzam879",
+        "url": "https://commons.wikimedia.org/wiki/File:Estadio_Chivas.jpg",
+        "license": "CC BY-SA 4.0"
+      },
+      "image_fallback": "category_svg_news",
+      "id": "2026-06-16",
+      "date": "2026-06-16",
+      "weekday": "화",
+      "category": "시사",
+      "chapter_label": "[시사] 월드컵 우리 대표팀",
+      "title": "월드컵 한국 대표팀, 어떻게 싸우고 있을까",
+      "subtitle": "A조에서 펼치는 도전",
+      "lead_question": "지구 반대편에서 우리 선수들이 뛰고 있어요. 어떤 팀과 겨룰까요?",
+      "why_today": "월드컵 조별리그가 한창 열리고 있어요.",
+      "sections": [
+        {
+          "icon": "⚽",
+          "heading": "우리 대표팀은 A조",
+          "body": "2026 월드컵이 한창 열리고 있어요. 우리 대표팀은 A조에 들어갔어요. 같은 조에는 멕시코와 남아프리카공화국이 있어요. 유럽의 강팀 체코도 같은 조예요. 네 팀이 서로 한 번씩 겨뤄요. 우리 선수들이 가슴에 태극 마크를 달고 뛰어요. 온 국민이 마음을 모아 응원해요."
+        },
+        {
+          "icon": "🗓️",
+          "heading": "세 번의 경기",
+          "body": "조별리그에서는 모두 세 경기를 치러요. 첫 경기는 6월 12일 체코와 맞붙었어요. 다음은 6월 19일 멕시코와 겨뤄요. 마지막은 6월 25일 남아공과 만나요. 세 경기 모두 멕시코에서 열려요. 우리나라와 시차가 커서 경기는 아침에 해요. 아침잠을 깨우는 응원이 이어져요."
+        },
+        {
+          "icon": "🌎",
+          "heading": "다음 단계로 가려면",
+          "body": "각 조에서 잘한 두 팀이 다음 단계로 가요. 3위 팀 중에서도 성적이 좋은 팀이 올라가요. 그래서 한 경기 한 경기가 모두 중요해요. 선수들은 끝까지 최선을 다해 뛰어요. 이기면 함께 기뻐하고 져도 박수를 보내요. 결과보다 도전하는 마음이 멋져요. 우리 함께 끝까지 응원해요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "대표팀",
+          "en": "national team",
+          "desc": "한 나라를 대표해 뛰는 선수들이에요. 나라 이름을 걸고 겨뤄요."
+        },
+        {
+          "ko": "시차",
+          "en": "time difference",
+          "desc": "두 곳의 시각 차이예요. 멀리 떨어진 나라끼리 생겨요."
+        },
+        {
+          "ko": "응원",
+          "en": "cheering",
+          "desc": "선수에게 힘을 보내는 거예요. 함께 외치면 더 큰 힘이 돼요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "우리 대표팀은 2026 월드컵에서 A조에 속해 있다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 우리 팀은 A조예요."
+        },
+        {
+          "statement": "한국의 조별리그 경기는 모두 우리나라에서 열린다.",
+          "answer": "X",
+          "explanation": "우리나라가 아니라 멕시코에서 열려요(§2)."
+        },
+        {
+          "statement": "조별리그에서 잘한 팀이 다음 단계로 올라간다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 잘한 팀이 올라가요."
+        }
+      ],
+      "one_line_summary": "우리 대표팀은 월드컵 [   ]조에서 세 경기를 치르며 다음 단계 [   ]을 노린다.",
+      "summary_keywords": "키워드: 월드컵, A조, 대표팀",
+      "sources": [
+        {
+          "title": "FIFA 월드컵 26 일정·결과",
+          "url": "https://www.fifa.com/ko/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+        },
+        {
+          "title": "대한축구협회",
+          "url": "https://www.kfa.or.kr/"
+        }
+      ]
+    },
+    "2026-06-17": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-17-desert.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Tomas Castelazo",
+        "url": "https://commons.wikimedia.org/wiki/File:Drought.jpg",
+        "license": "CC BY 3.0"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-06-17",
+      "date": "2026-06-17",
+      "weekday": "수",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 사막화와 가뭄 방지의 날",
+      "title": "사막이 넓어지는 걸 막는 날",
+      "subtitle": "6월 17일, 사막화와 가뭄 방지의 날",
+      "lead_question": "기름진 땅이 메마른 사막으로 변하기도 해요. 왜 그럴까요?",
+      "why_today": "6월 17일은 유엔이 정한 사막화와 가뭄 방지의 날이에요.",
+      "sections": [
+        {
+          "icon": "🏜️",
+          "heading": "사막화가 뭘까",
+          "body": "푸르던 땅이 메마른 사막처럼 변하는 걸 사막화라고 해요. 흙이 힘을 잃어 풀이 자라지 못해요. 한번 사막이 되면 되돌리기 무척 어려워요. 세계 곳곳에서 사막이 조금씩 넓어지고 있어요. 농사지을 땅도 점점 줄어들어요. 그래서 미리 막는 일이 아주 중요해요."
+        },
+        {
+          "icon": "🔎",
+          "heading": "왜 넓어질까",
+          "body": "사막화에는 여러 까닭이 있어요. 나무를 너무 많이 베면 흙이 약해져요. 한 땅에 농사를 지나치게 지어도 그래요. 비가 오래 오지 않는 가뭄도 큰 몫을 해요. 날씨가 더워지는 기후변화도 영향을 줘요. 흙을 덮어 주던 풀과 나무가 사라지면 사막이 늘어요. 여러 일이 겹쳐서 일어나요."
+        },
+        {
+          "icon": "🌳",
+          "heading": "우리가 도울 일",
+          "body": "1995년부터 유엔이 이 날을 기념해 왔어요. 가장 좋은 방법은 나무를 심는 거예요. 나무뿌리가 흙을 단단히 붙잡아 줘요. 물을 아껴 쓰는 것도 큰 도움이 돼요. 종이를 아끼면 나무를 덜 베게 돼요. 작은 실천이 땅을 푸르게 지켜요. 우리도 지구의 땅을 함께 돌봐요. 함께하면 사막도 줄일 수 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "사막화",
+          "en": "desertification",
+          "desc": "푸른 땅이 메마른 사막처럼 변하는 거예요."
+        },
+        {
+          "ko": "가뭄",
+          "en": "drought",
+          "desc": "비가 오랫동안 오지 않아 땅이 마르는 거예요."
+        },
+        {
+          "ko": "기후변화",
+          "en": "climate change",
+          "desc": "지구의 날씨가 점점 달라지는 거예요. 사막화에도 영향을 줘요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "사막화는 푸르던 땅이 메마른 사막처럼 변하는 것이다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 땅이 사막으로 변해요."
+        },
+        {
+          "statement": "나무를 많이 심으면 사막화가 더 빨라진다.",
+          "answer": "X",
+          "explanation": "나무는 흙을 붙잡아 사막화를 막아요(§3)."
+        },
+        {
+          "statement": "물을 아껴 쓰는 것은 사막화를 막는 데 도움이 된다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 물 절약이 도움돼요."
+        }
+      ],
+      "one_line_summary": "[   ]는 땅이 사막처럼 변하는 것으로, [   ]를 심고 물을 아끼면 막을 수 있다.",
+      "summary_keywords": "키워드: 사막화, 가뭄, 나무 심기",
+      "sources": [
+        {
+          "title": "유엔사막화방지협약(UNCCD)",
+          "url": "https://www.unccd.int/"
+        },
+        {
+          "title": "산림청",
+          "url": "https://www.forest.go.kr/"
+        }
+      ]
+    },
+    "2026-06-18": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-18-handwash.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Beat Ruest",
+        "url": "https://commons.wikimedia.org/wiki/File:Washing_hands_with_soap_(1).jpg",
+        "license": "CC BY-SA 4.0"
+      },
+      "image_fallback": "category_svg_news",
+      "id": "2026-06-18",
+      "date": "2026-06-18",
+      "weekday": "목",
+      "category": "시사",
+      "chapter_label": "[시사] 여름철 식중독 예방",
+      "title": "여름철 식중독, 이렇게 막아요",
+      "subtitle": "더위와 함께 늘어나는 식중독",
+      "lead_question": "여름이 되면 음식이 금세 상해요. 왜 더 조심해야 할까요?",
+      "why_today": "기온과 습도가 높은 여름에 식중독이 늘어요.",
+      "sections": [
+        {
+          "icon": "🌡️",
+          "heading": "여름에 더 조심해요",
+          "body": "식중독은 상한 음식을 먹어 배탈이 나는 거예요. 여름에 특히 많이 생겨요. 날이 더우면 음식이 빨리 상하기 때문이에요. 음식을 상하게 하는 세균이 있어요. 세균은 따뜻하고 축축한 곳을 좋아해요. 여름은 덥고 습해서 세균이 빨리 늘어요. 그래서 음식 관리에 더 마음을 써야 해요."
+        },
+        {
+          "icon": "🧼",
+          "heading": "예방 세 가지",
+          "body": "식중독은 작은 습관으로 막을 수 있어요. 첫째, 손을 비누로 깨끗이 씻어요. 손 씻기만 잘해도 크게 줄어들어요. 둘째, 음식은 속까지 잘 익혀서 먹어요. 셋째, 남은 음식은 바로 냉장고에 넣어요. 찬 곳에서는 세균이 천천히 늘어요. 이 세 가지만 지켜도 훨씬 안전해요."
+        },
+        {
+          "icon": "🍽️",
+          "heading": "이런 것도 살펴요",
+          "body": "이런 것도 함께 살펴요. 물은 끓이거나 깨끗한 것을 마셔요. 날음식과 익힌 음식은 따로 두어요. 도마와 칼도 나눠 쓰면 좋아요. 상한 냄새가 나면 먹지 않고 버려요. 밖에 오래 둔 음식은 조심해요. 배가 아프면 어른께 꼭 말해요. 깨끗한 습관이 우리 몸을 지켜요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "식중독",
+          "en": "food poisoning",
+          "desc": "상한 음식을 먹어 배가 아프거나 탈이 나는 거예요."
+        },
+        {
+          "ko": "세균",
+          "en": "bacteria",
+          "desc": "눈에 안 보이는 아주 작은 생물이에요. 음식을 상하게 해요."
+        },
+        {
+          "ko": "냉장",
+          "en": "refrigeration",
+          "desc": "음식을 차게 보관하는 거예요. 세균이 천천히 늘어요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "식중독은 덥고 습한 여름에 특히 많이 생긴다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 여름에 많아져요."
+        },
+        {
+          "statement": "음식을 따뜻한 곳에 오래 두면 세균이 덜 생긴다.",
+          "answer": "X",
+          "explanation": "따뜻한 곳에선 세균이 더 빨리 늘어요(§1)."
+        },
+        {
+          "statement": "손을 깨끗이 씻으면 식중독을 줄일 수 있다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 손 씻기가 큰 도움이 돼요."
+        }
+      ],
+      "one_line_summary": "여름에는 [   ]이 빨리 늘어, 손 씻기·익혀 먹기·[   ] 보관으로 식중독을 막는다.",
+      "summary_keywords": "키워드: 식중독, 세균, 손 씻기",
+      "sources": [
+        {
+          "title": "식품의약품안전처",
+          "url": "https://www.mfds.go.kr/"
+        },
+        {
+          "title": "질병관리청",
+          "url": "https://www.kdca.go.kr/"
+        }
+      ]
+    },
+    "2026-06-19": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-19-dano.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Robert (Andong Dano Festival)",
+        "url": "https://commons.wikimedia.org/wiki/File:Korea-Andong-Dano_Festival-Swinging-02.jpg",
+        "license": "CC BY 3.0"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-06-19",
+      "date": "2026-06-19",
+      "weekday": "금",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 우리 명절 단오",
+      "title": "단오, 여름을 맞이하는 우리 명절",
+      "subtitle": "음력 5월 5일의 즐거움",
+      "lead_question": "창포물에 머리를 감고 그네를 뛰는 날이 있어요. 무슨 날일까요?",
+      "why_today": "올해 단오는 6월 19일이에요.",
+      "sections": [
+        {
+          "icon": "🌿",
+          "heading": "단오는 어떤 날",
+          "body": "단오는 음력 5월 5일에 지내는 명절이에요. 올해는 양력으로 6월 19일이에요. 본격적인 여름이 시작되는 때예요. 옛날 사람들은 이날을 크게 즐겼어요. 한 해 농사가 잘되길 빌기도 했어요. 더위를 이기고 건강하길 바라는 날이에요. 설날, 추석과 함께 큰 명절이었어요."
+        },
+        {
+          "icon": "🎏",
+          "heading": "이렇게 보냈어요",
+          "body": "단오에는 재미있는 풍습이 많아요. 여자들은 창포물에 머리를 감았어요. 머릿결이 좋아진다고 믿었기 때문이에요. 그네뛰기와 씨름도 즐겼어요. 그네는 높이 올라갈수록 더 신났어요. 씨름에서 이기면 황소를 상으로 받기도 했어요. 활쏘기를 즐기는 곳도 있었어요. 마을 사람들이 다 함께 어울렸어요."
+        },
+        {
+          "icon": "🍡",
+          "heading": "단오의 맛과 멋",
+          "body": "단오에는 특별한 음식도 먹었어요. 수리취라는 풀을 넣은 수리취떡을 만들었어요. 푸르고 쫄깃한 떡이에요. 어른들은 부채를 선물로 주고받았어요. 다가올 더위를 시원하게 나라는 뜻이었어요. 오늘날에도 단오 축제가 여러 곳에서 열려요. 우리 명절의 멋을 함께 즐겨요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "단오",
+          "en": "Dano",
+          "desc": "음력 5월 5일에 지내는 우리 명절이에요. 여름을 맞이해요."
+        },
+        {
+          "ko": "창포",
+          "en": "sweet flag",
+          "desc": "물가에 자라는 풀이에요. 단오에 이 물로 머리를 감았어요."
+        },
+        {
+          "ko": "수리취떡",
+          "en": "surichwi rice cake",
+          "desc": "수리취라는 풀을 넣어 만든 단오 떡이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "단오는 음력 5월 5일에 지내는 명절이다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 음력 5월 5일이에요."
+        },
+        {
+          "statement": "단오에는 송편을 빚는 것이 가장 큰 풍습이다.",
+          "answer": "X",
+          "explanation": "송편이 아니라 창포물 머리감기·그네뛰기예요(§2)."
+        },
+        {
+          "statement": "단오에는 부채를 선물로 주고받았다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 부채를 주고받았어요."
+        }
+      ],
+      "one_line_summary": "단오는 음력 [   ]에 지내는 명절로, 창포물 머리감기와 [   ]를 즐겼다.",
+      "summary_keywords": "키워드: 단오, 창포물, 그네뛰기",
+      "sources": [
+        {
+          "title": "국립민속박물관",
+          "url": "https://www.nfm.go.kr/"
+        },
+        {
+          "title": "한국민족문화대백과사전 - 단오",
+          "url": "https://encykorea.aks.ac.kr/Article/E0014053"
+        }
+      ]
+    },
+    "2026-06-20": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-20-icecream.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / BrokenSphere",
+        "url": "https://commons.wikimedia.org/wiki/File:Vanilla_ice_cream_cone.JPG",
+        "license": "CC BY-SA 3.0"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-06-20",
+      "date": "2026-06-20",
+      "weekday": "토",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 아이스크림과 머리 띵",
+      "title": "아이스크림 먹다 머리가 띵, 왜 그럴까",
+      "subtitle": "차가움이 부른 잠깐 두통",
+      "lead_question": "찬 아이스크림을 후딱 먹으면 머리가 띵해요. 왜 그럴까요?",
+      "why_today": "더운 날 시원한 아이스크림을 자주 찾게 돼요.",
+      "sections": [
+        {
+          "icon": "🍦",
+          "heading": "갑자기 머리가 띵",
+          "body": "아이스크림을 급하게 먹을 때가 있어요. 그러면 갑자기 머리가 띵하고 아파요. 이마 안쪽이 찌릿하기도 해요. 다행히 통증은 곧 사라져요. 보통 몇 초에서 길어야 1분쯤이에요. 이런 잠깐의 두통을 브레인 프리즈라고 해요. 누구나 한 번쯤 겪는 흔한 일이에요. 몸이 보내는 신호일 뿐이에요."
+        },
+        {
+          "icon": "🧠",
+          "heading": "왜 아플까",
+          "body": "차가운 것이 입천장에 닿으면 일이 생겨요. 입천장에는 가는 혈관이 많아요. 갑자기 차가워지면 혈관이 좁아졌다 넓어져요. 이 갑작스러운 변화를 신경이 느껴요. 신경은 그 신호를 머리 쪽으로 보내요. 그러면 뇌가 머리가 아프다고 느껴요. 사실은 입천장에서 시작된 거예요."
+        },
+        {
+          "icon": "🥄",
+          "heading": "띵하지 않게 먹는 법",
+          "body": "막는 방법은 아주 간단해요. 천천히 조금씩 먹으면 돼요. 입천장이 한꺼번에 차가워지지 않거든요. 혀로 입천장을 살살 데워도 좋아요. 따뜻한 물을 한 모금 마셔도 가라앉아요. 머리가 띵해도 곧 괜찮아지니 걱정 말아요. 급할수록 한 박자 쉬어 가요. 시원한 간식을 즐겁게 먹어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "입천장",
+          "en": "roof of the mouth",
+          "desc": "입안 위쪽 천장 부분이에요. 가는 혈관이 많아요."
+        },
+        {
+          "ko": "혈관",
+          "en": "blood vessel",
+          "desc": "피가 흐르는 가느다란 관이에요. 차가우면 좁아졌다 넓어져요."
+        },
+        {
+          "ko": "신경",
+          "en": "nerve",
+          "desc": "몸의 신호를 뇌로 전하는 길이에요. 통증도 알려 줘요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "아이스크림을 급히 먹으면 잠깐 머리가 띵할 수 있다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 잠깐 두통이 생겨요."
+        },
+        {
+          "statement": "이 두통은 한번 생기면 몇 시간이나 이어진다.",
+          "answer": "X",
+          "explanation": "몇 초~1분쯤이면 곧 사라져요(§1)."
+        },
+        {
+          "statement": "천천히 먹으면 머리가 띵한 것을 줄일 수 있다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 천천히 먹으면 예방돼요."
+        }
+      ],
+      "one_line_summary": "차가운 것이 [   ]에 닿아 혈관이 변하면, 잠깐 머리가 [   ]한 두통이 생긴다.",
+      "summary_keywords": "키워드: 브레인 프리즈, 입천장, 혈관",
+      "sources": [
+        {
+          "title": "서울아산병원 건강정보",
+          "url": "https://www.amc.seoul.kr/asan/healthinfo/"
+        },
+        {
+          "title": "국립중앙과학관",
+          "url": "https://www.science.go.kr/"
+        }
+      ]
+    },
+    "2026-06-21": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "generated_at": "2026-06-10T11:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      },
+      "image_url": "./daily-images/2026-06-21-haji.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Donald Trung",
+        "url": "https://commons.wikimedia.org/wiki/File:Potato_harvest,_Meeden_(2020)_02.jpg",
+        "license": "CC BY-SA 4.0"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-06-21",
+      "date": "2026-06-21",
+      "weekday": "일",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 절기 하지",
+      "title": "하지, 일 년 중 낮이 가장 긴 날",
+      "subtitle": "여름이 한가운데로",
+      "lead_question": "오늘은 해가 가장 오래 떠 있는 날이에요. 무슨 날일까요?",
+      "why_today": "6월 21일은 낮이 가장 긴 절기, 하지예요.",
+      "sections": [
+        {
+          "icon": "☀️",
+          "heading": "낮이 가장 긴 날",
+          "body": "하지는 24절기 가운데 하나예요. 일 년 중 낮이 가장 긴 날이에요. 올해 하지는 6월 21일이에요. 이날은 해가 가장 오래 하늘에 떠 있어요. 그래서 저녁 늦게까지 환하게 밝아요. 하지가 지나면 낮이 조금씩 짧아져요. 그래도 더위는 이제부터 본격적이에요."
+        },
+        {
+          "icon": "🥔",
+          "heading": "하지에는 감자를",
+          "body": "옛날부터 하지 무렵에 감자를 캤어요. 그래서 이때 캔 감자를 하지 감자라고 불러요. 갓 캔 감자는 포슬포슬하고 맛이 좋아요. 하지에 캔 감자가 가장 맛있다고 했어요. 농부들은 이 무렵 보리도 거두었어요. 하지는 농사일이 무척 바쁜 때였어요. 제철 감자로 여러 음식을 맛있게 해 먹었어요."
+        },
+        {
+          "icon": "🌾",
+          "heading": "여름이 시작돼요",
+          "body": "하지가 오면 여름이 한가운데로 들어서요. 날은 점점 더 더워져요. 논의 벼와 밭의 곡식이 쑥쑥 자라요. 햇빛을 오래 받아 잘 여물어요. 옛사람들은 이맘때 비가 넉넉히 오길 빌었어요. 더위가 시작되니 물을 자주 마셔요. 긴 낮을 알차게 보내요. 건강하게 여름을 시작해요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "하지",
+          "en": "summer solstice",
+          "desc": "일 년 중 낮이 가장 긴 날이에요. 6월 21일 무렵이에요."
+        },
+        {
+          "ko": "절기",
+          "en": "solar term",
+          "desc": "한 해를 스물넷으로 나눈 날들이에요. 농사의 길잡이예요."
+        },
+        {
+          "ko": "하지 감자",
+          "en": "Haji potato",
+          "desc": "하지 무렵에 캐는 감자예요. 포슬포슬하고 맛있어요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "하지는 일 년 중 낮이 가장 긴 날이다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 하지는 낮이 가장 길어요."
+        },
+        {
+          "statement": "하지가 지나면 낮이 점점 더 길어진다.",
+          "answer": "X",
+          "explanation": "하지 뒤에는 낮이 조금씩 짧아져요(§1)."
+        },
+        {
+          "statement": "하지 무렵에 캔 감자를 하지 감자라고 부른다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 하지 감자라고 해요."
+        }
+      ],
+      "one_line_summary": "[   ]는 낮이 가장 긴 절기로, 이 무렵 캔 감자를 [   ]라고 부른다.",
+      "summary_keywords": "키워드: 하지, 절기, 하지 감자",
+      "sources": [
+        {
+          "title": "한국천문연구원",
+          "url": "https://www.kasi.re.kr/"
+        },
+        {
+          "title": "한국민족문화대백과사전 - 하지",
+          "url": "https://encykorea.aks.ac.kr/Article/E0061731"
+        }
+      ]
     }
   }
 });

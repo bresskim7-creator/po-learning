@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.79.1 (2026-06-05): 손상된 stage unlock 값 저장소 정정. v5.79.0은 데이터 유효 상한(maxStage) 초과 손상값(예: 99)을 런타임에서 clamp만 하고 저장 안 해 localStorage에 손상값이 남았음. 정정: crBuildCoverReadQueue가 maxStage 반환 → 호출부에서 prevMax>maxStage면 clamp된 정상값으로 하향 정정 저장(else if=세션당 1회). 정상 범위(<=maxStage) 값은 기존 분기(상승만)로 절대 안 내림 — one-way latch 유지. 빌더 내부 localStorage write 0 불변(저장은 호출부만). 변경 3파일: index.html·config.json(note)·sw.js.
+// v5.80.0 (2026-06-10): '오늘의 한 장' 6/15~6/21 7장 추가(6/1~6/14 14장과 합쳐 21일 윈도우, review_status auto). 천둥번개(빛·소리 속도차)·월드컵 한국 대표팀(A조 일정)·사막화와가뭄방지의날(6/17)·여름철식중독예방·단오(6/19)·아이스크림 머리띵(brain freeze)·하지(6/21). 각 카드 실제 이미지(Wikimedia Commons CC BY/CC BY-SA, 출처·라이선스 기록, 눈확인) + PRECACHE 7장 추가. 천둥=먼 바다 번개(위협 아님)·식중독=손씻기(긍정). 3중 회피: 하지↔6/7 해길이(원리 반복 회피)·천둥↔6/9 장마·월드컵대표팀↔6/11 개막 분리. 시사 2건+단오·하지·사막화 WebSearch 사실확인. daily_index version_key 20260610-1100·rotation/calendar 재계산. 데이터+이미지 머지 + 캐시 무효화 CACHE_NAME bump. 변경: daily_2026-06.js·daily_index.js·daily_one_page/·daily-images/·index.html·sw.js.
+// 이전 v5.79.1 (2026-06-05): 손상된 stage unlock 값 저장소 정정. v5.79.0은 데이터 유효 상한(maxStage) 초과 손상값(예: 99)을 런타임에서 clamp만 하고 저장 안 해 localStorage에 손상값이 남았음. 정정: crBuildCoverReadQueue가 maxStage 반환 → 호출부에서 prevMax>maxStage면 clamp된 정상값으로 하향 정정 저장(else if=세션당 1회). 정상 범위(<=maxStage) 값은 기존 분기(상승만)로 절대 안 내림 — one-way latch 유지. 빌더 내부 localStorage write 0 불변(저장은 호출부만). 변경 3파일: index.html·config.json(note)·sw.js.
 // 이전 v5.79.0 (2026-06-05): 연음 적용2 stage 게이팅 one-way latch 패치. "적용2가 한 번 열린 뒤 적용1 낱말 revert로 다시 닫히는 flapping"을 막음. crBuildCoverReadQueue에 latch(maxUnlockedStage, set 단위) 도입 — dynamic open은 올리기만(one-way), eligible stage(S<=maxUnlockedStage)만 큐 채움, bonus도 열린 stage만 filter. 임계치 기본 2→3(config.speakingPractice.coverReadStageUnlockMaxRemaining, 코드 기본값도 3 = 17/20 안정화). 신규 localStorage 키 po_v5_cover_read_stage_unlocks(corrupt/누락→minStage fallback). 마이그레이션: progressMap에 stage N item "실제 연습 흔적"(lastAttemptTimestamp/distinctProductionDays>0/상태≠learning) 있으면 maxUnlockedStage≥N 추론. 저장은 호출부 세션당 1회(큐 빌더는 순수). 적용1 약점은 재폐쇄 아니라 stage-first 정렬로 우선 노출. GAS·speech-therapy.json·앵커·PRECACHE 변경 0. 변경 3파일: index.html·config.json·sw.js.
 // 이전 v5.78.0 (2026-06-04): 독해 48·49·50·51·53·54회 48장 머지(comprehension.json append, displayIndex 172~219). 자동 스케줄러 초안(전부 reviewStatus parent_review·validationStatus pass) 머지. 카드 내용 무수정(displayIndex만 부여). 52회 없음(정상 갭). 코드/GAS 변경 0 — 데이터 머지 + 캐시 무효화 위한 CACHE_NAME bump.
 // 이전 v5.77.0 (2026-06-03): 연음 적용2(용언+어미 p.21~22) 추가 + 순차 스케줄러(stage 게이팅). cover_read 풀에 적용2 21낱말 추가(speech-therapy.json coverReadSets[0].items 20→41, 기존 적용1 20개 stage:1·신규 적용2 21개 stage:2·anchor:false). "순서대로": crBuildCoverReadQueue learning 채움 단계를 stage 게이팅으로 교체 — 적용1(낮은 stage)은 항상 노출, 적용2(높은 stage)는 하위 stage learning 수 합 <= unlockThreshold(config.speakingPractice.coverReadStageUnlockMaxRemaining ?? 2)일 때만 개방. 정렬: stage asc→난이도(저<3 먼저, 고>=3 뒤)→버킷내 shuffle. maintenance due 우선·partition·perSession(10)·bonus 불변. 적용2 anchor:false → 부모청취·Drive·말하기추세·config.coverReadAnchorSet(앵커 12개) 변경 0. 원리카드(v5.75.0)·차이듣기는 allForms 자동 호환(코드 변경 0). config.json speakingPractice 블록에 coverReadStageUnlockMaxRemaining:2 신규 키(★최상위 아님). stage 누락→1, config 키 누락→2 폴백. GAS 재배포·PRECACHE 변경 0. 변경 3파일: index.html·speech-therapy.json·sw.js + config.json(1키).
@@ -30,7 +31,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5791';
+const CACHE_NAME = 'po-learning-v5800';
 const PRECACHE = [
   './',
   './index.html',
@@ -81,6 +82,13 @@ const PRECACHE = [
   './daily-images/2026-06-12-mosquito.jpg',
   './daily-images/2026-06-13-fan.jpg',
   './daily-images/2026-06-14-blooddonor.jpg',
+  './daily-images/2026-06-15-thunder.jpg',
+  './daily-images/2026-06-16-worldcup-kr.jpg',
+  './daily-images/2026-06-17-desert.jpg',
+  './daily-images/2026-06-18-handwash.jpg',
+  './daily-images/2026-06-19-dano.jpg',
+  './daily-images/2026-06-20-icecream.jpg',
+  './daily-images/2026-06-21-haji.jpg',
 ];
 
 self.addEventListener('install', event => {
