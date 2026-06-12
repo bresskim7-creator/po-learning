@@ -1255,7 +1255,7 @@
       "topic": "seasons",
       "question": {
         "text": "빈칸에 알맞은 말은?",
-        "ttsText": "What season do you like? I like winter. I can make a snowman.",
+        "ttsText": "What season do you like? I like winter.",
         "displayWord": "I like winter. I can make a ___."
       },
       "answer": {
@@ -1679,7 +1679,7 @@
       "topic": "dates",
       "question": {
         "text": "빈칸에 알맞은 말은? 'When is Earth Day? It's on ___ 22nd.'",
-        "ttsText": "When is Earth Day? It's on April 22nd.",
+        "ttsText": "When is Earth Day?",
         "displayWord": "It's on ___ 22nd."
       },
       "answer": {
@@ -2106,7 +2106,7 @@
       "topic": "feelings",
       "question": {
         "text": "빈칸에 알맞은 말은? 'Why are you worried? ___ I have a math test.'",
-        "ttsText": "Why are you worried? Because I have a math test.",
+        "ttsText": "Why are you worried?",
         "displayWord": "___ I have a math test."
       },
       "answer": {
@@ -2530,7 +2530,7 @@
       "topic": "directions",
       "question": {
         "text": "빈칸에 알맞은 말은? 'Where is the hospital? Go straight and ___.'",
-        "ttsText": "Where is the hospital? Go straight and turn right.",
+        "ttsText": "Where is the hospital?",
         "displayWord": "Go straight and ___."
       },
       "answer": {
@@ -3099,7 +3099,7 @@
       "difficulty": 2,
       "question": {
         "text": "\"몇 학년이에요?\"를 영어로 하면?",
-        "ttsText": "What grade are you in?"
+        "ttsText": "몇 학년이에요?"
       },
       "answer": {
         "correct": "What grade are you in?",
@@ -3123,7 +3123,7 @@
       "confidence": 0.95,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "ttsText": "What grade are you in?",
+      "ttsText": "몇 학년이에요?",
       "validationDetails": [],
       "wrongExplanation": "grade = 학년, name = 이름, old = 나이. What 뒤에 오는 단어가 '뭘 묻는지'를 정해!",
       "id": "eng_u45_sent_085"
@@ -3139,7 +3139,7 @@
       "difficulty": 2,
       "question": {
         "text": "\"나는 6학년이에요.\"를 영어로 하면?",
-        "ttsText": "I'm in the sixth grade."
+        "ttsText": "나는 6학년이에요."
       },
       "answer": {
         "correct": "I'm in the sixth grade.",
@@ -3163,7 +3163,7 @@
       "confidence": 0.95,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "ttsText": "I'm in the sixth grade.",
+      "ttsText": "나는 6학년이에요.",
       "validationDetails": [],
       "wrongExplanation": "'I'm six years old'는 '6살이에요'야! sixth(6번째) grade(학년)이 '6학년'이야. 숫자랑 순서 구분!",
       "id": "eng_u45_sent_086"
@@ -3179,7 +3179,7 @@
       "difficulty": 2,
       "question": {
         "text": "\"이름 철자가 어떻게 되나요?\"를 영어로 하면?",
-        "ttsText": "How do you spell your name?"
+        "ttsText": "이름 철자가 어떻게 되나요?"
       },
       "answer": {
         "correct": "How do you spell your name?",
@@ -3203,7 +3203,7 @@
       "confidence": 0.95,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "ttsText": "How do you spell your name?",
+      "ttsText": "이름 철자가 어떻게 되나요?",
       "validationDetails": [],
       "wrongExplanation": "spell = 철자를 말하다. '이름이 뭐야?'는 What's your name이고, '철자가 어떻게 돼?'는 spell을 써.",
       "id": "eng_u45_sent_087"
@@ -3219,7 +3219,7 @@
       "difficulty": 2,
       "question": {
         "text": "빈칸에 알맞은 말은?\n\"I ___ the guitar every day.\"",
-        "ttsText": "I play the guitar every day."
+        "ttsText": "빈칸에 알맞은 말은?"
       },
       "answer": {
         "correct": "play",
@@ -3244,7 +3244,7 @@
       "confidence": 0.95,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "ttsText": "I play the guitar every day.",
+      "ttsText": "빈칸에 알맞은 말은?",
       "validationDetails": [],
       "wrongExplanation": "악기를 연주할 때는 play! ride(타다), read(읽다), draw(그리다)는 전혀 다른 동작이야.",
       "id": "eng_u45_sent_088"
@@ -3260,7 +3260,7 @@
       "difficulty": 2,
       "question": {
         "text": "빈칸에 알맞은 말은?\n\"I'm ___ Mexico City, Mexico.\"",
-        "ttsText": "I'm from Mexico City, Mexico."
+        "ttsText": "빈칸에 알맞은 말은?"
       },
       "answer": {
         "correct": "from",
@@ -3285,7 +3285,7 @@
       "confidence": 0.95,
       "reviewStatus": "approved",
       "validationStatus": "pass",
-      "ttsText": "I'm from Mexico City, Mexico.",
+      "ttsText": "빈칸에 알맞은 말은?",
       "validationDetails": [],
       "wrongExplanation": "from = ~에서 온. to(~로), in(~안에), at(~에서)이랑 다 다른 뜻이야. 출신지는 from!",
       "id": "eng_u45_sent_089"
@@ -3433,7 +3433,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: eye",
+      "hint": {
+        "text": "발음: eye"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3464,7 +3466,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: hair",
+      "hint": {
+        "text": "발음: hair"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3495,7 +3499,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: glasses",
+      "hint": {
+        "text": "발음: glasses"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3526,7 +3532,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: dress",
+      "hint": {
+        "text": "발음: dress"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3557,7 +3565,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: shirt",
+      "hint": {
+        "text": "발음: shirt"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3588,7 +3598,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: pants",
+      "hint": {
+        "text": "발음: pants"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3619,7 +3631,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: curly",
+      "hint": {
+        "text": "발음: curly"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3650,7 +3664,9 @@
         ],
         "type": "choice"
       },
-      "hint": "발음: straight",
+      "hint": {
+        "text": "발음: straight"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3681,7 +3697,9 @@
         ],
         "type": "choice"
       },
-      "hint": "has = ~를 가지고 있다",
+      "hint": {
+        "text": "has = ~를 가지고 있다"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3712,7 +3730,9 @@
         ],
         "type": "choice"
       },
-      "hint": "is wearing = ~를 입고 있다",
+      "hint": {
+        "text": "is wearing = ~를 입고 있다"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3743,7 +3763,9 @@
         ],
         "type": "choice"
       },
-      "hint": "look like = ~처럼 보이다 / 생김새",
+      "hint": {
+        "text": "look like = ~처럼 보이다 / 생김새"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3774,7 +3796,9 @@
         ],
         "type": "choice"
       },
-      "hint": "curly = 곱슬곱슬한",
+      "hint": {
+        "text": "curly = 곱슬곱슬한"
+      },
       "tags": [
         "unit6",
         "appearance"
@@ -3805,7 +3829,9 @@
         ],
         "type": "choice"
       },
-      "hint": "tall = 키가 큰, thin = 마른",
+      "hint": {
+        "text": "tall = 키가 큰, thin = 마른"
+      },
       "tags": [
         "unit6",
         "appearance"
