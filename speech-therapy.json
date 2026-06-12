@@ -4658,12 +4658,12 @@
       "sourceBook": "읽기자신감5권",
       "bookUnit": "1.1",
       "ruleType": "연음",
-      "sourcePages": "19-20",
+      "sourcePages": "19-26",
       "activityKind": "apply-grid",
       "practiceMode": "cover_read",
       "homeworkDate": "2026-05-21",
       "reviewStatus": "parent_review_pending",
-      "_note": "v5.72.0(2026-06-03): 적용(1) 대조쌍 개편 — items 20개(p.19 체언 9 + p.20 체언 11, 조사 4칸 allForms[자음2+모음2]). 평탄 스키마 유지 + 칼럼 증설(contrastOrtho/contrastPron/allForms/particleVowel/particleConsonant/difficulty/anchor/liaisonException), 중첩 금지. 앵커 12개(anchor:true) id = config.coverReadAnchorSet.itemIds 1:1. 출처 00_Context/2026-06-03-연음-적용1-data.json (JH 검수완료). 녹음·자기비교는 모음형(이/에) 앵커 itemId만, 자음칸(도/까지·과/부터)은 차이듣기 읽기·듣기. 종(liaisonException) 포함=연음 안 되는 대비. 일일 sampling coverReadItemsPerSession 기본 10. ㅇ받침 예외·고난도(대궐/가마솥/뙤약볕 difficulty 3)는 sampling 후순위. v5.77.0(2026-06-03): 적용2(용언+어미 p.21~22) 21항목 추가(stage:2·anchor:false, 출처 00_Context/2026-06-03-연음-적용2-data.json), 기존 적용1 20개 stage:1. items 20→41, stage 게이팅(crBuildCoverReadQueue)으로 적용1 거의 마스터 후 적용2 등장. 앵커 12개 불변.",
+      "_note": "v5.72.0(2026-06-03): 적용(1) 대조쌍 개편 — items 20개(p.19 체언 9 + p.20 체언 11, 조사 4칸 allForms[자음2+모음2]). 평탄 스키마 유지 + 칼럼 증설(contrastOrtho/contrastPron/allForms/particleVowel/particleConsonant/difficulty/anchor/liaisonException), 중첩 금지. 앵커 12개(anchor:true) id = config.coverReadAnchorSet.itemIds 1:1. 출처 00_Context/2026-06-03-연음-적용1-data.json (JH 검수완료). 녹음·자기비교는 모음형(이/에) 앵커 itemId만, 자음칸(도/까지·과/부터)은 차이듣기 읽기·듣기. 종(liaisonException) 포함=연음 안 되는 대비. 일일 sampling coverReadItemsPerSession 기본 10. ㅇ받침 예외·고난도(대궐/가마솥/뙤약볕 difficulty 3)는 sampling 후순위. v5.77.0(2026-06-03): 적용2(용언+어미 p.21~22) 21항목 추가(stage:2·anchor:false, 출처 00_Context/2026-06-03-연음-적용2-data.json), 기존 적용1 20개 stage:1. items 20→41, stage 게이팅(crBuildCoverReadQueue)으로 적용1 거의 마스터 후 적용2 등장. 앵커 12개 불변. v5.82.0(2026-06-12): 적용3·4 단독낱말 67개 추가(stage3 비단어25 nonword·stage4 사자성어12·stage5 의미30, meaningless 37개 세션 상한 그룹, 앵커 +2=14). 출처 00_Context/2026-06-12-연음-적용3-4-구현스펙.md.",
       "items": [
         {
           "id": "bk5-1-1-p19-jong-i",
@@ -6306,6 +6306,606 @@
           "difficulty": 3,
           "anchor": false,
           "stage": 2
+        },
+        {
+          "id": "bk5-1-1-p26-nw01",
+          "orthography": "짘업",
+          "pronunciation": "지컵",
+          "sourceForm": "짘업",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw02",
+          "orthography": "얶음",
+          "pronunciation": "어끔",
+          "sourceForm": "얶음",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw03",
+          "orthography": "긒여",
+          "pronunciation": "그펴",
+          "sourceForm": "긒여",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw04",
+          "orthography": "엳애",
+          "pronunciation": "여대",
+          "sourceForm": "엳애",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw05",
+          "orthography": "낫오",
+          "pronunciation": "나소",
+          "sourceForm": "낫오",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw06",
+          "orthography": "섬양",
+          "pronunciation": "서먕",
+          "sourceForm": "섬양",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw07",
+          "orthography": "급연",
+          "pronunciation": "그변",
+          "sourceForm": "급연",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw08",
+          "orthography": "숟위",
+          "pronunciation": "수뒤",
+          "sourceForm": "숟위",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw09",
+          "orthography": "몪욕",
+          "pronunciation": "모꾝",
+          "sourceForm": "몪욕",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw10",
+          "orthography": "번위",
+          "pronunciation": "버뉘",
+          "sourceForm": "번위",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw11",
+          "orthography": "욷음",
+          "pronunciation": "우듬",
+          "sourceForm": "욷음",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw12",
+          "orthography": "챆임",
+          "pronunciation": "채낌",
+          "sourceForm": "챆임",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw13",
+          "orthography": "샆입",
+          "pronunciation": "사핍",
+          "sourceForm": "샆입",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw14",
+          "orthography": "존잇",
+          "pronunciation": "조닏",
+          "sourceForm": "존잇",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw15",
+          "orthography": "곶암",
+          "pronunciation": "고잠",
+          "sourceForm": "곶암",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw16",
+          "orthography": "그은음",
+          "pronunciation": "그으늠",
+          "sourceForm": "그은음",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw17",
+          "orthography": "심입생",
+          "pronunciation": "시밉쌩",
+          "sourceForm": "심입생",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true,
+          "anchor": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw18",
+          "orthography": "불위기",
+          "pronunciation": "부뤼기",
+          "sourceForm": "불위기",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw19",
+          "orthography": "준임말",
+          "pronunciation": "주님말",
+          "sourceForm": "준임말",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw20",
+          "orthography": "싞염수",
+          "pronunciation": "시꼄수",
+          "sourceForm": "싞염수",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw21",
+          "orthography": "칩엽수",
+          "pronunciation": "치볍쑤",
+          "sourceForm": "칩엽수",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw22",
+          "orthography": "걱어물",
+          "pronunciation": "거거물",
+          "sourceForm": "걱어물",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw23",
+          "orthography": "환엽수",
+          "pronunciation": "화녑쑤",
+          "sourceForm": "환엽수",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw24",
+          "orthography": "옷건이",
+          "pronunciation": "옫꺼니",
+          "sourceForm": "옷건이",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-nw25",
+          "orthography": "설입견",
+          "pronunciation": "서립껸",
+          "sourceForm": "설입견",
+          "ruleType": "연음",
+          "stage": 3,
+          "nonword": true,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id01",
+          "orthography": "개문읍도",
+          "pronunciation": "개무늡또",
+          "sourceForm": "개문읍도",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id02",
+          "orthography": "교각살우",
+          "pronunciation": "교각싸루",
+          "sourceForm": "교각살우",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id03",
+          "orthography": "혼용무도",
+          "pronunciation": "호뇽무도",
+          "sourceForm": "혼용무도",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id04",
+          "orthography": "옥오지애",
+          "pronunciation": "오고지애",
+          "sourceForm": "옥오지애",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id05",
+          "orthography": "전인미답",
+          "pronunciation": "저닌미답",
+          "sourceForm": "전인미답",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id06",
+          "orthography": "각인각양",
+          "pronunciation": "가긴가걍",
+          "sourceForm": "각인각양",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id07",
+          "orthography": "불인인열",
+          "pronunciation": "부리니녈",
+          "sourceForm": "불인인열",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id08",
+          "orthography": "일엽장목",
+          "pronunciation": "이렵짱목",
+          "sourceForm": "일엽장목",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id09",
+          "orthography": "낙양지귀",
+          "pronunciation": "나걍지귀",
+          "sourceForm": "낙양지귀",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id10",
+          "orthography": "침어낙안",
+          "pronunciation": "치머나간",
+          "sourceForm": "침어낙안",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id11",
+          "orthography": "게부입연",
+          "pronunciation": "게부이변",
+          "sourceForm": "게부입연",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p26-id12",
+          "orthography": "백절불요",
+          "pronunciation": "백쩔부료",
+          "sourceForm": "백절불요",
+          "ruleType": "연음",
+          "stage": 4,
+          "meaningless": true
+        },
+        {
+          "id": "bk5-1-1-p23-w01",
+          "orthography": "단어",
+          "pronunciation": "다너",
+          "sourceForm": "단어",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w02",
+          "orthography": "국어",
+          "pronunciation": "구거",
+          "sourceForm": "국어",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w03",
+          "orthography": "문어",
+          "pronunciation": "무너",
+          "sourceForm": "문어",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w04",
+          "orthography": "떡볶이",
+          "pronunciation": "떡뽀끼",
+          "sourceForm": "떡볶이",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w05",
+          "orthography": "눈높이",
+          "pronunciation": "눈노피",
+          "sourceForm": "눈높이",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w06",
+          "orthography": "손잡이",
+          "pronunciation": "손자비",
+          "sourceForm": "손잡이",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w07",
+          "orthography": "목걸이",
+          "pronunciation": "목꺼리",
+          "sourceForm": "목걸이",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w08",
+          "orthography": "단오",
+          "pronunciation": "다노",
+          "sourceForm": "단오",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w09",
+          "orthography": "일요일",
+          "pronunciation": "이료일",
+          "sourceForm": "일요일",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w10",
+          "orthography": "목요일",
+          "pronunciation": "모교일",
+          "sourceForm": "목요일",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w11",
+          "orthography": "분유",
+          "pronunciation": "부뉴",
+          "sourceForm": "분유",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w12",
+          "orthography": "순위",
+          "pronunciation": "수뉘",
+          "sourceForm": "순위",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w13",
+          "orthography": "단위",
+          "pronunciation": "다뉘",
+          "sourceForm": "단위",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w14",
+          "orthography": "분위기",
+          "pronunciation": "부뉘기",
+          "sourceForm": "분위기",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w15",
+          "orthography": "참외",
+          "pronunciation": "차뫼",
+          "sourceForm": "참외",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w16",
+          "orthography": "음악",
+          "pronunciation": "으막",
+          "sourceForm": "음악",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w17",
+          "orthography": "국악",
+          "pronunciation": "구각",
+          "sourceForm": "국악",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w18",
+          "orthography": "집안",
+          "pronunciation": "지반",
+          "sourceForm": "집안",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w19",
+          "orthography": "불안",
+          "pronunciation": "부란",
+          "sourceForm": "불안",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w20",
+          "orthography": "직업",
+          "pronunciation": "지겁",
+          "sourceForm": "직업",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w21",
+          "orthography": "졸업",
+          "pronunciation": "조럽",
+          "sourceForm": "졸업",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w22",
+          "orthography": "할인",
+          "pronunciation": "하린",
+          "sourceForm": "할인",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w23",
+          "orthography": "확인",
+          "pronunciation": "화긴",
+          "sourceForm": "확인",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w24",
+          "orthography": "원인",
+          "pronunciation": "워닌",
+          "sourceForm": "원인",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w25",
+          "orthography": "한옥",
+          "pronunciation": "하녹",
+          "sourceForm": "한옥",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w26",
+          "orthography": "책임",
+          "pronunciation": "채김",
+          "sourceForm": "책임",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w27",
+          "orthography": "줄임말",
+          "pronunciation": "주림말",
+          "sourceForm": "줄임말",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w28",
+          "orthography": "얼음",
+          "pronunciation": "어름",
+          "sourceForm": "얼음",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w29",
+          "orthography": "걸음",
+          "pronunciation": "거름",
+          "sourceForm": "걸음",
+          "ruleType": "연음",
+          "stage": 5
+        },
+        {
+          "id": "bk5-1-1-p23-w30",
+          "orthography": "학용품",
+          "pronunciation": "하굥품",
+          "sourceForm": "학용품",
+          "ruleType": "연음",
+          "stage": 5
         }
       ]
     }

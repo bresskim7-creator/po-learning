@@ -266,11 +266,15 @@
     "coverReadStageUnlockMaxRemainingNote": "v5.79.0: cover_read stage 순차 게이팅 임계치(기본 2→3). 적용1(stage:1) learning 수가 이 값 이하로 줄면 적용2(stage:2) learning 개방(낮은 stage는 항상 노출, stubborn 낱말 유지). 기본 3=17/20(85%) 안정화에서 적용2 등장(Codex 권장: 2는 stubborn 3개 lockout에 취약). 키우면(예: 5) 적용2가 더 일찍 블렌드. ★v5.79.0 one-way latch: 한 번 열린 stage는 적용1 revert로 다시 닫지 않음(po_v5_cover_read_stage_unlocks 저장), 적용1 약점은 stage-first 정렬로 우선 노출. ★위치 필수: 호출부(index.html crBuildCoverReadQueue 호출, APP.config.speakingPractice 전달)가 이 서브객체를 넘기므로 반드시 speakingPractice 블록 안. 최상위에 두면 동작 안 함. 코드 기본값 3 있어 키 누락해도 동작. v5.79.1: 저장된 unlock 값이 데이터 유효 상한(maxStage)을 초과한 손상값(예: 99)이면 호출부에서 clamp된 정상값으로 하향 정정 저장(정상 범위 값은 one-way로 절대 안 내림).",
     "showSoundSpelling": false,
     "showSoundSpellingNote": "v5.72.0(D3·M3): cover_read routine(Step 2 비교화면)에 소리 글자([채기]) 텍스트 노출 여부. 기본 false=오디오로만(선생님 원칙: 진짜 글자만 보여주고 grapheme→phoneme 변환 연습). 선생님이 시각 지원 필요 판단 시 true로 바꾸면 코드 수정 없이 step>=3에서 발음표기 노출. 원리 카드(🔎)의 소리 글자는 이 토글과 무관하게 항상 노출(의도된 교육 노출).",
+    "coverReadMeaninglessSessionCap": 4,
+    "coverReadMeaninglessSessionCapNote": "v5.82.0: 한 세션 큐(기본 10장) 중 meaningless:true(비단어25+사자성어12) 항목 상한. 효과성 점검 '무의미 자극 비율 상한' 원칙. 초과분은 그 세션에서 제외(learning 유지→다음 세션 노출). maintenanceDue도 상한에 포함·초과 시 이월(due 유지). 코드 기본값 4 — 키 누락해도 동작. 0=무의미 낱말 전면 차단(비상용).",
+    "coverReadSlowListenRate": 0.7,
+    "coverReadSlowListenRateNote": "v5.82.0: 🐢 천천히 듣기 버튼의 TTS rate(기본 듣기 0.9). 코드에서 0.5~0.9 clamp, 기본값 0.7 — 키 누락해도 동작.",
     "note": "v5.53 T5: 말하기연습 전용 LR 장수. 전체복습(listenRepeat.cardsPerSession=4)과 독립. v5.65 T4: cover_read 활성 시 Block 1 legacy quiz cap = coverReadLegacyQuizCardsPerSession (0~2 clamp). v5.65.1: 초기 파일럿은 cover_read 집중 → Block 1·Block 2 둘 다 0 기본. cover_read 활성 시 Block 2 LR cap = coverReadLRCardsPerSession (0~2 clamp). 두 키 모두 0은 유효 cap (해당 블록 미출현), typeof===number 체크로 0 보존, 미지정 시 fallback 1. cover_read 비활성 시 Block 1 5장 + Block 2 lrCardsPerSession(3) 유지. v5.65.3 sampling: cover_read 활성 시 항목 풀에서 N개 sampling (shuffleArray + slice). N은 coverReadItemsPerSession (default 10, pool 크기 초과 시 pool 크기로 cap). v1.2 §1.2 '8~12개'는 일일 노출 규모로 해석."
   },
   "coverReadAnchorSet": {
     "enabled": true,
-    "note": "v5.70 T-ADD-3: 부모 then-vs-now 청취용 고정 앵커. 받침 유형별 대표 12개(받침 ㄱㄴㄹㅂㅁ -이 5개 + ㅅㅈㅊㅌㅍㄲㅋ -에 7개). JH 임시확정 2026-05-31, 선생님 확정은 후속(§12-1). 이 itemId만 Drive 적재.",
+    "note": "v5.70 T-ADD-3: 부모 then-vs-now 청취용 고정 앵커. 받침 유형별 대표 12개(받침 ㄱㄴㄹㅂㅁ -이 5개 + ㅅㅈㅊㅌㅍㄲㅋ -에 7개). JH 임시확정 2026-05-31, 선생님 확정은 후속(§12-1). 이 itemId만 Drive 적재. v5.82.0: 치환 낱말 2개(그은음·심입생) 앵커 승격 — 선생님 지적 '의미 단어 치환' 추적용(2026-06-11 녹취). 선생님 표시 낱말과 다르면 교체(JH 확인 대기, 비차단).",
     "perWordWeeklyCap": 12,
     "perWordWeeklyCapNote": "v5.71 §12-2(JH 확정): 앵커 단어당 ISO주당 최신 1개만 Drive 적재, 최근 N주(=이 값)까지 보존·표시. 12주≈3개월. 하드코딩 금지 — 이 값으로 조정. 8 등으로 낮춰도 됨.",
     "itemIds": [
@@ -285,7 +289,9 @@
       "bk5-1-1-p20-bat-e",
       "bk5-1-1-p20-sup-e",
       "bk5-1-1-p20-bak-e",
-      "bk5-1-1-p20-bueok-e"
+      "bk5-1-1-p20-bueok-e",
+      "bk5-1-1-p26-nw16",
+      "bk5-1-1-p26-nw17"
     ]
   },
   "subjectSession": {

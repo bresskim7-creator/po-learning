@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.81.0';
-var APP_SW_CACHE = 'sw5810';
+var APP_VERSION = 'v5.82.0';
+var APP_SW_CACHE = 'sw5820';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -4171,7 +4171,9 @@ function startSpeakingPracticeSession() {
         particleConsonant: item.particleConsonant || '',
         difficulty: (typeof item.difficulty === 'number') ? item.difficulty : 1,
         anchor: item.anchor === true,
-        liaisonException: item.liaisonException === true
+        liaisonException: item.liaisonException === true,
+        nonword: item.nonword === true,
+        meaningless: item.meaningless === true
       };
     });
     allCards = allCards.concat(crCards);
@@ -7409,6 +7411,8 @@ function crSchedulerAdvance(itemId, attemptPayload, progress) {
   var probeShown = pay.probe && pay.probe.shown === true;
   var probeCorrect = probeShown ? (pay.probe.correct === true) : null;
   var qualifying = (pay.qualifyingAttempt === true);
+  // [v5.82.0 §3-0] probe 데이터 없는 item 전이 교착 해소 — undefined → true(기존 동작 보존, 방어적).
+  var probeAvailable = pay.probeAvailable !== false;
   var dayKey = pay.productionDayKey || crGetProductionDayKey(Date.now());
 
   // [v5.66 T2] distinctProductionDays — qualifying attempt 중 캘린더 일자 첫 시도일 때만 +1.
@@ -7454,7 +7458,7 @@ function crSchedulerAdvance(itemId, attemptPayload, progress) {
   if (np.schedulerState === 'learning' && qualifying &&
       np.distinctProductionDays >= 3 &&
       np.recentSameStreak >= 3 &&
-      np.probeCorrectStreak >= 2) {
+      (np.probeCorrectStreak >= 2 || !probeAvailable)) {
     np.schedulerState = 'auto_stable';
     // maintenanceDueDate = lastProductionDate + 7일 (UTC ms 기준 KST yyyy-mm-dd).
     np.maintenanceDueDate = crGetProductionDayKey(Date.now() + 7 * 86400000);
@@ -7467,8 +7471,8 @@ function crSchedulerAdvance(itemId, attemptPayload, progress) {
     if (!np.maintenanceDueDate || np.maintenanceDueDate > today) {
       return { newState: 'auto_stable', transitionReason: 'auto_stable_pending_due', updatedProgress: np };
     }
-    // maintenanceDueDate 도래 + qualifying + probe 정답 + self '같게' → maintenance review 성공.
-    if (qualifying && probeShown && probeCorrect === true && rating === 'same') {
+    // maintenanceDueDate 도래 + qualifying + probe 정답(또는 probe 데이터 부재) + self '같게' → maintenance review 성공.
+    if (qualifying && rating === 'same' && (!probeAvailable || (probeShown && probeCorrect === true))) {
       np.schedulerState = 'maintenance';
       np.maintenanceDueDate = crGetProductionDayKey(Date.now() + 7 * 86400000);
       return { newState: 'maintenance', transitionReason: 'maintenance_review_success', updatedProgress: np };
@@ -7479,7 +7483,7 @@ function crSchedulerAdvance(itemId, attemptPayload, progress) {
 
   // maintenance: probe 정답 + qualifying + self '같게'면 다음 review 일정 갱신.
   if (np.schedulerState === 'maintenance') {
-    if (qualifying && probeShown && probeCorrect === true && rating === 'same') {
+    if (qualifying && rating === 'same' && (!probeAvailable || (probeShown && probeCorrect === true))) {
       np.maintenanceDueDate = crGetProductionDayKey(Date.now() + 7 * 86400000);
       return { newState: 'maintenance', transitionReason: 'maintenance_review_success', updatedProgress: np };
     }
@@ -7605,9 +7609,22 @@ function crBuildCoverReadQueue(setItems, progressMap, config, unlockState) {
   var queue = [];
   var bonus = [];
 
+  // [v5.82.0 §3-2] 무의미 자극(비단어·사자성어) 세션 상한 — 효과성 점검 '무의미 비율 상한' 원칙.
+  var mlCap = (config && typeof config.coverReadMeaninglessSessionCap === 'number')
+    ? Math.max(0, config.coverReadMeaninglessSessionCap) : 4;
+  var mlCount = 0;
+  var mlSkipped = 0;
+  function crMlAdmit(it) {   // push 직전 호출(=카운트). false면 skip(큐 미진입 — learning/due 유지 → 다음 세션 후보).
+    if (!it || it.meaningless !== true) return true;
+    if (mlCount >= mlCap) { mlSkipped++; return false; }
+    mlCount++;
+    return true;
+  }
+
   // 1) maintenance due 먼저 (delayed_review probe 우선)
   var mdShuffled = shuffleArray(maintenanceDue.slice());
   for (var j = 0; j < mdShuffled.length && queue.length < perSession; j++) {
+    if (!crMlAdmit(mdShuffled[j])) continue;   // [v5.82.0] due 항목도 상한 — 초과분 due 유지(이월)
     queue.push({ item: mdShuffled[j], isBonus: false });
   }
   // 2) learning 채움 — [v5.79.0] stage 순차 게이팅 + one-way latch. 한 번 열린 stage는 다시 닫지 않는다.
@@ -7672,6 +7689,7 @@ function crBuildCoverReadQueue(setItems, progressMap, config, unlockState) {
     ordered = ordered.concat(shuffleArray(low), shuffleArray(high));
   }
   for (var k = 0; k < ordered.length && queue.length < perSession; k++) {
+    if (!crMlAdmit(ordered[k])) continue;   // [v5.82.0] 용량 체크(루프 조건) 후 무의미 상한
     queue.push({ item: ordered[k], isBonus: false });
   }
   // 3) bonus practice (pool 부족 시) — autoStableExcluded 에서 채움(열린 stage만 filter). state transition evidence 미반영.
@@ -7682,6 +7700,7 @@ function crBuildCoverReadQueue(setItems, progressMap, config, unlockState) {
     });
     var bShuffled = shuffleArray(bonusCand);
     for (var b = 0; b < bShuffled.length && queue.length < perSession; b++) {
+      if (!crMlAdmit(bShuffled[b])) continue;   // [v5.82.0] bonus 무의미도 상한 내
       bonus.push(bShuffled[b]);
       queue.push({ item: bShuffled[b], isBonus: true });
     }
@@ -7693,7 +7712,8 @@ function crBuildCoverReadQueue(setItems, progressMap, config, unlockState) {
       learning: learning.length,
       maintenanceDue: maintenanceDue.length,
       autoStableExcluded: autoStableExcluded.length,
-      bonus: bonus.length
+      bonus: bonus.length,
+      meaninglessSkipped: mlSkipped
     },
     maxUnlockedStage: maxUnlockedStage,
     maxStage: maxStage   // [v5.79.1] 데이터 유효 상한 — 호출부의 손상값 하향 정정에 사용.
@@ -9860,6 +9880,7 @@ function crStartItem(itemIndex) {
   crState.recordingRef = null;
   crState.modelPlayedAfterAttempt = false;
   crState.modelReplayCount = 0;
+  crState.slowReplayCount = 0;   // [v5.82.0 §3-5] 🐢 천천히 듣기 횟수(telemetry, modelReplayCount와 분리)
   if (crState.selfBlobUrl) { revokeCoverReadRecordingUrl(crState.selfBlobUrl); crState.selfBlobUrl = null; }
   crState.selfReplayCount = 0;
   crState.selfPlayedOnce = false;
@@ -9942,6 +9963,11 @@ function crRenderStep() {
     ? '<div style="margin-top:8px;font-size:24px;color:#2563eb;">[' + escapeHtml(item.pronunciation || '') + ']</div>'
     : '<div style="margin-top:8px;font-size:24px;color:#9ca3af;letter-spacing:0.3em;">[ ? ? ? ]</div>';
 
+  // [v5.82.0 §3-3] 비단어 안내문 — step1·2(녹음 직전·중)에만. 치환 순간 집중·화면 과밀 방지로 step3~5 미표시.
+  var nonwordNoticeHtml = (item.nonword === true && (step === 1 || step === 2))
+    ? '<div style="margin-bottom:10px;font-size:15px;color:#b45309;background:#fef3c7;border-radius:8px;padding:8px 12px;display:inline-block;">진짜 없는 말이야. <b>아는 단어로 바꾸지 말고, 쓰인 그대로</b> 읽어 보자.</div>'
+    : '';
+
   var ctrlHtml = '';
   if (step === 1 || step === 2) {
     var recBtnLabel = crState.isRecording ? '⏹ 녹음 중지' : (crState.failedRecordingAttempts > 0 ? '🎤 다시 녹음' : '🎤 녹음 시작');
@@ -9957,6 +9983,7 @@ function crRenderStep() {
     ctrlHtml = '<div id="cr-recording-status" style="margin-top:14px;color:#374151;">모범 소리를 들어볼게.</div>'
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
       + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 다시 듣기</button>'
+      + '<button id="cr-btn-model-slow" class="btn-stair" onclick="crPlayModel(false, true)">🐢 천천히</button>'
       + '</div>';
   } else if (step === 4) {
     // [v5.65.2] '비교하기 →' 버튼 제거. crPlaySelf 의 audio.onended/onerror 에서 PAUSE_AFTER_SELF_PLAY_MS 후 자동 Step 5 진입.
@@ -9966,6 +9993,7 @@ function crRenderStep() {
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
       + '<button id="cr-btn-self-play" class="btn-stair" onclick="crPlaySelf()">▶ 내 녹음 듣기</button>'
       + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 모범 다시 듣기</button>'
+      + '<button id="cr-btn-model-slow" class="btn-stair" onclick="crPlayModel(false, true)">🐢 천천히</button>'
       + '</div>';
   } else if (step === 5) {
     // [v5.65.2] '🔊 모범 다시 듣기' 추가 (비교 능력 보존, modelReplayCount 누적).
@@ -9986,6 +10014,7 @@ function crRenderStep() {
       + '<div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
       + '<button id="cr-btn-self-play" class="btn-stair" onclick="crPlaySelf()">▶ 내 녹음 다시 듣기</button>'
       + '<button id="cr-btn-model-replay" class="btn-stair" onclick="crPlayModel(false)">🔊 모범 다시 듣기</button>'
+      + '<button id="cr-btn-model-slow" class="btn-stair" onclick="crPlayModel(false, true)">🐢 천천히</button>'
       + '<button id="cr-btn-same" class="btn-stair" onclick="crRateSelf(\'same\')"'
         + (sameDisabled ? ' disabled style="opacity:0.4;"' : ' style="background:#16a34a;color:white;"')
         + '>같았어 ▶</button>'
@@ -9995,7 +10024,10 @@ function crRenderStep() {
           : '')
       + '</div>'
       // [v5.72.0] 원리 카드 on-demand — step 5(비교 후)는 자동전환 pending 없는 안전 지점. step 6(probe)에는 절대 추가 금지(MEDIUM-4).
-      + '<div style="margin-top:10px;"><button class="btn-stair" onclick="crShowPrinciple()" style="font-size:13px;opacity:0.85;">🔎 왜 이렇게 소리 날까?</button></div>';
+      // [v5.82.0 §3-4] allForms>=2(적용1·2 대조쌍)일 때만 — 단독낱말 67개는 원리 폴백이 particle '' 조립으로 깨지고 비단어 일반화 설명 무의미.
+      + ((Array.isArray(item.allForms) && item.allForms.length >= 2)
+          ? '<div style="margin-top:10px;"><button class="btn-stair" onclick="crShowPrinciple()" style="font-size:13px;opacity:0.85;">🔎 왜 이렇게 소리 날까?</button></div>'
+          : '');
   } else if (step === 6) {
     // [v5.66 T11] probe Step 6 (Phase 2a 활성, Phase 1 비활성).
     // 3지선다 phonetic_text_choice. choices 순서 shuffleArray (정답 위치 학습 방지).
@@ -10028,7 +10060,7 @@ function crRenderStep() {
   }
 
   container.innerHTML = '<div class="ra-card cover-read-item" style="padding:24px;max-width:520px;margin:0 auto;text-align:center;">'
-    + positionHtml + orthoHtml + pronHtml + ctrlHtml
+    + positionHtml + nonwordNoticeHtml + orthoHtml + pronHtml + ctrlHtml
     + '</div>';
 
   // Step 3 자동 TTS 1회. Step 5 진입 시 latency 시작.
@@ -10335,7 +10367,7 @@ function crSkipItem() {
 // [v5.65.2 race fix 2차] self audio pause 시 _selfPlaySeq++ → 진행 중이던 play().catch / onerror 가
 //                    selfPlayFailed=true 와 Step 5 schedule 을 만들지 않음 (Chrome play interrupted-by-pause race).
 //                    selfPlayedOnce / selfPlayFailed 값은 절대 변경 안 함 (§3.4 의식적 청취 신호 보존).
-function crPlayModel(initial) {
+function crPlayModel(initial, slow) {
   // [v5.65.2 race fix 2차] self audio 재생 중이면 textToSpeech 호출 전 pause (소리 겹침 방지) +
   //                       _selfPlaySeq++ 로 stale callback 무효화 + blob URL revoke (메모리 누수 방지) + 인스턴스 슬롯 null.
   //                       selfPlayedOnce / selfPlayFailed 는 변경 안 함:
@@ -10364,7 +10396,9 @@ function crPlayModel(initial) {
     }
     return;
   }
-  if (!initial) crState.modelReplayCount++;
+  // [v5.82.0 §3-5] 🐢 천천히 듣기는 modelReplayCount에 합산 안 함 — count>2 qualifying 박탈(역인센티브) 방지. slowReplayCount 별도 누적(telemetry).
+  if (!initial && slow !== true) crState.modelReplayCount++;
+  if (slow === true) crState.slowReplayCount = (crState.slowReplayCount || 0) + 1;
   crState.modelPlayedAfterAttempt = true;
 
   // 새 TTS 시작 → 기존 auto-advance timer 취소 (다시 듣기 race 방지)
@@ -10401,7 +10435,11 @@ function crPlayModel(initial) {
   }
 
   try {
-    var p = textToSpeech(item.pronunciation, 'ko', { rate: 0.9 });
+    // [v5.82.0 §3-5] 🐢 천천히 듣기 rate(config coverReadSlowListenRate, 0.5~0.9 clamp, 기본 0.7). 일반 듣기 0.9.
+    var slowCfg = (APP.config && APP.config.speakingPractice && typeof APP.config.speakingPractice.coverReadSlowListenRate === 'number')
+      ? APP.config.speakingPractice.coverReadSlowListenRate : 0.7;
+    var ttsRate = (slow === true) ? Math.min(0.9, Math.max(0.5, slowCfg)) : 0.9;
+    var p = textToSpeech(item.pronunciation, 'ko', { rate: ttsRate });
     if (p && p.then) {
       // 성공/실패 모두 onTtsEnd 호출 (stuck 방지)
       p.then(onTtsEnd, onTtsEnd);
@@ -10550,12 +10588,14 @@ function crRateSelf(rating) {
     recordingRef: crState.recordingRef,
     modelPlayed: crState.modelPlayedAfterAttempt,
     modelReplayCount: crState.modelReplayCount,
+    slowReplayCount: crState.slowReplayCount || 0,   // [v5.82.0 §3-5] telemetry
     selfReplayCount: crState.selfReplayCount,
     selfCompareRating: rating,
     selfCompareLatencyMs: latency,
     helpLevel: 'model_only',
     productionDayKey: crGetProductionDayKey(Date.now()),
     isBonus: isBonus,
+    probeAvailable: crItemHasProbeData(itemId),  // [v5.82.0 §3-0] probe 데이터 보유 item만 전이에 probe 요구
     scaffoldShown: false,             // Phase 2a: scaffold UI 없음 (spec §3.2 line 261 후속 트랙)
     preProductionTtsCount: 0,         // Phase 1: pre-production TTS 0회 (renderer 정책)
     preProductionRevealCount: 0       // Phase 1: pre-production reveal 0회
@@ -10644,6 +10684,16 @@ function crRateSelf(rating) {
 // [v5.66 T11 + T9] Step 6 probe 진입. attempt write 는 crSubmitProbe에서.
 // H3 보정: itemsWithProbe[itemId] = true 로 동일 item 1회 차단.
 // E7 보정: probe collection lookup 실패 시 probe 건너뛰고 attempt 정상 처리.
+// [v5.82.0 §3-0] probe 데이터 보유 여부 — crStartProbe lookup(targetItemIds 스캔)과 동일. probe 없는 item 전이 면제 판정용.
+function crItemHasProbeData(itemId) {
+  var probeCollection = APP.coverReadProbes || [];
+  for (var i = 0; i < probeCollection.length; i++) {
+    var pp = probeCollection[i];
+    if (pp && pp.targetItemIds && pp.targetItemIds.indexOf(itemId) >= 0) return true;
+  }
+  return false;
+}
+
 function crStartProbe(itemId, reason, attemptPayloadBase, schedulerStateBefore, priorProgress) {
   // probe collection lookup (APP.coverReadProbes)
   var probeCollection = APP.coverReadProbes || [];
