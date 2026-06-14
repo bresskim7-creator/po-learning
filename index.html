@@ -1510,8 +1510,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.82.0';
-var APP_SW_CACHE = 'sw5820';
+var APP_VERSION = 'v5.83.0';
+var APP_SW_CACHE = 'sw5830';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -11980,7 +11980,58 @@ function escapeHtml(str) {
 document.addEventListener('DOMContentLoaded', init);
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(function(e) { console.log('SW 등록 실패:', e); });
+  // [v5.83.0] 서비스워커 자동 업데이트
+  //  1) 등록 후 페이지 로드마다 registration.update()로 새 sw.js를 능동 확인
+  //  2) 새 워커가 제어권을 잡으면(controllerchange) sessionStorage 플래그로 1회만 리로드 → 무한 새로고침 방지
+  //  3) 카드 풀이 중에는 즉시 리로드하지 않고 가벼운 안내 배너로 처리 → 학습 중단 방지
+  var SW_RELOAD_FLAG = 'po_sw_reloaded';
+  // 최초 설치(이전 컨트롤러 없음) 때도 clients.claim()이 controllerchange를 일으키므로,
+  // 불필요한 첫 로드 리로드를 막기 위해 로드 시점에 컨트롤러 존재 여부를 기록.
+  var poHadController = !!navigator.serviceWorker.controller;
+
+  function poIsActivityInProgress() {
+    // 카드 풀이 / 개념 카드 화면이 활성일 때만 '진행 중'으로 본다.
+    var card = document.getElementById('page-card');
+    var conceptCard = document.getElementById('page-concept-card');
+    return !!((card && card.classList.contains('active')) ||
+              (conceptCard && conceptCard.classList.contains('active')));
+  }
+
+  function poReloadForNewVersion() {
+    if (sessionStorage.getItem(SW_RELOAD_FLAG)) return;   // 이미 1회 리로드함 → 무한 새로고침 방지
+    sessionStorage.setItem(SW_RELOAD_FLAG, '1');
+    location.reload();
+  }
+
+  function poShowUpdateBanner() {
+    if (document.getElementById('po-sw-update-banner')) return;   // 중복 노출 방지
+    var bar = document.createElement('div');
+    bar.id = 'po-sw-update-banner';
+    bar.setAttribute('role', 'button');
+    bar.textContent = '✨ 새 버전이 있어요. 눌러서 새로고침';  // ✨ 새 버전이 있어요. 눌러서 새로고침
+    bar.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:99999;' +
+      'background:#2563eb;color:#fff;padding:12px 20px;border-radius:24px;font-size:15px;font-weight:700;' +
+      'box-shadow:0 4px 16px rgba(0,0,0,0.25);cursor:pointer;max-width:90%;text-align:center;';
+    bar.addEventListener('click', poReloadForNewVersion);
+    document.body.appendChild(bar);
+  }
+
+  navigator.serviceWorker.addEventListener('controllerchange', function() {
+    if (!poHadController) return;   // 최초 설치는 페이지가 이미 최신이므로 리로드 불필요
+    // 새 워커가 제어권 인수 → 진행 중이 아니면 즉시 리로드, 진행 중이면 안내 배너
+    if (poIsActivityInProgress()) {
+      poShowUpdateBanner();
+    } else {
+      poReloadForNewVersion();
+    }
+  });
+
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+    // 페이지 로드마다 새 sw.js 능동 확인 (능동 update 트리거)
+    if (registration && registration.update) {
+      try { registration.update(); } catch (e) {}
+    }
+  }).catch(function(e) { console.log('SW 등록 실패:', e); });
 }
 </script>
 </body>
