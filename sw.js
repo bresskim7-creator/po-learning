@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.83.0 (2026-06-14): 서비스워커 자동 업데이트. index.html SW 등록부 교체 — (1) register 후 페이지 로드마다 registration.update()로 새 sw.js 능동 확인, (2) controllerchange 시 sessionStorage 플래그(po_sw_reloaded)로 1회만 location.reload()(무한 새로고침 방지), (3) 카드 풀이(page-card)·개념 카드(page-concept-card) 활성 중에는 즉시 리로드 대신 가벼운 안내 배너(#po-sw-update-banner) 노출, (4) 최초 설치(poHadController=false)는 clients.claim()발 controllerchange여도 리로드 스킵. CACHE_NAME bump(v5820→v5830)으로 배포 캐시 무효화. 데이터·GAS·PRECACHE 변경 0. 변경 2파일: index.html·sw.js.
+// v5.84.0 (2026-06-27): '오늘의 한 장' 6/28~7/11 14장 추가 (교차월 첫 배치 — 6/28~30은 daily_2026-06.js, 7/1~11은 신규 daily_2026-07.js). 시사2(다누리·월드컵규모)·생활7·계절5, review_status auto. 각 카드 실사진(Wikimedia Commons CC/CC0/PD/KOGL, 출처·라이선스 기록, 눈확인) + PRECACHE 14장 + daily_2026-07.js 추가. daily_index version_key 갱신·rotation 28d 트림·calendar 소서 추가. 데이터+이미지 머지 + CACHE bump(v5830→v5840). 변경: daily_2026-06.js·daily_2026-07.js·daily_index.js·daily_one_page/·daily-images/·index.html·sw.js.
+// 이전 v5.83.0 (2026-06-14): 서비스워커 자동 업데이트. index.html SW 등록부 교체 — (1) register 후 페이지 로드마다 registration.update()로 새 sw.js 능동 확인, (2) controllerchange 시 sessionStorage 플래그(po_sw_reloaded)로 1회만 location.reload()(무한 새로고침 방지), (3) 카드 풀이(page-card)·개념 카드(page-concept-card) 활성 중에는 즉시 리로드 대신 가벼운 안내 배너(#po-sw-update-banner) 노출, (4) 최초 설치(poHadController=false)는 clients.claim()발 controllerchange여도 리로드 스킵. CACHE_NAME bump(v5820→v5830)으로 배포 캐시 무효화. 데이터·GAS·PRECACHE 변경 0. 변경 2파일: index.html·sw.js.
 // 이전 v5.82.0 (2026-06-12): 연음 적용3·4 stage3/4/5 추가 (코드+데이터, GAS·PRECACHE 불변). speech-therapy.json coverReadSets[0].items 41→108(신규 67=stage3 비단어25 nonword·stage4 사자성어12·stage5 의미30, 단독낱말=allForms 생략·step1 폴백). config 앵커 12→14(그은음·심입생 승격)·신규 키 2(coverReadMeaninglessSessionCap=4·coverReadSlowListenRate=0.7). index.html 6곳: ★§3-0 전이 교착 해소(probe 데이터 없는 item은 probeCorrectStreak 요건 면제 — probeAvailable payload+crItemHasProbeData 헬퍼+crSchedulerAdvance 3조건, probe 보유 item은 기존 동작 보존)·§3-1 카드매핑 nonword/meaningless·§3-2 crBuildCoverReadQueue 무의미 세션상한(crMlAdmit, push 3지점, meaninglessSkipped stat)·§3-3 비단어 안내문(step1·2)·§3-4 단독낱말 원리버튼 숨김·§3-5 🐢 천천히 듣기(crPlayModel rate 옵션, modelReplayCount 제외·slowReplayCount 신설). 전이 교착은 v5.79.x 잠복 결함이기도 함(적용2 미등장). 변경 4파일: speech-therapy.json·config.json·index.html·sw.js.
 // 이전 v5.81.0 (2026-06-12): 정답 누설 일괄 제거(데이터만, 앱 코드 변경 0) + hint 객체화 + 오탈자. 독해 comprehension.json 64장 지문 끝 정답 문구 제거(끝-고정 누설, passage.text+ttsText 양쪽, 4장은 정답=마지막문장이라 원복·리라이트목록)·사회 social-studies.json 52장 "따라서~입니다" 문장 제거·영어 english.json ttsText 정답 누출 9장(빈칸4=정답문장 제거·문맥유지, "영어로 하면"류+단문장 5=한국어 프롬프트로 교체) + unit6 hint 문자열→객체 13장(hint.text 렌더 빈칸 버그 해소) + 오탈자 가엾슨→가엾은·헬쑥한→핼쑥한 + 독해 차단 5장 id 중복 _dup_blocked suffix(전역 유니크화). 카드 추가·삭제·reviewStatus·displayIndex 변경 0. 정답률 기준선 리셋 시점(공짜 정답 구간 종료). 변경 5파일: comprehension.json·social-studies.json·english.json·index.html(버전 2줄)·sw.js.
 // 이전 v5.80.0 (2026-06-10): '오늘의 한 장' 6/15~6/21 7장 추가(6/1~6/14 14장과 합쳐 21일 윈도우, review_status auto). 천둥번개(빛·소리 속도차)·월드컵 한국 대표팀(A조 일정)·사막화와가뭄방지의날(6/17)·여름철식중독예방·단오(6/19)·아이스크림 머리띵(brain freeze)·하지(6/21). 각 카드 실제 이미지(Wikimedia Commons CC BY/CC BY-SA, 출처·라이선스 기록, 눈확인) + PRECACHE 7장 추가. 천둥=먼 바다 번개(위협 아님)·식중독=손씻기(긍정). 3중 회피: 하지↔6/7 해길이(원리 반복 회피)·천둥↔6/9 장마·월드컵대표팀↔6/11 개막 분리. 시사 2건+단오·하지·사막화 WebSearch 사실확인. daily_index version_key 20260610-1100·rotation/calendar 재계산. 데이터+이미지 머지 + 캐시 무효화 CACHE_NAME bump. 변경: daily_2026-06.js·daily_index.js·daily_one_page/·daily-images/·index.html·sw.js.
@@ -34,7 +35,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5830';
+const CACHE_NAME = 'po-learning-v5840';
 const PRECACHE = [
   './',
   './index.html',
@@ -42,6 +43,7 @@ const PRECACHE = [
   './config.json',
   './daily_index.js',
   './daily_2026-06.js',
+  './daily_2026-07.js',
   './english.json',
   './comprehension.json',
   './phrase-pool.json',
@@ -92,6 +94,20 @@ const PRECACHE = [
   './daily-images/2026-06-19-dano.jpg',
   './daily-images/2026-06-20-icecream.jpg',
   './daily-images/2026-06-21-haji.jpg',
+  './daily-images/2026-06-28-danuri.jpg',
+  './daily-images/2026-06-29-moon-phases.jpg',
+  './daily-images/2026-06-30-cicada.jpg',
+  './daily-images/2026-07-01-waterstrider.jpg',
+  './daily-images/2026-07-02-laundry.jpg',
+  './daily-images/2026-07-03-soap-bubble.jpg',
+  './daily-images/2026-07-04-pool.jpg',
+  './daily-images/2026-07-05-stars.jpg',
+  './daily-images/2026-07-06-spiderweb.jpg',
+  './daily-images/2026-07-07-soseo.jpg',
+  './daily-images/2026-07-08-airplane.jpg',
+  './daily-images/2026-07-09-sunscreen.jpg',
+  './daily-images/2026-07-10-fossil.jpg',
+  './daily-images/2026-07-11-worldcup-2026.jpg',
 ];
 
 self.addEventListener('install', event => {

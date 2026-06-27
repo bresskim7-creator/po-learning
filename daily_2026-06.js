@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-06", {
   "schema_version": 1.1,
   "month": "2026-06",
-  "updated_at": "2026-06-10T11:00:00+09:00",
+  "updated_at": "2026-06-27T22:26:46+09:00",
   "days": {
     "2026-06-01": {
       "schema_version": 1.1,
@@ -1892,6 +1892,276 @@ window.__loadDailyMonth("2026-06", {
           "url": "https://encykorea.aks.ac.kr/Article/E0061731"
         }
       ]
+    },
+    "2026-06-28": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-28-danuri.jpg",
+      "image_credit": {
+        "source": "한국항공우주연구원·과학기술정보통신부 (Wikimedia Commons)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kplo_rendered_image.png",
+        "license": "KOGL Type 1"
+      },
+      "image_fallback": "category_svg_news",
+      "id": "2026-06-28",
+      "date": "2026-06-28",
+      "weekday": "일",
+      "category": "시사",
+      "chapter_label": "[시사] 달을 도는 우리 탐사선 다누리",
+      "title": "달 탐사선 '다누리'는 무슨 일을 할까",
+      "subtitle": "달 둘레를 도는 우리나라 탐사선",
+      "lead_question": "달까지 멀리 날아간 다누리는 그 먼 곳에서 지금 무슨 일을 하고 있을까요?",
+      "why_today": "다누리는 지금도 달을 돌며 임무를 이어 가고 있어요.",
+      "sections": [
+        {
+          "icon": "📡",
+          "heading": "다누리는 어떤 탐사선",
+          "body": "다누리는 우리나라가 처음 보낸 달 궤도선이에요. 2022년 8월에 로켓을 타고 우주로 떠났어요. 그해 12월에 달을 도는 길에 들어섰어요. 다누리도 달을 도는 인공위성의 한 종류예요. 사람은 타지 않고 기계만 실려 있어요. 우리나라 첫 우주탐사선이라 뜻이 깊어요. 이름에는 '달을 누리다'라는 바람을 담았어요."
+        },
+        {
+          "icon": "🔎",
+          "heading": "다누리가 하는 일",
+          "body": "다누리는 달 위를 빙빙 돌며 사진을 찍어요. 달의 울퉁불퉁한 땅 모양을 자세히 살펴요. 달에 어떤 자원이 묻혀 있는지도 조사해요. 특히 빛이 잘 들지 않는 달의 남극을 봐요. 그곳에 얼음이나 물 흔적이 있는지 찾아요. 이렇게 모은 정보로 달 지도를 만들어요. 이 지도는 달을 연구하는 데 큰 도움이 돼요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "왜 중요할까",
+          "body": "다누리가 보낸 정보는 온 세계가 함께 써요. 먼 훗날 달에 기지를 지을 때 도움이 돼요. 어디가 좋은 자리인지 미리 알 수 있어요. 우리나라는 다누리로 우주 기술을 크게 키웠어요. 작은 힘으로도 우주에 갈 수 있음을 보여 줬어요. 다누리는 지금도 달 위에서 부지런히 일해요. 우리도 그 소식을 관심 있게 지켜봐요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "달 궤도선",
+          "en": "lunar orbiter",
+          "desc": "달의 둘레를 빙빙 도는 탐사선이에요. 다누리가 바로 우리나라의 첫 달 궤도선이랍니다."
+        },
+        {
+          "ko": "인공위성",
+          "en": "satellite",
+          "desc": "행성이나 달의 둘레를 빙빙 도는, 사람이 만든 기계예요. 다누리도 그중 하나예요."
+        },
+        {
+          "ko": "우주탐사",
+          "en": "space exploration",
+          "desc": "우주로 나가서 달이나 별을 가까이 살펴보는 일이에요. 다누리가 우리의 첫 도전이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "다누리는 우리나라가 처음으로 달까지 보낸 탐사선으로 큰 뜻이 있다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 다누리는 우리 첫 달 궤도선이에요."
+        },
+        {
+          "statement": "다누리에는 사람인 우주 비행사가 직접 올라타서 기계를 다루고 있다.",
+          "answer": "X",
+          "explanation": "사람은 안 타고 기계만 실려 있어요(§1)."
+        },
+        {
+          "statement": "다누리는 햇볕이 약한 달 남극에서 얼음과 물의 흔적을 찾는다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 달 남극의 물 흔적을 찾아요."
+        }
+      ],
+      "one_line_summary": "다누리는 달을 도는 우리나라 첫 [   ]으로, 달의 땅 모양과 [   ] 흔적을 살핀다.",
+      "summary_keywords": "키워드: 다누리, 달 궤도선, 우주탐사",
+      "sources": [
+        {
+          "title": "한국항공우주연구원 — 다누리",
+          "url": "https://www2.kari.re.kr/kor/contents/66"
+        },
+        {
+          "title": "대한민국 정책브리핑 — 다누리",
+          "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148947118"
+        }
+      ],
+      "generated_at": "2026-06-27T22:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-06-29": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-29-moon-phases.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Gregory H. Revera",
+        "url": "https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg",
+        "license": "CC BY-SA 3.0"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-06-29",
+      "date": "2026-06-29",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 날마다 달라지는 달의 모양",
+      "title": "달은 왜 날마다 모양이 바뀔까",
+      "subtitle": "차오르고 기우는 달의 비밀",
+      "lead_question": "어떤 날은 동그랗고 어떤 날은 가느다란 달, 어째서 날마다 다른 모양일까요?",
+      "why_today": "어제 본 다누리에 이어 오늘은 달 자체를 살펴봐요.",
+      "sections": [
+        {
+          "icon": "🌙",
+          "heading": "달의 모양 변화",
+          "body": "달은 날마다 조금씩 다른 모양으로 보여요. 어떤 날은 가늘고 어떤 날은 동그래요. 가느다란 초승달에서 점점 차올라요. 반달을 지나 둥근 보름달이 돼요. 그 뒤로는 다시 줄어 그믐으로 돌아가요. 이렇게 달의 모양이 약 한 달을 주기로 바뀌어요. 그래서 밤마다 보는 재미가 달라요."
+        },
+        {
+          "icon": "🔆",
+          "heading": "햇빛을 반사하는 달",
+          "body": "달은 사실 스스로 빛을 내지 못해요. 달은 햇빛 반사로 빛나 보이는 거예요. 해가 비춘 쪽만 환하게 보여요. 달이 지구 둘레를 돌면서 위치가 달라져요. 그러면 환한 쪽이 우리에게 다르게 보여요. 그래서 날마다 모양이 변하는 것처럼 보여요. 어두운 쪽은 그림자에 잠겨 안 보여요."
+        },
+        {
+          "icon": "🔭",
+          "heading": "위상이라고 불러요",
+          "body": "이런 달의 모양 변화를 달의 위상이라고 해요. 옛사람들은 달을 보고 날짜를 셌어요. 음력 달력이 바로 이 변화를 따른 거예요. 보름달이 뜨면 음력 보름쯤임을 알 수 있어요. 밤하늘의 달을 며칠 동안 살펴보세요. 조금씩 달라지는 모습이 눈에 들어올 거예요. 달력과 견주어 보면 더 재미있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "달의 모양",
+          "en": "moon shape",
+          "desc": "날마다 차오르고 줄어드는 달의 겉모습이에요. 매일 조금씩 달라 보이는 까닭이 있어요."
+        },
+        {
+          "ko": "햇빛 반사",
+          "en": "reflection",
+          "desc": "빛이 어떤 면에 부딪혀 되돌아오는 것이에요. 달은 햇빛 반사 덕분에 밝게 빛나요."
+        },
+        {
+          "ko": "달의 위상",
+          "en": "moon phase",
+          "desc": "차고 기우는 달 모양의 변화를 이르는 말이에요. 음력 달력의 바탕이 된답니다."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "달은 스스로 환한 빛을 내뿜기 때문에 밤하늘에서 밝게 빛난다.",
+          "answer": "X",
+          "explanation": "달은 스스로 못 빛나고 햇빛을 반사해요(§2)."
+        },
+        {
+          "statement": "달이 지구를 도는 동안 환하게 보이는 쪽이 조금씩 달라진다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 도는 위치 따라 밝은 쪽이 변해요."
+        },
+        {
+          "statement": "우리가 쓰는 음력 달력은 달의 모양이 변하는 것을 바탕으로 만들었다.",
+          "answer": "O",
+          "explanation": "본문 §3처럼 음력은 달의 위상을 따라요."
+        }
+      ],
+      "one_line_summary": "달은 [   ]을 받는 쪽만 보여서, 지구를 도는 동안 [   ]이 날마다 바뀐다.",
+      "summary_keywords": "키워드: 달의 위상, 햇빛 반사, 음력",
+      "sources": [
+        {
+          "title": "국립중앙과학관",
+          "url": "https://www.science.go.kr"
+        },
+        {
+          "title": "한국천문연구원",
+          "url": "https://www.kasi.re.kr/"
+        }
+      ],
+      "generated_at": "2026-06-27T22:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-06-30": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": "./daily-images/2026-06-30-cicada.jpg",
+      "image_credit": {
+        "source": "Wikimedia Commons / Basile Morin",
+        "url": "https://commons.wikimedia.org/wiki/File:Cicada_exuvia.jpg",
+        "license": "CC BY-SA 4.0"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-06-30",
+      "date": "2026-06-30",
+      "weekday": "화",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 한여름을 알리는 매미 소리",
+      "title": "매미는 왜 그렇게 크게 울까",
+      "subtitle": "여름을 대표하는 곤충의 비밀",
+      "lead_question": "여름이면 귀가 따갑도록 우는 매미, 어째서 그렇게 큰 소리로 우는 걸까요?",
+      "why_today": "초여름이 지나 매미가 울기 시작하는 때예요.",
+      "sections": [
+        {
+          "icon": "🐛",
+          "heading": "매미의 한살이",
+          "body": "매미는 여름을 대표하는 여름 곤충이에요. 매미는 한살이가 아주 독특해요. 알에서 깬 애벌레는 땅속으로 들어가요. 그곳에서 여러 해 동안 천천히 자라요. 어떤 매미는 몇 해를 땅속에서 보내요. 때가 되면 땅 위로 올라와 허물을 벗어요. 그러면 날개가 달린 어른벌레가 돼요."
+        },
+        {
+          "icon": "🔊",
+          "heading": "큰 울음소리의 비밀",
+          "body": "여름이면 매미의 큰 울음소리가 들려요. 그런데 우는 매미는 모두 수컷 매미예요. 수컷 매미는 배에 소리 내는 기관이 있어요. 그 안의 얇은 막을 빠르게 떨어 소리를 내요. 작은 몸이지만 소리가 아주 크게 울려요. 멀리 있는 친구에게도 그 소리가 닿아요. 암컷은 소리 내는 기관이 없어요."
+        },
+        {
+          "icon": "💕",
+          "heading": "왜 그렇게 울까",
+          "body": "수컷 매미가 우는 까닭은 짝을 찾기 위해서예요. 큰 소리로 암컷에게 자기를 알리는 거예요. 땅속에서 오래 기다린 만큼 시간이 짧아요. 어른벌레로 사는 기간은 몇 주뿐이에요. 그 짧은 동안 짝을 만나려고 힘껏 우는 거예요. 그래서 더위가 심할수록 더 우렁차게 울어요. 매미 소리는 한여름을 알리는 신호예요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "수컷 매미",
+          "en": "male cicada",
+          "desc": "소리를 내어 우는 매미예요. 짝을 찾으려고 배의 막을 떨어 크게 울어요."
+        },
+        {
+          "ko": "울음소리",
+          "en": "cry sound",
+          "desc": "매미가 배의 얇은 막을 떨어서 내는 큰 소리예요. 한여름 내내 우렁차게 들려요."
+        },
+        {
+          "ko": "여름 곤충",
+          "en": "summer insect",
+          "desc": "여름철에 주로 보이는 곤충이에요. 매미가 그 가운데 대표적인 곤충이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "매미의 애벌레는 땅속에서 여러 해를 보낸 뒤에야 어른벌레가 된다.",
+          "answer": "O",
+          "explanation": "본문 §1처럼 애벌레는 땅속에서 오래 자라요."
+        },
+        {
+          "statement": "여름철에 크고 우렁차게 우는 매미는 하나같이 모두 수컷이다.",
+          "answer": "O",
+          "explanation": "본문 §2처럼 우는 매미는 수컷이에요."
+        },
+        {
+          "statement": "매미는 가까이 오는 적을 멀리 쫓아내려고 큰 소리로 운다.",
+          "answer": "X",
+          "explanation": "적이 아니라 짝을 찾으려 우는 거예요(§3)."
+        }
+      ],
+      "one_line_summary": "매미 수컷은 [   ]을 찾으려고 배의 막을 떨어 큰 [   ]를 낸다.",
+      "summary_keywords": "키워드: 수컷 매미, 울음소리, 여름",
+      "sources": [
+        {
+          "title": "국립생물자원관",
+          "url": "https://www.nibr.go.kr"
+        },
+        {
+          "title": "국립중앙과학관",
+          "url": "https://www.science.go.kr"
+        }
+      ],
+      "generated_at": "2026-06-27T22:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
     }
   }
 });
