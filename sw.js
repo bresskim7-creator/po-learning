@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.85.0 (2026-07-01): 독해 55·56·57회 24장 머지(comprehension.json append, displayIndex 220~243). parent_review 초안 머지, 카드 무수정. CACHE bump(v5840→v5850).
+// v5.86.0 (2026-07-01): 독해 58·59·60회 24장 머지(comprehension.json append, displayIndex 244~267). 회차 번호 사용자 확정, parent_review 초안 머지, 카드 무수정. CACHE bump(v5850→v5860).
+// 이전 v5.85.0 (2026-07-01): 독해 55·56·57회 24장 머지(comprehension.json append, displayIndex 220~243). parent_review 초안 머지, 카드 무수정. CACHE bump(v5840→v5850).
 // 이전 v5.84.0 (2026-06-27): '오늘의 한 장' 6/28~7/11 14장 추가 (교차월 첫 배치 — 6/28~30은 daily_2026-06.js, 7/1~11은 신규 daily_2026-07.js). 시사2(다누리·월드컵규모)·생활7·계절5, review_status auto. 각 카드 실사진(Wikimedia Commons CC/CC0/PD/KOGL, 출처·라이선스 기록, 눈확인) + PRECACHE 14장 + daily_2026-07.js 추가. daily_index version_key 갱신·rotation 28d 트림·calendar 소서 추가. 데이터+이미지 머지 + CACHE bump(v5830→v5840). 변경: daily_2026-06.js·daily_2026-07.js·daily_index.js·daily_one_page/·daily-images/·index.html·sw.js.
 // 이전 v5.83.0 (2026-06-14): 서비스워커 자동 업데이트. index.html SW 등록부 교체 — (1) register 후 페이지 로드마다 registration.update()로 새 sw.js 능동 확인, (2) controllerchange 시 sessionStorage 플래그(po_sw_reloaded)로 1회만 location.reload()(무한 새로고침 방지), (3) 카드 풀이(page-card)·개념 카드(page-concept-card) 활성 중에는 즉시 리로드 대신 가벼운 안내 배너(#po-sw-update-banner) 노출, (4) 최초 설치(poHadController=false)는 clients.claim()발 controllerchange여도 리로드 스킵. CACHE_NAME bump(v5820→v5830)으로 배포 캐시 무효화. 데이터·GAS·PRECACHE 변경 0. 변경 2파일: index.html·sw.js.
 // 이전 v5.82.0 (2026-06-12): 연음 적용3·4 stage3/4/5 추가 (코드+데이터, GAS·PRECACHE 불변). speech-therapy.json coverReadSets[0].items 41→108(신규 67=stage3 비단어25 nonword·stage4 사자성어12·stage5 의미30, 단독낱말=allForms 생략·step1 폴백). config 앵커 12→14(그은음·심입생 승격)·신규 키 2(coverReadMeaninglessSessionCap=4·coverReadSlowListenRate=0.7). index.html 6곳: ★§3-0 전이 교착 해소(probe 데이터 없는 item은 probeCorrectStreak 요건 면제 — probeAvailable payload+crItemHasProbeData 헬퍼+crSchedulerAdvance 3조건, probe 보유 item은 기존 동작 보존)·§3-1 카드매핑 nonword/meaningless·§3-2 crBuildCoverReadQueue 무의미 세션상한(crMlAdmit, push 3지점, meaninglessSkipped stat)·§3-3 비단어 안내문(step1·2)·§3-4 단독낱말 원리버튼 숨김·§3-5 🐢 천천히 듣기(crPlayModel rate 옵션, modelReplayCount 제외·slowReplayCount 신설). 전이 교착은 v5.79.x 잠복 결함이기도 함(적용2 미등장). 변경 4파일: speech-therapy.json·config.json·index.html·sw.js.
@@ -36,7 +37,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5850';
+const CACHE_NAME = 'po-learning-v5860';
 const PRECACHE = [
   './',
   './index.html',
