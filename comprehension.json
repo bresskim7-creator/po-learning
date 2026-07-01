@@ -8307,13 +8307,22 @@
       "questionType": "choice",
       "answer": {
         "correct": "언니의 스무 살",
-        "options": ["언니의 스무 살", "다시 태어난 기분", "짱오의 비밀", "공주의 자리"],
+        "options": [
+          "언니의 스무 살",
+          "다시 태어난 기분",
+          "짱오의 비밀",
+          "공주의 자리"
+        ],
         "type": "choice"
       },
-      "hint": {"text": "미라가 주인공의 '어린 시절 역'을 맡은 영화 제목이야. 본문에서 그대로 나와."},
+      "hint": {
+        "text": "미라가 주인공의 '어린 시절 역'을 맡은 영화 제목이야. 본문에서 그대로 나와."
+      },
       "wrongExplanation": "본문에 영화 제목이 한 번 분명히 나와. 미라가 어린 시절 역으로 합격한 청소년 영화의 이름을 다시 찾아봐.",
       "skillTag": "fact",
-      "skillTags": ["fact"],
+      "skillTags": [
+        "fact"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라가 오디션을 봐서 합격한 청소년 영화의 제목은 무엇인가요?",
@@ -8356,10 +8365,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "영화의 흥행 결과 + 미라에 대한 사람들의 반응, 두 가지를 모두 잡아 보자."},
+      "hint": {
+        "text": "영화의 흥행 결과 + 미라에 대한 사람들의 반응, 두 가지를 모두 잡아 보자."
+      },
       "wrongExplanation": "영화가 어떻게 됐는지(흥행 성공/실패)와, 미라의 연기에 대한 사람들의 반응이 어떻게 바뀌었는지를 같이 본문에서 찾아봐.",
       "skillTag": "fact",
-      "skillTags": ["fact"],
+      "skillTags": [
+        "fact"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라가 합격한 영화는 어떤 결과를 얻었나요?",
@@ -8402,10 +8415,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "본문 안에 미라가 스스로 한 짧은 한 줄 답이 그대로 있어. '~ 때문이야'로 끝나."},
+      "hint": {
+        "text": "본문 안에 미라가 스스로 한 짧은 한 줄 답이 그대로 있어. '~ 때문이야'로 끝나."
+      },
       "wrongExplanation": "다른 사람의 도움이 아니라, 미라 자신에게서 일어난 변화에 답이 있어. 본문의 미라 혼잣말을 다시 찾아봐.",
       "skillTag": "fact",
-      "skillTags": ["fact"],
+      "skillTags": [
+        "fact"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라는 자신의 연기가 좋아진 까닭을 무엇 때문이라고 생각했나요?",
@@ -8448,10 +8465,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "엄마가 미라에게 한 말 안에 답이 있어. 학교를 떠나면 어떻게 된다고 했지?"},
+      "hint": {
+        "text": "엄마가 미라에게 한 말 안에 답이 있어. 학교를 떠나면 어떻게 된다고 했지?"
+      },
       "wrongExplanation": "엄마가 미라를 학교로 끌고 가면서 한 말, 특히 '꼬리표' 이야기에 답이 있어. 그 문장을 다시 찾아봐.",
       "skillTag": "inference",
-      "skillTags": ["inference"],
+      "skillTags": [
+        "inference"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라는 당장이라도 학교를 그만두고 싶었지만 그럴 수 없었던 까닭은 무엇인가요?",
@@ -8494,10 +8515,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "미라가 스스로 한 혼잣말이 본문에 그대로 있어. '~에 비하면 아무것도 아닐 거야'로 시작해."},
+      "hint": {
+        "text": "미라가 스스로 한 혼잣말이 본문에 그대로 있어. '~에 비하면 아무것도 아닐 거야'로 시작해."
+      },
       "wrongExplanation": "미라가 학교에서 받은 따가운 시선과, 자기가 예전에 한 일을 견주는 미라의 혼잣말을 다시 찾아봐.",
       "skillTag": "inference",
-      "skillTags": ["inference"],
+      "skillTags": [
+        "inference"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "학교에 다니던 미라는 무엇을 깨달았나요?",
@@ -8540,10 +8565,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "미라가 자기 옛 패거리(짱오)가 어떻게 사라졌는지 떠올리며 정한 방법이야."},
+      "hint": {
+        "text": "미라가 자기 옛 패거리(짱오)가 어떻게 사라졌는지 떠올리며 정한 방법이야."
+      },
       "wrongExplanation": "미라가 자기네 짱오가 어떻게 흩어졌는지를 떠올리며 결심한 방법이 핵심이야. 본문 속 미라의 혼잣말을 다시 봐.",
       "skillTag": "inference",
-      "skillTags": ["inference"],
+      "skillTags": [
+        "inference"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라는 이보경 패거리를 없애려면 어떻게 해야 한다고 생각했나요?",
@@ -8586,10 +8615,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "미라가 한 혼잣말의 두 부분(연기가 좋아진 까닭 + 욕심에 대한 깨달음)을 하나로 이어서 생각해 봐."},
+      "hint": {
+        "text": "미라가 한 혼잣말의 두 부분(연기가 좋아진 까닭 + 욕심에 대한 깨달음)을 하나로 이어서 생각해 봐."
+      },
       "wrongExplanation": "주변 사람이 어떻게 변했는지가 아니라, 미라 자신이 어떤 깨달음을 얻었는지에 답이 있어. 미라의 두 줄 혼잣말을 다시 묶어 봐.",
       "skillTag": "critical",
-      "skillTags": ["critical"],
+      "skillTags": [
+        "critical"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라가 다시 태어난 기분이라고 한 까닭으로 가장 알맞은 것은 무엇일까요?",
@@ -8632,10 +8665,14 @@
         ],
         "type": "choice"
       },
-      "hint": {"text": "미라는 도망치지 않았어. 무엇을 마주했기에 달라질 수 있었는지 생각해 봐."},
+      "hint": {
+        "text": "미라는 도망치지 않았어. 무엇을 마주했기에 달라질 수 있었는지 생각해 봐."
+      },
       "wrongExplanation": "미라가 잘못을 어떻게 다뤘는지에서 답을 찾아보자. 도망친 게 아니라 마주했다는 점이 핵심이야.",
       "skillTag": "critical",
-      "skillTags": ["critical"],
+      "skillTags": [
+        "critical"
+      ],
       "anchorType": "reading-class",
       "anchorWeek": "2026-W20",
       "ttsText": "미라가 학교를 그만두지 않고 따가운 시선을 견디며 달라진 모습을 보여 주는 이 이야기에서 우리가 배울 수 있는 점은 무엇일까요?",
@@ -10646,6 +10683,1206 @@
       "reviewStatus": "parent_review",
       "status": "parent_review",
       "displayIndex": 219
+    },
+    {
+      "id": "crd_2026W23_comp_s55_001",
+      "cardId": "crd_2026W23_comp_s55_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "오늘 아침 등교를 하자마자, 장미가 보경이에게 가져간 물건을 내놓으라고 큰 소리로 따졌다. 늘 가만히 있던 장미가 갑자기 달라진 모습이었다.",
+        "ttsText": "오늘 아침 등교를 하자마자, 장미가 보경이에게 가져간 물건을 내놓으라고 큰 소리로 따졌다. 늘 가만히 있던 장미가 갑자기 달라진 모습이었다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "장미는 보경이에게 무엇을 하라고 큰 소리로 따졌나요?",
+        "ttsText": "장미는 보경이에게 무엇을 하라고 큰 소리로 따졌나요?",
+        "passage": "장미가 보경이에게 돌려달라고 한 것"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "가져간 물건을 돌려달라고",
+        "options": [
+          "가져간 물건을 돌려달라고",
+          "같이 놀자고",
+          "숙제를 보여달라고",
+          "자리를 바꿔달라고"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미가 따진 내용을 떠올려 보자. 장미는 보경이가 가져간 무언가에 대해 말했어."
+      },
+      "wrongExplanation": "장미가 보경이에게 화를 낸 까닭을 생각해 봐. 장미는 보경이가 무언가를 가져갔다고 했지.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "장미는 보경이에게 무엇을 하라고 큰 소리로 따졌나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 220
+    },
+    {
+      "id": "crd_2026W23_comp_s55_002",
+      "cardId": "crd_2026W23_comp_s55_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "보경이에게 장미는 언제나 순순히 말을 잘 듣고, 뭐든지 달라면 주고, 괴롭힘을 당해도 참는 아이였다. 그런 장미가 달라졌다는 건 큰 충격이었다.",
+        "ttsText": "보경이에게 장미는 언제나 순순히 말을 잘 듣고, 뭐든지 달라면 주고, 괴롭힘을 당해도 참는 아이였다. 그런 장미가 달라졌다는 건 큰 충격이었다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "보경이가 생각하기에, 장미는 평소 어떤 아이였나요?",
+        "ttsText": "보경이가 생각하기에, 장미는 평소 어떤 아이였나요?",
+        "passage": "보경이 눈에 비친 평소의 장미"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "순순히 말을 잘 듣고 괴롭힘을 당해도 참는 아이",
+        "options": [
+          "순순히 말을 잘 듣고 괴롭힘을 당해도 참는 아이",
+          "보경이에게 자주 대들던 아이",
+          "보경이보다 힘이 센 아이",
+          "보경이를 괴롭히던 아이"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미가 '달라졌다'고 충격을 받았다는 건, 평소엔 그 반대였다는 뜻이야."
+      },
+      "wrongExplanation": "보경이가 왜 '충격'을 받았는지 생각해 봐. 늘 참던 아이가 갑자기 따졌으니까 놀란 거야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "보경이가 생각하기에, 장미는 평소 어떤 아이였나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 221
+    },
+    {
+      "id": "crd_2026W23_comp_s55_003",
+      "cardId": "crd_2026W23_comp_s55_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "보경이에게도 잊지 못할 물건이 하나 있었다. 그건 외할머니 생일 때 보경이가 선물한 반짝이는 보석반지였다. 할머니는 그 반지를 애지중지하며 늘 손가락에 끼곤 하였다.",
+        "ttsText": "보경이에게도 잊지 못할 물건이 하나 있었다. 그건 외할머니 생일 때 보경이가 선물한 반짝이는 보석반지였다. 할머니는 그 반지를 애지중지하며 늘 손가락에 끼곤 하였다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "보경이가 할머니께 생일 선물로 드린 것은 무엇인가요?",
+        "ttsText": "보경이가 할머니께 생일 선물로 드린 것은 무엇인가요?",
+        "passage": "할머니가 애지중지하며 늘 끼던 것"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보석반지",
+        "options": [
+          "보석반지",
+          "토끼 인형",
+          "손수건",
+          "운동화"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "할머니가 손가락에 끼고 다녔다고 했어. 손가락에 끼는 물건이 뭘까?"
+      },
+      "wrongExplanation": "할머니가 '손가락에 끼곤 하였다'는 부분을 다시 읽어 봐. 손가락에 끼는 물건이야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "보경이가 할머니께 생일 선물로 드린 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 222
+    },
+    {
+      "id": "crd_2026W23_comp_s55_004",
+      "cardId": "crd_2026W23_comp_s55_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "혜미와 은철이는 보경이에게서 점점 멀어졌다. 미라가 혜미를 찾아오고, 진우가 은철이에게 농구를 하자며 친근하게 다가왔기 때문이다. 혜미는 백화점에 간다며, 은철이는 영어 학원에 등록했다며 보경이를 피했다.",
+        "ttsText": "혜미와 은철이는 보경이에게서 점점 멀어졌다. 미라가 혜미를 찾아오고, 진우가 은철이에게 농구를 하자며 친근하게 다가왔기 때문이다. 혜미는 백화점에 간다며, 은철이는 영어 학원에 등록했다며 보경이를 피했다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "혜미와 은철이가 보경이에게서 멀어진 까닭으로 책에 나온 것은 무엇인가요?",
+        "ttsText": "혜미와 은철이가 보경이에게서 멀어진 까닭으로 책에 나온 것은 무엇인가요?",
+        "passage": "미라와 진우가 둘에게 한 행동"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "미라와 진우가 둘에게 친근하게 다가왔기 때문에",
+        "options": [
+          "미라와 진우가 둘에게 친근하게 다가왔기 때문에",
+          "둘이 다른 학교로 전학을 갔기 때문에",
+          "보경이가 둘을 멀리했기 때문에",
+          "둘이 서로 크게 싸웠기 때문에"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "혜미에게는 미라가, 은철이에게는 진우가 다가왔다는 부분을 떠올려 봐."
+      },
+      "wrongExplanation": "혜미와 은철이를 찾아온 사람이 누구였는지 다시 살펴봐. 미라와 진우가 친근하게 굴었지.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "혜미와 은철이가 보경이에게서 멀어진 까닭으로 책에 나온 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 223
+    },
+    {
+      "id": "crd_2026W23_comp_s55_005",
+      "cardId": "crd_2026W23_comp_s55_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "은철이는 학교 아이들에게 인기 폭발인 진우가 농구를 하자며 친근하게 다가온 것만으로도 좋아서 입이 벌어졌다.",
+        "ttsText": "은철이는 학교 아이들에게 인기 폭발인 진우가 농구를 하자며 친근하게 다가온 것만으로도 좋아서 입이 벌어졌다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "은철이가 진우를 보고 기분이 좋았던 까닭은 무엇인가요?",
+        "ttsText": "은철이가 진우를 보고 기분이 좋았던 까닭은 무엇인가요?",
+        "passage": "인기 많은 진우가 은철이에게 한 일"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "인기가 많은 진우가 자기에게 먼저 친근하게 다가와서",
+        "options": [
+          "인기가 많은 진우가 자기에게 먼저 친근하게 다가와서",
+          "진우가 숙제를 대신 해 주어서",
+          "진우가 용돈을 주어서",
+          "진우가 보경이를 혼내 주어서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "은철이가 왜 '입이 벌어졌'는지 생각해 봐. 인기 많은 진우가 먼저 다가왔으니까."
+      },
+      "wrongExplanation": "은철이가 좋아한 진짜 이유는 무엇일까? 진우가 인기가 많은 아이라는 점을 떠올려 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "은철이가 진우를 보고 기분이 좋았던 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 224
+    },
+    {
+      "id": "crd_2026W23_comp_s55_006",
+      "cardId": "crd_2026W23_comp_s55_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "보경이는 친구들에게 보호받고 사랑받는 장미가 되레 부러울 지경이었다. 그때 보경이는 갑자기 목구멍이 뜨거워졌다.",
+        "ttsText": "보경이는 친구들에게 보호받고 사랑받는 장미가 되레 부러울 지경이었다. 그때 보경이는 갑자기 목구멍이 뜨거워졌다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "보경이가 장미를 부러워하게 된 까닭은 무엇인가요?",
+        "ttsText": "보경이가 장미를 부러워하게 된 까닭은 무엇인가요?",
+        "passage": "장미가 친구들에게 받고 있던 것"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "친구들에게 보호받고 사랑받는 장미의 모습이 부러워서",
+        "options": [
+          "친구들에게 보호받고 사랑받는 장미의 모습이 부러워서",
+          "장미가 공부를 잘해서",
+          "장미가 부자여서",
+          "장미가 운동을 잘해서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "장미 곁에 있는 친구들을 떠올려 봐. 보경이는 그 점을 부러워했어."
+      },
+      "wrongExplanation": "보경이가 부러워한 건 장미가 가진 무엇이었을까? 장미 곁에 모인 친구들을 생각해 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "보경이가 장미를 부러워하게 된 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 225
+    },
+    {
+      "id": "crd_2026W23_comp_s55_007",
+      "cardId": "crd_2026W23_comp_s55_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "보경이가 가져간 물건은 장미에게 언니를 떠올릴 수 있는 아주 소중한 추억이 담긴 물건이었다. 그래서 장미는 그토록 얼굴이 빨개지도록 매달렸던 것이다.",
+        "ttsText": "보경이가 가져간 물건은 장미에게 언니를 떠올릴 수 있는 아주 소중한 추억이 담긴 물건이었다. 그래서 장미는 그토록 얼굴이 빨개지도록 매달렸던 것이다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "보경이가 가져간 물건이 장미에게 그토록 소중했던 까닭은 무엇인가요?",
+        "ttsText": "보경이가 가져간 물건이 장미에게 그토록 소중했던 까닭은 무엇인가요?",
+        "passage": "그 물건에 담긴 것"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "언니를 떠올릴 수 있는 소중한 추억이 담긴 물건이라서",
+        "options": [
+          "언니를 떠올릴 수 있는 소중한 추억이 담긴 물건이라서",
+          "값이 아주 비싼 새 물건이라서",
+          "시험에 꼭 필요한 물건이라서",
+          "친구에게 선물 받은 물건이라서"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "그 물건이 누구를 떠올리게 하는지 생각해 봐. 장미의 언니와 관련이 있어."
+      },
+      "wrongExplanation": "장미가 매달린 까닭을 떠올려 봐. 그 물건은 장미 언니와 이어진 추억이 담겨 있었어.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "보경이가 가져간 물건이 장미에게 그토록 소중했던 까닭은 무엇인가요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 226
+    },
+    {
+      "id": "crd_2026W23_comp_s55_008",
+      "cardId": "crd_2026W23_comp_s55_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "장미를돕는친구들과보경의깨달음-수업55",
+      "sourceId": "reading-class",
+      "runId": "2026-W23",
+      "passage": {
+        "text": "보경이는 장미의 물건이 얼마나 소중한지 짐작할 수 있었다. 보경이에게도 잊지 못할 보석반지가 있었으니까. 그러자 뜨거운 눈물이 보경이의 뺨을 타고 흘러내렸다.",
+        "ttsText": "보경이는 장미의 물건이 얼마나 소중한지 짐작할 수 있었다. 보경이에게도 잊지 못할 보석반지가 있었으니까. 그러자 뜨거운 눈물이 보경이의 뺨을 타고 흘러내렸다.",
+        "topic": "장미를돕는친구들과보경의깨달음-수업55",
+        "source": "55회 독서수업 260602"
+      },
+      "question": {
+        "text": "보경이가 자신의 보석반지를 떠올린 것은 무엇을 깨달았기 때문인가요?",
+        "ttsText": "보경이가 자신의 보석반지를 떠올린 것은 무엇을 깨달았기 때문인가요?",
+        "passage": "보경이의 반지와 장미의 물건을 견주어 보면"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자신에게 반지가 소중하듯 장미에게도 그 물건이 똑같이 소중하다는 것",
+        "options": [
+          "자신에게 반지가 소중하듯 장미에게도 그 물건이 똑같이 소중하다는 것",
+          "자신의 반지를 장미에게 주고 싶다는 것",
+          "자신의 반지가 더 비싸다는 것",
+          "장미가 자신의 반지를 훔쳤다는 것"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이에게 반지가 소중하듯, 장미에게도 그 물건이 어떤 의미였을지 생각해 봐."
+      },
+      "wrongExplanation": "보경이가 눈물을 흘린 까닭을 생각해 봐. 자기 반지를 떠올리며 장미의 마음을 헤아린 거야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W23",
+      "ttsText": "보경이가 자신의 보석반지를 떠올린 것은 무엇을 깨달았기 때문인가요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 227
+    },
+    {
+      "id": "crd_2026W24_comp_s56_001",
+      "cardId": "crd_2026W24_comp_s56_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "다음 날, 보경이는 누구보다 먼저 교실에 들어갔다. 떨리는 마음으로 장미의 사물함을 열기 위해서였다.",
+        "ttsText": "다음 날, 보경이는 누구보다 먼저 교실에 들어갔다. 떨리는 마음으로 장미의 사물함을 열기 위해서였다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "다음 날 아침, 보경이는 교실에 몇 번째로 들어갔나요?",
+        "ttsText": "다음 날 아침, 보경이는 교실에 몇 번째로 들어갔나요?",
+        "passage": "보경이가 교실에 들어간 차례"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "제일 먼저",
+        "options": [
+          "제일 먼저",
+          "가장 늦게",
+          "장미와 함께",
+          "혜미 다음으로"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 '누구보다' 어떻게 들어갔는지 다시 읽어 봐."
+      },
+      "wrongExplanation": "보경이가 사물함에 몰래 물건을 넣으려면 언제 교실에 들어가야 했을까? 아무도 없을 때야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "다음 날 아침, 보경이는 교실에 몇 번째로 들어갔나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 228
+    },
+    {
+      "id": "crd_2026W24_comp_s56_002",
+      "cardId": "crd_2026W24_comp_s56_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "보경이는 장미의 사물함을 열고, 플라스틱 통에 담긴 물건과 토끼 인형을 넣어 두었다. 모두 보경이가 장미에게서 가져갔던 것들이었다.",
+        "ttsText": "보경이는 장미의 사물함을 열고, 플라스틱 통에 담긴 물건과 토끼 인형을 넣어 두었다. 모두 보경이가 장미에게서 가져갔던 것들이었다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "보경이가 장미의 사물함에 넣어 둔 것은 무엇인가요?",
+        "ttsText": "보경이가 장미의 사물함에 넣어 둔 것은 무엇인가요?",
+        "passage": "보경이가 돌려주려고 사물함에 넣은 물건"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "플라스틱 통에 담긴 물건과 토끼 인형",
+        "options": [
+          "플라스틱 통에 담긴 물건과 토끼 인형",
+          "새 운동화 한 켤레",
+          "사과 편지와 꽃",
+          "보경이의 보석반지"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 장미에게서 가져갔다가 돌려준 물건이 무엇이었는지 떠올려 봐."
+      },
+      "wrongExplanation": "보경이가 사물함에 넣은 것은 자기 물건이 아니라, 장미에게서 가져갔던 물건이야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "보경이가 장미의 사물함에 넣어 둔 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 229
+    },
+    {
+      "id": "crd_2026W24_comp_s56_003",
+      "cardId": "crd_2026W24_comp_s56_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "장미를 마주쳤을 때, 보경이는 얼굴이 뜨겁고 가슴이 두근거렸다. 사실대로 말해야 할 때가 왔다는 걸 느꼈기 때문이다.",
+        "ttsText": "장미를 마주쳤을 때, 보경이는 얼굴이 뜨겁고 가슴이 두근거렸다. 사실대로 말해야 할 때가 왔다는 걸 느꼈기 때문이다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "장미를 마주쳤을 때 보경이의 마음은 어땠나요?",
+        "ttsText": "장미를 마주쳤을 때 보경이의 마음은 어땠나요?",
+        "passage": "장미 앞에 선 보경이의 몸과 마음"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "얼굴이 뜨겁고 가슴이 두근거렸다",
+        "options": [
+          "얼굴이 뜨겁고 가슴이 두근거렸다",
+          "신이 나고 즐거웠다",
+          "졸리고 지루했다",
+          "아무렇지도 않았다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이의 얼굴과 가슴이 어떠했는지 다시 읽어 봐."
+      },
+      "wrongExplanation": "잘못을 고백하기 직전의 마음을 생각해 봐. 보경이는 떨리고 부끄러웠어.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "장미를 마주쳤을 때 보경이의 마음은 어땠나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 230
+    },
+    {
+      "id": "crd_2026W24_comp_s56_004",
+      "cardId": "crd_2026W24_comp_s56_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "보경이는 장미에게 사실대로 말했다. \"내가 엊그제 장미 집에 가서 가져온 거야. 다시 돌려주려고. 미안해. 내가 잘못했어.\"라며 사과했다.",
+        "ttsText": "보경이는 장미에게 사실대로 말했다. \"내가 엊그제 장미 집에 가서 가져온 거야. 다시 돌려주려고. 미안해. 내가 잘못했어.\"라며 사과했다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "보경이가 장미에게 사실대로 한 말은 무엇인가요?",
+        "ttsText": "보경이가 장미에게 사실대로 한 말은 무엇인가요?",
+        "passage": "보경이가 털어놓은 내용"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자기가 가져온 물건이며 돌려주려 한다고 사과했다",
+        "options": [
+          "자기가 가져온 물건이며 돌려주려 한다고 사과했다",
+          "물건을 자기가 산 것이라고 말했다",
+          "다른 친구가 가져갔다고 말했다",
+          "아무 말도 하지 않았다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이가 물건을 어떻게 했고, 무슨 말을 덧붙였는지 떠올려 봐."
+      },
+      "wrongExplanation": "보경이는 거짓말로 둘러대지 않았어. 자기가 한 일을 솔직히 말하고 미안하다고 했지.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "보경이가 장미에게 사실대로 한 말은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 231
+    },
+    {
+      "id": "crd_2026W24_comp_s56_005",
+      "cardId": "crd_2026W24_comp_s56_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "보경이와 함께 장미를 괴롭혔던 혜미와 은철이도 처분을 받았다.",
+        "ttsText": "보경이와 함께 장미를 괴롭혔던 혜미와 은철이도 처분을 받았다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "혜미와 은철이도 처분을 받은 까닭은 무엇인가요?",
+        "ttsText": "혜미와 은철이도 처분을 받은 까닭은 무엇인가요?",
+        "passage": "혜미와 은철이가 보경이와 함께 한 일"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "보경이와 함께 장미를 괴롭혔기 때문에",
+        "options": [
+          "보경이와 함께 장미를 괴롭혔기 때문에",
+          "학원에 가지 않았기 때문에",
+          "보경이를 도와주지 않았기 때문에",
+          "시험을 못 봤기 때문에"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "혜미와 은철이가 보경이와 '함께' 무엇을 했는지 생각해 봐."
+      },
+      "wrongExplanation": "처분을 받은 까닭은 잘못한 일이 있었기 때문이야. 혜미와 은철이가 보경이와 함께 한 일을 떠올려 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "혜미와 은철이도 처분을 받은 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 232
+    },
+    {
+      "id": "crd_2026W24_comp_s56_006",
+      "cardId": "crd_2026W24_comp_s56_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "모든 일을 알게 된 담임 선생님은 결국 학교 폭력 대책 심의 위원회를 열었다.",
+        "ttsText": "모든 일을 알게 된 담임 선생님은 결국 학교 폭력 대책 심의 위원회를 열었다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "담임 선생님이 결국 연 것은 무엇인가요?",
+        "ttsText": "담임 선생님이 결국 연 것은 무엇인가요?",
+        "passage": "선생님이 모든 일을 알고 연 회의"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "학교 폭력 대책 심의 위원회",
+        "options": [
+          "학교 폭력 대책 심의 위원회",
+          "반 친구들의 생일잔치",
+          "학부모 상담회",
+          "학교 체육 대회"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "선생님이 장미가 괴롭힘당한 일을 다루기 위해 무엇을 열었는지 떠올려 봐."
+      },
+      "wrongExplanation": "선생님이 연 것은 괴롭힘 문제를 다루는 회의야. 즐거운 행사가 아니지.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "담임 선생님이 결국 연 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 233
+    },
+    {
+      "id": "crd_2026W24_comp_s56_007",
+      "cardId": "crd_2026W24_comp_s56_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "보경이는 친구를 괴롭히고도 \"장난이었다\"는 말로 그 일을 얼버무리려 했다. (얼버무리다: 말이나 행동을 분명히 하지 않고 대충 넘기다.)",
+        "ttsText": "보경이는 친구를 괴롭히고도 \"장난이었다\"는 말로 그 일을 얼버무리려 했다. (얼버무리다: 말이나 행동을 분명히 하지 않고 대충 넘기다.)",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "보경이가 \"장난이었다\"는 말로 하려던 것은 무엇인가요?",
+        "ttsText": "보경이가 \"장난이었다\"는 말로 하려던 것은 무엇인가요?",
+        "passage": "괴롭힌 일을 '장난'이라고 부른 까닭"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "괴롭힌 잘못을 가볍게 넘기려고(얼버무리려고) 했다",
+        "options": [
+          "괴롭힌 잘못을 가볍게 넘기려고(얼버무리려고) 했다",
+          "장미를 정말로 웃겨 주려고 했다",
+          "장미와 화해하려고 했다",
+          "선생님을 도와주려고 했다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'장난'이라고 말하면 잘못이 가벼워 보이지. 보경이가 그 말로 무엇을 하려 했을지 생각해 봐."
+      },
+      "wrongExplanation": "잘못을 '장난'이라고 부르면 어떻게 보일까? 보경이는 자기 잘못을 작아 보이게 하려 한 거야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "보경이가 \"장난이었다\"는 말로 하려던 것은 무엇인가요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 234
+    },
+    {
+      "id": "crd_2026W24_comp_s56_008",
+      "cardId": "crd_2026W24_comp_s56_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "보경의사과와학교폭력대책위원회-수업56",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "보경이는 몰래 물건을 돌려놓고, 장미에게 사실대로 털어놓으며 \"내가 잘못했어.\"라고 사과했다.",
+        "ttsText": "보경이는 몰래 물건을 돌려놓고, 장미에게 사실대로 털어놓으며 \"내가 잘못했어.\"라고 사과했다.",
+        "topic": "보경의사과와학교폭력대책위원회-수업56",
+        "source": "56회 독서수업 260609"
+      },
+      "question": {
+        "text": "보경이가 물건을 돌려주고 사실대로 사과한 행동에서 알 수 있는 보경이의 마음은 무엇인가요?",
+        "ttsText": "보경이가 물건을 돌려주고 사실대로 사과한 행동에서 알 수 있는 보경이의 마음은 무엇인가요?",
+        "passage": "보경이의 행동이 보여 주는 마음의 변화"
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자신의 잘못을 인정하고 바로잡으려는 마음",
+        "options": [
+          "자신의 잘못을 인정하고 바로잡으려는 마음",
+          "장미를 더 괴롭히려는 마음",
+          "친구들에게 자랑하려는 마음",
+          "벌을 피하려는 마음"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "예전의 보경이와 달라진 점을 생각해 봐. 잘못을 어떻게 대했는지가 중요해."
+      },
+      "wrongExplanation": "보경이가 물건을 돌려주고 사과한 까닭을 생각해 봐. 잘못을 깨닫고 책임지려 한 거야.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "보경이가 물건을 돌려주고 사실대로 사과한 행동에서 알 수 있는 보경이의 마음은 무엇인가요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 235
+    },
+    {
+      "id": "crd_2026W24_comp_s57_001",
+      "cardId": "crd_2026W24_comp_s57_001",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "미라는 컴퓨터실 앞을 지나가다 안을 들여다보았다. 몇몇 아이들이 보경이를 둘러싸고 놀리고 있었고, 보경이는 아무 대답도 하지 못했다. 미라는 문을 열고 소리쳤다.",
+        "ttsText": "미라는 컴퓨터실 앞을 지나가다 안을 들여다보았다. 몇몇 아이들이 보경이를 둘러싸고 놀리고 있었고, 보경이는 아무 대답도 하지 못했다. 미라는 문을 열고 소리쳤다.",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "미라가 컴퓨터실 안을 들여다보았을 때 본 모습은 무엇인가요?",
+        "ttsText": "미라가 컴퓨터실 안을 들여다보았을 때 본 모습은 무엇인가요?",
+        "passage": "미라가 복도를 지나가다 컴퓨터실 안에서 아이들 소리를 들은 장면이에요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "아이들이 보경이를 둘러싸고 놀리는 모습",
+        "options": [
+          "아이들이 보경이를 둘러싸고 놀리는 모습",
+          "아이들이 다 같이 컴퓨터 게임을 하는 모습",
+          "보경이가 혼자 노래 연습을 하는 모습",
+          "선생님이 아이들을 칭찬하는 모습"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라는 그 모습을 보고 문을 열고 '너희들 정말 너무하지 않니?' 하고 소리쳤어요."
+      },
+      "wrongExplanation": "미라가 문을 열고 소리친 까닭을 떠올려 봐. 컴퓨터실 안에서 보경이가 아이들에게 어떤 일을 당하고 있었는지 다시 생각해 보자.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "미라가 컴퓨터실 안을 들여다보았을 때 본 모습은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 236
+    },
+    {
+      "id": "crd_2026W24_comp_s57_002",
+      "cardId": "crd_2026W24_comp_s57_002",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "학폭위가 끝나고 나서 보경이는 눈에 띄게 달라졌다. 언제나 눈을 내리깐 채 교실로 들어와서는 혼자 조용히 앉아 있기만 했다.",
+        "ttsText": "학폭위가 끝나고 나서 보경이는 눈에 띄게 달라졌다. 언제나 눈을 내리깐 채 교실로 들어와서는 혼자 조용히 앉아 있기만 했다.",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "학폭위가 끝난 뒤 보경이는 교실에서 어떻게 지냈나요?",
+        "ttsText": "학폭위가 끝난 뒤 보경이는 교실에서 어떻게 지냈나요?",
+        "passage": "민주와 서영이가 미라에게 요즘 보경이의 학교 생활을 알려 줬어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "눈을 내리깐 채 혼자 조용히 앉아 있기만 했다",
+        "options": [
+          "눈을 내리깐 채 혼자 조용히 앉아 있기만 했다",
+          "친구들을 모아 놓고 큰 소리로 떠들었다",
+          "매일 노래 연습을 하러 다녔다",
+          "미라를 찾아가 화를 냈다"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "'눈에 띄게 달라졌다'는 표현 바로 뒤에 보경이의 새로운 모습이 나와요."
+      },
+      "wrongExplanation": "예전의 당당하던 보경이가 아니라 학폭위가 끝난 '뒤'의 모습을 묻는 거야. 교실에 들어온 보경이가 어떤 자세로 무엇을 하고 있었는지 떠올려 봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "학폭위가 끝난 뒤 보경이는 교실에서 어떻게 지냈나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 237
+    },
+    {
+      "id": "crd_2026W24_comp_s57_003",
+      "cardId": "crd_2026W24_comp_s57_003",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 1,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "미라는 문득 보경이의 꿈이 아이돌 가수라는 게 생각났다. 보경이는 그냥 한때 그런 꿈을 꾼 적이 있을 뿐이라며 지금은 다 포기했다고 말했다.",
+        "ttsText": "미라는 문득 보경이의 꿈이 아이돌 가수라는 게 생각났다. 보경이는 그냥 한때 그런 꿈을 꾼 적이 있을 뿐이라며 지금은 다 포기했다고 말했다.",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "보경이가 한때 가졌던 꿈은 무엇인가요?",
+        "ttsText": "보경이가 한때 가졌던 꿈은 무엇인가요?",
+        "passage": "미라는 보경이를 도울 방법을 찾다가 보경이의 꿈을 떠올렸어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "아이돌 가수",
+        "options": [
+          "아이돌 가수",
+          "의사",
+          "연기자",
+          "초등학교 선생님"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "의사는 보경이의 부모님이 바라는 모습이에요. 보경이 자신이 꾸었던 꿈은 따로 있었죠."
+      },
+      "wrongExplanation": "부모님이 바라는 것과 보경이가 스스로 꾸었던 꿈은 달라. 미라가 보경이에게 '보컬 트레이닝'도 해 주는 학원을 권한 까닭을 생각해 보면 답이 보일 거야.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "보경이가 한때 가졌던 꿈은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 238
+    },
+    {
+      "id": "crd_2026W24_comp_s57_004",
+      "cardId": "crd_2026W24_comp_s57_004",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "미라는 보경이에게 말했다. \"너 지금 이 세상에 내 편은 아무도 없는 거 같고 자꾸 어디론가 숨고만 싶지? 나도 그런 때가 있었거든. 그래서 지금 네 마음이 어떤지 누구보다 잘 알아.\"",
+        "ttsText": "미라는 보경이에게 말했다. \"너 지금 이 세상에 내 편은 아무도 없는 거 같고 자꾸 어디론가 숨고만 싶지? 나도 그런 때가 있었거든. 그래서 지금 네 마음이 어떤지 누구보다 잘 알아.\"",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "미라가 보경이를 돕고 싶어 한 까닭으로 가장 알맞은 것은 무엇인가요?",
+        "ttsText": "미라가 보경이를 돕고 싶어 한 까닭으로 가장 알맞은 것은 무엇인가요?",
+        "passage": "미라는 다음 날 운동장에서 보경이를 기다렸다가 먼저 말을 걸었어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "자기도 똑같이 힘든 때를 겪어서 보경이의 마음을 누구보다 잘 알기 때문",
+        "options": [
+          "자기도 똑같이 힘든 때를 겪어서 보경이의 마음을 누구보다 잘 알기 때문",
+          "선생님이 보경이를 도와주라고 시켰기 때문",
+          "보경이에게 잘 보여서 인기를 얻고 싶었기 때문",
+          "보경이가 먼저 도와 달라고 부탁했기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라도 5학년 때 모두가 등을 돌리는 일을 겪었다는 걸 떠올려 봐."
+      },
+      "wrongExplanation": "누가 시키거나 부탁해서 한 행동이 아니야. 미라가 5학년 때 어떤 일을 겪었는지 떠올리면, 미라가 왜 보경이의 마음을 잘 안다고 했는지 보일 거야.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "미라가 보경이를 돕고 싶어 한 까닭으로 가장 알맞은 것은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 239
+    },
+    {
+      "id": "crd_2026W24_comp_s57_005",
+      "cardId": "crd_2026W24_comp_s57_005",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "5학년 때 악플을 단 사실이 밝혀진 후 미라를 구해 주는 건 바로 연기였다. 미라는 연기 학원에 나가 밤늦도록 땀 흘리며 연기 연습을 하였고, 점점 연기자로 자리를 잡아갈 수 있었다.",
+        "ttsText": "5학년 때 악플을 단 사실이 밝혀진 후 미라를 구해 주는 건 바로 연기였다. 미라는 연기 학원에 나가 밤늦도록 땀 흘리며 연기 연습을 하였고, 점점 연기자로 자리를 잡아갈 수 있었다.",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "5학년 때 힘들어하던 미라를 구해 준 것은 무엇이었나요?",
+        "ttsText": "5학년 때 힘들어하던 미라를 구해 준 것은 무엇이었나요?",
+        "passage": "미라가 어떻게 다시 힘을 냈는지 돌아보는 부분이에요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "연기",
+        "options": [
+          "연기",
+          "노래",
+          "운동",
+          "공부"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "미라는 학원에서 밤늦도록 땀 흘리며 연습했고, 얼마 전에는 소속사와 전속 계약까지 맺었어요."
+      },
+      "wrongExplanation": "노래는 보경이의 꿈과 이어지는 거야. 미라가 학원에 나가서 밤늦도록 연습한 것이 무엇이었는지 본문에서 찾아봐.",
+      "skillTag": "fact",
+      "skillTags": [
+        "fact"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "5학년 때 힘들어하던 미라를 구해 준 것은 무엇이었나요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 240
+    },
+    {
+      "id": "crd_2026W24_comp_s57_006",
+      "cardId": "crd_2026W24_comp_s57_006",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 2,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "미라가 학원에 같이 가서 테스트를 받아 보자고 하자, 보경이는 \"우리 엄마가 알면 난리 날 텐데\"라며 그냥 한때 그런 꿈을 꾼 적이 있을 뿐이라고 했다. 보경이의 부모님은 보경이가 공부해서 의사가 되기를 바라셨다.",
+        "ttsText": "미라가 학원에 같이 가서 테스트를 받아 보자고 하자, 보경이는 \"우리 엄마가 알면 난리 날 텐데\"라며 그냥 한때 그런 꿈을 꾼 적이 있을 뿐이라고 했다. 보경이의 부모님은 보경이가 공부해서 의사가 되기를 바라셨다.",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "보경이가 \"우리 엄마가 알면 난리 날 텐데\"라고 말한 까닭은 무엇인가요?",
+        "ttsText": "보경이가 우리 엄마가 알면 난리 날 텐데, 라고 말한 까닭은 무엇인가요?",
+        "passage": "미라가 보컬 트레이닝도 해 주는 학원에 같이 가 보자고 권한 장면이에요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "부모님은 보경이가 공부해서 의사가 되기를 바라시기 때문",
+        "options": [
+          "부모님은 보경이가 공부해서 의사가 되기를 바라시기 때문",
+          "학원비가 너무 비싸서 다닐 수 없기 때문",
+          "엄마가 미라와 노는 것을 싫어하기 때문",
+          "엄마가 학원 선생님과 다툰 적이 있기 때문"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이의 부모님이 보경이에게 바라는 모습과 보경이의 꿈은 서로 달라요."
+      },
+      "wrongExplanation": "돈이나 미라 때문이 아니야. 보경이의 부모님이 보경이가 어떤 사람이 되기를 바라시는지 떠올려 봐.",
+      "skillTag": "inference",
+      "skillTags": [
+        "inference"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "보경이가 우리 엄마가 알면 난리 날 텐데, 라고 말한 까닭은 무엇인가요?",
+      "confidence": 0.9,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 241
+    },
+    {
+      "id": "crd_2026W24_comp_s57_007",
+      "cardId": "crd_2026W24_comp_s57_007",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "보경이가 자리를 피하자 미라는 졸졸 따라가며 '미운 놈 떡 하나 더 준다'는 속담을 꺼냈다. \"나는 너한테 떡이라도 하나 주고 싶어서 그러는 거야.\"",
+        "ttsText": "보경이가 자리를 피하자 미라는 졸졸 따라가며 '미운 놈 떡 하나 더 준다'는 속담을 꺼냈다. \"나는 너한테 떡이라도 하나 주고 싶어서 그러는 거야.\"",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "미라가 보경이에게 '미운 놈 떡 하나 더 준다'는 속담을 말한 까닭은 무엇일까요?",
+        "ttsText": "미라가 보경이에게 '미운 놈 떡 하나 더 준다'는 속담을 말한 까닭은 무엇일까요?",
+        "passage": "보경이가 \"네가 무슨 재주로 날 도와주겠다는 거야?\"라며 자리를 피하던 장면이에요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "남들이 미워하는 보경이에게도 먼저 도움과 마음을 건네고 싶다는 뜻을 전하려고",
+        "options": [
+          "남들이 미워하는 보경이에게도 먼저 도움과 마음을 건네고 싶다는 뜻을 전하려고",
+          "보경이에게 맛있는 떡을 사 주겠다고 약속하려고",
+          "보경이가 떡을 좋아하는지 물어보려고",
+          "속담 숙제를 같이 하자고 부탁하려고"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "속담에서 '떡'은 진짜 떡이 아니라 상대에게 건네는 마음을 빗댄 말이에요."
+      },
+      "wrongExplanation": "속담을 글자 그대로 읽으면 안 돼. 미라가 '떡이라도 하나 주고 싶다'고 한 말에서 떡이 무엇을 빗댄 것인지 생각해 봐.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "미라가 보경이에게 '미운 놈 떡 하나 더 준다'는 속담을 말한 까닭은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 242
+    },
+    {
+      "id": "crd_2026W24_comp_s57_008",
+      "cardId": "crd_2026W24_comp_s57_008",
+      "type": "comprehension",
+      "subject": "comprehension",
+      "difficulty": 3,
+      "sourceUnit": "보경이에게먼저다가간미라-수업57",
+      "sourceId": "reading-class",
+      "runId": "2026-W24",
+      "passage": {
+        "text": "\"그래도 보경이는 자기 잘못을 뉘우쳤잖아. 세상에서 제일 어려운 게 잘못을 뉘우치는 거라던데.\" 미라는 어떻게든 보경이를 돕고 싶었다.",
+        "ttsText": "그래도 보경이는 자기 잘못을 뉘우쳤잖아. 세상에서 제일 어려운 게 잘못을 뉘우치는 거라던데. 미라는 어떻게든 보경이를 돕고 싶었다.",
+        "topic": "보경이에게먼저다가간미라-수업57",
+        "source": "57회 독서수업 260611"
+      },
+      "question": {
+        "text": "이 장면에서 미라의 행동을 통해 배울 수 있는 점은 무엇일까요?",
+        "ttsText": "이 장면에서 미라의 행동을 통해 배울 수 있는 점은 무엇일까요?",
+        "passage": "미라는 한때 자기를 괴롭혔던 보경이에게 먼저 다가갔어요."
+      },
+      "questionType": "choice",
+      "answer": {
+        "correct": "잘못을 뉘우친 친구를 외면하지 않고 먼저 손을 내미는 용기",
+        "options": [
+          "잘못을 뉘우친 친구를 외면하지 않고 먼저 손을 내미는 용기",
+          "잘못한 친구와는 두 번 다시 말을 하지 않는 단호함",
+          "힘센 친구 편에 서서 나를 지키는 지혜",
+          "남의 일에는 절대 나서지 않는 조심성"
+        ],
+        "type": "choice"
+      },
+      "hint": {
+        "text": "보경이는 미라를 괴롭혔던 아이지만, 지금은 자기 잘못을 뉘우치고 있어요."
+      },
+      "wrongExplanation": "미라가 보경이를 피하거나 모른 척했는지, 아니면 먼저 다가갔는지 떠올려 봐. 미라의 선택이 쉬운 일이었을지도 함께 생각해 보자.",
+      "skillTag": "critical",
+      "skillTags": [
+        "critical"
+      ],
+      "anchorType": "reading-class",
+      "anchorWeek": "2026-W24",
+      "ttsText": "이 장면에서 미라의 행동을 통해 배울 수 있는 점은 무엇일까요?",
+      "confidence": 0.81,
+      "rules": [],
+      "validationDetails": [],
+      "validationStatus": "pass",
+      "reviewStatus": "parent_review",
+      "status": "parent_review",
+      "displayIndex": 243
     }
   ]
 }
