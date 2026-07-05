@@ -1,4 +1,5 @@
 window.__loadMunhaerakIndex([
+  { "n": 8, "date": "2026-07-11", "month": "2026-07", "category": "과학", "title": "식물은 흙에서 밥을 먹을까?" },
   { "n": 7, "date": "2026-07-10", "month": "2026-07", "category": "과학", "title": "밤하늘의 별똥별은 진짜 별이 떨어지는 걸까?" },
   { "n": 6, "date": "2026-07-09", "month": "2026-07", "category": "과학", "title": "우주에서 폭발하면 정말 ‘쾅’ 소리가 들릴까?" },
   { "n": 5, "date": "2026-07-08", "month": "2026-07", "category": "과학", "title": "공룡은 정말 하나도 남김없이 사라졌을까?" },
@@ -8,6 +9,6 @@ window.__loadMunhaerakIndex([
   { "n": 1, "date": "2026-07-04", "month": "2026-07", "category": "과학", "title": "박쥐는 정말 앞을 못 볼까?" }
 ], {
   "schema_version": 1,
-  "updated_at": "2026-07-04T12:00:00+09:00",
-  "version_key": "20260704-1200"
+  "updated_at": "2026-07-05T14:00:00+09:00",
+  "version_key": "20260705-1400"
 });
