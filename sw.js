@@ -1,5 +1,6 @@
 // PO 학습 시스템 Service Worker
-// v5.89.0 (2026-07-05): 오늘의 한 장 → 문해력 한 장 이어가기. 홈 문해력 배너(munhaerak-banner) 제거 — 문해력 유일 입구를 오늘의 한 장 흐름 안으로 이동. renderDailyToday 카드 끝(센티넬 뒤)에 "🧠 오늘의 문해력 한 장 →" 버튼(오늘 큐·아카이브 모두 항상 렌더, goDailyToMunhaerak) + renderDailyQueueEmpty("다 봤어요") 화면에도 버튼(openMunhaerakPage). 홈 배너 HTML/CSS(.munhaerak-banner)/배선 2곳 제거, updateMunhaerakUnreadBadges 유지(페이지 배지 b2 계속 동작). 홈 문해력 숫자 배지 사라짐(JH 승인). 콘텐츠 JSON·GAS·PRECACHE 불변. CACHE bump(v5880→v5890). 변경 2파일: index.html·sw.js.
+// v5.90.0 (2026-07-15): 문해력 한 장 interaction 4종 렌더러(선행 앱작업). renderMunhaerakCard가 처음으로 c.interaction을 읽어 STEP1을 타입별 분기 — pick_core_sentence(기존, 명시적 분기 이전)·delete_noise(곁가지 복수토글+확인, 집합 완전일치)·generalize/reconstruct(읽기전용 .mh-read 지문 + 별도 .mh-opt 옵션, option index 채점). 공통 mhSolveStep1 헬퍼(노드 인자·내부 전역검색 금지, 크로스 오채점 부활 차단). 미지원 interaction은 pick_core로 조용히 대체 안 하고 명시 오류카드+console.error+진행차단. 신규 CSS(.mh-read/.mh-opt/.mh-cut+상태). poIsActivityInProgress()에 page-munhaerak 추가(풀이 중 즉시리로드→업데이트 배너, 선택상태 보존). STEP2/3·읽음처리(mh-toStep3 시 markMunhaerakAsRead)·model STEP3 최초공개 불변. PRECACHE·데이터·GAS 불변. CACHE bump(v5890→v5900). 변경 2파일: index.html·sw.js.
+// 이전 v5.89.0 (2026-07-05): 오늘의 한 장 → 문해력 한 장 이어가기. 홈 문해력 배너(munhaerak-banner) 제거 — 문해력 유일 입구를 오늘의 한 장 흐름 안으로 이동. renderDailyToday 카드 끝(센티넬 뒤)에 "🧠 오늘의 문해력 한 장 →" 버튼(오늘 큐·아카이브 모두 항상 렌더, goDailyToMunhaerak) + renderDailyQueueEmpty("다 봤어요") 화면에도 버튼(openMunhaerakPage). 홈 배너 HTML/CSS(.munhaerak-banner)/배선 2곳 제거, updateMunhaerakUnreadBadges 유지(페이지 배지 b2 계속 동작). 홈 문해력 숫자 배지 사라짐(JH 승인). 콘텐츠 JSON·GAS·PRECACHE 불변. CACHE bump(v5880→v5890). 변경 2파일: index.html·sw.js.
 // v5.88.0 (2026-07-05): 문해력 한 장 8번째 카드 추가(식물 광합성 — 2026-07-11, pick_core_sentence, correct=3). '오늘의 한 장' 남은 8장과 수 맞춤. 교과서 6-1 과학 '잎에서 양분' 단원 정합(빛+이산화 탄소+물→양분, 주로 잎 / 뿌리=물 흡수 오개념 가드). 출처 2개 재검증(Britannica Kids·Smithsonian SSEC). 코드·렌더러·PRECACHE 불변 — 데이터 2파일(munhaerak_2026-07.js append·munhaerak_index.js 8항) + 버전 무효화. CACHE bump(v5870→v5880). 변경: munhaerak_2026-07.js·munhaerak_index.js·index.html·sw.js.
 // v5.87.0 (2026-07-04): '문해력 한 장' 코너 신설(배치1 과학 7장 — pick_core_sentence). PO-native 앱내 화면(page-munhaerak) + 홈 진입 배너(munhaerak-banner) + 3단계 렌더러(STEP1 핵심 뽑기 채점 → STEP2 소리내어 요약 → STEP3 모범/구조맵/셀프체크/출처). JSONP 로더(munhaerak_index.js + munhaerak_2026-07.js, 전역 콜백 __loadMunhaerakIndex/__loadMunhaerakMonth) + FIFO 미열람 큐(로컬 po_munhaerak_read_ids, 클라우드 동기화 없음) + '지난 것' 아카이브. 7장 전부 §7 WebSearch 권위출처 재검증(박쥐 반향정위·낙타 혹 지방·금붕어 기억·뇌 10% 미신·새=공룡 후손·우주 무음·별똥별=유성). 아이 영상 버튼 없음(출처만). index.html: CSS(.mh-*·.munhaerak-banner)+DOM(page-munhaerak·홈배너)+JS모듈+홈 렌더러 2곳 대칭 배선+버전 2줄. 신규 파일 2개 PRECACHE 추가. CACHE bump(v5860→v5870). 변경: index.html·sw.js + 신규 munhaerak_index.js·munhaerak_2026-07.js.
 // 이전 v5.86.0 (2026-07-01): 독해 58·59·60회 24장 머지(comprehension.json append, displayIndex 244~267). 회차 번호 사용자 확정, parent_review 초안 머지, 카드 무수정. CACHE bump(v5850→v5860).
@@ -40,7 +41,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5890';
+const CACHE_NAME = 'po-learning-v5900';
 const PRECACHE = [
   './',
   './index.html',

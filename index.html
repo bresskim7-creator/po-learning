@@ -1153,6 +1153,29 @@
     .mh-s.wrong { border-color: #E57373; background: #FDECEC; animation: mh-shake .3s; }
     .mh-s.locked { cursor: default; opacity: .72; }
     .mh-s.correct.locked { opacity: 1; }
+    /* [v5.90] delete_noise — 곁가지 지우기(토글 취소선) */
+    .mh-s.mh-cut { text-decoration: line-through; opacity: .6; border-color: #C9BCA0; background: #F1ECE0; color: #6b6152; }
+    .mh-s.mh-cut.locked { opacity: .68; }
+    .mh-cut-reason { font-size: 13px; color: #8a6d00; margin: 5px 2px 2px; padding-left: 4px; line-height: 1.55; }
+    /* [v5.90] generalize/reconstruct — 읽기전용 지문(.mh-read) + 별도 선택지(.mh-opt) */
+    .mh-read-wrap { display: flex; flex-direction: column; gap: 9px; }
+    .mh-read {
+      font-size: 16px; padding: 12px 14px; border: 2px solid #ECE3D2; border-radius: 12px;
+      background: #FBF7EF; color: #4a4a4a; line-height: 1.6; cursor: default; user-select: text;
+    }
+    .mh-opt-title { font-size: 13px; font-weight: 800; color: #7a6320; margin: 16px 0 8px; }
+    .mh-options { display: flex; flex-direction: column; gap: 9px; }
+    .mh-opt {
+      font-size: 16px; padding: 12px 14px; border: 2px solid #ECE3D2; border-radius: 12px;
+      background: #FFFDF9; cursor: pointer; transition: .12s; user-select: none; line-height: 1.6;
+    }
+    .mh-opt:active { transform: scale(.99); }
+    .mh-opt.correct { border-color: #43A047; background: #E9F7EA; color: #1B5E20; font-weight: 700; }
+    .mh-opt.wrong { border-color: #E57373; background: #FDECEC; animation: mh-shake .3s; }
+    .mh-opt.locked { cursor: default; opacity: .72; }
+    .mh-opt.correct.locked { opacity: 1; }
+    /* [v5.90] delete_noise 확인 버튼 (type=button, 폼 submit 방지) */
+    .mh-confirm { background: #6B7A8F; }
     @keyframes mh-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
     .mh-fb { margin-top: 12px; font-size: 14.5px; padding: 12px 14px; border-radius: 12px; display: none; line-height: 1.65; }
     .mh-fb.show { display: block; }
@@ -1612,8 +1635,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.89.0';
-var APP_SW_CACHE = 'sw5890';
+var APP_VERSION = 'v5.90.0';
+var APP_SW_CACHE = 'sw5900';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -3192,6 +3215,21 @@ function renderMunhaerakQueueEmpty() {
   if (hd) hd.textContent = '—';
 }
 
+// [v5.90] 공통 STEP1 solve 헬퍼 (§3.0) — 노드를 인자로 받고 내부 전역검색을 절대 하지 않는다.
+// (전역검색을 하면 §3.0에서 막은 크로스 오채점이 헬퍼를 통해 부활하므로 금지.)
+function mhSolveStep1(allNodes, correctNodes, fbEl, toStep2Btn, okMsg) {
+  var k;
+  correctNodes = correctNodes || [];
+  for (k = 0; k < correctNodes.length; k++) {
+    if (correctNodes[k]) correctNodes[k].classList.add('correct', 'locked');
+  }
+  for (k = 0; k < allNodes.length; k++) {
+    if (allNodes[k]) allNodes[k].classList.add('locked');
+  }
+  if (fbEl) { fbEl.className = 'mh-fb ok show'; fbEl.innerHTML = okMsg || '정답이에요!'; }
+  if (toStep2Btn) toStep2Btn.classList.remove('mh-hidden');
+}
+
 function renderMunhaerakCard(c, ctx) {
   var view = document.getElementById('munhaerak-today-view');
   if (!view || !c) return;
@@ -3200,11 +3238,54 @@ function renderMunhaerakCard(c, ctx) {
   if (hd) hd.textContent = (c.category || '') + (c.n ? (' · ' + c.n + '번째') : '');
 
   var arr = c.sentences || [];
-  var sents = '';
   var i;
+
+  // [v5.90] interaction 4종 분기 — STEP1 몸통을 타입별로 렌더 (§3.0 DOM 계약)
+  var MH_KNOWN = ['pick_core_sentence', 'delete_noise', 'generalize', 'reconstruct'];
+  var interaction = c.interaction || 'pick_core_sentence';
+  var isKnown = MH_KNOWN.indexOf(interaction) >= 0;
+  var MH_STEP1_LABELS = {
+    pick_core_sentence: 'STEP 1 · 핵심 뽑기',
+    delete_noise: 'STEP 1 · 곁가지 지우기',
+    generalize: 'STEP 1 · 묶는 말 찾기',
+    reconstruct: 'STEP 1 · 주제문 찾기'
+  };
+  var step1Label = MH_STEP1_LABELS[interaction] || 'STEP 1';
+
+  // 클릭 가능한 문장(.mh-s[data-idx]) — pick_core / delete_noise
+  var sSents = '';
   for (i = 0; i < arr.length; i++) {
-    sents += '<div class="mh-s" data-idx="' + i + '">' + arr[i] + '</div>';
+    sSents += '<div class="mh-s" data-idx="' + i + '">' + arr[i] + '</div>';
   }
+  // 읽기 전용 지문(.mh-read, data-idx 없음·클릭 없음) — generalize / reconstruct
+  var rSents = '';
+  for (i = 0; i < arr.length; i++) {
+    rSents += '<div class="mh-read">' + arr[i] + '</div>';
+  }
+  // 별도 선택지(#mh-options .mh-opt[data-idx]) — generalize / reconstruct
+  var optArr = c.options || [];
+  var optHtml = '';
+  for (i = 0; i < optArr.length; i++) {
+    optHtml += '<div class="mh-opt" data-idx="' + i + '">' + optArr[i] + '</div>';
+  }
+
+  var step1Body;
+  if (interaction === 'pick_core_sentence') {
+    step1Body = '<div class="mh-sentences" id="mh-sents">' + sSents + '</div>';
+  } else if (interaction === 'delete_noise') {
+    step1Body = '<div class="mh-sentences" id="mh-sents">' + sSents + '</div>'
+      + '<button type="button" class="mh-btn mh-confirm" id="mh-deleteConfirm">확인</button>';
+  } else if (interaction === 'generalize' || interaction === 'reconstruct') {
+    var optTitle = (interaction === 'generalize') ? '아래 중 여러 사례를 묶는 말은?' : '아래 중 글 전체의 주제문은?';
+    step1Body = '<div class="mh-read-wrap" id="mh-read">' + rSents + '</div>'
+      + '<div class="mh-opt-title">' + optTitle + '</div>'
+      + '<div class="mh-options" id="mh-options">' + optHtml + '</div>';
+  } else {
+    // 미지원 interaction (§3.5) — 조용히 pick_core로 대체하지 않는다
+    step1Body = '<div class="mh-fb tip show" id="mh-unsupported">이 카드의 활동 형식(<code>'
+      + escapeHtml(interaction) + '</code>)을 지원하지 않아요. 관리자 확인 필요.</div>';
+  }
+
   var mapRows = '';
   var mp = c.map || [];
   for (i = 0; i < mp.length; i++) {
@@ -3228,9 +3309,9 @@ function renderMunhaerakCard(c, ctx) {
     +   '<div><span class="mh-cat-pill">' + (c.category || '과학') + ' · 문해력 한 장</span>'
     +     '<div class="mh-ptitle">' + (c.ptitle || '') + '</div></div>'
     +   '<div class="mh-step">'
-    +     '<span class="mh-step-badge">STEP 1 · 핵심 뽑기</span>'
+    +     '<span class="mh-step-badge">' + step1Label + '</span>'
     +     '<div class="mh-guide">' + (c.step1_guide || '') + '</div>'
-    +     '<div class="mh-sentences" id="mh-sents">' + sents + '</div>'
+    +     step1Body
     +     '<div class="mh-fb" id="mh-fb1"></div>'
     +     '<button class="mh-btn mh-hidden" id="mh-toStep2">다음 단계로 →</button>'
     +   '</div>'
@@ -3257,33 +3338,132 @@ function renderMunhaerakCard(c, ctx) {
   view.innerHTML = html;
 
   var solved = false;
-  var correct = (typeof c.correct === 'number') ? c.correct : -1;
   var hints = c.hints || {};
-  var sentsEl = document.getElementById('mh-sents');
   var fb1 = document.getElementById('mh-fb1');
   var toStep2 = document.getElementById('mh-toStep2');
-  var nodes = sentsEl ? sentsEl.querySelectorAll('.mh-s') : [];
   var q;
-  for (var nIdx = 0; nIdx < nodes.length; nIdx++) {
-    (function(el) {
-      el.addEventListener('click', function() {
+
+  if (interaction === 'pick_core_sentence') {
+    // 핵심 문장 1개 클릭 → idx === c.correct (§3.1). 자기 컨테이너(#mh-sents)의 .mh-s만 query.
+    var pcEl = document.getElementById('mh-sents');
+    var pcNodes = pcEl ? pcEl.querySelectorAll('.mh-s') : [];
+    var pcCorrect = (typeof c.correct === 'number') ? c.correct : -1;
+    for (var pi = 0; pi < pcNodes.length; pi++) {
+      (function(el) {
+        el.addEventListener('click', function() {
+          if (solved) return;
+          var idx = parseInt(el.getAttribute('data-idx'), 10);
+          if (idx === pcCorrect) {
+            solved = true;
+            mhSolveStep1(pcNodes, [el], fb1, toStep2, c.correct_fb || '정답이에요!');
+          } else {
+            el.classList.remove('wrong'); void el.offsetWidth; el.classList.add('wrong');
+            fb1.className = 'mh-fb tip show';
+            var hint = hints[idx] || hints[String(idx)] || '핵심 문장을 다시 찾아볼까요?';
+            fb1.innerHTML = hint + '<br><span style="color:#a98a3a">다른 문장을 다시 골라 보세요.</span>';
+          }
+        });
+      })(pcNodes[pi]);
+    }
+
+  } else if (interaction === 'delete_noise') {
+    // 곁가지 복수 토글 → 확인 → 선택집합 === deletable 완전일치 (§3.2). #mh-sents의 .mh-s만.
+    var dnEl = document.getElementById('mh-sents');
+    var dnNodes = dnEl ? dnEl.querySelectorAll('.mh-s') : [];
+    var dnConfirm = document.getElementById('mh-deleteConfirm');
+    var deletable = c.deletable || [];
+    var dnSet = {};                 // 아이 선택 상태 (idx -> true)
+    var delSet = {};                // 정답 집합
+    for (q = 0; q < deletable.length; q++) delSet[deletable[q]] = true;
+    var cutReason = c.cut_reason || {};
+    for (var di = 0; di < dnNodes.length; di++) {
+      (function(el) {
+        el.addEventListener('click', function() {
+          if (solved) return;
+          var idx = parseInt(el.getAttribute('data-idx'), 10);
+          if (dnSet[idx]) { delete dnSet[idx]; el.classList.remove('mh-cut'); }
+          else { dnSet[idx] = true; el.classList.add('mh-cut'); }
+          fb1.className = 'mh-fb'; fb1.innerHTML = '';   // 피드백만 초기화 (선택은 유지)
+        });
+      })(dnNodes[di]);
+    }
+    if (dnConfirm) {
+      dnConfirm.addEventListener('click', function() {
         if (solved) return;
-        var idx = parseInt(el.getAttribute('data-idx'), 10);
-        if (idx === correct) {
-          solved = true;
-          el.classList.add('correct', 'locked');
-          for (q = 0; q < nodes.length; q++) nodes[q].classList.add('locked');
-          fb1.className = 'mh-fb ok show';
-          fb1.innerHTML = c.correct_fb || '정답이에요!';
-          if (toStep2) toStep2.classList.remove('mh-hidden');
-        } else {
-          el.classList.remove('wrong'); void el.offsetWidth; el.classList.add('wrong');
+        var selected = [], ix;
+        for (q = 0; q < dnNodes.length; q++) {
+          ix = parseInt(dnNodes[q].getAttribute('data-idx'), 10);
+          if (dnSet[ix]) selected.push(ix);
+        }
+        if (selected.length === 0) {   // 빈 선택 차단 (§3.2 엣지)
           fb1.className = 'mh-fb tip show';
-          var hint = hints[idx] || hints[String(idx)] || '핵심 문장을 다시 찾아볼까요?';
-          fb1.innerHTML = hint + '<br><span style="color:#a98a3a">다른 문장을 다시 골라 보세요.</span>';
+          fb1.innerHTML = '지울 문장을 골라볼까요? <span style="color:#a98a3a">곁가지(덜 중요한 문장)를 눌러 지워요.</span>';
+          return;
+        }
+        var over = [], missing = [];   // over: 핵심을 지움 / missing: 곁가지 남김
+        for (q = 0; q < selected.length; q++) { if (!delSet[selected[q]]) over.push(selected[q]); }
+        for (q = 0; q < deletable.length; q++) { if (!dnSet[deletable[q]]) missing.push(deletable[q]); }
+        if (over.length === 0 && missing.length === 0) {
+          // 완전일치 → 정답. 지운 문장마다 cut_reason 곁들이고 lock (correctNodes=[]: 취소선이 정답 시각).
+          solved = true;
+          for (q = 0; q < dnNodes.length; q++) {
+            var cix = parseInt(dnNodes[q].getAttribute('data-idx'), 10);
+            if (delSet[cix]) {
+              var reason = cutReason[cix] || cutReason[String(cix)];
+              if (reason) {
+                var rEl = document.createElement('div');
+                rEl.className = 'mh-cut-reason';
+                rEl.innerHTML = '⤷ ' + reason;
+                dnNodes[q].parentNode.insertBefore(rEl, dnNodes[q].nextSibling);
+              }
+            }
+          }
+          mhSolveStep1(dnNodes, [], fb1, toStep2, c.delete_fb_ok || '정답이에요! 곁가지를 잘 지웠어요.');
+        } else {
+          // 오답 → 방향 피드백 + 해당 hints, 선택 유지 (재토글 가능)
+          fb1.className = 'mh-fb tip show';
+          var msg;
+          if (over.length > 0) {
+            var oh = hints[over[0]] || hints[String(over[0])] || '이 문장은 핵심이에요.';
+            msg = '<b>핵심까지 지웠어요.</b> ' + oh;
+          } else {
+            var mhint = hints[missing[0]] || hints[String(missing[0])] || '이 문장은 곁가지예요.';
+            msg = '<b>아직 곁가지가 남았어요.</b> ' + mhint;
+          }
+          fb1.innerHTML = msg + '<br><span style="color:#a98a3a">다시 골라 확인해 보세요.</span>';
         }
       });
-    })(nodes[nIdx]);
+    }
+
+  } else if (interaction === 'generalize' || interaction === 'reconstruct') {
+    // 지문 읽기전용(.mh-read, 바인딩 없음) + options 단일선택 → option index로 채점 (§3.3/§3.4).
+    // #mh-options의 .mh-opt만 query — 절대 문장 index와 비교하지 않는다.
+    var opEl = document.getElementById('mh-options');
+    var opNodes = opEl ? opEl.querySelectorAll('.mh-opt') : [];
+    var opCorrect = (typeof c.correct === 'number') ? c.correct : -1;
+    var okMsg = (interaction === 'generalize') ? (c.gen_fb_ok || '정답이에요!') : (c.recon_fb_ok || '정답이에요!');
+    var reprompt = (interaction === 'generalize') ? '다른 묶는 말을 다시 골라 보세요.' : '다른 주제문을 다시 골라 보세요.';
+    for (var oi = 0; oi < opNodes.length; oi++) {
+      (function(el) {
+        el.addEventListener('click', function() {
+          if (solved) return;
+          var idx = parseInt(el.getAttribute('data-idx'), 10);
+          if (idx === opCorrect) {
+            solved = true;
+            mhSolveStep1(opNodes, [el], fb1, toStep2, okMsg);
+          } else {
+            el.classList.remove('wrong'); void el.offsetWidth; el.classList.add('wrong');
+            fb1.className = 'mh-fb tip show';
+            var hint = hints[idx] || hints[String(idx)] || '조금 더 생각해 볼까요?';
+            fb1.innerHTML = hint + '<br><span style="color:#a98a3a">' + reprompt + '</span>';
+          }
+        });
+      })(opNodes[oi]);
+    }
+
+  } else {
+    // 미지원 interaction (§3.5) — pick_core로 조용히 대체하지 않는다. 진행 차단(toStep2 미노출) + 콘솔 에러.
+    console.error('[munhaerak] 지원하지 않는 interaction: "' + interaction + '" (n=' + (c.n || '?') + ', date=' + (c.date || '?') + ')');
   }
   if (toStep2) {
     toStep2.addEventListener('click', function() {
@@ -12405,11 +12585,13 @@ if ('serviceWorker' in navigator) {
   var poHadController = !!navigator.serviceWorker.controller;
 
   function poIsActivityInProgress() {
-    // 카드 풀이 / 개념 카드 화면이 활성일 때만 '진행 중'으로 본다.
+    // 카드 풀이 / 개념 카드 / 문해력 한 장 화면이 활성일 때만 '진행 중'으로 본다.
     var card = document.getElementById('page-card');
     var conceptCard = document.getElementById('page-concept-card');
+    var munhaerak = document.getElementById('page-munhaerak');   // [v5.90] 문해력 풀이 중 선택상태 보존
     return !!((card && card.classList.contains('active')) ||
-              (conceptCard && conceptCard.classList.contains('active')));
+              (conceptCard && conceptCard.classList.contains('active')) ||
+              (munhaerak && munhaerak.classList.contains('active')));
   }
 
   function poReloadForNewVersion() {
