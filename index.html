@@ -804,6 +804,16 @@
     .tile-concept.tile-empty { opacity: 0.5; pointer-events: none; }
     .tile-concept .concept-sub { display: block; font-size: 12px; font-weight: 400; color: #8878B0; margin-top: 4px; }
 
+    /* ===== [v5.92.0] 오늘의 단어 (독립 진입점 — 자기 줄) ===== */
+    .tile-word {
+      display: block; width: 100%; max-width: 400px; margin: 6px auto 8px;
+      padding: 12px; border: 2px solid #2E7D32; background: #E8F5E9;
+      border-radius: 12px; font-size: 16px; font-weight: 600;
+      color: #1B5E20; cursor: pointer; text-align: center;
+    }
+    .tile-word:active { background: #C8E6C9; }
+    .tile-word .word-sub { display: block; font-size: 12px; font-weight: 400; color: #4C8C50; margin-top: 4px; }
+
     #page-concept-home, #page-concept-unit, #page-concept-card { background: #FAF8FC; gap: 0; padding: 0 0 24px; align-items: stretch; }
     #page-concept-home .header, #page-concept-unit .header, #page-concept-card .header {
       width: 100%; max-width: 480px; padding: 16px; margin: 0 auto;
@@ -965,6 +975,14 @@
     /* 홈 상단 2버튼 그리드 (골고루 학습 · 말하기 연습) */
     .home-top-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 14px; }
     .home-top-actions > button { margin: 0 !important; width: 100%; }
+    /* [v5.92.0] 골고루 학습이 숨겨져 말하기 연습만 남을 때 한 줄 전체 사용 */
+    .home-top-actions.focus-solo { grid-template-columns: 1fr; }
+    /* [v5.92.0] 집중 모드 메뉴 너비 통일 — #page-home이 flex column + align-items:center라
+       너비를 지정하지 않은 줄은 각자 콘텐츠 너비로 줄어들어 들쭉날쭉해진다(배너 212·말하기 124·키몸무게 152).
+       남은 메뉴 줄을 앱 기존 관례(width:100%; max-width:400px)에 맞춰 400px로 맞춘다. */
+    #page-home.focus-mode .daily-banner,
+    #page-home.focus-mode .home-top-actions,
+    #page-home.focus-mode .home-bottom-icons { width: 100%; max-width: 400px; }
     .btn-speaking-top {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 2px; padding: 16px 10px; border: none; border-radius: 14px;
@@ -1269,6 +1287,8 @@
   </div>
   <!-- [v5.67.0] 과목 그리드 2×2 (영어/독해/사회/과학) -->
   <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
+  <!-- [v5.92.0] 오늘의 단어 (독립 진입점, 스펙 확정 후 onclick 연결) — 자리 예약, 현재 미노출 -->
+  <button type="button" class="tile-word" id="tile-word" style="display:none;">🔤 오늘의 단어<span class="word-sub" id="tile-word-sub"></span></button>
   <!-- [v5.67.0] 하단 보조 아이콘 행 (개념 정리 · 키·몸무게) -->
   <div class="home-bottom-icons" id="home-bottom-icons" style="display:none;">
     <button type="button" class="tile-concept" id="tile-concept" onclick="openConceptHome()" style="display:none;">📚 개념 정리<span class="concept-sub" id="tile-concept-sub">단원 핵심 한눈에 보기</span></button>
@@ -1635,8 +1655,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.91.0';
-var APP_SW_CACHE = 'sw5910';
+var APP_VERSION = 'v5.92.0';
+var APP_SW_CACHE = 'sw5920';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2419,7 +2439,11 @@ function generateSpeechTherapyCards(data) {
 // ===================================================================
 
 function updateHomeScreen() {
-  if (!APP.config || !APP.config.subjectSession || !APP.config.subjectSession.enabled) {
+  // [v5.92.0] 집중 모드에서는 레거시 홈으로 빠지지 않는다.
+  // 레거시 홈의 유일한 버튼 '시작하기'가 startSession()=골고루(영어·독해·사회·과학)로 직행하므로,
+  // config.json 로드·파싱 실패(APP.config={})로 이 경로에 빠지면 숨김이 통째로 무력화된다.
+  // 집중 모드의 renderSubjectTileHome()은 APP.config를 읽지 않으므로(그리드 경로 조기 return) 항상 안전하다.
+  if (!PO_HOME_FOCUS_MODE && (!APP.config || !APP.config.subjectSession || !APP.config.subjectSession.enabled)) {
     renderLegacyHome();
     return;
   }
@@ -2455,12 +2479,17 @@ function renderLegacyHome() {
   }
 }
 
+// [v5.92.0] 홈 집중 모드 — 아이 화면을 언어·읽기(오늘의 한 장·말하기 연습·키·몸무게)로 한정.
+// 영어·독해·사회·과학 그리드, 골고루 학습, 개념 정리를 숨긴다. 카드·콘텐츠·파이프라인은 그대로 보존.
+// 되돌리기: 이 값을 false로. tileOrder·config.json은 건드리지 않았으므로 원래 4타일이 그대로 복구된다.
+var PO_HOME_FOCUS_MODE = true;
+
 function renderSubjectTileHome() {
   // [v5.29] 로딩 인디케이터 제거
   var loadingEl = document.getElementById('home-loading');
   if (loadingEl) loadingEl.style.display = 'none';
   document.getElementById('legacy-home').style.display = 'none';
-  document.getElementById('subject-tiles').style.display = '';
+  document.getElementById('subject-tiles').style.display = PO_HOME_FOCUS_MODE ? 'none' : '';
   // [v5.67.0] 홈 재배치: 오늘의 한 장 배너 + 상단 2버튼 행 + 하단 아이콘 행 표시
   var dbEl = document.getElementById('daily-banner');
   if (dbEl) dbEl.style.display = '';
@@ -2468,6 +2497,19 @@ function renderSubjectTileHome() {
   if (htaEl) htaEl.style.display = '';
   var hbiEl = document.getElementById('home-bottom-icons');
   if (hbiEl) hbiEl.style.display = '';
+  // [v5.92.0] 집중 모드: 남은 메뉴 줄 너비를 400px로 통일 (CSS #page-home.focus-mode)
+  var homeEl = document.getElementById('page-home');
+  if (homeEl) {
+    if (PO_HOME_FOCUS_MODE) homeEl.classList.add('focus-mode');
+    else homeEl.classList.remove('focus-mode');
+  }
+  // [v5.92.0] 집중 모드: 골고루 학습 숨김 → 말하기 연습이 상단 행 전체를 사용
+  var mixedBtn = document.getElementById('btn-mixed-session');
+  if (mixedBtn) mixedBtn.style.display = PO_HOME_FOCUS_MODE ? 'none' : '';
+  if (htaEl) {
+    if (PO_HOME_FOCUS_MODE) htaEl.classList.add('focus-solo');
+    else htaEl.classList.remove('focus-solo');
+  }
   // [v5.67.0] 오늘의 한 장 — 인덱스 로드 후 미열람 배지 갱신
   if (typeof loadDailyIndexJsonp === 'function') {
     loadDailyIndexJsonp().then(function() { updateDailyUnreadBadges(); syncDailyReadFromCloud(); });  // [v5.74.0] 배지 로컬 즉시 → 백그라운드 동기화 보정
@@ -2475,7 +2517,10 @@ function renderSubjectTileHome() {
   // [v5.89.0] 문해력 홈 배너 제거 — 홈 프리로드 불필요(openMunhaerakPage→loadMunhaerakToday 진입 시 로드).
   // [v5.64] 개념 정리 타일 (카드 1장 이상일 때만 표시)
   var tcl = document.getElementById('tile-concept');
-  if (tcl) {
+  if (tcl && PO_HOME_FOCUS_MODE) {
+    // [v5.92.0] 집중 모드: 개념 정리 숨김 (카드 수 조회도 생략)
+    tcl.style.display = 'none';
+  } else if (tcl) {
     var conceptTotal = getConceptCardCount();
     if (conceptTotal > 0) {
       tcl.style.display = '';
@@ -2492,9 +2537,9 @@ function renderSubjectTileHome() {
     gt.style.display = '';
     if (typeof updateGrowthTileSub === 'function') updateGrowthTileSub();
   }
-  // [v5.20] mixed 버튼 카드 수 동적 표시
+  // [v5.20] mixed 버튼 카드 수 동적 표시 ([v5.92.0] 집중 모드에서는 버튼 자체가 숨겨져 계산 생략)
   var mixedCountEl = document.getElementById('mixed-card-count');
-  if (mixedCountEl) { mixedCountEl.textContent = getMixedSessionCardCount(); }
+  if (mixedCountEl && !PO_HOME_FOCUS_MODE) { mixedCountEl.textContent = getMixedSessionCardCount(); }
   var progress = APP.progress || loadAppProgress();
   var streakEl = document.getElementById('streak-home');
   if (progress.stats.streak > 0) {
@@ -2502,6 +2547,15 @@ function renderSubjectTileHome() {
     streakEl.style.cssText = 'text-align:center; font-size:14px; color:#E65100; margin:8px 0;';
   } else {
     streakEl.textContent = '';
+  }
+  // [v5.92.0] 집중 모드: 과목 그리드 렌더 경로 전체를 건너뛴다.
+  // 아래 tileOrder 폴백(빈 배열·구타일 → 4타일 하드코딩)에 도달하지 않으므로 config.json은 그대로 두고도 그리드가 부활하지 않는다.
+  // 추천 배지·카드 풀 조회도 함께 생략된다. 플래그를 끄면 아래 원래 경로가 그대로 살아난다.
+  if (PO_HOME_FOCUS_MODE) {
+    var tilesElFocus = document.getElementById('subject-tiles');
+    if (tilesElFocus) tilesElFocus.innerHTML = '';
+    renderResumeBanner();
+    return;
   }
   // [v5.0.8] tileOrder 마이그레이션: 옛 3타일 → speaking_practice 통합
   var rawOrder = APP.config.subjectSession.tileOrder || [];
@@ -3631,6 +3685,10 @@ function renderResumeBanner() {
       banner.style.display = 'none';
       return;
     }
+    // [v5.92.0] 집중 모드: 숨긴 과목(영어·독해·사회·과학·골고루)의 이어하기 배너를 차단.
+    // 말하기 연습은 홈에 남아 있으므로 계속 이어할 수 있다.
+    // localStorage는 지우지 않는다 — 플래그를 끄면 진행 중이던 세션이 그대로 되살아난다.
+    if (PO_HOME_FOCUS_MODE && pending.subject !== 'speaking_practice') { banner.style.display = 'none'; return; }
     var subjectNames = { english:'영어', comprehension:'독해', social_studies:'사회', science:'과학', speaking_practice:'말하기 연습', speech_therapy_quiz:'말하기', listen_repeat:'듣고말하기', read_aloud:'따라읽기', mixed:'골고루 학습' };
     var name = subjectNames[pending.subject] || '학습';
     document.getElementById('resume-banner-text').textContent = name + ' ' + pending.currentIndex + '/' + pending.cards.length + '장 진행 중';
