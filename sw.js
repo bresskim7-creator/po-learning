@@ -43,7 +43,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5920';
+const CACHE_NAME = 'po-learning-v5930';
 const PRECACHE = [
   './',
   './index.html',
@@ -54,6 +54,8 @@ const PRECACHE = [
   './daily_2026-07.js',
   './munhaerak_index.js',
   './munhaerak_2026-07.js',
+  './word_index.js',
+  './wordcards_2026-07.js',
   './english.json',
   './comprehension.json',
   './phrase-pool.json',
@@ -172,8 +174,8 @@ self.addEventListener('fetch', event => {
       return response;
     }).catch(() => caches.match(req).then(cached => {
       if (cached) return cached;
-      // [v5.67.0] daily 월묶음/인덱스: ?v= 쿼리 무시하고 매칭 (오프라인 stale 허용)
-      if (/\/daily_(\d{4}-\d{2}|index)\.js$/.test(url.pathname)) {
+      // [v5.67.0] daily 월묶음/인덱스 + [word] 오늘의 단어 인덱스/월묶음: ?v= 쿼리 무시하고 매칭 (오프라인 stale 허용)
+      if (/\/(?:daily_(?:\d{4}-\d{2}|index)|word_index|wordcards_\d{4}-\d{2})\.js$/.test(url.pathname)) {
         return caches.match(req, { ignoreSearch: true }).then(c2 => {
           if (c2) return c2;
           if (isNavigation) return caches.match('./index.html');

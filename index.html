@@ -814,6 +814,48 @@
     .tile-word:active { background: #C8E6C9; }
     .tile-word .word-sub { display: block; font-size: 12px; font-weight: 400; color: #4C8C50; margin-top: 4px; }
 
+    /* ===== [word] 오늘의 단어 화면 (집중 모드 400px 관례) ===== */
+    #page-word { background: #F5FBF6; gap: 0; padding: 0 0 24px; align-items: stretch; }
+    .word-page-wrap { width: 100%; max-width: 400px; margin: 0 auto; padding: 0 16px; }
+    .word-prompt { font-size: 20px; font-weight: 700; color: #1B5E20; line-height: 1.5; margin: 20px 0 18px; text-align: center; }
+    .word-choices { display: flex; flex-direction: column; gap: 10px; }
+    .word-choice {
+      display: block; width: 100%; padding: 16px 12px; border: 2px solid #A5D6A7;
+      background: #fff; border-radius: 12px; font-size: 18px; font-weight: 600;
+      color: #1B5E20; cursor: pointer; text-align: center; font-family: inherit;
+    }
+    .word-choice:active { background: #E8F5E9; }
+    .word-choice.is-correct { border-color: #2E7D32; background: #C8E6C9; }
+    .word-choice.is-wrong { border-color: #C62828; background: #FFCDD2; color: #B71C1C; }
+    .word-choice[disabled] { cursor: default; opacity: 0.95; }
+    .word-mark { font-size: 18px; font-weight: 700; margin-right: 6px; }
+    .word-feedback { margin: 16px 0; font-size: 17px; font-weight: 600; text-align: center; color: #33691E; }
+    .word-feedback.is-wrong { color: #B71C1C; }
+    .word-learn { background: #fff; border: 2px solid #A5D6A7; border-radius: 14px; padding: 18px; margin: 16px 0; }
+    .word-learn-head { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .word-learn-word { font-size: 26px; font-weight: 800; color: #1B5E20; }
+    .word-tts-btn { border: none; background: #E8F5E9; border-radius: 20px; padding: 8px 12px; font-size: 18px; cursor: pointer; }
+    .word-def { font-size: 17px; color: #263238; line-height: 1.6; margin-top: 12px; }
+    .word-ex { font-size: 15px; color: #546E7A; line-height: 1.6; margin-top: 8px; }
+    .word-btn {
+      display: block; width: 100%; padding: 14px; margin-top: 14px; border: none;
+      background: #2E7D32; color: #fff; border-radius: 12px; font-size: 16px;
+      font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .word-btn.secondary { background: #fff; color: #2E7D32; border: 2px solid #A5D6A7; }
+    .word-done { text-align: center; padding: 28px 0; }
+    .word-done .word-done-emoji { font-size: 46px; }
+    .word-done h2 { font-size: 22px; color: #1B5E20; margin: 12px 0; }
+    .word-empty { text-align: center; color: #78909C; padding: 40px 16px; font-size: 15px; }
+    .word-s3-badge { display: inline-block; background: #FFF3E0; color: #E65100; border-radius: 12px; padding: 4px 10px; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+    /* 부모 지표 */
+    .word-pm { text-align: left; margin-top: 12px; }
+    .word-pm h4 { margin: 0 0 8px; font-size: 15px; color: #fff; }
+    .word-pm table { width: 100%; border-collapse: collapse; font-size: 13px; color: rgba(255,255,255,0.95); }
+    .word-pm td, .word-pm th { padding: 4px 2px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .word-pm .word-pm-note { font-size: 13px; color: rgba(255,255,255,0.9); margin-top: 8px; line-height: 1.6; }
+    .word-pm .word-pm-alert { background: rgba(255,193,7,0.25); border: 1px solid rgba(255,193,7,0.6); border-radius: 10px; padding: 10px; margin-top: 10px; font-size: 13px; }
+
     #page-concept-home, #page-concept-unit, #page-concept-card { background: #FAF8FC; gap: 0; padding: 0 0 24px; align-items: stretch; }
     #page-concept-home .header, #page-concept-unit .header, #page-concept-card .header {
       width: 100%; max-width: 480px; padding: 16px; margin: 0 auto;
@@ -1288,7 +1330,7 @@
   <!-- [v5.67.0] 과목 그리드 2×2 (영어/독해/사회/과학) -->
   <div id="subject-tiles" class="subject-tiles" style="display:none;"></div>
   <!-- [v5.92.0] 오늘의 단어 (독립 진입점, 스펙 확정 후 onclick 연결) — 자리 예약, 현재 미노출 -->
-  <button type="button" class="tile-word" id="tile-word" style="display:none;">🔤 오늘의 단어<span class="word-sub" id="tile-word-sub"></span></button>
+  <button type="button" class="tile-word" id="tile-word" style="display:none;" onclick="openWordPage()">🔤 오늘의 단어<span class="word-sub" id="tile-word-sub"></span></button>
   <!-- [v5.67.0] 하단 보조 아이콘 행 (개념 정리 · 키·몸무게) -->
   <div class="home-bottom-icons" id="home-bottom-icons" style="display:none;">
     <button type="button" class="tile-concept" id="tile-concept" onclick="openConceptHome()" style="display:none;">📚 개념 정리<span class="concept-sub" id="tile-concept-sub">단원 핵심 한눈에 보기</span></button>
@@ -1338,6 +1380,18 @@
     </div>
     <div id="munhaerak-today-view"></div>
     <div id="munhaerak-archive-view" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- ===== [word] 오늘의 단어 ===== -->
+<div id="page-word" class="page">
+  <div class="word-page-wrap">
+    <div class="daily-header">
+      <button class="daily-back-btn" onclick="closeWordPage()">←</button>
+      <div class="daily-header-title">오늘의 단어</div>
+      <div class="daily-header-date" id="word-header-progress">—</div>
+    </div>
+    <div id="word-view"></div>
   </div>
 </div>
 
@@ -1402,7 +1456,9 @@
       <button class="btn-start" style="background:rgba(255,255,255,0.18); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.35);" onclick="parentTogglePronAudit()">🔊 발음 들어보기 (예전 vs 오늘)</button>
       <div id="pron-audit-body" style="display:none; margin-top:12px; text-align:left;"></div>
     </div>
-    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="parentStopAudio(); document.getElementById('parent-result').style.display='none'; document.getElementById('child-result').style.display='block';">아이 화면으로</button>
+    <!-- [word §4] 오늘의 단어 부모 지표 (showParentResult에서 렌더 — 아이 화면 비노출) -->
+    <div id="word-parent-metrics" style="display:none;"></div>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="poParentBackToChild()">아이 화면으로</button>
   </div>
 
   <!-- [v4.10 T4] PIN 모달 -->
@@ -1412,15 +1468,15 @@
       <input type="password" id="parent-pin-input" maxlength="4" pattern="[0-9]*" inputmode="numeric" style="font-size:24px; text-align:center; width:120px; padding:8px; border:2px solid #ddd; border-radius:8px;">
       <p id="parent-pin-error" style="color:#E74C3C; font-size:13px; min-height:20px;"></p>
       <div style="display:flex; gap:8px; justify-content:center; margin-top:12px;">
-        <button type="button" onclick="closePinModal()" style="padding:10px 20px; border:1px solid #ddd; border-radius:8px; background:white; cursor:pointer;">취소</button>
+        <button type="button" onclick="poCancelPinModal()" style="padding:10px 20px; border:1px solid #ddd; border-radius:8px; background:white; cursor:pointer;">취소</button>
         <button type="button" onclick="submitPin()" style="padding:10px 20px; border:none; border-radius:8px; background:#4A90D9; color:white; cursor:pointer;">확인</button>
       </div>
     </div>
   </div>
 
   <div style="display:flex; gap:8px; justify-content:center; margin-top:16px;">
-    <button class="btn-start" onclick="showPage('page-home')">홈으로</button>
-    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:12px 20px; border:1px solid rgba(255,255,255,0.4);" onclick="openParentMode()">부모 모드</button>
+    <button class="btn-start" onclick="WORD_PARENT_ORIGIN='default'; showPage('page-home'); updateHomeScreen();">홈으로</button>
+    <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:12px 20px; border:1px solid rgba(255,255,255,0.4);" onclick="openDefaultParentMode()">부모 모드</button>
   </div>
 </div>
 
@@ -1655,8 +1711,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.92.0';
-var APP_SW_CACHE = 'sw5920';
+var APP_VERSION = 'v5.93.0';
+var APP_SW_CACHE = 'sw5930';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2514,6 +2570,11 @@ function renderSubjectTileHome() {
   if (typeof loadDailyIndexJsonp === 'function') {
     loadDailyIndexJsonp().then(function() { updateDailyUnreadBadges(); syncDailyReadFromCloud(); });  // [v5.74.0] 배지 로컬 즉시 → 백그라운드 동기화 보정
   }
+  // [word §3-1·§3-8 P4·§4-1 훅②] 오늘의 단어 — 데이터 로드 후 (1) 공백일 백필 (2) 스냅샷 확정을
+  //   먼저 끝내고, 그 다음에 타일 미리보기를 그린다. openWordPage() 진입에 의존하면 부모 확정 N·미리보기가 늦거나 틀린다.
+  if (typeof poWordEnsureLoaded === 'function') {
+    poWordEnsureLoaded().then(function() { poWordDailyInit(); poWordUpdateTile(); });
+  }
   // [v5.89.0] 문해력 홈 배너 제거 — 홈 프리로드 불필요(openMunhaerakPage→loadMunhaerakToday 진입 시 로드).
   // [v5.64] 개념 정리 타일 (카드 1장 이상일 때만 표시)
   var tcl = document.getElementById('tile-concept');
@@ -2614,6 +2675,8 @@ var DAILY_LAST_SUCCESS_KEY = 'po_daily_last_success';
 var PO_DAILY_READ_IDS_KEY = 'po_daily_read_ids';
 
 function getTodayDateStr() {
+  // [word] dev 전용 날짜 훅 — 앱의 모든 '오늘'은 이 함수를 경유한다(§3-2·§6-7 시나리오 전제).
+  if (typeof window !== 'undefined' && window.__PO_DATE_OVERRIDE) return window.__PO_DATE_OVERRIDE;
   var d = new Date();
   var y = d.getFullYear();
   var m = String(d.getMonth() + 1).padStart(2, '0');
@@ -11623,6 +11686,64 @@ function submitPin() {
 function showParentResult() {
   document.getElementById('child-result').style.display = 'none';
   document.getElementById('parent-result').style.display = 'block';
+  // [word §3-8·§4-1·§4-5] '오늘의 단어' 부모 지표 — parent-result가 켜지는 이 시점에 렌더
+  if (typeof poWordRenderParentMetrics === 'function') poWordRenderParentMetrics();
+}
+
+// [word §4] 부모 모드 진입 출처 — 'word'(단어 완료 화면) | 'default'(기존 완료 화면)
+var WORD_PARENT_ORIGIN = 'default';
+
+// 기존 완료 화면(L1423)의 '부모 모드' 진입 — 출처를 default로 되돌린다(기존 동작 불변).
+function openDefaultParentMode() {
+  WORD_PARENT_ORIGIN = 'default';
+  openParentMode();
+}
+
+// page-complete의 기본 표시 복원(child=block·parent=none).
+// word 복귀는 정상 완료 리셋(showCompleteScreen)을 우회하므로 공용 완료화면이 빈 채 남지 않게 명시 복원한다.
+function poWordRestoreCompleteDefaults() {
+  var ch = document.getElementById('child-result');
+  var pa = document.getElementById('parent-result');
+  if (ch) ch.style.display = 'block';
+  if (pa) pa.style.display = 'none';
+}
+
+// 단어 완료 화면 → 부모 모드 (§4 래퍼)
+// #parent-result·#pin-modal이 숨겨진 #page-complete 안에 있으므로 상위 페이지를 먼저 활성화해야 한다.
+// child·parent 둘 다 숨긴다 — 잠금 경로에서 반투명 PIN 모달 뒤로 낡은 공용 완료화면이 비치는 것을 막는다.
+function openWordParentMode() {
+  var pa = document.getElementById('parent-result');
+  var ch = document.getElementById('child-result');
+  if (pa) pa.style.display = 'none';
+  if (ch) ch.style.display = 'none';
+  WORD_PARENT_ORIGIN = 'word';
+  showPage('page-complete');   // 상위 페이지 활성화(핵심)
+  openParentMode();            // 5분 해제=즉시 showParentResult / 잠금=PIN 모달(뒤는 빈 page-complete)
+}
+
+// PIN '취소' 전용 핸들러 — 공용 closePinModal()은 성공·취소 양쪽에서 호출되므로 복귀 로직을 섞지 않는다.
+function poCancelPinModal() {
+  closePinModal();
+  if (WORD_PARENT_ORIGIN === 'word') {
+    WORD_PARENT_ORIGIN = 'default';
+    poWordRestoreCompleteDefaults();
+    showPage('page-word');
+    if (typeof poWordRenderComplete === 'function') poWordRenderComplete();
+  }
+}
+
+// 부모 화면 '아이 화면으로' — 출처가 word면 page-word 완료 상태로 복귀(공용 child-result 노출 금지).
+function poParentBackToChild() {
+  if (typeof parentStopAudio === 'function') parentStopAudio();
+  if (WORD_PARENT_ORIGIN === 'word') {
+    WORD_PARENT_ORIGIN = 'default';
+    poWordRestoreCompleteDefaults();
+    showPage('page-word');
+    if (typeof poWordRenderComplete === 'function') poWordRenderComplete();
+    return;
+  }
+  document.getElementById('parent-result').style.display = 'none';
+  document.getElementById('child-result').style.display = 'block';
 }
 
 // ============================================================================
@@ -12627,6 +12748,817 @@ function escapeHtml(str) {
 }
 
 // ===================================================================
+// [word] '오늘의 단어' — 수업어휘 복습 코너 (구현스펙 v1.3.3)
+//   데이터: word_index.js(JSONP) + wordcards_YYYY-MM.js(월묶음, 순차 로드)
+//   상태  : localStorage po_word_state_v1
+//   단일 소스: buildCoreQueue(큐) · resolveQuiz(문항) · getTodayDateStr(오늘)
+// ===================================================================
+
+var WORD_STATE_KEY = 'po_word_state_v1';
+var WORD_INDEX_META = null;
+var WORD_INDEX_LOADED = false;
+var WORD_CARDS = [];            // 배열 순서 = 타이브레이크 담체 — 로더가 재정렬하지 않는다(§2-2)
+var WORD_CARDS_BY_ID = {};
+var WORD_DATA_READY = false;
+var WORD_LOAD_PROMISE = null;
+
+// 진행 중 런타임 상태(비영속)
+var WORD_RT = { locked: false, choices: null, enteredAt: 0 };
+
+// ---------------------------------------------------------------
+// 로더 — daily 로더(loadDailyIndexJsonp/loadDailyMonth) 패턴 미러
+// ---------------------------------------------------------------
+function loadWordIndexJsonp() {
+  return new Promise(function(resolve) {
+    if (WORD_INDEX_LOADED) { resolve(); return; }
+    window.__loadWordIndex = function(meta) {
+      delete window.__loadWordIndex;
+      WORD_INDEX_META = meta || null; WORD_INDEX_LOADED = true; resolve();
+    };
+    var s = document.createElement('script');
+    s.src = './word_index.js';
+    s.onerror = function() {
+      delete window.__loadWordIndex;
+      WORD_INDEX_META = null; WORD_INDEX_LOADED = true; resolve();
+    };
+    document.head.appendChild(s);
+    setTimeout(function() {
+      if (window.__loadWordIndex) {
+        delete window.__loadWordIndex;
+        WORD_INDEX_META = null; WORD_INDEX_LOADED = true; resolve();
+      }
+    }, 5000);
+  });
+}
+
+// 월파일 1개 로드. 단일 전역 콜백이므로 반드시 순차 호출(동시 설치 금지).
+function loadWordMonth(month) {
+  return new Promise(function(resolve) {
+    var v = (WORD_INDEX_META && WORD_INDEX_META.version_key) || 'v1';
+    window.__loadWordMonth = function(m, payload) {
+      delete window.__loadWordMonth;
+      resolve(payload || null);
+    };
+    var s = document.createElement('script');
+    s.src = './wordcards_' + month + '.js?v=' + encodeURIComponent(v);
+    s.onerror = function() { delete window.__loadWordMonth; resolve(null); };
+    document.head.appendChild(s);
+    setTimeout(function() {
+      if (window.__loadWordMonth) { delete window.__loadWordMonth; resolve(null); }
+    }, 5000);
+  });
+}
+
+// 전 월파일 합산 기준 id 전역 중복 방어 — 후승자 무시 + 콘솔 경고(§2-2 런타임 방어)
+function poWordAbsorbMonth(payload) {
+  if (!payload || !Array.isArray(payload.cards)) return;
+  payload.cards.forEach(function(c) {
+    if (!c || typeof c.id !== 'string' || !c.id) return;
+    if (WORD_CARDS_BY_ID[c.id]) {
+      console.warn('[word] 중복 id 무시(후승자):', c.id);
+      return;
+    }
+    WORD_CARDS_BY_ID[c.id] = c;
+    WORD_CARDS.push(c);
+  });
+}
+
+// months의 전 월파일을 순차 로드. 실패 월은 건너뛴다(폴백 = 빈 상태 → 타일 숨김).
+function poWordEnsureLoaded() {
+  if (WORD_LOAD_PROMISE) return WORD_LOAD_PROMISE;
+  WORD_LOAD_PROMISE = loadWordIndexJsonp().then(function() {
+    var months = (WORD_INDEX_META && Array.isArray(WORD_INDEX_META.months)) ? WORD_INDEX_META.months.slice() : [];
+    var chain = Promise.resolve();
+    months.forEach(function(m) {
+      chain = chain.then(function() {
+        return loadWordMonth(m).then(function(p) { poWordAbsorbMonth(p); });
+      });
+    });
+    return chain;
+  }).then(function() {
+    WORD_DATA_READY = WORD_CARDS.length > 0;
+  }).catch(function(e) {
+    console.warn('[word] 데이터 로드 실패 — 빈 상태 폴백', e);
+    WORD_DATA_READY = false;
+  });
+  return WORD_LOAD_PROMISE;
+}
+
+// ---------------------------------------------------------------
+// 로컬 상태 (§3-2)
+// ---------------------------------------------------------------
+function poWordNewState() {
+  return {
+    tracking_started: null, cards: {}, daily_session: null,
+    usage_history: [], ladder_snapshot: null, fallback_log: []
+  };
+}
+function poWordLoadState() {
+  try {
+    var raw = localStorage.getItem(WORD_STATE_KEY);
+    if (raw) {
+      var s = JSON.parse(raw);
+      if (s && typeof s === 'object') {
+        if (!s.cards || typeof s.cards !== 'object') s.cards = {};
+        if (!Array.isArray(s.usage_history)) s.usage_history = [];
+        if (!Array.isArray(s.fallback_log)) s.fallback_log = [];
+        if (typeof s.tracking_started !== 'string') s.tracking_started = null;
+        return s;
+      }
+    }
+  } catch (e) { console.warn('[word] 상태 파싱 실패 — 초기화', e); }
+  return poWordNewState();
+}
+function poWordSaveState(st) {
+  try { localStorage.setItem(WORD_STATE_KEY, JSON.stringify(st)); }
+  catch (e) { console.warn('[word] 상태 저장 실패', e); }
+}
+function poWordCardState(st, id) {
+  if (!st.cards[id]) {
+    st.cards[id] = {
+      first_done: null, second_done: null, third_done: null,
+      retry_due: null, retry_count: 0, retry_variant: 'BASE',
+      mret_due: null, mret_used: false, maintained: null
+    };
+  }
+  return st.cards[id];
+}
+function poWordIsGraduated(cs) { return !!cs && cs.maintained !== null && cs.maintained !== undefined; }
+function poWordDaysBetween(a, b) {
+  return Math.round((new Date(b + 'T00:00:00') - new Date(a + 'T00:00:00')) / 86400000);
+}
+
+// ---------------------------------------------------------------
+// 문항 해석기 단일화 (§2-4) — SECOND 출제·RETRY 재출제 모두 이 함수만 사용
+// ---------------------------------------------------------------
+function resolveQuiz(card, variant) {
+  if (!card) return null;
+  return variant === 'SECOND'
+    ? (card.quiz_second != null ? card.quiz_second : card.quiz)
+    : card.quiz;
+}
+// THIRD·보강 문항 — null이면 BASE 폴백(런타임 방어 전용, 발동 = 데이터 사고 신호 §2-5)
+function poWordResolveMaintenance(card, st, today) {
+  if (card && card.quiz_maintenance != null) return card.quiz_maintenance;
+  if (card) {
+    console.warn('[word] quiz_maintenance null — BASE 폴백 출제(데이터 사고 신호):', card.id);
+    if (st) {
+      if (!st.fallback_log.some(function(f) { return f.id === card.id && f.date === today; })) {
+        st.fallback_log.push({ id: card.id, date: today });
+        while (st.fallback_log.length > 10) st.fallback_log.shift();
+      }
+    }
+    return card.quiz;
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------
+// 당일 core 큐 — 순수 함수 (§3-3)
+//   세션 생성·타일 미리보기(§3-1)·공백일 백필(§3-8)이 모두 이 한 함수를 사용한다.
+//   상태를 변경하지 않으며 미래 due를 당기지 않는다.
+// ---------------------------------------------------------------
+function buildCoreQueue(date, cards, st) {
+  var retryList = [], secondList = [], newList = [];
+  (cards || []).forEach(function(c, i) {
+    if (!c || !c.id) return;
+    var cs = st && st.cards ? st.cards[c.id] : null;
+    if (poWordIsGraduated(cs)) return;                       // 졸업 카드 제외
+    if (cs && cs.retry_due && cs.retry_due <= date) {
+      retryList.push({ card: c, i: i, due: cs.retry_due });
+    }
+    if (cs && cs.first_done && !cs.second_done) {
+      var sdue = addDays(cs.first_done, 7);
+      if (sdue <= date) secondList.push({ card: c, i: i, due: sdue });
+    }
+    if ((!cs || !cs.first_done) && typeof c.first_review_date === 'string' && c.first_review_date && c.first_review_date <= date) {
+      newList.push({ card: c, i: i, frd: c.first_review_date });
+    }
+  });
+  // 복습은 due 오래된 순, 동률 타이브레이크 = 배열 순서
+  var byDue = function(a, b) { return a.due < b.due ? -1 : (a.due > b.due ? 1 : a.i - b.i); };
+  retryList.sort(byDue);
+  secondList.sort(byDue);
+  // 새 카드는 first_review_date 내림차순 → 동률은 배열 순서
+  newList.sort(function(a, b) { return a.frd > b.frd ? -1 : (a.frd < b.frd ? 1 : a.i - b.i); });
+
+  var secondIds = {};
+  secondList.forEach(function(x) { secondIds[x.card.id] = true; });
+  var used = {};
+
+  // 복습 pick: retry 우선 — 그 카드가 second도 due면 SECOND 1회로 합치고 retry 해제 표시
+  function pickReview() {
+    for (var i = 0; i < retryList.length; i++) {
+      var r = retryList[i];
+      if (used[r.card.id]) continue;
+      if (secondIds[r.card.id]) {
+        return { id: r.card.id, mode: 'SECOND', had_wrong: false, done: false, merged_retry: true };
+      }
+      return { id: r.card.id, mode: 'RETRY', had_wrong: false, done: false, merged_retry: false };
+    }
+    for (var j = 0; j < secondList.length; j++) {
+      var s = secondList[j];
+      if (used[s.card.id]) continue;
+      return { id: s.card.id, mode: 'SECOND', had_wrong: false, done: false, merged_retry: false };
+    }
+    return null;
+  }
+  function nextNew() {
+    for (var i = 0; i < newList.length; i++) {
+      if (!used[newList[i].card.id]) {
+        return { id: newList[i].card.id, mode: 'FIRST', had_wrong: false, done: false, merged_retry: false };
+      }
+    }
+    return null;
+  }
+
+  var slots = [];
+  // 슬롯1 (new_first): 새 카드 있으면 FIRST, 없으면 복습 폴백
+  var s1 = nextNew() || pickReview();
+  if (s1) { slots.push(s1); used[s1.id] = true; }
+  // 슬롯2: 복습 pick, 없으면 새 다음 카드 FIRST ("새+새"는 이 백로그 경로에 한함)
+  var s2 = pickReview() || nextNew();
+  if (s2) { slots.push(s2); used[s2.id] = true; }
+  return slots.slice(0, 2);   // core 상한 2
+}
+
+// s3 대기열 = [THIRD: second_done+28 ≤ 오늘 & third_done 없음] ∪ [보강: mret_due ≤ 오늘] — due 오래된 순
+function poWordBuildS3Queue(date, cards, st) {
+  var q = [];
+  (cards || []).forEach(function(c, i) {
+    if (!c || !c.id) return;
+    var cs = st && st.cards ? st.cards[c.id] : null;
+    if (!cs || poWordIsGraduated(cs)) return;
+    if (cs.mret_due && cs.mret_due <= date) {
+      q.push({ id: c.id, kind: 'MRETRY', due: cs.mret_due, i: i });
+    } else if (cs.second_done && !cs.third_done) {
+      var tdue = addDays(cs.second_done, 28);
+      if (tdue <= date) q.push({ id: c.id, kind: 'THIRD', due: tdue, i: i });
+    }
+  });
+  q.sort(function(a, b) { return a.due < b.due ? -1 : (a.due > b.due ? 1 : a.i - b.i); });
+  return q;
+}
+
+// 배정(P3): s3 due 큐에서 당일 core 카드 id를 제외한 첫 항목.
+// 제외로 비면 그날 슬롯3 없음 — due는 유지되며 core 완료 후 다음 자격일에 배정된다(core 미완이면 배제 반복).
+function poWordPickSlot3(date, cards, st, coreIds) {
+  var q = poWordBuildS3Queue(date, cards, st);
+  for (var i = 0; i < q.length; i++) {
+    if (coreIds.indexOf(q[i].id) === -1) {
+      return { id: q[i].id, kind: q[i].kind, status: 'pending', had_wrong: false };
+    }
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------
+// usage_history (§3-8)
+// ---------------------------------------------------------------
+function poWordFindUsage(st, date) {
+  for (var i = 0; i < st.usage_history.length; i++) {
+    if (st.usage_history[i].date === date) return st.usage_history[i];
+  }
+  return null;
+}
+function poWordEnsureUsage(st, date, planned) {
+  var u = poWordFindUsage(st, date);
+  if (!u) {
+    u = { date: date, planned: planned || 0, executed: 0, s3_offered: false, s3_done: false, s3_skipped: false, dur_sec: 0 };
+    st.usage_history.push(u);
+    poWordTrimUsage(st);
+  }
+  return u;
+}
+function poWordTrimUsage(st) {
+  st.usage_history.sort(function(a, b) { return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0); });
+  while (st.usage_history.length > 28) st.usage_history.shift();
+}
+
+// 공백일 백필(P4) — 앱/홈 초기화 시, 타일 미리보기·오늘 큐 계산 전에 수행한다.
+function poWordBackfill(st, today) {
+  if (!st.tracking_started) return;
+  var last = null;
+  for (var i = 0; i < st.usage_history.length; i++) {
+    if (!last || st.usage_history[i].date > last) last = st.usage_history[i].date;
+  }
+  var from = last ? addDays(last, 1) : st.tracking_started;
+  if (from < st.tracking_started) from = st.tracking_started;   // tracking_started 이전은 백필하지 않음
+  var d = from, guard = 0;
+  while (d < today && guard++ < 400) {
+    if (!poWordFindUsage(st, d)) {
+      st.usage_history.push({
+        date: d, planned: buildCoreQueue(d, WORD_CARDS, st).length, executed: 0,
+        s3_offered: false, s3_done: false, s3_skipped: false, dur_sec: 0
+      });
+    }
+    d = addDays(d, 1);
+  }
+  poWordTrimUsage(st);
+}
+
+// ---------------------------------------------------------------
+// LADDER 스냅샷 (§4-1) — 앱이 계산·저장
+// ---------------------------------------------------------------
+function poWordPrevFriday(dateStr) {
+  var d = new Date(dateStr + 'T00:00:00');
+  var back = (d.getDay() - 5 + 7) % 7;    // 금요일 = 5
+  if (back === 0) back = 7;               // 오늘이 금요일이면 '직전' = 지난주 금요일
+  return addDays(dateStr, -back);
+}
+function poWordIsFriday(dateStr) {
+  return new Date(dateStr + 'T00:00:00').getDay() === 5;
+}
+// 앵커 종료 시점의 core_due(둘째 ∪ 재도전) 건수 — 완료 시 소거되므로 훅 시점에만 계산 가능
+function poWordCoreDueCount(st, date) {
+  var n = 0;
+  WORD_CARDS.forEach(function(c) {
+    var cs = st.cards[c.id];
+    if (!cs || poWordIsGraduated(cs)) return;
+    var due = (cs.retry_due && cs.retry_due <= date) ||
+              (cs.first_done && !cs.second_done && addDays(cs.first_done, 7) <= date);
+    if (due) n++;
+  });
+  return n;
+}
+function poWordComputeSnapshot(st, anchor) {
+  function shortfall(fromD, toD) {
+    var s = 0;
+    st.usage_history.forEach(function(u) {
+      if (u.date >= fromD && u.date <= toD) s += Math.max(0, (u.planned || 0) - (u.executed || 0));
+    });
+    return s;
+  }
+  var S  = shortfall(addDays(anchor, -6), anchor);        // 앵커 금요일 포함 직전 7일
+  var Sp = shortfall(addDays(anchor, -13), addDays(anchor, -7));
+  var O  = poWordCoreDueCount(st, anchor);
+  var N;
+  if (S === 0 && Sp === 0 && O === 0) N = 5;
+  else if (S >= 4) N = 3;
+  else N = 4;
+  // tracking 14일 미만이면 5장 승급 불가
+  if (N === 5 && (!st.tracking_started || poWordDaysBetween(st.tracking_started, anchor) < 14)) N = 4;
+  return { anchor_date: anchor, S: S, Sp: Sp, O: O, N: N, finalized_at: getTodayDateStr() };
+}
+// 훅② 포괄 폴백 — 직전 금요일 앵커의 확정 스냅샷이 없으면(미진입·부분 완료 무관)
+//   백필 직후·타일 미리보기·오늘 큐 계산 _전_ 확정 저장. anchor당 1회.
+function poWordEnsureSnapshot(st, today) {
+  var anchor = poWordPrevFriday(today);
+  if (!st.tracking_started || anchor < st.tracking_started) return;
+  if (st.ladder_snapshot && st.ladder_snapshot.anchor_date === anchor) return;   // 중복 저장 금지
+  st.ladder_snapshot = poWordComputeSnapshot(st, anchor);
+}
+// 훅① — 금요일 core 몫 종료 직후(planned=0이면 그날 첫 진입)
+function poWordMaybeSnapshotFridayDone(st, today) {
+  if (!poWordIsFriday(today)) return;
+  if (st.ladder_snapshot && st.ladder_snapshot.anchor_date === today) return;    // anchor당 1회
+  var ds = st.daily_session;
+  if (!ds || ds.date !== today) return;
+  var remaining = ds.slots.filter(function(s) { return !s.done; }).length;
+  if (remaining > 0) return;
+  st.ladder_snapshot = poWordComputeSnapshot(st, today);
+}
+
+// ---------------------------------------------------------------
+// 일일 초기화 (§6-9) — 앱/홈 초기화 시 1회, 타일 미리보기·큐 계산 _전_
+// ---------------------------------------------------------------
+function poWordDailyInit() {
+  if (!WORD_DATA_READY) return;
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+  if (!st.tracking_started) st.tracking_started = today;   // 최초 정상 데이터 로드일
+  poWordBackfill(st, today);
+  poWordEnsureSnapshot(st, today);
+  if (st.daily_session && st.daily_session.date !== today) st.daily_session = null;   // 날짜 다르면 폐기
+  poWordSaveState(st);
+}
+
+// 그날 첫 진입 1회 계산 → daily_session 고정. 같은 날 재진입 = 미완료 슬롯만 재개(재계산 금지).
+function poWordEnsureSession(st, today) {
+  if (st.daily_session && st.daily_session.date === today) return st.daily_session;
+  var core = buildCoreQueue(today, WORD_CARDS, st);
+  var coreIds = core.map(function(s) { return s.id; });
+  st.daily_session = {
+    date: today,
+    core_planned: core.length,
+    slots: core,
+    slot3: poWordPickSlot3(today, WORD_CARDS, st, coreIds)
+  };
+  poWordEnsureUsage(st, today, core.length);
+  return st.daily_session;
+}
+
+// ---------------------------------------------------------------
+// 타일 (§3-1)
+// ---------------------------------------------------------------
+function poWordTileInfo() {
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+  if (st.daily_session && st.daily_session.date === today) {
+    var ds = st.daily_session;
+    var coreLeft = ds.slots.filter(function(s) { return !s.done; }).length;
+    var s3 = !!(ds.slot3 && ds.slot3.status === 'pending');
+    return { core: coreLeft, s3: s3, count: coreLeft + (s3 ? 1 : 0), hasSession: true };
+  }
+  // 세션 없음(미진입) — §3-3과 같은 순수 함수로 미리보기(진입 후 실큐와 불일치 0)
+  var core = buildCoreQueue(today, WORD_CARDS, st);
+  var pick = poWordPickSlot3(today, WORD_CARDS, st, core.map(function(s) { return s.id; }));
+  return { core: core.length, s3: !!pick, count: core.length + (pick ? 1 : 0), hasSession: false };
+}
+function poWordUpdateTile() {
+  var el = document.getElementById('tile-word');
+  var sub = document.getElementById('tile-word-sub');
+  if (!el) return;
+  if (!WORD_DATA_READY) { el.style.display = 'none'; return; }   // 데이터 부재 → 타일 숨김 폴백
+  var info = poWordTileInfo();
+  if (info.count >= 1) {
+    el.style.display = '';
+    if (sub) {
+      sub.textContent = info.core >= 1
+        ? ('오늘 ' + info.core + '개' + (info.s3 ? ' (+ 오래 기억 1개)' : ''))
+        : '오래 기억 1개';
+    }
+  } else if (info.hasSession) {
+    // 수량 0 + 오늘 완료 이력 → 타일 유지 + 완료 표시(숨기지 않는다)
+    el.style.display = '';
+    if (sub) sub.textContent = '오늘 끝!';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// ---------------------------------------------------------------
+// 화면 (§3-4·§3-5·§3-6)
+// ---------------------------------------------------------------
+function openWordPage() {
+  showPage('page-word');
+  var view = document.getElementById('word-view');
+  if (view) view.innerHTML = '<div class="word-empty">불러오는 중...</div>';
+  poWordEnsureLoaded().then(function() {
+    if (!WORD_DATA_READY) {
+      if (view) view.innerHTML = '<div class="word-empty">오늘은 단어가 없어. 다음에 만나자!</div>';
+      return;
+    }
+    var st = poWordLoadState();
+    var today = getTodayDateStr();
+    if (!st.tracking_started) st.tracking_started = today;
+    poWordBackfill(st, today);
+    poWordEnsureSnapshot(st, today);
+    if (st.daily_session && st.daily_session.date !== today) st.daily_session = null;
+    poWordEnsureSession(st, today);
+    poWordSaveState(st);
+    WORD_RT.enteredAt = Date.now();
+    poWordRenderNext();
+  });
+}
+function closeWordPage() {
+  var st = poWordLoadState();
+  poWordAccrueDur(st);
+  poWordSaveState(st);
+  WORD_RT.enteredAt = 0;
+  showPage('page-home');
+  updateHomeScreen();
+}
+// page-word 진입~종료 소요초 실측(§3-8 dur_sec — 슬롯3 파일럿 지표 ④의 유일 소스)
+function poWordAccrueDur(st) {
+  if (!WORD_RT.enteredAt) return;
+  var now = Date.now();
+  var delta = Math.round((now - WORD_RT.enteredAt) / 1000);
+  WORD_RT.enteredAt = now;
+  if (delta > 0 && delta < 3600) {
+    var u = poWordFindUsage(st, getTodayDateStr());
+    if (u) u.dur_sec = (u.dur_sec || 0) + delta;
+  }
+}
+function poWordShuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function poWordProgressLabel(ds) {
+  var dots = ds.slots.map(function(s) { return s.done ? '●' : '○'; }).join(' ');
+  if (ds.slot3) dots += '  ☆';
+  return dots || '—';
+}
+
+// 다음에 할 것을 찾아 렌더한다(재진입 = 미완료 슬롯부터 재개).
+function poWordRenderNext() {
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+  var ds = poWordEnsureSession(st, today);
+  var hp = document.getElementById('word-header-progress');
+  if (hp) hp.textContent = poWordProgressLabel(ds);
+
+  for (var i = 0; i < ds.slots.length; i++) {
+    if (!ds.slots[i].done) { poWordRenderQuiz(st, ds, i, false); return; }
+  }
+  // core 전부 완료 — 슬롯3 offered 규칙(§3-5)
+  //  core_planned ≥ 1 : core 전부 완료한 순간 제시 / core_planned = 0 : 진입 즉시 제시
+  if (ds.slot3 && ds.slot3.status === 'pending') { poWordRenderQuiz(st, ds, -1, true); return; }
+  poWordRenderComplete();
+}
+
+function poWordRenderQuiz(st, ds, idx, isS3) {
+  var slot = isS3 ? ds.slot3 : ds.slots[idx];
+  var card = WORD_CARDS_BY_ID[slot.id];
+  var view = document.getElementById('word-view');
+  if (!view) return;
+  if (!card) {
+    console.warn('[word] 카드 없음 — 슬롯 건너뜀:', slot.id);
+    slot.done = true; if (isS3) slot.status = 'skipped';
+    poWordSaveState(st); poWordRenderNext(); return;
+  }
+  var quiz;
+  if (isS3) {
+    quiz = poWordResolveMaintenance(card, st, getTodayDateStr());
+    // 문항 활성화 순간 = s3_offered (타일 예고 아님)
+    var u = poWordEnsureUsage(st, ds.date, ds.core_planned);
+    if (!u.s3_offered) { u.s3_offered = true; }
+    poWordSaveState(st);
+  } else {
+    quiz = resolveQuiz(card, slot.mode === 'SECOND' ? 'SECOND'
+                           : (slot.mode === 'RETRY' ? poWordCardState(st, card.id).retry_variant : 'BASE'));
+  }
+  if (!quiz || typeof quiz.answer !== 'string') {
+    console.warn('[word] 문항 해석 실패 — 슬롯 건너뜀:', slot.id);
+    slot.done = true; if (isS3) slot.status = 'skipped';
+    poWordSaveState(st); poWordRenderNext(); return;
+  }
+  WORD_RT.locked = false;
+  var choices = poWordShuffle([quiz.answer].concat(quiz.distractors || []));   // 렌더마다 셔플
+  WORD_RT.choices = choices;
+
+  // quiz-first 누설 차단: 퀴즈 화면에서 easy_def·example 숨김(오답 후 학습화면에서만 노출)
+  var html = '';
+  if (isS3) html += '<div style="text-align:center;"><span class="word-s3-badge">☆ 오래 기억 문제</span></div>';
+  html += '<div class="word-prompt">' + escapeHtml(quiz.prompt) + '</div><div class="word-choices">';
+  choices.forEach(function(ch, i) {
+    html += '<button type="button" class="word-choice" id="word-choice-' + i + '" ' +
+            'onclick="poWordAnswer(' + i + ')">' + escapeHtml(ch) + '</button>';
+  });
+  html += '</div><div class="word-feedback" id="word-feedback"></div>';
+  if (isS3) {
+    html += '<button type="button" class="word-btn secondary" onclick="poWordSkipSlot3()">다음에 할래</button>';
+  }
+  view.innerHTML = html;
+  var hp = document.getElementById('word-header-progress');
+  if (hp) hp.textContent = poWordProgressLabel(ds);
+  window.scrollTo(0, 0);
+}
+
+// 입력 단일 처리 — 탭 즉시 전체 입력 잠금 → 1회 처리(정답·오답 모두 연타 멱등)
+function poWordAnswer(choiceIdx) {
+  if (WORD_RT.locked) return;
+  WORD_RT.locked = true;
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+  var ds = st.daily_session;
+  if (!ds || ds.date !== today) { poWordRenderNext(); return; }
+
+  var isS3 = true, idx = -1, slot = null;
+  for (var i = 0; i < ds.slots.length; i++) {
+    if (!ds.slots[i].done) { isS3 = false; idx = i; slot = ds.slots[i]; break; }
+  }
+  if (!slot) slot = ds.slot3;
+  if (!slot) { poWordRenderNext(); return; }
+
+  var card = WORD_CARDS_BY_ID[slot.id];
+  var quiz = isS3
+    ? poWordResolveMaintenance(card, st, today)
+    : resolveQuiz(card, slot.mode === 'SECOND' ? 'SECOND'
+                      : (slot.mode === 'RETRY' ? poWordCardState(st, card.id).retry_variant : 'BASE'));
+  var picked = (WORD_RT.choices || [])[choiceIdx];
+  var correct = (picked === quiz.answer);      // 문자열 대조(인덱스 금지)
+
+  // 선택지 전체 비활성화 + 정오 피드백(색상 외 수단 병행)
+  (WORD_RT.choices || []).forEach(function(ch, i) {
+    var b = document.getElementById('word-choice-' + i);
+    if (!b) return;
+    b.disabled = true;
+    if (ch === quiz.answer) b.className = 'word-choice is-correct';
+    else if (i === choiceIdx) b.className = 'word-choice is-wrong';
+  });
+  var fb = document.getElementById('word-feedback');
+
+  if (!correct) {
+    if (!slot.had_wrong) slot.had_wrong = true;    // 오답 탭 즉시 영속
+    poWordSaveState(st);
+    if (fb) {
+      fb.className = 'word-feedback is-wrong';
+      fb.innerHTML = '<span class="word-mark">×</span>다시 골라보자';
+    }
+    if (card && card.easy_def) speakDailyLocal(card.easy_def);   // 뜻 TTS(색각 비의존 보조)
+    setTimeout(function() { poWordRenderLearn(slot, isS3); }, 700);
+    return;
+  }
+
+  if (fb) {
+    fb.className = 'word-feedback';
+    fb.innerHTML = '<span class="word-mark">○</span>맞았어!';
+  }
+  poWordCompleteSlot(st, ds, slot, isS3, idx);
+}
+
+// 오답 후 학습화면 — 여기서만 easy_def·example 노출
+function poWordRenderLearn(slot, isS3) {
+  var card = WORD_CARDS_BY_ID[slot.id];
+  var view = document.getElementById('word-view');
+  if (!view || !card) { poWordRenderNext(); return; }
+  var head = card.display != null ? card.display : card.word;
+  var html = '<div class="word-learn">' +
+    '<div class="word-learn-head">' +
+      '<span class="word-learn-word">' + escapeHtml(head) + '</span>' +
+      '<button type="button" class="word-tts-btn" onclick="speakDailyLocal(' + JSON.stringify(String(card.word)).replace(/"/g, '&quot;') + ')">🔊</button>' +
+    '</div>' +
+    '<div class="word-def">' + escapeHtml(card.easy_def || '') + '</div>' +
+    '<div class="word-ex">' + escapeHtml(card.example || '') + '</div>' +
+  '</div>' +
+  '<button type="button" class="word-btn" onclick="poWordRetryQuiz()">다시 풀어보기</button>';
+  view.innerHTML = html;
+  window.scrollTo(0, 0);
+}
+function poWordRetryQuiz() {
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+  var ds = st.daily_session;
+  if (!ds || ds.date !== today) { poWordRenderNext(); return; }
+  for (var i = 0; i < ds.slots.length; i++) {
+    if (!ds.slots[i].done) { poWordRenderQuiz(st, ds, i, false); return; }
+  }
+  if (ds.slot3 && ds.slot3.status === 'pending') { poWordRenderQuiz(st, ds, -1, true); return; }
+  poWordRenderNext();
+}
+
+// 완료 기록 — 인출 완료는 정오 무관 기록(첫 시도 정오는 had_wrong으로 구분)
+function poWordCompleteSlot(st, ds, slot, isS3, idx) {
+  var today = getTodayDateStr();
+  var cs = poWordCardState(st, slot.id);
+  var card = WORD_CARDS_BY_ID[slot.id];
+  var firstTryCorrect = !slot.had_wrong;
+
+  if (isS3) {
+    slot.status = 'completed';
+    if (slot.kind === 'THIRD') {
+      cs.third_done = today;
+      if (firstTryCorrect) cs.maintained = true;
+      else { cs.mret_due = addDays(today, 7); cs.mret_used = true; }   // 보강 1회 예약
+    } else {                                    // 보강(MRETRY) — 결과 무관 졸업
+      cs.mret_due = null;
+      cs.maintained = firstTryCorrect ? true : false;
+    }
+    var u3 = poWordEnsureUsage(st, ds.date, ds.core_planned);
+    u3.s3_done = true;
+  } else {
+    if (slot.done) return;                      // 멱등 — 이중 처리 차단
+    slot.done = true;
+    if (slot.mode === 'FIRST') {
+      cs.first_done = today;
+      if (slot.had_wrong && cs.retry_count < 2) {
+        cs.retry_count += 1; cs.retry_due = addDays(today, 2); cs.retry_variant = 'BASE';
+      }
+    } else if (slot.mode === 'SECOND') {
+      cs.second_done = today;
+      cs.retry_due = null;                      // 합침 시 retry 해제 포함
+      if (slot.had_wrong && cs.retry_count < 2) {
+        cs.retry_count += 1;
+        cs.retry_due = addDays(today, 2);
+        // retry_variant = 실제 사용한 문항 기준
+        cs.retry_variant = (card && card.quiz_second != null) ? 'SECOND' : 'BASE';
+      }
+    } else if (slot.mode === 'RETRY') {
+      cs.retry_due = null;                      // 상태 전이 없음
+      if (slot.had_wrong && cs.retry_count < 2) {
+        cs.retry_count += 1; cs.retry_due = addDays(today, 2);   // variant 유지
+      }
+    }
+    var u = poWordEnsureUsage(st, ds.date, ds.core_planned);
+    u.executed = ds.slots.filter(function(s) { return s.done; }).length;
+    poWordMaybeSnapshotFridayDone(st, today);   // 훅① — 금요일 core 몫 종료 직후
+  }
+  poWordAccrueDur(st);
+  poWordSaveState(st);
+
+  // 짧은 확인(단어 + 뜻 1줄) 후 다음
+  var view = document.getElementById('word-view');
+  if (view && card) {
+    var head = card.display != null ? card.display : card.word;
+    view.innerHTML =
+      '<div class="word-learn"><div class="word-learn-head">' +
+        '<span class="word-learn-word">' + escapeHtml(head) + '</span></div>' +
+        '<div class="word-def">' + escapeHtml(card.easy_def || '') + '</div></div>' +
+      '<div class="word-feedback"><span class="word-mark">○</span>잘했어!</div>' +
+      '<button type="button" class="word-btn" onclick="poWordRenderNext()">다음</button>';
+  } else {
+    poWordRenderNext();
+  }
+}
+
+// 슬롯3 "다음에 할래" — 당일만 종료(같은 날 재제시 없음·due 유지·페널티 없음)
+function poWordSkipSlot3() {
+  if (WORD_RT.locked) return;
+  WORD_RT.locked = true;
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+  var ds = st.daily_session;
+  if (ds && ds.date === today && ds.slot3 && ds.slot3.status === 'pending') {
+    ds.slot3.status = 'skipped';
+    var u = poWordEnsureUsage(st, ds.date, ds.core_planned);
+    u.s3_skipped = true;
+    poWordAccrueDur(st);
+    poWordSaveState(st);
+  }
+  poWordRenderComplete();
+}
+
+function poWordRenderComplete() {
+  var view = document.getElementById('word-view');
+  if (!view) return;
+  WORD_RT.locked = false;
+  var st = poWordLoadState();
+  var ds = st.daily_session;
+  var hp = document.getElementById('word-header-progress');
+  if (hp && ds) hp.textContent = poWordProgressLabel(ds);
+  view.innerHTML =
+    '<div class="word-done">' +
+      '<div class="word-done-emoji">🎉</div>' +
+      '<h2>오늘 단어 다 만났어!</h2>' +
+    '</div>' +
+    '<button type="button" class="word-btn" onclick="closeWordPage()">홈으로</button>' +
+    '<button type="button" class="word-btn secondary" onclick="openWordParentMode()">부모 모드</button>';
+  window.scrollTo(0, 0);
+}
+
+// ---------------------------------------------------------------
+// 부모 지표 (§3-8·§4-1·§4-5) — showParentResult()에서 호출
+// ---------------------------------------------------------------
+function poWordRenderParentMetrics() {
+  var box = document.getElementById('word-parent-metrics');
+  if (!box) return;
+  if (!WORD_DATA_READY) { box.style.display = 'none'; box.innerHTML = ''; return; }
+  var st = poWordLoadState();
+  var today = getTodayDateStr();
+
+  // 최근 7일 계획/완료
+  var rows = '';
+  for (var k = 6; k >= 0; k--) {
+    var d = addDays(today, -k);
+    var u = poWordFindUsage(st, d);
+    rows += '<tr><td>' + d.slice(5) + ' (' + getWeekdayKo(d) + ')</td>' +
+            '<td>' + (u ? (u.planned || 0) : 0) + '</td>' +
+            '<td>' + (u ? (u.executed || 0) : 0) + '</td></tr>';
+  }
+  // 연체 = core_due(둘째 ∪ 재도전) / THIRD 대기는 구분해서 표시
+  var overdue = poWordCoreDueCount(st, today);
+  var thirdWait = poWordBuildS3Queue(today, WORD_CARDS, st).length;
+
+  // 다음 주 권장 N (스냅샷 기준)
+  var displayAnchor = poWordIsFriday(today) ? today : poWordPrevFriday(today);
+  var snap = st.ladder_snapshot;
+  var nText;
+  if (snap && snap.anchor_date === displayAnchor) nText = snap.N + '장 (확정)';
+  else if (poWordIsFriday(today)) nText = '4장 (임시 — 오늘 학습이 끝나면 확정돼요)';
+  else nText = '4장 (기본)';
+
+  // P2 과부하 경보 — 최근 14일, 최소 표본 충족 시에만 판정
+  var sumP = 0, sumShort = 0, daysWithPlan = 0;
+  for (var j = 13; j >= 0; j--) {
+    var uu = poWordFindUsage(st, addDays(today, -j));
+    if (!uu) continue;
+    if ((uu.planned || 0) > 0) daysWithPlan++;
+    sumP += (uu.planned || 0);
+    sumShort += Math.max(0, (uu.planned || 0) - (uu.executed || 0));
+  }
+  var alertHtml = '';
+  if (daysWithPlan >= 10 && sumP >= 10 && (sumShort / sumP) >= 0.20) {
+    alertHtml = '<div class="word-pm-alert">⚠ 최근 2주 남긴 분량이 ' +
+      Math.round((sumShort / sumP) * 100) + '%예요. 다음 주 새 단어를 줄여요.</div>';
+  }
+
+  // 폴백 발동 카드 (데이터 사고 신호)
+  var fbHtml = '';
+  if (st.fallback_log.length) {
+    fbHtml = '<div class="word-pm-alert">⚠ 유지 문항 없이 출제된 카드: ' +
+      st.fallback_log.map(function(f) { return escapeHtml(f.id + '(' + f.date + ')'); }).join(', ') + '</div>';
+  }
+
+  box.style.display = 'block';
+  box.innerHTML =
+    '<div class="stat-divider"></div>' +
+    '<div class="word-pm">' +
+      '<h4>🔤 오늘의 단어</h4>' +
+      '<table><tr><th>날짜</th><th>계획</th><th>완료</th></tr>' + rows + '</table>' +
+      '<div class="word-pm-note">' +
+        '연체(둘째·재도전): <b>' + overdue + '</b>건<br>' +
+        '유지 확인 대기: <b>' + thirdWait + '</b>건<br>' +
+        '다음 주 새 단어 권장: <b>' + nText + '</b>' +
+      '</div>' + alertHtml + fbHtml +
+    '</div>';
+}
+
+// ===================================================================
 // 앱 시작
 // ===================================================================
 
@@ -12647,9 +13579,11 @@ if ('serviceWorker' in navigator) {
     var card = document.getElementById('page-card');
     var conceptCard = document.getElementById('page-concept-card');
     var munhaerak = document.getElementById('page-munhaerak');   // [v5.90] 문해력 풀이 중 선택상태 보존
+    var word = document.getElementById('page-word');             // [word §3-7] 단어 풀이 중 즉시 리로드 억제 → 배너
     return !!((card && card.classList.contains('active')) ||
               (conceptCard && conceptCard.classList.contains('active')) ||
-              (munhaerak && munhaerak.classList.contains('active')));
+              (munhaerak && munhaerak.classList.contains('active')) ||
+              (word && word.classList.contains('active')));
   }
 
   function poReloadForNewVersion() {
