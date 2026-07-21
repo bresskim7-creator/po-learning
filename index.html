@@ -49,6 +49,16 @@
     /* ===== 카드 화면 ===== */
     #page-card { background: #f0f4f8; gap: 16px; max-height: 100vh; }
 
+    /* ===== [v5.94.0] 주간 발성수업 연계 모드 ===== */
+    /* 앱 관례대로 페이지 자체 배경 + color:white. 배경이 없으면 흰 글자가 흰 배경에 묻힌다. */
+    #page-voice-recall {
+      background: linear-gradient(135deg, #5C6BC0 0%, #3F51B5 100%);
+      color: white; text-align: center;
+    }
+    #page-voice-recall .daily-header { color: white; }
+    #page-voice-recall .daily-header-title { color: white; font-weight: 700; }
+    #page-voice-recall .daily-back-btn { color: white; background: rgba(255,255,255,0.18); border: none; }
+
     /* 카드 네비게이션 바 */
     .card-nav {
       display: flex; justify-content: space-between; align-items: center;
@@ -1395,6 +1405,20 @@
   </div>
 </div>
 
+<!-- ===== [v5.94.0] 주간 발성수업 연계 모드 — 아이 화면 =====
+     정본 §3-2 최소 흐름 7단계. 점수·정오·판정·타이머·시각화·TTS 재생 없음.
+     본문은 vrRenderStep()이 #vr-view에 그린다(단계별 마크업을 HTML에 미리 두지 않는다). -->
+<div id="page-voice-recall" class="page">
+  <div style="max-width:560px; margin:0 auto; padding:16px;">
+    <div class="daily-header">
+      <button class="daily-back-btn" onclick="vrLeaveToHome()">←</button>
+      <div class="daily-header-title">선생님과 했던 목소리 연습</div>
+      <div class="daily-header-date"></div>
+    </div>
+    <div id="vr-view"></div>
+  </div>
+</div>
+
 <!-- ===== 카드 화면 ===== -->
 <div id="page-card" class="page">
   <div class="card-nav">
@@ -1458,6 +1482,10 @@
     </div>
     <!-- [word §4] 오늘의 단어 부모 지표 (showParentResult에서 렌더 — 아이 화면 비노출) -->
     <div id="word-parent-metrics" style="display:none;"></div>
+    <!-- [v5.94.0] 주간 발성수업 연계 모드 — 부모 전용 패널 (showParentResult에서 렌더).
+         모드 전환·오늘은 쉬기·참고 표본 녹음/재생이 전부 여기에만 있다. 아이 화면 비노출. -->
+    <div class="stat-divider"></div>
+    <div id="vr-parent-panel" style="margin-top:8px; text-align:left;"></div>
     <button class="btn-start" style="background:rgba(255,255,255,0.25); color:white; font-size:14px; padding:10px 24px; border:1px solid rgba(255,255,255,0.4);" onclick="poParentBackToChild()">아이 화면으로</button>
   </div>
 
@@ -1548,6 +1576,16 @@
     <div style="font-size:13px;color:#888;margin-bottom:8px;line-height:1.5;">앵커 단어의 예전·오늘 발음을 들어보고 직접 판단하세요. (세션과 무관하게 시트에서 조회)</div>
     <button type="button" class="btn-start" style="background:#4A3A75;color:white;width:100%;" onclick="parentOpenPronAuditStandalone()">🔊 발음 들어보기 (예전 vs 오늘)</button>
     <div id="pron-audit-body-settings" style="display:none; margin-top:12px; background:#4A3A75; border-radius:12px; padding:14px; text-align:left;"></div>
+  </div>
+
+  <!-- [v5.94.0 P1-1] 발성 연계 모드 관리 — 홈 → 설정 PIN 1차 진입.
+       완료 화면(#vr-parent-panel)에만 있으면 새 설치(cover_read)에서 아이가 연음 세션을 끝내야만
+       발성모드를 켤 수 있다. 같은 렌더 함수를 공유하고 컨테이너 id만 분리한다
+       (앱의 pron-audit-body / pron-audit-body-settings 컨벤션과 동일). -->
+  <div class="settings-group">
+    <h3>🎤 선생님과 했던 목소리 연습</h3>
+    <div style="font-size:13px;color:#888;margin-bottom:8px;line-height:1.5;">발성 연습 모드 켜기·끄기, 참고 표본 녹음, 오늘은 쉬기를 여기서 관리합니다. 아이 화면에는 나오지 않습니다.</div>
+    <div id="vr-parent-panel-settings" style="background:#37474F; color:#fff; border-radius:12px; padding:14px; text-align:left;"></div>
   </div>
 
   <div class="settings-group" id="anchor-section">
@@ -1711,8 +1749,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.93.0';
-var APP_SW_CACHE = 'sw5930';
+var APP_VERSION = 'v5.94.0';
+var APP_SW_CACHE = 'sw5940';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2032,6 +2070,10 @@ function applyTTSPolicy(card) {
 // ===================================================================
 
 function showPage(pageId) {
+  // [v5.94.0 P1-2] 화면 전환 = 부모 패널 이탈. 참고 표본 녹음 중이면 마이크를 끄고 부분 녹음은 폐기한다.
+  //   P1-1로 녹음 가능 위치가 설정 화면까지 넓어졌는데, 설정의 뒤로가기·저장은 poParentBackToChild를
+  //   거치지 않고 showPage로만 빠져나간다. 녹음 중이 아니면 no-op이라 기존 흐름에 영향이 없다.
+  if (typeof vrStopRecorder === 'function') vrStopRecorder({ discard: true });
   // v4.9: LR 타임아웃 클린업
   if (lrState.sttTimeout) { clearTimeout(lrState.sttTimeout); lrState.sttTimeout = null; }
   lrState.isRecording = false;
@@ -2066,6 +2108,124 @@ async function init() {
   retryPendingRecordings();  // v4.3: 대기 중인 녹음 재전송
   if (typeof retryPendingGrowth === 'function') retryPendingGrowth();  // [v5.60] 성장 기록 펜딩 재전송
   if (typeof syncGrowthFromCloud === 'function') syncGrowthFromCloud({ render: false });  // [v5.63] 다른 기기 성장 기록 내려받기
+}
+
+// ============================================================================
+// [v5.94.0] 주간 발성수업 연계 모드 — 모드 플래그 + 일일 상태
+// 설계 정본: 00_Context/2026-07-21-주간발성수업-연계모드-설계안-v1.3.md §3-3·§9
+// 착수문:   00_Context/2026-07-21-주간발성수업연계모드-CLAUDECODE-착수지시-v1.1.md §2-1·§2-6
+//
+// 왜 전용 키인가: saveSettings()(L2193)는 정해진 필드만 재구성해 저장하므로
+//   po_v4_settings에 넣으면 다음 설정 저장에서 조용히 떨어진다. config.json은 즉시 전환 불가.
+// activityType은 모드 키에 저장하지 않고 record 기록 시 programId에서 파생한다(정본 §9).
+// ============================================================================
+var VR_MODE_LS_KEY = 'po_voice_speaking_mode_v1';
+var VR_STATE_LS_KEY = 'po_voice_recall_state_v1';
+
+// 현재 주 상수. 매주 새 수업은 이 상수(+그 주 콘텐츠)만 갱신하고 부모가 같은 동작으로 활성화한다.
+// 자동 주차 생성 없음 — 착수문 §2-1-1.
+var VR_CURRENT_PROGRAM = { programId: 'voice_recall_260719', reviewDueDate: '2026-07-26' };
+
+// 모드 키 원본 로드. 손상·미지값이면 null(호출부가 안전 기본값으로 폴백).
+function vrLoadMode() {
+  try {
+    var raw = localStorage.getItem(VR_MODE_LS_KEY);
+    if (!raw) return null;
+    var o = JSON.parse(raw);
+    if (!o || typeof o !== 'object') return null;
+    if (o.speakingMode !== 'voice_recall' && o.speakingMode !== 'cover_read') return null;
+    return o;
+  } catch (e) {
+    console.warn('[voice_recall] 모드 키 파싱 실패 — cover_read로 폴백:', e);
+    return null;
+  }
+}
+
+// 안전 기본값 cover_read (정본 §9-3). 누락·JSON 손상·알 수 없는 값은 전부 cover_read.
+// 오류를 이유로 voice_recall을 임의 활성화하지 않는다.
+function vrGetSpeakingMode() {
+  var m = vrLoadMode();
+  return (m && m.speakingMode === 'voice_recall') ? 'voice_recall' : 'cover_read';
+}
+
+// 현재 활성 프로그램. 모드 키에 값이 있으면 그것을(과거 주차 유지), 없으면 현재 주 상수를 쓴다.
+function vrGetActiveProgram() {
+  var m = vrLoadMode();
+  if (m && typeof m.programId === 'string' && m.programId) {
+    return {
+      programId: m.programId,
+      reviewDueDate: (typeof m.reviewDueDate === 'string') ? m.reviewDueDate : ''
+    };
+  }
+  return { programId: VR_CURRENT_PROGRAM.programId, reviewDueDate: VR_CURRENT_PROGRAM.reviewDueDate };
+}
+
+// 모드 저장. {speakingMode, programId, reviewDueDate}만 기록(activityType 미포함).
+function vrSaveMode(speakingMode, programId, reviewDueDate) {
+  var payload = {
+    speakingMode: (speakingMode === 'voice_recall') ? 'voice_recall' : 'cover_read',
+    programId: programId || VR_CURRENT_PROGRAM.programId,
+    reviewDueDate: reviewDueDate || VR_CURRENT_PROGRAM.reviewDueDate
+  };
+  try {
+    localStorage.setItem(VR_MODE_LS_KEY, JSON.stringify(payload));
+    return true;
+  } catch (e) {
+    console.warn('[voice_recall] 모드 저장 실패:', e);
+    return false;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 일일 상태 po_voice_recall_state_v1 (착수문 §2-6)
+// 단일 객체 금지 — programId + localDate로 분리 저장한다. 단일 객체면 다음 날·다음 주가 덮어쓴다.
+//   { schemaVersion:1, programs:{ <programId>:{ days:{ "YYYY-MM-DD":{ status, soloRecallAt, parentConversationAt } } } } }
+// 점수·정확성·품질 필드 없음. 연음 이력·전역 streak에 기록하지 않는다.
+// ---------------------------------------------------------------------------
+function vrLoadStateRoot() {
+  try {
+    var raw = localStorage.getItem(VR_STATE_LS_KEY);
+    if (!raw) return { schemaVersion: 1, programs: {} };
+    var o = JSON.parse(raw);
+    if (!o || typeof o !== 'object' || !o.programs || typeof o.programs !== 'object') {
+      return { schemaVersion: 1, programs: {} };
+    }
+    o.schemaVersion = 1;
+    return o;
+  } catch (e) {
+    console.warn('[voice_recall] 일일 상태 파싱 실패 — 빈 상태로 시작:', e);
+    return { schemaVersion: 1, programs: {} };
+  }
+}
+
+// 특정 programId + 날짜의 상태 조회. 없으면 null.
+function vrGetDayState(programId, dateStr) {
+  var root = vrLoadStateRoot();
+  var p = root.programs[programId];
+  if (!p || !p.days) return null;
+  return p.days[dateStr] || null;
+}
+
+// 병합 저장. 기존 programs/days를 보존하고 해당 날짜 항목만 갱신한다(덮어쓰기 금지).
+// 같은 날 재진입은 같은 날짜 키를 갱신하므로 중복 기록이 생기지 않는다.
+// 새 programId 활성화는 다른 키 아래에 쌓이므로 이전 프로그램 기록을 삭제하지 않는다.
+function vrSetDayState(programId, dateStr, patch) {
+  var root = vrLoadStateRoot();
+  if (!root.programs[programId]) root.programs[programId] = { days: {} };
+  if (!root.programs[programId].days) root.programs[programId].days = {};
+  var prev = root.programs[programId].days[dateStr] || {};
+  var next = {
+    status: (patch && patch.status) || prev.status || 'solo_recall',
+    soloRecallAt: (patch && patch.soloRecallAt !== undefined) ? patch.soloRecallAt : (prev.soloRecallAt || null),
+    parentConversationAt: (patch && patch.parentConversationAt !== undefined) ? patch.parentConversationAt : (prev.parentConversationAt || null)
+  };
+  root.programs[programId].days[dateStr] = next;
+  try {
+    localStorage.setItem(VR_STATE_LS_KEY, JSON.stringify(root));
+  } catch (e) {
+    console.warn('[voice_recall] 일일 상태 저장 실패:', e);
+  }
+  return next;
 }
 
 // ===================================================================
@@ -2118,6 +2278,9 @@ function verifySettingsPin() {
     } else {
       loadSettingsUI();
       showPage('page-settings');
+      // [v5.94.0 P1-1] 홈 → 설정 PIN = 발성 관리 패널 1차 진입.
+      // 설정 화면 컨테이너로 대상을 고정해 렌더한다(완료 화면을 거치지 않아도 발성모드를 켤 수 있다).
+      if (typeof vrRenderParentPanel === 'function') vrRenderParentPanel('vr-parent-panel-settings');
     }
   } else {
     error.textContent = 'PIN이 틀렸습니다';
@@ -2494,7 +2657,20 @@ function generateSpeechTherapyCards(data) {
 // 홈 화면
 // ===================================================================
 
+// [v5.94.0] 홈 '말하기 연습' 부제 — 모드별 분기 (정본 §9-3).
+//   voice_recall: '선생님과 했던 목소리 연습' / cover_read: '소리 내어 읽기' 정확 복원.
+//   모드 키 이상 시 vrGetSpeakingMode()가 cover_read를 돌려주므로 기존 라벨이 유지된다.
+//   HTML 기본값(L1328)도 '소리 내어 읽기' — 이 함수가 못 돌아도 안전 기본값이 보인다.
+function vrUpdateHomeSpeakingLabel() {
+  var sub = document.querySelector('#btn-speaking-top .speaking-sub');
+  if (!sub) return;
+  sub.textContent = (vrGetSpeakingMode() === 'voice_recall')
+    ? '선생님과 했던 목소리 연습'
+    : '소리 내어 읽기';
+}
+
 function updateHomeScreen() {
+  vrUpdateHomeSpeakingLabel();   // [v5.94.0] 모드별 부제 — 레거시/집중 모드 양쪽 경로보다 먼저
   // [v5.92.0] 집중 모드에서는 레거시 홈으로 빠지지 않는다.
   // 레거시 홈의 유일한 버튼 '시작하기'가 startSession()=골고루(영어·독해·사회·과학)로 직행하므로,
   // config.json 로드·파싱 실패(APP.config={})로 이 경로에 빠지면 숨김이 통째로 무력화된다.
@@ -4731,6 +4907,16 @@ function startReadAloudSubjectSession() {
 // [v5.0.8] 말하기 연습 통합 세션 (퀴즈 + 듣고말하기 + 따라읽기)
 // [v5.65 T3] cover_read 활성 시 Block 3 RA → cover_read 교대. Block 1 quizCount 도 config cap 적용 (T4).
 function startSpeakingPracticeSession() {
+  // [v5.94.0] 주간 발성수업 연계 모드 — 사실상 첫 줄 분기 (착수문 §2-3).
+  // 이 return이 반드시 아래 모든 연음 경로보다 앞에 있어야 한다:
+  //   coverReadActive 판정 · APP.coverReadProgressMap read(crLoadCoverReadProgressMap)
+  //   · cleanupCoverReadStorage()(=보존기간 만료 삭제) · crBuildCoverReadQueue()(큐 생성).
+  // 하나라도 뒤로 밀리면 발성모드 중 연음 저장소 transaction 0건 계약이 깨진다.
+  if (vrGetSpeakingMode() === 'voice_recall') {
+    startVoiceRecallSession();
+    return;
+  }
+
   var allCards = [];
 
   // [v5.65 T3] cover_read 활성 set 판정. Phase 1 은 first set 단순 가정 — coverReadSets[0]에 items 있으면 active.
@@ -7685,9 +7871,14 @@ async function transcribeWithWhisper(audioBlob, expectedText) {
 // [v5.65 T5] DB version 1→2 bump. cover_read_recordings + cover_read_events store 신설. 기존 pending store 유지.
 // [v5.70 M2] v2→3 bump. cover_read_recordings에 itemId·auditedAt 인덱스 추가(부모 then-vs-now 단어별 날짜순 조회용).
 //            기존 데이터 보존(store 재생성 안 함, 인덱스만 추가). 업그레이드 실패 시 reject→호출자 catch 폴백(UX #10).
+// [v5.94.0] v3→4 bump. voice_recall_recordings store 신설(주간 발성수업 연계 모드 참고 표본).
+//            가산적 migration만 — 기존 3 store(pending·cover_read_recordings·cover_read_events) 및
+//            itemId·auditedAt 인덱스는 손대지 않는다. 정본 §7-3.
+//            ★ po_recordings를 여는 indexedDB.open은 이 한 곳뿐이며(호출부 전부 openRecordingsDB 경유),
+//              다른 곳에 open(...,3)이 남으면 승격 후 VersionError로 연음 녹음 로드까지 깨진다.
 function openRecordingsDB() {
   return new Promise(function(resolve, reject) {
-    var request = indexedDB.open('po_recordings', 3);
+    var request = indexedDB.open('po_recordings', 4);
     request.onupgradeneeded = function(event) {
       var db = event.target.result;
       var upgradeTx = event.target.transaction;  // versionchange 트랜잭션 — 기존 store 접근 가능
@@ -7716,6 +7907,12 @@ function openRecordingsDB() {
           }
         } catch (e) {
           console.warn('[IDB v3] 인덱스 생성 실패(폴백: 인덱스 없이 동작):', e);
+        }
+      }
+      // [v5.94.0] v4: voice_recall_recordings 신규 생성만. 기존 store 삭제·재생성 금지.
+      if (event.oldVersion < 4) {
+        if (!db.objectStoreNames.contains('voice_recall_recordings')) {
+          db.createObjectStore('voice_recall_recordings', { keyPath: 'id' });
         }
       }
     };
@@ -7910,6 +8107,585 @@ async function cleanupCoverReadStorage() {
   } catch(e) {
     console.warn('[cover_read] cleanup 실패:', e);
   }
+}
+
+// ============================================================================
+// [v5.94.0] 주간 발성수업 연계 모드 — 참고 표본 녹음 (정본 §6, 착수문 §2-8)
+// voice_recall_recordings store에만 저장한다. 연음 store는 열지 않는다.
+// 같은 기기 로컬 · 부모 PIN 화면 재생 전용 · 자동 업로드 없음.
+// 보존기간은 연음과 동일 정책: 기본 recordedAt+14일, 검수 표시 시 max(recordedAt+14일, reviewedAt+7일).
+// ============================================================================
+var VR_REC_STORE = 'voice_recall_recordings';
+
+// 참고 표본 2종 — 자동 '마지막 날' 판정 금지, 부모가 화면에서 명시적으로 실행한다.
+var VR_SAMPLE_KINDS = {
+  start:  { key: 'start',  label: '앱 시작 참고 녹음' },
+  before: { key: 'before', label: '다음 수업 전 참고 녹음' }
+};
+var VR_SAMPLE_SENTENCE = '안녕하세요';   // 고정 문장
+
+function vrWaitTx(tx) {
+  return new Promise(function(resolve, reject) {
+    tx.oncomplete = function() { resolve(); };
+    tx.onerror = function() { reject(tx.error); };
+    tx.onabort = function() { reject(tx.error); };
+  });
+}
+
+// 녹음 저장. activityType은 모드 키가 아니라 programId에서 파생한다(정본 §9).
+async function vrSaveRecording(sampleKind, audioBlob) {
+  var db = await openRecordingsDB();
+  if (!db.objectStoreNames.contains(VR_REC_STORE)) {
+    // upgrade가 실패해 store가 없는 경우 — 녹음만 불가, 흐름은 계속(정본 §7-3).
+    throw new Error('voice_recall_recordings store 없음');
+  }
+  var prog = vrGetActiveProgram();
+  var id = (crypto.randomUUID ? crypto.randomUUID() : ('vr_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6)));
+  var record = {
+    id: id,
+    programId: prog.programId,
+    activityType: prog.programId,     // programId 파생 — 모드 키에는 저장하지 않음
+    sampleKind: sampleKind,
+    sentence: VR_SAMPLE_SENTENCE,
+    localDate: getTodayDateStr(),
+    recordedAt: Date.now(),
+    reviewedAt: null,                 // 선생님 확인 표시가 붙으면 보존기간 연장
+    audioBlob: audioBlob
+  };
+  var tx = db.transaction(VR_REC_STORE, 'readwrite');
+  tx.objectStore(VR_REC_STORE).add(record);
+  await vrWaitTx(tx);
+  return record;
+}
+
+// 부모 PIN 화면 재생용 목록. 음성 blob 포함(같은 기기 로컬 재생 전용, 업로드 경로 없음).
+async function vrGetAllRecordings() {
+  try {
+    var db = await openRecordingsDB();
+    if (!db.objectStoreNames.contains(VR_REC_STORE)) return [];
+    var tx = db.transaction(VR_REC_STORE, 'readonly');
+    var store = tx.objectStore(VR_REC_STORE);
+    var out = await new Promise(function(resolve, reject) {
+      var req = store.getAll();
+      req.onsuccess = function() { resolve(req.result || []); };
+      req.onerror = function() { reject(req.error); };
+    });
+    out.sort(function(a, b) { return (b.recordedAt || 0) - (a.recordedAt || 0); });
+    return out;
+  } catch (e) {
+    console.warn('[voice_recall] 녹음 목록 로드 실패:', e);
+    return [];
+  }
+}
+
+// 선생님 확인 표시 — reviewedAt을 찍어 보존기간을 max(recordedAt+14, reviewedAt+7)로 연장한다.
+async function vrMarkRecordingReviewed(id) {
+  try {
+    var db = await openRecordingsDB();
+    if (!db.objectStoreNames.contains(VR_REC_STORE)) return false;
+    var tx = db.transaction(VR_REC_STORE, 'readwrite');
+    var store = tx.objectStore(VR_REC_STORE);
+    var rec = await new Promise(function(resolve, reject) {
+      var req = store.get(id);
+      req.onsuccess = function() { resolve(req.result); };
+      req.onerror = function() { reject(req.error); };
+    });
+    if (!rec) return false;
+    rec.reviewedAt = Date.now();
+    store.put(rec);
+    await vrWaitTx(tx);
+    return true;
+  } catch (e) {
+    console.warn('[voice_recall] 검수 표시 실패:', e);
+    return false;
+  }
+}
+
+// [v5.94.0] 보존기간 만료 삭제 — voice_recall_recordings만 연다(연음 store 미접근).
+// 매주 누적 방지. startVoiceRecallSession() 진입 시 fire-and-forget으로 실제 호출된다.
+// 삭제 건수를 돌려주어 자가검증에서 '정의만 되고 안 불린' 상태를 구분할 수 있게 한다.
+async function vrCleanupVoiceRecallRecordings() {
+  try {
+    var now = Date.now();
+    var DAY = 86400000;
+    var db = await openRecordingsDB();
+    if (!db.objectStoreNames.contains(VR_REC_STORE)) return 0;
+    var tx = db.transaction(VR_REC_STORE, 'readwrite');
+    var store = tx.objectStore(VR_REC_STORE);
+    var deleted = 0;
+    store.openCursor().onsuccess = function(e) {
+      var cursor = e.target.result;
+      if (!cursor) return;
+      var rec = cursor.value;
+      var base = rec.recordedAt || 0;
+      var deleteAfter = rec.reviewedAt
+        ? Math.max(base + 14 * DAY, rec.reviewedAt + 7 * DAY)
+        : (base + 14 * DAY);
+      if (now >= deleteAfter) { cursor.delete(); deleted++; }
+      cursor.continue();
+    };
+    await vrWaitTx(tx);
+    window.__VR_LAST_CLEANUP = { at: now, deleted: deleted };   // 자가검증 계측용
+    return deleted;
+  } catch (e) {
+    console.warn('[voice_recall] cleanup 실패:', e);
+    return 0;
+  }
+}
+
+// ============================================================================
+// [v5.94.0] 주간 발성수업 연계 모드 — 전용 시작/종료 경로 (정본 §7-1, 착수문 §2-3·§2-4·§2-5)
+// 기존 startSpeakingPracticeSession() 본문·endSession()과 코드를 공유하지 않는다.
+// 점수·정답률·streak·전역 학습일/진도 갱신·연음 업로드 어느 것도 호출하지 않는다.
+// ============================================================================
+
+// 아이 화면 단서 3줄 (정본 §2). '악쓰듯'은 부모 설명 맥락이라 아이 화면에 넣지 않는다.
+var VR_CUES = ['배에 힘', '성대를 쪼이는 느낌', '조금 빠르고 단단하게'];
+
+// 고정 회상 카드 2개 (정본 §4 기본)
+var VR_RECALL_CARDS = ['야·여·요·유', '안녕하세요'];
+
+// 대화 주제 3택 (정본 §4 기본)
+var VR_TOPICS = ['학교·친구', '게임', '초코'];
+
+// '수업에서 더 해본 것' — 화이트리스트(정본 §4) 안에서만. 접힘 상태가 기본.
+// 그림 단어는 원본 그림 확보 전까지 섹션 자체를 렌더하지 않는다(글자 대체 금지 — 정본 §5).
+var VR_EXTRA_ITEMS = [
+  '2 · 4 · 5',
+  '6 · 7 · 8 · 9 · 10',
+  '앉아 있다',
+  '엄마 배고파',
+  '하루에 30분이에요',
+  '짝꿍이랑 앉아요',
+  '야, 뭐 해?',
+  '야, 빨리 와'
+];
+var VR_HAS_PICTURE_ASSETS = false;   // 선생님 원본 카드 확보 시에만 true. 확보 전 기본값은 섹션 생략.
+
+var vrState = { step: 1, showHint: false, topic: null, showExtra: false };
+
+// 전용 시작 경로. 연음 진행도 read·이벤트 검사·만료 삭제·큐 생성 어느 것도 하지 않는다.
+function startVoiceRecallSession() {
+  // 이 모드 전용 음성 store만 정리한다(연음 store 미접근). 정의만 두지 않고 여기서 실제 호출.
+  vrCleanupVoiceRecallRecordings();
+
+  var prog = vrGetActiveProgram();
+  var today = getTodayDateStr();
+  var day = vrGetDayState(prog.programId, today);
+
+  // 보존 계약: waiting_parent로 남겨둔 날 다시 열면 대화 연결 단계(5)부터 재개한다.
+  if (day && day.status === 'waiting_parent') {
+    vrState = { step: 5, showHint: false, topic: null, showExtra: false };
+  } else if (day && day.status === 'with_parent_conversation') {
+    vrState = { step: 6, showHint: false, topic: null, showExtra: false };
+  } else {
+    vrState = { step: 1, showHint: false, topic: null, showExtra: false };
+  }
+
+  showPage('page-voice-recall');
+  vrRenderStep();
+}
+
+// 전용 종료 경로. endSession()과 미공유 — 점수·정답률·streak·전역 진도·연음 업로드 미호출.
+// 일일 상태(§2-6)만 기록한다.
+function endVoiceRecallSession(status) {
+  var prog = vrGetActiveProgram();
+  var today = getTodayDateStr();
+  var patch = { status: status };
+  if (status === 'with_parent_conversation') patch.parentConversationAt = Date.now();
+  vrSetDayState(prog.programId, today, patch);
+}
+
+function vrLeaveToHome() {
+  showPage('page-home');
+  updateHomeScreen();
+}
+
+// --- 단계 전이 ---------------------------------------------------------------
+
+function vrToggleHint() { vrState.showHint = !vrState.showHint; vrRenderStep(); }
+function vrToggleExtra() { vrState.showExtra = !vrState.showExtra; vrRenderStep(); }
+
+function vrGoRecallCards() { vrState.step = 3; vrRenderStep(); }
+
+// 회상 카드를 마친 시점 = solo_recall. 이것만으로는 완료 표시가 되지 않는다(정본 §3-3).
+function vrGoTopics() {
+  var prog = vrGetActiveProgram();
+  vrSetDayState(prog.programId, getTodayDateStr(), { status: 'solo_recall', soloRecallAt: Date.now() });
+  vrState.step = 4;
+  vrRenderStep();
+}
+
+function vrPickTopic(idx) {
+  vrState.topic = VR_TOPICS[idx] || null;
+  vrState.step = 5;
+  vrRenderStep();
+}
+
+// 엄마가 지금 어려울 때 — 실패 표시 없이 waiting_parent로 남긴다.
+function vrWaitForParent() {
+  var prog = vrGetActiveProgram();
+  vrSetDayState(prog.programId, getTodayDateStr(), { status: 'waiting_parent' });
+  vrLeaveToHome();
+}
+
+// 실제 대화 진입을 아이/엄마가 자기표시한 시점에만 완료 문구가 나온다(품질 판정 아님).
+function vrConfirmParentConversation() {
+  endVoiceRecallSession('with_parent_conversation');
+  vrState.step = 6;
+  vrRenderStep();
+}
+
+// --- 렌더 --------------------------------------------------------------------
+// 점수·정오·판정·타이머·진행률·시각화·TTS 재생을 그리지 않는다.
+
+function vrBtn(label, onclick, primary) {
+  var style = primary
+    ? 'background:#4CAF50;color:#fff;border:none;'
+    : 'background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.35);';
+  return '<button type="button" style="' + style + 'border-radius:12px;padding:14px 22px;font-size:17px;font-weight:600;cursor:pointer;width:100%;margin-top:10px;" onclick="' + onclick + '">' + label + '</button>';
+}
+
+function vrCard(text) {
+  return '<div style="background:rgba(255,255,255,0.14);border-radius:14px;padding:22px;margin-top:12px;text-align:center;font-size:26px;font-weight:700;letter-spacing:1px;">' + text + '</div>';
+}
+
+// '수업에서 더 해본 것' — 접힘 기본. 그림 자산 미확보 시 그림 섹션은 렌더하지 않는다.
+function vrExtraSection() {
+  var h = '<div style="margin-top:22px;">';
+  h += vrBtn((vrState.showExtra ? '▾ ' : '▸ ') + '수업에서 더 해본 것', 'vrToggleExtra()', false);
+  if (vrState.showExtra) {
+    h += '<div style="margin-top:10px;">';
+    for (var i = 0; i < VR_EXTRA_ITEMS.length; i++) {
+      h += '<div style="background:rgba(255,255,255,0.10);border-radius:10px;padding:12px;margin-top:8px;text-align:center;font-size:19px;">' + VR_EXTRA_ITEMS[i] + '</div>';
+    }
+    if (VR_HAS_PICTURE_ASSETS) {
+      h += '<div id="vr-picture-words"></div>';
+    }
+    h += '</div>';
+  }
+  h += '</div>';
+  return h;
+}
+
+function vrRenderStep() {
+  var view = document.getElementById('vr-view');
+  if (!view) return;
+  var h = '';
+
+  if (vrState.step === 1) {
+    // ① 회상 질문 ② 필요할 때만 힌트
+    h += '<h2 style="font-size:24px;line-height:1.5;margin:24px 0 8px;">선생님하고 했던 목소리,<br>먼저 기억나?</h2>';
+    if (vrState.showHint) {
+      h += '<div style="background:rgba(255,255,255,0.14);border-radius:14px;padding:18px;margin-top:12px;">';
+      for (var i = 0; i < VR_CUES.length; i++) {
+        h += '<div style="font-size:19px;padding:6px 0;">· ' + VR_CUES[i] + '</div>';
+      }
+      h += '</div>';
+    }
+    h += vrBtn('기억나! 해볼래', 'vrGoRecallCards()', true);
+    h += vrBtn(vrState.showHint ? '힌트 접기' : '힌트 보기', 'vrToggleHint()', false);
+
+  } else if (vrState.step === 3) {
+    // ③ 고정 회상 카드 2개
+    h += '<h2 style="font-size:22px;margin:24px 0 4px;">그 목소리로 소리 내볼까?</h2>';
+    for (var j = 0; j < VR_RECALL_CARDS.length; j++) h += vrCard(VR_RECALL_CARDS[j]);
+    h += vrBtn('했어!', 'vrGoTopics()', true);
+    h += vrExtraSection();
+
+  } else if (vrState.step === 4) {
+    // ④ 대화 주제 3택 1
+    h += '<h2 style="font-size:22px;margin:24px 0 4px;">엄마랑 무슨 이야기 할까?</h2>';
+    for (var k = 0; k < VR_TOPICS.length; k++) h += vrBtn(VR_TOPICS[k], 'vrPickTopic(' + k + ')', false);
+
+  } else if (vrState.step === 5) {
+    // ⑤ 앱을 두고 대화 ⑥ 돌아와 자기표시
+    h += '<h2 style="font-size:23px;line-height:1.5;margin:24px 0 8px;">앱을 잠깐 두고<br>엄마와 이야기해보자</h2>';
+    if (vrState.topic) {
+      h += '<div style="font-size:18px;opacity:0.9;margin-top:8px;">오늘 이야기: ' + vrState.topic + '</div>';
+    }
+    h += vrBtn('엄마랑 이야기 시작했어요', 'vrConfirmParentConversation()', true);
+    h += vrBtn('나중에 엄마랑 이어하기', 'vrWaitForParent()', false);
+
+  } else if (vrState.step === 6) {
+    // ⑦ 완료 문구 — '오늘 완료 / 숙제 완료 / 오늘 훈련 끝' 금지.
+    //    앱 1회는 선생님 숙제(모든 일상 대화 일반화)를 대체하지 않는다.
+    h += '<div style="font-size:52px;margin-top:32px;">🌱</div>';
+    h += '<h2 style="font-size:25px;margin:12px 0 8px;">오늘의 목소리 시작 ✓</h2>';
+    h += '<p style="font-size:18px;opacity:0.92;line-height:1.6;">생활 속에서도 계속 써보자</p>';
+    h += vrBtn('홈으로', 'vrLeaveToHome()', true);
+  }
+
+  view.innerHTML = h;
+}
+
+// ============================================================================
+// [v5.94.0] 주간 발성수업 연계 모드 — 부모 PIN 화면 패널 (착수문 §2-1-1·§2-8·§2-9·§2-10)
+// 이 패널이 발성모드를 켜는 유일한 경로다(모드 키 누락 기본값이 cover_read이므로,
+// 이게 없으면 배포 후 발성모드에 진입할 방법이 없다).
+// 확인은 window.confirm 대신 인라인 2단계 — 브라우저 모달이 PWA/자동화에서 흐름을 막는 것을 피한다.
+// ============================================================================
+var vrParentPending = null;      // 'activate' | 'return' | null — 인라인 확인 대기
+var vrParentMsg = '';
+var vrParentRecs = [];
+// [v5.94.0 P1-2] 녹음 상태.
+//   starting = getUserMedia 응답 대기 중(아직 recorder 없음). 이전 busy는 검사만 되고 설정되지 않던 죽은 필드라 교체.
+//   chunks는 여기 두지 않는다 — 녹음별 클로저로 캡처해 이전 녹음의 조각이 다음 녹음에 섞이지 않게 한다.
+var vrParentRecState = { kind: null, recorder: null, stream: null, starting: false };
+var _vrAudioEl = null;
+
+// [v5.94.0 P1-2] 취소 토큰. 정리·이탈·복귀 때 증가한다.
+// 두 가지를 동시에 무효화한다:
+//   (a) getUserMedia 응답을 기다리는 중이던 시작 요청 → 뒤늦게 온 stream을 즉시 종료
+//   (b) 진행 중이던 녹음의 저장 → onstop에서 세대 불일치면 부분 녹음을 폐기
+var vrRecGen = 0;
+
+// [v5.94.0 P1-2] 공용 정지·정리. 예외 경로에서도 마이크 track을 반드시 종료한다.
+//   discard=true → 부분 녹음을 저장하지 않고 폐기(화면 이탈·연음 복귀·예외).
+//   녹음 중이 아니면 no-op이므로 아무 화면 전환에서나 불러도 안전하다.
+function vrStopRecorder(opts) {
+  var discard = !!(opts && opts.discard);
+  var st = vrParentRecState;
+  var rec = st.recorder, stream = st.stream;
+  if (discard) vrRecGen++;                 // 대기 중 시작 요청 + 진행 중 녹음의 저장을 함께 무효화
+  st.recorder = null; st.stream = null; st.kind = null; st.starting = false;
+  if (rec) { try { if (rec.state !== 'inactive') rec.stop(); } catch (_) {} }
+  if (stream) { try { stream.getTracks().forEach(function(t) { t.stop(); }); } catch (_) {} }
+}
+
+function vrParentAsk(action) { vrParentPending = action; vrParentMsg = ''; vrRenderParentPanel(); }
+function vrParentCancel() { vrParentPending = null; vrRenderParentPanel(); }
+
+// 발성모드 활성화 — 현재 주 상수를 그대로 쓴다(자동 주차 생성 없음).
+function vrParentActivate() {
+  vrParentPending = null;
+  var ok = vrSaveMode('voice_recall', VR_CURRENT_PROGRAM.programId, VR_CURRENT_PROGRAM.reviewDueDate);
+  vrParentMsg = ok ? '발성 연습 모드로 바뀌었습니다. 홈의 말하기 연습이 바뀝니다.' : '저장에 실패했습니다. 다시 시도해주세요.';
+  updateHomeScreen();          // 홈 라벨 즉시 갱신
+  vrRenderParentPanel();
+}
+
+// 연음 복귀 — 명시 선택으로만. 자동 복귀 없음.
+// 연음 원본 상태(진행도·stage unlock·앵커 업로드 주차·IDB 2 store)는 발성모드 동안 손대지 않았으므로
+// 모드 키만 되돌리면 그대로 복원된다. programId 기록은 지우지 않는다.
+function vrParentReturnToCoverRead() {
+  vrParentPending = null;
+  // [v5.94.0 P1-2] 연음 복귀 — 진행 중 녹음이 있으면 마이크를 끄고 부분 녹음은 폐기한다.
+  vrStopRecorder({ discard: true });
+  var prog = vrGetActiveProgram();
+  var ok = vrSaveMode('cover_read', prog.programId, prog.reviewDueDate);
+  vrParentMsg = ok ? '연음(소리 내어 읽기)으로 돌아왔습니다.' : '저장에 실패했습니다. 다시 시도해주세요.';
+  updateHomeScreen();
+  vrRenderParentPanel();
+}
+
+// 오늘은 쉬기 — 점수·streak·미완료 흔적 없이 rested로 종료.
+function vrParentRestToday() {
+  var prog = vrGetActiveProgram();
+  vrSetDayState(prog.programId, getTodayDateStr(), { status: 'rested' });
+  vrParentMsg = '오늘은 쉬는 날로 기록했습니다. 미완료로 집계되지 않습니다.';
+  vrRenderParentPanel();
+}
+
+// --- 참고 표본 녹음 (부모 명시 실행, 자동 '마지막 날' 판정 없음) ---
+// [v5.94.0 P1-2] 4상태를 정확히 구분한다. 진입 최상단에서 무조건 차단하면 현재 녹음의 ⏹ 중지까지 막힌다.
+//   ① 같은 버튼 재탭(그 kind 녹음 중)      → 정상 중지 후 저장.  ← guard보다 먼저 분기
+//   ② 다른 버튼 / 빠른 중복 탭              → 무시(새 녹음 시작 안 함)
+//   ③ 화면 이탈·연음 복귀·예외              → 중지 + 부분 녹음 폐기 + 모든 track 종료
+//   ④ getUserMedia 응답 대기 중 이탈        → 취소 토큰으로 무효화, 뒤늦은 stream은 즉시 종료 후 recorder 미설정 반환
+async function vrParentToggleRecord(kind) {
+  var st = vrParentRecState;
+
+  // ① 같은 버튼 재탭 = 현재 녹음 중지. guard 이전에 분기해야 중지가 막히지 않는다.
+  if (st.recorder && st.kind === kind) {
+    try { if (st.recorder.state !== 'inactive') st.recorder.stop(); } catch (_) {}
+    return;   // 저장은 onstop에서
+  }
+
+  // ② 새 녹음 시작만 막는 guard. 이미 녹음 중이거나 getUserMedia 대기 중이면 무시 → 동시 1개 보장.
+  if (st.recorder || st.starting) return;
+
+  // --- 여기부터 새 녹음 시작 ---
+  st.starting = true;
+  var myGen = ++vrRecGen;     // 이 녹음의 세대. 정리·이탈 시 vrRecGen이 증가해 무효화된다.
+  var localChunks = [];       // 녹음별 로컬 — 전역 공유 금지
+  var stream = null;
+
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, sampleRate: 16000, echoCancellation: true, noiseSuppression: true }
+    });
+  } catch (e) {
+    // 마이크 거부 — 안내만. 회상/대화 진입을 막지 않는다.
+    console.warn('[voice_recall] mic getUserMedia 실패:', e);
+    // ★ 오래된 요청(myGen !== vrRecGen)은 공유 상태를 절대 건드리지 않는다.
+    //   이탈 후 재진입해 시작한 다음 녹음이 st.starting=true로 잠가둔 것을, 뒤늦게 reject된
+    //   이전 요청이 풀어버리면 동시 1개 보장이 깨진다(세 번째 요청이 시작될 수 있음).
+    //   정리할 자기 자원도 없으므로(stream 미수령) 아무것도 하지 않고 그대로 종료한다.
+    if (myGen !== vrRecGen) return;
+    st.recorder = null; st.stream = null; st.kind = null; st.starting = false;
+    vrParentMsg = '마이크를 사용할 수 없습니다. 녹음 없이도 연습은 그대로 진행됩니다.';
+    vrRenderParentPanel();
+    return;
+  }
+
+  // ④ 대기 중 이탈: stream이 뒤늦게 도착했다. 즉시 track을 끄고 recorder를 만들지 않는다.
+  //    (이탈 시점엔 stream이 없어 vrStopRecorder()만으로는 이 케이스를 막을 수 없다.)
+  // ★ 여기서도 공유 상태는 건드리지 않는다 — 이 요청이 직접 받은 로컬 stream의 track만 종료한다.
+  //   st.starting은 이미 다음 녹음의 것일 수 있다.
+  if (myGen !== vrRecGen) {
+    try { stream.getTracks().forEach(function(t) { t.stop(); }); } catch (_) {}
+    return;
+  }
+
+  // 여기부터는 현재 세대(myGen === vrRecGen)가 확정된 구간이다.
+  // ★ 이 블록 안에 await를 넣지 말 것 — 위 세대 검사와 아래 공유 상태 대입 사이에 중단점이 생기면
+  //   그 틈에 이탈·재진입이 끼어들어 다음 녹음의 st를 이 요청이 덮어쓰게 된다(stale 대입 버그 재발).
+  //   catch가 되돌리는 st도 '이 요청이 방금 설정한 자기 상태'라는 전제 위에서만 안전하다.
+  try {
+    var mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus' : 'audio/webm';
+    var rec = new MediaRecorder(stream, { mimeType: mimeType });
+    st.stream = stream; st.kind = kind; st.recorder = rec; st.starting = false;
+
+    rec.ondataavailable = function(e) { if (e.data && e.data.size > 0) localChunks.push(e.data); };
+    rec.onstop = async function() {
+      try { stream.getTracks().forEach(function(t) { t.stop(); }); } catch (_) {}
+      var stale = (myGen !== vrRecGen);            // ③ 이탈·복귀·예외로 폐기된 녹음
+      if (st.recorder === rec) { st.recorder = null; st.stream = null; st.kind = null; }
+      if (stale) { localChunks = []; return; }     // 부분 녹음 저장하지 않음, 화면도 건드리지 않음
+
+      var blob = new Blob(localChunks, { type: 'audio/webm' });
+      localChunks = [];
+      // 0초·빈 blob — 실패로 안내만 하고 회상/대화 흐름은 막지 않는다.
+      if (!blob || blob.size === 0) {
+        vrParentMsg = '녹음이 비어 있습니다. 다시 시도해주세요. (연습 흐름에는 영향 없습니다)';
+        vrRenderParentPanel();
+        return;
+      }
+      try {
+        await vrSaveRecording(kind, blob);
+        vrParentMsg = (VR_SAMPLE_KINDS[kind] ? VR_SAMPLE_KINDS[kind].label : '참고 녹음') + '을 저장했습니다.';
+      } catch (e) {
+        // 저장 실패(예: v4 upgrade 실패로 store 없음) — 녹음만 불가, 흐름은 계속.
+        console.warn('[voice_recall] 녹음 저장 실패:', e);
+        vrParentMsg = '녹음을 저장하지 못했습니다. 연습 흐름에는 영향이 없습니다.';
+      }
+      await vrRenderParentPanel();
+    };
+
+    rec.start();
+    vrParentMsg = '녹음 중… "' + VR_SAMPLE_SENTENCE + '"라고 말한 뒤 중지를 누르세요.';
+    vrRenderParentPanel();
+  } catch (e) {
+    // recorder 생성 실패 — 이미 열린 track을 반드시 종료한다(마이크 누수 방지).
+    console.warn('[voice_recall] MediaRecorder 생성 실패:', e);
+    try { stream.getTracks().forEach(function(t) { t.stop(); }); } catch (_) {}
+    st.recorder = null; st.stream = null; st.kind = null; st.starting = false;
+    vrParentMsg = '녹음을 시작하지 못했습니다. 연습 흐름에는 영향이 없습니다.';
+    vrRenderParentPanel();
+  }
+}
+
+// 같은 기기 로컬 재생 전용. 업로드 경로 없음.
+function vrParentPlay(id) {
+  var rec = null;
+  for (var i = 0; i < vrParentRecs.length; i++) if (vrParentRecs[i].id === id) rec = vrParentRecs[i];
+  if (!rec || !rec.audioBlob) return;
+  try {
+    if (_vrAudioEl) { _vrAudioEl.pause(); try { URL.revokeObjectURL(_vrAudioEl.src); } catch (_) {} }
+    _vrAudioEl = new Audio(URL.createObjectURL(rec.audioBlob));
+    _vrAudioEl.play();
+  } catch (e) { console.warn('[voice_recall] 재생 실패:', e); }
+}
+
+async function vrParentMarkReviewed(id) {
+  await vrMarkRecordingReviewed(id);
+  vrParentMsg = '선생님 확인으로 표시했습니다. 보존기간이 확인일+7일까지 연장됩니다.';
+  await vrRenderParentPanel();
+}
+
+// [v5.94.0 P1-1] 렌더 대상 컨테이너. 'vr-parent-panel'=완료 화면 / 'vr-parent-panel-settings'=설정 진입.
+// 진입점에서 1회 고정하고, 패널 내부 버튼의 재렌더는 인자 없이 호출해 현재 보이는 컨테이너만 갱신한다.
+// (설정에서 눌렀는데 숨겨진 완료 화면 패널만 갱신되는 사고를 막는다. _pronAuditBodyId와 같은 패턴.)
+var _vrParentPanelId = 'vr-parent-panel';
+
+async function vrRenderParentPanel(targetId) {
+  if (targetId) _vrParentPanelId = targetId;
+  var el = document.getElementById(_vrParentPanelId);
+  if (!el) return;
+  var mode = vrGetSpeakingMode();
+  var prog = vrGetActiveProgram();
+  var today = getTodayDateStr();
+  var day = vrGetDayState(prog.programId, today);
+  vrParentRecs = await vrGetAllRecordings();
+
+  var bs = 'border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer;width:100%;margin-top:8px;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.2);color:#fff;';
+  var h = '<h4 style="margin:4px 0 8px;font-size:15px;">선생님과 했던 목소리 연습</h4>';
+  h += '<div style="font-size:13px;opacity:0.85;">현재 모드: <b>' + (mode === 'voice_recall' ? '발성 연습' : '연음(소리 내어 읽기)') + '</b>';
+  if (mode === 'voice_recall') h += ' · ' + prog.programId;
+  h += '</div>';
+
+  // reviewDueDate 도달 시 표시 — 자동 복귀는 하지 않는다.
+  if (mode === 'voice_recall' && prog.reviewDueDate && today >= prog.reviewDueDate) {
+    h += '<div style="margin-top:8px;padding:8px 12px;border-radius:8px;background:rgba(255,193,7,0.25);font-size:13px;">선생님 확인 필요 — 계속할지 연음으로 돌아갈지 선생님과 정해주세요.</div>';
+  }
+
+  if (vrParentMsg) {
+    h += '<div style="margin-top:8px;font-size:13px;opacity:0.95;">' + vrParentMsg + '</div>';
+  }
+
+  // 모드 전환 — 인라인 2단계 확인
+  if (vrParentPending === 'activate') {
+    h += '<div style="margin-top:10px;font-size:13px;">발성 연습 모드로 바꿀까요? 연음 기록은 그대로 보존됩니다.</div>';
+    h += '<button type="button" style="' + bs + '" onclick="vrParentActivate()">네, 바꿉니다</button>';
+    h += '<button type="button" style="' + bs + '" onclick="vrParentCancel()">취소</button>';
+  } else if (vrParentPending === 'return') {
+    h += '<div style="margin-top:10px;font-size:13px;">연음(소리 내어 읽기)으로 돌아갈까요? 발성 연습 기록은 지워지지 않습니다.</div>';
+    h += '<button type="button" style="' + bs + '" onclick="vrParentReturnToCoverRead()">네, 돌아갑니다</button>';
+    h += '<button type="button" style="' + bs + '" onclick="vrParentCancel()">취소</button>';
+  } else if (mode === 'voice_recall') {
+    h += '<button type="button" style="' + bs + '" onclick="vrParentAsk(\'return\')">연음으로 돌아가기</button>';
+  } else {
+    h += '<button type="button" style="' + bs + '" onclick="vrParentAsk(\'activate\')">선생님과 했던 목소리 연습 시작</button>';
+  }
+
+  if (mode === 'voice_recall') {
+    // 오늘 상태 + 오늘은 쉬기
+    var statusKo = { solo_recall: '혼자 떠올림', waiting_parent: '엄마와 이어하기 대기', with_parent_conversation: '상기 후 실제 대화에 진입함 — 일상 대화 일반화는 계속', rested: '오늘은 쉬는 날' };
+    h += '<div style="margin-top:12px;font-size:13px;opacity:0.85;">오늘(' + today + '): ' + (day && statusKo[day.status] ? statusKo[day.status] : '기록 없음') + '</div>';
+    h += '<button type="button" style="' + bs + '" onclick="vrParentRestToday()">오늘은 쉬기</button>';
+
+    // 참고 표본 녹음 2종
+    h += '<div style="margin-top:14px;font-size:13px;opacity:0.85;">참고 표본 녹음 — 고정 문장 "' + VR_SAMPLE_SENTENCE + '". 같은 기기·비슷한 거리·조용한 장소에서 녹음해주세요. 자동 업로드하지 않습니다.</div>';
+    ['start', 'before'].forEach(function(k) {
+      var recording = (vrParentRecState.kind === k);
+      h += '<button type="button" style="' + bs + '" onclick="vrParentToggleRecord(\'' + k + '\')">' +
+           (recording ? '⏹ 중지' : '🎤 ') + VR_SAMPLE_KINDS[k].label + '</button>';
+    });
+
+    if (vrParentRecs.length > 0) {
+      h += '<div style="margin-top:12px;font-size:13px;opacity:0.85;">저장된 참고 녹음 (부모 화면 재생 전용)</div>';
+      vrParentRecs.forEach(function(r) {
+        var lab = (VR_SAMPLE_KINDS[r.sampleKind] ? VR_SAMPLE_KINDS[r.sampleKind].label : '참고 녹음');
+        h += '<div style="margin-top:6px;display:flex;gap:6px;align-items:center;font-size:13px;">';
+        h += '<span style="flex:1;">' + lab + ' · ' + (r.localDate || '') + (r.reviewedAt ? ' · 확인됨' : '') + '</span>';
+        h += '<button type="button" style="border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.2);color:#fff;" onclick="vrParentPlay(\'' + r.id + '\')">▶</button>';
+        if (!r.reviewedAt) {
+          h += '<button type="button" style="border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.2);color:#fff;" onclick="vrParentMarkReviewed(\'' + r.id + '\')">확인</button>';
+        }
+        h += '</div>';
+      });
+    }
+
+    // 부모 안내 — 아이 화면에 노출하지 않는 문구 (정본 §2·§10)
+    h += '<div style="margin-top:14px;font-size:12px;opacity:0.8;line-height:1.6;">';
+    h += '· 남이 들으면 악쓰는 것처럼 들릴 수 있습니다. "더 크게 지르라"는 뜻으로 바꾸지 마세요.<br>';
+    h += '· 강도와 분량은 선생님이 정합니다.<br>';
+    h += '· 아파하거나 목소리가 심하게 쉬거나 목 불편이 이어지면 그날은 멈추고 쉬게 하고, 다음 수업 때 선생님께 알려주세요.';
+    h += '</div>';
+  }
+
+  el.innerHTML = h;
 }
 
 // ============================================================================
@@ -11688,6 +12464,9 @@ function showParentResult() {
   document.getElementById('parent-result').style.display = 'block';
   // [word §3-8·§4-1·§4-5] '오늘의 단어' 부모 지표 — parent-result가 켜지는 이 시점에 렌더
   if (typeof poWordRenderParentMetrics === 'function') poWordRenderParentMetrics();
+  // [v5.94.0] 발성 연계 모드 부모 패널 — 같은 시점에 렌더(아이 화면 비노출)
+  // [P1-1] 완료 화면 컨테이너로 명시 고정 (설정 진입 후 돌아와도 대상이 섞이지 않는다)
+  if (typeof vrRenderParentPanel === 'function') vrRenderParentPanel('vr-parent-panel');
 }
 
 // [word §4] 부모 모드 진입 출처 — 'word'(단어 완료 화면) | 'default'(기존 완료 화면)
@@ -11735,6 +12514,9 @@ function poCancelPinModal() {
 // 부모 화면 '아이 화면으로' — 출처가 word면 page-word 완료 상태로 복귀(공용 child-result 노출 금지).
 function poParentBackToChild() {
   if (typeof parentStopAudio === 'function') parentStopAudio();
+  // [v5.94.0 P1-2] 부모 화면 이탈 — 녹음 중이면 마이크를 끄고 부분 녹음은 폐기한다.
+  // 이 경로는 showPage를 거치지 않고 display만 토글하므로 여기서 직접 정리해야 한다.
+  if (typeof vrStopRecorder === 'function') vrStopRecorder({ discard: true });
   if (WORD_PARENT_ORIGIN === 'word') {
     WORD_PARENT_ORIGIN = 'default';
     poWordRestoreCompleteDefaults();
