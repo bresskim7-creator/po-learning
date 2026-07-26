@@ -1749,12 +1749,27 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.94.0';
-var APP_SW_CACHE = 'sw5940';
+var APP_VERSION = 'v5.95.0';
+var APP_SW_CACHE = 'sw5950';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
   if (el) el.textContent = APP_VERSION + ' · ' + APP_SW_CACHE;
+}
+
+// [v5.95.0] 기기 식별자 — 시트 기록에서 기기별 행 분리(설계 D5). 개인정보·모델명 수집 안 함.
+//   키 po_device_id_v1. 없으면 그 자리에서 생성 후 저장. 모든 송신이 이 함수만 쓴다.
+function poGetDeviceId() {
+  try {
+    var id = localStorage.getItem('po_device_id_v1');
+    if (!id) {
+      var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      id = 'dev-';
+      for (var i = 0; i < 8; i++) id += chars.charAt(Math.floor(Math.random() * chars.length));
+      try { localStorage.setItem('po_device_id_v1', id); } catch (e) {}
+    }
+    return id;
+  } catch (e) { return 'dev-nostore'; }
 }
 
 // ===================================================================
@@ -2749,9 +2764,12 @@ function renderSubjectTileHome() {
   // [word §3-1·§3-8 P4·§4-1 훅②] 오늘의 단어 — 데이터 로드 후 (1) 공백일 백필 (2) 스냅샷 확정을
   //   먼저 끝내고, 그 다음에 타일 미리보기를 그린다. openWordPage() 진입에 의존하면 부모 확정 N·미리보기가 늦거나 틀린다.
   if (typeof poWordEnsureLoaded === 'function') {
-    poWordEnsureLoaded().then(function() { poWordDailyInit(); poWordUpdateTile(); });
+    poWordEnsureLoaded().then(function() { poWordDailyInit(); poWordUpdateTile(); poWordPushState(); });  // [v5.95.0] 앱 시작 1회 시트 송신
   }
   // [v5.89.0] 문해력 홈 배너 제거 — 홈 프리로드 불필요(openMunhaerakPage→loadMunhaerakToday 진입 시 로드).
+  // [v5.95.0] 문해력 읽음 병합만 수행 — 인덱스는 로드하지 않는다(v5.89.0 홈 프리로드 제거 취지 유지).
+  //   이게 없으면 loadMunhaerakToday의 pickNextMunhaerakDate가 병합 전에 돌아 다른 기기 읽음글이 한 번 더 뜬다(C3/R8).
+  if (typeof syncMunhaerakReadFromCloud === 'function') syncMunhaerakReadFromCloud();
   // [v5.64] 개념 정리 타일 (카드 1장 이상일 때만 표시)
   var tcl = document.getElementById('tile-concept');
   if (tcl && PO_HOME_FOCUS_MODE) {
@@ -3330,7 +3348,8 @@ function goDailyToMunhaerak(dateStr) {
 // ===================================================================
 // 문해력 한 장 (munhaerak) — v5.87.0
 // daily 인프라 트림 복제 + 3단계 인터랙션 렌더러(pick_core_sentence)
-// 읽음 상태는 로컬 전용(po_munhaerak_read_ids), 클라우드 동기화 없음.
+// 읽음 상태: 로컬(po_munhaerak_read_ids)이 1차. [v5.95.0] '문해력읽음' 시트와 양방향 union 동기화(설계 D2).
+//   push=markMunhaerakAsRead(최초 읽음), pull=updateHomeScreen+loadMunhaerakToday. 실패/오프라인 → 로컬만.
 // ===================================================================
 var MH_INDEX_DATA = null;
 var MH_INDEX_META = null;
@@ -3393,6 +3412,7 @@ function markMunhaerakAsRead(dateStr) {
   if (ids.indexOf(dateStr) === -1) {
     ids.push(dateStr);
     try { localStorage.setItem(MH_READ_IDS_KEY, JSON.stringify(ids)); } catch (e) {}
+    pushMunhaerakReadToCloud();  // [v5.95.0] 최초 읽음일 때만 push(블록 안). 아카이브 재열람은 중복이라 안 나감.
   }
   updateMunhaerakUnreadBadges();
 }
@@ -3417,11 +3437,57 @@ function getMunhaerakUnreadCount() {
   return n;
 }
 function updateMunhaerakUnreadBadges() {
+  // MH_INDEX_DATA=null이면 getMunhaerakUnreadCount()가 0을 반환 → 예외 없이 배지만 숨김(홈 진입 훅 안전).
   var n = getMunhaerakUnreadCount();
   var b1 = document.getElementById('home-munhaerak-unread-badge');
   var b2 = document.getElementById('page-munhaerak-unread-badge');
   if (b1) { if (n > 0) { b1.textContent = n; b1.style.display = ''; } else { b1.style.display = 'none'; } }
   if (b2) { if (n > 0) { b2.textContent = n; b2.style.display = ''; } else { b2.style.display = 'none'; } }
+}
+
+// [v5.95.0] 문해력 읽음 기기 간 동기화 — 오늘의한장 push/sync 복제(서버 union, 화면 비차단).
+//   설계 D2: 양방향(합집합). 실패/오프라인/시트주소 없음 → 로컬만(폴백), 절대 안 깨짐.
+// 시트 전송 (POST, fire-and-forget). pushDailyReadToCloud 패턴. 응답 안 읽음.
+function pushMunhaerakReadToCloud() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  var dates = loadMunhaerakReadIds();   // 로컬 전체 목록을 보냄 → 서버가 union (덮어쓰기 아님)
+  if (!dates.length) return;
+  try {
+    fetch(s.sheetsUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ type: 'munhaerak_read_sync', dates: dates })
+    }).catch(function(){});
+  } catch (e) {}
+}
+
+// 시트 수신·병합 (GET, 비차단). syncDailyReadFromCloud 패턴. 실패 → 로컬 유지(아무것도 안 함).
+//   ⚠ 호출처는 await 없이(fire-and-forget). 호출 지점 2곳: updateHomeScreen(홈 진입) + loadMunhaerakToday.
+function syncMunhaerakReadFromCloud() {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  try {
+    fetch(s.sheetsUrl + '?action=get_munhaerak_read').then(function(resp) {
+      return resp.json();
+    }).then(function(res) {
+      if (res && res.status === 'ok' && Array.isArray(res.dates)) {
+        var local = loadMunhaerakReadIds();
+        var merged = local.slice();
+        var changed = false;
+        for (var i = 0; i < res.dates.length; i++) {
+          var d = res.dates[i];
+          if (d && merged.indexOf(d) === -1) { merged.push(d); changed = true; }
+        }
+        if (changed) {
+          try { localStorage.setItem(MH_READ_IDS_KEY, JSON.stringify(merged)); } catch (e) {}
+        }
+        updateMunhaerakUnreadBadges();  // 서버 기준 배지 보정(MH_INDEX_DATA=null이어도 no-op)
+        // 로컬에만 있던(오프라인 읽음) 날짜를 서버로 올려 수렴
+        if (merged.length > res.dates.length) pushMunhaerakReadToCloud();
+      }
+    }).catch(function(){});
+  } catch (e) {}
 }
 
 function showMunhaerakTab(name) {
@@ -3453,6 +3519,7 @@ function loadMunhaerakToday() {
   if (view) view.innerHTML = '<div class="daily-empty">불러오는 중...</div>';
   loadMunhaerakIndexJsonp().then(function() {
     updateMunhaerakUnreadBadges();
+    if (typeof syncMunhaerakReadFromCloud === 'function') syncMunhaerakReadFromCloud();  // [v5.95.0] 페이지 직접 진입 대비(홈 훅과 이중 안전망)
     var d = pickNextMunhaerakDate();
     if (!d) { renderMunhaerakQueueEmpty(); return; }
     tryLoadMunhaerakDate(d).then(function(card) {
@@ -13655,6 +13722,70 @@ function poWordSaveState(st) {
   try { localStorage.setItem(WORD_STATE_KEY, JSON.stringify(st)); }
   catch (e) { console.warn('[word] 상태 저장 실패', e); }
 }
+
+// [v5.95.0] 오늘의 단어 기록 송신(단방향, fire-and-forget). 앱은 시트를 절대 되읽지 않는다(설계 D3 — 진도 되돌림 방지).
+//   호출 지점 2곳: closeWordPage(poWordSaveState 직후) + 앱 시작 1회. GET 없음.
+//   실패해도 아이 화면 무영향. 다음 송신 때 전체가 다시 올라가 자연 복구(멱등).
+function poWordPushState(st) {
+  var s = getSettings();
+  if (!s.sheetsUrl) return;
+  try {
+    st = st || poWordLoadState();
+    // days = usage_history 전체(≤28)
+    var days = (Array.isArray(st.usage_history) ? st.usage_history : []).map(function(u) {
+      return {
+        date: u.date,
+        planned: u.planned || 0,
+        executed: u.executed || 0,
+        s3_offered: !!u.s3_offered,
+        s3_done: !!u.s3_done,
+        s3_skipped: !!u.s3_skipped,
+        dur_sec: u.dur_sec || 0
+      };
+    });
+    // fallback_dates: fallback_log에서 카드별 date만 모은다
+    var fbByCard = {};
+    (Array.isArray(st.fallback_log) ? st.fallback_log : []).forEach(function(f) {
+      if (!f || !f.id) return;
+      if (!fbByCard[f.id]) fbByCard[f.id] = [];
+      if (f.date) fbByCard[f.id].push(f.date);
+    });
+    // cards: 각 카드 상태 + word(카드 데이터에서 조회, 못 찾으면 빈 문자열이되 전송은 계속)
+    var cards = [];
+    var cmap = (st.cards && typeof st.cards === 'object') ? st.cards : {};
+    for (var id in cmap) {
+      if (!Object.prototype.hasOwnProperty.call(cmap, id)) continue;
+      var cs = cmap[id] || {};
+      var cd = (typeof WORD_CARDS_BY_ID !== 'undefined' && WORD_CARDS_BY_ID[id]) ? WORD_CARDS_BY_ID[id] : null;
+      cards.push({
+        id: id,
+        word: (cd && cd.word) ? cd.word : '',
+        first_done: cs.first_done,
+        second_done: cs.second_done,
+        third_done: cs.third_done,
+        retry_count: cs.retry_count || 0,
+        retry_variant: cs.retry_variant || '',
+        maintained: cs.maintained,
+        mret_used: !!cs.mret_used,
+        fallback_dates: fbByCard[id] || []
+      });
+    }
+    var ladder = (st.ladder_snapshot && typeof st.ladder_snapshot === 'object') ? st.ladder_snapshot : null;
+    var payload = {
+      type: 'word_state_sync',
+      device: poGetDeviceId(),
+      tracking_started: st.tracking_started || null,
+      days: days,
+      cards: cards,
+      ladder: ladder
+    };
+    fetch(s.sheetsUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  } catch (e) {}
+}
 function poWordCardState(st, id) {
   if (!st.cards[id]) {
     st.cards[id] = {
@@ -13995,8 +14126,9 @@ function openWordPage() {
 }
 function closeWordPage() {
   var st = poWordLoadState();
-  poWordAccrueDur(st);
+  poWordAccrueDur(st);         // dur_sec 확정은 여기서(완료화면 아님 — 완료화면에 걸면 직전 값이 올라감)
   poWordSaveState(st);
+  poWordPushState(st);         // [v5.95.0] 상태 저장 직후 시트 송신(fire-and-forget)
   WORD_RT.enteredAt = 0;
   showPage('page-home');
   updateHomeScreen();
