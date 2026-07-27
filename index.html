@@ -1749,8 +1749,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.95.0';
-var APP_SW_CACHE = 'sw5950';
+var APP_VERSION = 'v5.96.0';
+var APP_SW_CACHE = 'sw5960';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2139,7 +2139,7 @@ var VR_STATE_LS_KEY = 'po_voice_recall_state_v1';
 
 // 현재 주 상수. 매주 새 수업은 이 상수(+그 주 콘텐츠)만 갱신하고 부모가 같은 동작으로 활성화한다.
 // 자동 주차 생성 없음 — 착수문 §2-1-1.
-var VR_CURRENT_PROGRAM = { programId: 'voice_recall_260719', reviewDueDate: '2026-07-26' };
+var VR_CURRENT_PROGRAM = { programId: 'voice_recall_260726', reviewDueDate: '2026-08-02' };
 
 // 모드 키 원본 로드. 손상·미지값이면 null(호출부가 안전 기본값으로 폴백).
 function vrLoadMode() {
@@ -8307,25 +8307,25 @@ async function vrCleanupVoiceRecallRecordings() {
 // ============================================================================
 
 // 아이 화면 단서 3줄 (정본 §2). '악쓰듯'은 부모 설명 맥락이라 아이 화면에 넣지 않는다.
-var VR_CUES = ['배에 힘', '성대를 쪼이는 느낌', '조금 빠르고 단단하게'];
+var VR_CUES = ['톡톡 끊어서 (스타카토)', '성대를 쪼이는 느낌', '조금 빠르고 단단하게'];
 
 // 고정 회상 카드 2개 (정본 §4 기본)
-var VR_RECALL_CARDS = ['야·여·요·유', '안녕하세요'];
+var VR_RECALL_CARDS = ['안녕하세요', '네 알겠습니다'];
 
 // 대화 주제 3택 (정본 §4 기본)
-var VR_TOPICS = ['학교·친구', '게임', '초코'];
+var VR_TOPICS = ['방학', '게임(브롤스타즈)', '학교·급식·운동장'];
 
 // '수업에서 더 해본 것' — 화이트리스트(정본 §4) 안에서만. 접힘 상태가 기본.
 // 그림 단어는 원본 그림 확보 전까지 섹션 자체를 렌더하지 않는다(글자 대체 금지 — 정본 §5).
 var VR_EXTRA_ITEMS = [
-  '2 · 4 · 5',
-  '6 · 7 · 8 · 9 · 10',
-  '앉아 있다',
-  '엄마 배고파',
-  '하루에 30분이에요',
-  '짝꿍이랑 앉아요',
-  '야, 뭐 해?',
-  '야, 빨리 와'
+  '야 야 야',
+  '아 · 에 · 예 · 이 · 오 (톡톡)',
+  '네 알겠어요',
+  '화요일에 해요',
+  '방학 언제예요?',
+  '야, 뭐 해? 빨리 와',
+  '야, 가자',
+  '엄마 / 아빠 빨리'
 ];
 var VR_HAS_PICTURE_ASSETS = false;   // 선생님 원본 카드 확보 시에만 true. 확보 전 기본값은 섹션 생략.
 
