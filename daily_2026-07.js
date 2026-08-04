@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-07", {
   "schema_version": 1.1,
   "month": "2026-07",
-  "updated_at": "2026-07-15T21:00:00+09:00",
+  "updated_at": "2026-08-03T19:30:00+09:00",
   "days": {
     "2026-07-01": {
       "schema_version": 1.1,
@@ -2238,6 +2238,522 @@ window.__loadDailyMonth("2026-07", {
       "generated_at": "2026-07-15T21:00:00+09:00",
       "model_meta": {
         "model": "claude-opus-4-8",
+        "web_search_used": true
+      }
+    },
+    "2026-07-26": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-07-26",
+      "date": "2026-07-26",
+      "weekday": "일",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 화면 속 움직임의 비밀",
+      "title": "게임 화면은 어떻게 움직여 보일까",
+      "subtitle": "멈춘 그림 사이에서 생기는 움직임",
+      "lead_question": "게임 속 캐릭터는 그림인데 어떻게 달리고 점프하는 것처럼 보일까요?",
+      "why_today": "방학에 게임과 영상을 보는 시간이 늘어나는 때예요.",
+      "sections": [
+        {
+          "icon": "🎮",
+          "heading": "멈춘 그림을 빠르게 바꿔요",
+          "body": "게임과 영상은 한 장의 그림이 계속 움직이는 방식이 아니에요. 조금씩 다른 정지 화면을 차례로 보여 줘요. 공의 위치를 왼쪽에서 오른쪽으로 조금씩 옮겨 그릴 수 있지요. 화면이 짧은 간격으로 이어지면 공이 움직였다고 느껴요. 영화와 애니메이션도 같은 원리를 이용해요."
+        },
+        {
+          "icon": "🧠",
+          "heading": "뇌가 장면 사이를 이어요",
+          "body": "눈에 들어온 정보는 뇌에서 움직임으로 해석돼요. 비슷한 모양이 가까운 곳으로 옮겨 나타나면 두 장면을 하나로 묶어요. 실제 물체가 지나가지 않은 자리도 시각 영역이 반응했어요. 이런 느낌을 겉보기 운동이라고 불러요. 장면의 차이와 뇌의 해석이 함께 움직임을 만들어요."
+        },
+        {
+          "icon": "⏱️",
+          "heading": "화면 주기와 속도를 맞춰요",
+          "body": "브라우저는 새 화면을 그릴 때마다 위치를 조금씩 계산해요. 화면 갱신률은 1초 동안 그림이 바뀌는 횟수예요. 이 횟수는 기기와 설정에 따라 달라질 수 있어요. 개발자는 지난 시간만큼 이동 거리를 정해야 해요. 그래야 화면이 달라도 캐릭터의 속도를 비슷하게 맞출 수 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "정지 화면",
+          "en": "still frame",
+          "desc": "움직이지 않는 한 장면으로, 여러 장을 이어 보여 주면 영상의 재료가 돼요."
+        },
+        {
+          "ko": "겉보기 운동",
+          "en": "apparent motion",
+          "desc": "실제 이동이 없어도 이어지는 장면을 보고 움직임을 느끼는 시각 현상이에요."
+        },
+        {
+          "ko": "화면 갱신률",
+          "en": "refresh rate",
+          "desc": "화면이 1초 동안 새 그림으로 바뀌는 횟수로, 기기의 화면 움직임과 관계있는 값이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "영상 속 물체는 매 순간 실제로 화면 표면을 미끄러지며 이동한다.",
+          "answer": "X",
+          "explanation": "서로 다른 정지 화면을 이어 보여 줘요."
+        },
+        {
+          "statement": "비슷한 그림의 위치가 조금씩 바뀌면 뇌가 움직임으로 묶을 수 있다.",
+          "answer": "O",
+          "explanation": "장면 사이를 뇌가 연결해 해석해요. 본문에서 확인해요."
+        },
+        {
+          "statement": "모든 기기의 화면이 반드시 같은 횟수로 1초마다 새로 그려진다.",
+          "answer": "X",
+          "explanation": "기기와 설정에 따라 주기가 달라요. 본문에서 확인해요."
+        }
+      ],
+      "one_line_summary": "여러 [   ]을 알맞은 시점에 이어 보여 주면 뇌가 장면 사이를 [   ]으로 해석한다.",
+      "summary_keywords": "키워드: 정지 화면, 겉보기 운동, 화면 갱신률",
+      "sources": [
+        {
+          "title": "미국 국립의학도서관 PMC — 겉보기 운동의 시각 피질 연구",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1175820/"
+        },
+        {
+          "title": "MDN Web Docs — Window.requestAnimationFrame()",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"
+        }
+      ],
+      "generated_at": "2026-08-03T19:30:00+09:00",
+      "model_meta": {
+        "model": "openai-codex-gpt-5",
+        "web_search_used": true
+      }
+    },
+    "2026-07-27": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-07-27",
+      "date": "2026-07-27",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 돌로 만든 얼음 창고",
+      "title": "석빙고는 어떻게 여름 얼음을 지켰을까",
+      "subtitle": "땅과 돌, 바람과 물길의 설계",
+      "lead_question": "냉장고가 없던 옛날에는 한여름까지 얼음을 어떻게 남겨 두었을까요?",
+      "why_today": "가장 더운 시기에 옛사람의 냉각 지혜를 살펴봐요.",
+      "sections": [
+        {
+          "icon": "🧊",
+          "heading": "겨울 얼음을 땅속에 넣었어요",
+          "body": "석빙고 구조는 겨울 얼음을 오래 보관하도록 만든 돌 창고예요. 창고의 많은 부분을 땅 아래에 두고 위에는 흙을 덮었어요. 땅속은 바깥보다 온도 변화가 작아 햇빛의 영향을 덜 받아요. 두꺼운 돌과 흙은 열이 안쪽으로 들어오는 속도를 늦춰요. 짚도 얼음이 붙거나 빨리 녹는 일을 줄였어요."
+        },
+        {
+          "icon": "🌬️",
+          "heading": "더운 공기를 밖으로 내보내요",
+          "body": "경주 석빙고 천장에는 바깥으로 이어지는 구멍이 있어요. 안에서 데워진 공기는 위로 움직여 밖으로 빠질 수 있어요. 출입구와 내부의 높이 차이도 공기 흐름에 영향을 줘요. 구멍 하나가 새 찬 공기를 만드는 것은 아니에요. 지하와 두꺼운 벽의 단열 구조가 열의 이동을 함께 줄였어요."
+        },
+        {
+          "icon": "💧",
+          "heading": "녹은 물은 곧바로 빼냈어요",
+          "body": "얼음이 조금씩 녹으면 바닥에 물이 생겨요. 물이 고이면 얼음과 닿는 면이 늘고 습기도 높아질 수 있어요. 바닥을 배수구 쪽으로 기울인 배수 시설은 물을 밖으로 흘려보내요. 경주 석빙고에는 환기 구멍과 이런 시설이 확인돼요. 단열과 환기, 배수가 함께 얼음을 지킨 셈이에요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "석빙고 구조",
+          "en": "stone icehouse",
+          "desc": "겨울 얼음을 오래 보관하도록 돌과 흙, 지하 공간을 이용한 창고 구조예요."
+        },
+        {
+          "ko": "단열 구조",
+          "en": "insulation",
+          "desc": "바깥과 안쪽 사이에서 열이 이동하는 속도를 늦추며, 석빙고의 얼음을 지키는 구조예요."
+        },
+        {
+          "ko": "배수 시설",
+          "en": "drainage",
+          "desc": "녹은 물이나 빗물이 고이지 않도록 한곳으로 모아 밖으로 빼내는 시설이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "석빙고는 땅속과 두꺼운 돌벽을 이용해 바깥 열의 영향을 줄였다.",
+          "answer": "O",
+          "explanation": "흙과 돌이 열 이동을 늦춰 줘요. 본문에서 확인해요."
+        },
+        {
+          "statement": "환기 구멍 하나가 전기 없이 계속 새로운 찬 공기를 만들어 냈다.",
+          "answer": "X",
+          "explanation": "구멍은 공기 흐름을 돕는 장치예요. 본문에서 확인해요."
+        },
+        {
+          "statement": "기울어진 바닥은 얼음에서 나온 물이 배수구로 흐르게 도왔다.",
+          "answer": "O",
+          "explanation": "고인 물을 밖으로 빼내는 설계예요. 본문에서 확인해요."
+        }
+      ],
+      "one_line_summary": "석빙고는 땅속의 작은 온도 변화와 [   ], 환기, 배수를 함께 이용해 얼음을 지켰다.",
+      "summary_keywords": "키워드: 석빙고 구조, 단열 구조, 배수 시설",
+      "sources": [
+        {
+          "title": "한국문화재재단 — 세계유산 경주 안내 자료",
+          "url": "https://www.kh.or.kr/jnrepo/namo/file/files/000002/20220121102512889_IH5D33YD.pdf"
+        },
+        {
+          "title": "경주시 문화관광 — 경주 석빙고",
+          "url": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=2534"
+        }
+      ],
+      "generated_at": "2026-08-03T19:30:00+09:00",
+      "model_meta": {
+        "model": "openai-codex-gpt-5",
+        "web_search_used": true
+      }
+    },
+    "2026-07-28": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-07-28",
+      "date": "2026-07-28",
+      "weekday": "화",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 약속을 고치는 대화",
+      "title": "약속을 못 지킬 땐 어떻게 말할까",
+      "subtitle": "숨기기보다 관계를 다시 잇는 방법",
+      "lead_question": "친구와 한 약속을 지키기 어렵다는 걸 알게 되면 어떤 순서로 말해야 할까요?",
+      "why_today": "방학 약속이 많아질수록 바꾸는 법도 필요해요.",
+      "sections": [
+        {
+          "icon": "🤝",
+          "heading": "약속은 상대의 계획도 바꿔요",
+          "body": "약속은 앞으로 할 일을 다른 사람에게 알리는 말이에요. 상대는 그 말을 믿고 시간과 준비를 정할 수 있어요. 약속이 깨지면 한 가지 일정만 틀어지는 것이 아니에요. 서로 믿고 다음 일을 정하는 힘도 약해질 수 있어요. 약속의 책임은 서로의 시간을 존중하고 함께 계획하는 관계에서 생겨요."
+        },
+        {
+          "icon": "📣",
+          "heading": "알게 된 때 바로 알려요",
+          "body": "지키기 어렵다는 사실을 알면 가능한 한 일찍 알려요. 무엇을 못 하게 되었는지 먼저 분명히 말해요. 상대에게 생길 불편을 인정하고 미안하다고 전할 수 있어요. 이유는 상황을 이해할 만큼만 설명해요. 빠른 알림과 실제 행동이 이어져야 신뢰 회복을 시작할 수 있어요."
+        },
+        {
+          "icon": "🛠️",
+          "heading": "대안을 묻고 행동으로 옮겨요",
+          "body": "약속을 고치는 말에는 가능한 대안 제시가 필요해요. 시간을 옮길지 다른 방법으로 도울지 상대에게 물어봐요. 선택권을 상대에게 돌려주는 태도도 중요해요. 정한 새 약속은 실제로 지켜야 믿음이 조금씩 돌아와요. 빠른 알림과 책임, 해결책을 상황에 맞게 써야 해요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "약속의 책임",
+          "en": "obligation",
+          "desc": "상대가 내 말을 믿고 계획할 수 있으므로 약속을 지거나 바로잡아야 하는 책임이에요."
+        },
+        {
+          "ko": "신뢰 회복",
+          "en": "trust repair",
+          "desc": "어긋난 말과 행동을 바로잡고 실제 행동으로 믿음을 다시 쌓는 과정이에요."
+        },
+        {
+          "ko": "대안 제시",
+          "en": "alternative",
+          "desc": "처음 계획이 어려울 때 대신 할 수 있는 방법을 상대에게 내놓는 일이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "약속을 못 지키는 일은 상대의 계획과 무관하므로 따로 알릴 필요가 없다.",
+          "answer": "X",
+          "explanation": "상대도 그 말을 믿고 준비할 수 있어요."
+        },
+        {
+          "statement": "어렵다는 사실을 알게 되면 일찍 밝히고 상대의 불편을 인정할 수 있다.",
+          "answer": "O",
+          "explanation": "빠른 알림이 계획을 바꿀 시간을 줘요."
+        },
+        {
+          "statement": "새 약속을 정했다면 말뿐 아니라 실제 행동으로 지켜야 신뢰가 쌓인다.",
+          "answer": "O",
+          "explanation": "새로운 행동이 관계 회복을 보여 줘요."
+        }
+      ],
+      "one_line_summary": "약속을 바꿔야 할 때는 일찍 알리고 책임을 [   ]한 뒤 함께 가능한 [   ]을 찾는다.",
+      "summary_keywords": "키워드: 약속의 책임, 신뢰 회복, 대안 제시",
+      "sources": [
+        {
+          "title": "Stanford Encyclopedia of Philosophy — Promises",
+          "url": "https://plato.stanford.edu/entries/promises/"
+        }
+      ],
+      "generated_at": "2026-08-03T19:30:00+09:00",
+      "model_meta": {
+        "model": "openai-codex-gpt-5",
+        "web_search_used": true
+      }
+    },
+    "2026-07-29": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_season",
+      "id": "2026-07-29",
+      "date": "2026-07-29",
+      "weekday": "수",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 세계 호랑이의 날",
+      "title": "호랑이 줄무늬는 모두 다를까",
+      "subtitle": "무늬로 한 마리씩 알아보는 법",
+      "lead_question": "숲속 카메라에 찍힌 호랑이가 어제 본 그 호랑이인지 어떻게 알아낼까요?",
+      "why_today": "7월 29일은 세계 호랑이의 날이에요.",
+      "sections": [
+        {
+          "icon": "🐯",
+          "heading": "줄무늬 배열이 저마다 달라요",
+          "body": "호랑이는 주황빛 털 위에 검은 줄이 있어요. 줄의 굵기와 갈라짐, 이어지는 위치는 개체마다 달라요. 사람의 지문처럼 사진을 이용한 개체 식별의 단서가 돼요. 배와 다리에도 무늬가 있고 피부에도 줄이 이어져 있어요. 연구자는 몸 옆면 사진에서 무늬의 배열을 비교해요."
+        },
+        {
+          "icon": "📷",
+          "heading": "양쪽 옆모습을 따로 비교해요",
+          "body": "호랑이의 왼쪽과 오른쪽 무늬는 서로 같지 않아요. 그래서 길 양쪽에 카메라 덫을 놓아 두 옆면을 찍기도 해요. 어깨와 옆구리, 엉덩이의 줄 위치를 이전 기록과 맞춰 봐요. 촬영 날짜와 장소도 같은 개체인지 가리는 단서예요. 흐리거나 가린 사진은 사람이 다시 확인해요."
+        },
+        {
+          "icon": "🌏",
+          "heading": "기록이 보호 자료가 돼요",
+          "body": "같은 개체가 여러 장소에서 찍히면 이동 길을 짐작할 수 있어요. 한 구역에 서로 다른 무늬가 몇 종류인지도 살펴봐요. 이런 자료는 서식지 보전과 개체군 보호 계획에 쓰여요. 7월 29일은 세계 호랑이의 날이에요. 무늬 비교는 야생 호랑이를 세고 이동을 살피며 보호하는 과학 도구예요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "개체 식별",
+          "en": "individual ID",
+          "desc": "생김새나 표지를 비교하여 여러 동물 가운데 특정한 한 마리를 구별하는 일이에요."
+        },
+        {
+          "ko": "카메라 덫",
+          "en": "camera trap",
+          "desc": "동물이 지나갈 때 센서가 반응하여 자동으로 사진을 찍는 야외 조사 장치예요."
+        },
+        {
+          "ko": "서식지 보전",
+          "en": "habitat conservation",
+          "desc": "야생 동물이 먹고 쉬며 새끼를 기르는 자연 공간과 이동할 터전을 지키는 활동이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "호랑이마다 줄의 갈라짐과 간격이 달라 사진에서 개체를 가리는 데 쓸 수 있다.",
+          "answer": "O",
+          "explanation": "무늬 배열은 개체 식별의 단서예요. 본문에서 확인해요."
+        },
+        {
+          "statement": "왼쪽 옆면 사진만 보면 오른쪽 줄무늬도 언제나 똑같이 알 수 있다.",
+          "answer": "X",
+          "explanation": "좌우 무늬가 달라 따로 기록해요. 본문에서 확인해요."
+        },
+        {
+          "statement": "줄무늬 사진은 호랑이의 이동과 개체군을 조사하는 일에는 쓰이지 않는다.",
+          "answer": "X",
+          "explanation": "여러 장소의 기록을 보전 연구에 활용해요."
+        }
+      ],
+      "one_line_summary": "호랑이의 서로 다른 [   ]는 사진으로 개체를 가리고 이동과 수를 조사하는 단서가 된다.",
+      "summary_keywords": "키워드: 개체 식별, 카메라 덫, 서식지 보전",
+      "sources": [
+        {
+          "title": "인도 국가호랑이보전청 — Global Tiger Day 자료",
+          "url": "https://ntca.gov.in/assets/uploads/stripes/Vol2_Issue1_2010.pdf"
+        },
+        {
+          "title": "인도 국가호랑이보전청 — 카메라 트랩 조사 지침",
+          "url": "https://ntca.gov.in/assets/uploads/guidelines/Protocol_Camera_trap.pdf"
+        },
+        {
+          "title": "Smithsonian's National Zoo — Tiger",
+          "url": "https://nationalzoo.si.edu/animals/tiger"
+        }
+      ],
+      "generated_at": "2026-08-03T19:30:00+09:00",
+      "model_meta": {
+        "model": "openai-codex-gpt-5",
+        "web_search_used": true
+      }
+    },
+    "2026-07-30": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-07-30",
+      "date": "2026-07-30",
+      "weekday": "목",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 조선의 두 가지 시계",
+      "title": "시계 없던 때 시간을 어떻게 알았을까",
+      "subtitle": "해의 그림자와 흐르는 물",
+      "lead_question": "손목시계도 휴대전화도 없던 시대에는 하루의 시간을 무엇으로 재었을까요?",
+      "why_today": "여름 햇빛과 물을 이용한 옛 시간 측정을 알아봐요.",
+      "sections": [
+        {
+          "icon": "☀️",
+          "heading": "앙부일구는 그림자를 읽었어요",
+          "body": "앙부일구는 오목한 솥 모양의 해시계예요. 가운데 세운 막대의 그림자가 안쪽 눈금에 닿는 곳을 읽었어요. 해가 하늘에서 움직여 보이면 그림자의 방향과 길이도 달라져요. 눈금에는 시각과 계절의 변화를 짐작할 선을 새겼어요. 글을 몰라도 읽기 쉽도록 동물 그림을 넣은 종류도 있었어요."
+        },
+        {
+          "icon": "💧",
+          "heading": "자격루는 물의 양으로 쟀어요",
+          "body": "자격루 물시계는 일정하게 흐르는 물을 이용했어요. 물그릇의 물 높이가 오르면 잣대와 여러 장치가 움직였어요. 정해진 높이에서 작은 구슬이 굴러가 인형 장치를 건드렸어요. 그러면 인형이 종이나 북을 쳐 멀리 시간을 알렸어요. 밤에도 쓸 수 있지만 흐르는 물의 양을 세심하게 관리해야 했어요."
+        },
+        {
+          "icon": "🕰️",
+          "heading": "자연 변화를 시간으로 바꿔요",
+          "body": "두 시계는 직접 볼 수 없는 시간을 자연의 변화로 나타냈어요. 앙부일구는 그림자의 방향과 길이 변화를 눈금으로 바꿨어요. 자격루는 흘러간 물의 양을 움직임과 소리로 바꿨어요. 그 안의 자동 장치는 정해진 때에 시간을 알렸어요. 일정하게 되풀이되는 자연 변화를 시간 신호로 만든 셈이에요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "앙부일구",
+          "en": "sundial",
+          "desc": "오목한 그릇 안쪽에 생기는 막대 그림자로 시각과 계절을 읽는 해시계예요."
+        },
+        {
+          "ko": "자격루 물시계",
+          "en": "water clock",
+          "desc": "흐르는 물의 높이 변화로 장치를 움직여 종과 북으로 시간을 알린 시계예요."
+        },
+        {
+          "ko": "자동 장치",
+          "en": "automation",
+          "desc": "사람이 매번 움직이지 않아도 정해진 조건에서 스스로 작동하도록 만든 장치예요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "앙부일구는 햇빛이 전혀 없는 밤에도 선명한 그림자를 만들어 시각을 알렸다.",
+          "answer": "X",
+          "explanation": "빛이 없으면 해 그림자를 쓸 수 없어요."
+        },
+        {
+          "statement": "자격루는 물 높이 변화를 이용해 종과 북을 자동으로 울리게 했다.",
+          "answer": "O",
+          "explanation": "물의 흐름을 움직임과 소리로 바꿨어요."
+        },
+        {
+          "statement": "두 시계는 어떤 날씨와 시간에도 관리 없이 똑같이 사용할 수 있었다.",
+          "answer": "X",
+          "explanation": "해시계와 물시계마다 필요한 조건이 달라요."
+        }
+      ],
+      "one_line_summary": "앙부일구는 [   ]의 변화를, 자격루는 흐르는 [   ]의 양을 시간 표시로 바꾸었다.",
+      "summary_keywords": "키워드: 앙부일구, 자격루 물시계, 자동 장치",
+      "sources": [
+        {
+          "title": "국립고궁박물관 온라인 전시 — 조선의 과학문화",
+          "url": "https://online.gogung.go.kr/gogung/main/contents.do?menuNo=800049"
+        },
+        {
+          "title": "국립중앙박물관 어린이박물관 — 앙부일구",
+          "url": "https://www.museum.go.kr/CHILD/contents/C0404000000.do?arcId=22866&catCustomType=post&catId=3113&schM=view"
+        }
+      ],
+      "generated_at": "2026-08-03T19:30:00+09:00",
+      "model_meta": {
+        "model": "openai-codex-gpt-5",
+        "web_search_used": true
+      }
+    },
+    "2026-07-31": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-07-31",
+      "date": "2026-07-31",
+      "weekday": "금",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 땀과 체온 조절",
+      "title": "땀은 왜 몸을 시원하게 할까",
+      "subtitle": "증발이 가져가는 열",
+      "lead_question": "더운 날 피부에 난 땀이 마르면 왜 몸이 조금 시원해질까요?",
+      "why_today": "한여름 야외 활동에서 체온 조절을 이해해요.",
+      "sections": [
+        {
+          "icon": "💦",
+          "heading": "피부로 물을 내보내요",
+          "body": "몸의 온도가 오르면 뇌가 피부 땀샘에 체온 조절 신호를 보내요. 땀샘은 물 성분이 많은 땀을 피부 표면으로 내보내요. 땀이 나는 것만으로 몸이 충분히 시원해지지는 않아요. 피부 위의 물이 수증기로 바뀌는 증발이 일어나야 해요. 이때 필요한 에너지를 피부의 열에서 가져가 열이 빠져나가요."
+        },
+        {
+          "icon": "🌫️",
+          "heading": "습하면 잘 마르지 않아요",
+          "body": "공기가 건조하고 바람까지 불면 땀이 잘 증발해요. 공기의 상대 습도가 높으면 이미 수증기가 많이 들어 있어요. 피부 위의 물이 공기 중으로 옮겨 가는 속도가 느려질 수 있어요. 그래서 같은 온도라도 습한 날이 더 덥게 느껴져요. 증발 냉각은 땀의 양만 많다고 늘 잘되는 것은 아니에요."
+        },
+        {
+          "icon": "🥤",
+          "heading": "잃은 물을 다시 채워요",
+          "body": "땀을 흘리면 몸속 물과 소금 성분이 함께 줄어요. 더운 곳에 오래 있으면 목마르기 전부터 조금씩 물을 마셔요. 어지럽거나 몹시 힘들면 바로 활동을 멈춰요. 시원한 곳에서 몸을 식히고 어른에게 알려요. 땀은 중요한 장치지만 무더위의 완전한 방패는 아니에요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "피부 땀샘",
+          "en": "sweat gland",
+          "desc": "몸의 온도가 오를 때 체온 조절 신호를 받아 피부 표면으로 땀을 내보내는 작은 기관이에요."
+        },
+        {
+          "ko": "증발 냉각",
+          "en": "evaporative cooling",
+          "desc": "액체가 기체로 바뀌면서 주변의 열에너지를 가져가 물체의 온도를 낮추는 현상이에요."
+        },
+        {
+          "ko": "상대 습도",
+          "en": "humidity",
+          "desc": "현재 공기에 수증기가 얼마나 차 있는지를 비율로 나타내며 땀의 증발에 영향을 주는 값이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "땀이 피부에서 증발할 때 주변의 열을 가져가 체온을 낮추는 데 돕는다.",
+          "answer": "O",
+          "explanation": "액체가 기체가 되며 에너지를 가져가요."
+        },
+        {
+          "statement": "습도가 높으면 땀이 더 빨리 증발하므로 언제나 훨씬 시원해진다.",
+          "answer": "X",
+          "explanation": "수증기가 많으면 증발이 느려질 수 있어요."
+        },
+        {
+          "statement": "더운 곳에서 어지럽고 몹시 힘들면 활동을 멈추고 몸을 식혀야 한다.",
+          "answer": "O",
+          "explanation": "쉬고 물을 마시며 어른에게 알려요. 본문에서 확인해요."
+        }
+      ],
+      "one_line_summary": "피부의 땀이 [   ]하면서 열을 가져가지만, 습한 날에는 그 과정이 느려질 수 있다.",
+      "summary_keywords": "키워드: 피부 땀샘, 증발 냉각, 상대 습도",
+      "sources": [
+        {
+          "title": "미국 국립보건원 NIH News in Health — Stay Cool",
+          "url": "https://newsinhealth.nih.gov/2013/07/stay-cool"
+        },
+        {
+          "title": "PubMed — Human temperature regulation when given the opportunity to behave",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30454591/"
+        }
+      ],
+      "generated_at": "2026-08-03T19:30:00+09:00",
+      "model_meta": {
+        "model": "openai-codex-gpt-5",
         "web_search_used": true
       }
     }

@@ -1,7 +1,7 @@
 window.__loadMunhaerakMonth("2026-07", {
   "schema_version": 1,
   "month": "2026-07",
-  "updated_at": "2026-07-15T21:00:00+09:00",
+  "updated_at": "2026-08-03T19:30:00+09:00",
   "days": {
     "2026-07-04": {
       "n": 1,
@@ -34,11 +34,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "박쥐는 눈이 멀지 않았고, 어두울 때는 소리를 내보내 되돌아오는 메아리로 길과 먹이를 찾는다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "박쥐는 앞을 못 본다(눈이 멀었다)고 생각한다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실 박쥐는 눈이 멀지 않았고, 소리의 메아리로 길을 찾는다" },
-        { "tag": "evd",  "label": "까닭", "text": "높은 소리를 내보내 되돌아오는 메아리를 듣는다 = 반향정위" },
-        { "tag": "evd",  "label": "실감 예시", "text": "캄캄한 밤에도 작은 모기까지 잡는다" },
-        { "tag": "res",  "label": "곁가지", "text": "거꾸로 매달려 잔다 (길 찾기와 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "박쥐는 앞을 못 본다(눈이 멀었다)고 생각한다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실 박쥐는 눈이 멀지 않았고, 소리의 메아리로 길을 찾는다"
+        },
+        {
+          "tag": "evd",
+          "label": "까닭",
+          "text": "높은 소리를 내보내 되돌아오는 메아리를 듣는다 = 반향정위"
+        },
+        {
+          "tag": "evd",
+          "label": "실감 예시",
+          "text": "캄캄한 밤에도 작은 모기까지 잡는다"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "거꾸로 매달려 잔다 (길 찾기와 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 핵심 ‘박쥐는 눈이 멀지 않았다’가 들어갔나요?",
@@ -46,9 +66,21 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘거꾸로 매달려 잔다’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "박쥐는 눈이 멀지 않았다 — 모든 박쥐는 제대로 된 눈이 있어 볼 수 있고, 반향정위는 가까운 거리에서 쓰므로 눈도 함께 쓴다.", "url": "https://www.batcon.org/blind-as-a-bat-no-such-thing/", "label": "Bat Conservation International" },
-        { "text": "박쥐는 사람이 못 듣는 높은 소리를 내보내고, 물체에 부딪혀 되돌아오는 메아리로 위치를 찾는다(반향정위).", "url": "https://www.nps.gov/subjects/bats/echolocation.htm", "label": "미국 국립공원관리청(NPS)" },
-        { "text": "반향정위로 박쥐는 캄캄한 어둠 속에서 머리카락처럼 가는 물체까지 찾아낸다.", "url": "https://askabiologist.asu.edu/echolocation", "label": "Arizona State University · Ask A Biologist" }
+        {
+          "text": "박쥐는 눈이 멀지 않았다 — 모든 박쥐는 제대로 된 눈이 있어 볼 수 있고, 반향정위는 가까운 거리에서 쓰므로 눈도 함께 쓴다.",
+          "url": "https://www.batcon.org/blind-as-a-bat-no-such-thing/",
+          "label": "Bat Conservation International"
+        },
+        {
+          "text": "박쥐는 사람이 못 듣는 높은 소리를 내보내고, 물체에 부딪혀 되돌아오는 메아리로 위치를 찾는다(반향정위).",
+          "url": "https://www.nps.gov/subjects/bats/echolocation.htm",
+          "label": "미국 국립공원관리청(NPS)"
+        },
+        {
+          "text": "반향정위로 박쥐는 캄캄한 어둠 속에서 머리카락처럼 가는 물체까지 찾아낸다.",
+          "url": "https://askabiologist.asu.edu/echolocation",
+          "label": "Arizona State University · Ask A Biologist"
+        }
       ]
     },
     "2026-07-05": {
@@ -82,11 +114,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "낙타 혹에는 물이 아니라 지방이 들어 있어서, 먹이가 부족할 때 그 지방을 에너지로 쓴다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "혹에 물을 저장한다고 생각한다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 혹에 지방이 들어 있다" },
-        { "tag": "evd",  "label": "까닭", "text": "먹이가 부족할 때 지방을 에너지로 쓴다" },
-        { "tag": "evd",  "label": "실감 예시", "text": "지방을 많이 쓰면 혹이 작아지고 처진다" },
-        { "tag": "res",  "label": "곁가지", "text": "속눈썹이 길다 (혹과 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "혹에 물을 저장한다고 생각한다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 혹에 지방이 들어 있다"
+        },
+        {
+          "tag": "evd",
+          "label": "까닭",
+          "text": "먹이가 부족할 때 지방을 에너지로 쓴다"
+        },
+        {
+          "tag": "evd",
+          "label": "실감 예시",
+          "text": "지방을 많이 쓰면 혹이 작아지고 처진다"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "속눈썹이 길다 (혹과 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘혹에는 물이 아니라 지방’이 들어갔나요?",
@@ -94,8 +146,16 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘속눈썹’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "낙타는 혹에 물이 아니라 에너지가 되는 지방을 저장하고, 물은 몸속(소화·순환계)에 분산되어 있다.", "url": "https://www.wtamu.edu/~cbaird/sq/2013/09/18/how-much-water-can-a-camel-store-in-its-hump/", "label": "West Texas A&M University" },
-        { "text": "낙타 혹은 물이 아니라 지방을 저장하며, 몸이 그 지방을 에너지로 바꾼다. 먹이가 적으면 혹이 작아진다.", "url": "https://www.clevelandzoosociety.org/z/2021/04/06/truth-or-tail-a-camels-hump", "label": "Cleveland Zoological Society" }
+        {
+          "text": "낙타는 혹에 물이 아니라 에너지가 되는 지방을 저장하고, 물은 몸속(소화·순환계)에 분산되어 있다.",
+          "url": "https://www.wtamu.edu/~cbaird/sq/2013/09/18/how-much-water-can-a-camel-store-in-its-hump/",
+          "label": "West Texas A&M University"
+        },
+        {
+          "text": "낙타 혹은 물이 아니라 지방을 저장하며, 몸이 그 지방을 에너지로 바꾼다. 먹이가 적으면 혹이 작아진다.",
+          "url": "https://www.clevelandzoosociety.org/z/2021/04/06/truth-or-tail-a-camels-hump",
+          "label": "Cleveland Zoological Society"
+        }
       ]
     },
     "2026-07-06": {
@@ -129,11 +189,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "금붕어는 3초면 잊는 게 아니라, 먹이 자리·시간·색을 배워 여러 달까지 기억할 수 있다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "금붕어는 3초면 다 잊는다고 여긴다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 여러 달까지 기억할 수 있다" },
-        { "tag": "evd",  "label": "근거", "text": "먹이 자리·시간을 기억하고, 색을 구별해 배웠다" },
-        { "tag": "evd",  "label": "실감 예시", "text": "배운 것을 몇 달 뒤까지 기억했다" },
-        { "tag": "res",  "label": "곁가지", "text": "눈을 뜨고 잔다 (기억력과 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "금붕어는 3초면 다 잊는다고 여긴다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 여러 달까지 기억할 수 있다"
+        },
+        {
+          "tag": "evd",
+          "label": "근거",
+          "text": "먹이 자리·시간을 기억하고, 색을 구별해 배웠다"
+        },
+        {
+          "tag": "evd",
+          "label": "실감 예시",
+          "text": "배운 것을 몇 달 뒤까지 기억했다"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "눈을 뜨고 잔다 (기억력과 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘3초가 아니라 여러 달 기억한다’가 들어갔나요?",
@@ -141,8 +221,16 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘눈을 뜨고 잔다’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "금붕어의 ‘3초 기억’설은 오래전 반박됐고, 미시간대·옥스퍼드대 연구에서 금붕어는 여러 날~여러 달 기억한다.", "url": "https://www.discovermagazine.com/goldfish-may-have-longer-memories-than-just-three-seconds-46062", "label": "Discover Magazine (미시간대·옥스퍼드대 연구 인용)" },
-        { "text": "금붕어 3초 기억은 근거 없는 통념이며, 금붕어는 먹이 장소를 학습하고 기억한다.", "url": "https://www.livescience.com/goldfish-memory.html", "label": "Live Science" }
+        {
+          "text": "금붕어의 ‘3초 기억’설은 오래전 반박됐고, 미시간대·옥스퍼드대 연구에서 금붕어는 여러 날~여러 달 기억한다.",
+          "url": "https://www.discovermagazine.com/goldfish-may-have-longer-memories-than-just-three-seconds-46062",
+          "label": "Discover Magazine (미시간대·옥스퍼드대 연구 인용)"
+        },
+        {
+          "text": "금붕어 3초 기억은 근거 없는 통념이며, 금붕어는 먹이 장소를 학습하고 기억한다.",
+          "url": "https://www.livescience.com/goldfish-memory.html",
+          "label": "Live Science"
+        }
       ]
     },
     "2026-07-07": {
@@ -176,11 +264,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "‘뇌의 10%만 쓴다’는 미신이고, 뇌 영상으로 보면 간단한 일에도 여러 곳이 함께 켜질 만큼 우리는 하루 동안 뇌 전체를 두루 쓴다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "사람은 뇌의 10%만 쓴다고 여긴다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 하루 동안 뇌 전체를 두루 쓴다 (10%설은 미신)" },
-        { "tag": "evd",  "label": "근거", "text": "뇌 영상 — 간단한 일에도 여러 곳이 함께 켜진다" },
-        { "tag": "evd",  "label": "실감 예시", "text": "작은 뇌인데 몸 에너지의 약 20%를 쓴다" },
-        { "tag": "res",  "label": "곁가지", "text": "뇌 표면에 주름이 많다 (사용량과 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "사람은 뇌의 10%만 쓴다고 여긴다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 하루 동안 뇌 전체를 두루 쓴다 (10%설은 미신)"
+        },
+        {
+          "tag": "evd",
+          "label": "근거",
+          "text": "뇌 영상 — 간단한 일에도 여러 곳이 함께 켜진다"
+        },
+        {
+          "tag": "evd",
+          "label": "실감 예시",
+          "text": "작은 뇌인데 몸 에너지의 약 20%를 쓴다"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "뇌 표면에 주름이 많다 (사용량과 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘10%가 아니라 뇌 전체를 두루 쓴다’가 들어갔나요?",
@@ -188,8 +296,16 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘뇌 주름’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "‘뇌의 10%만 쓴다’는 것은 미신이며, 우리는 뇌 전체를 매일 쓴다.", "url": "https://mcgovern.mit.edu/2024/01/26/do-we-use-only-10-percent-of-our-brain/", "label": "MIT 맥거번 뇌연구소" },
-        { "text": "쉬고 있는 성인도 뇌가 몸 에너지의 약 20%를 쓴다.", "url": "https://www.brainfacts.org/brain-anatomy-and-function/anatomy/2019/how-much-energy-does-the-brain-use-020119", "label": "BrainFacts.org (미국 신경과학회)" }
+        {
+          "text": "‘뇌의 10%만 쓴다’는 것은 미신이며, 우리는 뇌 전체를 매일 쓴다.",
+          "url": "https://mcgovern.mit.edu/2024/01/26/do-we-use-only-10-percent-of-our-brain/",
+          "label": "MIT 맥거번 뇌연구소"
+        },
+        {
+          "text": "쉬고 있는 성인도 뇌가 몸 에너지의 약 20%를 쓴다.",
+          "url": "https://www.brainfacts.org/brain-anatomy-and-function/anatomy/2019/how-much-energy-does-the-brain-use-020119",
+          "label": "BrainFacts.org (미국 신경과학회)"
+        }
       ]
     },
     "2026-07-08": {
@@ -223,11 +339,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "공룡이 전부 사라진 건 아니고, 두 발로 걷던 공룡의 한 갈래에서 갈라져 나온 새가 오늘날까지 살아남은 공룡의 후손이다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "공룡은 전부 멸종해 하나도 없다고 여긴다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 새가 공룡(두 발로 걷던 무리)의 후손이다" },
-        { "tag": "evd",  "label": "근거", "text": "깃털 달린 공룡 화석 — 공룡과 새가 이어진다" },
-        { "tag": "evd",  "label": "실감 예시", "text": "오늘날 새 1만여 종 = 살아 있는 공룡" },
-        { "tag": "res",  "label": "곁가지", "text": "‘공룡’ 이름의 뜻 (후손 문제와 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "공룡은 전부 멸종해 하나도 없다고 여긴다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 새가 공룡(두 발로 걷던 무리)의 후손이다"
+        },
+        {
+          "tag": "evd",
+          "label": "근거",
+          "text": "깃털 달린 공룡 화석 — 공룡과 새가 이어진다"
+        },
+        {
+          "tag": "evd",
+          "label": "실감 예시",
+          "text": "오늘날 새 1만여 종 = 살아 있는 공룡"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "‘공룡’ 이름의 뜻 (후손 문제와 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘새가 공룡의 후손’이 들어갔나요?",
@@ -235,9 +371,21 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘공룡 이름의 뜻’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "대부분의 고생물학자는 새를 유일하게 살아남은 공룡(조류 공룡)으로 본다.", "url": "https://www.nhm.ac.uk/discover/why-are-birds-the-only-surviving-dinosaurs.html", "label": "영국 자연사박물관(NHM London)" },
-        { "text": "새는 티라노사우루스를 포함하는 두 발 육식 공룡 무리(수각류)에서 유래했으며, 오늘날 1만여 종의 새로 대표된다.", "url": "https://www.amnh.org/exhibitions/dinosaurs-ancient-fossils/extinction/dinosaurs-survive", "label": "미국 자연사박물관(AMNH)" },
-        { "text": "약 6600만 년 전 소행성 충돌로 비조류 공룡은 멸종했지만, 새로 이어지는 공룡의 계통은 살아남았다.", "url": "https://www.smithsonianmag.com/science-nature/why-birds-survived-and-dinosaurs-went-extinct-after-asteroid-hit-earth-180975801/", "label": "Smithsonian Magazine" }
+        {
+          "text": "대부분의 고생물학자는 새를 유일하게 살아남은 공룡(조류 공룡)으로 본다.",
+          "url": "https://www.nhm.ac.uk/discover/why-are-birds-the-only-surviving-dinosaurs.html",
+          "label": "영국 자연사박물관(NHM London)"
+        },
+        {
+          "text": "새는 티라노사우루스를 포함하는 두 발 육식 공룡 무리(수각류)에서 유래했으며, 오늘날 1만여 종의 새로 대표된다.",
+          "url": "https://www.amnh.org/exhibitions/dinosaurs-ancient-fossils/extinction/dinosaurs-survive",
+          "label": "미국 자연사박물관(AMNH)"
+        },
+        {
+          "text": "약 6600만 년 전 소행성 충돌로 비조류 공룡은 멸종했지만, 새로 이어지는 공룡의 계통은 살아남았다.",
+          "url": "https://www.smithsonianmag.com/science-nature/why-birds-survived-and-dinosaurs-went-extinct-after-asteroid-hit-earth-180975801/",
+          "label": "Smithsonian Magazine"
+        }
       ]
     },
     "2026-07-09": {
@@ -271,11 +419,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "소리는 공기 같은 물질이 있어야 퍼지는데, 우주는 거의 진공이라 소리를 전달할 물질이 없어서 소리가 들리지 않는다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’ 뒤에 글쓴이가 하고 싶은 말이 나오고, ‘~거든요·~때문이에요’는 그 까닭을 설명해요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "영화처럼 우주에서도 소리가 들릴 것이다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 우주에서 소리가 들리지 않는다" },
-        { "tag": "evd",  "label": "까닭 1", "text": "소리는 공기 같은 물질(매질)이 있어야 퍼진다" },
-        { "tag": "evd",  "label": "까닭 2", "text": "우주는 거의 진공이라 전달할 물질이 없다" },
-        { "tag": "res",  "label": "곁가지", "text": "우주는 몹시 차갑다 (소리와 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "영화처럼 우주에서도 소리가 들릴 것이다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 우주에서 소리가 들리지 않는다"
+        },
+        {
+          "tag": "evd",
+          "label": "까닭 1",
+          "text": "소리는 공기 같은 물질(매질)이 있어야 퍼진다"
+        },
+        {
+          "tag": "evd",
+          "label": "까닭 2",
+          "text": "우주는 거의 진공이라 전달할 물질이 없다"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "우주는 몹시 차갑다 (소리와 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘우주에서는 소리가 안 들린다’가 들어갔나요?",
@@ -283,8 +451,16 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘우주가 차갑다’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "소리(기계파)는 전달해 줄 물질(매질)이 있어야 하고, 빛(전자기파)은 진공도 통과한다.", "url": "https://science.nasa.gov/ems/02_anatomy/", "label": "NASA Science" },
-        { "text": "우주에는 소리를 전달할 원자·분자가 거의 없어 소리가 나아가지 못한다(완전 진공은 아니지만 거의 진공).", "url": "https://theconversation.com/why-isnt-there-any-sound-in-space-an-astronomer-explains-why-in-space-no-one-can-hear-you-scream-217885", "label": "The Conversation · 천문학자 기고" }
+        {
+          "text": "소리(기계파)는 전달해 줄 물질(매질)이 있어야 하고, 빛(전자기파)은 진공도 통과한다.",
+          "url": "https://science.nasa.gov/ems/02_anatomy/",
+          "label": "NASA Science"
+        },
+        {
+          "text": "우주에는 소리를 전달할 원자·분자가 거의 없어 소리가 나아가지 못한다(완전 진공은 아니지만 거의 진공).",
+          "url": "https://theconversation.com/why-isnt-there-any-sound-in-space-an-astronomer-explains-why-in-space-no-one-can-hear-you-scream-217885",
+          "label": "The Conversation · 천문학자 기고"
+        }
       ]
     },
     "2026-07-10": {
@@ -320,11 +496,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "별똥별은 진짜 별이 아니라, 우주의 작은 돌·먼지가 지구로 빠르게 들어오며 공기와 세게 부딪혀 타면서 내는 빛이다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "별똥별은 진짜 별이 떨어지는 것이다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 우주의 작은 돌·먼지가 타는 빛이다" },
-        { "tag": "evd",  "label": "까닭", "text": "지구로 빠르게 들어오며 공기와 세게 부딪혀 뜨거워져 탄다" },
-        { "tag": "evd",  "label": "이름 정리", "text": "하늘의 빛=유성, 땅에 떨어진 돌=운석" },
-        { "tag": "res",  "label": "곁가지", "text": "별똥별에 소원 빌기 (정체와 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "별똥별은 진짜 별이 떨어지는 것이다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 우주의 작은 돌·먼지가 타는 빛이다"
+        },
+        {
+          "tag": "evd",
+          "label": "까닭",
+          "text": "지구로 빠르게 들어오며 공기와 세게 부딪혀 뜨거워져 탄다"
+        },
+        {
+          "tag": "evd",
+          "label": "이름 정리",
+          "text": "하늘의 빛=유성, 땅에 떨어진 돌=운석"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "별똥별에 소원 빌기 (정체와 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘별똥별은 별이 아니다’가 들어갔나요?",
@@ -332,8 +528,16 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘소원 빌기’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "별똥별(유성)은 실제로 별이 아니며, 우주의 돌(유성체)이 대기에 들어와 타며 내는 빛이다.", "url": "https://spaceplace.nasa.gov/asteroid-or-meteor/en/", "label": "NASA Space Place (어린이용)" },
-        { "text": "유성체·유성·운석의 구분 — 우주의 돌이 대기에 아주 빠르게 들어오며 밝게 타오른다.", "url": "https://science.nasa.gov/solar-system/meteors-meteorites/facts/", "label": "NASA Science" }
+        {
+          "text": "별똥별(유성)은 실제로 별이 아니며, 우주의 돌(유성체)이 대기에 들어와 타며 내는 빛이다.",
+          "url": "https://spaceplace.nasa.gov/asteroid-or-meteor/en/",
+          "label": "NASA Space Place (어린이용)"
+        },
+        {
+          "text": "유성체·유성·운석의 구분 — 우주의 돌이 대기에 아주 빠르게 들어오며 밝게 타오른다.",
+          "url": "https://science.nasa.gov/solar-system/meteors-meteorites/facts/",
+          "label": "NASA Science"
+        }
       ]
     },
     "2026-07-11": {
@@ -369,11 +573,31 @@ window.__loadMunhaerakMonth("2026-07", {
       "model": "식물은 흙에서 밥을 먹는 게 아니라, 잎에서 빛을 이용해 물과 이산화 탄소로 스스로 양분을 만든다. 이것을 광합성이라고 한다.",
       "key_tip": "🔑 읽기 요령: ‘하지만’, ‘사실은’ 같은 말 뒤에 글의 핵심이 숨어 있을 때가 많아요.",
       "map": [
-        { "tag": "int",  "label": "처음 생각", "text": "식물은 뿌리로 흙 속 밥(양분)을 빨아 먹는다" },
-        { "tag": "core", "label": "핵심(반전)", "text": "사실은 잎에서 빛을 이용해 스스로 양분을 만든다(광합성)" },
-        { "tag": "evd",  "label": "근거(광합성)", "text": "잎이 빛으로 물과 이산화 탄소를 양분으로 바꾼다 — 주로 잎에서" },
-        { "tag": "evd",  "label": "보충(뿌리)", "text": "뿌리는 밥이 아니라 물을 빨아들여 잎으로 올려보낸다" },
-        { "tag": "res",  "label": "곁가지", "text": "민들레 씨앗이 바람에 날아간다 (양분 만들기와 무관)" }
+        {
+          "tag": "int",
+          "label": "처음 생각",
+          "text": "식물은 뿌리로 흙 속 밥(양분)을 빨아 먹는다"
+        },
+        {
+          "tag": "core",
+          "label": "핵심(반전)",
+          "text": "사실은 잎에서 빛을 이용해 스스로 양분을 만든다(광합성)"
+        },
+        {
+          "tag": "evd",
+          "label": "근거(광합성)",
+          "text": "잎이 빛으로 물과 이산화 탄소를 양분으로 바꾼다 — 주로 잎에서"
+        },
+        {
+          "tag": "evd",
+          "label": "보충(뿌리)",
+          "text": "뿌리는 밥이 아니라 물을 빨아들여 잎으로 올려보낸다"
+        },
+        {
+          "tag": "res",
+          "label": "곁가지",
+          "text": "민들레 씨앗이 바람에 날아간다 (양분 만들기와 무관)"
+        }
       ],
       "selfcheck": [
         "내 요약에 ‘잎에서 스스로 양분을 만든다(광합성)’가 들어갔나요?",
@@ -381,8 +605,16 @@ window.__loadMunhaerakMonth("2026-07", {
         "‘씨앗 퍼뜨리기’ 같은 곁가지는 빼고 말했나요?"
       ],
       "sources": [
-        { "text": "녹색 식물은 햇빛을 이용해 스스로 양분을 만드는데, 이 과정을 광합성이라고 하며 주로 잎에서 일어난다.", "url": "https://kids.britannica.com/kids/article/photosynthesis/353624", "label": "Britannica Kids (어린이용)" },
-        { "text": "광합성은 식물이 빛으로 물과 이산화 탄소를 양분(당)과 산소로 바꾸는 과정이다. 물은 뿌리로 흡수되어 잎으로 이동한다.", "url": "https://ssec.si.edu/stemvisions-blog/what-photosynthesis", "label": "Smithsonian Science Education Center (어린이용)" }
+        {
+          "text": "녹색 식물은 햇빛을 이용해 스스로 양분을 만드는데, 이 과정을 광합성이라고 하며 주로 잎에서 일어난다.",
+          "url": "https://kids.britannica.com/kids/article/photosynthesis/353624",
+          "label": "Britannica Kids (어린이용)"
+        },
+        {
+          "text": "광합성은 식물이 빛으로 물과 이산화 탄소를 양분(당)과 산소로 바꾸는 과정이다. 물은 뿌리로 흡수되어 잎으로 이동한다.",
+          "url": "https://ssec.si.edu/stemvisions-blog/what-photosynthesis",
+          "label": "Smithsonian Science Education Center (어린이용)"
+        }
       ]
     },
     "2026-07-12": {
@@ -1335,6 +1567,415 @@ window.__loadMunhaerakMonth("2026-07", {
           "text": "한국리서치 조사(2021, 성인 1,000명)에서 '항상 비워둬야 한다' 51%, '앉되 임산부가 타면 양보' 38%로 갈렸고, 혼잡시간대에는 '비워둬야' 40%, '양보하면 됨' 48%로 뒤집혔다.",
           "url": "https://www.hankookilbo.com/News/Read/A2022011217140003819",
           "label": "한국일보 · 한국리서치"
+        }
+      ]
+    },
+    "2026-07-26": {
+      "n": 23,
+      "date": "2026-07-26",
+      "week": "2026-W30",
+      "review_status": "parent_review",
+      "interaction": "pick_core_sentence",
+      "category": "과학",
+      "ptitle": "연속 화면은 왜 움직임처럼 느껴질까?",
+      "step1_guide": "글쓴이가 이 설명에서 가장 전하려는 중심 문장을 골라 보세요.",
+      "sentences": [
+        "영상은 서로 조금씩 다른 고정 장면을 매우 짧은 간격으로 내보내요.",
+        "실제 이동 경로가 보이지 않아도 뇌는 이어진 위치 변화를 하나의 운동으로 해석할 수 있어요.",
+        "공이 화면 왼편과 오른편에 번갈아 나타나면 그 사이를 건너갔다고 느끼기도 해요.",
+        "이러한 지각을 겉보기 운동이라고 하며 시각 영역의 처리와 관련돼요.",
+        "화면 갱신 속도는 기기와 설정에 따라 서로 다를 수 있어요.",
+        "게임 조종기는 버튼의 색과 모양이 제품마다 달라요."
+      ],
+      "correct": 1,
+      "correct_fb": "정답! 여러 장면을 본 뇌가 <b>실제 경로 없이도 운동을 구성한다</b>는 설명이 나머지 근거를 묶어요.",
+      "hints": {
+        "0": "이 문장은 영상이 장면을 내보내는 <b>방식</b>만 말해요.",
+        "2": "공의 위치 변화는 중심 생각을 보여 주는 <b>사례</b>예요.",
+        "3": "현상의 이름과 관련 영역을 붙인 <b>보충 설명</b>이에요.",
+        "4": "기기별 차이는 제작할 때 고려할 <b>조건</b>이에요.",
+        "5": "조종기 생김새는 화면 운동 지각과 무관한 <b>곁가지</b>예요."
+      },
+      "step2_guide": "글을 덮고 ‘무엇을 본 뇌가 어떤 운동을 만들어 내는지’를 한 문장으로 말해 보세요.",
+      "saybox": "재료: ① 고정 장면들 ② 위치가 달라짐 ③ 뇌의 연결 해석.",
+      "model": "빠르게 교대하는 고정 그림에서 대상의 위치가 달라지면, 시각계는 보이지 않은 중간 과정까지 이어 하나의 움직임으로 받아들인다.",
+      "key_tip": "핵심 문장은 화면의 재료와 우리 지각에서 생기는 <b>결과를 함께</b> 설명해요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "재료",
+          "text": "서로 다른 고정 장면"
+        },
+        {
+          "tag": "core",
+          "label": "중심",
+          "text": "뇌가 위치 변화를 운동으로 잇는다"
+        },
+        {
+          "tag": "evd",
+          "label": "사례",
+          "text": "떨어진 두 위치 사이를 건넜다고 느낌"
+        }
+      ],
+      "selfcheck": [
+        "고정 장면을 말했나요?",
+        "위치 변화가 이어진다고 했나요?",
+        "뇌의 해석을 포함했나요?"
+      ],
+      "sources": [
+        {
+          "text": "차례로 제시된 정지 자극 사이에 실제 자극이 없어도 움직임이 지각되며, 관련 경로에서 시각 피질 활동이 관찰됐다.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1175820/",
+          "label": "fMRI apparent motion 연구 · PMC"
+        },
+        {
+          "text": "requestAnimationFrame은 다음 화면 갱신 전에 애니메이션 함수를 호출하며 표시 장치의 갱신률은 서로 다를 수 있다.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame",
+          "label": "MDN Web Docs"
+        }
+      ]
+    },
+    "2026-07-27": {
+      "n": 24,
+      "date": "2026-07-27",
+      "week": "2026-W31",
+      "review_status": "parent_review",
+      "interaction": "pick_core_sentence",
+      "category": "역사",
+      "ptitle": "옛 얼음 창고에는 어떤 장치가 함께 있었을까?",
+      "step1_guide": "여섯 문장을 모두 설명하는 중심 생각을 하나 고르세요.",
+      "sentences": [
+        "조선 시대의 석빙고는 겨울에 마련한 얼음을 더운 계절까지 두는 시설이었어요.",
+        "창고를 지면 아래에 놓고 두꺼운 석재와 흙으로 둘러 외부 열의 침투를 늦췄어요.",
+        "천장 통풍구는 위로 모인 따뜻한 공기가 밖으로 나갈 길을 만들었어요.",
+        "바닥의 경사는 녹은 물이 배수 통로 쪽으로 빠지도록 했어요.",
+        "석빙고는 단열과 통풍, 물 빼기를 함께 설계해 내부 얼음이 녹는 속도를 낮췄어요.",
+        "경주의 옛 도시는 신라의 여러 유적으로도 잘 알려져 있어요."
+      ],
+      "correct": 4,
+      "correct_fb": "정답! 흙과 돌, 공기 통로, 물길이라는 여러 요소를 <b>하나의 보관 설계</b>로 묶은 문장이에요.",
+      "hints": {
+        "0": "시설의 목적을 알려 주는 <b>도입</b>이에요.",
+        "1": "바깥 열을 막는 <b>한 가지 방법</b>만 설명해요.",
+        "2": "통풍구의 역할이라는 <b>부분 근거</b>예요.",
+        "3": "물길의 역할을 다룬 <b>부분 근거</b>예요.",
+        "5": "경주의 다른 유적 이야기는 얼음 보관 원리와 상관없는 <b>곁가지</b>예요."
+      },
+      "step2_guide": "자료를 보지 않고 ‘어떤 세 가지 설계가 얼음 손실을 줄였는지’를 묶어 말해 보세요.",
+      "saybox": "재료: ① 바깥 열 차단 ② 위쪽 공기 통로 ③ 녹은 물 배출.",
+      "model": "지하에 둔 두꺼운 돌방이 열을 막고, 상부 구멍과 기운 바닥이 공기와 물을 내보내면서 저장한 얼음의 손실을 늦췄다.",
+      "key_tip": "여러 장치가 나오면 각각을 나열한 뒤 <b>공통 목적</b>을 찾으면 중심이 보여요.",
+      "map": [
+        {
+          "tag": "core",
+          "label": "중심",
+          "text": "여러 설계로 얼음 손실을 늦춤"
+        },
+        {
+          "tag": "evd",
+          "label": "장치",
+          "text": "지하와 두꺼운 벽"
+        },
+        {
+          "tag": "evd",
+          "label": "장치",
+          "text": "통풍구와 배수 경사"
+        }
+      ],
+      "selfcheck": [
+        "열 차단을 넣었나요?",
+        "공기와 물의 길을 말했나요?",
+        "보관 목적과 연결했나요?"
+      ],
+      "sources": [
+        {
+          "text": "경주 석빙고는 대부분 지하에 묻혀 있고 세 개의 환기구와 중앙 배수 시설을 갖춘 얼음 저장고이다.",
+          "url": "https://www.kh.or.kr/jnrepo/namo/file/files/000002/20220121102512889_IH5D33YD.pdf",
+          "label": "한국문화재재단 · 경주 세계유산 자료"
+        },
+        {
+          "text": "경주 석빙고는 조선 영조 때 축조된 뒤 1741년에 현재 위치로 옮긴 것으로 기록된다.",
+          "url": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=2534",
+          "label": "경주시 문화관광"
+        }
+      ]
+    },
+    "2026-07-28": {
+      "n": 25,
+      "date": "2026-07-28",
+      "week": "2026-W31",
+      "review_status": "parent_review",
+      "interaction": "pick_core_sentence",
+      "category": "철학",
+      "ptitle": "어긋난 약속은 어떻게 바로잡을 수 있을까?",
+      "step1_guide": "약속을 고치는 방법을 가장 넓게 담은 문장을 고르세요.",
+      "sentences": [
+        "어떤 일을 하겠다는 말은 듣는 사람이 자기 일정과 준비를 정하는 근거가 돼요.",
+        "실행이 어렵다고 깨달았을 때 침묵하면 상대는 계획을 바꿀 시간을 잃을 수 있어요.",
+        "약속을 지키기 힘들다면 일찍 사실을 밝히고 영향에 책임을 지며 가능한 해결책을 함께 정해야 해요.",
+        "사과할 때는 상대가 겪을 불편을 인정하는 표현을 넣을 수 있어요.",
+        "새로 합의한 일을 행동으로 옮겨야 다시 믿을 근거가 생겨요.",
+        "달력 앱에는 약속마다 여러 색의 알림을 붙일 수 있어요."
+      ],
+      "correct": 2,
+      "correct_fb": "정답! 문제 알림, 책임 인정, 대안 합의라는 <b>회복의 전체 흐름</b>을 한 문장에 담았어요.",
+      "hints": {
+        "0": "상대가 약속을 믿는다는 <b>배경</b>이에요.",
+        "1": "늦게 말할 때의 문제라는 <b>한 단계</b>예요.",
+        "3": "사과 표현에 관한 <b>세부 방법</b>이에요.",
+        "4": "새 합의를 지키는 <b>마지막 행동</b>만 말해요.",
+        "5": "앱 알림 색은 관계를 고치는 과정과 무관한 <b>곁가지</b>예요."
+      },
+      "step2_guide": "본문을 덮고 ‘언제 알리고, 무엇을 인정하며, 무엇을 함께 정할지’를 말해 보세요.",
+      "saybox": "재료: ① 빠른 통지 ② 생긴 영향 책임 ③ 가능한 새 합의.",
+      "model": "실행할 수 없음을 깨달은 즉시 상대에게 알려 불편을 인정하고, 선택 가능한 보완책을 함께 정한 뒤 새 합의를 행동으로 보여야 한다.",
+      "key_tip": "관계 회복 글의 중심은 멋진 사과 한마디보다 <b>알림부터 행동까지의 순서</b>에 있어요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "문제",
+          "text": "침묵하면 상대의 변경 시간이 줄어듦"
+        },
+        {
+          "tag": "core",
+          "label": "해결",
+          "text": "통지와 책임, 대안 합의"
+        },
+        {
+          "tag": "res",
+          "label": "회복",
+          "text": "새 합의를 실제로 지킴"
+        }
+      ],
+      "selfcheck": [
+        "일찍 알리는 때를 말했나요?",
+        "상대 영향에 책임졌나요?",
+        "새 방법을 함께 정했나요?"
+      ],
+      "sources": [
+        {
+          "text": "약속은 상대에게 미래 행동에 대한 기대와 신뢰를 만들며, 약속한 사람에게 특별한 의무가 생긴다는 철학적 설명이 있다.",
+          "url": "https://plato.stanford.edu/entries/promises/",
+          "label": "Stanford Encyclopedia of Philosophy"
+        }
+      ]
+    },
+    "2026-07-29": {
+      "n": 26,
+      "date": "2026-07-29",
+      "week": "2026-W31",
+      "review_status": "parent_review",
+      "interaction": "delete_noise",
+      "category": "과학",
+      "ptitle": "사진 속 호랑이는 어떻게 구별할까?",
+      "step1_guide": "개체를 확인하는 설명과 관계없는 문장을 모두 골라 지우세요.",
+      "sentences": [
+        "호랑이마다 옆구리 줄의 갈라짐과 간격이 달라 사진에서 개체를 나누는 표지로 쓸 수 있어요.",
+        "조사자는 동물이 지나는 길의 양쪽에 자동 카메라를 두어 좌우 몸 사진을 얻어요.",
+        "좌우 무늬는 같지 않으므로 어느 쪽을 찍었는지 나누고 날짜와 위치 기록도 함께 비교해요.",
+        "사진이 흐리거나 몸 일부가 가려졌다면 프로그램이 찾은 후보를 사람이 다시 살펴요.",
+        "호랑이는 주로 혼자 생활하며 자기 영역을 이용해요.",
+        "7월의 숲은 지역에 따라 비가 자주 내릴 수 있어요."
+      ],
+      "deletable": [
+        4,
+        5
+      ],
+      "delete_fb_ok": "정답! 남은 문장들은 <b>무늬 촬영 → 방향 구분 → 기록 비교 → 재확인</b>이라는 식별 과정만 이어 줘요.",
+      "cut_reason": {
+        "4": "생활 방식은 호랑이의 특징이지만 사진에서 한 마리를 가르는 <b>절차 밖 정보</b>예요.",
+        "5": "계절 날씨는 카메라 조사 환경일 수 있어도 개체 확인 방법을 설명하지 않아요."
+      },
+      "hints": {
+        "0": "서로 다른 줄 배열이 <b>식별 표지</b>가 된다는 시작이에요.",
+        "1": "양쪽 사진을 얻는 <b>자료 수집법</b>이라 남겨요.",
+        "2": "방향과 시공간 기록을 맞추는 <b>비교 단계</b>예요.",
+        "3": "불확실한 결과를 다시 보는 <b>검토 단계</b>예요.",
+        "4": "생활 영역 이야기는 식별 절차에서 벗어나요.",
+        "5": "7월 날씨는 중심 흐름과 무관해요."
+      },
+      "step2_guide": "글을 덮고 ‘무엇을 찍고 어떤 정보와 대조하는지’를 한 문장으로 설명해 보세요.",
+      "saybox": "재료: ① 좌우 몸 무늬 ② 촬영 시각과 지점 ③ 불확실하면 사람 검토.",
+      "model": "길 양편의 자동 촬영 장치로 양쪽 몸의 띠 모양을 모은 뒤 시각과 지점을 함께 대조하고, 애매한 장면은 연구자가 다시 판별한다.",
+      "key_tip": "방법을 설명한 글에서는 <b>자료를 얻고 비교하고 확인하는 순서</b>를 남겨야 해요.",
+      "map": [
+        {
+          "tag": "core",
+          "label": "표지",
+          "text": "개체마다 다른 줄 배열"
+        },
+        {
+          "tag": "evd",
+          "label": "수집",
+          "text": "길 양쪽에서 좌우 사진 촬영"
+        },
+        {
+          "tag": "res",
+          "label": "검토",
+          "text": "기록 대조와 사람 재확인"
+        }
+      ],
+      "selfcheck": [
+        "무늬를 식별 표지로 말했나요?",
+        "좌우를 구분했나요?",
+        "날짜와 장소도 비교했나요?"
+      ],
+      "sources": [
+        {
+          "text": "호랑이 모니터링 지침은 자동 카메라를 이용해 좌우 옆면을 촬영하고 개체별 줄무늬를 비교하는 절차를 제시한다.",
+          "url": "https://ntca.gov.in/assets/uploads/guidelines/Protocol_Camera_trap.pdf",
+          "label": "인도 국가호랑이보전청"
+        },
+        {
+          "text": "Global Tiger Day는 매년 7월 29일 호랑이 보전에 대한 관심을 높이는 날로 소개된다.",
+          "url": "https://ntca.gov.in/assets/uploads/stripes/Vol2_Issue1_2010.pdf",
+          "label": "인도 국가호랑이보전청 · STRIPES"
+        }
+      ]
+    },
+    "2026-07-30": {
+      "n": 27,
+      "date": "2026-07-30",
+      "week": "2026-W31",
+      "review_status": "parent_review",
+      "interaction": "delete_noise",
+      "category": "역사",
+      "ptitle": "해와 물은 어떻게 시간을 알렸을까?",
+      "step1_guide": "옛 시계가 시간을 표시한 원리에서 벗어난 문장을 지우세요.",
+      "sentences": [
+        "앙부일구에서는 해의 위치가 달라질수록 막대가 만든 그늘도 그릇 안의 다른 눈금을 가리켜요.",
+        "자격루는 일정하게 들어온 물의 높이가 정해진 곳에 닿으면 구슬과 인형 장치를 움직였어요.",
+        "두 기구는 되풀이되는 자연 변화를 눈금이나 소리로 바꾸어 보이지 않는 시각을 나타냈어요.",
+        "해시계는 어두운 때 쓰기 어렵고 물시계는 흐름을 꾸준히 조절해야 하는 한계가 있었어요.",
+        "조선의 궁궐 지붕에는 여러 종류의 동물 장식이 놓였어요.",
+        "옛 관리들은 계절에 따라 서로 다른 빛깔의 옷을 입기도 했어요."
+      ],
+      "deletable": [
+        4,
+        5
+      ],
+      "delete_fb_ok": "정답! 남긴 네 문장은 <b>그림자와 수량을 시간 신호로 바꾸는 두 방식</b>만 설명해요.",
+      "cut_reason": {
+        "4": "지붕 장식은 궁궐 문화의 다른 소재라 시간 측정과 연결되지 않아요.",
+        "5": "관리의 옷차림은 옛 생활 정보이지만 두 시계의 원리와 무관해요."
+      },
+      "hints": {
+        "0": "앙부일구가 읽는 <b>변화와 눈금</b>을 설명해요.",
+        "1": "자격루의 물과 자동 알림이라는 <b>작동 과정</b>이에요.",
+        "2": "두 장치의 공통점을 묶은 <b>중심 문장</b>이에요.",
+        "3": "각 도구가 필요한 조건을 알려 주는 <b>비교 근거</b>예요.",
+        "4": "건축 장식은 시계와 관계없는 정보예요.",
+        "5": "복식 이야기도 중심에서 벗어나요."
+      },
+      "step2_guide": "자료 없이 ‘두 시계가 어떤 변화를 어떤 신호로 바꿨는지’를 비교해 말하세요.",
+      "saybox": "재료: ① 해가 만든 그늘과 눈금 ② 물 높이와 종·북 ③ 각 도구의 조건.",
+      "model": "오목한 해시계는 햇살이 만든 그늘의 자리를 읽게 했고, 자동 물시계는 차오른 수량이 기계와 소리를 움직이게 하여 시각을 표시했다.",
+      "key_tip": "비교 글은 대상마다 <b>입력되는 변화와 나타나는 결과</b>를 짝지어 읽어요.",
+      "map": [
+        {
+          "tag": "evd",
+          "label": "해시계",
+          "text": "그늘 위치를 눈금으로 읽음"
+        },
+        {
+          "tag": "evd",
+          "label": "물시계",
+          "text": "수위가 장치와 소리를 작동"
+        },
+        {
+          "tag": "core",
+          "label": "공통점",
+          "text": "자연 변화를 시간 신호로 바꿈"
+        }
+      ],
+      "selfcheck": [
+        "해와 그늘을 연결했나요?",
+        "물 높이와 자동 알림을 말했나요?",
+        "공통 목적을 맺었나요?"
+      ],
+      "sources": [
+        {
+          "text": "앙부일구는 오목한 시반 위에 생기는 영침의 그림자로 시각과 절기를 읽게 한 해시계이다.",
+          "url": "https://online.gogung.go.kr/gogung/main/contents.do?menuNo=800049",
+          "label": "국립고궁박물관"
+        },
+        {
+          "text": "자격루는 물의 양을 재는 장치와 자동으로 시간을 알리는 장치를 결합한 물시계로 설명된다.",
+          "url": "https://www.museum.go.kr/MUSEUM/contents/M0502000000.do?relicId=4530&schM=view&searchId=search",
+          "label": "국립중앙박물관"
+        }
+      ]
+    },
+    "2026-07-31": {
+      "n": 28,
+      "date": "2026-07-31",
+      "week": "2026-W31",
+      "review_status": "parent_review",
+      "interaction": "delete_noise",
+      "category": "과학",
+      "ptitle": "피부의 물은 어떻게 열을 빼앗을까?",
+      "step1_guide": "땀의 냉각 과정과 안전 행동에 필요하지 않은 문장을 지우세요.",
+      "sentences": [
+        "체온이 높아지면 신경 신호를 받은 피부샘이 수분을 표면으로 분비해요.",
+        "피부의 액체가 기체로 변할 때 필요한 에너지를 몸 가까이에서 얻어 열이 빠져나가요.",
+        "공기 중 수증기가 많은 날에는 표면의 물이 마르는 과정이 느려 냉각 효율이 낮아질 수 있어요.",
+        "더운 환경에서 어지럼이나 심한 피로가 생기면 쉬고 몸을 식히며 주변 어른에게 알려야 해요.",
+        "사람의 손가락에는 지문을 만드는 굴곡이 있어요.",
+        "여름 운동복은 여러 회사에서 다양한 색으로 만들어요."
+      ],
+      "deletable": [
+        4,
+        5
+      ],
+      "delete_fb_ok": "정답! 남은 네 문장이 <b>분비 → 기화 → 습도의 영향 → 과열 때 행동</b>으로 이어져요.",
+      "cut_reason": {
+        "4": "지문은 같은 피부에 관한 사실이지만 열을 내보내는 과정과 관계없어요.",
+        "5": "옷 색은 운동 제품의 특징일 뿐 체온 조절 설명을 돕지 않아요."
+      },
+      "hints": {
+        "0": "몸이 수분을 내보내는 <b>시작 단계</b>예요.",
+        "1": "열이 줄어드는 <b>핵심 원리</b>라 남겨야 해요.",
+        "2": "습한 날 냉각이 약해지는 <b>조건</b>이에요.",
+        "3": "과열 신호가 있을 때의 <b>안전 행동</b>이에요.",
+        "4": "지문 정보는 주제에서 벗어나요.",
+        "5": "제품 색깔도 냉각 원리와 무관해요."
+      },
+      "step2_guide": "글을 덮고 ‘액체가 어떻게 열을 가져가며 습도가 어떤 영향을 주는지’를 말하세요.",
+      "saybox": "재료: ① 피부 수분 ② 기체로 변할 때 에너지 사용 ③ 습하면 느려짐.",
+      "model": "피부에 나온 수분이 수증기로 바뀌는 데 몸 가까이의 에너지를 쓰면서 열이 줄고, 공기가 축축하면 이 변화가 더디게 진행된다.",
+      "key_tip": "원인과 결과 사이에 <b>상태 변화가 쓰는 에너지</b>를 넣으면 설명이 정확해져요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "시작",
+          "text": "체온 상승 뒤 수분 분비"
+        },
+        {
+          "tag": "core",
+          "label": "원리",
+          "text": "기화에 에너지가 필요함"
+        },
+        {
+          "tag": "res",
+          "label": "조건",
+          "text": "습하면 기화가 느려짐"
+        }
+      ],
+      "selfcheck": [
+        "액체가 기체로 변한다고 했나요?",
+        "열이 빠진다고 말했나요?",
+        "습도의 영향을 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "땀이 증발하면 피부 표면에서 열을 제거하며, 습한 날에는 증발이 어려워 체온 조절 부담이 커질 수 있다.",
+          "url": "https://newsinhealth.nih.gov/2013/07/stay-cool",
+          "label": "미국 국립보건원 NIH"
+        },
+        {
+          "text": "사람의 체온 조절에는 땀 분비와 증발을 통한 열 손실이 중요한 역할을 한다.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30454591/",
+          "label": "PubMed · 체온 조절 리뷰"
         }
       ]
     }
