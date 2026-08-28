@@ -1,4 +1,5 @@
 // PO 학습 시스템 Service Worker
+// v5.100.0 (2026-08-28): 배치4 8/29~9/11 배포 — '오늘의 한 장' 14장 + '문해력 한 장' 14장(daily 8월 3 + 9월 11, 문해력 8월 3 + 9월 11, n=37~50). 신규 월파일 daily_2026-09.js·munhaerak_2026-09.js 2경로 PRECACHE 추가(86→88항) — daily_index.js·munhaerak_index.js는 이미 PRECACHE라 이 2경로 없이 배포하면 오프라인 기기가 9월 목록만 받고 본문을 못 받는다. daily_index 63→77항·munhaerak_index 36→50항, rotation history 28건(7/26~9/11) 재계산, calendar 9/1 통계의 날·9/4 태권도의 날(기념일)·9/7 백로(절기)·9/8 국제 문해의 날(기념일) 추가. 카드 날짜는 배치3(~8/8)에 연속시키지 않고 실제 읽는 시점(8/29~)에 맞춤(JH 2026-08-28) — 큐는 FIFO라 공백 무해. 기존 daily 63장·문해력 36장·index 기존 항 deep-equal 불변. 생성 주체 = Cowork(이번 1회 예외, JH 승인 2026-08-28), 이미지 없음(image_url null). 코드·렌더러·GAS·config 불변 — 데이터 8파일 + PRECACHE 2경로 + 버전 무효화. CACHE bump(v5990→v51000). 변경: daily_2026-08.js·daily_2026-09.js(신규)·daily_index.js·daily_one_page/·munhaerak_2026-08.js·munhaerak_2026-09.js(신규)·munhaerak_index.js·index.html·sw.js.
 // v5.99.0 (2026-08-04): 주간 발성수업 연계모드 — 3회차(260802) 주차 콘텐츠 갱신. VR_CURRENT_PROGRAM(voice_recall_260802 / reviewDueDate 2026-08-10 = 다음 수업일 미확정으로 가장 이른 후보일)·VR_CUES(3, '연습할 때는 힘을 더' 신설·스타카토 제외)·VR_RECALL_CARDS(2, '엄마 끝났어요' 신설)·VR_TOPICS(3, 운동·롯데월드·먹는 것)·VR_EXTRA_ITEMS(8) 교체. VR_HAS_PICTURE_ASSETS=false·낭독 미포함 유지. 로직·데이터·config·GAS·PRECACHE 불변. CACHE bump(v5980→v5990). 변경 2파일: index.html·sw.js. ⚠ 아이 기기는 푸터가 v5.99.0·sw5990인지 먼저 확인한 뒤 부모 패널에서 모드를 재전환해야 새 programId가 적용된다(vrParentActivate는 로드된 상수를 저장 — 설계 §9-1).
 // v5.98.0 (2026-08-04): '오늘의 단어' 2026-W31 주간분 3장 배포 — 즉흥적(A1)·신경을 곤두세우다(A3)·물꼬를 트다(A3). 확정 N=3(PO_학습기록.xlsx 단어공급 앵커 2026-07-31, 실사용 2기기 동일 — 폴백 아님), 활성 3·예비 1(쩔쩔매다 = N 상한 초과, 품질 HOLD 아님). first_review_date 2026-08-06/08-07/08-05 = class_date 대비 7·8·8일로 전부 6~8일 창 안, 과거 backdate 0건. W30(앵커 2026-07-24)은 첫 인출 창이 이미 닫혀 JH 판정 A안으로 건너뜀 — weekly_A12=0, 4주 벡터 [0,0,0,1]. 신규 월파일 wordcards_2026-08.js 1경로 PRECACHE 추가(85→86항) — word_index.js는 이미 PRECACHE라 이 경로 없이 배포하면 오프라인 기기가 8월 목록만 받고 카드 본문을 못 받는다. 오프라인 ignoreSearch 정규식 wordcards_\d{4}-\d{2}가 새 파일을 이미 잡는다(정규식 무변경). 기존 배포 19장·wordcards_2026-07.js deep-equal 불변. 코드·렌더러·GAS·config·데이터 8파일 불변 — word 데이터 2파일 + PRECACHE 1경로 + 버전 무효화. CACHE bump(v5970→v5980). 변경 4파일: wordcards_2026-08.js(신규)·word_index.js·index.html·sw.js. 검수 FINAL = 02_Working/word-cards/review/2026-W31-주간추출-검수-v4.md.
 // 이전 v5.97.0 (2026-08-04): 배치3 7/26~8/8 배포 — '오늘의 한 장' 14장 + '문해력 한 장' 14장(daily 7월 6 + 8월 8, 문해력 7월 6 + 8월 8). 신규 월파일 daily_2026-08.js·munhaerak_2026-08.js 2경로 PRECACHE 추가(이번 릴리스의 핵심 — daily_index.js는 이미 PRECACHE라 이 2경로 없이 배포하면 오프라인 기기가 8월 목록만 받고 본문을 못 받는다). daily_index 49→63항·munhaerak_index 22→36항, rotation history 28건(7/12~8/8) 재계산, calendar 7/29 세계 호랑이의 날(기념일)·8/7 입추(절기) 추가. 기존 July daily 25장·문해력 22장·index 49/22항 deep-equal 불변(HEAD 대조 확인). 8/8 동조(애시) 카드 출처는 1차 문헌 DOI(10.1037/h0093718). 데이터 정본 채택 GO(2026-08-04). 코드·렌더러·GAS·config 불변 — 데이터 8파일 + PRECACHE 2경로 + 버전 무효화. CACHE bump(v5960→v5970). 변경: daily_2026-07.js·daily_2026-08.js(신규)·daily_index.js·daily_one_page/·munhaerak_2026-07.js·munhaerak_2026-08.js(신규)·munhaerak_index.js·index.html·sw.js.
@@ -49,7 +50,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v5990';
+const CACHE_NAME = 'po-learning-v51000';
 const PRECACHE = [
   './',
   './index.html',
@@ -59,9 +60,11 @@ const PRECACHE = [
   './daily_2026-06.js',
   './daily_2026-07.js',
   './daily_2026-08.js',
+  './daily_2026-09.js',
   './munhaerak_index.js',
   './munhaerak_2026-07.js',
   './munhaerak_2026-08.js',
+  './munhaerak_2026-09.js',
   './word_index.js',
   './wordcards_2026-07.js',
   './wordcards_2026-08.js',

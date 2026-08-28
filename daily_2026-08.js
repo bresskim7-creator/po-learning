@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-08", {
   "schema_version": 1.1,
   "month": "2026-08",
-  "updated_at": "2026-08-03T19:30:00+09:00",
+  "updated_at": "2026-08-28T16:27:51+09:00",
   "days": {
     "2026-08-01": {
       "schema_version": 1.1,
@@ -684,6 +684,256 @@ window.__loadDailyMonth("2026-08", {
       "generated_at": "2026-08-03T19:30:00+09:00",
       "model_meta": {
         "model": "openai-codex-gpt-5",
+        "web_search_used": true
+      }
+    },
+    "2026-08-29": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-08-29",
+      "date": "2026-08-29",
+      "weekday": "토",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 롤러코스터와 에너지 전환",
+      "title": "롤러코스터는 왜 엔진 없이 달릴까",
+      "subtitle": "높이가 속도로 바뀌는 놀이기구의 비밀",
+      "lead_question": "롤러코스터는 첫 언덕만 천천히 올라가고, 그다음엔 왜 저절로 빠르게 달릴까요?",
+      "why_today": "여름 끝 놀이공원 기억을 과학으로 풀어 봐요.",
+      "sections": [
+        {
+          "icon": "🎢",
+          "heading": "첫 언덕만 기계가 밀어요",
+          "body": "롤러코스터를 타면 처음에 열차가 덜컹거리며 천천히 올라가요. 이때만 기계가 열차를 첫 언덕 꼭대기까지 끌어올려요. 그 뒤로는 엔진이 없어요. 전통적인 롤러코스터는 지구가 끌어당기는 힘, 곧 중력만으로 달려요. 요즘엔 중간에 다시 밀어 주는 발사 장치를 단 것도 있어요. 그래도 기본 원리는 같아서 첫 언덕이 가장 중요해요."
+        },
+        {
+          "icon": "⚡",
+          "heading": "높이가 속도로 바뀐다",
+          "body": "높은 곳에 있는 물체는 에너지를 갖고 있어요. 이것을 위치 에너지라고 불러요. 열차가 내려오면 위치 에너지가 움직이는 에너지로 바뀌어요. 이 움직이는 에너지가 운동 에너지예요. 꼭대기에서 바닥까지 내려올수록 속도가 점점 빨라져요. 다시 언덕을 오르면 속도는 줄고 위치 에너지가 되돌아와요."
+        },
+        {
+          "icon": "🔧",
+          "heading": "뒤 언덕은 왜 낮을까",
+          "body": "바퀴와 레일이 비벼지고 공기 저항도 열차를 붙잡아요. 그래서 에너지 일부가 열과 소리로 조금씩 새어 나가요. 새어 나간 만큼 열차는 처음 높이까지 다시 오르지 못해요. 설계하는 사람은 이것을 알고 뒤 언덕을 첫 언덕보다 낮게 만들어요. 마지막엔 브레이크가 남은 운동 에너지를 줄여 멈춰요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "위치 에너지",
+          "en": "potential energy",
+          "desc": "높은 곳에 있는 물체가 갖고 있는 에너지예요. 더 높은 곳에 있을수록 이 에너지는 더 커져요."
+        },
+        {
+          "ko": "운동 에너지",
+          "en": "kinetic energy",
+          "desc": "움직이는 물체가 가진 에너지예요. 열차가 빠르게 달릴수록 이 에너지는 더 커져요."
+        },
+        {
+          "ko": "공기 저항",
+          "en": "air resistance",
+          "desc": "공기가 움직이는 물체를 뒤에서 잡아당기듯 막는 힘이에요. 빠를수록 더 세게 막아요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "전통적인 롤러코스터는 첫 언덕을 오른 뒤에는 엔진 없이 중력으로 달려요.",
+          "answer": "O",
+          "explanation": "§1처럼 전통적인 롤러코스터는 첫 언덕 뒤 중력만으로 달려요."
+        },
+        {
+          "statement": "설계하는 사람은 뒤에 오는 언덕을 첫 언덕보다 더 높게 만들어요.",
+          "answer": "X",
+          "explanation": "에너지가 새어 나가므로 뒤 언덕은 첫 언덕보다 낮게 만들어요."
+        },
+        {
+          "statement": "열차가 언덕을 내려오는 동안 위치 에너지는 운동 에너지로 바뀌어요.",
+          "answer": "O",
+          "explanation": "§2처럼 위치 에너지가 운동 에너지로 바뀌며 빨라져요."
+        }
+      ],
+      "one_line_summary": "롤러코스터는 첫 언덕의 [   ] 에너지를 [   ] 에너지로 바꾸며 엔진 없이 달린다.",
+      "summary_keywords": "키워드: 위치 에너지, 운동 에너지, 공기 저항",
+      "sources": [
+        {
+          "title": "Potential and Kinetic Energy: Roller Coasters — LABScI, Stanford University",
+          "url": "https://web.stanford.edu/group/lpchscience/cgi-bin/wordpress/images/Potential-and-Kinetic-Energy-T.pdf"
+        },
+        {
+          "title": "Physics of Roller Coasters — TeachEngineering (Duke University / University of Colorado Boulder)",
+          "url": "https://www.teachengineering.org/lessons/duk_rollercoaster_music_less"
+        }
+      ],
+      "generated_at": "2026-08-28T15:00:00+09:00",
+      "model_meta": {
+        "model": "claude-fable-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-08-30": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-08-30",
+      "date": "2026-08-30",
+      "weekday": "일",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 즐거운 시간은 왜 짧게 느껴질까",
+      "title": "즐거운 시간은 왜 빨리 가는 것처럼 느껴질까",
+      "subtitle": "방학 끝에 생각해 보는 시간 감각",
+      "lead_question": "게임 한 판은 금방 끝나는데 기다리는 십 분은 왜 그렇게 길까요? 시계는 똑같이 가는데 말이에요.",
+      "why_today": "방학이 빨리 지나간 느낌을 과학으로 살펴봐요.",
+      "sections": [
+        {
+          "icon": "⏳",
+          "heading": "시계와 마음은 다르게 간다",
+          "body": "시계는 언제나 같은 빠르기로 움직여요. 그런데 우리 마음속 시간 감각은 그렇지 않아요. 놀 때는 한 시간이 십 분처럼 느껴져요. 반대로 병원 대기실에서는 십 분이 한 시간 같아요. 시간이 실제로 빨라진 게 아니에요. 우리가 시간을 느끼는 방식이 달라진 거예요. 그 까닭을 심리학자들이 실험으로 살펴보았어요."
+        },
+        {
+          "icon": "🔬",
+          "heading": "원하는 마음이 시간을 줄여요",
+          "body": "미국 앨라배마대학교 연구진이 실험을 했어요. 사람들에게 맛있는 디저트 사진을 잠깐 보여 주었어요. 사람들은 그 사진이 도형이나 꽃 사진보다 짧게 보였다고 느꼈어요. 무언가를 강하게 원할 때 주의 집중이 좁아져요. 딴생각이 끼어들 틈이 줄어들어 시간이 짧게 느껴진다고 해요."
+        },
+        {
+          "icon": "🧭",
+          "heading": "방학이 짧았던 진짜 이유",
+          "body": "즐거운 일에 빠져 있으면 시간을 살필 겨를이 없어요. 반대로 기다릴 때는 자꾸 시계를 보게 되지요. 시간 자체에 마음이 가면 시간은 길게 느껴져요. 방학이 짧았다면 그만큼 마음을 쏟은 일이 많았다는 뜻이에요. 새 학기에도 마음을 쏟을 일을 하나 정해 보면 어떨까요?"
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "시간 감각",
+          "en": "sense of time",
+          "desc": "시계와 상관없이 우리 마음이 시간을 길거나 짧게 느끼는 감각이에요. 상황마다 달라져요."
+        },
+        {
+          "ko": "주의 집중",
+          "en": "attention",
+          "desc": "마음을 한곳에 모으는 일이에요. 집중이 좁아지면 딴생각이 끼어들 틈이 줄어들어요."
+        },
+        {
+          "ko": "심리학자",
+          "en": "psychologist",
+          "desc": "사람의 마음과 행동이 어떻게 움직이는지 실험과 관찰로 연구하는 학자예요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "즐겁게 놀 때는 시계 자체가 실제로 더 빨리 움직여요.",
+          "answer": "X",
+          "explanation": "시계는 같은 빠르기로 가고, 시간을 느끼는 방식만 달라져요."
+        },
+        {
+          "statement": "실험에서 사람들은 디저트 사진을 꽃 사진보다 짧게 본 것으로 느꼈어요.",
+          "answer": "O",
+          "explanation": "§2처럼 원하는 사진일수록 짧게 보였다고 느꼈어요."
+        },
+        {
+          "statement": "기다리면서 시간에 자꾸 마음을 두면 시간이 길게 느껴져요.",
+          "answer": "O",
+          "explanation": "§3처럼 시간 자체에 마음이 가면 길게 느껴져요."
+        }
+      ],
+      "one_line_summary": "무언가를 강하게 원하면 [   ]이 좁아져 시간이 [   ] 느껴진다.",
+      "summary_keywords": "키워드: 시간 감각, 주의 집중, 심리학자",
+      "sources": [
+        {
+          "title": "Psychologists Study \"Time Flies When You're Having Fun\" Phenomenon — University of Alabama (Gable & Poole, Psychological Science 2012)",
+          "url": "https://barefield.ua.edu/2012/10/01/psychologists-study-time-flies-when-youre-having-fun-phenomenon/"
+        }
+      ],
+      "generated_at": "2026-08-28T15:00:00+09:00",
+      "model_meta": {
+        "model": "claude-fable-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-08-31": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-08-31",
+      "date": "2026-08-31",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 조선 시대 서당의 배움",
+      "title": "옛날 아이들은 서당에서 무엇을 배웠을까",
+      "subtitle": "개학 앞두고 보는 옛날 학교 이야기",
+      "lead_question": "오늘날 같은 초등학교가 없던 조선 시대, 아이들은 어디에서 어떻게 글을 배웠을까요? 시험은 있었을까요?",
+      "why_today": "새 학기 시작, 옛 아이들의 공부법을 봐요.",
+      "sections": [
+        {
+          "icon": "🏫",
+          "heading": "마을이 세운 작은 학교",
+          "body": "서당은 마을 사람들이 힘을 모아 세운 사설 교육 기관이에요. 나라가 세운 향교와 달리 동네 어른들이 만든 배움터였지요. 가르치는 훈장 선생님이 있었어요. 배움이 앞선 학생이 접장이 되어 동생들을 도왔어요. 나이도 실력도 다른 아이들이 한 방에 모여 배웠어요. 16세기 이후 이런 서당이 전국으로 퍼졌어요."
+        },
+        {
+          "icon": "📖",
+          "heading": "외우고, 짓고, 써 보고",
+          "body": "서당 공부는 세 가지였어요. 책을 소리 내어 읽고 뜻을 익히는 강독이 첫째예요. 글을 지어 보는 제술, 글씨를 익히는 습자가 그다음이에요. 처음엔 천자문으로 한자 천 글자를 익혔어요. 그다음엔 동몽선습 같은 어린이용 책을 읽었어요. 한 사람씩 다른 책을 읽는 일도 흔했어요."
+        },
+        {
+          "icon": "🎉",
+          "heading": "책 한 권을 떼면 잔치",
+          "body": "서당에는 요즘 같은 시험이 없었어요. 대신 그날 배운 부분을 다음 날 훈장 앞에서 외워 보였어요. 합격해야 새 부분으로 나아갈 수 있었어요. 그러니 진도는 아이마다 달랐지요. 책 한 권을 다 떼면 책걸이 잔치를 열었어요. 떡을 나누며 함께 기뻐했답니다. 공부를 마친 기쁨을 마을이 함께 나눈 거예요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "교육 기관",
+          "en": "educational institution",
+          "desc": "학교처럼 사람을 가르치기 위해 만든 곳이에요. 서당은 마을이 세운 사설 교육 기관이었어요."
+        },
+        {
+          "ko": "한자 천 글자",
+          "en": "a thousand Chinese characters",
+          "desc": "천자문에 담긴 한자 천 개예요. 옛날 아이들은 이것으로 글자 공부를 시작했어요."
+        },
+        {
+          "ko": "책걸이 잔치",
+          "en": "book-finishing party",
+          "desc": "책 한 권을 다 배웠을 때 떡을 나누며 축하하던 서당의 잔치예요. 책씻이라고도 해요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "서당은 나라가 아니라 동네 사람들이 스스로 힘을 모아 만든 배움터였어요.",
+          "answer": "O",
+          "explanation": "§1처럼 나라가 아니라 마을 사람들이 세운 사설 기관이에요."
+        },
+        {
+          "statement": "서당 아이들은 책 읽기와 글짓기, 글씨 쓰기 세 가지를 공부했어요.",
+          "answer": "O",
+          "explanation": "§2처럼 강독, 제술, 습자가 서당 공부였어요."
+        },
+        {
+          "statement": "서당 아이들은 모두 같은 날 같은 부분을 배우며 진도를 맞췄어요.",
+          "answer": "X",
+          "explanation": "외워서 합격해야 다음으로 가므로 진도는 아이마다 달랐어요."
+        }
+      ],
+      "one_line_summary": "서당 아이들은 전날 배운 것을 [   ] 합격해야 다음으로 나아갔고, 책을 떼면 [   ]를 열었다.",
+      "summary_keywords": "키워드: 교육 기관, 한자 천 글자, 책걸이 잔치",
+      "sources": [
+        {
+          "title": "서당(書堂) — 한국민족문화대백과사전(한국학중앙연구원)",
+          "url": "https://encykorea.aks.ac.kr/Article/E0027680"
+        }
+      ],
+      "generated_at": "2026-08-28T15:00:00+09:00",
+      "model_meta": {
+        "model": "claude-fable-5 (Cowork)",
         "web_search_used": true
       }
     }
