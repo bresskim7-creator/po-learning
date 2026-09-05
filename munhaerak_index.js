@@ -1,21 +1,21 @@
 window.__loadMunhaerakIndex([
   {
     "n": 50,
-    "date": "2026-09-11",
+    "date": "2026-09-14",
     "month": "2026-09",
     "category": "역사",
     "title": "아시안게임은 어떤 대회로 자라 왔을까?"
   },
   {
     "n": 49,
-    "date": "2026-09-10",
+    "date": "2026-09-13",
     "month": "2026-09",
     "category": "과학",
     "title": "몸은 언제 숨을 쉬라고 재촉할까?"
   },
   {
     "n": 48,
-    "date": "2026-09-09",
+    "date": "2026-09-12",
     "month": "2026-09",
     "category": "과학",
     "title": "가을 하늘은 왜 더 짙푸르게 보일까?"
@@ -351,6 +351,6 @@ window.__loadMunhaerakIndex([
   }
 ], {
   "schema_version": 1,
-  "updated_at": "2026-08-28T16:27:51+09:00",
-  "version_key": "20260828-1627"
+  "updated_at": "2026-09-05T21:50:20+09:00",
+  "version_key": "20260905-2150"
 });

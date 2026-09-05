@@ -1,7 +1,7 @@
 window.__loadMunhaerakMonth("2026-09", {
   "schema_version": 1,
   "month": "2026-09",
-  "updated_at": "2026-08-28T16:27:51+09:00",
+  "updated_at": "2026-09-05T21:50:20+09:00",
   "days": {
     "2026-09-01": {
       "n": 40,
@@ -522,9 +522,9 @@ window.__loadMunhaerakMonth("2026-09", {
         }
       ]
     },
-    "2026-09-09": {
+    "2026-09-12": {
       "n": 48,
-      "date": "2026-09-09",
+      "date": "2026-09-12",
       "week": "2026-W37",
       "review_status": "parent_review",
       "interaction": "pick_core_sentence",
@@ -587,9 +587,9 @@ window.__loadMunhaerakMonth("2026-09", {
         }
       ]
     },
-    "2026-09-10": {
+    "2026-09-13": {
       "n": 49,
-      "date": "2026-09-10",
+      "date": "2026-09-13",
       "week": "2026-W37",
       "review_status": "parent_review",
       "interaction": "generalize",
@@ -652,10 +652,10 @@ window.__loadMunhaerakMonth("2026-09", {
         }
       ]
     },
-    "2026-09-11": {
+    "2026-09-14": {
       "n": 50,
-      "date": "2026-09-11",
-      "week": "2026-W37",
+      "date": "2026-09-14",
+      "week": "2026-W38",
       "review_status": "parent_review",
       "interaction": "reconstruct",
       "category": "역사",

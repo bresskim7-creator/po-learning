@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-09", {
   "schema_version": 1.1,
   "month": "2026-09",
-  "updated_at": "2026-08-28T16:27:51+09:00",
+  "updated_at": "2026-09-05T21:50:20+09:00",
   "days": {
     "2026-09-01": {
       "schema_version": 1.1,
@@ -685,15 +685,285 @@ window.__loadDailyMonth("2026-09", {
     },
     "2026-09-09": {
       "schema_version": 1.1,
+      "sensitivity": "sensitive",
+      "review_status": "manual_reviewed",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_general",
+      "id": "2026-09-09",
+      "date": "2026-09-09",
+      "weekday": "수",
+      "category": "특집",
+      "chapter_label": "[특집] 생명의 순환과 죽음",
+      "title": "죽는다는 것은 무엇일까",
+      "subtitle": "모든 생명이 맞는 자연스러운 마지막",
+      "lead_question": "어른들은 '돌아가셨다'고 말해요. 죽는다는 것은 정확히 어떤 일이고, 왜 모든 생명에게 일어나는 걸까요?",
+      "why_today": "할아버지를 보내 드린 우리에게 지금 꼭 필요한 배움이에요.",
+      "sections": [
+        {
+          "icon": "🌱",
+          "heading": "모든 생명은 태어나고 죽어요",
+          "body": "풀과 나무도, 곤충과 새도, 사람도 모두 생명이에요. 생명은 태어나 자라고 언젠가 죽어요. 가을 낙엽은 사라지지 않고 흙의 양분으로 돌아가 새잎을 키우지요. 자연은 재료를 버리지 않고 돌려써요. 이 흐름이 생명의 순환이에요. 할아버지의 몸을 이루던 재료들도 이 큰 순환으로 돌아가요. 죽음은 사라짐이 아니라 돌아감이에요."
+        },
+        {
+          "icon": "💓",
+          "heading": "몸이 멈춘다는 것",
+          "body": "사람이 죽으면 심장 박동이 멈추고 숨도 멎어요. 죽음은 몸의 기능이 모두 멈추는 것이에요. 그래서 죽은 사람은 아프지도, 춥지도, 배고프지도 않아요. 잠자는 것과는 달라요. 잠은 다시 깨어나지만 죽음은 되돌릴 수 없어요. 그래서 어른들은 '돌아가셨다'처럼 분명한 말을 쓰는 거예요."
+        },
+        {
+          "icon": "🙋",
+          "heading": "궁금한 건 물어봐도 돼요",
+          "body": "죽음을 처음 겪으면 여러 생각이 들어요. '내가 뭘 잘못했나' 생각하는 아이들도 있대요. 전문가들의 답은 분명해요. 누군가의 말이나 생각, 행동 때문에 사람이 죽는 일은 없어요. 몸이 더는 일할 수 없을 때 죽음이 오는 것뿐이에요. 궁금한 것은 어른에게 언제든 물어봐도 돼요. 아는 만큼 마음도 단단해져요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "생명의 순환",
+          "en": "cycle of life",
+          "desc": "태어나서 자라고 나이 들어 죽는 흐름이 모든 생명에게 똑같이 이어지는 것을 말해요."
+        },
+        {
+          "ko": "심장 박동",
+          "en": "heartbeat",
+          "desc": "심장이 규칙적으로 뛰면서 온몸에 피를 보내는 움직임이에요. 살아 있는 동안 계속돼요."
+        },
+        {
+          "ko": "몸의 기능",
+          "en": "body functions",
+          "desc": "숨쉬기, 심장 뛰기, 보고 느끼기처럼 살아 있는 몸이 하는 여러 가지 일을 말해요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "풀과 나무부터 사람까지, 모든 생명은 태어나서 언젠가는 죽음을 맞아요.",
+          "answer": "O",
+          "explanation": "생명의 순환은 어떤 생명도 벗어날 수 없어요."
+        },
+        {
+          "statement": "죽은 사람의 몸도 아프거나 춥다고 느낄 수 있어서 조심해야 해요.",
+          "answer": "X",
+          "explanation": "몸의 기능이 모두 멈춰서 아무것도 느끼지 않아요."
+        },
+        {
+          "statement": "죽음은 누군가의 말이나 생각 때문에 일어나는 일이 아니에요.",
+          "answer": "O",
+          "explanation": "몸이 더는 일할 수 없게 되었을 때 오는 것뿐이에요."
+        }
+      ],
+      "one_line_summary": "모든 생명은 [   ]을 따라 언젠가 죽음을 맞고, 죽으면 [   ]이 모두 멈춰 되돌릴 수 없다.",
+      "summary_keywords": "키워드: 생명의 순환, 심장 박동, 몸의 기능",
+      "sources": [
+        {
+          "title": "Talking about death: how to talk with children — Raising Children Network (호주 정부 지원)",
+          "url": "https://raisingchildren.net.au/school-age/connecting-communicating/death-grief/death-how-to-talk-about-it"
+        },
+        {
+          "title": "Decomposers(분해자와 양분의 순환) — National Geographic Education",
+          "url": "https://education.nationalgeographic.org/resource/decomposers/"
+        },
+        {
+          "title": "Talking to children about death — Marie Curie",
+          "url": "https://www.mariecurie.org.uk/information/grief/talking-to-children-about-death"
+        }
+      ],
+      "generated_at": "2026-09-05T16:00:00+09:00",
+      "model_meta": {
+        "model": "claude-fable-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-10": {
+      "schema_version": 1.1,
+      "sensitivity": "sensitive",
+      "review_status": "manual_reviewed",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_general",
+      "id": "2026-09-10",
+      "date": "2026-09-10",
+      "weekday": "목",
+      "category": "특집",
+      "chapter_label": "[특집] 장례 문화와 마음의 움직임",
+      "title": "슬픔은 왜 파도처럼 왔다 갈까",
+      "subtitle": "장례식의 뜻, 그리고 마음 돌보기",
+      "lead_question": "사람들은 왜 장례식을 치를까요? 그리고 슬픔은 왜 한 번에 끝나지 않고 왔다 갔다 하는 걸까요?",
+      "why_today": "할아버지의 장례에서 보고 겪은 일을 배움으로 정리해 봐요.",
+      "sections": [
+        {
+          "icon": "🤝",
+          "heading": "장례식은 왜 치를까",
+          "body": "장례는 돌아가신 분께 예를 갖춰 마지막 인사를 드리는 의식이에요. 우리나라는 보통 사흘 동안 치러서 삼일장이라고 해요. 빈소를 차려 손님을 맞고, 마지막 날에는 발인으로 떠나보내지요. 방식은 집집마다 달라요. 우리 가족은 빈소 없이 가족끼리 모여 조용히 할아버지를 보내 드렸어요. 형식이 달라도 인사드리는 마음은 같아요."
+        },
+        {
+          "icon": "🌊",
+          "heading": "슬픔은 파도처럼 움직여요",
+          "body": "슬픔은 한 번 크게 왔다가 끝나는 감정이 아니에요. 파도처럼 밀려왔다 물러가기를 되풀이하지요. 울다가도 금세 놀며 웃을 수 있어요. 전문가들은 노는 것도 웃는 것도 애도의 한 부분이라고 말해요. 슬퍼하는 모습은 사람마다 달라요. 말이 많아지는 사람도, 혼자 있고 싶은 사람도 있어요. 이 감정의 파도는 자연스러운 거예요."
+        },
+        {
+          "icon": "🌤️",
+          "heading": "마음 돌보기를 배워요",
+          "body": "슬플 때 하는 마음 돌보기는 공부처럼 배울 수 있어요. 첫째, 느낌을 숨기지 말고 가족에게 말해요. 둘째, 학교와 운동, 놀이처럼 평소 하던 일을 이어가요. 규칙적인 하루가 마음을 지켜 주거든요. 셋째, 잘 먹고 잘 자요. 눈물이 나면 참지 않아도 돼요. 어른들도 슬플 때는 울어요. 우는 것은 부끄러운 일이 아니에요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "마지막 인사",
+          "en": "final farewell",
+          "desc": "돌아가신 분께 잘 가시라고 드리는 인사예요. 장례식이 하는 가장 큰 일이에요."
+        },
+        {
+          "ko": "감정의 파도",
+          "en": "waves of emotion",
+          "desc": "슬픔 같은 감정이 밀려왔다가 물러가기를 되풀이하는 모습을 파도에 빗댄 말이에요."
+        },
+        {
+          "ko": "마음 돌보기",
+          "en": "self-care",
+          "desc": "슬프거나 힘들 때 내 마음이 다치지 않도록 살피고 챙기는 모든 일을 말해요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "장례를 치른 뒤에 친구와 놀며 웃는 것은 돌아가신 분께 예의 없는 일이에요.",
+          "answer": "X",
+          "explanation": "노는 것도 웃는 것도 애도의 한 부분이에요."
+        },
+        {
+          "statement": "우리나라에서 장례는 보통 사흘 동안 치르고, 이를 삼일장이라고 불러요.",
+          "answer": "O",
+          "explanation": "옛날의 긴 상례가 점점 짧아져 자리 잡은 방식이에요."
+        },
+        {
+          "statement": "슬픔을 느끼고 나타내는 모습은 사람마다 다를 수 있어요.",
+          "answer": "O",
+          "explanation": "울음도, 조용함도, 노는 것도 모두 애도의 모습이에요."
+        }
+      ],
+      "one_line_summary": "장례는 함께 모여 [   ]를 드리는 의식이고, 슬픔은 [   ]처럼 왔다 갔다 하며 사람마다 다르다.",
+      "summary_keywords": "키워드: 마지막 인사, 감정의 파도, 마음 돌보기",
+      "sources": [
+        {
+          "title": "상례(喪禮) — 한국민족문화대백과사전",
+          "url": "https://encykorea.aks.ac.kr/Article/E0027059"
+        },
+        {
+          "title": "How to Help a Child Who is Grieving — Dougy Center(미국 아동 애도 센터)",
+          "url": "https://www.dougy.org/resource-articles/how-to-help-a-grieving-child-1"
+        },
+        {
+          "title": "Death and grief: helping children cope — Raising Children Network (호주 정부 지원)",
+          "url": "https://raisingchildren.net.au/school-age/connecting-communicating/death-grief/when-someone-dies"
+        }
+      ],
+      "generated_at": "2026-09-05T16:00:00+09:00",
+      "model_meta": {
+        "model": "claude-fable-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-11": {
+      "schema_version": 1.1,
+      "sensitivity": "sensitive",
+      "review_status": "manual_reviewed",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_general",
+      "id": "2026-09-11",
+      "date": "2026-09-11",
+      "weekday": "금",
+      "category": "특집",
+      "chapter_label": "[특집] 기억의 문화",
+      "title": "사람은 어떻게 기억으로 남을까",
+      "subtitle": "기일과 성묘, 그리고 우리의 앨범",
+      "lead_question": "돌아가신 분을 잊지 않으려고 사람들은 오래전부터 무엇을 해 왔을까요? 우리는 무엇을 할 수 있을까요?",
+      "why_today": "할아버지를 기억하는 방법을 오늘 함께 배워 봐요.",
+      "sections": [
+        {
+          "icon": "💭",
+          "heading": "몸은 떠나도 기억은 남아요",
+          "body": "사람이 죽으면 몸은 우리 곁을 떠나요. 하지만 함께 보낸 시간과 가르쳐 주신 것, 웃음소리는 기억으로 남아요. 애도를 연구하는 전문가들은 이렇게 말해요. 애도는 잊는 일이 아니라, 기억하는 방법을 찾는 일이라고요. 돌아가신 분 이야기를 나누는 것은 슬픔을 견디는 힘이 돼요. 할아버지 이야기는 언제 꺼내도 괜찮아요."
+        },
+        {
+          "icon": "🏞️",
+          "heading": "우리나라의 기억하는 풍습",
+          "body": "우리나라는 오래전부터 기억의 풍습을 이어 왔어요. 돌아가신 날인 기일에는 조상을 추모하는 제사인 기제사를 지냈어요. 명절이나 봄가을에는 산소를 찾아 돌보는 성묘를 했지요. 요즘은 가족마다 방식이 달라요. 사진을 보며 이야기하거나, 추모 공간을 찾아 인사하기도 해요. 방법은 달라도 마음은 같아요. 기억하겠다는 약속이지요."
+        },
+        {
+          "icon": "🌱",
+          "heading": "슬픔은 모양이 달라져요",
+          "body": "슬픔은 시간이 지나면 사라지지 않고 모양이 달라져요. 처음에는 크고 잦지만, 조금씩 그리움과 고마움으로 바뀌어 가요. 한참 뒤 문득 다시 슬퍼져도 이상한 게 아니에요. 그때는 사진을 보고 이야기를 나눠요. 편지나 그림으로 마음을 적어도 좋아요. 할아버지께 배운 것을 기억하며 자라는 것도 사랑을 이어 가는 방법이에요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "기억의 풍습",
+          "en": "remembrance customs",
+          "desc": "돌아가신 분을 잊지 않으려고 오랫동안 이어 온 방법들이에요. 기제사와 성묘가 대표예요."
+        },
+        {
+          "ko": "추모 공간",
+          "en": "memorial place",
+          "desc": "돌아가신 분을 그리워하는 사람들이 찾아가 인사하고 기억할 수 있게 마련한 곳이에요."
+        },
+        {
+          "ko": "그리움과 고마움",
+          "en": "longing and gratitude",
+          "desc": "보고 싶은 마음과 함께해 주셔서 고맙다는 마음이에요. 슬픔은 차츰 이 마음으로 바뀌어요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "사람이 죽어도 함께 보낸 시간과 배운 것은 기억으로 남아요.",
+          "answer": "O",
+          "explanation": "그 기억을 이야기하는 것이 슬픔을 견디는 힘이 돼요."
+        },
+        {
+          "statement": "우리나라에는 기일에 기제사를 지내고 성묘로 산소를 돌보는 풍습이 있어요.",
+          "answer": "O",
+          "explanation": "요즘은 가족마다 다른 방법으로도 기억해요."
+        },
+        {
+          "statement": "슬픔에서 벗어나려면 돌아가신 분을 되도록 빨리 잊는 것이 좋아요.",
+          "answer": "X",
+          "explanation": "애도는 잊는 게 아니라 기억하는 방법을 찾는 거예요."
+        }
+      ],
+      "one_line_summary": "몸은 떠나도 [   ]은 남고, 슬픔은 차츰 [   ]으로 바뀌어 간다.",
+      "summary_keywords": "키워드: 기억의 풍습, 추모 공간, 그리움과 고마움",
+      "sources": [
+        {
+          "title": "기제사(忌祭祀) — 한국민속대백과사전(국립민속박물관)",
+          "url": "https://folkency.nfm.go.kr/kr/topic/detail/72"
+        },
+        {
+          "title": "성묘(省墓) — 한국민족문화대백과사전",
+          "url": "https://encykorea.aks.ac.kr/Article/E0029319"
+        },
+        {
+          "title": "How to Help a Child Who is Grieving — Dougy Center(미국 아동 애도 센터)",
+          "url": "https://www.dougy.org/resource-articles/how-to-help-a-grieving-child-1"
+        }
+      ],
+      "generated_at": "2026-09-05T16:00:00+09:00",
+      "model_meta": {
+        "model": "claude-fable-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-12": {
+      "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
       "image_url": null,
       "image_credit": null,
       "image_fallback": "category_svg_life",
-      "id": "2026-09-09",
-      "date": "2026-09-09",
-      "weekday": "수",
+      "id": "2026-09-12",
+      "date": "2026-09-12",
+      "weekday": "토",
       "category": "생활상식",
       "chapter_label": "[생활상식] 가을 하늘이 높고 파란 이유",
       "title": "가을 하늘은 왜 더 높고 파랗게 보일까",
@@ -769,7 +1039,7 @@ window.__loadDailyMonth("2026-09", {
         "web_search_used": true
       }
     },
-    "2026-09-10": {
+    "2026-09-13": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
@@ -777,9 +1047,9 @@ window.__loadDailyMonth("2026-09", {
       "image_url": null,
       "image_credit": null,
       "image_fallback": "category_svg_life",
-      "id": "2026-09-10",
-      "date": "2026-09-10",
-      "weekday": "목",
+      "id": "2026-09-13",
+      "date": "2026-09-13",
+      "weekday": "일",
       "category": "생활상식",
       "chapter_label": "[생활상식] 숨을 참으면 왜 괴로울까",
       "title": "물속에서 숨을 참으면 왜 괴로울까",
@@ -855,7 +1125,7 @@ window.__loadDailyMonth("2026-09", {
         "web_search_used": true
       }
     },
-    "2026-09-11": {
+    "2026-09-14": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
@@ -863,13 +1133,13 @@ window.__loadDailyMonth("2026-09", {
       "image_url": null,
       "image_credit": null,
       "image_fallback": "category_svg_news",
-      "id": "2026-09-11",
-      "date": "2026-09-11",
-      "weekday": "금",
+      "id": "2026-09-14",
+      "date": "2026-09-14",
+      "weekday": "월",
       "category": "시사",
       "chapter_label": "[시사] 아시안게임의 시작과 올해 대회",
       "title": "아시안게임은 어떻게 시작됐을까",
-      "subtitle": "다음 주 개막하는 아시아의 큰 잔치",
+      "subtitle": "이번 주 개막하는 아시아의 큰 잔치",
       "lead_question": "아시안게임은 올림픽과 무엇이 다를까요? 첫 대회는 언제, 몇 나라가 모여 열렸을까요?",
       "why_today": "9월 19일 아이치·나고야 대회가 개막해요.",
       "sections": [
