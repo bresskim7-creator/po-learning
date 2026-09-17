@@ -1,7 +1,7 @@
 window.__loadMunhaerakMonth("2026-09", {
   "schema_version": 1,
   "month": "2026-09",
-  "updated_at": "2026-09-05T21:50:20+09:00",
+  "updated_at": "2026-09-17T21:32:32+09:00",
   "days": {
     "2026-09-01": {
       "n": 40,
@@ -719,6 +719,692 @@ window.__loadMunhaerakMonth("2026-09", {
           "text": "첫 아시안게임은 1951년 뉴델리에서 11개국이 참가해 열렸고, 1954년부터 4년마다 개최된다.",
           "url": "https://www.britannica.com/sports/Asian-Games",
           "label": "Encyclopaedia Britannica"
+        }
+      ]
+    },
+    "2026-09-20": {
+      "n": 51,
+      "date": "2026-09-20",
+      "week": "2026-W38",
+      "review_status": "parent_review",
+      "interaction": "reconstruct",
+      "category": "과학",
+      "ptitle": "왜 깨어난 뒤에도 한참 멍할까?",
+      "step1_guide": "네 문장의 흐름을 한 문장으로 가장 정확히 다시 세운 것을 고르세요.",
+      "sentences": [
+        "사람 안에는 하루 길이에 맞춰 도는 흐름이 있어 잠들 때와 일어날 때를 안내해요.",
+        "눈꺼풀이 열린 뒤에도 뇌가 제 속도를 되찾기까지는 얼마간이 필요해요.",
+        "그 얼마간이 어느 정도인지는 사람마다, 또 전날 잔 시간에 따라 달라져요.",
+        "그래서 일어나자마자 어려운 문제를 풀면 평소보다 실수가 잦아지곤 해요."
+      ],
+      "options": [
+        "일어나면 누구나 곧바로 평소 실력을 그대로 낼 수 있다.",
+        "몸은 하루 흐름을 따라 자고 일어나며, 눈을 뜬 뒤에도 제 속도를 되찾기까지 얼마간이 걸려 그동안 실수가 늘 수 있다.",
+        "아침에 실수가 많은 사람은 잠자는 버릇이 나쁘기 때문이다."
+      ],
+      "correct": 1,
+      "recon_fb_ok": "정답! <b>하루 흐름</b>과 <b>되찾는 데 걸리는 얼마간</b>을 한 문장으로 이었어요.",
+      "hints": {
+        "0": "글은 눈을 뜬 뒤에도 시간이 걸린다고 했어요.",
+        "2": "글은 버릇을 탓하지 않고 몸의 구조를 설명했어요."
+      },
+      "step2_guide": "글을 덮고 '왜 깬 뒤에도 곧바로 또렷해지지 않는지'를 한 문장으로 말해 보세요.",
+      "saybox": "무엇 때문에 그런지 한 문장으로 말해요.",
+      "model": "깨어난 뒤 뇌가 제 기능을 되찾는 데 시간이 걸리므로, 그 시간 동안은 실수가 잦아질 수 있다.",
+      "key_tip": "설명하는 글에서 <b>'그래서'</b> 뒤에는 앞의 원리로 생긴 결과가 와요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "흐름",
+          "text": "하루 길이에 맞춘 몸의 리듬"
+        },
+        {
+          "tag": "core",
+          "label": "핵심",
+          "text": "눈을 뜬 뒤 되찾는 얼마간"
+        },
+        {
+          "tag": "res",
+          "label": "결과",
+          "text": "그동안 실수가 늘 수 있음"
+        }
+      ],
+      "selfcheck": [
+        "하루 흐름을 말했나요?",
+        "깬 뒤 시간이 걸린다고 했나요?",
+        "그 결과를 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "Sleep inertia is a transient period of impaired performance and grogginess experienced after awakening, and it may be worsened by sleep loss.",
+          "url": "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod7/03.html",
+          "label": "CDC NIOSH"
+        },
+        {
+          "text": "Circadian rhythms are physical, mental, and behavioral changes that follow a 24-hour cycle, and light is the main influence on them.",
+          "url": "https://nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx",
+          "label": "NIH NIGMS"
+        }
+      ]
+    },
+    "2026-09-21": {
+      "n": 52,
+      "date": "2026-09-21",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "delete_noise",
+      "category": "역사",
+      "ptitle": "계기 없이 어떻게 방향을 잡았을까?",
+      "step1_guide": "방향을 잡은 방법을 설명하는 흐름과 관계없는 문장을 모두 골라 지우세요.",
+      "sentences": [
+        "천구백칠십육년 하와이에서 타히티로 향한 배에서는 방향을 알려 주는 기계를 쓰지 않았어요.",
+        "길잡이를 맡은 사람은 미크로네시아 사타왈 섬 출신이었어요.",
+        "그 섬은 태평양 한가운데에 있고 산호로 둘러싸여 있어요.",
+        "그는 뜨고 지는 별자리와 해의 자리로 나아갈 쪽을 가늠했어요.",
+        "한 방향에서 오래 밀려온 물결의 결도 함께 읽었고, 새가 나는 길과 물의 흐름도 보탰어요.",
+        "바닷물은 짜서 그대로 마시기에 알맞지 않아요."
+      ],
+      "deletable": [
+        2,
+        5
+      ],
+      "delete_fb_ok": "정답! 남은 문장들은 <b>기계 없음 → 길잡이 → 하늘의 단서 → 바다의 단서</b>만 이어 줘요.",
+      "cut_reason": {
+        "2": "섬의 생김새는 <b>방향을 잡은 방법</b>과 관계없어요.",
+        "5": "바닷물 이야기는 <b>방향을 잡은 방법</b>과 관계없어요."
+      },
+      "hints": {
+        "0": "기계를 쓰지 않았다는 사실이 이야기의 <b>출발</b>이에요.",
+        "1": "누가 길잡이였는지는 이어지는 설명의 <b>주어</b>예요.",
+        "2": "섬의 생김새는 곁가지예요.",
+        "3": "하늘에서 얻은 단서는 <b>방법</b>의 한 축이에요.",
+        "4": "바다에서 얻은 단서는 <b>방법</b>의 다른 축이에요.",
+        "5": "바닷물 이야기는 흐름과 무관해요."
+      },
+      "step2_guide": "글을 덮고 '무엇을 보고 방향을 정했는지'를 한 문장으로 말해 보세요.",
+      "saybox": "무엇을 보았는지 한 문장으로 말해요.",
+      "model": "기계를 쓰지 않고 길잡이는 하늘의 별과 해, 그리고 바다의 물결과 생물을 겹쳐 살펴 나아갈 쪽을 정했다.",
+      "key_tip": "방법을 설명하는 글에서 <b>장소의 생김새나 그날 풍경</b>은 대개 곁가지예요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "상황",
+          "text": "기계를 쓰지 않은 항해"
+        },
+        {
+          "tag": "core",
+          "label": "방법",
+          "text": "하늘과 바다의 단서를 겹쳐 읽음"
+        },
+        {
+          "tag": "res",
+          "label": "결과",
+          "text": "나아갈 쪽을 정함"
+        }
+      ],
+      "selfcheck": [
+        "기계를 쓰지 않았다고 했나요?",
+        "하늘의 단서를 말했나요?",
+        "바다의 단서도 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "Navigators guided open-ocean voyages without instruments, using observations of the stars, the sun, the ocean swells and the wind.",
+          "url": "https://hokulea.com/polynesian-wayfinding/",
+          "label": "Polynesian Voyaging Society"
+        },
+        {
+          "text": "Pacific voyagers relied on tools like the stars, currents, birds and wind patterns to find their way.",
+          "url": "https://www.bishopmuseum.org/online-learning-center/voyaging-in-the-pacific/",
+          "label": "Bishop Museum"
+        }
+      ]
+    },
+    "2026-09-22": {
+      "n": 53,
+      "date": "2026-09-22",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "reconstruct",
+      "category": "과학",
+      "ptitle": "무엇이 몸을 위로 밀어 올릴까?",
+      "step1_guide": "네 문장의 흐름을 한 문장으로 가장 정확히 다시 세운 것을 고르세요.",
+      "sentences": [
+        "어떤 물체가 액체에 들어가면 그 자리에 있던 액체가 옆으로 비켜나요.",
+        "비켜난 액체의 무게만큼 물체는 위쪽으로 떠받쳐져요.",
+        "이 떠받침은 물 위에 뜬 것뿐 아니라 바닥에 가라앉은 것에도 생겨요.",
+        "떠받치는 쪽이 더 세면 떠오르고, 물체 쪽이 더 세면 가라앉아요."
+      ],
+      "options": [
+        "비켜난 액체의 무게만큼 위로 떠받쳐지며, 이 떠받침은 가라앉은 물체에도 생기고 두 힘의 크기가 뜨고 가라앉음을 정한다.",
+        "액체 속 물체는 언제나 떠받침을 받으므로 결국 모두 물 위로 떠오른다.",
+        "가라앉은 물체에는 떠받치는 힘이 사라지고 눌리는 힘만 남는다."
+      ],
+      "correct": 0,
+      "recon_fb_ok": "정답! <b>떠받침의 크기 → 언제나 생김 → 두 힘의 겨룸</b>을 한 문장에 담았어요.",
+      "hints": {
+        "1": "글은 어느 쪽이 더 세냐에 따라 갈린다고 했어요.",
+        "2": "글은 가라앉은 것에도 떠받침이 생긴다고 했어요."
+      },
+      "step2_guide": "글을 덮고 '무엇이 얼마만큼 떠받치는지'를 한 문장으로 말해 보세요.",
+      "saybox": "무엇이 얼마만큼인지 한 문장으로 말해요.",
+      "model": "잠긴 물체는 제가 밀어낸 액체의 무게에 해당하는 힘으로 떠받쳐지며, 그 힘과 제 무게 중 어느 쪽이 큰가에 따라 뜨거나 내려앉는다.",
+      "key_tip": "과학 글에서 <b>'~만큼'</b>은 힘이나 양의 크기를 정해 주는 말이에요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "상황",
+          "text": "물체가 들어가면 액체가 비켜남"
+        },
+        {
+          "tag": "core",
+          "label": "핵심",
+          "text": "비켜난 액체의 무게만큼 떠받침"
+        },
+        {
+          "tag": "res",
+          "label": "결과",
+          "text": "두 힘의 크기가 뜸을 정함"
+        }
+      ],
+      "selfcheck": [
+        "무엇이 비켜난다고 했나요?",
+        "얼마만큼 떠받치는지 말했나요?",
+        "두 힘을 견주었나요?"
+      ],
+      "sources": [
+        {
+          "text": "The buoyant force on an object equals the weight of the fluid it displaces, and it acts whether the object floats, sinks, or is suspended.",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy",
+          "label": "OpenStax University Physics"
+        }
+      ]
+    },
+    "2026-09-23": {
+      "n": 54,
+      "date": "2026-09-23",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "generalize",
+      "category": "과학",
+      "ptitle": "잎 색이 바뀌는 방식은 하나일까?",
+      "step1_guide": "네 문장에 담긴 원리를 하나로 가장 알맞게 묶은 것을 고르세요.",
+      "sentences": [
+        "나뭇잎에는 자라는 동안 줄곧 누런빛 색소가 들어 있지만 진한 초록에 덮여 보이지 않아요.",
+        "가을이 되어 초록 색소가 풀어지면 덮여 있던 누런빛이 그대로 나타나요.",
+        "반면 붉은 색소는 잎에 고인 단 성분을 밑감으로 삼아 이 무렵 새로 생겨나요.",
+        "산림 기관은 이런 변화가 시작되는 때를 밤의 길이가 가장 꾸준히 알려 준다고 설명해요."
+      ],
+      "options": [
+        "가을 잎 색은 모두 숨어 있던 색소가 드러나면서 생긴다.",
+        "가을 잎 색은 기온이 낮아지는 정도만으로 모두 정해진다.",
+        "가을 잎 색에는 덮여 있다 나타나는 것과 새로 생겨나는 것 두 가지 방식이 있고, 그 시작은 밤의 길이가 알려 준다."
+      ],
+      "correct": 2,
+      "gen_fb_ok": "정답! <b>드러나는 색</b>과 <b>새로 생기는 색</b>을 나누고 <b>시작의 신호</b>까지 묶었어요.",
+      "hints": {
+        "0": "붉은 색소는 새로 생겨난다고 글이 밝혔어요.",
+        "1": "글은 밤의 길이를 가장 꾸준한 신호로 들었어요."
+      },
+      "step2_guide": "글을 덮고 '잎 색이 바뀌는 두 가지 방식'을 한 문장으로 말해 보세요.",
+      "saybox": "두 가지 방식을 한 문장으로 말해요.",
+      "model": "누런빛은 원래 있던 것이 초록이 물러나며 보이는 색이고 붉은빛은 이 무렵 만들어지는 색이며, 그 출발은 길어지는 밤이 알린다.",
+      "key_tip": "여러 사례를 묶을 때는 <b>'반면'</b> 같은 말이 서로 다른 갈래를 나눠 줘요.",
+      "map": [
+        {
+          "tag": "evd",
+          "label": "사례1",
+          "text": "덮여 있다 드러나는 누런빛"
+        },
+        {
+          "tag": "evd",
+          "label": "사례2",
+          "text": "새로 생기는 붉은빛"
+        },
+        {
+          "tag": "core",
+          "label": "묶음",
+          "text": "두 방식 + 밤 길이가 신호"
+        }
+      ],
+      "selfcheck": [
+        "두 방식을 나누었나요?",
+        "새로 생기는 색을 말했나요?",
+        "시작 신호를 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "The timing of color changes and the onset of falling leaves is primarily regulated by the calendar as nights become longer; carotenoids are present in leaves all season while anthocyanins are formed in autumn from sugars trapped in the leaves.",
+          "url": "https://www.fs.usda.gov/visit/fall-colors/science-of-fall-colors",
+          "label": "USDA Forest Service"
+        }
+      ]
+    },
+    "2026-09-24": {
+      "n": 55,
+      "date": "2026-09-24",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "generalize",
+      "category": "과학",
+      "ptitle": "명절 날짜는 왜 자리를 옮길까?",
+      "step1_guide": "네 문장에 담긴 원리를 하나로 가장 알맞게 묶은 것을 고르세요.",
+      "sentences": [
+        "명절을 세는 기준은 달이 차고 기우는 한 바퀴예요.",
+        "그 한 바퀴가 대략 이십구 일 반이라, 열두 번을 지나면 삼백오십사 일쯤이 돼요.",
+        "해를 기준으로 삼은 한 해는 삼백육십오 일쯤이어서 해마다 열흘 남짓이 어긋나요.",
+        "그 어긋남을 메우려고 몇 해에 한 번 달을 하나 통째로 끼워 넣어요."
+      ],
+      "options": [
+        "달 기준 열두 달이 해 기준 한 해보다 열흘 남짓 짧아 명절의 양력 날짜가 옮겨 가고, 계절과 크게 어긋나지 않도록 가끔 달을 하나 더 넣는다.",
+        "명절 날짜는 정해진 기준이 아예 없어서 해마다 마음대로 달라진다.",
+        "달을 기준으로 센 한 해가 더 길어서 명절이 조금씩 뒤로 밀려난다."
+      ],
+      "correct": 0,
+      "gen_fb_ok": "정답! <b>길이의 차이 → 양력 날짜가 옮겨 감 → 계절을 잡는 윤달</b>을 한 문장으로 묶었어요.",
+      "hints": {
+        "1": "글은 달의 한 바퀴라는 분명한 기준을 들었어요.",
+        "2": "글은 달 기준 열두 달이 더 짧다고 했어요."
+      },
+      "step2_guide": "글을 덮고 '두 기준이 왜 어긋나고 그것을 어떻게 다루는지'를 한 문장으로 말해 보세요.",
+      "saybox": "어긋남과 다루는 법을 한 문장으로 말해요.",
+      "model": "음력 열두 달이 태양년보다 짧은 탓에 명절이 놓이는 양력 날은 해마다 달라지고, 윤달은 계절이 밀리지 않게 잡아 주는 장치다.",
+      "key_tip": "숫자가 나란히 나오면 <b>두 값을 견주는 문장</b>이 중심일 때가 많아요.",
+      "map": [
+        {
+          "tag": "evd",
+          "label": "값1",
+          "text": "달 열두 바퀴는 삼백오십사 일쯤"
+        },
+        {
+          "tag": "evd",
+          "label": "값2",
+          "text": "해 기준 한 해는 삼백육십오 일쯤"
+        },
+        {
+          "tag": "core",
+          "label": "묶음",
+          "text": "길이 차이로 날짜가 옮겨 감"
+        }
+      ],
+      "selfcheck": [
+        "두 길이를 견주었나요?",
+        "날짜가 옮겨진다고 했나요?",
+        "윤달이 무엇을 잡는지 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "삭망월과 회귀년을 다 취하여 적당히 조정해서 엮는 역을 태음태양력이라 하며, 달의 삭망주기는 약 이십구 일 반이고 가끔 윤달을 넣어 열세 달로 된 해를 만든다.",
+          "url": "https://encykorea.aks.ac.kr/Article/E0059009",
+          "label": "한국민족문화대백과사전 '태음력'"
+        }
+      ]
+    },
+    "2026-09-25": {
+      "n": 56,
+      "date": "2026-09-25",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "delete_noise",
+      "category": "역사",
+      "ptitle": "한가위라는 이름에는 어떤 뜻이 담겼을까?",
+      "step1_guide": "이름의 뜻을 밝히는 흐름과 관계없는 문장을 모두 골라 지우세요.",
+      "sentences": [
+        "가을의 큰 명절인 추석에는 한가위라는 우리말 이름이 따로 있어요.",
+        "한가위는 '한'과 '가위'라는 두 조각이 이어 붙은 말이에요.",
+        "박물관 풀이로 '한'은 크다는 뜻이고 '가위'는 가운데라는 뜻이에요.",
+        "이어 읽으면 가을 한복판에 있는 큰 날이라는 뜻이 돼요.",
+        "이 무렵에는 아침저녁으로 바람이 서늘해져요.",
+        "요즘은 이 명절을 보내는 방식이 집집마다 꽤 다릅니다."
+      ],
+      "deletable": [
+        4,
+        5
+      ],
+      "delete_fb_ok": "정답! 남은 문장들은 <b>우리말 이름 → 두 조각 → 각 조각의 뜻 → 이어 읽은 뜻</b>만 이어 줘요.",
+      "cut_reason": {
+        "4": "날씨 이야기는 <b>이름의 뜻</b>과 관계없어요.",
+        "5": "보내는 방식은 다른 이야기이고 이름 풀이 밖이에요."
+      },
+      "hints": {
+        "0": "우리말 이름이 따로 있다는 것이 풀이의 <b>출발</b>이에요.",
+        "1": "두 조각으로 나뉜다는 것이 풀이의 <b>틀</b>이에요.",
+        "2": "각 조각의 뜻은 풀이의 <b>재료</b>예요.",
+        "3": "이어 읽은 뜻이 이 글의 <b>결론</b>이에요.",
+        "4": "날씨는 곁가지예요.",
+        "5": "보내는 방식은 흐름 밖이에요."
+      },
+      "step2_guide": "글을 덮고 '이름의 두 조각이 각각 무슨 뜻인지'를 한 문장으로 말해 보세요.",
+      "saybox": "두 조각의 뜻을 한 문장으로 말해요.",
+      "model": "추석의 우리말 이름 한가위는 크다는 한과 가운데라는 가위가 붙은 말이어서, 가을 복판의 큰 날이라는 뜻을 지닌다.",
+      "key_tip": "낱말 풀이 글에서 <b>날씨나 요즘 모습</b>은 뜻과 무관한 곁가지예요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "출발",
+          "text": "한가위라는 우리말 이름"
+        },
+        {
+          "tag": "core",
+          "label": "뜻",
+          "text": "한 = 크다 · 가위 = 가운데"
+        },
+        {
+          "tag": "res",
+          "label": "결론",
+          "text": "가을 복판의 큰 날"
+        }
+      ],
+      "selfcheck": [
+        "두 조각으로 나누었나요?",
+        "각각의 뜻을 말했나요?",
+        "이어 읽은 뜻을 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "추석의 순우리말인 '한가위'는 크다는 뜻의 '한'과 가운데라는 뜻의 '가위'라는 말이 합쳐진 것으로, 8월의 한가운데 있는 큰 날을 의미한다.",
+          "url": "https://www.hangeul.go.kr/webzine/202109/sub1_1.html",
+          "label": "국립한글박물관 웹진 한박웃음 2021년 9월호"
+        }
+      ]
+    },
+    "2026-09-26": {
+      "n": 57,
+      "date": "2026-09-26",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "pick_core_sentence",
+      "category": "과학",
+      "ptitle": "경기 수가 다를 때 무엇을 볼까?",
+      "step1_guide": "제목의 물음에 바로 답하는 중심 문장을 골라 보세요.",
+      "sentences": [
+        "KBO 정규시즌의 순위표에는 여러 칸이 나란히 놓여 있어요.",
+        "팀마다 지금까지 치른 경기의 수가 조금씩 다를 때가 있어요.",
+        "그래서 이긴 횟수만 나란히 놓고 보면 더 많이 치른 쪽이 유리해져요.",
+        "이럴 때는 이긴 횟수를 이김과 짐을 더한 수로 나눈 값을 보면 공평하게 대어 볼 수 있어요.",
+        "KBO에서는 비긴 경기를 이 나눗셈에 넣지 않아요.",
+        "관중석에서는 응원 도구를 흔드는 사람이 많아요."
+      ],
+      "correct": 3,
+      "correct_fb": "정답! <b>나눈 값으로 보면 공평하게 견줄 수 있다</b>는 문장이 물음에 바로 답해요.",
+      "hints": {
+        "0": "순위표의 생김새는 이야기를 여는 <b>배경</b>이에요.",
+        "1": "경기 수가 다르다는 것은 <b>문제 상황</b>이에요.",
+        "2": "왜 불공평한지는 <b>까닭</b>이지 해결 방법은 아니에요.",
+        "4": "비긴 경기 처리는 <b>덧붙이는 규칙</b>이에요.",
+        "5": "응원 도구는 경기장 풍경일 뿐 <b>곁가지</b>예요."
+      },
+      "step2_guide": "글을 덮고 '경기 수가 다를 때 무엇을 보면 되는지'를 한 문장으로 말해 보세요.",
+      "saybox": "무엇을 보면 되는지 한 문장으로 말해요.",
+      "model": "치른 횟수가 서로 다르면 이긴 숫자 대신 이기고 진 것을 합한 수로 나눈 값을 보아야 공평하게 대어 볼 수 있다.",
+      "key_tip": "물음이 '무엇을 볼까'라면 <b>방법을 알려 주는 문장</b>이 중심이고, 까닭은 배경이에요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "상황",
+          "text": "치른 경기 수가 다름"
+        },
+        {
+          "tag": "core",
+          "label": "방법",
+          "text": "합으로 나눈 값을 본다"
+        },
+        {
+          "tag": "evd",
+          "label": "규칙",
+          "text": "비긴 경기는 제외"
+        }
+      ],
+      "selfcheck": [
+        "무엇으로 나누는지 말했나요?",
+        "왜 그렇게 하는지 넣었나요?",
+        "비긴 경기를 언급했나요?"
+      ],
+      "sources": [
+        {
+          "text": "KBO 정규시즌 팀 순위표는 경기·승·패·무와 함께 승률을 싣는다. 공표된 승률은 승을 승과 패의 합으로 나눈 값과 일치한다(2026-09-17 열람, 10개 구단 전부 확인).",
+          "url": "https://www.koreabaseball.com/Record/TeamRank/TeamRank.aspx",
+          "label": "KBO 공식 기록 · 팀 순위"
+        }
+      ]
+    },
+    "2026-09-27": {
+      "n": 58,
+      "date": "2026-09-27",
+      "week": "2026-W39",
+      "review_status": "parent_review",
+      "interaction": "reconstruct",
+      "category": "철학",
+      "ptitle": "함께 지키는 약속은 어떻게 고칠까?",
+      "step1_guide": "네 문장의 흐름을 한 문장으로 가장 정확히 다시 세운 것을 고르세요.",
+      "sentences": [
+        "놀이 순서를 정해 둔 약속이 어느 날부터 누군가에게 불편해졌어요.",
+        "혼자만 다르게 움직이면 놀이가 엉키므로 먼저 불편한 점을 소리 내어 말했어요.",
+        "그다음에는 그 약속으로 영향을 받는 아이들에게 어떻게 생각하는지 물었어요.",
+        "생각이 갈렸지만 서로의 사정을 들은 뒤 새 순서를 함께 골랐어요."
+      ],
+      "options": [
+        "불편한 사람이 참고 견디면 약속은 저절로 좋아진다.",
+        "불편을 말하고 영향을 받는 이들의 생각을 들은 뒤 새 방식을 같이 고르는 것이 함께 지키는 약속을 고치는 길이다.",
+        "약속을 고칠 때는 더 많은 사람이 바라는 쪽으로 무조건 정하면 된다."
+      ],
+      "correct": 1,
+      "recon_fb_ok": "정답! <b>말하기 → 묻기 → 같이 고르기</b>를 빠뜨림 없이 한 문장으로 세웠어요.",
+      "hints": {
+        "0": "글은 참는 것이 아니라 말하는 것에서 시작했어요.",
+        "2": "글은 수가 아니라 서로의 사정을 들은 뒤 골랐다고 했어요."
+      },
+      "step2_guide": "글을 덮고 '약속을 고칠 때 거치는 세 걸음'을 한 문장으로 말해 보세요.",
+      "saybox": "세 걸음을 한 문장으로 말해요.",
+      "model": "여럿이 쓰는 규칙은 혼자 바꿀 수 없으니, 무엇이 불편한지 밝히고 관련된 이들의 뜻을 물어 새 방식을 같이 정해야 한다.",
+      "key_tip": "방법을 알려 주는 글에서는 <b>'먼저·그다음·마지막'</b> 같은 말이 순서를 이어 줘요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "상황",
+          "text": "약속이 불편해짐"
+        },
+        {
+          "tag": "core",
+          "label": "방법",
+          "text": "말하기 → 묻기 → 같이 고르기"
+        },
+        {
+          "tag": "res",
+          "label": "결과",
+          "text": "새 순서를 함께 정함"
+        }
+      ],
+      "selfcheck": [
+        "먼저 무엇을 하는지 말했나요?",
+        "누구에게 묻는지 넣었나요?",
+        "어떻게 정하는지 말했나요?"
+      ],
+      "sources": [
+        {
+          "text": "States Parties shall assure to the child who is capable of forming his or her own views the right to express those views freely in all matters affecting the child.",
+          "url": "https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child",
+          "label": "UN 아동권리협약 제12조"
+        }
+      ]
+    },
+    "2026-09-28": {
+      "n": 59,
+      "date": "2026-09-28",
+      "week": "2026-W40",
+      "review_status": "parent_review",
+      "interaction": "pick_core_sentence",
+      "category": "과학",
+      "ptitle": "최상위 포식자는 무엇을 뜻할까?",
+      "step1_guide": "제목의 물음에 바로 답하는 중심 문장을 골라 보세요.",
+      "sentences": [
+        "바다에는 크고 힘센 동물이 여럿 살고 있어요.",
+        "최상위 포식자란 먹이의 얽힘에서 맨 윗칸을 차지한다는 뜻이지 싸움에서 이긴다는 말이 아니에요.",
+        "미국 해양 기관은 범고래를 그 윗칸에 두어 설명해요.",
+        "어떤 무리는 물고기만, 어떤 무리는 바다에 사는 젖먹이동물을 주로 잡아요.",
+        "상어를 즐겨 잡는 무리도 따로 있어요.",
+        "바다를 그린 그림에는 파도가 자주 등장해요."
+      ],
+      "correct": 1,
+      "correct_fb": "정답! <b>맨 윗칸을 차지한다는 뜻</b>이라는 문장이 물음에 바로 답해요.",
+      "hints": {
+        "0": "바다에 힘센 동물이 많다는 것은 <b>배경</b>이에요.",
+        "2": "어느 기관이 그렇게 본다는 것은 <b>근거</b>예요.",
+        "3": "무리별 먹이는 뜻을 넓혀 주는 <b>덧붙임</b>이에요.",
+        "4": "상어를 잡는 무리도 <b>덧붙이는 예</b>예요.",
+        "5": "그림에 무엇이 나오는지는 <b>곁가지</b>예요."
+      },
+      "step2_guide": "글을 덮고 '최상위 포식자가 무엇을 가리키는 말인지'를 한 문장으로 말해 보세요.",
+      "saybox": "무엇을 가리키는 말인지 한 문장으로 말해요.",
+      "model": "이 말은 누가 더 강한지를 가리는 표현이 아니라 먹고 먹히는 관계에서 어느 칸에 놓이는지를 나타내는 표현이다.",
+      "key_tip": "뜻을 묻는 물음에는 <b>'~이지 ~이 아니에요'</b>처럼 가르는 문장이 중심이에요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "배경",
+          "text": "바다의 힘센 동물들"
+        },
+        {
+          "tag": "core",
+          "label": "뜻",
+          "text": "먹이 얽힘에서의 자리"
+        },
+        {
+          "tag": "evd",
+          "label": "예",
+          "text": "무리마다 다른 먹이"
+        }
+      ],
+      "selfcheck": [
+        "무엇을 가리키는 말인지 말했나요?",
+        "싸움과 다르다고 했나요?",
+        "먹이 관계를 넣었나요?"
+      ],
+      "sources": [
+        {
+          "text": "Killer whales are apex predators at the top of the food web; individual populations often specialize on different prey such as fish, marine mammals, or sharks.",
+          "url": "https://www.fisheries.noaa.gov/species/killer-whale",
+          "label": "NOAA Fisheries"
+        }
+      ]
+    },
+    "2026-09-29": {
+      "n": 60,
+      "date": "2026-09-29",
+      "week": "2026-W40",
+      "review_status": "parent_review",
+      "interaction": "reconstruct",
+      "category": "역사",
+      "ptitle": "왜 먼저 다가가지 않기로 했을까?",
+      "step1_guide": "네 문장의 흐름을 한 문장으로 가장 정확히 다시 세운 것을 고르세요.",
+      "sentences": [
+        "어떤 사람들은 바깥 사회와 오가는 사이를 이어 가지 않은 채 살아가요.",
+        "바깥을 아예 모른다는 뜻이 아니라 왕래를 잇지 않는다는 뜻이에요.",
+        "브라질의 담당 기관은 이런 이들에게 먼저 다가서지 않기로 정해 두었어요.",
+        "만남을 이을지 말지는 그 사람들 스스로 고를 몫이라고 보기 때문이에요."
+      ],
+      "options": [
+        "그들은 바깥을 전혀 모르므로 기관이 대신 판단해 알려 주어야 한다.",
+        "기관이 다가서지 않는 까닭은 아직 준비가 덜 되었기 때문이다.",
+        "왕래를 잇지 않고 사는 이들에게 기관이 먼저 다가서지 않는 것은, 만남의 여부를 그들 스스로 고를 몫으로 보기 때문이다."
+      ],
+      "correct": 2,
+      "recon_fb_ok": "정답! <b>상태 → 기관의 태도 → 그 까닭</b>을 한 문장으로 다시 세웠어요.",
+      "hints": {
+        "0": "글은 바깥을 아예 모르는 것이 아니라고 했어요.",
+        "1": "글은 준비가 아니라 고를 몫을 까닭으로 들었어요."
+      },
+      "step2_guide": "글을 덮고 '왜 먼저 다가서지 않는지'를 한 문장으로 말해 보세요.",
+      "saybox": "까닭을 한 문장으로 말해요.",
+      "model": "바깥과 왕래를 잇지 않는 이들에게 기관이 접근을 삼가는 것은, 그 결정을 당사자 아닌 누구도 대신 내릴 수 없다고 여기기 때문이다.",
+      "key_tip": "태도를 설명하는 글에서 <b>'~때문이에요'</b> 앞뒤를 이으면 한 문장이 돼요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "상태",
+          "text": "왕래를 잇지 않고 삶"
+        },
+        {
+          "tag": "core",
+          "label": "태도",
+          "text": "먼저 다가서지 않음"
+        },
+        {
+          "tag": "res",
+          "label": "까닭",
+          "text": "고를 몫은 그들에게"
+        }
+      ],
+      "selfcheck": [
+        "어떤 상태인지 말했나요?",
+        "기관의 태도를 넣었나요?",
+        "그 까닭을 말했나요?"
+      ],
+      "sources": [
+        {
+          "text": "Povos indígenas isolados são aqueles que nao mantem relacoes de contato permanente com a sociedade nacional, e a politica oficial e a de nao contato.",
+          "url": "https://www.gov.br/funai/pt-br/atuacao/povos-indigenas/povos-indigenas-isolados-e-de-recente-contato-2/povos-isolados",
+          "label": "FUNAI (브라질 원주민 담당 기관)"
+        }
+      ]
+    },
+    "2026-09-30": {
+      "n": 61,
+      "date": "2026-09-30",
+      "week": "2026-W40",
+      "review_status": "parent_review",
+      "interaction": "reconstruct",
+      "category": "과학",
+      "ptitle": "그 벌레에게 무슨 일이 있었을까?",
+      "step1_guide": "네 문장의 흐름을 한 문장으로 가장 정확히 다시 세운 것을 고르세요.",
+      "sentences": [
+        "오래 얼어 있던 땅에서 아주 작은 벌레가 발견되어 실험실로 옮겨졌어요.",
+        "조건을 맞춰 주자 그 벌레는 다시 꿈틀거리기 시작했어요.",
+        "연구진이 햇수를 잰 대상은 벌레 자신이 아니라 곁에 묻혀 있던 풀 조각이었어요.",
+        "몸의 움직임을 거의 멈춘 채 버티다가 조건이 돌아오자 도로 움직인 것이에요."
+      ],
+      "options": [
+        "언 땅에서 나온 벌레가 죽었다가 다시 살아났고, 그 벌레의 몸을 재어 햇수를 알아냈다.",
+        "언 땅에서 나온 벌레는 움직임을 멈춘 채 버티다 조건이 맞자 다시 움직였고, 잰 햇수는 벌레가 아니라 곁의 풀 조각에서 나온 값이다.",
+        "언 땅에서는 어떤 생물도 살아남지 못하므로 그 벌레는 최근에 들어간 것이다."
+      ],
+      "correct": 1,
+      "recon_fb_ok": "정답! <b>멈춤과 다시 움직임</b>, 그리고 <b>무엇을 쟀는지</b>를 함께 담았어요.",
+      "hints": {
+        "0": "글은 죽었다가 살아난 것이 아니라고 했고 잰 대상도 달라요.",
+        "2": "글은 그 벌레가 실제로 다시 움직였다고 했어요."
+      },
+      "step2_guide": "글을 덮고 '그 벌레가 어떤 상태였고 무엇을 쟀는지'를 한 문장으로 말해 보세요.",
+      "saybox": "상태와 잰 대상을 한 문장으로 말해요.",
+      "model": "그 생물은 숨이 끊어졌던 것이 아니라 활동을 접어 둔 채 견디다 되돌아온 것이며, 햇수는 함께 묻힌 식물에서 얻은 값이다.",
+      "key_tip": "숫자가 나오면 <b>무엇을 재서 얻은 값인지</b>를 꼭 확인해요.",
+      "map": [
+        {
+          "tag": "int",
+          "label": "발견",
+          "text": "언 땅에서 나온 작은 벌레"
+        },
+        {
+          "tag": "core",
+          "label": "상태",
+          "text": "멈췄다가 다시 움직임"
+        },
+        {
+          "tag": "evd",
+          "label": "근거",
+          "text": "햇수는 곁의 풀 조각에서"
+        }
+      ],
+      "selfcheck": [
+        "죽은 게 아니라고 했나요?",
+        "다시 움직였다고 했나요?",
+        "무엇을 쟀는지 말했나요?"
+      ],
+      "sources": [
+        {
+          "text": "A nematode recovered from Pleistocene permafrost resumed activity after thawing; radiocarbon dating was performed on plant material from the same burrow, not on the nematode itself.",
+          "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010798",
+          "label": "PLOS Genetics"
         }
       ]
     }

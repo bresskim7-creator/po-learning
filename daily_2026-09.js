@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-09", {
   "schema_version": 1.1,
   "month": "2026-09",
-  "updated_at": "2026-09-05T21:50:20+09:00",
+  "updated_at": "2026-09-17T21:32:32+09:00",
   "days": {
     "2026-09-01": {
       "schema_version": 1.1,
@@ -1212,6 +1212,932 @@ window.__loadDailyMonth("2026-09", {
       "generated_at": "2026-08-28T15:00:00+09:00",
       "model_meta": {
         "model": "claude-fable-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-20": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-20",
+      "date": "2026-09-20",
+      "weekday": "일",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 아침이 힘든 까닭",
+      "title": "아침엔 왜 그렇게 일어나기가 힘들까",
+      "subtitle": "몸속 시계와 깨어나는 시간",
+      "lead_question": "잠을 잤는데도 눈을 뜬 뒤 한참 멍한 날이 있어요. 왜 몸은 바로 또렷해지지 않을까요?",
+      "why_today": "새 학기 등교가 이어지는 때예요.",
+      "sections": [
+        {
+          "icon": "⏰",
+          "heading": "몸속에 시계가 있어요",
+          "body": "우리 몸 안에는 하루를 재는 시계가 있어요. 미국 국립보건원 자료에 나오는 이야기예요. 몸과 마음과 행동은 하루 길이에 맞추어 오르내려요. 이런 변화를 일주기 리듬이라고 불러요. 이 시계를 가장 크게 움직이는 것은 밝은 빛이에요. 그래서 아침 햇살은 하루가 시작됐다는 신호가 돼요. 잠들고 깨는 때도 이 흐름을 따라가요."
+        },
+        {
+          "icon": "😵",
+          "heading": "깬 뒤에도 잠깐 멍해요",
+          "body": "눈을 떴다고 머리가 곧바로 또렷해지지는 않아요. 깬 직후 잠깐 이어지는 이 멍함에도 이름이 있어요. 수면 관성이라고 해요. 미국 질병통제예방센터는 이 상태에서 판단이 느려진다고 설명해요. 길이는 사람과 그날 상태에 따라 달라요. 잠이 모자랐다면 더 오래 가기도 해요. 그러니 깬 직후에 어려운 일을 하지 않는 편이 좋아요."
+        },
+        {
+          "icon": "🧩",
+          "heading": "셋을 나누어 보아요",
+          "body": "비슷해 보여도 서로 다른 세 가지가 섞여 있어요. 첫째는 하루를 도는 몸속 시계예요. 둘째는 깬 직후의 멍함이지요. 셋째는 잔 시간이 짧았다는 사실이에요. 아침이 힘든 것이 곧 게으름은 아니에요. 어느 쪽인지 나누어 보면 할 일도 달라져요. 시계가 문제면 빛을, 잠이 모자라면 잠을 챙기면 되니까요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "일주기 리듬",
+          "en": "circadian rhythm",
+          "desc": "하루 길이에 맞추어 몸과 마음이 오르내리는 흐름이에요. 밝은 빛이 이 흐름을 크게 움직여요."
+        },
+        {
+          "ko": "수면 관성",
+          "en": "sleep inertia",
+          "desc": "잠에서 깬 바로 뒤에 잠깐 이어지는 멍한 상태예요. 길이는 사람마다 달라요."
+        },
+        {
+          "ko": "몸속 시계",
+          "en": "body clock",
+          "desc": "하루를 재며 몸의 상태를 바꾸는 우리 안의 시계예요. 아침 햇살에 맞추어져요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "눈을 뜨는 순간 머리도 함께 곧바로 완전히 또렷해진다고 해요.",
+          "answer": "X",
+          "explanation": "깬 직후에는 잠깐 멍한 때가 이어진다고 했어요."
+        },
+        {
+          "statement": "하루를 재는 우리 안의 시계를 제일 세게 움직이는 것은 빛이에요.",
+          "answer": "O",
+          "explanation": "§1이 밝은 빛의 영향이 가장 크다고 밝혀요."
+        },
+        {
+          "statement": "아침에 일어나기 힘든 것은 언제나 마음이 게으르기 때문이에요.",
+          "answer": "X",
+          "explanation": "몸속 시계와 깬 직후 멍함이 함께 작용해요."
+        }
+      ],
+      "one_line_summary": "눈을 떠도 잠깐 [   ]이 이어지고, 몸속 시계는 [   ]에 맞추어져요.",
+      "summary_keywords": "키워드: 일주기 리듬, 수면 관성, 몸속 시계",
+      "sources": [
+        {
+          "title": "Circadian Rhythms — NIH NIGMS",
+          "url": "https://nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx"
+        },
+        {
+          "title": "Sleep Inertia — CDC NIOSH",
+          "url": "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod7/03.html"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-21": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-21",
+      "date": "2026-09-21",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 나침반 없는 길찾기",
+      "title": "나침반 없이 어떻게 바다에서 길을 찾았을까",
+      "subtitle": "별과 너울이 알려 준 방향",
+      "lead_question": "사방이 물뿐인 바다 한가운데에서 나침반도 지도도 없다면 어느 쪽으로 가야 할까요?",
+      "why_today": "가을 밤하늘이 맑아지는 때예요.",
+      "sections": [
+        {
+          "icon": "🌊",
+          "heading": "계기 없이 떠난 배",
+          "body": "천구백칠십육년에 호쿨레아라는 배가 하와이를 떠났어요. 목적지는 수천 킬로미터 떨어진 타히티였지요. 길잡이는 미크로네시아 사타왈 섬에서 온 마우 피아일룩이었어요. 그는 나침반도 위성 장치도 쓰지 않았어요. 방향을 정할 때 계기를 하나도 보지 않고 배를 이끌었지요. 넓은 바다에서 길을 잃지 않고 목적지에 닿았어요."
+        },
+        {
+          "icon": "⭐",
+          "heading": "무엇을 보고 갔을까",
+          "body": "항해협회 설명에 따르면 그는 별과 해를 살폈어요. 뜨고 지는 자리가 방향을 알려 주거든요. 바다의 너울도 중요한 단서였어요. 오래 불어 온 바람이 만든 물결은 방향이 한결같거든요. 박물관 자료는 새와 해류도 단서로 꼽아요. 어느 하나만으로는 확신할 수 없어요. 여러 단서를 겹쳐 읽어야 방향이 또렷해져요."
+        },
+        {
+          "icon": "🧭",
+          "heading": "되살린 옛 기술이에요",
+          "body": "이 항해는 먼 옛날 일이 아니라 오십 년 전 일이에요. 잊혀 가던 전통 항해술을 다시 살려 낸 시도였지요. 그래서 옛 기록이 아니라 오늘의 증거로 남았어요. 도구 하나가 없다고 길을 잃는 것은 아니에요. 주변을 읽는 법을 알면 길잡이는 여러 곳에 있어요. 하늘과 물결이 모두 지도가 되는 셈이지요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "호쿨레아",
+          "en": "Hokulea",
+          "desc": "천구백칠십육년에 하와이에서 타히티까지 간 배의 이름이에요. 계기를 쓰지 않고 갔어요."
+        },
+        {
+          "ko": "전통 항해술",
+          "en": "wayfinding",
+          "desc": "별과 바다와 바람을 읽어 방향을 잡는 옛 기술이에요. 다시 살려 낸 기술이지요."
+        },
+        {
+          "ko": "바다의 너울",
+          "en": "ocean swell",
+          "desc": "오래 불어 온 바람이 만들어 방향이 한결같은 큰 물결이에요. 방향을 읽는 단서가 돼요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "호쿨레아호의 길잡이는 계기를 쓰지 않고 타히티까지 배를 이끌었다고 해요.",
+          "answer": "O",
+          "explanation": "§1이 나침반도 위성 장치도 쓰지 않았다고 밝혀요."
+        },
+        {
+          "statement": "항해사는 오직 한 가지 단서만 믿고 방향을 정했다고 해요.",
+          "answer": "X",
+          "explanation": "별과 해와 너울과 새와 해류를 겹쳐 읽었어요."
+        },
+        {
+          "statement": "이 항해는 잊혀 가던 옛 기술을 되살려 낸 시도였다고 해요.",
+          "answer": "O",
+          "explanation": "§3처럼 오십 년 전에 되살린 현대의 항해예요."
+        }
+      ],
+      "one_line_summary": "항해사는 별과 [   ] 같은 여러 단서를 겹쳐 읽었고, 그것은 되살린 [   ]이었어요.",
+      "summary_keywords": "키워드: 호쿨레아, 전통 항해술, 바다의 너울",
+      "sources": [
+        {
+          "title": "Polynesian Wayfinding — Polynesian Voyaging Society",
+          "url": "https://hokulea.com/polynesian-wayfinding/"
+        },
+        {
+          "title": "Voyaging in the Pacific — Bishop Museum",
+          "url": "https://www.bishopmuseum.org/online-learning-center/voyaging-in-the-pacific/"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-22": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-22",
+      "date": "2026-09-22",
+      "weekday": "화",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 물에서 뜨는 까닭",
+      "title": "물에서 몸은 왜 뜰까",
+      "subtitle": "밀어낸 물이 밀어 올리는 힘",
+      "lead_question": "수영장에 몸을 담그면 몸이 가벼워진 것 같아요. 물속에서는 무엇이 우리를 밀어 올릴까요?",
+      "why_today": "실내 수영을 자주 하는 때예요.",
+      "sections": [
+        {
+          "icon": "💧",
+          "heading": "자리를 차지하면 밀려나요",
+          "body": "물에 몸을 넣으면 그만큼의 물이 옆으로 밀려나요. 원래 그 자리에 있던 물이 갈 곳을 찾는 거예요. 이때 물은 가만있지 않고 되밀어요. 위로 밀어 올리는 이 힘이 바로 물의 부력이에요. 잠긴 부분이 커질수록 밀려나는 물도 많아져요. 그러면 밀어 올리는 힘도 함께 커지지요. 수영장에서 몸이 가벼워지는 느낌이 그것이에요."
+        },
+        {
+          "icon": "⚖️",
+          "heading": "밀려난 물의 무게만큼",
+          "body": "대학 물리 교과서는 이렇게 정리해요. 물체가 받는 부력은 밀어낸 물의 무게와 같아요. 여기서 물의 무게라는 말이 중요해요. 물질이 얼마나 많은지가 아니라 눌리는 힘을 뜻하거든요. 그래서 같은 부피라도 더 무거운 액체일수록 더 세게 밀어 올려요. 바닷물에서 몸이 더 잘 뜨는 까닭이지요."
+        },
+        {
+          "icon": "🪨",
+          "heading": "가라앉아도 힘은 있어요",
+          "body": "이 힘은 뜰 때만 생기는 것이 아니에요. 가라앉는 돌에도, 물속에 매달린 물체에도 작용해요. 뜨느냐 가라앉느냐는 두 힘의 크기 겨루기예요. 미는 힘이 무게보다 크면 떠오르지요. 작으면 가라앉고, 같으면 그 깊이에 머물러요. 그러니 힘이 있다고 꼭 뜨는 것은 아니에요. 물놀이는 반드시 어른과 함께 해요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "물의 부력",
+          "en": "buoyant force",
+          "desc": "물이 잠긴 물체를 위로 밀어 올리는 힘이에요. 뜨든 가라앉든 언제나 작용하지요."
+        },
+        {
+          "ko": "밀어낸 물",
+          "en": "displaced water",
+          "desc": "물체가 들어가면서 옆으로 밀려난 물이에요. 이 물의 무게가 힘의 크기를 정해요."
+        },
+        {
+          "ko": "물의 무게",
+          "en": "weight",
+          "desc": "밀려난 물이 아래로 눌리는 힘의 크기예요. 물질의 양을 뜻하는 말과 구분해 써요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "가라앉는 물체에도 물이 밀어 올리는 힘은 함께 작용한다고 해요.",
+          "answer": "O",
+          "explanation": "§3이 가라앉는 돌과 매달린 물체를 들어 설명해요."
+        },
+        {
+          "statement": "물체가 받는 부력의 크기는 밀어낸 물의 무게와 같다고 해요.",
+          "answer": "O",
+          "explanation": "§2가 교과서 설명으로 그렇게 밝혀요."
+        },
+        {
+          "statement": "이 힘이 작용하기만 하면 어떤 물체든 반드시 떠오른다고 해요.",
+          "answer": "X",
+          "explanation": "미는 힘이 무게보다 커야 비로소 떠올라요."
+        }
+      ],
+      "one_line_summary": "물에 잠기면 [   ]의 무게만큼 위로 밀리고, 그것이 [   ]이에요.",
+      "summary_keywords": "키워드: 물의 부력, 밀어낸 물, 물의 무게",
+      "sources": [
+        {
+          "title": "Archimedes' Principle and Buoyancy — OpenStax University Physics Vol.1",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy"
+        },
+        {
+          "title": "Archimedes' principle — Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/science/Archimedes-principle"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-23": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_season",
+      "id": "2026-09-23",
+      "date": "2026-09-23",
+      "weekday": "수",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 잎이 가을을 아는 법",
+      "title": "나뭇잎은 가을이 온 걸 어떻게 알까",
+      "subtitle": "길어지는 밤과 잎 속 색소",
+      "lead_question": "달력을 볼 줄도 모르는 나무가 어떻게 때를 맞추어 잎 색을 바꾸는 걸까요?",
+      "why_today": "오늘은 밤과 낮이 비슷해지는 추분이에요.",
+      "sections": [
+        {
+          "icon": "🌙",
+          "heading": "밤이 길어지는 것이 신호",
+          "body": "미국 산림청은 색이 바뀌는 때를 무엇이 정하는지 설명해요. 가장 꾸준한 신호는 길어지는 밤이에요. 기온이나 비나 양분은 해마다 들쭉날쭉하지요. 그런데 밤 길이는 해마다 어김없이 늘어나요. 그래서 나무는 밤의 길이로 때를 읽어요. 오늘 같은 절기는 그 변화를 알려 주는 표시예요. 달력이 없어도 때를 아는 셈이지요."
+        },
+        {
+          "icon": "🟡",
+          "heading": "노란색은 원래 있었어요",
+          "body": "잎에는 자라는 내내 노란 색소가 들어 있어요. 다만 초록 색소가 훨씬 많아 가려져 있을 뿐이에요. 가을이 되어 초록 색소가 분해되면 어떻게 될까요? 가려졌던 노랑과 주황이 그대로 드러나요. 새로 칠한 것이 아니라 줄곧 숨어 있던 색이에요. 초록이 물러나야 비로소 보이는 색이지요."
+        },
+        {
+          "icon": "🔴",
+          "heading": "빨간색은 새로 만들어요",
+          "body": "붉은색은 사정이 달라요. 잎에 남은 당분을 재료로 삼아 가을에 만들어지거든요. 원래 있던 색이 아니라 새로 생기는 색이에요. 그래서 나무마다, 해마다 붉기가 달라져요. 맑고 서늘한 날이 이어지면 더 짙어져요. 다만 얼 만큼 추우면 오히려 곱지 않아요. 나무마다 때와 빛깔이 다른 것도 그래서예요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "초록 색소",
+          "en": "chlorophyll",
+          "desc": "잎을 초록으로 보이게 하는 색소예요. 가을에 분해되면서 다른 색이 드러나요."
+        },
+        {
+          "ko": "남은 당분",
+          "en": "leftover sugar",
+          "desc": "잎에 미처 빠져나가지 못하고 남은 양분이에요. 붉은 색소를 만드는 재료가 돼요."
+        },
+        {
+          "ko": "밤 길이",
+          "en": "night length",
+          "desc": "해가 진 뒤부터 뜰 때까지의 길이예요. 가을에 가장 꾸준히 늘어나는 신호예요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "잎의 노란색은 가을이 되어서야 새로 만들어진다고 해요.",
+          "answer": "X",
+          "explanation": "노란 색소는 원래 잎에 있다가 드러나요."
+        },
+        {
+          "statement": "잎이 붉어지는 색소는 남은 양분을 써서 가을에 생겨난다고 해요.",
+          "answer": "O",
+          "explanation": "§3처럼 원래 있던 색이 아니라 새로 생기는 색이에요."
+        },
+        {
+          "statement": "나무마다 잎이 물드는 때와 빛깔이 서로 다르게 나타난다고 해요.",
+          "answer": "O",
+          "explanation": "§3이 나무 종류에 따라 시기와 색이 다르다고 밝혀요."
+        }
+      ],
+      "one_line_summary": "잎은 [   ]가 길어지는 것으로 때를 알고, 붉은색은 [   ]으로 새로 만들어요.",
+      "summary_keywords": "키워드: 초록 색소, 남은 당분, 밤 길이",
+      "sources": [
+        {
+          "title": "The Science of Fall Colors — USDA Forest Service",
+          "url": "https://www.fs.usda.gov/visit/fall-colors/science-of-fall-colors"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-24": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_season",
+      "id": "2026-09-24",
+      "date": "2026-09-24",
+      "weekday": "목",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 추석 날짜가 옮겨 가는 까닭",
+      "title": "추석의 양력 날짜는 왜 해마다 달라질까",
+      "subtitle": "두 달력이 어긋나는 만큼",
+      "lead_question": "추석은 음력으로 늘 팔월 보름인데 왜 우리가 쓰는 달력에서는 자리가 옮겨 다닐까요?",
+      "why_today": "내일이 추석이에요.",
+      "sections": [
+        {
+          "icon": "📅",
+          "heading": "달력이 둘이에요",
+          "body": "우리는 해를 기준으로 삼은 달력을 매일 써요. 명절은 달을 기준으로 삼은 날짜로 세지요. 한 나라에서 두 달력이 함께 쓰이는 거예요. 추석은 달 기준으로 늘 팔월 보름이에요. 자리가 옮겨 다니는 것은 해 기준 달력에서예요. 그러니 명절이 흔들리는 것이 아니에요. 두 기준이 서로 어긋날 뿐이지요."
+        },
+        {
+          "icon": "➖",
+          "heading": "열두 달이 조금 짧아요",
+          "body": "백과사전은 두 기준의 길이를 이렇게 적어요. 달이 차고 기우는 한 바퀴는 약 이십구 일 반이에요. 그것이 열두 번이면 삼백오십사 일쯤이지요. 해 기준 한 해는 삼백육십오 일쯤이에요. 해마다 열흘 남짓이 모자라는 셈이에요. 그냥 두면 명절이 점점 앞당겨져요. 언젠가 여름에 추석을 쇠게 될지도 몰라요."
+        },
+        {
+          "icon": "➕",
+          "heading": "한 달을 통째로 넣어요",
+          "body": "길이가 달라서 명절의 해 기준 날짜는 해마다 앞뒤로 옮겨 다녀요. 그대로 두면 계절까지 어긋나 버려요. 그래서 몇 해에 한 번 달을 하나 통째로 더 넣어요. 이렇게 끼워 넣는 달을 윤달이라고 해요. 이 윤달 조정은 해 달력에서 하루를 더하는 것과 달라요. 열세 달인 해가 생기면서 명절이 계절 자리로 돌아와요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "윤달 조정",
+          "en": "leap month",
+          "desc": "몇 해에 한 번 달을 통째로 끼워 넣어 어긋남을 메우는 방식이에요. 하루를 더하는 것과 달라요."
+        },
+        {
+          "ko": "팔월 보름",
+          "en": "the 15th of the 8th month",
+          "desc": "달 기준 달력에서 여덟째 달의 열닷새 되는 날이에요. 추석이 바로 이 날이에요."
+        },
+        {
+          "ko": "해 기준",
+          "en": "solar-based",
+          "desc": "한 해의 길이를 해의 움직임으로 재는 방식이에요. 우리가 매일 쓰는 달력이지요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "추석은 달 기준 달력에서 해마다 다른 날짜에 놓인다고 해요.",
+          "answer": "X",
+          "explanation": "달을 기준으로 보면 언제나 팔월 보름 그 하루예요."
+        },
+        {
+          "statement": "달을 기준으로 센 열두 달은 한 해보다 열흘 남짓 모자란대요.",
+          "answer": "O",
+          "explanation": "§2가 삼백오십사 일과 삼백육십오 일로 견주어요."
+        },
+        {
+          "statement": "윤달은 하루가 아니라 달 하나를 통째로 더 넣는 방식이라고 해요.",
+          "answer": "O",
+          "explanation": "§3이 열세 달인 해가 생긴다고 설명해요."
+        }
+      ],
+      "one_line_summary": "달 기준 열두 달이 [   ]쯤 짧아서, 몇 해에 한 번 [   ]로 메워요.",
+      "summary_keywords": "키워드: 윤달 조정, 팔월 보름, 해 기준",
+      "sources": [
+        {
+          "title": "태음력 — 한국민족문화대백과사전",
+          "url": "https://encykorea.aks.ac.kr/Article/E0059009"
+        },
+        {
+          "title": "2026년 월력요항 — 한국천문연구원",
+          "url": "https://www.kasi.re.kr/kor/publication/post/newsMaterial/32031"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-25": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_season",
+      "id": "2026-09-25",
+      "date": "2026-09-25",
+      "weekday": "금",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 한가위라는 이름",
+      "title": "'한가위'라는 이름엔 무슨 뜻이 담겼을까",
+      "subtitle": "크다와 가운데가 만난 말",
+      "lead_question": "추석을 한가위라고도 불러요. 이 정겨운 이름 속에는 어떤 뜻이 숨어 있을까요?",
+      "why_today": "오늘이 추석이에요.",
+      "sections": [
+        {
+          "icon": "📖",
+          "heading": "크다와 가운데",
+          "body": "한가위는 두 조각이 붙은 말이에요. 국립한글박물관은 앞의 한을 크다는 뜻으로 풀이해요. 뒤의 가위는 가운데를 가리키는 옛말로 보고요. 둘을 이으면 큰 가운데라는 뜻이 돼요. 팔월의 한가운데 있는 큰 날이라는 말이에요. 백과사전은 가을 한가운데라는 뜻의 중추절이라는 이름도 함께 소개해요."
+        },
+        {
+          "icon": "🧵",
+          "heading": "가배라는 오랜 기록",
+          "body": "삼국사기에는 가배라는 이름이 전해요. 두 편으로 나뉘어 길쌈을 겨루었다는 이야기예요. 진 편이 이긴 편에게 음식을 내고 노래하며 놀았대요. 다만 이 기록이 오늘 추석의 시작이라고 잘라 말하기는 어려워요. 기록에 적힌 때와 그 기록이 쓰인 때도 다르거든요. 옛 기록을 읽을 때 늘 살펴야 할 점이에요."
+        },
+        {
+          "icon": "🌕",
+          "heading": "달빛 아래 놀이",
+          "body": "보름달이 뜨는 밤에는 마당이 환해요. 그래서 밤에 즐기는 놀이가 이어졌어요. 손을 잡고 둥글게 도는 강강술래가 그중 하나예요. 국가유산청은 이 놀이를 국가무형유산으로 정해 두었어요. 지내는 방식은 집집마다 다르고 요즘은 더 다양해요. 어떤 모습이든 한가위는 가을의 한가운데에 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "가을 한가운데",
+          "en": "mid-autumn",
+          "desc": "가을의 한복판이라는 뜻이에요. 한가위와 중추절이라는 이름에 모두 담겨 있어요."
+        },
+        {
+          "ko": "강강술래",
+          "en": "Ganggangsullae",
+          "desc": "보름달 아래에서 손을 잡고 둥글게 도는 놀이예요. 국가무형유산으로 정해져 있어요."
+        },
+        {
+          "ko": "옛 기록",
+          "en": "old record",
+          "desc": "오래전에 글로 남겨진 자료예요. 적힌 때와 쓰인 때가 다를 수 있어 살펴 읽어야 해요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "한가위의 한은 작다는 뜻이고 가위는 끝을 가리키는 말이에요.",
+          "answer": "X",
+          "explanation": "국립한글박물관은 한을 크다, 가위를 가운데로 풀이해요."
+        },
+        {
+          "statement": "삼국사기의 가배 기록이 오늘 추석의 시작이라고 잘라 말할 수 있어요.",
+          "answer": "X",
+          "explanation": "그렇게 단정하기는 어렵다고 §2가 밝혀요."
+        },
+        {
+          "statement": "강강술래는 보름달 아래에서 손을 잡고 도는 놀이라고 해요.",
+          "answer": "O",
+          "explanation": "§3이 국가무형유산으로 소개하는 놀이예요."
+        }
+      ],
+      "one_line_summary": "한가위는 크다와 [   ]가 붙은 말이고, 달빛 아래에서는 [   ]를 즐겼어요.",
+      "summary_keywords": "키워드: 가을 한가운데, 강강술래, 옛 기록",
+      "sources": [
+        {
+          "title": "한가위의 뜻 — 국립한글박물관 웹진 한박웃음 2021년 9월호",
+          "url": "https://www.hangeul.go.kr/webzine/202109/sub1_1.html"
+        },
+        {
+          "title": "추석 — 한국민족문화대백과사전",
+          "url": "https://encykorea.aks.ac.kr/Article/E0057862"
+        },
+        {
+          "title": "강강술래 — 국가유산청 국가유산포털",
+          "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?pageNo=1_1_2_0&ccbaCpno=1273600080000"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-26": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_news",
+      "id": "2026-09-26",
+      "date": "2026-09-26",
+      "weekday": "토",
+      "category": "시사",
+      "chapter_label": "[시사] 경기 수가 다를 때의 비교",
+      "title": "경기 수가 다른 팀은 어떻게 비교할까",
+      "subtitle": "승수 대신 비율로 견주기",
+      "lead_question": "어떤 팀은 백스물여섯 경기를, 어떤 팀은 백서른두 경기를 치렀어요. 그럼 누가 더 잘한 걸까요?",
+      "why_today": "프로야구 정규시즌이 막바지예요.",
+      "sections": [
+        {
+          "icon": "🔢",
+          "heading": "승수만으로는 모자라요",
+          "body": "가을이면 순위표를 들여다보는 사람이 많아져요. 그런데 팀마다 치른 경기 수가 조금씩 달라요. 비가 와서 미룬 경기가 남아 있기 때문이에요. 이럴 때 이긴 횟수만 견주면 공평하지 않아요. 경기를 더 많이 치른 팀이 유리해지니까요. 그래서 다른 잣대가 필요해요."
+        },
+        {
+          "icon": "➗",
+          "heading": "비율로 바꾸어 보아요",
+          "body": "그 잣대가 바로 이긴 비율이에요. 승률이라고 부르지요. 이긴 수를 이기고 진 수의 합으로 나눈 값이에요. 비긴 경기는 이 셈에 넣지 않아요. 예를 들어 일흔여섯 번 이기고 마흔여섯 번 졌다고 해 볼까요? 일흔여섯을 백스물둘로 나누면 약 영점육이삼이 나와요. 프로야구 정규시즌 순위표에 적힌 값과 같은 방식이에요."
+        },
+        {
+          "icon": "📐",
+          "heading": "비율이 쓰이는 곳",
+          "body": "이렇게 바꾸면 경기 수가 달라도 견줄 수 있어요. 열 번 중 여섯 번과 백 번 중 예순 번이 같아지지요. 크기가 다른 것을 나란히 두려면 비율로 견주기가 편해요. 시험 점수도, 심부름 성공률도 마찬가지예요. 수가 다를 때는 합계 대신 비율을 보는 습관이 도움이 돼요. 야구장 밖에서도 쓰이는 셈이지요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "이긴 비율",
+          "en": "winning percentage",
+          "desc": "이긴 수를 이기고 진 수의 합으로 나눈 값이에요. 흔히 승률이라고 부르는 값이지요."
+        },
+        {
+          "ko": "정규시즌",
+          "en": "regular season",
+          "desc": "순위를 가리기 위해 정해진 일정대로 치르는 경기들이에요. 가을에 막바지에 이르러요."
+        },
+        {
+          "ko": "비율로 견주기",
+          "en": "comparing by ratio",
+          "desc": "전체 가운데 얼마인지로 바꾸어 대어 보는 일이에요. 크기가 다를 때 편한 방법이에요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "경기 수가 다를 때 이긴 횟수만 견주면 언제나 공평하다고 해요.",
+          "answer": "X",
+          "explanation": "경기를 더 많이 치른 팀이 유리해져서 공평하지 않아요."
+        },
+        {
+          "statement": "승률을 셀 때 비긴 경기는 나누는 값에 넣지 않는다고 해요.",
+          "answer": "O",
+          "explanation": "§2가 비긴 경기는 나누는 값에서 뺀다고 밝혀요."
+        },
+        {
+          "statement": "경기 수가 서로 달라도 승률로 견주면 나란히 놓고 볼 수 있다고 해요.",
+          "answer": "O",
+          "explanation": "§3이 열 번 중 여섯 번과 백 번 중 예순 번을 예로 들어요."
+        }
+      ],
+      "one_line_summary": "경기 수가 다르면 합계 대신 [   ]를 보고, 그 방법이 [   ]예요.",
+      "summary_keywords": "키워드: 이긴 비율, 정규시즌, 비율로 견주기",
+      "sources": [
+        {
+          "title": "팀 순위 — KBO 공식 기록",
+          "url": "https://www.koreabaseball.com/Record/TeamRank/TeamRank.aspx"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-27": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-27",
+      "date": "2026-09-27",
+      "weekday": "일",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 함께 쓰는 규칙 고치기",
+      "title": "함께 쓰는 규칙은 어떻게 바꿀까",
+      "subtitle": "불편을 말하고 함께 정하기",
+      "lead_question": "다 같이 지키기로 한 약속이 불편해졌어요. 이럴 때 나 혼자 그만두면 될까요?",
+      "why_today": "새 학기 한 달을 넘긴 때예요.",
+      "sections": [
+        {
+          "icon": "🎲",
+          "heading": "혼자 그만두면 어떻게 될까",
+          "body": "놀이 순서를 정해 둔 약속이 있다고 해 볼까요? 어느 날부터 그 순서가 누군가에게 불편해졌어요. 그런데 나만 다르게 하면 놀이가 엉켜요. 다른 사람은 여전히 옛 순서로 움직이니까요. 함께 쓰는 약속은 혼자 고칠 수 없어요. 그래서 바꾸는 방법이 따로 필요해요."
+        },
+        {
+          "icon": "🗣️",
+          "heading": "불편을 먼저 말해요",
+          "body": "첫 단계는 무엇이 불편한지 말하는 일이에요. 말하지 않으면 아무도 모르거든요. 다음은 그 약속의 영향을 받는 사람들에게 묻는 거예요. 유엔 아동권리협약에도 그런 내용이 담겨 있어요. 어린이에게도 의견을 낼 권리가 있다고 적혀 있지요. 듣다 보면 의견이 갈릴 수도 있어요. 갈린다는 것이 곧 틀렸다는 뜻은 아니에요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "새 방법을 같이 정해요",
+          "body": "마지막은 새 방법을 함께 정하는 일이에요. 모두가 똑같이 생각해야 정할 수 있는 것은 아니에요. 수가 많은 쪽이 언제나 옳은 것도 아니고요. 서로 다른 사정을 듣고 나서 고르면 돼요. 사물함 쓰는 순서처럼 작은 약속부터 해 보아요. 함께 만든 약속은 지키기도 쉬워요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "함께 쓰는 약속",
+          "en": "shared rule",
+          "desc": "여럿이 같이 지키기로 한 규칙이에요. 혼자서는 고칠 수 없다는 점이 특징이에요."
+        },
+        {
+          "ko": "의견을 낼 권리",
+          "en": "right to be heard",
+          "desc": "자기에게 영향을 주는 일에 생각을 말할 수 있는 권리예요. 협약에 적혀 있어요."
+        },
+        {
+          "ko": "새 방법",
+          "en": "new arrangement",
+          "desc": "불편을 듣고 나서 함께 정하는 바뀐 약속이에요. 같이 정하면 지키기 쉬워요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "함께 쓰는 약속은 여럿이 같이 지킬 때 제 구실을 한다고 해요.",
+          "answer": "O",
+          "explanation": "§1이 혼자 다르게 하면 일이 엉킨다고 설명해요."
+        },
+        {
+          "statement": "아이도 자신과 관련된 문제에서 생각을 말할 몫이 있다고 해요.",
+          "answer": "O",
+          "explanation": "§2가 아동권리협약에 그 내용이 담겨 있다고 밝혀요."
+        },
+        {
+          "statement": "새 방법은 모두가 똑같은 생각이 되어야만 정할 수 있어요.",
+          "answer": "X",
+          "explanation": "생각이 갈려도 듣고 나서 정할 수 있어요."
+        }
+      ],
+      "one_line_summary": "함께 쓰는 약속은 [   ]을 먼저 말하고, 영향받는 사람들과 [   ]을 정해요.",
+      "summary_keywords": "키워드: 함께 쓰는 약속, 의견을 낼 권리, 새 방법",
+      "sources": [
+        {
+          "title": "Convention on the Rights of the Child, Article 12 — UN OHCHR",
+          "url": "https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-28": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-28",
+      "date": "2026-09-28",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 바다 먹이그물의 꼭대기",
+      "title": "바다에서 가장 센 사냥꾼은 상어일까",
+      "subtitle": "먹이그물에서의 자리",
+      "lead_question": "바다의 왕은 상어라고들 해요. 그런데 그 상어를 사냥하는 무리가 있다면 어떨까요?",
+      "why_today": "바다 먹이그물을 들여다볼 만한 날이에요.",
+      "sections": [
+        {
+          "icon": "🐋",
+          "heading": "꼭대기에 있는 무리",
+          "body": "미국 해양대기청은 범고래를 이렇게 소개해요. 바다 먹이그물의 맨 위에서 먹는 동물이라고요. 이런 자리를 최상위 포식자라고 불러요. 어떤 무리는 상어를 사냥하기도 해요. 그러니 바다의 왕을 상어라고만 하기는 어려워요. 다만 이것은 누가 더 센가를 가리는 말이 아니에요."
+        },
+        {
+          "icon": "🍽️",
+          "heading": "무리마다 먹는 것이 달라요",
+          "body": "재미있는 점은 따로 있어요. 범고래라고 다 같은 것을 먹지는 않아요. 어떤 무리는 연어 같은 물고기만 먹어요. 어떤 무리는 주로 바다에 사는 젖먹이동물을 사냥하지요. 상어를 즐겨 먹는 무리도 따로 있어요. 종 전체로는 다양하지만 무리별로는 오히려 가려 먹는 셈이에요."
+        },
+        {
+          "icon": "🕸️",
+          "heading": "자리를 묻는 말이에요",
+          "body": "최상위 포식자는 싸움에서 이긴다는 뜻이 아니에요. 먹이그물에서 어느 칸에 있는지를 가리키는 말이에요. 무엇을 먹고 무엇에게 먹히는지가 그 자리를 정해요. 그러니 누가 제일 센지 겨루는 물음은 답이 잘 안 나와요. 대신 누가 무엇을 먹는지 물어보면 바다가 보이기 시작해요. 순위표 대신 관계도를 그리는 셈이지요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "최상위 포식자",
+          "en": "apex predator",
+          "desc": "먹이그물의 맨 위 칸에서 먹이를 얻는 동물이에요. 센 정도가 아니라 자리를 뜻해요."
+        },
+        {
+          "ko": "먹이그물",
+          "en": "food web",
+          "desc": "누가 무엇을 먹는지가 얽혀 있는 관계의 그물이에요. 바다에도 촘촘하게 있어요."
+        },
+        {
+          "ko": "젖먹이동물",
+          "en": "marine mammal",
+          "desc": "새끼에게 젖을 먹여 기르는 동물이에요. 바다에 사는 종류도 여럿 있어요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "범고래는 무리마다 즐겨 먹는 먹이가 서로 다르다고 해요.",
+          "answer": "O",
+          "explanation": "§2가 물고기만 먹는 무리와 젖먹이동물 무리를 들어요."
+        },
+        {
+          "statement": "최상위 포식자는 싸움에서 가장 센 동물을 뜻하는 말이에요.",
+          "answer": "X",
+          "explanation": "먹이그물에서의 자리를 가리키는 말이에요."
+        },
+        {
+          "statement": "범고래 가운데에는 상어를 사냥하는 무리도 있다고 밝혀요.",
+          "answer": "O",
+          "explanation": "§1과 §2가 상어를 즐겨 먹는 무리를 소개해요."
+        }
+      ],
+      "one_line_summary": "최상위 포식자는 센 정도가 아니라 [   ]에서의 자리를 뜻하고, 무리마다 [   ]가 달라요.",
+      "summary_keywords": "키워드: 최상위 포식자, 먹이그물, 젖먹이동물",
+      "sources": [
+        {
+          "title": "Killer Whale — NOAA Fisheries",
+          "url": "https://www.fisheries.noaa.gov/species/killer-whale"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-29": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-29",
+      "date": "2026-09-29",
+      "weekday": "화",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 만나지 않기로 한 사람들",
+      "title": "바깥세상과 만나지 않고 사는 사람들이 있을까",
+      "subtitle": "묻지 않고 정하지 않기",
+      "lead_question": "지구 곳곳이 지도에 담긴 오늘날에도 바깥 사회와 왕래하지 않는 사람들이 있을까요?",
+      "why_today": "가을은 세계를 살펴보기 좋은 때예요.",
+      "sections": [
+        {
+          "icon": "🌳",
+          "heading": "왕래하지 않는 사람들",
+          "body": "브라질의 원주민 담당 기관은 이런 원주민 집단을 설명해요. 바깥과의 왕래를 이어 가지 않는 사람들이에요. 숲 깊은 곳에서 자기들의 방식대로 살아가지요. 바깥을 한 번도 본 적이 없다는 뜻은 아니에요. 왕래를 이어 가지 않는다는 뜻이에요. 그 차이를 구분해서 말해야 해요."
+        },
+        {
+          "icon": "🚫",
+          "heading": "다가가지 않는 규칙",
+          "body": "브라질의 담당 기관은 먼저 다가가지 않기로 정해 두었어요. 준비가 덜 되어서가 아니에요. 준비를 아무리 갖춘 사람이라도 마찬가지예요. 만날지 말지를 정할 사람은 그들 자신이거든요. 그래서 기관은 거리를 지키고 영역을 보호해요. 다가가지 않는 것이 존중의 방식이 되는 셈이에요."
+        },
+        {
+          "icon": "❓",
+          "heading": "누가 정하는가",
+          "body": "우리는 좋은 뜻으로 남의 일을 정해 주고 싶을 때가 있어요. 도와주려는 마음이니 괜찮다고 여기기도 하지요. 그런데 상대가 아직 묻지 않았다면 어떨까요? 이 이야기가 던지는 물음은 하나예요. 누가 정할 일인가 하는 물음이에요. 사람을 두고 정할 때는 특히 조심해야 해요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "원주민 집단",
+          "en": "indigenous group",
+          "desc": "오래전부터 그 땅에 살아온 사람들의 무리예요. 저마다의 말과 생활 방식을 지녀요."
+        },
+        {
+          "ko": "바깥과의 왕래",
+          "en": "outside contact",
+          "desc": "바깥 사회와 서로 오가며 관계를 맺는 일이에요. 이어 가지 않는 집단도 있어요."
+        },
+        {
+          "ko": "존중의 방식",
+          "en": "way of respect",
+          "desc": "상대의 뜻을 앞질러 정하지 않는 태도예요. 먼저 다가가지 않는 것도 그중 하나예요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "이런 집단은 바깥세상과 오가기를 이어 가지 않는 사람들을 뜻해요.",
+          "answer": "O",
+          "explanation": "§1이 본 적 없다는 뜻이 아니라고 구분해서 짚어요."
+        },
+        {
+          "statement": "기관이 먼저 다가가지 않는 것은 준비가 덜 되었기 때문이에요.",
+          "answer": "X",
+          "explanation": "정할 사람은 그들 자신이기 때문이에요."
+        },
+        {
+          "statement": "누구와 만날지 결정하는 몫은 그 사람들에게 있다고 밝혀요.",
+          "answer": "O",
+          "explanation": "§2는 그래서 먼저 다가가지 않는다고 설명해요."
+        }
+      ],
+      "one_line_summary": "이 집단은 [   ]를 이어 가지 않는 사람들이고, 먼저 다가가지 않는 것이 [   ]이에요.",
+      "summary_keywords": "키워드: 원주민 집단, 바깥과의 왕래, 존중의 방식",
+      "sources": [
+        {
+          "title": "Povos indígenas isolados — FUNAI",
+          "url": "https://www.gov.br/funai/pt-br/atuacao/povos-indigenas/povos-indigenas-isolados-e-de-recente-contato-2/povos-isolados"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
+        "web_search_used": true
+      }
+    },
+    "2026-09-30": {
+      "schema_version": 1.1,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.1,
+      "image_url": null,
+      "image_credit": null,
+      "image_fallback": "category_svg_life",
+      "id": "2026-09-30",
+      "date": "2026-09-30",
+      "weekday": "수",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 얼어 있던 생물 이야기",
+      "title": "오래 얼어 있던 생물이 다시 깨어날 수 있을까",
+      "subtitle": "멈춰 있던 것과 되살아난 것",
+      "lead_question": "꽁꽁 언 땅속에서 나온 아주 작은 생물이 물을 만나 움직이기 시작했다면 무슨 일일까요?",
+      "why_today": "가을은 흙 속을 들여다보기 좋은 때예요.",
+      "sections": [
+        {
+          "icon": "🧊",
+          "heading": "언 땅에서 나온 작은 생물",
+          "body": "시베리아에는 오래 얼어 있는 땅이 있어요. 연구진이 그 땅속에서 작은 벌레를 찾아냈어요. 눈으로는 잘 보이지 않는 작은 선충이라는 생물이에요. 실험실에서 조건을 맞추어 주자 다시 움직였어요. 유전학 학술지에 실린 연구예요. 놀라운 일이지만 차근차근 따져 볼 대목이 있어요."
+        },
+        {
+          "icon": "📏",
+          "heading": "무엇의 나이를 잰 걸까",
+          "body": "기사에서는 벌레가 몇만 년 전 것이라고 말하기도 해요. 그런데 연구진이 나이를 잰 대상은 벌레 몸이 아니에요. 같은 굴에 함께 묻혀 있던 식물 조각이었어요. 그 조각의 나이로 묻힌 때를 짐작한 거예요. 벌레 자체를 직접 잰 값과는 다른 이야기지요. 숫자를 볼 때는 무엇을 잰 값인지 확인해야 해요."
+        },
+        {
+          "icon": "⏸️",
+          "heading": "죽었다 살아난 걸까",
+          "body": "다시 살아났다는 표현도 조심해서 써야 해요. 이 생물은 죽었다가 다시 산 것이 아니에요. 몸의 활동을 거의 멈춘 채로 버티고 있었어요. 조건이 돌아오자 멈춰 두었던 활동을 다시 시작한 거예요. 멈춘 상태와 죽음은 서로 다른 상태예요. 그 차이를 구분하면 이 연구가 훨씬 정확하게 보여요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "작은 선충",
+          "en": "nematode",
+          "desc": "실처럼 가늘고 눈에 잘 띄지 않는 작은 벌레예요. 흙 속에 아주 많이 살고 있어요."
+        },
+        {
+          "ko": "얼어 있는 땅",
+          "en": "frozen ground",
+          "desc": "한 해 내내 얼어 있는 땅이에요. 시베리아 같은 추운 곳에 넓게 있어요."
+        },
+        {
+          "ko": "멈춘 상태",
+          "en": "dormancy",
+          "desc": "살아 있으면서 몸의 움직임을 거의 멈춘 상태예요. 죽은 것과는 다른 상태지요."
+        }
+      ],
+      "ox_check": [
+        {
+          "statement": "연구진은 같은 굴에 묻힌 식물 조각의 나이를 재어 연대를 따졌다고 해요.",
+          "answer": "O",
+          "explanation": "§2가 벌레 몸이 아니라 주변 식물을 쟀다고 밝혀요."
+        },
+        {
+          "statement": "이 생물은 한 번 죽었다가 다시 살아난 것이라고 설명해요.",
+          "answer": "X",
+          "explanation": "죽은 것이 아니라 활동을 멈춘 채 버티고 있었어요."
+        },
+        {
+          "statement": "조건이 갖추어지자 멈추었던 활동을 다시 시작했다고 해요.",
+          "answer": "O",
+          "explanation": "§3이 멈춤과 죽음을 구분해 설명해요."
+        }
+      ],
+      "one_line_summary": "이 생물은 죽은 것이 아니라 [   ]였고, 나이를 잰 것은 [   ]이었어요.",
+      "summary_keywords": "키워드: 작은 선충, 얼어 있는 땅, 멈춘 상태",
+      "sources": [
+        {
+          "title": "A living nematode from Pleistocene permafrost — PLOS Genetics",
+          "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010798"
+        }
+      ],
+      "generated_at": "2026-09-17T13:00:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5 (Cowork)",
         "web_search_used": true
       }
     }
