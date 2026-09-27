@@ -1749,8 +1749,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.102.0';
-var APP_SW_CACHE = 'sw51020';
+var APP_VERSION = 'v5.103.0';
+var APP_SW_CACHE = 'sw51030';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2888,7 +2888,7 @@ function dailyEscapeHtml(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-// [v5.67.0] 제목+리드만 읽어주기 — Web Speech 로컬 전용 (chirp3 API 미호출, 본문 TTS 없음)
+// [v5.103.0] 제목만 읽어주기(v5.67.0~v5.102.0은 제목+리드) — Web Speech 로컬 전용 (chirp3 API 미호출, 본문 TTS 없음)
 function speakDailyLocal(text) {
   if (!text || typeof speechSynthesis === 'undefined' || !window.speechSynthesis) return;
   if (typeof isMuted !== 'undefined' && isMuted) return;
@@ -2905,9 +2905,9 @@ function speakDailyLocal(text) {
   } catch (e) { /* TTS 불가 환경 — silent */ }
 }
 function speakDailyTitleLead(d) {
-  if (!d) return;
-  var parts = [d.title, d.lead_question, d.why_today].filter(Boolean);
-  speakDailyLocal(parts.join('. '));
+  // [v5.103.0] 제목만 읽는다. 읽기 전 질문·왜 오늘은 읽지 않는다. 함수 이름은 호출부(버튼·렌더) 호환을 위해 그대로 둔다.
+  if (!d || !d.title) return;
+  speakDailyLocal(d.title);
 }
 
 function saveDailyLastSuccess(dateStr, data) {
@@ -3219,8 +3219,8 @@ function renderDailyToday(d, ctx) {
     + '</div>';
   html += '<div class="daily-title">' + dailyEscapeHtml(d.title || '') + '</div>';
   if (d.subtitle) html += '<div class="daily-subtitle">' + dailyEscapeHtml(d.subtitle) + '</div>';
-  // [v5.67.0] 제목·리드 다시 듣기 (Web Speech 로컬). 본문 읽어주기 버튼은 없음(읽기 습관 보존).
-  html += '<button class="daily-tts-btn" onclick="speakDailyTitleLead(DAILY_TODAY_DATA)">🔊 제목·리드 다시 듣기</button>';
+  // [v5.103.0] 제목 다시 듣기 (Web Speech 로컬). 본문 읽어주기 버튼은 없음(읽기 습관 보존).
+  html += '<button class="daily-tts-btn" onclick="speakDailyTitleLead(DAILY_TODAY_DATA)">🔊 제목 다시 듣기</button>';
   if (d.lead_question) {
     html += '<div class="daily-leadq"><strong>읽기 전 질문</strong>' + dailyEscapeHtml(d.lead_question) + '</div>';
   }
@@ -3284,7 +3284,7 @@ function renderDailyToday(d, ctx) {
   if (d.schema_version && d.schema_version > 1.1) {
     console.warn('[daily] schema_version', d.schema_version, '> renderer 1.1. 일부 필드가 표시되지 않을 수 있음.');
   }
-  // [v5.67.0] 카드 진입 시 제목+리드 자동 읽어주기 (Web Speech 로컬, 본문 제외)
+  // [v5.103.0] 카드 진입 시 제목만 자동 읽어주기 (Web Speech 로컬, 음소거 설정 따름)
   speakDailyTitleLead(d);
   if (ctx.fromQueue) {
     attachReadObserver(ctx.date);
