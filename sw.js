@@ -1,4 +1,5 @@
 // PO 학습 시스템 Service Worker
+// v5.105.0 (2026-09-28): 문해력 2차 단계 A — 새 렌더러(choice 새 형식·지난 카드 모드·팝업·읽음은 '오늘 학습 끝'에서만·목록/카드 로드 실패 안내 분리) + 시범 3장(n47·n48·n49, munhaerak_2026-09.js) + 새 버전 받기 결함 2가지 수정(activate 버전 알림·po-get-version 응답, 페이지는 제어 워커에 물어 버전별 1회 새로고침). PRECACHE 목록 변경 없음.
 // v5.104.0 (2026-09-28): 배치6 — '오늘의 한 장' 10/4~10/17 14장. daily_2026-10.js(3→17일)·daily_index.js(94→108, version_key 20260928-0950)·daily_one_page(rotation·calendar) 갱신. 렌더러·PRECACHE 목록·문해력 변경 없음.
 // v5.103.0 (2026-09-27): 두 한 장 개편 1차 — '오늘의 한 장' 미열람 12장(9/22~10/3) 원고 정비(숫자 아라비아 표기·사실 교정·문장·어휘), 자동 음성 제목만(speakDailyTitleLead). daily_2026-09/10.js·daily_index.js(version_key 20260927-1455) 갱신. 기존 동선·문해력·PRECACHE 목록 변경 없음.
 // v5.102.0 (2026-09-17): 배치5 9/20~10/3 — '오늘의 한 장' 14장 + '문해력 한 장' 14장(n51~n64). 신규 월파일 daily_2026-10.js·munhaerak_2026-10.js 2경로 PRECACHE 추가(88→90). daily_index 80→94·munhaerak_index 50→64, rotation history 28건(9/1~10/3) 재계산, calendar에 추분(절기)·추석(공휴일) 추가 + 개천절 covered_angles. 이미지 없음(image_url null). 생성·반영 = Cowork(JH 2026-09-17 역할 예외 승인), 독립 검증 = Codex. 코드·렌더러·GAS·config 불변 — 데이터 8파일 + PRECACHE 2경로 + 버전 무효화. CACHE bump(v51010→v51020).
@@ -54,7 +55,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v51040';
+const CACHE_NAME = 'po-learning-v51050';
 const PRECACHE = [
   './',
   './index.html',
@@ -162,6 +163,21 @@ self.addEventListener('activate', event => {
     )
   );
   self.clients.claim();
+  // [v5.105.0] (b) 열린 창마다 새 워커 버전을 알린다 — 보조 정보. 새로고침 판단은 페이지가 'po-get-version'으로 물어서 한다.
+  //   교체 알림(controllerchange)과 이 메시지의 도착 순서는 보장되지 않는다(문해력2차 설계스펙 v1.3 §7-9).
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
+      list.forEach(c => { try { c.postMessage({ type: 'po-sw-version', cache: CACHE_NAME }); } catch (e) {} });
+    })
+  );
+});
+
+// [v5.105.0] (c) 페이지가 MessageChannel 포트로 버전을 물으면({type:'po-get-version'}) CACHE_NAME으로 답한다.
+self.addEventListener('message', event => {
+  const d = event.data;
+  if (d && d.type === 'po-get-version' && event.ports && event.ports[0]) {
+    event.ports[0].postMessage({ type: 'po-sw-version', cache: CACHE_NAME });
+  }
 });
 
 self.addEventListener('fetch', event => {
