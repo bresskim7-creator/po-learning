@@ -1,4 +1,5 @@
 // PO 학습 시스템 Service Worker
+// v5.104.0 (2026-09-28): 배치6 — '오늘의 한 장' 10/4~10/17 14장. daily_2026-10.js(3→17일)·daily_index.js(94→108, version_key 20260928-0950)·daily_one_page(rotation·calendar) 갱신. 렌더러·PRECACHE 목록·문해력 변경 없음.
 // v5.103.0 (2026-09-27): 두 한 장 개편 1차 — '오늘의 한 장' 미열람 12장(9/22~10/3) 원고 정비(숫자 아라비아 표기·사실 교정·문장·어휘), 자동 음성 제목만(speakDailyTitleLead). daily_2026-09/10.js·daily_index.js(version_key 20260927-1455) 갱신. 기존 동선·문해력·PRECACHE 목록 변경 없음.
 // v5.102.0 (2026-09-17): 배치5 9/20~10/3 — '오늘의 한 장' 14장 + '문해력 한 장' 14장(n51~n64). 신규 월파일 daily_2026-10.js·munhaerak_2026-10.js 2경로 PRECACHE 추가(88→90). daily_index 80→94·munhaerak_index 50→64, rotation history 28건(9/1~10/3) 재계산, calendar에 추분(절기)·추석(공휴일) 추가 + 개천절 covered_angles. 이미지 없음(image_url null). 생성·반영 = Cowork(JH 2026-09-17 역할 예외 승인), 독립 검증 = Codex. 코드·렌더러·GAS·config 불변 — 데이터 8파일 + PRECACHE 2경로 + 버전 무효화. CACHE bump(v51010→v51020).
 // v5.101.0 (2026-09-05): 특집1 「할아버지를 보내고」 3장(9/9~9/11, category 특집, sensitivity sensitive, manual_reviewed) 삽입 — 기존 9/9 가을 하늘→9/12·9/10 숨 참기→9/13·9/11 아시안게임→9/14 이동(id/date/weekday, 아시안게임 subtitle '다음 주'→'이번 주'), 문해력 n48~50 date 9/12~9/14(n50 week W37→W38) 이동, 특집 문해력 없음(문해력 큐는 날짜 무관 FIFO 진행). daily_index 77→80항, rotation history 특집 3건 추가·last_14d 재계산. 신규 파일 없음 — PRECACHE 불변(88항), 데이터 7파일 + 버전 무효화. 큐는 순수 FIFO(날짜 게이트 없음) — 아이가 9/9 카드를 읽기 전에 배포해야 특집이 제자리에 들어감(스펙 §0). 생성 = Cowork(JH 승인 2026-09-05, 실행스펙 00_Context/2026-09-01-특집1-죽음과이별-실행스펙-v1.md). CACHE bump(v51000→v51010).
@@ -53,7 +54,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v51030';
+const CACHE_NAME = 'po-learning-v51040';
 const PRECACHE = [
   './',
   './index.html',
