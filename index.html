@@ -1075,6 +1075,9 @@
       margin-bottom: 12px; overflow: hidden; position: relative;
     }
     .daily-header-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* [v5.107.0] Full illustration; existing image cards retain cover. */
+    .daily-header-image.daily-header-contain { height: clamp(180px, 40vw, 320px); background: #f4f6f7; }
+    .daily-header-contain img { object-fit: contain; }
     .daily-header-credit {
       position: absolute; bottom: 6px; right: 8px; font-size: 10px; color: #FFF;
       background: rgba(0,0,0,0.55); padding: 2px 6px; border-radius: 3px; text-decoration: none;
@@ -1169,6 +1172,82 @@
     .daily-sources-title { font-weight: 700; margin-bottom: 4px; }
     .daily-sources a { color: #2F5496; text-decoration: none; word-break: break-all; }
     .daily-sources a:hover { text-decoration: underline; }
+    /* [v5.106.0] 배치7 — 오늘의 한 장 선다형 3문항(핵심·관계·적용) + 같은 숏츠 링크 (배치7 통합 실행스펙 v1.3 §3·§6-1-1).
+       새 선택자는 .daily-quiz-* · .dq-* · .daily-shorts* 뿐. 누를 곳 높이 44px 이상, 보기 글자 15px. 애니메이션 없음. */
+    .daily-quiz-box {
+      background: #f3f6fb; border: 1px solid #d0d9e8; border-radius: 8px;
+      padding: 12px; margin-bottom: 12px;
+    }
+    .daily-quiz-title { font-size: 13px; color: #2F5496; font-weight: 700; margin-bottom: 2px; }
+    .dq-item { padding: 12px 0 14px; border-bottom: 1px dashed #d8e0ed; }
+    .dq-item:last-child { border-bottom: none; padding-bottom: 2px; }
+    .dq-kind {
+      display: inline-block; font-size: 12px; font-weight: 700; color: #2F5496;
+      background: #e3eaf6; border-radius: 10px; padding: 2px 10px; margin-bottom: 8px;
+    }
+    .dq-situation {
+      background: #fff; border: 1px solid #d0d9e8; border-left: 3px solid #2F5496;
+      border-radius: 0 6px 6px 0; padding: 10px 12px; margin-bottom: 8px;
+      font-size: 15px; line-height: 1.65; color: #333;
+    }
+    .dq-question { font-size: 16px; font-weight: 700; color: #222; line-height: 1.55; margin-bottom: 8px; }
+    .dq-opts { display: flex; flex-direction: column; gap: 8px; }
+    .dq-opt {
+      display: block; width: 100%; min-height: 44px; box-sizing: border-box; text-align: left;
+      padding: 10px 12px; border: 1.5px solid #cfd8e6; border-radius: 10px; background: #fff;
+      font-size: 15px; line-height: 1.5; color: #333; font-family: inherit; cursor: pointer;
+    }
+    .dq-opt.selected { border-color: #D4760A; background: #FFF3E0; box-shadow: inset 0 0 0 1px #D4760A; }
+    .dq-opt.wrong { border-color: #E57373; background: #FDECEC; color: #8a3b3b; }
+    .dq-opt.correct { border-color: #43A047; background: #E9F7EA; color: #1B5E20; font-weight: 700; }
+    .dq-opt:disabled { cursor: default; opacity: .62; }
+    .dq-opt.correct:disabled { opacity: 1; }
+    .dq-opt-note { display: inline-block; margin-left: 6px; font-size: 14px; font-weight: 800; }
+    .dq-check, .dq-reveal {
+      display: block; width: 100%; min-height: 44px; box-sizing: border-box; margin-top: 10px; padding: 10px 12px;
+      border: none; border-radius: 10px; background: #D4760A; color: #fff;
+      font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;
+    }
+    .dq-reveal { background: #fff; color: #D4760A; border: 2px solid #F0C88A; }
+    .dq-check:disabled { opacity: .4; cursor: default; }
+    .dq-hidden { display: none; }
+    .dq-feedback { line-height: 1.6; }
+    .dq-need {
+      margin-top: 8px; font-size: 14px; color: #8a5a00;
+      background: #FFF6E6; border: 1px solid #F3D9A0; border-radius: 10px; padding: 8px 12px;
+    }
+    .dq-hint {
+      margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: #7a5b00;
+      background: #FFF6E6; border: 1px solid #F3D9A0; border-radius: 10px; padding: 10px 12px; outline: none;
+    }
+    .dq-hint-title { display: block; font-weight: 800; margin-bottom: 2px; }
+    .dq-hint-more { display: block; margin-top: 6px; color: #a0522d; }
+    .dq-solution {
+      margin-top: 8px; background: #fff; border: 1px solid #c8e6c9; border-radius: 10px;
+      padding: 10px 12px; line-height: 1.6;
+    }
+    .dq-sol-head { font-size: 16px; font-weight: 800; color: #1B5E20; margin-bottom: 4px; outline: none; }
+    .dq-sol-head.dq-sol-reveal { color: #7a5b00; }
+    .dq-evidence { margin-top: 8px; }
+    .dq-ev-label, .dq-ex-label { font-size: 13px; font-weight: 700; color: #2E7D32; margin-bottom: 4px; }
+    .dq-ev-quote {
+      margin: 0 0 4px; padding: 8px 10px; border-left: 4px solid #43A047; border-radius: 6px;
+      background: #F4FAF4; font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .dq-explain { margin-top: 8px; }
+    .dq-ex-body { font-size: 15px; color: #333; line-height: 1.65; }
+    .daily-shorts {
+      background: #FFF8E1; border: 1px solid #FFE082; border-radius: 8px;
+      padding: 12px; margin-bottom: 12px;
+    }
+    .daily-shorts-title { font-size: 13px; color: #8a6d00; font-weight: 700; margin-bottom: 6px; }
+    .daily-shorts-focus { font-size: 14px; color: #5d4a00; line-height: 1.6; margin-bottom: 8px; }
+    .daily-shorts-btn {
+      display: flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box;
+      padding: 10px 12px; border-radius: 10px; background: #C62828; color: #fff;
+      font-size: 15px; font-weight: 700; text-decoration: none;
+    }
+    .daily-shorts-btn:active { opacity: .9; }
     .daily-archive-list { padding: 8px 0; }
     .daily-archive-item {
       display: flex; align-items: center; gap: 10px;
@@ -1775,8 +1854,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.105.0';
-var APP_SW_CACHE = 'sw51050';
+var APP_VERSION = 'v5.107.0';
+var APP_SW_CACHE = 'sw51070';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -3228,12 +3307,16 @@ function renderDailyToday(d, ctx) {
   var html = '<div class="daily-card">';
   // 헤더 이미지: image_url 있으면 표시 + credit, 없으면 image_fallback 카테고리 그라데이션
   if (d.image_url) {
-    html += '<div class="daily-header-image">';
-    html += '<img src="' + dailyEscapeHtml(d.image_url) + '" alt="' + dailyEscapeHtml(d.title || '') + '" '
+    html += '<div class="daily-header-image' + (d.image_display === 'contain' ? ' daily-header-contain' : '') + '">';
+    html += '<img src="' + dailyEscapeHtml(d.image_url) + '" alt="' + dailyEscapeHtml(d.image_alt || d.title || '') + '" '
       + 'onerror="this.parentNode.classList.add(\'daily-header-fallback\');this.parentNode.classList.add(\'daily-fallback-' + dailyEscapeHtml(d.image_fallback || 'category_svg_general') + '\');this.style.display=\'none\';">';
     if (d.image_credit && d.image_credit.source) {
+      if (d.image_credit.license === 'AI-generated') {
+        html += '<span class="daily-header-credit">' + dailyEscapeHtml(d.image_credit.source) + '</span>';
+      } else {
       html += '<a class="daily-header-credit" href="' + dailyEscapeHtml(d.image_credit.url || '#')
         + '" target="_blank" rel="noopener">© ' + dailyEscapeHtml(d.image_credit.source) + '</a>';
+      }
     }
     html += '</div>';
   } else if (d.image_fallback) {
@@ -3273,7 +3356,8 @@ function renderDailyToday(d, ctx) {
     });
     html += '</div>';
   }
-  if (d.ox_check && d.ox_check.length) {
+  var quizItems = dailyValidQuizItems(d); var hasQuiz = quizItems.length > 0;   // [v5.106.0] 문제 표시 기준은 이 값 하나(문제 상자·bindDailyQuiz·문해력 버튼)
+  if (hasQuiz) { html += renderDailyQuizHtml(d, quizItems); } else if (d.ox_check && d.ox_check.length) {
     html += '<div class="daily-ox-box"><div class="daily-ox-title">✅ 3초 상식 체크 (탭하면 정답)</div>';
     d.ox_check.forEach(function(ox) {
       html += '<div class="daily-ox-item" data-answer="' + dailyEscapeHtml(ox.answer || '') + '" onclick="revealOx(this)">'
@@ -3290,6 +3374,7 @@ function renderDailyToday(d, ctx) {
     if (d.summary_keywords) html += '<div class="daily-summary-keywords">' + dailyEscapeHtml(d.summary_keywords) + '</div>';
     html += '</div>';
   }
+  if (d.shorts) html += renderDailyShortsHtml(d.shorts);   // [v5.106.0] 같은 숏츠 링크 — 한 줄 요약 뒤·출처 앞
   if (d.sources && d.sources.length) {
     html += '<div class="daily-sources"><div class="daily-sources-title">출처</div>';
     d.sources.forEach(function(src) {
@@ -3302,13 +3387,16 @@ function renderDailyToday(d, ctx) {
   html += '</div>';
   html += '<div id="daily-read-sentinel" style="height:1px;"></div>';
   // [v5.89.0] 문해력 이어가기 버튼 — 오늘 큐·지난 글(아카이브) 모두 항상 렌더(문해력 유일 입구)
+  if (!hasQuiz) {   // [v5.106.0] 배치7 문제 카드에는 그리지 않는다(J4). 안의 4줄은 바이트 그대로(들여쓰기도 그대로)
   html += '<div class="daily-munhaerak-cta-wrap">'
     + '<button type="button" class="daily-munhaerak-cta" onclick="goDailyToMunhaerak(\'' + dailyEscapeHtml(ctx.date || '') + '\')">'
     + '🧠 오늘의 문해력 한 장 <span class="daily-munhaerak-cta-arrow">→</span>'
     + '</button></div>';
+  }
   view.innerHTML = html;
-  if (d.schema_version && d.schema_version > 1.1) {
-    console.warn('[daily] schema_version', d.schema_version, '> renderer 1.1. 일부 필드가 표시되지 않을 수 있음.');
+  if (hasQuiz) bindDailyQuiz(view.querySelector('.daily-quiz-box'), d, quizItems);   // [v5.106.0] 문제 상자에 클릭 위임 하나
+  if (d.schema_version && d.schema_version > 1.2) {
+    console.warn('[daily] schema_version', d.schema_version, '> renderer 1.2. 일부 필드가 표시되지 않을 수 있음.');
   }
   // [v5.103.0] 카드 진입 시 제목만 자동 읽어주기 (Web Speech 로컬, 음소거 설정 따름)
   speakDailyTitleLead(d);
@@ -3326,6 +3414,217 @@ function revealOx(el) {
   el.classList.add('revealed');
   if (answer === 'O') el.classList.add('correct');
   else if (answer === 'X') el.classList.add('wrong');
+}
+// ===================================================================
+// [v5.106.0] 배치7 — 선다형 3문항(핵심·관계·적용) + 같은 숏츠 링크
+//   기준: 00_Context/2026-10-08-배치7-통합-실행스펙-v1.3.md §3(화면·상태표)·§4(데이터 계약 schema 1.2)·§6(렌더러)
+//   - 문제 표시 기준은 하나: dailyValidQuizItems(d)가 거른 유효 문항 수(renderDailyToday의 hasQuiz).
+//     문제 상자·bindDailyQuiz·문해력 버튼이 모두 이 값만 쓴다. 문항 거르기(가드 ⓐⓑ)는 dailyValidQuizItems 한 곳에서만.
+//   - 채점 전 DOM에는 정답·힌트·근거·해설이 없다(L5). 풀이는 [정답 확인] 뒤 그 문제 아래에만 그린다(팝업 없음).
+//   - 문항 상태는 문항마다 따로(클로저). 진행 저장·정답률 전송·자동 음성·애니메이션 없음. 읽음 처리는 현행 그대로(센티널).
+// ===================================================================
+function dailyValidQuizItems(d) {
+  // 가드 ⓐⓑ를 통과한 문항만 {q: d.quiz[i], i: i}로, 원래 순서대로. 건너뛸 때마다 console.error('[daily-quiz] …', 날짜, i).
+  var items = [];
+  if (!d || !Array.isArray(d.quiz)) return items;
+  for (var i = 0; i < d.quiz.length; i++) {
+    var q = d.quiz[i], why = '';
+    if (!q || typeof q !== 'object' || Array.isArray(q)) why = '문항이 객체가 아님';                                   // ⓐ
+    else if (typeof q.question !== 'string' || !q.question.trim()) why = '질문이 비었음';                              // ⓐ
+    else if (!Array.isArray(q.options) || !q.options.length) why = '보기가 비었음';                                      // ⓐ
+    else if (q.options.length < 2) why = '보기가 2개 미만';                                                             // ⓑ
+    else if (q.options.some(function(o) { return typeof o !== 'string' || !o.trim(); })) why = '내용이 빈 보기가 있음';   // ⓑ
+    else if (typeof q.answer !== 'number' || Math.floor(q.answer) !== q.answer || q.answer < 0 || q.answer >= q.options.length) why = '정답 번호가 범위 밖';   // ⓑ
+    else if (!Array.isArray(q.hints) || q.hints.length !== q.options.length) why = '힌트 수가 보기 수와 다름';            // ⓑ
+    if (why) { console.error('[daily-quiz] 문항을 그리지 않음 — ' + why, d.date, i); continue; }
+    items.push({ q: q, i: i });
+  }
+  return items;
+}
+function renderDailyQuizHtml(d, items) {
+  // items = dailyValidQuizItems(d)의 결과 — 다시 거르지 않는다. 번호(1·2·3)와 data-qi는 그려진 순서(ⓖ).
+  // 정답·힌트·근거·해설은 여기서 읽지도 쓰지도 않는다(L5 — 채점 전 DOM에 없음).
+  var KIND = { '핵심': '핵심 찾기', '관계': '관계 이해하기', '적용': '적용하기' };
+  var MARK = ['①', '②', '③', '④', '⑤'];
+  var n = items.length;
+  var html = '<div class="daily-quiz-box"><div class="daily-quiz-title">🧩 읽고 푸는 ' + (['한', '두', '세'][n - 1] || String(n)) + ' 문제</div>';
+  for (var k = 0; k < n; k++) {
+    var q = items[k].q;
+    var kind = Object.prototype.hasOwnProperty.call(KIND, q.kind) ? KIND[q.kind] : '';   // ⓒ 모르는 종류 = 종류 표시만 뺀다
+    html += '<div class="dq-item" data-qi="' + k + '">'
+      + '<div class="dq-kind">' + (k + 1) + (kind ? ' · ' + kind : '') + '</div>';
+    if (typeof q.situation === 'string' && q.situation.trim()) {
+      html += '<div class="dq-situation">' + dailyEscapeHtml(q.situation) + '</div>';
+    }
+    html += '<div class="dq-question">' + dailyEscapeHtml(q.question) + '</div>'
+      + '<div class="dq-opts" role="radiogroup" aria-label="' + (k + 1) + '번 문제 보기">';
+    for (var i = 0; i < q.options.length; i++) {
+      html += '<button type="button" class="dq-opt" role="radio" aria-checked="false" data-oi="' + i + '">'
+        + (MARK[i] || (i + 1) + '.') + '&nbsp;' + dailyEscapeHtml(q.options[i]) + '</button>';
+    }
+    html += '</div>'
+      + '<button type="button" class="dq-check">정답 확인</button>'
+      + '<div class="dq-feedback" aria-live="polite"></div>'
+      + '<button type="button" class="dq-reveal dq-hidden">풀이 보기</button>'
+      + '</div>';
+  }
+  return html + '</div>';
+}
+function bindDailyQuiz(box, d, items) {
+  // box에 클릭 위임 하나. 이벤트 대상에서 closest('.dq-item')로 자기 문항 노드를 찾고, 그 노드의 data-qi(k)로
+  // items[k].q(= 원래 d.quiz[i])만 읽는다. d.quiz[k]·document.querySelector*·전역 변수로 문항을 찾지 않는다.
+  if (!box || !items || !items.length) return;
+  var ctl = [];
+  var nodes = box.querySelectorAll('.dq-item');
+  for (var n = 0; n < nodes.length; n++) {
+    var k = +nodes[n].getAttribute('data-qi');
+    if (items[k] && !ctl[k]) ctl[k] = makeItem(nodes[n], items[k].q);
+  }
+  box.addEventListener('click', function(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var node = t.closest('.dq-item');
+    if (!node || !box.contains(node)) return;
+    var c = ctl[+node.getAttribute('data-qi')];
+    if (!c || c.node !== node) return;
+    var opt = t.closest('.dq-opt');
+    if (opt && node.contains(opt)) { c.choose(+opt.getAttribute('data-oi')); return; }
+    if (t.closest('.dq-check')) { c.check(); return; }
+    if (t.closest('.dq-reveal')) { c.reveal(); return; }
+  });
+
+  function makeItem(node, q) {
+    // 이 문항만의 상태 — S0 선택 전 · S1 선택됨 · S2 첫 오답 · S3 두 번째 오답 · S4 잠김(정답·풀이). 시도는 최대 2번.
+    var st = { state: 'S0', selected: null, tries: 0, locked: false, wrongSet: {} };
+    var opts = node.querySelectorAll('.dq-opt');
+    var checkBtn = node.querySelector('.dq-check');
+    var revealBtn = node.querySelector('.dq-reveal');
+    var fb = node.querySelector('.dq-feedback');
+    var label = {};   // 보기 글자(번호 포함) — ✓·✗를 글자로도 알리는 aria-label의 바탕
+    for (var j = 0; j < opts.length; j++) label[opts[j].getAttribute('data-oi')] = opts[j].textContent;
+    function optAt(oi) {
+      for (var x = 0; x < opts.length; x++) if (+opts[x].getAttribute('data-oi') === oi) return opts[x];
+      return null;
+    }
+    function mark(oi, cls, sign, said) {
+      var el = optAt(oi);
+      if (!el) return;
+      el.classList.remove('selected');
+      el.classList.add(cls);
+      el.setAttribute('aria-label', label[oi] + ' — ' + said);
+      var note = document.createElement('span');
+      note.className = 'dq-opt-note';
+      note.textContent = sign;
+      el.appendChild(note);
+    }
+    function paint() {
+      var closed = st.locked || st.state === 'S3';
+      for (var x = 0; x < opts.length; x++) {
+        var oi = +opts[x].getAttribute('data-oi');
+        var on = !closed && st.selected === oi;
+        opts[x].classList.toggle('selected', on);
+        opts[x].setAttribute('aria-checked', on ? 'true' : 'false');
+        opts[x].disabled = closed || !!st.wrongSet[oi];
+      }
+      checkBtn.classList.toggle('dq-hidden', closed);
+      checkBtn.disabled = !closed && st.state === 'S2' && st.selected === null;   // S2: 새 보기를 고를 때까지 흐림
+      revealBtn.classList.toggle('dq-hidden', st.state !== 'S3');
+    }
+    function show(html, focusSel) {
+      fb.innerHTML = html;
+      if (focusSel) {   // [정답 확인]·[풀이 보기]가 숨을 때 포커스를 힌트·풀이 머리말로
+        var f = fb.querySelector(focusSel);
+        if (f) { try { f.focus(); } catch (e) {} }
+      }
+    }
+    function hintHtml(oi, last) {
+      var h = (typeof q.hints[oi] === 'string' && q.hints[oi].trim()) ? q.hints[oi] : '본문을 다시 읽어 봐요.';   // ⓓ
+      return '<div class="dq-hint" tabindex="-1"><span class="dq-hint-title">다시 생각해 봐요</span>' + dailyEscapeHtml(h)
+        + (last ? '<span class="dq-hint-more">두 번 모두 틀렸어요. 풀이를 보고 본문을 다시 읽어 봐요.</span>' : '') + '</div>';
+    }
+    function solutionHtml(how) {
+      var h = '<div class="dq-solution"><div class="dq-sol-head' + (how === 'correct' ? '' : ' dq-sol-reveal') + '" tabindex="-1">'
+        + (how === 'correct' ? '정답이에요!' : '풀이를 봐요') + '</div>';
+      var ev = Array.isArray(q.evidence) ? q.evidence : [];
+      for (var e = 0; e < ev.length; e++) {
+        if (typeof ev[e] !== 'string' || !ev[e]) continue;
+        var head = dailyQuizHeadingOf(d, ev[e]);   // ⓕ 근거 절을 못 찾으면 소제목 없이 인용만(빈 ‘’ 없음)
+        h += '<div class="dq-evidence"><div class="dq-ev-label">📍 본문 근거' + (head ? ' — ‘' + dailyEscapeHtml(head) + '’' : '') + '</div>'
+          + '<blockquote class="dq-ev-quote">' + dailyEscapeHtml(ev[e]) + '</blockquote></div>';
+      }
+      if (typeof q.explanation === 'string' && q.explanation.trim()) {   // ⓔ 해설이 비면 이 줄만 뺀다
+        h += '<div class="dq-explain"><div class="dq-ex-label">💡 왜 정답일까요?</div>'
+          + '<div class="dq-ex-body">' + dailyEscapeHtml(q.explanation) + '</div></div>';
+      }
+      return h + '</div>';
+    }
+    function lock(how) {
+      st.locked = true;
+      st.state = 'S4';
+      mark(q.answer, 'correct', '✓', '정답');
+      paint();
+      show(solutionHtml(how), '.dq-sol-head');
+    }
+    return {
+      node: node,
+      choose: function(oi) {
+        if (st.locked || st.state === 'S3' || st.wrongSet[oi] || !optAt(oi)) return;
+        st.selected = oi;
+        if (st.state === 'S0') st.state = 'S1';
+        if (fb.querySelector('.dq-need')) fb.innerHTML = '';
+        paint();
+      },
+      check: function() {
+        if (st.locked || st.state === 'S3') return;
+        if (st.selected === null) {   // #3 고르지 않고 [정답 확인] — 제출로 세지 않는다
+          if (st.state !== 'S2') show('<div class="dq-need" role="status">먼저 답을 하나 골라요</div>');
+          return;
+        }
+        st.tries++;
+        var oi = st.selected;
+        if (oi === q.answer) { lock('correct'); return; }
+        st.wrongSet[oi] = true;
+        st.selected = null;
+        mark(oi, 'wrong', '✗', '다시 생각해 봐요');
+        if (st.tries >= 2) {
+          st.state = 'S3';
+          paint();
+          show(hintHtml(oi, true), '.dq-hint');
+        } else {
+          st.state = 'S2';
+          paint();
+          show(hintHtml(oi, false), '.dq-hint');   // [정답 확인]이 흐려지면 포커스가 사라지므로 힌트로 옮긴다
+        }
+      },
+      reveal: function() {
+        if (st.state === 'S3') lock('reveal');
+      }
+    };
+  }
+}
+function renderDailyShortsHtml(s) {
+  // 숏츠 세트 카드 끝 '같은 숏츠 보기' — 앱 안 재생 없음, 유튜브 링크 1개(새 탭). 영상 제목·채널은 그리지 않는다(§3-4·§4-3).
+  var re = /^https:\/\/www\.youtube\.com\/shorts\/[A-Za-z0-9_-]{11}$/;
+  if (!s || typeof s !== 'object' || typeof s.url !== 'string' || !re.test(s.url)) {
+    console.error('[daily-shorts] 숏츠 주소가 계약과 달라 상자를 그리지 않음', s && s.url);
+    return '';
+  }
+  return '<div class="daily-shorts">'
+    + '<div class="daily-shorts-title">🎬 같은 숏츠 보기</div>'
+    + ((typeof s.focus === 'string' && s.focus.trim()) ? '<div class="daily-shorts-focus">볼 때 살펴봐요: ' + dailyEscapeHtml(s.focus) + '</div>' : '')
+    + '<a class="daily-shorts-btn" href="' + dailyEscapeHtml(s.url) + '" target="_blank" rel="noopener">▶ 유튜브에서 보기</a>'
+    + '</div>';
+}
+function dailyQuizHeadingOf(d, text) {
+  // 근거 문장이 들어 있는 첫 절의 소제목. 못 찾으면 ''.
+  if (!d || !Array.isArray(d.sections) || typeof text !== 'string' || !text) return '';
+  for (var i = 0; i < d.sections.length; i++) {
+    var sec = d.sections[i];
+    if (sec && typeof sec.body === 'string' && sec.body.indexOf(text) !== -1) {
+      return (typeof sec.heading === 'string') ? sec.heading : '';
+    }
+  }
+  return '';
 }
 function renderDailyArchive() {
   var view = document.getElementById('daily-archive-view');
@@ -14608,10 +14907,12 @@ if ('serviceWorker' in navigator) {
     var conceptCard = document.getElementById('page-concept-card');
     var munhaerak = document.getElementById('page-munhaerak');   // [v5.90] 문해력 풀이 중 선택상태 보존
     var word = document.getElementById('page-word');             // [word §3-7] 단어 풀이 중 즉시 리로드 억제 → 배너
+    var daily = document.getElementById('page-daily');           // [v5.106] 오늘의 한 장 문제 풀이 상태 보존
     return !!((card && card.classList.contains('active')) ||
               (conceptCard && conceptCard.classList.contains('active')) ||
               (munhaerak && munhaerak.classList.contains('active')) ||
-              (word && word.classList.contains('active')));
+              (word && word.classList.contains('active')) ||
+              (daily && daily.classList.contains('active')));
   }
 
   function poReloadedVersion() {

@@ -1997,8 +1997,12 @@ window.__loadDailyMonth("2026-09", {
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-09-29-rainforest-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-09-29",
       "date": "2026-09-29",
@@ -2073,15 +2077,21 @@ window.__loadDailyMonth("2026-09", {
         "model": "claude-opus-5 (Cowork)",
         "web_search_used": true,
         "revision": "r1-2026-09-26 (Cowork)"
-      }
+      },
+      "image_alt": "강과 울창한 숲을 멀리서 바라보는 풍경",
+      "image_display": "contain"
     },
     "2026-09-30": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-09-30-dormancy-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-09-30",
       "date": "2026-09-30",
@@ -2160,7 +2170,9 @@ window.__loadDailyMonth("2026-09", {
         "model": "claude-opus-5 (Cowork)",
         "web_search_used": true,
         "revision": "r1-2026-09-26 (Cowork)"
-      }
+      },
+      "image_alt": "얼어 있는 흙과 확대해서 본 실처럼 가는 선충",
+      "image_display": "contain"
     }
   }
 });

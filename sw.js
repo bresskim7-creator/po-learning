@@ -1,4 +1,6 @@
+// v5.107.0 (2026-10-10): 미읽음 19 + 배치7 14 이미지, contain·alt·AI 출처. 기존 읽음 데이터 보존.
 // PO 학습 시스템 Service Worker
+// v5.106.0 (2026-10-09): 배치7 — '오늘의 한 장' 10/18~10/31 14장(숏츠 세트 9 + 신규 5). OX 3개 → 선다형 3문항(핵심·관계·적용, daily schema 1.2) 렌더러(dailyValidQuizItems·renderDailyQuizHtml·bindDailyQuiz·renderDailyShortsHtml·dailyQuizHeadingOf) + 같은 숏츠 링크(유튜브 새 탭) + 배치7 카드에는 문해력 버튼 없음 + 오늘의 한 장 화면도 '진행 중'(새 버전은 배너). daily_2026-10.js(17→31일)·daily_index.js(108→122, version_key 20261009-1709)·daily_one_page(rotation·calendar) 갱신. PRECACHE 목록·문해력 변경 없음.
 // v5.105.0 (2026-09-28): 문해력 2차 단계 A — 새 렌더러(choice 새 형식·지난 카드 모드·팝업·읽음은 '오늘 학습 끝'에서만·목록/카드 로드 실패 안내 분리) + 시범 3장(n47·n48·n49, munhaerak_2026-09.js) + 새 버전 받기 결함 2가지 수정(activate 버전 알림·po-get-version 응답, 페이지는 제어 워커에 물어 버전별 1회 새로고침). PRECACHE 목록 변경 없음.
 // v5.104.0 (2026-09-28): 배치6 — '오늘의 한 장' 10/4~10/17 14장. daily_2026-10.js(3→17일)·daily_index.js(94→108, version_key 20260928-0950)·daily_one_page(rotation·calendar) 갱신. 렌더러·PRECACHE 목록·문해력 변경 없음.
 // v5.103.0 (2026-09-27): 두 한 장 개편 1차 — '오늘의 한 장' 미열람 12장(9/22~10/3) 원고 정비(숫자 아라비아 표기·사실 교정·문장·어휘), 자동 음성 제목만(speakDailyTitleLead). daily_2026-09/10.js·daily_index.js(version_key 20260927-1455) 갱신. 기존 동선·문해력·PRECACHE 목록 변경 없음.
@@ -55,8 +57,42 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v51050';
+const CACHE_NAME = 'po-learning-v51070';
 const PRECACHE = [
+  './daily-images/2026-09-29-rainforest-v1.webp',
+  './daily-images/2026-09-30-dormancy-v1.webp',
+  './daily-images/2026-10-01-ai-referee-v1.webp',
+  './daily-images/2026-10-02-artifacts-v1.webp',
+  './daily-images/2026-10-03-dangun-v1.webp',
+  './daily-images/2026-10-04-medals-v1.webp',
+  './daily-images/2026-10-05-nobel-v1.webp',
+  './daily-images/2026-10-06-sputnik-v1.webp',
+  './daily-images/2026-10-07-soccer-panels-v1.webp',
+  './daily-images/2026-10-08-microscope-v1.webp',
+  './daily-images/2026-10-09-hangul-shapes-v1.webp',
+  './daily-images/2026-10-10-moon-flag-v1.webp',
+  './daily-images/2026-10-11-wrinkled-fingers-v1.webp',
+  './daily-images/2026-10-12-chance-v1.webp',
+  './daily-images/2026-10-13-world-time-v1.webp',
+  './daily-images/2026-10-14-ginkgo-v1.webp',
+  './daily-images/2026-10-15-curveball-v1.webp',
+  './daily-images/2026-10-16-food-date-v1.webp',
+  './daily-images/2026-10-17-goalball-v1.webp',
+  './daily-images/2026-10-18-vowels-v1.webp',
+  './daily-images/2026-10-19-space-modules-v1.webp',
+  './daily-images/2026-10-20-we-context-v1.webp',
+  './daily-images/2026-10-21-emergency-numbers-v1.webp',
+  './daily-images/2026-10-22-midnight-noon-v1.webp',
+  './daily-images/2026-10-23-frost-dew-v1.webp',
+  './daily-images/2026-10-24-un-peace-v1.webp',
+  './daily-images/2026-10-25-tie-carry-v1.webp',
+  './daily-images/2026-10-26-migrating-geese-v1.webp',
+  './daily-images/2026-10-27-bank-interest-v1.webp',
+  './daily-images/2026-10-28-rieul-v1.webp',
+  './daily-images/2026-10-29-pyramid-stone-v1.webp',
+  './daily-images/2026-10-30-next-day-v1.webp',
+  './daily-images/2026-10-31-mosquito-rain-v1.webp',
+
   './',
   './index.html',
   './growth.js',

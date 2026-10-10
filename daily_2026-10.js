@@ -1,15 +1,19 @@
 window.__loadDailyMonth("2026-10", {
   "schema_version": 1.1,
   "month": "2026-10",
-  "updated_at": "2026-09-28T09:50:00+09:00",
+  "updated_at": "2026-10-09T17:09:00+09:00",
   "days": {
     "2026-10-01": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-01-ai-referee-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_news",
       "id": "2026-10-01",
       "date": "2026-10-01",
@@ -84,15 +88,21 @@ window.__loadDailyMonth("2026-10", {
         "model": "claude-opus-5 (Cowork)",
         "web_search_used": true,
         "revision": "r1-2026-09-26 (Cowork)"
-      }
+      },
+      "image_alt": "게임 판정 화면을 사람이 돋보기로 다시 살피는 모습",
+      "image_display": "contain"
     },
     "2026-10-02": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-02-artifacts-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-02",
       "date": "2026-10-02",
@@ -167,15 +177,21 @@ window.__loadDailyMonth("2026-10", {
         "model": "claude-opus-5 (Cowork)",
         "web_search_used": true,
         "revision": "r1-2026-09-26 (Cowork)"
-      }
+      },
+      "image_alt": "옛 도구와 그릇을 살펴보는 박물관 전시",
+      "image_display": "contain"
     },
     "2026-10-03": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-03-dangun-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-10-03",
       "date": "2026-10-03",
@@ -254,15 +270,21 @@ window.__loadDailyMonth("2026-10", {
         "model": "claude-opus-5 (Cowork)",
         "web_search_used": true,
         "revision": "r1-2026-09-26 (Cowork)"
-      }
+      },
+      "image_alt": "산과 곰이 옛이야기 그림으로 펼쳐진 책",
+      "image_display": "contain"
     },
     "2026-10-04": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-04-medals-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_news",
       "id": "2026-10-04",
       "date": "2026-10-04",
@@ -340,15 +362,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "금메달 한 개와 은메달 열 개를 나란히 놓은 모습",
+      "image_display": "contain"
     },
     "2026-10-05": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-05-nobel-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_news",
       "id": "2026-10-05",
       "date": "2026-10-05",
@@ -430,15 +458,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "봉인된 추천 서류와 자물쇠, 상을 상징하는 메달",
+      "image_display": "contain"
     },
     "2026-10-06": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-06-sputnik-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-10-06",
       "date": "2026-10-06",
@@ -516,15 +550,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "네 개의 긴 안테나가 달린 작은 구형 스푸트니크 1호",
+      "image_display": "contain"
     },
     "2026-10-07": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-07-soccer-panels-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-07",
       "date": "2026-10-07",
@@ -602,15 +642,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "검은 오각형과 흰 육각형 조각이 보이는 축구공",
+      "image_display": "contain"
     },
     "2026-10-08": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-08-microscope-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-08",
       "date": "2026-10-08",
@@ -692,15 +738,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "물 한 방울과 그 안의 작은 생물을 확대해 보는 모습",
+      "image_display": "contain"
     },
     "2026-10-09": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-09-hangul-shapes-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-10-09",
       "date": "2026-10-09",
@@ -782,15 +834,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "한글 기본 자음 모양을 보여 주는 다섯 개의 글자 조각",
+      "image_display": "contain"
     },
     "2026-10-10": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-10-moon-flag-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-10-10",
       "date": "2026-10-10",
@@ -872,15 +930,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "달 표면의 우주 비행사와 작은 깃발, 멀리 보이는 지구",
+      "image_display": "contain"
     },
     "2026-10-11": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-11-wrinkled-fingers-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-11",
       "date": "2026-10-11",
@@ -958,15 +1022,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "물에 담근 뒤 주름이 생긴 손끝을 살펴보는 모습",
+      "image_display": "contain"
     },
     "2026-10-12": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-12-chance-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-12",
       "date": "2026-10-12",
@@ -1040,15 +1110,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "여러 파란 구슬과 금색 구슬이 섞인 불투명 주머니",
+      "image_display": "contain"
     },
     "2026-10-13": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-13-world-time-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-13",
       "date": "2026-10-13",
@@ -1130,15 +1206,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "지구본 옆의 밤 풍경과 아침 풍경을 보여 주는 두 시계",
+      "image_display": "contain"
     },
     "2026-10-14": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-14-ginkgo-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_life",
       "id": "2026-10-14",
       "date": "2026-10-14",
@@ -1220,15 +1302,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "부채꼴 은행잎과 노란 겉껍질로 싸인 은행 씨",
+      "image_display": "contain"
     },
     "2026-10-15": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-15-curveball-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-10-15",
       "date": "2026-10-15",
@@ -1310,15 +1398,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "회전하며 휘어진 길을 따라 날아가는 야구공",
+      "image_display": "contain"
     },
     "2026-10-16": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-16-food-date-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_season",
       "id": "2026-10-16",
       "date": "2026-10-16",
@@ -1396,15 +1490,21 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "밀봉된 식품 포장과 날짜 표시를 살피는 돋보기",
+      "image_display": "contain"
     },
     "2026-10-17": {
       "schema_version": 1.1,
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.1,
-      "image_url": null,
-      "image_credit": null,
+      "image_url": "./daily-images/2026-10-17-goalball-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
       "image_fallback": "category_svg_news",
       "id": "2026-10-17",
       "date": "2026-10-17",
@@ -1486,7 +1586,2105 @@ window.__loadDailyMonth("2026-10", {
       "model_meta": {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
-      }
+      },
+      "image_alt": "눈가리개를 쓴 세 명의 선수가 골대 앞에서 골볼을 막는 모습",
+      "image_display": "contain"
+    },
+    "2026-10-18": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-18-vowels-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-18",
+      "date": "2026-10-18",
+      "weekday": "일",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 요새와 금세",
+      "title": "요새와 금세는 왜 다르게 쓸까",
+      "subtitle": "줄어들기 전의 말 찾기",
+      "lead_question": "‘요새’와 ‘금세’, 끝 글자를 ㅐ로 쓸지 ㅔ로 쓸지 헷갈린 적 있나요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🤔",
+          "heading": "소리는 비슷해도 글자는 달라요",
+          "body": "친구에게 쪽지를 쓴다고 해 볼게요. ‘요새 뭐 해?’라고 쓰려다 멈칫할 수 있어요. ‘요새’가 맞을까요, ‘요세’가 맞을까요? ‘금세 올게’를 쓸 때도 마찬가지예요. 두 낱말의 마지막 글자는 소리가 비슷하게 들려요. 그런데 하나는 ㅐ, 하나는 ㅔ로 써요. 헷갈릴 때는 줄어들기 전의 말을 떠올려 보세요."
+        },
+        {
+          "icon": "📏",
+          "heading": "요새는 요사이에서",
+          "body": "‘요새’는 ‘요사이’가 줄어든 말이에요. 요사이는 지금까지의 아주 짧은 동안을 말해요. 이렇게 낱말의 일부분이 줄어든 말을 준말이라고 해요. 요사이의 ‘사이’가 줄어서 ‘새’가 되었어요. ‘사이’의 ㅏ와 ㅣ가 만나 ㅐ가 된 거예요. 그래서 ‘요새’는 ㅐ로 써요."
+        },
+        {
+          "icon": "⏱️",
+          "heading": "금세는 금시에서",
+          "body": "‘금세’는 ‘금시에’가 줄어든 말이에요. 금시는 ‘바로 지금’이라는 뜻이에요. 그래서 금세도 ‘지금 바로’라는 뜻으로 써요. 금시에의 ‘시에’가 줄어서 ‘세’가 되었어요. ‘시’의 ㅣ는 빠지고, ㅅ과 ‘에’의 ㅔ가 만나 ‘세’가 된 거예요. 두 낱말은 소리가 비슷해도 줄기 전의 말이 달라요. 그래서 하나는 ㅐ, 하나는 ㅔ를 써요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "준말",
+          "en": "shortened word",
+          "desc": "낱말의 일부분이 줄어든 말이에요. ‘요사이’가 줄어 ‘요새’가 되었어요."
+        },
+        {
+          "ko": "요사이",
+          "en": "these days",
+          "desc": "지금까지의 아주 짧은 동안이에요. 줄여서 ‘요새’라고 해요."
+        },
+        {
+          "ko": "금시",
+          "en": "this very moment",
+          "desc": "‘바로 지금’이라는 뜻이에요. ‘금시에’가 줄어 ‘금세’가 되었어요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "요새와 금세가 헷갈릴 때 글에서 권한 방법은?",
+          "options": [
+            "소리 나는 대로 받아 적어요",
+            "앞 글자의 받침이 있는지 살펴봐요",
+            "줄어들기 전의 말을 생각해 봐요",
+            "더 자주 보는 쪽을 골라요"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘소리는 비슷해도 글자는 달라요’에서 두 낱말의 소리가 어떻다고 했나요?",
+            "‘소리는 비슷해도 글자는 달라요’의 마지막 문장을 다시 읽어 봐요.",
+            null,
+            "‘소리는 비슷해도 글자는 달라요’에서 헷갈릴 때 할 일을 찾아봐요."
+          ],
+          "evidence": [
+            "헷갈릴 때는 줄어들기 전의 말을 떠올려 보세요."
+          ],
+          "explanation": "글은 두 낱말이 헷갈릴 때 줄어들기 전의 말을 떠올려 보라고 했어요."
+        },
+        {
+          "kind": "관계",
+          "question": "‘금세’를 ㅔ로 쓰는 까닭은 무엇인가요?",
+          "options": [
+            "‘금시에’가 줄어든 말이라서",
+            "마지막 소리를 ㅔ로 또렷하게 내서",
+            "‘요사이’가 줄어든 말이라서",
+            "‘금’과 ‘새’를 합친 말이라서"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘소리는 비슷해도 글자는 달라요’에서 소리가 어떻다고 했는지 봐요.",
+            "‘요새는 요사이에서’를 보면 요사이는 어느 말이 되었나요?",
+            "‘금세는 금시에서’에서 금세가 어떤 말이 줄어든 건지 찾아요."
+          ],
+          "evidence": [
+            "‘금세’는 ‘금시에’가 줄어든 말이에요.",
+            "‘시’의 ㅣ는 빠지고, ㅅ과 ‘에’의 ㅔ가 만나 ‘세’가 된 거예요."
+          ],
+          "explanation": "금세는 ‘금시에’가 줄어든 말이에요. ‘에’의 ㅔ가 남아서 ㅔ로 써요."
+        },
+        {
+          "kind": "적용",
+          "situation": "㉠에는 ‘그사이’가, ㉡에는 ‘금시에’가 줄어든 말이 들어가요. “( ㉠ ) 비가 그쳐서 놀이터가 ( ㉡ ) 붐볐어요.”",
+          "question": "㉠과 ㉡에 알맞은 말을 차례대로 고른 것은?",
+          "options": [
+            "그세, 금세",
+            "그새, 금새",
+            "그새, 금세",
+            "그세, 금새"
+          ],
+          "answer": 2,
+          "hints": [
+            "㉠은 ‘그사이’가 줄어든 말이에요. ‘요새는 요사이에서’를 다시 봐요.",
+            "㉡은 ‘금시에’가 줄어든 말이에요. ‘금세는 금시에서’를 다시 봐요.",
+            null,
+            "‘요새는 요사이에서’와 ‘금세는 금시에서’를 함께 다시 봐요."
+          ],
+          "evidence": [
+            "요사이의 ‘사이’가 줄어서 ‘새’가 되었어요.",
+            "금시에의 ‘시에’가 줄어서 ‘세’가 되었어요."
+          ],
+          "explanation": "‘사이’가 줄면 ‘새’라서 ㉠은 ‘그새’, ‘시에’가 줄면 ‘세’라서 ㉡은 ‘금세’예요."
+        }
+      ],
+      "one_line_summary": "‘요새’는 [   ]가 줄어서 ㅐ, ‘금세’는 [   ]가 줄어서 ㅔ를 써요.",
+      "summary_keywords": "키워드: 준말, 요사이, 금시",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/YWm75wgdrYc",
+        "title": "요새는 ㅐ인데 금세는 왜 ㅔ일까?",
+        "channel": "김주혜(@kimjuhea0418)",
+        "focus": "줄어들기 전의 말 두 가지가 무엇인지 들어 보세요."
+      },
+      "sources": [
+        {
+          "title": "표준국어대사전 — 금세",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=46802&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 요새",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=460247&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 준말",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=297126&searchKeywordTo=3"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "ㅐ와 ㅔ 글자 조각을 나란히 살펴보는 책상",
+      "image_display": "contain"
+    },
+    "2026-10-19": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-19-space-modules-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-19",
+      "date": "2026-10-19",
+      "weekday": "월",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 우주정거장 조립",
+      "title": "우주정거장은 한 번에 올렸을까",
+      "subtitle": "나누어 올리고 우주에서 잇기",
+      "lead_question": "커다란 국제우주정거장을 로켓 한 번에 쏘아 올렸을까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🚀",
+          "heading": "여러 나라가 나누어 만들었어요",
+          "body": "국제우주정거장은 지구 둘레를 도는 커다란 실험실이에요. 여러 나라의 우주 비행사가 번갈아 머물며 연구해요. 사람이 지내는 공간이 방 여섯 개짜리 집보다 넓어요. 이 정거장은 한곳에서 통째로 만들지 않았어요. 여러 나라가 부분을 하나씩 나누어 만들었어요. 이 부분 하나하나를 모듈이라고 해요. 모듈은 로켓이나 우주왕복선에 실려 따로따로 우주에 올라갔어요. 우주왕복선은 여러 번 되풀이해 쓸 수 있는 우주선이에요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "우주에서 처음 만난 두 모듈",
+          "body": "첫 모듈은 러시아에서 만든 자랴예요. 1998년 11월 20일 러시아 로켓에 실려 올라갔어요. 그다음 미국의 첫 모듈 유니티가 우주왕복선을 타고 갔어요. 우주왕복선의 로봇 팔이 자랴를 붙잡아 유니티와 이었어요. 두 모듈은 서로 아주 먼 나라에서 따로 만들었어요. 땅에서 한 번도 이어 본 적이 없었지만 우주에서 꼭 맞게 이어졌어요."
+        },
+        {
+          "icon": "🧩",
+          "heading": "우주에서 한 조각씩",
+          "body": "그 뒤로도 모듈이 하나씩 더 올라갔어요. 새 모듈이 도착하면 로봇 팔과 우주복을 입은 사람들이 이어 붙였어요. 이렇게 여러 부분을 짜 맞추어 하나로 만드는 것을 조립이라고 해요. 우주왕복선은 조립을 위해 모두 37번 우주를 오갔어요. 러시아 로켓도 여러 번 힘을 보탰어요. 모듈을 하나씩 실어 날라야 했기 때문이에요. 커다란 정거장은 이렇게 우주에서 한 조각씩 자라났어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "모듈",
+          "en": "module",
+          "desc": "우주정거장을 이루는 커다란 부분 하나하나예요. 따로 올려 우주에서 이어요."
+        },
+        {
+          "ko": "우주왕복선",
+          "en": "space shuttle",
+          "desc": "여러 번 되풀이해 쓸 수 있는, 사람이 타는 우주선이에요."
+        },
+        {
+          "ko": "조립",
+          "en": "assembly",
+          "desc": "여러 부분을 짜 맞추어 하나로 만드는 것이에요. 우주정거장은 우주에서 조립했어요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "국제우주정거장은 어떻게 지었나요?",
+          "options": [
+            "땅에서 다 지은 뒤 한 번에 올렸어요",
+            "모듈을 따로 올려 우주에서 이었어요",
+            "땅에서 이어 본 뒤 나누어 올렸어요",
+            "한 나라가 혼자 모든 부분을 만들었어요"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘여러 나라가 나누어 만들었어요’에서 통째로 만들었는지 봐요.",
+            null,
+            "‘우주에서 처음 만난 두 모듈’에서 땅에서 이어 봤는지 봐요.",
+            "‘여러 나라가 나누어 만들었어요’에서 누가 만들었는지 봐요."
+          ],
+          "evidence": [
+            "모듈은 로켓이나 우주왕복선에 실려 따로따로 우주에 올라갔어요.",
+            "새 모듈이 도착하면 로봇 팔과 우주복을 입은 사람들이 이어 붙였어요."
+          ],
+          "explanation": "모듈을 따로따로 우주에 올린 뒤, 도착하면 우주에서 이어 붙였어요."
+        },
+        {
+          "kind": "관계",
+          "question": "우주왕복선이 37번이나 우주를 오간 까닭은?",
+          "options": [
+            "땅에서 다 지은 정거장을 밀어 올려서",
+            "날 때마다 모듈이 고장 나서",
+            "모듈을 땅에서 맞춰 보느라",
+            "모듈을 따로따로 실어 날라야 해서"
+          ],
+          "answer": 3,
+          "hints": [
+            "‘여러 나라가 나누어 만들었어요’에서 통째로 만들었는지 봐요.",
+            "‘우주에서 한 조각씩’에서 37번 오간 까닭을 찾아봐요.",
+            "‘우주에서 처음 만난 두 모듈’에서 땅에서 이어 봤는지 봐요.",
+            null
+          ],
+          "evidence": [
+            "우주왕복선은 조립을 위해 모두 37번 우주를 오갔어요.",
+            "모듈을 하나씩 실어 날라야 했기 때문이에요."
+          ],
+          "explanation": "모듈을 하나씩 따로 실어 날라야 해서 여러 번 오갔어요."
+        },
+        {
+          "kind": "적용",
+          "situation": "학교 축제에 쓸 큰 무대를 만들어요. 반마다 무대 조각을 하나씩 맡아 만들어요.",
+          "question": "글의 우주정거장처럼 무대를 완성하려면?",
+          "options": [
+            "한 교실에서 다 이은 뒤 통째로 옮겨요",
+            "조각마다 따로 세워 두고 잇지 않아요",
+            "조각을 따로 옮겨 축제 장소에서 이어요",
+            "한 반이 혼자 조각을 모두 만들어요"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘우주에서 처음 만난 두 모듈’에서 땅에서 이어 봤는지 봐요.",
+            "‘우주에서 한 조각씩’에서 도착한 모듈을 어떻게 했는지 봐요.",
+            null,
+            "‘여러 나라가 나누어 만들었어요’에서 누가 만들었는지 봐요."
+          ],
+          "evidence": [
+            "모듈은 로켓이나 우주왕복선에 실려 따로따로 우주에 올라갔어요.",
+            "새 모듈이 도착하면 로봇 팔과 우주복을 입은 사람들이 이어 붙였어요."
+          ],
+          "explanation": "정거장은 따로 만든 모듈을 따로 올려 우주에서 이었어요. 무대도 조각을 따로 옮겨 그 자리에서 이어요."
+        }
+      ],
+      "one_line_summary": "국제우주정거장은 [   ]을 따로 올려 우주에서 [   ]해 지었어요.",
+      "summary_keywords": "키워드: 모듈, 우주왕복선, 조립",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/AJ4CAE6dCX4",
+        "title": "거대한 우주정거장은 대체 어떻게 쏘아 올린걸까?",
+        "channel": "과학을보다",
+        "focus": "정거장을 나누어 올려 우주에서 잇는 과정을 살펴보세요."
+      },
+      "sources": [
+        {
+          "title": "NASA — ISS 20th: High-Flying Construction",
+          "url": "https://www.nasa.gov/history/iss20th-high-flying-construction/"
+        },
+        {
+          "title": "NASA — 25 Years Ago: The First Pieces of the International Space Station",
+          "url": "https://www.nasa.gov/image-article/25-years-ago-the-first-pieces-of-the-international-space-station/"
+        },
+        {
+          "title": "NASA — Unity Module",
+          "url": "https://www.nasa.gov/international-space-station/unity-module/"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "로봇 팔로 두 우주정거장 모듈을 연결하는 모습",
+      "image_display": "contain"
+    },
+    "2026-10-20": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-20-we-context-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-20",
+      "date": "2026-10-20",
+      "weekday": "화",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 우리의 범위",
+      "title": "우리라고 하면 나도 들어갈까",
+      "subtitle": "듣는 사람이 들어가는 우리, 빠지는 우리",
+      "lead_question": "‘우리 같이 놀자’와 ‘우리 형’의 우리는 같은 사람들일까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "👫",
+          "heading": "우리 같이 놀자",
+          "body": "쉬는 시간에 짝꿍이 “우리 같이 놀자.”라고 말해요. 여기서 우리는 누구일까요? 말하는 짝꿍과 그 말을 듣는 나예요. 이때 우리에는 듣는 사람이 들어가요. 말하는 사람과 듣는 사람을 함께 묶어 부르는 말이지요. 듣는 나도 우리에 포함되는 거예요."
+        },
+        {
+          "icon": "🏠",
+          "heading": "우리 형은 중학생이야",
+          "body": "이번에는 짝꿍이 “우리 형은 중학생이야.”라고 말해요. 이때 우리에 나도 들어갈까요? 짝꿍의 형은 내 형이 아니에요. 여기서 우리는 짝꿍네 가족을 가리켜요. 말하는 사람 쪽 사람들만 묶은 거예요. 듣는 나는 이 우리에 들어가지 않아요."
+        },
+        {
+          "icon": "🔍",
+          "heading": "상황이 범위를 정해요",
+          "body": "두 문장 모두 같은 ‘우리’를 썼어요. 그런데 가리키는 사람들의 범위가 달라요. 범위는 어디부터 어디까지인지 정해진 테두리예요. ‘우리’가 어떤 사람들을 가리키는지 보면 범위를 알 수 있어요. 듣는 사람도 그 사람들 안에 들면 ‘우리’에 들어가요. 말하는 사람 쪽 사람들만 가리키면 듣는 사람은 빠져요. 이렇게 앞뒤 내용으로 뜻을 살피는 것을 문맥을 본다고 해요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "범위",
+          "en": "range",
+          "desc": "어디부터 어디까지인지 정해진 테두리예요. 여기서는 우리가 가리키는 사람들이에요."
+        },
+        {
+          "ko": "포함",
+          "en": "inclusion",
+          "desc": "어떤 것 가운데 함께 들어 있는 것이에요. 듣는 나도 우리에 포함될 수 있어요."
+        },
+        {
+          "ko": "문맥",
+          "en": "context",
+          "desc": "글이나 말에서 뜻이 앞뒤로 이어진 흐름이에요. 문맥을 보면 우리의 범위를 알 수 있어요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "“우리 같이 놀자.”의 우리는 누구인가요?",
+          "options": [
+            "짝꿍과 나",
+            "짝꿍네 가족",
+            "말하는 짝꿍 혼자",
+            "우리 반 모두"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘우리 같이 놀자’에서 그 말을 듣는 사람이 누구인지 봐요.",
+            "‘우리 같이 놀자’에서 우리에 누가 들어간다고 했나요?",
+            "‘우리 같이 놀자’를 다시 읽고 말하는 사람과 듣는 사람을 찾아요."
+          ],
+          "evidence": [
+            "말하는 짝꿍과 그 말을 듣는 나예요."
+          ],
+          "explanation": "같이 놀자는 말이니 말하는 짝꿍과 듣는 나를 함께 가리켜요."
+        },
+        {
+          "kind": "관계",
+          "question": "“우리 형은 중학생이야.”의 우리에서 내가 빠지는 까닭은?",
+          "options": [
+            "짝꿍네 가족만 가리키는 말이라서",
+            "형이 나보다 나이가 많아서",
+            "듣는 사람은 늘 우리에서 빠져서",
+            "짝꿍과 내가 노는 이야기라서"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘우리 형은 중학생이야’에서 우리가 누구를 가리키는지 봐요.",
+            "‘우리 같이 놀자’를 보면 듣는 사람이 들어갈 때도 있어요.",
+            "‘우리 형은 중학생이야’가 같이 노는 이야기인지 다시 봐요."
+          ],
+          "evidence": [
+            "짝꿍의 형은 내 형이 아니에요.",
+            "여기서 우리는 짝꿍네 가족을 가리켜요."
+          ],
+          "explanation": "짝꿍의 형은 내 형이 아니에요. 그래서 이 우리는 짝꿍네 가족만 가리켜요."
+        },
+        {
+          "kind": "적용",
+          "situation": "나는 다른 학교에 다니는 사촌이 있어요. 내가 사촌에게 “우리 반이 피구에서 이겼어.”라고 말했어요.",
+          "question": "이 말의 우리에 사촌이 들어가나요?",
+          "options": [
+            "들어가요. 사촌도 우리 가족이라서",
+            "들어가요. 사촌도 그 말을 들어서",
+            "빠져요. 말하는 사람 쪽만 가리켜서",
+            "빠져요. 사촌이 피구를 못 봐서"
+          ],
+          "answer": 2,
+          "hints": [
+            "이 말의 우리는 가족이 아니라 반이에요. ‘상황이 범위를 정해요’를 봐요.",
+            "‘우리 형은 중학생이야’를 보면 말을 들어도 빠질 때가 있어요.",
+            null,
+            "피구를 봤는지는 상관없어요. ‘상황이 범위를 정해요’를 다시 봐요."
+          ],
+          "evidence": [
+            "말하는 사람 쪽 사람들만 가리키면 듣는 사람은 빠져요."
+          ],
+          "explanation": "사촌은 우리 반이 아니에요. 말하는 사람 쪽만 가리키는 우리라서 빠져요."
+        }
+      ],
+      "one_line_summary": "‘우리’에는 듣는 사람이 [   ] 때도, [   ] 때도 있어요.",
+      "summary_keywords": "키워드: 범위, 포함, 문맥",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/7cepQU7zlIE",
+        "title": "우리의 두 가지 용법",
+        "channel": "김주혜(@kimjuhea0418)",
+        "focus": "우리에 듣는 사람이 들어가는 예와 빠지는 예를 찾아보세요."
+      },
+      "sources": [
+        {
+          "title": "표준국어대사전 — 우리",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=467930&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 범위",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=428993&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 문맥",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=424413&searchKeywordTo=3"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "친구 둘이 가족 사진을 보며 이야기하는 모습",
+      "image_display": "contain"
+    },
+    "2026-10-21": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-21-emergency-numbers-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-10-21",
+      "date": "2026-10-21",
+      "weekday": "수",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 경찰의 날",
+      "title": "112와 119는 어떻게 다를까",
+      "subtitle": "범죄는 112, 불은 119",
+      "lead_question": "위급한 일이 생기면 112와 119 가운데 어디에 알려야 할까요?",
+      "why_today": "10월 21일 경찰의 날에 맞춰 고른 글이에요.",
+      "sections": [
+        {
+          "icon": "🚓",
+          "heading": "경찰의 날과 112",
+          "body": "2026년 10월 21일은 경찰의 날이에요. 1945년에 경찰 조직이 만들어진 뒤 이어 온 역사를 되새기려고 정한 날이에요. 경찰에 급한 일을 알리는 번호는 112예요. 누군가 물건을 훔치거나 사람을 해치는 일은 범죄예요. 범죄나 사건, 사고가 일어났거나 일어날 것 같으면 112에 신고해요. 신고는 어떤 일을 맡은 기관에 알리는 것을 말해요."
+        },
+        {
+          "icon": "🚒",
+          "heading": "불이 나면 119",
+          "body": "119는 불이 났을 때 알리는 번호예요. 큰 재난이 일어났을 때도 119에 알려요. 사람을 구해야 하거나, 아픈 사람에게 응급 치료가 필요할 때도 119예요. 다친 사람이 있으면 119에 알려 응급 치료를 받게 해요. 112와 119는 주로 맡는 일이 서로 달라요. 그래서 무슨 일이 일어났는지 보고 알맞은 번호를 골라요."
+        },
+        {
+          "icon": "📱",
+          "heading": "말하기 어려울 때",
+          "body": "112와 119에는 전화로 말해서 신고할 수 있어요. 두 번호 모두 문자로도 신고할 수 있어요. 말로 알리기 어려운 때를 떠올려 보세요. 그럴 때는 문자로 신고하는 방법이 있어요. 112와 119 모두 거짓으로 신고하면 안 된다고 법에 적혀 있어요. 신고 번호는 정말 급한 일을 알리는 데 써요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "신고",
+          "en": "report",
+          "desc": "어떤 일을 맡은 기관에 알리는 것이에요. 112에 범죄를 알리는 것도 신고예요."
+        },
+        {
+          "ko": "재난",
+          "en": "disaster",
+          "desc": "뜻밖에 일어난 큰 피해예요. 큰불이나 홍수 같은 일이 재난이에요."
+        },
+        {
+          "ko": "응급",
+          "en": "emergency",
+          "desc": "급한 대로 먼저 손을 쓰는 일이에요. 크게 다친 사람에게는 응급 치료가 필요해요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "112는 어떤 일을 알리는 번호인가요?",
+          "options": [
+            "범죄나 사건, 사고",
+            "불이 나거나 재난이 난 일",
+            "아픈 사람의 응급 치료",
+            "날씨나 길을 묻는 일"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘불이 나면 119’를 보면 이 일은 119에 알려요.",
+            "‘불이 나면 119’에서 응급 치료는 어느 번호인지 봐요.",
+            "‘경찰의 날과 112’에서 112에 알리는 일을 찾아봐요."
+          ],
+          "evidence": [
+            "범죄나 사건, 사고가 일어났거나 일어날 것 같으면 112에 신고해요."
+          ],
+          "explanation": "112는 범죄나 사건, 사고를 경찰에 알리는 번호예요."
+        },
+        {
+          "kind": "관계",
+          "question": "112와 119를 나누어 쓰는 까닭은?",
+          "options": [
+            "두 번호의 신고 방법이 달라서",
+            "다루는 일의 종류가 달라서",
+            "112가 119보다 덜 급한 일을 맡아서",
+            "119가 경찰에 알리는 번호라서"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘말하기 어려울 때’를 보면 두 번호 모두 전화와 문자로 신고해요.",
+            null,
+            "‘불이 나면 119’에서 무엇을 보고 번호를 고르는지 봐요.",
+            "‘경찰의 날과 112’에서 경찰에 알리는 번호를 봐요."
+          ],
+          "evidence": [
+            "112와 119는 주로 맡는 일이 서로 달라요.",
+            "그래서 무슨 일이 일어났는지 보고 알맞은 번호를 골라요."
+          ],
+          "explanation": "두 번호는 주로 맡는 일이 달라서, 무슨 일이 일어났는지 보고 골라요."
+        },
+        {
+          "kind": "적용",
+          "situation": "㉮ 학교 앞 가게에서 불이 나 연기가 솟아요. ㉯ 누군가 친구의 자전거를 훔쳐 가요.",
+          "question": "㉮와 ㉯에 알맞은 번호를 차례대로 고른 것은?",
+          "options": [
+            "112, 119",
+            "119, 112",
+            "112, 112",
+            "119, 119"
+          ],
+          "answer": 1,
+          "hints": [
+            "불은 어느 번호인지 ‘불이 나면 119’를 다시 봐요.",
+            null,
+            "㉮는 불이 난 일이에요. ‘불이 나면 119’를 봐요.",
+            "㉯는 물건을 훔치는 범죄예요. ‘경찰의 날과 112’를 봐요."
+          ],
+          "evidence": [
+            "119는 불이 났을 때 알리는 번호예요.",
+            "범죄나 사건, 사고가 일어났거나 일어날 것 같으면 112에 신고해요."
+          ],
+          "explanation": "불이 난 ㉮는 119, 자전거를 훔치는 범죄인 ㉯는 112에 알려요."
+        }
+      ],
+      "one_line_summary": "범죄나 사고는 [   ]에, 불이 났을 때는 [   ]에 알려요.",
+      "summary_keywords": "키워드: 신고, 재난, 응급",
+      "sources": [
+        {
+          "title": "표준국어대사전 — 경찰의 날",
+          "url": "https://stdict.korean.go.kr/search/searchResult.do?pageSize=10&searchKeyword=경찰의%20날"
+        },
+        {
+          "title": "한국법제연구원 — 112신고의 운영 및 처리에 관한 법률(영문본)",
+          "url": "https://elaw.klri.re.kr/eng_service/lawTwoView.do?hseq=70075"
+        },
+        {
+          "title": "한국법제연구원 — 119긴급신고의 관리 및 운영에 관한 법률(영문본)",
+          "url": "https://elaw.klri.re.kr/eng_service/lawTwoView.do?hseq=69073"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "112와 119 번호, 경찰차와 소방차를 구분한 그림",
+      "image_display": "contain"
+    },
+    "2026-10-22": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-22-midnight-noon-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-22",
+      "date": "2026-10-22",
+      "weekday": "목",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 자정과 정오",
+      "title": "밤 12시는 왜 자정이라고 할까",
+      "subtitle": "하루를 열둘로 나눈 옛 시간",
+      "lead_question": "밤 12시를 왜 ‘자정’이라고 부를까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🕰️",
+          "heading": "하루를 열둘로 나누면",
+          "body": "옛날에는 하루를 열둘로 나누어 시간을 불렀어요. 이렇게 나눈 열두 개의 시를 십이시라고 해요. 시계의 12시와는 다른 말이에요. 시 하나는 두 시간씩이에요. 시마다 ‘자’, ‘축’, ‘인’ 같은 이름을 차례로 붙였어요. 첫째 시는 자시예요. 자시는 밤 11시부터 새벽 1시까지예요."
+        },
+        {
+          "icon": "🌙",
+          "heading": "자시의 한가운데",
+          "body": "옛날에는 시 하나를 다시 반으로 나누기도 했어요. 앞쪽 반은 처음이라는 뜻의 ‘초’, 뒤쪽 반은 ‘정’이라고 불렀어요. 자시는 밤 11시에 시작해 두 시간 동안 이어져요. 그 한가운데가 바로 밤 12시예요. 자시의 뒤쪽 반인 ‘정’은 밤 12시에 시작돼요. 그래서 밤 12시를 자정이라고 해요."
+        },
+        {
+          "icon": "☀️",
+          "heading": "낮 12시는 정오",
+          "body": "낮에도 같은 방법을 써요. 오시는 오전 11시부터 오후 1시까지예요. 오시의 뒤쪽 반인 ‘정’도 한가운데인 낮 12시에 시작돼요. 그래서 낮 12시를 ‘오정’이라고 했어요. 같은 때를 ‘정오’라고도 해요. 자정과 정오는 모두 어느 시의 한가운데를 가리켜요. 하나는 밤, 하나는 낮이지요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "십이시",
+          "en": "twelve double-hours",
+          "desc": "하루를 열둘로 나누어 이름을 붙인 옛 시간이에요. 시 하나는 두 시간이에요."
+        },
+        {
+          "ko": "자정",
+          "en": "midnight",
+          "desc": "자시의 한가운데로, 밤 12시예요."
+        },
+        {
+          "ko": "정오",
+          "en": "noon",
+          "desc": "낮 12시예요. 오시의 한가운데라서 ‘오정’이라고도 해요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "자시는 몇 시부터 몇 시까지인가요?",
+          "options": [
+            "밤 12시부터 새벽 2시까지",
+            "밤 10시부터 밤 12시까지",
+            "밤 11시부터 밤 12시까지",
+            "밤 11시부터 새벽 1시까지"
+          ],
+          "answer": 3,
+          "hints": [
+            "‘하루를 열둘로 나누면’의 마지막 문장을 다시 봐요.",
+            "‘하루를 열둘로 나누면’에서 자시가 몇 시에 시작하는지 봐요.",
+            "시 하나는 두 시간이에요. ‘하루를 열둘로 나누면’을 다시 봐요.",
+            null
+          ],
+          "evidence": [
+            "자시는 밤 11시부터 새벽 1시까지예요."
+          ],
+          "explanation": "자시는 십이시의 첫째 시로, 밤 11시부터 새벽 1시까지 두 시간이에요."
+        },
+        {
+          "kind": "관계",
+          "question": "밤 12시를 자정이라고 부르는 까닭은?",
+          "options": [
+            "자시가 시작되는 때라서",
+            "자시의 한가운데라서",
+            "자시가 끝나는 때라서",
+            "오시의 한가운데라서"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘하루를 열둘로 나누면’에서 자시가 몇 시에 시작하는지 봐요.",
+            null,
+            "‘하루를 열둘로 나누면’에서 자시가 몇 시에 끝나는지 봐요.",
+            "‘낮 12시는 정오’에서 오시의 한가운데가 몇 시인지 봐요."
+          ],
+          "evidence": [
+            "그 한가운데가 바로 밤 12시예요.",
+            "자시의 뒤쪽 반인 ‘정’은 밤 12시에 시작돼요."
+          ],
+          "explanation": "자시는 밤 11시부터 두 시간이에요. 그 한가운데인 밤 12시라서 자정이에요."
+        },
+        {
+          "kind": "적용",
+          "situation": "‘묘시’는 오전 5시부터 오전 7시까지예요.",
+          "question": "묘시의 ‘정’은 몇 시에 시작될까요?",
+          "options": [
+            "오전 5시",
+            "오전 6시",
+            "오전 7시",
+            "낮 12시"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘자시의 한가운데’에서 앞쪽 반과 뒤쪽 반을 다시 봐요.",
+            null,
+            "‘자시의 한가운데’에서 ‘정’이 시작되는 때를 다시 봐요.",
+            "‘자시의 한가운데’에서 ‘정’이 어디서 시작하는지 봐요."
+          ],
+          "evidence": [
+            "앞쪽 반은 처음이라는 뜻의 ‘초’, 뒤쪽 반은 ‘정’이라고 불렀어요.",
+            "자시의 뒤쪽 반인 ‘정’은 밤 12시에 시작돼요."
+          ],
+          "explanation": "묘시는 오전 5시부터 두 시간이에요. 뒤쪽 반인 ‘정’은 한가운데인 오전 6시에 시작해요."
+        }
+      ],
+      "one_line_summary": "밤 12시는 자시의 한가운데라서 [   ], 낮 12시는 [   ]라고 해요.",
+      "summary_keywords": "키워드: 십이시, 자정, 정오",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/Lmsuu622IjA",
+        "title": "자정 정오",
+        "channel": "김주혜(@kimjuhea0418)",
+        "focus": "자시 전체와 그 한가운데인 자정을 나누어 들어 보세요."
+      },
+      "sources": [
+        {
+          "title": "표준국어대사전 — 자정",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=471729&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 오정",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=237299&searchKeywordTo=3"
+        },
+        {
+          "title": "한국민족문화대백과사전 — 시법",
+          "url": "https://encykorea.aks.ac.kr/Article/E0032366"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "밤과 낮 배경에서 모두 열두 시를 가리키는 시계",
+      "image_display": "contain"
+    },
+    "2026-10-23": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-23-frost-dew-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-10-23",
+      "date": "2026-10-23",
+      "weekday": "금",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 상강",
+      "title": "서리는 이슬이 언 것일까",
+      "subtitle": "수증기가 바로 얼음이 되는 서리",
+      "lead_question": "추운 아침, 풀잎에 하얗게 앉은 서리를 본 적 있나요?",
+      "why_today": "10월 23일 상강에 맞춰 고른 글이에요.",
+      "sections": [
+        {
+          "icon": "🍂",
+          "heading": "서리가 내리는 절기",
+          "body": "2026년 10월 23일은 상강이에요. 상강은 한 해를 스물넷으로 나눈 절기 가운데 하나예요. 아침과 저녁의 기온이 내려가고, 서리가 내리기 시작할 무렵이에요. 늦가을 아침에는 풀잎이나 지붕 위에 하얀 가루 같은 얼음이 앉곤 해요. 이것이 서리예요. 흔히 '서리가 내린다'고 하지만, 서리는 하늘에서 떨어지지 않고 물체 표면에 생겨요."
+        },
+        {
+          "icon": "❄️",
+          "heading": "이슬과 서리는 달라요",
+          "body": "이슬은 공기 속 수증기가 찬 물체에 닿아 엉겨 생긴 물방울이에요. 수증기는 기체 상태로 된 물이에요. 그렇다면 서리는 이슬이 언 것일까요? 서리는 수증기가 물방울이 되지 않고 바로 얼음 알갱이가 되어 붙은 거예요. 이렇게 기체가 액체를 거치지 않고 바로 고체가 되는 변화를 승화라고 해요. 그래서 서리는 이슬이 언 것과 생기는 방법이 달라요."
+        },
+        {
+          "icon": "🌙",
+          "heading": "맑고 바람 없는 밤",
+          "body": "서리는 어떤 밤에 잘 생길까요? 맑고 바람이 없는 밤에 기온이 어는점 아래로 떨어질 때예요. 어는점은 물이 얼기 시작하는 온도예요. 이런 밤에는 땅과 물체의 표면이 열을 내보내며 차갑게 식어요. 그 위에서 수증기가 바로 얼음이 되어 서리가 생겨요. 그래서 맑고 바람 없는 늦가을 아침에 서리를 보기 쉬워요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "절기",
+          "en": "solar term",
+          "desc": "한 해를 스물넷으로 나눈, 계절의 표준이 되는 때예요. 상강도 절기예요."
+        },
+        {
+          "ko": "수증기",
+          "en": "water vapor",
+          "desc": "기체 상태로 된 물이에요. 공기 속에 섞여 있어요."
+        },
+        {
+          "ko": "승화",
+          "en": "sublimation",
+          "desc": "액체를 거치지 않고 고체와 기체 사이에서 바로 바뀌는 변화예요. 수증기가 바로 얼음이 되는 것도 승화예요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "서리는 무엇이 얼어붙은 것인가요?",
+          "options": [
+            "공기 속의 수증기",
+            "땅에 고인 빗물",
+            "풀잎 속의 물",
+            "하늘에서 내린 눈"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘이슬과 서리는 달라요’에서 서리가 무엇으로 생기는지 봐요.",
+            "‘이슬과 서리는 달라요’에서 무엇이 얼음 알갱이가 되는지 봐요.",
+            "‘이슬과 서리는 달라요’를 보면 서리는 물체에 붙어 생겨요."
+          ],
+          "evidence": [
+            "서리는 수증기가 물방울이 되지 않고 바로 얼음 알갱이가 되어 붙은 거예요."
+          ],
+          "explanation": "서리는 공기 속 수증기가 물방울을 거치지 않고 바로 얼어붙은 것이에요."
+        },
+        {
+          "kind": "관계",
+          "question": "서리가 생기는 방법은 이슬과 어떻게 다른가요?",
+          "options": [
+            "이슬이 먼저 생긴 뒤 그 이슬이 얼어요",
+            "따뜻한 낮에 물체에 맺혀요",
+            "물방울로 맺힌 뒤 그대로 남아요",
+            "물방울을 거치지 않고 바로 얼음이 돼요"
+          ],
+          "answer": 3,
+          "hints": [
+            "‘이슬과 서리는 달라요’의 마지막 두 문장을 다시 봐요.",
+            "‘맑고 바람 없는 밤’에서 서리가 언제 생기는지 봐요.",
+            "‘이슬과 서리는 달라요’에서 물방울이 되는지 봐요.",
+            null
+          ],
+          "evidence": [
+            "서리는 수증기가 물방울이 되지 않고 바로 얼음 알갱이가 되어 붙은 거예요.",
+            "그래서 서리는 이슬이 언 것과 생기는 방법이 달라요."
+          ],
+          "explanation": "이슬은 수증기가 엉겨 생긴 물방울이고, 서리는 수증기가 바로 얼음이 된 거예요."
+        },
+        {
+          "kind": "적용",
+          "situation": "㉮ 밤은 흐리고 바람이 세게 불어요. ㉯ 밤은 맑고 바람이 없으며, 기온이 어는점 아래로 내려가요.",
+          "question": "다음 날 아침 서리를 보기 쉬운 쪽은?",
+          "options": [
+            "㉯, 맑고 바람 없는 밤이라서",
+            "㉮, 바람이 수증기를 실어 와서",
+            "㉮, 흐린 하늘에서 서리가 내려서",
+            "㉯, 밤사이 내린 비가 얼어서"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘맑고 바람 없는 밤’에서 서리가 잘 생기는 밤을 봐요.",
+            "‘이슬과 서리는 달라요’를 보면 서리는 물체에 붙어 생겨요.",
+            "㉯ 밤에는 비 이야기가 없어요. ‘맑고 바람 없는 밤’을 봐요."
+          ],
+          "evidence": [
+            "맑고 바람이 없는 밤에 기온이 어는점 아래로 떨어질 때예요."
+          ],
+          "explanation": "서리는 맑고 바람이 없는 밤, 기온이 어는점 아래로 떨어질 때 잘 생겨요."
+        }
+      ],
+      "one_line_summary": "서리는 [   ]가 물방울을 거치지 않고 바로 얼음이 되는 [   ]로 생겨요.",
+      "summary_keywords": "키워드: 절기, 수증기, 승화",
+      "sources": [
+        {
+          "title": "표준국어대사전 — 서리",
+          "url": "https://stdict.korean.go.kr/search/searchResult.do?pageSize=10&searchKeyword=서리"
+        },
+        {
+          "title": "기상청(강원지방기상청) 보도자료 — 강원도 첫 서리, 첫 얼음 현황(2010)",
+          "url": "https://www.kma.go.kr/kma/flexer/html/press2/2010/09/29/ATC201009290758532_e8992f91-d05f-489e-93e4-5f9dc8369633.hwp.files/Sections1.html"
+        },
+        {
+          "title": "한국천문연구원 천문우주포털 — 2026년 달력자료(절기)",
+          "url": "https://astro.kasi.re.kr/kor/life/post/calendarData?year=2026"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "물방울이 맺힌 잎과 흰 서리 결정이 붙은 잎",
+      "image_display": "contain"
+    },
+    "2026-10-24": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-24-un-peace-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-10-24",
+      "date": "2026-10-24",
+      "weekday": "토",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 국제연합일",
+      "title": "유엔은 왜 만들어졌을까",
+      "subtitle": "평화를 지키려는 나라들의 약속",
+      "lead_question": "세계 여러 나라가 함께 모여 의논하는 곳이 있어요. 왜 생겼을까요?",
+      "why_today": "10월 24일 국제연합일에 맞춰 고른 글이에요.",
+      "sections": [
+        {
+          "icon": "🌍",
+          "heading": "전쟁이 끝난 뒤에",
+          "body": "제2차 세계 대전이 끝난 뒤, 여러 나라가 새 국제기구를 만들었어요. 국제기구는 여러 나라가 함께 만든 단체예요. 이 기구의 이름은 국제 연합이에요. 영어 이름 United Nations의 첫 글자를 따서 유엔(UN)이라고 불러요. 국제 평화와 안전을 지키려고 만든 기구예요. 유엔을 세운 약속은 유엔 헌장이라는 문서에 담겼어요. 헌장 첫머리에는 다음 세대를 전쟁의 아픔에서 구하겠다는 다짐이 적혀 있어요."
+        },
+        {
+          "icon": "📜",
+          "heading": "헌장이 힘을 가진 날",
+          "body": "여러 나라가 유엔 헌장을 받아들이는 절차를 마쳤어요. 그러자 1945년 10월 24일에 헌장이 효력을 가졌어요. 효력이 생긴다는 것은 약속이 실제로 힘을 갖게 된다는 뜻이에요. 이날 유엔이 정식으로 출발했어요. 그래서 10월 24일을 국제연합일로 기념해요."
+        },
+        {
+          "icon": "🤝",
+          "heading": "51개에서 193개로",
+          "body": "처음 유엔에 함께한 회원국은 51개 나라였어요. 회원국은 어떤 모임에 정식으로 들어간 나라예요. 지금은 193개 나라가 회원국이에요. 헌장에는 나라 사이의 다툼을 평화로운 방법으로 풀자는 목적이 적혀 있어요. 나라들이 사이좋게 지내고, 경제와 문화 같은 문제를 함께 풀자는 목적도 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "국제기구",
+          "en": "international organization",
+          "desc": "여러 나라가 함께 만든 단체예요. 유엔이 대표적인 국제기구예요."
+        },
+        {
+          "ko": "헌장",
+          "en": "charter",
+          "desc": "지키기로 약속한 규칙을 적은 문서예요. 유엔 헌장에는 유엔의 목적이 적혀 있어요."
+        },
+        {
+          "ko": "회원국",
+          "en": "member state",
+          "desc": "어떤 모임에 정식으로 들어간 나라예요. 유엔 회원국은 193개 나라예요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "국제연합일은 무엇을 기념하는 날인가요?",
+          "options": [
+            "제2차 세계 대전이 끝난 날",
+            "유엔 헌장이 효력을 가진 날",
+            "우리나라가 유엔에 들어간 날",
+            "유엔 본부 건물을 처음 지은 날"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘헌장이 힘을 가진 날’에서 이날 무슨 일이 있었는지 봐요.",
+            null,
+            "‘헌장이 힘을 가진 날’에서 헌장이 어떻게 되었는지 봐요.",
+            "‘헌장이 힘을 가진 날’을 다시 읽어 봐요."
+          ],
+          "evidence": [
+            "그러자 1945년 10월 24일에 헌장이 효력을 가졌어요.",
+            "그래서 10월 24일을 국제연합일로 기념해요."
+          ],
+          "explanation": "1945년 10월 24일에 유엔 헌장이 효력을 가져 유엔이 정식으로 출발했어요."
+        },
+        {
+          "kind": "관계",
+          "question": "유엔을 만든 까닭은 무엇인가요?",
+          "options": [
+            "국제 평화와 안전을 지키려고",
+            "제2차 세계 대전을 끝내려고",
+            "전쟁에서 이긴 나라를 정하려고",
+            "회원국 수를 늘리려고"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘전쟁이 끝난 뒤에’를 보면 유엔은 전쟁이 끝난 뒤에 만들었어요.",
+            "‘전쟁이 끝난 뒤에’에서 무엇을 지키려고 만들었는지 봐요.",
+            "회원국이 늘어난 것은 만든 뒤의 일이에요. ‘전쟁이 끝난 뒤에’를 봐요."
+          ],
+          "evidence": [
+            "국제 평화와 안전을 지키려고 만든 기구예요."
+          ],
+          "explanation": "유엔은 제2차 세계 대전 뒤 국제 평화와 안전을 지키려고 만든 국제기구예요."
+        },
+        {
+          "kind": "적용",
+          "situation": "두 나라가 강물을 나누어 쓰는 문제로 크게 다투고 있어요.",
+          "question": "유엔 헌장의 목적에 맞는 해결 방법은?",
+          "options": [
+            "힘이 센 나라가 강물을 갖게 해요",
+            "대화로 평화롭게 풀도록 도와요",
+            "두 나라가 힘을 겨루어 정하게 해요",
+            "평화가 올 때까지 그대로 기다려요"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘51개에서 193개로’에서 다툼을 어떻게 풀자고 했는지 봐요.",
+            null,
+            "‘51개에서 193개로’에서 헌장에 적힌 방법을 봐요.",
+            "기다리는 것은 다툼을 푸는 방법이 아니에요. ‘51개에서 193개로’를 봐요."
+          ],
+          "evidence": [
+            "헌장에는 나라 사이의 다툼을 평화로운 방법으로 풀자는 목적이 적혀 있어요."
+          ],
+          "explanation": "헌장은 나라 사이의 다툼을 평화로운 방법으로 풀자고 해요."
+        }
+      ],
+      "one_line_summary": "유엔은 국제 [   ]와 안전을 지키려고 만든 국제기구로, 회원국은 [   ]개 나라예요.",
+      "summary_keywords": "키워드: 국제기구, 헌장, 회원국",
+      "sources": [
+        {
+          "title": "UN — United Nations Day",
+          "url": "https://www.un.org/en/observances/un-day"
+        },
+        {
+          "title": "UN — Charter, Chapter I: Purposes and Principles",
+          "url": "https://www.un.org/en/about-us/un-charter/chapter-1"
+        },
+        {
+          "title": "UN — About Us",
+          "url": "https://www.un.org/en/about-us"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "지구 모형을 가운데 두고 여러 나라 사람들이 의논하는 모습",
+      "image_display": "contain"
+    },
+    "2026-10-25": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-25-tie-carry-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-25",
+      "date": "2026-10-25",
+      "weekday": "일",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 매다와 메다",
+      "title": "가방은 메고 끈은 매는 까닭",
+      "subtitle": "묶는 매다, 걸치는 메다",
+      "lead_question": "‘가방을 매고’와 ‘가방을 메고’, 어느 쪽이 맞을까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🎒",
+          "heading": "소리가 비슷한 두 낱말",
+          "body": "학교 갈 준비를 해 볼게요. 운동화 끈을 묶고, 가방을 어깨에 걸쳐요. 이 두 동작을 글로 쓸 때 헷갈리는 낱말이 있어요. 바로 ‘매다’와 ‘메다’예요. 두 낱말은 소리가 비슷하게 들려요. 하지만 뜻이 달라서 글자도 달라요. 어떤 동작인지 보면 두 낱말을 구별할 수 있어요."
+        },
+        {
+          "icon": "🪢",
+          "heading": "묶으면 매다",
+          "body": "‘매다’는 끈이나 줄을 묶는 동작이에요. 두 끝을 엇갈리게 걸고 당겨서 풀리지 않게 해요. 이렇게 묶어서 생긴 마디를 매듭이라고 해요. 신발 끈을 매고, 넥타이를 매요. 모두 끈을 묶어 매듭을 짓는 일이에요. 묶는 동작이면 ‘매다’를 써요."
+        },
+        {
+          "icon": "🧳",
+          "heading": "어깨에 걸치면 메다",
+          "body": "‘메다’는 어깨에 걸치거나 올려놓는 동작이에요. 가방을 메고, 무거운 짐을 어깨에 메요. 가방 끈을 묶는 것이 아니라 어깨에 걸치는 거예요. 그래서 ‘메다’를 써요. 정리하면 묶을 때는 ‘매다’, 어깨에 걸칠 때는 ‘메다’예요. 두 동작을 떠올리면 글자를 구별할 수 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "매듭",
+          "en": "knot",
+          "desc": "끈이나 실을 잡아매어 생긴 마디예요. 신발 끈을 매면 매듭이 생겨요."
+        },
+        {
+          "ko": "동작",
+          "en": "movement",
+          "desc": "몸이나 손발을 움직이는 것이에요. 묶는 동작과 걸치는 동작은 달라요."
+        },
+        {
+          "ko": "구별",
+          "en": "telling apart",
+          "desc": "서로 어떻게 다른지 갈라서 아는 것이에요. 동작을 보면 두 낱말을 구별해요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "‘매다’와 ‘메다’는 무엇을 보고 구별하나요?",
+          "options": [
+            "소리가 어떻게 들리는지",
+            "물건이 얼마나 무거운지",
+            "어떤 동작을 나타내는지",
+            "앞 글자에 받침이 있는지"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘소리가 비슷한 두 낱말’에서 두 낱말의 소리가 어떻다고 했나요?",
+            "‘소리가 비슷한 두 낱말’의 마지막 문장을 다시 읽어 봐요.",
+            null,
+            "‘소리가 비슷한 두 낱말’에서 무엇을 보면 구별된다고 했나요?"
+          ],
+          "evidence": [
+            "어떤 동작인지 보면 두 낱말을 구별할 수 있어요."
+          ],
+          "explanation": "글은 묶는 동작인지, 어깨에 걸치는 동작인지 보면 구별된다고 했어요."
+        },
+        {
+          "kind": "관계",
+          "question": "‘가방을 메고’라고 쓰는 까닭은?",
+          "options": [
+            "가방 끈을 묶어 매듭을 짓는 동작이라서",
+            "가방이 무겁고 큰 짐이라서",
+            "가방을 손에 들고 가는 동작이라서",
+            "가방을 어깨에 걸치는 동작이라서"
+          ],
+          "answer": 3,
+          "hints": [
+            "‘어깨에 걸치면 메다’에서 가방 끈을 묶는다고 했는지 봐요.",
+            "‘어깨에 걸치면 메다’에서 무게가 아니라 무엇을 보는지 찾아요.",
+            "‘어깨에 걸치면 메다’에서 가방을 어디에 걸치는지 봐요.",
+            null
+          ],
+          "evidence": [
+            "‘메다’는 어깨에 걸치거나 올려놓는 동작이에요.",
+            "가방 끈을 묶는 것이 아니라 어깨에 걸치는 거예요."
+          ],
+          "explanation": "가방은 끈을 묶는 것이 아니라 어깨에 걸치는 것이라서 ‘메다’를 써요."
+        },
+        {
+          "kind": "적용",
+          "situation": "운동회 날 형은 머리띠를 이마에 대고 뒤에서 묶었어요. 그리고 큰 북을 끈으로 어깨에 걸쳤어요.",
+          "question": "머리띠와 북에 알맞은 말을 차례대로 고른 것은?",
+          "options": [
+            "매다, 메다",
+            "메다, 매다",
+            "매다, 매다",
+            "메다, 메다"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘묶으면 매다’와 ‘어깨에 걸치면 메다’를 함께 다시 봐요.",
+            "북은 끈이 있어도 어깨에 걸쳤어요. ‘어깨에 걸치면 메다’를 봐요.",
+            "머리띠는 묶었어요. ‘묶으면 매다’를 다시 봐요."
+          ],
+          "evidence": [
+            "묶는 동작이면 ‘매다’를 써요.",
+            "가방 끈을 묶는 것이 아니라 어깨에 걸치는 거예요."
+          ],
+          "explanation": "머리띠는 묶었으니 ‘매다’, 북은 끈이 있어도 어깨에 걸쳤으니 ‘메다’예요."
+        }
+      ],
+      "one_line_summary": "끈을 묶을 때는 [   ], 어깨에 걸칠 때는 [   ]를 써요.",
+      "summary_keywords": "키워드: 매듭, 동작, 구별",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/-b4Z90SVbSs",
+        "title": "매다 vs 메다",
+        "channel": "김주혜(@kimjuhea0418)",
+        "focus": "예문마다 묶는 동작인지 어깨에 걸치는 동작인지 구별해 보세요."
+      },
+      "sources": [
+        {
+          "title": "표준국어대사전 — 매다",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=423767&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 메다",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=421275&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 매듭",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=420722&searchKeywordTo=3"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "신발 끈을 묶는 동작과 가방을 어깨에 메는 동작",
+      "image_display": "contain"
+    },
+    "2026-10-26": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-26-migrating-geese-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-10-26",
+      "date": "2026-10-26",
+      "weekday": "월",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 늦가을 철새",
+      "title": "기러기는 가을에 어디에서 올까",
+      "subtitle": "겨울을 나러 오는 새",
+      "lead_question": "가을이 깊어지면 우리나라를 찾아오는 새들이 있어요. 어디에서 올까요?",
+      "why_today": "늦가을, 겨울 철새가 찾아오는 때에 맞춰 고른 글이에요.",
+      "sections": [
+        {
+          "icon": "🪿",
+          "heading": "철따라 옮겨 다니는 새",
+          "body": "철새는 철을 따라 이리저리 옮겨 다니며 사는 새예요. 그 가운데 겨울 철새는 가을에 북쪽에서 날아와요. 그리고 우리나라에서 겨울을 보내요. 봄이 오면 다시 북쪽으로 가요. 우리나라의 겨울 철새에는 기러기, 두루미, 고니 등이 있어요."
+        },
+        {
+          "icon": "🧭",
+          "heading": "기러기가 오가는 길",
+          "body": "기러기도 겨울 철새라서 가을에 북쪽에서 날아와요. 우리나라에 와서 겨울을 보내요. 봄이 되면 시베리아, 사할린, 알래스카 같은 곳으로 가요. 모두 우리나라보다 북쪽에 있는 땅이에요. 기러기 가운데 쇠기러기는 우리나라에 10월에 날아와요. 기러기는 강이나 바다, 늪 가까이에서 살아요."
+        },
+        {
+          "icon": "🐣",
+          "heading": "새끼는 북쪽에서",
+          "body": "겨울 철새는 봄에 북쪽으로 가서 번식을 해요. 번식은 알이나 새끼를 낳아 수가 늘어나는 일이에요. 그리고 여름을 그곳에서 보내요. 그러니 우리나라에 온 기러기는 겨울을 나러 온 손님인 셈이에요. 가을에 오는 새를 보면 계절이 바뀌는 것을 알 수 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "철새",
+          "en": "migratory bird",
+          "desc": "철을 따라 이리저리 옮겨 다니며 사는 새예요. 기러기는 겨울 철새예요."
+        },
+        {
+          "ko": "번식",
+          "en": "breeding",
+          "desc": "알이나 새끼를 낳아 수가 늘어나는 일이에요. 겨울 철새는 북쪽에서 번식해요."
+        },
+        {
+          "ko": "기러기",
+          "en": "wild goose",
+          "desc": "오리와 비슷하지만 목이 길고 다리가 짧은 겨울 철새예요. 강이나 바다, 늪 가까이에서 살아요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "겨울 철새는 언제, 어디에서 우리나라로 오나요?",
+          "options": [
+            "봄에 북쪽에서",
+            "가을에 북쪽에서",
+            "가을에 남쪽에서",
+            "봄에 남쪽에서"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘철따라 옮겨 다니는 새’에서 겨울 철새가 오는 계절을 봐요.",
+            null,
+            "‘철따라 옮겨 다니는 새’에서 어느 쪽에서 오는지 봐요.",
+            "‘철따라 옮겨 다니는 새’의 둘째 문장을 다시 읽어 봐요."
+          ],
+          "evidence": [
+            "그 가운데 겨울 철새는 가을에 북쪽에서 날아와요."
+          ],
+          "explanation": "겨울 철새는 가을에 북쪽에서 날아와 우리나라에서 겨울을 보내요."
+        },
+        {
+          "kind": "관계",
+          "question": "기러기에게 우리나라와 북쪽 땅은 어떤 곳인가요?",
+          "options": [
+            "우리나라는 번식하는 곳, 북쪽은 겨울을 나는 곳",
+            "두 곳 모두 번식하는 곳",
+            "우리나라는 겨울을 나는 곳, 북쪽은 번식하는 곳",
+            "두 곳 모두 겨울을 나는 곳"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘새끼는 북쪽에서’에서 어디서 번식하는지 봐요.",
+            "‘기러기가 오가는 길’에서 우리나라에서 무엇을 하는지 봐요.",
+            null,
+            "‘새끼는 북쪽에서’에서 북쪽에서 하는 일을 봐요."
+          ],
+          "evidence": [
+            "우리나라에 와서 겨울을 보내요.",
+            "겨울 철새는 봄에 북쪽으로 가서 번식을 해요."
+          ],
+          "explanation": "기러기는 우리나라에서 겨울을 보내고, 봄에 북쪽으로 가서 번식해요."
+        },
+        {
+          "kind": "적용",
+          "situation": "어떤 새는 봄에 남쪽에서 우리나라로 와요. 여기서 알을 낳아 새끼를 기르고, 가을에 다시 남쪽으로 가요.",
+          "question": "이 새는 겨울 철새일까요?",
+          "options": [
+            "아니요, 여기서 새끼를 기르니까요",
+            "아니요, 철따라 옮겨 다니지 않으니까요",
+            "네, 남쪽에서 날아오니까요",
+            "네, 철따라 옮겨 다니는 새니까요"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "이 새도 봄에 왔다가 가을에 가요. ‘철따라 옮겨 다니는 새’를 봐요.",
+            "‘철따라 옮겨 다니는 새’에서 겨울 철새가 어디에서 오는지 봐요.",
+            "철새가 모두 겨울 철새는 아니에요. ‘새끼는 북쪽에서’를 봐요."
+          ],
+          "evidence": [
+            "겨울 철새는 봄에 북쪽으로 가서 번식을 해요."
+          ],
+          "explanation": "겨울 철새는 우리나라에서 겨울을 나고 북쪽에서 번식해요. 이 새는 여기서 번식하니 겨울 철새가 아니에요."
+        }
+      ],
+      "one_line_summary": "기러기는 가을에 와서 겨울을 나는 [   ] 철새로, 봄에 북쪽에서 [   ]해요.",
+      "summary_keywords": "키워드: 철새, 번식, 기러기",
+      "sources": [
+        {
+          "title": "표준국어대사전 — 겨울새",
+          "url": "https://stdict.korean.go.kr/search/searchResult.do?pageSize=10&searchKeyword=겨울새"
+        },
+        {
+          "title": "표준국어대사전 — 기러기",
+          "url": "https://stdict.korean.go.kr/search/searchResult.do?pageSize=10&searchKeyword=기러기"
+        },
+        {
+          "title": "표준국어대사전 — 쇠기러기",
+          "url": "https://stdict.korean.go.kr/search/searchResult.do?pageSize=10&searchKeyword=쇠기러기"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "늦가을 습지 위로 무리 지어 날아오는 기러기",
+      "image_display": "contain"
+    },
+    "2026-10-27": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-27-bank-interest-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_season",
+      "id": "2026-10-27",
+      "date": "2026-10-27",
+      "weekday": "화",
+      "category": "계절기념일",
+      "chapter_label": "[계절기념일] 금융의 날",
+      "title": "은행에 돈을 맡기면 왜 이자를 줄까",
+      "subtitle": "빌려 쓴 값, 이자",
+      "lead_question": "저금통 대신 은행에 돈을 맡기면 돈이 늘어나요. 왜 그럴까요?",
+      "why_today": "10월 27일 금융의 날에 맞춰 고른 글이에요.",
+      "sections": [
+        {
+          "icon": "🏦",
+          "heading": "금융의 날",
+          "body": "2026년 10월 27일은 금융의 날이에요. 금융의 날은 해마다 10월 마지막 화요일이에요. 금융은 돈을 빌려주고 빌려 쓰는 일을 말해요. 이날은 금융을 잘 이해하고, 금융의 역할을 되새기려고 정했어요."
+        },
+        {
+          "icon": "💰",
+          "heading": "이자는 빌려 쓴 값",
+          "body": "이자는 남의 돈을 빌려 쓴 값으로 내는 돈이에요. 돈을 빌린 사람은 빌려 쓴 값으로 이자를 내요. 은행에 돈을 맡길 때도 이자가 생겨요. 돈을 맡긴 사람의 돈을 은행이 빌려 쓰는 셈이기 때문이에요. 그래서 은행은 돈을 맡긴 사람에게 이자를 줘요."
+        },
+        {
+          "icon": "🧮",
+          "heading": "10만 원이 11만 원으로",
+          "body": "은행에 10만 원을 맡기고 한 해 뒤에 11만 원을 받았다고 해 볼게요. 늘어난 1만 원이 이자예요. 처음 맡긴 10만 원은 원금이라고 해요. 원금과 비교해 이자가 얼마나 되는지 나타낸 것을 금리라고 해요. 이 예에서 금리는 10%예요. 은행은 맡은 돈에는 이자를 주고, 빌려준 돈에서는 이자를 받아요. 빌려줄 때의 금리는 맡은 돈에 주는 금리보다 높게 정해요. 그 차이로 은행도 돈을 벌어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "금융",
+          "en": "finance",
+          "desc": "돈을 빌려주고 빌려 쓰는 일이에요. 이자를 붙여 돈이 오가게 해요."
+        },
+        {
+          "ko": "원금",
+          "en": "principal",
+          "desc": "처음에 맡기거나 빌린 돈이에요. 이자는 원금에 붙어요."
+        },
+        {
+          "ko": "금리",
+          "en": "interest rate",
+          "desc": "원금과 비교해 이자가 얼마나 되는지 나타낸 비율이에요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "이자는 무엇인가요?",
+          "options": [
+            "은행에 처음 맡겨 둔 돈",
+            "은행이 나라에 내는 돈",
+            "물건을 사고 거슬러 받는 돈",
+            "남의 돈을 빌려 쓴 값으로 내는 돈"
+          ],
+          "answer": 3,
+          "hints": [
+            "처음 맡긴 돈은 원금이에요. ‘이자는 빌려 쓴 값’을 봐요.",
+            "‘이자는 빌려 쓴 값’의 첫 문장을 다시 읽어 봐요.",
+            "‘이자는 빌려 쓴 값’에서 이자의 뜻을 찾아봐요.",
+            null
+          ],
+          "evidence": [
+            "이자는 남의 돈을 빌려 쓴 값으로 내는 돈이에요."
+          ],
+          "explanation": "이자는 남의 돈을 빌려 쓴 값으로 내는 돈이에요."
+        },
+        {
+          "kind": "관계",
+          "question": "은행이 돈을 맡긴 사람에게 이자를 주는 까닭은?",
+          "options": [
+            "맡긴 사람이 은행에 빚을 져서",
+            "은행이 그 돈을 빌려 쓰는 셈이라서",
+            "돈은 오래 두면 저절로 불어나서",
+            "금리가 높아지면 원금도 커져서"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘이자는 빌려 쓴 값’에서 누가 누구의 돈을 빌려 쓰는지 봐요.",
+            null,
+            "돈이 저절로 불어나는 것이 아니에요. ‘이자는 빌려 쓴 값’을 봐요.",
+            "원금은 처음 맡긴 돈이에요. ‘이자는 빌려 쓴 값’에서 까닭을 찾아요."
+          ],
+          "evidence": [
+            "돈을 맡긴 사람의 돈을 은행이 빌려 쓰는 셈이기 때문이에요."
+          ],
+          "explanation": "맡긴 사람의 돈을 은행이 빌려 쓰는 셈이라서, 그 값으로 이자를 줘요."
+        },
+        {
+          "kind": "적용",
+          "situation": "은행에 20만 원을 맡겼더니 한 해 뒤에 22만 원을 받았어요.",
+          "question": "이때 받은 이자는 얼마인가요?",
+          "options": [
+            "2만 원",
+            "1만 원",
+            "20만 원",
+            "22만 원"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘10만 원이 11만 원으로’는 다른 예예요. 이 상황의 돈을 봐요.",
+            "20만 원은 처음 맡긴 원금이에요. ‘10만 원이 11만 원으로’를 다시 봐요.",
+            "22만 원은 받은 돈 전체예요. ‘10만 원이 11만 원으로’에서 이자를 봐요."
+          ],
+          "evidence": [
+            "늘어난 1만 원이 이자예요.",
+            "처음 맡긴 10만 원은 원금이라고 해요."
+          ],
+          "explanation": "받은 22만 원에서 원금 20만 원을 빼면, 늘어난 2만 원이 이자예요."
+        }
+      ],
+      "one_line_summary": "돈을 빌려 쓴 값을 [   ]라고 하고, 처음 맡긴 돈을 [   ]이라고 해요.",
+      "summary_keywords": "키워드: 금융, 원금, 금리",
+      "sources": [
+        {
+          "title": "우리말샘 — 금융의 날",
+          "url": "https://opendict.korean.go.kr/search/searchResult?query=금융의%20날"
+        },
+        {
+          "title": "표준국어대사전 — 이자",
+          "url": "https://stdict.korean.go.kr/search/searchResult.do?pageSize=10&searchKeyword=이자"
+        },
+        {
+          "title": "한국은행 ECOS 통계용어사전 — 금리",
+          "url": "https://ecos.bok.or.kr/api/StatisticWord/sample/json/kr/1/10/금리"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "은행에 맡긴 동전과 돌아오는 동전에 더해진 작은 동전",
+      "image_display": "contain"
+    },
+    "2026-10-28": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-28-rieul-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-28",
+      "date": "2026-10-28",
+      "weekday": "수",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 자음의 이름",
+      "title": "리을에는 왜 ㄹ이 두 번 있을까",
+      "subtitle": "자음 이름에 숨은 두 자리",
+      "lead_question": "‘리을’이라는 이름 속에서 ㄹ을 몇 번 찾을 수 있나요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🔤",
+          "heading": "이름 속 두 자리",
+          "body": "리을을 종이에 쓰고 ㄹ을 찾아보세요. 글자 맨 앞의 자음 소리를 첫소리라고 해요. 리의 첫소리에도 ㄹ이 있어요. 을의 아래쪽에도 ㄹ이 있지요. 글자 아래에 적는 자음을 받침이라고 해요. 자음 ㄹ의 이름에는 두 자리가 함께 보여요. ㄱ의 이름인 기역도 살펴볼까요? 기의 첫소리와 역의 받침에서 ㄱ을 찾을 수 있어요. 이름이 그 자음이 쓰이는 자리를 보여 주는 셈이에요."
+        },
+        {
+          "icon": "📜",
+          "heading": "이름을 적어 둔 책",
+          "body": "자음 이름이 처음 기록으로 남은 책이 있어요. 1527년에 나온 『훈몽자회』예요. 어린이들이 한자를 배우도록 만든 책이지요. 이 책은 그때 첫소리와 받침에 모두 쓰던 자음 여덟 개에 두 글자 이름을 붙였어요. 앞 글자는 첫소리, 뒤 글자는 받침 소리를 한자로 나타냈어요. 예를 들어 ㄹ은 ‘리’와 ‘을’로 읽히는 한자 두 개로 적었지요. 그렇게 적은 것이 그대로 자음의 이름이 되었어요."
+        },
+        {
+          "icon": "🔍",
+          "heading": "디귿과 티읕은 달라요",
+          "body": "니은, 리을, 미음처럼 많은 이름은 둘째 글자가 ‘으’에 받침을 단 모양이에요. 그런데 기역, 디귿, 시옷은 둘째 글자가 이 모양이 아니에요. 옛날에 ‘윽’, ‘읃’, ‘읏’으로 읽히는 한자가 없었거든요. 그래서 한자의 소리나 우리말 뜻을 빌려 적었어요. ㄱ은 ‘역’ 소리가 나는 한자를 빌려 ‘기역’이 되었어요. ㅅ은 ‘옷’을 뜻하는 한자를 빌려 ‘시옷’이 되었어요. 그 이름이 지금까지 이어져요. 티읕은 디귿과 달리 둘째 글자가 ‘으’ 모양이에요. ㅌ은 그때 받침에 쓰지 않아서, 그 책에서는 ‘티’ 한 글자로만 나타냈어요. ‘티읕’이라는 이름은 1933년에 정해졌어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "자음",
+          "en": "consonant",
+          "desc": "ㄱ, ㄴ, ㄷ처럼 모음과 함께 글자를 이루는 소리와 그 글자예요."
+        },
+        {
+          "ko": "받침",
+          "en": "final consonant",
+          "desc": "한글에서 모음 아래에 적는 자음이에요. 리을의 을 아래에는 ㄹ 받침이 있어요."
+        },
+        {
+          "ko": "훈몽자회",
+          "en": "Hunmongjahoe",
+          "desc": "1527년에 나온 한자 학습 책이에요. 자음 이름이 처음 기록으로 남은 책이에요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "‘리을’이라는 이름에서 ㄹ은 어디에 있나요?",
+          "options": [
+            "리의 첫소리에만",
+            "리의 첫소리와 을의 받침",
+            "을의 받침에만",
+            "리의 받침과 을의 첫소리"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘이름 속 두 자리’에서 을의 아래쪽도 다시 봐요.",
+            null,
+            "‘이름 속 두 자리’에서 리의 첫소리도 다시 봐요.",
+            "‘이름 속 두 자리’에서 받침이 무엇인지 다시 읽어 봐요."
+          ],
+          "evidence": [
+            "리의 첫소리에도 ㄹ이 있어요.",
+            "을의 아래쪽에도 ㄹ이 있지요."
+          ],
+          "explanation": "리의 첫소리와 을의 아래쪽 받침에 모두 ㄹ이 있어요."
+        },
+        {
+          "kind": "관계",
+          "question": "기역, 디귿, 시옷의 이름 모양이 다른 까닭은?",
+          "options": [
+            "윽·읃·읏 소리를 적을 한자가 없어서",
+            "받침으로는 쓰지 않는 자음이라서",
+            "『훈몽자회』보다 나중에 생긴 이름이라서",
+            "티읕의 이름 모양을 따라 써서"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘이름 속 두 자리’에서 기역의 역에 받침이 있는지 봐요.",
+            "‘이름을 적어 둔 책’에서 이름이 처음 기록된 책을 봐요.",
+            "티읕은 1933년에 정해진 이름이에요. ‘디귿과 티읕은 달라요’를 봐요."
+          ],
+          "evidence": [
+            "옛날에 ‘윽’, ‘읃’, ‘읏’으로 읽히는 한자가 없었거든요.",
+            "그래서 한자의 소리나 우리말 뜻을 빌려 적었어요."
+          ],
+          "explanation": "‘윽’, ‘읃’, ‘읏’으로 읽히는 한자가 없었어요. 그래서 한자의 소리나 우리말 뜻을 빌려 적었어요."
+        },
+        {
+          "kind": "적용",
+          "situation": "ㄱ의 이름도 니은, 리을, 미음과 같은 모양으로 지었다고 생각해 봐요.",
+          "question": "그랬다면 ㄱ의 이름은 무엇이 되었을까요?",
+          "options": [
+            "기역",
+            "기억",
+            "그윽",
+            "기윽"
+          ],
+          "answer": 3,
+          "hints": [
+            "기역은 지금 쓰는 이름이에요. ‘디귿과 티읕은 달라요’의 첫 문장을 봐요.",
+            "둘째 글자가 ‘으’에 받침을 단 모양인지 봐요. ‘디귿과 티읕은 달라요’를 봐요.",
+            "‘이름 속 두 자리’에서 ㄱ의 이름이 어떤 글자로 시작하는지 봐요.",
+            null
+          ],
+          "evidence": [
+            "니은, 리을, 미음처럼 많은 이름은 둘째 글자가 ‘으’에 받침을 단 모양이에요.",
+            "기의 첫소리와 역의 받침에서 ㄱ을 찾을 수 있어요."
+          ],
+          "explanation": "니은, 리을처럼 지으면 둘째 글자는 ‘으’에 받침 ㄱ을 단 ‘윽’이에요. 앞 글자 ‘기’와 합쳐 ‘기윽’이 돼요."
+        }
+      ],
+      "one_line_summary": "자음 이름은 그 자음이 [   ]와 [   ]에 쓰이는 모습을 보여 줘요.",
+      "summary_keywords": "키워드: 자음, 받침, 훈몽자회",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/7E4LdlUf_Cs",
+        "title": "디귿 vs 티읕",
+        "channel": "김주혜(@kimjuhea0418)",
+        "focus": "디귿과 티읕의 첫소리와 받침을 비교하며 들어 보세요."
+      },
+      "sources": [
+        {
+          "title": "한국민족문화대백과사전 — 훈몽자회",
+          "url": "https://encykorea.aks.ac.kr/Article/E0065801"
+        },
+        {
+          "title": "국립국어원 — 한글 맞춤법 제4항",
+          "url": "https://www.korean.go.kr/kornorms/regltn/regltnView.do?regltn_code=0001"
+        },
+        {
+          "title": "국립국어원 — 『한글 맞춤법, 표준어 규정 해설』 제4항(인쇄 18쪽)",
+          "url": "https://www.korean.go.kr/attachFile/%ED%95%9C%EA%B8%80%EB%A7%9E%EC%B6%A4%EB%B2%95%20%ED%91%9C%EC%A4%80%EC%96%B4%EA%B7%9C%EC%A0%95%20%ED%95%B4%EC%84%A4.pdf#page=20"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "ㄹ 글자 조각과 리을이라는 이름을 살펴보는 책",
+      "image_display": "contain"
+    },
+    "2026-10-29": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-29-pyramid-stone-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-29",
+      "date": "2026-10-29",
+      "weekday": "목",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 피라미드의 돌",
+      "title": "피라미드의 돌은 어디에서 가져왔을까",
+      "subtitle": "가까운 돌과 먼 돌",
+      "lead_question": "거대한 피라미드를 쌓은 돌은 모두 한곳에서 왔을까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🪨",
+          "heading": "몸체의 돌은 가까이서",
+          "body": "이집트에는 쿠푸 왕을 위해 쌓은 커다란 피라미드가 있어요. 이 피라미드를 쌓은 많은 돌은 어디서 왔을까요? 모든 돌을 같은 곳에서 가져온 것은 아니에요. 피라미드의 몸체에는 석회암을 많이 썼어요. 석회암은 돌의 한 종류예요. 피라미드 바로 남쪽에서 캐낸 돌이지요. 그곳에는 돌을 떼어 낸 흔적이 남아 있어요."
+        },
+        {
+          "icon": "👑",
+          "heading": "왕의 방은 다른 돌로",
+          "body": "피라미드 안에는 쿠푸 왕을 위해 만든 방이 있어요. 왕이 죽은 뒤 묻히는 방이에요. 이런 방을 매장실이라고 해요. 쿠푸 왕의 매장실에는 화강암을 썼어요. 석회암과는 다른 종류의 돌이에요. 화강암은 훨씬 먼 남쪽, 아스완에서 가져왔어요. 피라미드 지역에서 약 900km 떨어진 곳이에요. 피라미드의 모든 방이 화강암인 것은 아니에요."
+        },
+        {
+          "icon": "⛵",
+          "heading": "무거운 돌을 나르는 길",
+          "body": "멀리서 가져온 돌은 어떻게 옮겼을까요? 당시 나일강은 무거운 돌을 나르는 중요한 길이었어요. 큰 돌을 배에 실어 남쪽에서 북쪽으로 운반했어요. 아스완에서 구한 화강암도 그런 돌이었지요. 몸체의 석회암과 왕의 매장실 화강암을 견주어 볼까요? 돌의 쓰임이 달랐고 가져온 곳도 달랐어요. 돌을 구하는 일과 옮기는 일이 함께 필요했어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "석회암",
+          "en": "limestone",
+          "desc": "돌의 한 종류예요. 쿠푸 피라미드 몸체에는 가까운 곳에서 캔 석회암을 많이 썼어요."
+        },
+        {
+          "ko": "화강암",
+          "en": "granite",
+          "desc": "석회암과는 다른 종류의 돌이에요. 아스완에서 가져와 쿠푸 왕의 매장실에 썼어요."
+        },
+        {
+          "ko": "매장실",
+          "en": "burial chamber",
+          "desc": "죽은 사람의 몸을 모신 방이에요. 이 글에서는 쿠푸 왕을 위해 만든 방을 가리켜요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "쿠푸 왕의 매장실에 쓴 돌과 가져온 곳은?",
+          "options": [
+            "석회암, 먼 남쪽 아스완",
+            "화강암, 피라미드 바로 남쪽",
+            "석회암, 피라미드 바로 남쪽",
+            "화강암, 먼 남쪽 아스완"
+          ],
+          "answer": 3,
+          "hints": [
+            "‘왕의 방은 다른 돌로’에서 매장실에 쓴 돌 이름을 봐요.",
+            "‘왕의 방은 다른 돌로’에서 화강암을 어디서 가져왔는지 봐요.",
+            "‘몸체의 돌은 가까이서’와 ‘왕의 방은 다른 돌로’를 비교해요.",
+            null
+          ],
+          "evidence": [
+            "쿠푸 왕의 매장실에는 화강암을 썼어요.",
+            "화강암은 훨씬 먼 남쪽, 아스완에서 가져왔어요."
+          ],
+          "explanation": "쿠푸 왕의 매장실에는 먼 남쪽 아스완에서 가져온 화강암을 썼어요."
+        },
+        {
+          "kind": "관계",
+          "question": "몸체의 돌과 매장실의 돌은 무엇이 달랐나요?",
+          "options": [
+            "쓰임은 같고, 가져온 곳만 달랐어요",
+            "가져온 곳은 같고, 쓰임만 달랐어요",
+            "쓰임도, 가져온 곳도 달랐어요",
+            "쓰임도, 가져온 곳도 같았어요"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘무거운 돌을 나르는 길’에서 돌의 쓰임이 어땠는지 봐요.",
+            "‘몸체의 돌은 가까이서’와 ‘왕의 방은 다른 돌로’의 장소를 비교해요.",
+            null,
+            "‘무거운 돌을 나르는 길’의 끝부분을 다시 읽어 봐요."
+          ],
+          "evidence": [
+            "돌의 쓰임이 달랐고 가져온 곳도 달랐어요."
+          ],
+          "explanation": "몸체에는 가까운 석회암을, 매장실에는 먼 아스완의 화강암을 썼어요."
+        },
+        {
+          "kind": "적용",
+          "situation": "한 마을이 큰 성을 지어요. 성벽에는 돌이 아주 많이 들고, 왕의 방에는 특별한 돌을 써요.",
+          "question": "글의 피라미드처럼 돌을 구한다면?",
+          "options": [
+            "성벽 돌은 멀리서, 왕의 방 돌은 가까이서",
+            "성벽 돌도 왕의 방 돌도 가까이서만",
+            "성벽 돌도 왕의 방 돌도 한곳에서",
+            "성벽 돌은 가까이서, 왕의 방 돌은 멀리서"
+          ],
+          "answer": 3,
+          "hints": [
+            "‘몸체의 돌은 가까이서’를 보면 많이 쓴 돌을 어디서 캤나요?",
+            "‘왕의 방은 다른 돌로’에서 매장실 돌을 어디서 가져왔는지 봐요.",
+            "‘몸체의 돌은 가까이서’ 첫 부분을 보면 모든 돌이 한곳에서 왔나요?",
+            null
+          ],
+          "evidence": [
+            "피라미드의 몸체에는 석회암을 많이 썼어요.",
+            "화강암은 훨씬 먼 남쪽, 아스완에서 가져왔어요."
+          ],
+          "explanation": "피라미드는 몸체 돌은 가까이서, 매장실 돌은 멀리서 가져왔어요."
+        }
+      ],
+      "one_line_summary": "피라미드 몸체에는 가까이서 캔 [   ]을, 왕의 매장실에는 [   ]을 썼어요.",
+      "summary_keywords": "키워드: 석회암, 화강암, 매장실",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/fc__Bax5AnQ",
+        "title": "피라미드의 돌은 어디에서 가져왔을까?",
+        "channel": "역사를보다",
+        "focus": "몸체의 돌과 왕의 매장실에 쓴 돌을 나누어 들어 보세요."
+      },
+      "sources": [
+        {
+          "title": "AERA — The Great Pyramid Quarry",
+          "url": "https://aeraweb.org/great-pyramid-quarry/"
+        },
+        {
+          "title": "Mark Lehner — Building an Old Kingdom Pyramid, 2003",
+          "url": "https://gizamedia.rc.fas.harvard.edu/documents/lehner_treasures_032-045.pdf"
+        },
+        {
+          "title": "이집트 관광유물부 — Aswan",
+          "url": "https://egymonuments.gov.eg/sunken-monuments/aswan/"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "피라미드와 서로 다른 석회암·화강암 돌, 나일강 운반 배",
+      "image_display": "contain"
+    },
+    "2026-10-30": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-30-next-day-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-30",
+      "date": "2026-10-30",
+      "weekday": "금",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 익일과 명일",
+      "title": "익일 새벽 두 시는 언제일까",
+      "subtitle": "기준이 되는 날 찾기",
+      "lead_question": "가게 안내에 ‘익일 새벽 두 시까지’라고 쓰여 있으면 언제 닫을까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "📅",
+          "heading": "금요일 계획을 세워요",
+          "body": "오늘이 월요일인 상황을 떠올려 보세요. 친구와 금요일에 스터디 카페에 가려고 해요. 운영 시간은 익일 새벽 두 시까지래요. 언제 문을 닫는다는 뜻일까요? 익일은 기준으로 삼은 날의 바로 다음 날이에요. 여기서는 금요일 영업을 알아보고 있어요. 날짜를 세는 출발점인 기준일이 금요일인 거예요."
+        },
+        {
+          "icon": "🌃",
+          "heading": "익일은 토요일이에요",
+          "body": "금요일 저녁에 카페에 들어간다고 해 볼게요. 밤 12시를 지나면 토요일이 돼요. 거기서 두 시간이 더 지나면 새벽 두 시예요. 따라서 금요일 영업은 토요일 새벽에 끝나요. 계획을 세우는 월요일이 기준은 아니에요. 금요일 영업의 다음 날을 찾아야 하지요. 익일을 읽으면 먼저 어느 날의 다음인지 확인해요."
+        },
+        {
+          "icon": "🗓️",
+          "heading": "명일은 화요일이에요",
+          "body": "명일은 오늘의 바로 다음 날을 뜻해요. 오늘이 월요일인 이 상황에서는 화요일이에요. 하지만 금요일 영업의 익일은 토요일이지요. 두 낱말이 서로 다른 날을 가리켜요. 기준일이 오늘이면 익일과 명일은 같은 날이에요. 기준일이 오늘이 아니면 달라져요. 익일은 기준일을, 명일은 오늘을 출발점으로 삼아요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "익일",
+          "en": "the following day",
+          "desc": "기준으로 삼은 날의 바로 다음 날이에요. 기준일이 언제인지 먼저 찾아요."
+        },
+        {
+          "ko": "명일",
+          "en": "tomorrow",
+          "desc": "오늘의 바로 다음 날이에요. 오늘이 월요일이라면 명일은 화요일이에요."
+        },
+        {
+          "ko": "기준일",
+          "en": "reference date",
+          "desc": "날짜를 따질 때 출발점으로 삼는 날이에요. 오늘과 다른 날일 수도 있어요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "익일은 어떤 날을 뜻하나요?",
+          "options": [
+            "기준으로 삼은 날의 바로 다음 날",
+            "오늘을 기준으로 한 바로 다음 날",
+            "기준으로 삼은 날의 바로 앞의 날",
+            "기준으로 삼은 날에서 이틀 뒤의 날"
+          ],
+          "answer": 0,
+          "hints": [
+            null,
+            "‘명일은 화요일이에요’를 보면 오늘이 출발점인 말은 명일이에요.",
+            "‘금요일 계획을 세워요’에서 익일이 앞인지 뒤인지 봐요.",
+            "‘금요일 계획을 세워요’에서 익일이 며칠 뒤인지 봐요."
+          ],
+          "evidence": [
+            "익일은 기준으로 삼은 날의 바로 다음 날이에요."
+          ],
+          "explanation": "익일은 기준으로 삼은 날의 바로 다음 날이에요. 기준일이 오늘이 아닐 수도 있어요."
+        },
+        {
+          "kind": "관계",
+          "question": "글의 상황에서 익일과 명일이 다른 날인 까닭은?",
+          "options": [
+            "익일은 밤에만 쓰는 말이라서",
+            "금요일이 기준일이 아니라서",
+            "출발점으로 삼는 날이 달라서",
+            "카페가 화요일에 문을 닫아서"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘명일은 화요일이에요’의 마지막 문장을 다시 읽어 봐요.",
+            "‘금요일 계획을 세워요’에서 기준일이 무슨 요일인지 봐요.",
+            null,
+            "‘명일은 화요일이에요’에서 두 낱말의 출발점을 봐요."
+          ],
+          "evidence": [
+            "익일은 기준일을, 명일은 오늘을 출발점으로 삼아요."
+          ],
+          "explanation": "익일은 기준일인 금요일을, 명일은 오늘인 월요일을 출발점으로 삼아요."
+        },
+        {
+          "kind": "적용",
+          "situation": "오늘은 화요일이에요. 목요일 영업 안내에 ‘익일 새벽 한 시까지’라고 쓰여 있어요.",
+          "question": "목요일 영업은 언제 끝날까요?",
+          "options": [
+            "수요일 새벽 한 시",
+            "금요일 새벽 한 시",
+            "목요일 새벽 한 시",
+            "토요일 새벽 한 시"
+          ],
+          "answer": 1,
+          "hints": [
+            "수요일은 오늘의 다음 날이에요. ‘익일은 토요일이에요’를 다시 봐요.",
+            null,
+            "‘익일은 토요일이에요’에서 밤 12시를 지나면 어떻게 되는지 봐요.",
+            "‘금요일 계획을 세워요’에서 익일이 며칠 뒤인지 봐요."
+          ],
+          "evidence": [
+            "익일은 기준으로 삼은 날의 바로 다음 날이에요.",
+            "익일을 읽으면 먼저 어느 날의 다음인지 확인해요."
+          ],
+          "explanation": "목요일 영업의 기준일은 목요일이에요. 그 다음 날인 금요일 새벽 한 시에 끝나요."
+        }
+      ],
+      "one_line_summary": "익일은 [   ]의 바로 다음 날, 명일은 [   ]의 바로 다음 날이에요.",
+      "summary_keywords": "키워드: 익일, 명일, 기준일",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/YlNi2Ex0HRg",
+        "title": "익일",
+        "channel": "김주혜(@kimjuhea0418)",
+        "focus": "명일과 익일의 기준이 어떻게 다른지 들어 보세요."
+      },
+      "sources": [
+        {
+          "title": "표준국어대사전 — 익일",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=266430&searchKeywordTo=3"
+        },
+        {
+          "title": "표준국어대사전 — 명일",
+          "url": "https://stdict.korean.go.kr/search/searchView.do?word_no=116722&searchKeywordTo=3"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "금요일 밤에서 토요일 새벽으로 넘어가는 달력과 시계",
+      "image_display": "contain"
+    },
+    "2026-10-31": {
+      "schema_version": 1.2,
+      "sensitivity": "normal",
+      "review_status": "auto",
+      "render_min_version": 1.2,
+      "image_url": "./daily-images/2026-10-31-mosquito-rain-v1.webp",
+      "image_credit": {
+        "source": "AI 학습용 삽화",
+        "url": null,
+        "license": "AI-generated"
+      },
+      "image_fallback": "category_svg_life",
+      "id": "2026-10-31",
+      "date": "2026-10-31",
+      "weekday": "토",
+      "category": "생활상식",
+      "chapter_label": "[생활상식] 빗속의 모기",
+      "title": "모기는 빗방울을 맞고 어떻게 벗어날까",
+      "subtitle": "함께 내려가다가 빠져나오기",
+      "lead_question": "빗방울은 모기보다 훨씬 무거워요. 비를 맞은 모기는 어떻게 될까요?",
+      "why_today": "다 읽고 나면 맨 아래에서 같은 내용의 숏츠를 볼 수 있어요.",
+      "sections": [
+        {
+          "icon": "🌧️",
+          "heading": "빗방울과 함께 내려가요",
+          "body": "작은 모기에게 빗방울은 커다란 물체예요. 연구자들은 빠른 카메라로 충돌을 관찰했어요. 모기는 방울 앞에 붙어 잠시 함께 내려갔어요. 몸길이의 20배 거리까지 함께 내려가기도 했어요. 맨 아래 숏츠에서는 이 모습을 ‘방울에 갇힌다’고 말해요. 방울 속에 완전히 들어간 것이 아니라 앞에 붙어 함께 움직인 거예요. 함께 움직이다가 떨어져 나오는 과정이 중요해요."
+        },
+        {
+          "icon": "🪶",
+          "heading": "맞서 버티지 않아요",
+          "body": "질량은 물체가 가진 물질의 양을 말해요. 모기는 빗방울에 비해 질량이 아주 작아요. 그래서 부딪혀도 빗방울은 거의 느려지지 않아요. 모기는 방울을 막아 세우며 버티지 않고 함께 움직여요. 버티지 않으니 모기가 받는 충돌 힘도 작아요. 힘은 작아도 몸은 방울에 붙은 채 빠르게 아래로 끌려가요."
+        },
+        {
+          "icon": "🦟",
+          "heading": "땅에 닿기 전에 벗어나요",
+          "body": "함께 떨어지는 것만으로 끝나지는 않아요. 모기는 긴 다리와 날개를 바깥으로 뻗어요. 모기는 공기가 움직임을 방해하는 힘을 이용해요. 이 힘을 저항이라고 해요. 뻗은 다리와 날개에 저항이 걸리면 몸이 돌아가요. 몸이 돌면서 방울에서 떨어져 나와요. 끝까지 붙어 땅에 부딪히면 위험할 수 있어요."
+        }
+      ],
+      "vocabulary": [
+        {
+          "ko": "충돌",
+          "en": "collision",
+          "desc": "서로 부딪치는 일이에요. 이 글에서는 모기와 빗방울이 부딪치는 일을 말해요."
+        },
+        {
+          "ko": "질량",
+          "en": "mass",
+          "desc": "물체가 가진 물질의 양이에요. 모기의 질량은 빗방울에 비해 아주 작아요."
+        },
+        {
+          "ko": "저항",
+          "en": "resistance",
+          "desc": "움직임을 방해하는 힘이에요. 모기는 공기의 저항을 이용해 방울에서 벗어나요."
+        }
+      ],
+      "quiz": [
+        {
+          "kind": "핵심",
+          "question": "빗방울에 맞은 모기는 처음에 어떻게 되었나요?",
+          "options": [
+            "방울을 멈춰 세우고 그 자리에서 버텼어요",
+            "방울에 붙은 채 함께 내려갔어요",
+            "맞자마자 바로 옆으로 피했어요",
+            "방울 속에 완전히 잠겨 꼼짝 못 했어요"
+          ],
+          "answer": 1,
+          "hints": [
+            "‘맞서 버티지 않아요’에서 방울을 막아 세우는지 봐요.",
+            null,
+            "‘빗방울과 함께 내려가요’에서 모기가 방울 어디에 붙었는지 봐요.",
+            "‘빗방울과 함께 내려가요’에서 완전히 잠긴 것인지 다시 봐요."
+          ],
+          "evidence": [
+            "모기는 방울 앞에 붙어 잠시 함께 내려갔어요."
+          ],
+          "explanation": "모기는 방울 앞에 붙어 잠시 함께 내려가다가 벗어났어요."
+        },
+        {
+          "kind": "관계",
+          "question": "모기가 받는 충돌 힘이 작은 까닭은?",
+          "options": [
+            "모기의 다리와 날개가 아주 길어서",
+            "빗방울이 모기보다 천천히 떨어져서",
+            "모기가 방울을 막아 세우며 버텨서",
+            "모기의 질량이 방울보다 아주 작아서"
+          ],
+          "answer": 3,
+          "hints": [
+            "다리와 날개는 벗어날 때 써요. ‘맞서 버티지 않아요’를 다시 봐요.",
+            "‘맞서 버티지 않아요’에서 모기와 빗방울의 무엇을 비교했는지 봐요.",
+            "‘맞서 버티지 않아요’에서 모기가 버티는지 다시 봐요.",
+            null
+          ],
+          "evidence": [
+            "모기는 빗방울에 비해 질량이 아주 작아요.",
+            "버티지 않으니 모기가 받는 충돌 힘도 작아요."
+          ],
+          "explanation": "모기는 질량이 아주 작아서 빗방울을 막아 세우지 못하고 함께 움직여요. 그래서 받는 힘이 작아요."
+        },
+        {
+          "kind": "적용",
+          "situation": "모기 두 마리가 빗방울에 맞았어요. ㉮는 높은 곳에서, ㉯는 땅 바로 위에서 맞았어요.",
+          "question": "더 위험한 모기와 그 까닭은?",
+          "options": [
+            "㉮, 더 먼 거리를 빠르게 떨어져서",
+            "㉯, 땅 가까이에서는 빗방울이 더 커서",
+            "㉯, 벗어나기 전에 땅에 닿아서",
+            "둘 다 같아요, 같은 빗방울이라서"
+          ],
+          "answer": 2,
+          "hints": [
+            "‘땅에 닿기 전에 벗어나요’에서 무엇이 위험하다고 했는지 봐요.",
+            "빗방울 크기는 글에 나오지 않아요. ‘땅에 닿기 전에 벗어나요’를 봐요.",
+            null,
+            "‘땅에 닿기 전에 벗어나요’에서 언제 위험한지 다시 봐요."
+          ],
+          "evidence": [
+            "몸길이의 20배 거리까지 함께 내려가기도 했어요.",
+            "끝까지 붙어 땅에 부딪히면 위험할 수 있어요."
+          ],
+          "explanation": "모기는 떨어져 나오기 전에 한참 함께 내려가요. 땅 바로 위에서 맞으면 그 전에 땅에 부딪힐 수 있어요."
+        }
+      ],
+      "one_line_summary": "모기는 [   ]이 작아 받는 힘이 작고, 공기의 [   ]을 이용해 방울에서 벗어나요.",
+      "summary_keywords": "키워드: 충돌, 질량, 저항",
+      "shorts": {
+        "url": "https://www.youtube.com/shorts/W3gvSH5kv4M",
+        "title": "모기가 비 맞는 장면 초고속 카메라로 찍었더니",
+        "channel": "과학을보다",
+        "focus": "함께 내려오는 단계와 다리·날개로 벗어나는 단계를 나누어 보세요."
+      },
+      "sources": [
+        {
+          "title": "Georgia Tech — Mosquitoes Fly in Rain Thanks to Low Mass",
+          "url": "https://coe.gatech.edu/news/2012/06/mosquitoes-fly-rain-thanks-low-mass"
+        }
+      ],
+      "generated_at": "2026-10-09T00:40:00+09:00",
+      "model_meta": {
+        "model": "claude-opus-5-5 (Cowork)",
+        "web_search_used": true
+      },
+      "image_alt": "빗방울 앞쪽에 잠시 붙었다가 떨어져 나오는 모기",
+      "image_display": "contain"
     }
   }
 });
