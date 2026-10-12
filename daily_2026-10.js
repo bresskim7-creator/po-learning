@@ -1,7 +1,7 @@
 window.__loadDailyMonth("2026-10", {
   "schema_version": 1.1,
   "month": "2026-10",
-  "updated_at": "2026-10-09T17:09:00+09:00",
+  "updated_at": "2026-10-12T10:06:15+09:00",
   "days": {
     "2026-10-01": {
       "schema_version": 1.1,
@@ -1207,7 +1207,7 @@ window.__loadDailyMonth("2026-10", {
         "model": "claude-opus-5-5 (Cowork)",
         "web_search_used": true
       },
-      "image_alt": "지구본 옆의 밤 풍경과 아침 풍경을 보여 주는 두 시계",
+      "image_alt": "지구본 양옆에 밤에 자는 아이와 아침을 맞은 아이",
       "image_display": "contain"
     },
     "2026-10-14": {
@@ -1902,7 +1902,7 @@ window.__loadDailyMonth("2026-10", {
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.2,
-      "image_url": "./daily-images/2026-10-20-we-context-v1.webp",
+      "image_url": "./daily-images/2026-10-20-we-context-v2.webp",
       "image_credit": {
         "source": "AI 학습용 삽화",
         "url": null,
@@ -3091,7 +3091,7 @@ window.__loadDailyMonth("2026-10", {
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.2,
-      "image_url": "./daily-images/2026-10-28-rieul-v1.webp",
+      "image_url": "./daily-images/2026-10-28-rieul-v2.webp",
       "image_credit": {
         "source": "AI 학습용 삽화",
         "url": null,
@@ -3546,7 +3546,7 @@ window.__loadDailyMonth("2026-10", {
       "sensitivity": "normal",
       "review_status": "auto",
       "render_min_version": 1.2,
-      "image_url": "./daily-images/2026-10-31-mosquito-rain-v1.webp",
+      "image_url": "./daily-images/2026-10-31-mosquito-rain-v2.webp",
       "image_credit": {
         "source": "AI 학습용 삽화",
         "url": null,

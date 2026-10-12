@@ -1854,8 +1854,8 @@ const APP = {
   },
 };
 
-var APP_VERSION = 'v5.107.0';
-var APP_SW_CACHE = 'sw51070';
+var APP_VERSION = 'v5.107.1';
+var APP_SW_CACHE = 'sw51071';
 
 function renderAppVersionFooter() {
   var el = document.getElementById('app-version-text');
@@ -2970,6 +2970,7 @@ var DAILY_INDEX_DATA = null;
 var DAILY_INDEX_META = null;
 var DAILY_MONTH_CACHE = {};
 var DAILY_INDEX_LOADED = false;
+var DAILY_INDEX_PROMISE = null; // v5.107.1: one in-flight index request
 var DAILY_LAST_SUCCESS_KEY = 'po_daily_last_success';
 var PO_DAILY_READ_IDS_KEY = 'po_daily_read_ids';
 
@@ -3122,31 +3123,43 @@ async function syncDailyReadFromCloud() {
 }
 
 function loadDailyIndexJsonp() {
-  return new Promise(function(resolve) {
-    if (DAILY_INDEX_LOADED) { resolve(); return; }
-    window.__loadDailyIndex = function(list, meta) {
-      delete window.__loadDailyIndex;
+  if (DAILY_INDEX_LOADED) return Promise.resolve();
+  if (DAILY_INDEX_PROMISE) return DAILY_INDEX_PROMISE;
+  var resolveRequest;
+  var request = new Promise(function(resolve) { resolveRequest = resolve; });
+  DAILY_INDEX_PROMISE = request;
+  var s = document.createElement('script');
+  var settled = false;
+  var timer;
+  function finish(ok, list, meta) {
+    if (settled) return;
+    settled = true;
+    clearTimeout(timer);
+    s.onload = s.onerror = null;
+    if (s.parentNode) s.parentNode.removeChild(s);
+    // Keep a harmless callback for an expired JSONP script that arrives late.
+    if (window.__loadDailyIndex === onData) window.__loadDailyIndex = function() {};
+    if (ok) {
       DAILY_INDEX_DATA = list || [];
       DAILY_INDEX_META = meta || null;
       DAILY_INDEX_LOADED = true;
-      resolve();
-    };
-    var s = document.createElement('script');
-    s.src = './daily_index.js';
-    s.onerror = function() {
-      delete window.__loadDailyIndex;
-      DAILY_INDEX_DATA = []; DAILY_INDEX_META = null; DAILY_INDEX_LOADED = true;
-      resolve();
-    };
-    document.head.appendChild(s);
-    setTimeout(function() {
-      if (window.__loadDailyIndex) {
-        delete window.__loadDailyIndex;
-        DAILY_INDEX_DATA = []; DAILY_INDEX_META = null; DAILY_INDEX_LOADED = true;
-        resolve();
-      }
-    }, 5000);
-  });
+    }
+    // A failed request is not cached as a successfully loaded empty index.
+    DAILY_INDEX_PROMISE = null;
+    resolveRequest();
+  }
+  function onData(list, meta) {
+    // Old responses must not finish a retry using the same JSONP callback name.
+    if (document.currentScript !== s) return;
+    finish(true, list, meta);
+  }
+  window.__loadDailyIndex = onData;
+  s.src = './daily_index.js';
+  s.onerror = function() { finish(false); };
+  s.onload = function() { finish(false); }; // Loaded without invoking JSONP.
+  timer = setTimeout(function() { finish(false); }, 5000);
+  try { document.head.appendChild(s); } catch (_) { finish(false); }
+  return request;
 }
 function loadDailyMonth(month) {
   return new Promise(function(resolve) {

@@ -1,3 +1,4 @@
+// v5.107.1 (2026-10-12): 그림 3장 정정·10/13 alt·daily index 요청 공유/재시도.
 // v5.107.0 (2026-10-10): 미읽음 19 + 배치7 14 이미지, contain·alt·AI 출처. 기존 읽음 데이터 보존.
 // PO 학습 시스템 Service Worker
 // v5.106.0 (2026-10-09): 배치7 — '오늘의 한 장' 10/18~10/31 14장(숏츠 세트 9 + 신규 5). OX 3개 → 선다형 3문항(핵심·관계·적용, daily schema 1.2) 렌더러(dailyValidQuizItems·renderDailyQuizHtml·bindDailyQuiz·renderDailyShortsHtml·dailyQuizHeadingOf) + 같은 숏츠 링크(유튜브 새 탭) + 배치7 카드에는 문해력 버튼 없음 + 오늘의 한 장 화면도 '진행 중'(새 버전은 배너). daily_2026-10.js(17→31일)·daily_index.js(108→122, version_key 20261009-1709)·daily_one_page(rotation·calendar) 갱신. PRECACHE 목록·문해력 변경 없음.
@@ -57,7 +58,7 @@
 // 이전 v5.64.1 (2026-05-17): index.html 중복 tail 정정
 // 이전 v5.64 (2026-05-17): 개념 정리 v1 (과학 U1 5장) 추가
 // 이전 v5.63 (2026-05-15): 성장 기록 Google Sheets 내려받기 반영
-const CACHE_NAME = 'po-learning-v51070';
+const CACHE_NAME = 'po-learning-v51071';
 const PRECACHE = [
   './daily-images/2026-09-29-rainforest-v1.webp',
   './daily-images/2026-09-30-dormancy-v1.webp',
@@ -80,7 +81,7 @@ const PRECACHE = [
   './daily-images/2026-10-17-goalball-v1.webp',
   './daily-images/2026-10-18-vowels-v1.webp',
   './daily-images/2026-10-19-space-modules-v1.webp',
-  './daily-images/2026-10-20-we-context-v1.webp',
+  './daily-images/2026-10-20-we-context-v2.webp',
   './daily-images/2026-10-21-emergency-numbers-v1.webp',
   './daily-images/2026-10-22-midnight-noon-v1.webp',
   './daily-images/2026-10-23-frost-dew-v1.webp',
@@ -88,10 +89,10 @@ const PRECACHE = [
   './daily-images/2026-10-25-tie-carry-v1.webp',
   './daily-images/2026-10-26-migrating-geese-v1.webp',
   './daily-images/2026-10-27-bank-interest-v1.webp',
-  './daily-images/2026-10-28-rieul-v1.webp',
+  './daily-images/2026-10-28-rieul-v2.webp',
   './daily-images/2026-10-29-pyramid-stone-v1.webp',
   './daily-images/2026-10-30-next-day-v1.webp',
-  './daily-images/2026-10-31-mosquito-rain-v1.webp',
+  './daily-images/2026-10-31-mosquito-rain-v2.webp',
 
   './',
   './index.html',
